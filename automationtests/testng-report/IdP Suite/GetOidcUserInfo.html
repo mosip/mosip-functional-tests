@@ -1,0 +1,139 @@
+<html>
+<head>
+<title>TestNG:  GetOidcUserInfo</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GetOidcUserInfo</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>2/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Jan 18 17:16:52 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>1 seconds (1175 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.IDP_GetOidcUserInfo_IdpAccessToken_StatusCode_Invalid_Token_Neg()'><b>IDP_GetOidcUserInfo_IdpAccessToken_StatusCode_Invalid_Token_Neg</b><br>Test class: io.mosip.testscripts.GetWithParam (IDP_GetOidcUserInfo_IdpAccessToken_StatusCode_Invalid_Token_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_GetOidcUserInfo_IdpAccessToken_StatusCode_Invalid_Token_Neg, endPoint=/v1/idp/oidc/userinfo, role=resident, templateFields=null, input={ "idpAccessToken": "eyJraWQiOiJLeVRFWVJobkQwT0F2em1RTnZsQU85STBxMjBxcjhab3p3UHI5bEhCY0NnIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJQVlJtZkRwZ1pKcXZMTWZZcTZwcUItTDNZQTZXR3dYZmxiTlJpVWF6THJjIiwiYXVkIjoibW9zaXA5MTE2NjkxMTMzMDI3MDQiLCJzY29wZSI6IiIsImlzcyI6Imh0dHBzOlwvXC9hcGkucWEtMTIxLm1vc2lwLm5ldFwvdjFcL2lkcCIsImV4cCI6MTY2OTExNDE3NCwiaWF0IjoxNjY5MTEzNTc0fQ.e-cJLhWtYyg8g-T1OrEYSTgH9QX8AzaqtwEjIZsv-63hCySkTcT7n61iHd5njr7eIVuOi7K4JSBKhHhQhThlBaWrdkyihQuTyefFOTAH9UUEow8_T1MSIDun3G6-ae61mfAUZG3IvR1X2AxsFm8oor4rCZd8QLE_-yS1z8LPAg8VzRNj0th1NV_A3jsjeCySzst-saAwzAnBGPm5GncoEuo3Ftxmy2UcVO0l3ncwzebC19DDarCHRx5eNCDK6Z7oRxvPBgUKNXOwnfDO2gbjUG3fq9xCWS3ZPf-G-iMX9PRWsl2Bp7K4Ej6b_Y0nLdOHdJuwH-kKKiZMSIAMkSg4ww" }, output=401, inputTemplate=idp/GetOidcUserInfo/GetOidcUserInfo, outputTemplate=idp/GetOidcUserInfo/GetOidcUserInfoResult, restMethod=get, regenerateHbs=false)<br/>
+<a href="#Output-1337208570" onClick='toggleBox("Output-1337208570", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1337208570" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1337208570">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "idpAccessToken": "eyJraWQiOiJLeVRFWVJobkQwT0F2em1RTnZsQU85STBxMjBxcjhab3p3UHI5bEhCY0NnIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJQVlJtZkRwZ1pKcXZMTWZZcTZwcUItTDNZQTZXR3dYZmxiTlJpVWF6THJjIiwiYXVkIjoibW9zaXA5MTE2NjkxMTMzMDI3MDQiLCJzY29wZSI6IiIsImlzcyI6Imh0dHBzOlwvXC9hcGkucWEtMTIxLm1vc2lwLm5ldFwvdjFcL2lkcCIsImV4cCI6MTY2OTExNDE3NCwiaWF0IjoxNjY5MTEzNTc0fQ.e-cJLhWtYyg8g-T1OrEYSTgH9QX8AzaqtwEjIZsv-63hCySkTcT7n61iHd5njr7eIVuOi7K4JSBKhHhQhThlBaWrdkyihQuTyefFOTAH9UUEow8_T1MSIDun3G6-ae61mfAUZG3IvR1X2AxsFm8oor4rCZd8QLE_-yS1z8LPAg8VzRNj0th1NV_A3jsjeCySzst-saAwzAnBGPm5GncoEuo3Ftxmy2UcVO0l3ncwzebC19DDarCHRx5eNCDK6Z7oRxvPBgUKNXOwnfDO2gbjUG3fq9xCWS3ZPf-G-iMX9PRWsl2Bp7K4Ej6b_Y0nLdOHdJuwH-kKKiZMSIAMkSg4ww"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/oidc/userinfo) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>null</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>401</td>
+    <td>401</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@20b54cfe</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.IDP_GetOidcUserInfo_IdpAccessToken_StatusCode_Valid_Smoke_sid()'><b>IDP_GetOidcUserInfo_IdpAccessToken_StatusCode_Valid_Smoke_sid</b><br>Test class: io.mosip.testscripts.GetWithParam (IDP_GetOidcUserInfo_IdpAccessToken_StatusCode_Invalid_Token_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_GetOidcUserInfo_IdpAccessToken_StatusCode_Valid_Smoke_sid, endPoint=/v1/idp/oidc/userinfo, role=resident, templateFields=null, input={ "idpAccessToken": "$ID:GenerateToken_Valid_Smoke_sid_access_token$" }, output=200, inputTemplate=idp/GetOidcUserInfo/GetOidcUserInfo, outputTemplate=idp/GetOidcUserInfo/GetOidcUserInfoResult, restMethod=get, regenerateHbs=false)<br/>
+<a href="#Output-223198004" onClick='toggleBox("Output-223198004", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-223198004" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-223198004">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "idpAccessToken": "eyJraWQiOiJKZm1zSS0zM2xEYTBnMkZmbndoQjduUC1uX0pndG5hejBEUXBRbzJQeFBRIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIyODkzOTM1NTg4MzM0MTIyMzIwMTk5Mjk0NzA5NzgwMzM4MDIiLCJhdWQiOiJrSDRESTNCNF93S21vaGx1Y2pfOVJVYnFOdEtaMGxWdlFvTFp4bkVFUm9jIiwiaXNzIjoiaHR0cHM6XC9cL2FwaS5xYS0xMjAxLWIyLm1vc2lwLm5ldFwvdjFcL2lkcCIsImV4cCI6MTY3NDA0OTYwMywiaWF0IjoxNjc0MDQyNDAzfQ.WYX37-f0nD8eBGEoBgTcflDZ9bnd9ajqgyTKPkpjfbsuS6cpLBtqwk8VbWj198TplUBTWzBdm3UWgpGAWDq3yRwC_kZRjreERzYsgGDqN206c_5zKjcg5SNX_4R68eEt7OQhomVoJxyZY8ypdMFIajImwNG_VHF7jrFri_t51QybJV1RlC2EOFBwG7Yxm7WvTTQ3w-FAWKg2RfzwKQR5GyDkxcNzLYdw7hn14Q3S5BBmZlZ4wiMnhC0mTUrgUygBuWLDSEQSz9-ejgSrR7l3dwwJUS7iuXwvfbPD-bfRKuKXPJS3rFRJtDGqX_gj1c5Yecfx5XKGFiO99FDMpCtVCg"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/oidc/userinfo) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>"eyJ4NWMiOlsiTUlJRHNqQ0NBcHFnQXdJQkFnSUlIUjlhWlBOTVFCZ3dEUVlKS29aSWh2Y05BUUVMQlFBd2NERUxNQWtHQTFVRUJoTUNTVTR4Q3pBSkJnTlZCQWdNQWt0Qk1SSXdFQVlEVlFRSERBbENRVTVIUVV4UFVrVXhEVEFMQmdOVkJBb01CRWxKVkVJeEdqQVlCZ05WQkFzTUVVMVBVMGxRTFZSRlEwZ3RRMFZPVkVWU01SVXdFd1lEVlFRRERBeDNkM2N1Ylc5emFYQXVhVzh3SGhjTk1qSXhNakE0TVRNek5qTXpXaGNOTWpVeE1qQTNNVE16TmpNeldqQjdNUXN3Q1FZRFZRUUdFd0pKVGpFTE1Ba0dBMVVFQ0F3Q1MwRXhFakFRQmdOVkJBY01DVUpCVGtkQlRFOVNSVEVOTUFzR0ExVUVDZ3dFU1VsVVFqRWdNQjRHQTFVRUN3d1hUVTlUU1ZBdFZFVkRTQzFEUlU1VVJWSWdLRWxFUVNreEdqQVlCZ05WQkFNTUVYZDNkeTV0YjNOcGNDNXBieTFUU1VkT01JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBckRLamF3VFJ0djQ2RU9iMWljeFRMZW1TUjBoVzNDSGNlY2oxT0FaQU5Ic0Y0T1RmejJuNmZjMDhTTys3QVNIdmFtTGRRTmJCdnhidXVXMnpscGZlcW1KRjZyN1d0RGNQeW0vSVlCY3BkSFIyZGFXRGZ1bFFFRmU1NEUvV2QwOWxYZ0hBYUtpNFB3bG5NeFA0U3lEcXhlRVcwZmVBekwxTlR4bXpLY3NjYmVCeEdXVmU1R00wd2t5WFR5cWxvVHVKc0x0emxNWjVhVEFOcFNPTGJnMko0eXQxTTFQSlhGZmUzVk91MUFCYllhKzFOSnllbHFXTnJQV1hSa1FPM3dqalBPMXQ3NjhsL1MyWUhGMnYyRVlVcEtjQ0tZMFVjMzhNcXI1eU5QbHpuc3JsdWxTRkdIc0FCdHVNT3M0UWhhalp1bGQyZVkxZWdIb29Yc2xHRDdlblBRSURBUUFCbzBVd1F6QVNCZ05WSFJNQkFmOEVDREFHQVFIL0FnRUJNQjBHQTFVZERnUVdCQlJ4U0M0QzhPbTNEYTR5RGU4dDFabW9LWXBHZ3pBT0JnTlZIUThCQWY4RUJBTUNBb1F3RFFZSktvWklodmNOQVFFTEJRQURnZ0VCQUUwWXljNXlVanVsWWFmQ0FXWXRZdnJYRlp6Vnhwcm5oQXp6SGRKT284cTltU0I5anY5WjJ5ME1zeUZMV2RVQVk0ZW85NFR1ZVNZdjk0YzhZaU80QWt3cTFCSGZCUGxjb1NmU3pMaVRwNEc2Y3k2YWhjVnNyWnlabGRqQkFDaFdmMmJHZGUwMmtya3lWT1E1R29QNHppQ1JtblNFc3RkK2pJeDhxVHNyMlpzdjhzb1JZRnEyTkg0SElxcDlxTUNqT3d3VzlIdjhkZkxLMzJzWWlXMDNrNlN1RDNEdXNHMzEycVYrMXJKYUIyam93OXRnQklRV1lJM2tlRzdvdHI5WW1rKzBpMmtmM3JhbTdhMldmMUk0MGpRS3pxY05CSSsybXNoNFk0RkNqSGJjM21IWGZ4dUloYUZVLy9vOUVXdGV4ZDNraHFwcTYvRFNSb1B1QkhPQkZ3Yz0iXSwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIzNDE1MDAzMjg0MTAzMDg2MTM5MzY0NDc1MDY4MzMxMTI1OTkiLCJnZW5kZXIiOiJNTEUiLCJuYW1lIjoiRlIiLCJlbWFpbCI6InJlc2lkZW50YXV0b21hdGlvbkBnbWFpbC5jb20ifQ.YWCNsqFINkfuV9r3nWNax9LGlpzKpq1zOKO3fiBgTpBmWW44-GY_JfOUgKg2Y2O2UAs77RQV0sivYVHiS4Sb6rh89N9MBWynmohTOrGG7zHHoj5TV5Ed41Ph3h71617oGqdt8bgzn7uSUJorEF7r26HMkMXsAsGsSK19K8FVl9HGPyqC-S9Efy9xI5226h9JIaJBzFxGjOer27V0RwoE3ih82Iebpmr7_WkHkQtm2Z7s-WgHoRBjROZ_Syzb-Jbzzgca-xA6EupH09wfXg1YDviOc2FOXyKRSvc8R-_nolOuKXf_Z0UqyJFbmvOkAU_cojsPoKK_2q9Jqj9rXvsk8w"</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>200</td>
+    <td>200</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@20b54cfe</td></tr>
+</table><p>
+</body>
+</html>

@@ -1,0 +1,377 @@
+<html>
+<head>
+<title>TestNG:  AidGetIndividualId</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>AidGetIndividualId</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>5/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jan 12 16:26:24 IST 2024</td>
+</tr>
+<tr><td>Total time:</td><td>11 seconds (11606 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate.Mimoto_AidGetIndividualId_Getting_With_Invalid_AID_Neg()'><b>Mimoto_AidGetIndividualId_Getting_With_Invalid_AID_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate (Mimoto_AidGetIndividualId_Getting_With_Invalid_lenght_Of_AID_Neg)<br>Parameters: TestCaseDTO(testCaseName=Mimoto_AidGetIndividualId_Getting_With_Invalid_AID_Neg, endPoint=/residentmobileapp/aid/get-individual-id, role=resident, templateFields=null, input={ "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$", "transactionID": "$TRANSACTIONID$", "aid": "$yt55g", "sendOtp":{ "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$", "transactionID": "$TRANSACTIONID$", "sendOtpReqTemplate": "mimoto/SendOTPUIN/individualIdOtp", "sendOtpEndPoint": "/residentmobileapp/req/individualId/otp" } }, output={ "errors": [ { "errorCode": "RES-SER-410" } ], "sendOtpResp":{ "sendOtpResTemplate":"mimoto/SendOTPUIN/individualIdOtpResult" } }, inputTemplate=mimoto/AidGetIndividualId/aidGetIndividualId, outputTemplate=mimoto/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null, kycFields=null)<br/>
+<a href="#Output-799570413" onClick='toggleBox("Output-799570413", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-799570413" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-799570413">
+<b><u>Request: </u></b>(End Point URL: https://api-internal.qa-trinity.mosip.net/residentmobileapp/req/individualId/otp) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "aid": "27847178467030520240112162123",
+  "otpChannel": [
+    "EMAIL",
+    "PHONE"
+  ],
+  "transactionID": "9970050878"
+}</textarea> </div></pre><br/>
+<b><u>Response: </u></b><pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Fri, 12 Jan 2024 10:56:28 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=898]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "version": "1.0",
+  "responseTime": "2024-01-12T10:56:28.290Z",
+  "response": {
+    "maskedMobile": "XXXXXX1267",
+    "maskedEmail": "XXmXXoXXdXXdXXtXXyXXiXXVXXiXXaXXmXXeXX_XXoXX_XXs@mosip.net"
+  }
+}</textarea> </div></pre><br/>
+<b> Marking test case as passed. As Output validation not performed and no errors in the response </b><br/>
+<b><u>Request: </u></b>(End Point URL: https://api-internal.qa-trinity.mosip.net/residentmobileapp/aid/get-individual-id) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "otp": "111111",
+  "aid": "$yt55g",
+  "transactionID": "9970050878"
+}</textarea> </div></pre><br/>
+<b><u>Response: </u></b><pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Fri, 12 Jan 2024 10:56:28 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=14]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "version": "v1",
+  "responsetime": "2024-01-12T10:56:28.870Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "errorMessage": "Invalid Input Parameter- individualId"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>RES-SER-410</td>
+    <td>RES-SER-410</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate@63124022</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate.Mimoto_AidGetIndividualId_Getting_With_Invalid_Otp_Neg()'><b>Mimoto_AidGetIndividualId_Getting_With_Invalid_Otp_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate (Mimoto_AidGetIndividualId_Getting_With_Invalid_lenght_Of_AID_Neg)<br>Parameters: TestCaseDTO(testCaseName=Mimoto_AidGetIndividualId_Getting_With_Invalid_Otp_Neg, endPoint=/residentmobileapp/aid/get-individual-id, role=resident, templateFields=null, input={ "otp": "1234", "transactionID": "$TRANSACTIONID$", "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$", "sendOtp":{ "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$", "transactionID": "$TRANSACTIONID$", "sendOtpReqTemplate": "mimoto/SendOTPUIN/individualIdOtp", "sendOtpEndPoint": "/residentmobileapp/req/individualId/otp" } }, output={ "errors": [ { "errorCode": "RES-SER-410" } ], "sendOtpResp":{ "sendOtpResTemplate":"mimoto/SendOTPUIN/individualIdOtpResult" } }, inputTemplate=mimoto/AidGetIndividualId/aidGetIndividualId, outputTemplate=mimoto/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null, kycFields=null)<br/>
+<a href="#Output-1795358977" onClick='toggleBox("Output-1795358977", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1795358977" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1795358977">
+<b><u>Request: </u></b>(End Point URL: https://api-internal.qa-trinity.mosip.net/residentmobileapp/req/individualId/otp) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "aid": "27847178467030520240112162123",
+  "otpChannel": [
+    "EMAIL",
+    "PHONE"
+  ],
+  "transactionID": "9970050878"
+}</textarea> </div></pre><br/>
+<b><u>Response: </u></b><pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Fri, 12 Jan 2024 10:56:29 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=754]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "version": "1.0",
+  "responseTime": "2024-01-12T10:56:29.666Z",
+  "response": {
+    "maskedMobile": "XXXXXX1267",
+    "maskedEmail": "XXmXXoXXdXXdXXtXXyXXiXXVXXiXXaXXmXXeXX_XXoXX_XXs@mosip.net"
+  }
+}</textarea> </div></pre><br/>
+<b> Marking test case as passed. As Output validation not performed and no errors in the response </b><br/>
+<b><u>Request: </u></b>(End Point URL: https://api-internal.qa-trinity.mosip.net/residentmobileapp/aid/get-individual-id) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "aid": "27847178467030520240112162123",
+  "otp": "1234",
+  "transactionID": "9970050878"
+}</textarea> </div></pre><br/>
+<b><u>Response: </u></b><pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Fri, 12 Jan 2024 10:56:30 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=12]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "version": "v1",
+  "responsetime": "2024-01-12T10:56:30.173Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "errorMessage": "Invalid Input Parameter- otp"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>RES-SER-410</td>
+    <td>RES-SER-410</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate@63124022</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate.Mimoto_AidGetIndividualId_Getting_With_Invalid_lenght_Of_AID_Neg()'><b>Mimoto_AidGetIndividualId_Getting_With_Invalid_lenght_Of_AID_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate (Mimoto_AidGetIndividualId_Getting_With_Invalid_lenght_Of_AID_Neg)<br>Parameters: TestCaseDTO(testCaseName=Mimoto_AidGetIndividualId_Getting_With_Invalid_lenght_Of_AID_Neg, endPoint=/residentmobileapp/aid/get-individual-id, role=resident, templateFields=null, input={ "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$", "transactionID": "$TRANSACTIONID$", "aid": "2745538921628455389216202302041241544770230204124154278477", "sendOtp":{ "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$", "transactionID": "$TRANSACTIONID$", "sendOtpReqTemplate": "mimoto/SendOTPUIN/individualIdOtp", "sendOtpEndPoint": "/residentmobileapp/req/individualId/otp" } }, output={ "errors": [ { "errorCode": "RES-SER-457" } ], "sendOtpResp":{ "sendOtpResTemplate":"mimoto/SendOTPUIN/individualIdOtpResult" } }, inputTemplate=mimoto/AidGetIndividualId/aidGetIndividualId, outputTemplate=mimoto/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null, kycFields=null)<br/>
+<a href="#Output-1722053305" onClick='toggleBox("Output-1722053305", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1722053305" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1722053305">
+<b><u>Request: </u></b>(End Point URL: https://api-internal.qa-trinity.mosip.net/residentmobileapp/req/individualId/otp) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "aid": "27847178467030520240112162123",
+  "otpChannel": [
+    "EMAIL",
+    "PHONE"
+  ],
+  "transactionID": "9970050878"
+}</textarea> </div></pre><br/>
+<b><u>Response: </u></b><pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Fri, 12 Jan 2024 10:56:34 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=1335]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "version": "1.0",
+  "responseTime": "2024-01-12T10:56:34.337Z",
+  "response": {
+    "maskedMobile": "XXXXXX1267",
+    "maskedEmail": "XXmXXoXXdXXdXXtXXyXXiXXVXXiXXaXXmXXeXX_XXoXX_XXs@mosip.net"
+  }
+}</textarea> </div></pre><br/>
+<b> Marking test case as passed. As Output validation not performed and no errors in the response </b><br/>
+<b><u>Request: </u></b>(End Point URL: https://api-internal.qa-trinity.mosip.net/residentmobileapp/aid/get-individual-id) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "otp": "111111",
+  "aid": "2745538921628455389216202302041241544770230204124154278477",
+  "transactionID": "9970050878"
+}</textarea> </div></pre><br/>
+<b><u>Response: </u></b><pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Fri, 12 Jan 2024 10:56:36 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=979]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.resident.checkstatus",
+  "version": "1.0",
+  "responsetime": "2024-01-12T10:56:36.113Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-457",
+      "errorMessage": "AID not found"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>RES-SER-457</td>
+    <td>RES-SER-457</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate@63124022</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate.Mimoto_AidGetIndividualId_Getting_With_Valid_Otp_All()'><b>Mimoto_AidGetIndividualId_Getting_With_Valid_Otp_All</b><br>Test class: io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate (Mimoto_AidGetIndividualId_Getting_With_Invalid_lenght_Of_AID_Neg)<br>Parameters: TestCaseDTO(testCaseName=Mimoto_AidGetIndividualId_Getting_With_Valid_Otp_All, endPoint=/residentmobileapp/aid/get-individual-id, role=resident, templateFields=null, input={ "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$", "transactionID": "$TRANSACTIONID$", "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$", "sendOtp":{ "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$", "transactionID": "$TRANSACTIONID$", "sendOtpReqTemplate": "mimoto/SendOTPUIN/individualIdOtp", "sendOtpEndPoint": "/residentmobileapp/req/individualId/otp" } }, output={ "aidStatus": "PROCESSED", "sendOtpResp":{ "sendOtpResTemplate":"mimoto/SendOTPUIN/individualIdOtpResult" } }, inputTemplate=mimoto/AidGetIndividualId/aidGetIndividualId, outputTemplate=mimoto/AidGetIndividualId/aidGetIndividualIdResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null, kycFields=null)<br/>
+<a href="#Output-579442307" onClick='toggleBox("Output-579442307", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-579442307" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-579442307">
+<b><u>Request: </u></b>(End Point URL: https://api-internal.qa-trinity.mosip.net/residentmobileapp/req/individualId/otp) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "aid": "27847178467030520240112162123",
+  "otpChannel": [
+    "EMAIL",
+    "PHONE"
+  ],
+  "transactionID": "9970050878"
+}</textarea> </div></pre><br/>
+<b><u>Response: </u></b><pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Fri, 12 Jan 2024 10:56:31 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=1086]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "version": "1.0",
+  "responseTime": "2024-01-12T10:56:31.102Z",
+  "response": {
+    "maskedMobile": "XXXXXX1267",
+    "maskedEmail": "XXmXXoXXdXXdXXtXXyXXiXXVXXiXXaXXmXXeXX_XXoXX_XXs@mosip.net"
+  }
+}</textarea> </div></pre><br/>
+<b> Marking test case as passed. As Output validation not performed and no errors in the response </b><br/>
+<b><u>Request: </u></b>(End Point URL: https://api-internal.qa-trinity.mosip.net/residentmobileapp/aid/get-individual-id) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "otp": "111111",
+  "aid": "27847178467030520240112162123",
+  "transactionID": "9970050878"
+}</textarea> </div></pre><br/>
+<b><u>Response: </u></b><pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Fri, 12 Jan 2024 10:56:33 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=1532]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.resident.checkstatus",
+  "version": "1.0",
+  "responsetime": "2024-01-12T10:56:33.311Z",
+  "response": {
+    "individualId": "2170623071",
+    "individualIdType": "UIN",
+    "transactionId": "9970050878",
+    "aidStatus": "PROCESSED"
+  }
+}</textarea> </div></pre><br/>
+<b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.aidStatus</td>
+    <td>PROCESSED</td>
+    <td>PROCESSED</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate@63124022</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate.Mimoto_AidGetIndividualId_Getting_With_Valid_UIN_All()'><b>Mimoto_AidGetIndividualId_Getting_With_Valid_UIN_All</b><br>Test class: io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate (Mimoto_AidGetIndividualId_Getting_With_Invalid_lenght_Of_AID_Neg)<br>Parameters: TestCaseDTO(testCaseName=Mimoto_AidGetIndividualId_Getting_With_Valid_UIN_All, endPoint=/residentmobileapp/aid/get-individual-id, role=resident, templateFields=null, input={ "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$", "transactionID": "$TRANSACTIONID$", "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$", "sendOtp":{ "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$", "transactionID": "$TRANSACTIONID$", "sendOtpReqTemplate": "mimoto/SendOTPUIN/individualIdOtp", "sendOtpEndPoint": "/residentmobileapp/req/individualId/otp" } }, output={ "aidStatus": "PROCESSED", "sendOtpResp":{ "sendOtpResTemplate":"mimoto/SendOTPUIN/individualIdOtpResult" } }, inputTemplate=mimoto/AidGetIndividualId/aidGetIndividualId, outputTemplate=mimoto/AidGetIndividualId/aidGetIndividualIdResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null, kycFields=null)<br/>
+<a href="#Output-734729236" onClick='toggleBox("Output-734729236", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-734729236" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-734729236">
+<b><u>Request: </u></b>(End Point URL: https://api-internal.qa-trinity.mosip.net/residentmobileapp/req/individualId/otp) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "aid": "27847178467030520240112162123",
+  "otpChannel": [
+    "EMAIL",
+    "PHONE"
+  ],
+  "transactionID": "9970050878"
+}</textarea> </div></pre><br/>
+<b><u>Response: </u></b><pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Fri, 12 Jan 2024 10:56:26 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=1289]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "version": "1.0",
+  "responseTime": "2024-01-12T10:56:25.612Z",
+  "response": {
+    "maskedMobile": "XXXXXX1267",
+    "maskedEmail": "XXmXXoXXdXXdXXtXXyXXiXXVXXiXXaXXmXXeXX_XXoXX_XXs@mosip.net"
+  }
+}</textarea> </div></pre><br/>
+<b> Marking test case as passed. As Output validation not performed and no errors in the response </b><br/>
+<b><u>Request: </u></b>(End Point URL: https://api-internal.qa-trinity.mosip.net/residentmobileapp/aid/get-individual-id) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "otp": "111111",
+  "aid": "27847178467030520240112162123",
+  "transactionID": "9970050878"
+}</textarea> </div></pre><br/>
+<b><u>Response: </u></b><pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Fri, 12 Jan 2024 10:56:27 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=1131]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.resident.checkstatus",
+  "version": "1.0",
+  "responsetime": "2024-01-12T10:56:27.429Z",
+  "response": {
+    "individualId": "2170623071",
+    "individualIdType": "UIN",
+    "transactionId": "9970050878",
+    "aidStatus": "PROCESSED"
+  }
+}</textarea> </div></pre><br/>
+<b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.aidStatus</td>
+    <td>PROCESSED</td>
+    <td>PROCESSED</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate@63124022</td></tr>
+</table><p>
+</body>
+</html>

@@ -1,0 +1,582 @@
+<html>
+<head>
+<title>TestNG:  FilterTemplateDetails</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>FilterTemplateDetails</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>7/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Sep 20 13:39:02 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>2 seconds (2550 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_FilterTemplateDetails_All_Valid_Smoke()'><b>MasterData_FilterTemplateDetails_All_Valid_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_FilterTemplateDetails_invalid_columnName)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FilterTemplateDetails_All_Valid_Smoke, endPoint=/v1/masterdata/templates/filtervalues, role=admin, templateFields=[languageCode], input={ "filters": [{ "columnName": "name", "type": "unique", "text": "test template" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "filters": [ { "fieldID": "$IGNORE$", "fieldValue": "$IGNORE$" } ] }, inputTemplate=masterdata/FilterTemplateDetails/filterTemplateDetails, outputTemplate=masterdata/FilterTemplateDetails/filterTemplateDetailsResult, restMethod=post)<br/>
+<a href="#Output-1982426861" onClick='toggleBox("Output-1982426861", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1982426861" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1982426861">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2022-09-20T08:09:02.556Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "unique",
+        "text": "test template"
+      }
+    ],
+    "languageCode": "ara"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/templates/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2022-09-20T08:09:02.897Z",
+  "response": {
+    "filters": [],
+    "totalCount": 0
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.totalCount</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2fc3a9ac</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_FilterTemplateDetails_FilterType_all()'><b>MasterData_FilterTemplateDetails_FilterType_all</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_FilterTemplateDetails_invalid_columnName)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FilterTemplateDetails_FilterType_all, endPoint=/v1/masterdata/templates/filtervalues, role=admin, templateFields=[languageCode], input={ "filters": [{ "columnName": "name", "type": "all", "text": "test template" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "filters": [ { "fieldID": "$IGNORE$", "fieldValue": "$IGNORE$" } ] }, inputTemplate=masterdata/FilterTemplateDetails/filterTemplateDetails, outputTemplate=masterdata/FilterTemplateDetails/filterTemplateDetailsResult, restMethod=post)<br/>
+<a href="#Output-259460643" onClick='toggleBox("Output-259460643", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-259460643" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-259460643">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2022-09-20T08:09:02.941Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "all",
+        "text": "test template"
+      }
+    ],
+    "languageCode": "ara"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/templates/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2022-09-20T08:09:03.267Z",
+  "response": {
+    "filters": [],
+    "totalCount": 0
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.totalCount</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2fc3a9ac</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_FilterTemplateDetails_Invalid_filterType()'><b>MasterData_FilterTemplateDetails_Invalid_filterType</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_FilterTemplateDetails_invalid_columnName)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FilterTemplateDetails_Invalid_filterType, endPoint=/v1/masterdata/templates/filtervalues, role=admin, templateFields=[text], input={ "filters": [{ "columnName": "name", "type": "ghji", "text": "authorization" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-324", "message": "Received Filter Type not supported" } ] }, inputTemplate=masterdata/FilterTemplateDetails/filterTemplateDetails, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-274755477" onClick='toggleBox("Output-274755477", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-274755477" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-274755477">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2022-09-20T08:09:03.305Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "ghji",
+        "text": "َُتهُرِزَتُِن"
+      }
+    ],
+    "languageCode": "ara"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/templates/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2022-09-20T08:09:03.627Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-324",
+      "message": "Received Filter Type not supported"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Received Filter Type not supported</td>
+    <td>Received Filter Type not supported</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-324</td>
+    <td>KER-MSD-324</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2fc3a9ac</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_FilterTemplateDetails_empty_columnName()'><b>MasterData_FilterTemplateDetails_empty_columnName</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_FilterTemplateDetails_invalid_columnName)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FilterTemplateDetails_empty_columnName, endPoint=/v1/masterdata/templates/filtervalues, role=admin, templateFields=[text], input={ "filters": [{ "columnName": "", "type": "unique", "text": "Template for authorization" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.filters[0].columnName: must not be blank" } ] }, inputTemplate=masterdata/FilterTemplateDetails/filterTemplateDetails, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-1993693758" onClick='toggleBox("Output-1993693758", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1993693758" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1993693758">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2022-09-20T08:09:04.393Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "",
+        "type": "unique",
+        "text": "تِمپلَتِ فُر َُتهُرِزَتُِن"
+      }
+    ],
+    "languageCode": "ara"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/templates/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2022-09-20T08:09:04.717Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.filters[0].columnName: must not be blank"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.filters[0].columnName: must not be blank</td>
+    <td>request.filters[0].columnName: must not be blank</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2fc3a9ac</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_FilterTemplateDetails_empty_filterType()'><b>MasterData_FilterTemplateDetails_empty_filterType</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_FilterTemplateDetails_invalid_columnName)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FilterTemplateDetails_empty_filterType, endPoint=/v1/masterdata/templates/filtervalues, role=admin, templateFields=[text], input={ "filters": [{ "columnName": "name", "type": "", "text": "Template for authorization" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-322", "message": "Filter Type cannot be empty or null" } ] }, inputTemplate=masterdata/FilterTemplateDetails/filterTemplateDetails, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-2072080033" onClick='toggleBox("Output-2072080033", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2072080033" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2072080033">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2022-09-20T08:09:04.032Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "",
+        "text": "تِمپلَتِ فُر َُتهُرِزَتُِن"
+      }
+    ],
+    "languageCode": "ara"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/templates/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2022-09-20T08:09:04.369Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-322",
+      "message": "Filter Type cannot be empty or null"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Filter Type cannot be empty or null</td>
+    <td>Filter Type cannot be empty or null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-322</td>
+    <td>KER-MSD-322</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2fc3a9ac</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_FilterTemplateDetails_invalid_columnName()'><b>MasterData_FilterTemplateDetails_invalid_columnName</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_FilterTemplateDetails_invalid_columnName)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FilterTemplateDetails_invalid_columnName, endPoint=/v1/masterdata/templates/filtervalues, role=admin, templateFields=[text], input={ "filters": [{ "columnName": "fbheafg", "type": "unique", "text": "Template for authorization" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-317", "message": "$IGNORE$" } ] }, inputTemplate=masterdata/FilterTemplateDetails/filterTemplateDetails, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-988858006" onClick='toggleBox("Output-988858006", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-988858006" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-988858006">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2022-09-20T08:09:04.744Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "fbheafg",
+        "type": "unique",
+        "text": "تِمپلَتِ فُر َُتهُرِزَتُِن"
+      }
+    ],
+    "languageCode": "ara"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/templates/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2022-09-20T08:09:05.080Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-317",
+      "message": "Column fbheafg doesn\u0027t exist for the searched entity"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-317</td>
+    <td>KER-MSD-317</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2fc3a9ac</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_FilterTemplateDetails_invalid_text()'><b>MasterData_FilterTemplateDetails_invalid_text</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_FilterTemplateDetails_invalid_columnName)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FilterTemplateDetails_invalid_text, endPoint=/v1/masterdata/templates/filtervalues, role=admin, templateFields=[], input={ "filters": [{ "columnName": "name", "type": "unique", "text": "abcsdn" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "filters": [] }, inputTemplate=masterdata/FilterTemplateDetails/filterTemplateDetails, outputTemplate=masterdata/FilterTemplateDetails/filterTemplateDetailsResult, restMethod=post)<br/>
+<a href="#Output-2084233282" onClick='toggleBox("Output-2084233282", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2084233282" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2084233282">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2022-09-20T08:09:03.648Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "unique",
+        "text": "abcsdn"
+      }
+    ],
+    "languageCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/templates/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2022-09-20T08:09:03.979Z",
+  "response": {
+    "filters": [],
+    "totalCount": 0
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.totalCount</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2fc3a9ac</td></tr>
+</table><p>
+</body>
+</html>

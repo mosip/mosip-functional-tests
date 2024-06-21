@@ -1,0 +1,819 @@
+<html>
+<head>
+<title>TestNG:  FetchAllBlockListedWord</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>FetchAllBlockListedWord</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:46:27 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>0 seconds (731 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Kernel_FetchAllBlockListedWord_valid_smoke()'><b>Kernel_FetchAllBlockListedWord_valid_smoke</b><br>Test class: io.mosip.testscripts.GetWithParam (Kernel_FetchAllBlockListedWord_valid_smoke)<br>Parameters: TestCaseDTO(testCaseName=Kernel_FetchAllBlockListedWord_valid_smoke, endPoint=/v1/masterdata/blocklistedwords/all, role=admin, templateFields=null, input={ }, output={ "errors": null }, inputTemplate=masterdata/FetchAllBlockListedWord/fetchAllBlockListedWord, outputTemplate=masterdata/FetchAllBlockListedWord/fetchAllBlockListedWordResult, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-727209127" onClick='toggleBox("Output-727209127", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-727209127" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-727209127">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>null</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/blocklistedwords/all) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:16:28.089Z",
+  "response": {
+    "pageNo": 0,
+    "totalPages": 2,
+    "totalItems": 11,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "masterdata-220005",
+        "createdDateTime": "2023-07-14T17:16:14.145Z",
+        "updatedBy": "masterdata-220005",
+        "updatedDateTime": "2023-07-14T17:16:17.768Z",
+        "isDeleted": false,
+        "word": "dumboo",
+        "langCode": "ara",
+        "description": "wrongword"
+      },
+      {
+        "isActive": true,
+        "createdBy": "masterdata-220005",
+        "createdDateTime": "2023-07-14T17:08:10.032Z",
+        "updatedBy": "masterdata-220005",
+        "updatedDateTime": "2023-07-14T17:08:21.978Z",
+        "isDeleted": true,
+        "deletedDateTime": "2023-07-14T17:08:41.762Z",
+        "word": "dumbooo",
+        "langCode": "eng",
+        "description": "wrong word updated again"
+      },
+      {
+        "isActive": true,
+        "createdBy": "masterdata-220005",
+        "createdDateTime": "2023-07-14T05:07:23.763Z",
+        "updatedBy": "masterdata-220005",
+        "updatedDateTime": "2023-07-14T05:07:28.257Z",
+        "isDeleted": true,
+        "deletedDateTime": "2023-07-14T05:07:36.452Z",
+        "word": "دُمبُُُ",
+        "langCode": "ara",
+        "description": "ورُنگ وُرد ُپدَتِد َگَِن"
+      },
+      {
+        "isActive": true,
+        "createdBy": "balaji",
+        "createdDateTime": "2023-07-13T08:35:22.045Z",
+        "isDeleted": false,
+        "word": "badspckey",
+        "langCode": "eng",
+        "description": "slangcreate"
+      },
+      {
+        "isActive": true,
+        "createdBy": "110059",
+        "createdDateTime": "2022-08-04T11:12:25.716Z",
+        "updatedBy": "110059",
+        "updatedDateTime": "2022-08-04T11:13:35.265Z",
+        "word": "AB1234",
+        "langCode": "eng",
+        "description": "fgfgh"
+      },
+      {
+        "isActive": true,
+        "createdBy": "110059",
+        "createdDateTime": "2022-08-03T11:17:41.510Z",
+        "word": "AB",
+        "langCode": "eng",
+        "description": "hgcvby"
+      },
+      {
+        "isActive": false,
+        "createdBy": "110059",
+        "createdDateTime": "2022-08-03T06:29:45.266Z",
+        "updatedBy": "110059",
+        "updatedDateTime": "2022-08-03T10:16:18.291Z",
+        "word": "test words",
+        "langCode": "eng",
+        "description": "test cycle"
+      },
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2022-02-23T12:40:28.521Z",
+        "isDeleted": false,
+        "word": "dammit",
+        "langCode": "eng",
+        "description": "Blacklisted Word"
+      },
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2022-02-23T12:40:28.521Z",
+        "updatedBy": "110059",
+        "updatedDateTime": "2022-08-03T10:19:10.077Z",
+        "isDeleted": false,
+        "word": "shit",
+        "langCode": "eng",
+        "description": "Blacklisted Word"
+      },
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2022-02-23T12:40:28.521Z",
+        "updatedBy": "110059",
+        "updatedDateTime": "2022-08-03T10:19:14.235Z",
+        "isDeleted": false,
+        "word": "nigga",
+        "langCode": "eng",
+        "description": "Blacklisted Word"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updatedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T05:07:28.257Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].word</td>
+    <td>NOT VERIFIED</td>
+    <td>test words</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].createdDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-08-03T11:17:41.510Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].deletedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].word</td>
+    <td>NOT VERIFIED</td>
+    <td>nigga</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].createdDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:28.521Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updatedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-08-04T11:13:35.265Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].updatedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-08-03T10:19:14.235Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].createdBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].description</td>
+    <td>NOT VERIFIED</td>
+    <td>ورُنگ وُرد ُپدَتِد َگَِن</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updatedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110059</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].deletedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].deletedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:08:41.762Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].description</td>
+    <td>NOT VERIFIED</td>
+    <td>slangcreate</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].word</td>
+    <td>NOT VERIFIED</td>
+    <td>badspckey</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].word</td>
+    <td>NOT VERIFIED</td>
+    <td>dumboo</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Blacklisted Word</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].createdBy</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata-220005</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].description</td>
+    <td>NOT VERIFIED</td>
+    <td>test cycle</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].updatedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].deletedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updatedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata-220005</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].createdBy</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata-220005</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].createdBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].updatedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].word</td>
+    <td>NOT VERIFIED</td>
+    <td>AB1234</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].createdDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:08:10.032Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].createdBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110059</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].deletedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T05:07:36.452Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updatedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata-220005</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updatedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata-220005</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].word</td>
+    <td>NOT VERIFIED</td>
+    <td>AB</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].createdDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:28.521Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].createdBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110059</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].updatedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-08-03T10:19:10.077Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].createdBy</td>
+    <td>NOT VERIFIED</td>
+    <td>balaji</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deletedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].createdBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110059</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].createdBy</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata-220005</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].createdDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-08-04T11:12:25.716Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].deletedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].updatedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110059</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].createdDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-08-03T06:29:45.266Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updatedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updatedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:08:21.978Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].word</td>
+    <td>NOT VERIFIED</td>
+    <td>dammit</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Blacklisted Word</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Blacklisted Word</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].description</td>
+    <td>NOT VERIFIED</td>
+    <td>wrong word updated again</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].description</td>
+    <td>NOT VERIFIED</td>
+    <td>wrongword</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].createdDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T05:07:23.763Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].createdBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].description</td>
+    <td>NOT VERIFIED</td>
+    <td>fgfgh</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].description</td>
+    <td>NOT VERIFIED</td>
+    <td>hgcvby</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].word</td>
+    <td>NOT VERIFIED</td>
+    <td>dumbooo</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].word</td>
+    <td>NOT VERIFIED</td>
+    <td>shit</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].updatedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].createdDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:28.521Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].updatedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-08-03T10:16:18.291Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].createdDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:16:14.145Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].deletedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].deletedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].updatedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].deletedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updatedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:16:17.768Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].word</td>
+    <td>NOT VERIFIED</td>
+    <td>دُمبُُُ</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updatedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].updatedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110059</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].updatedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110059</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].createdDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-13T08:35:22.045Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@48fbb1bc</td></tr>
+</table><p>
+</body>
+</html>

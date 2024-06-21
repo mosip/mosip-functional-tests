@@ -1,0 +1,137 @@
+<html>
+<head>
+<title>TestNG:  GetUiProperties</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GetUiProperties</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Aug 24 11:55:40 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>0 seconds (624 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetUiProperties_all_Valid_Smoke()'><b>Resident_GetUiProperties_all_Valid_Smoke</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetUiProperties_all_Valid_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetUiProperties_all_Valid_Smoke, endPoint=/resident/v1/proxy/config/ui-properties, role=resident, templateFields=null, input={ }, output={ "mosip.resident.api.id.auth": "{{mosip.resident.api.id.auth}}", "mosip.resident.api.version.otp.request": "{{mosip.resident.api.version.otp.request}}", "resident.datetime.pattern": "$IGNORE$", "mosip.mandatory-languages": "$IGNORE$", "mosip.resident.api.version.auth": "{{mosip.resident.api.version.auth}}", "mosip.optional-languages": "$IGNORE$", "mosip.resident.api.id.otp.request": "{{mosip.resident.api.id.otp.request}}", "mosip.utc-datetime-pattern": "$IGNORE$", "mosip.iam.adapter.clientid": "{{mosip.iam.adapter.clientid}}" }, inputTemplate=resident/GetUiProperties/getUiProperties, outputTemplate=resident/GetUiProperties/getUiPropertiesResult, restMethod=get)<br/>
+<a href="#Output-924413267" onClick='toggleBox("Output-924413267", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-924413267" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-924413267">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/config/ui-properties) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:25:41.333Z",
+  "response": {
+    "mosip-prereg-ui-url": "https://prereg.qa4.mosip.net/pre-registration-ui/",
+    "resident.template.tnc.update-demo": "tnc-update-demo",
+    "resident.template.tnc.share-cred-with-partner": "tnc-share-cred-with-partner",
+    "mosip.mandatory-languages": "eng",
+    "resident.authunlock.id": "mosip.resident.authunlock",
+    "resident.vid.version": "v1",
+    "resident.revokevid.id": "mosip.resident.vidstatus",
+    "mosip.resident.api.id.otp.request": "mosip.identity.otp.internal",
+    "mosip.resident.api.version.otp.request": "1.0",
+    "auth.types.allowed": "otp-email,otp-phone,demo,bio-Finger,bio-Iris,bio-FACE",
+    "resident.template.tnc.order-a-physical-card": "tnc-order-a-physical-card",
+    "resident.authhistory.id": "mosip.resident.authhistory",
+    "mosip.optional-languages": "ara",
+    "mosip.iam.adapter.clientid": "mosip-resident-client",
+    "mosip.resident.api.id.auth": "mosip.identity.auth.internal",
+    "resident.view.history.status.filters": "all,success,in-progress,failed",
+    "resident.revokevid.version": "v1",
+    "resident.auth-type.default.unlock.duration.seconds": "100",
+    "resident.datetime.pattern": "yyyy-MM-dd\u0027T\u0027HH:mm:ss.SSS\u0027Z\u0027",
+    "resident.vid.id": "mosip.resident.vid",
+    "auth.type.status.id": "mosip.identity.authtype.status.update",
+    "mosip.resident.api.version.auth": "1.0",
+    "resident.updateuin.id": "mosip.resident.updateuin",
+    "mosip-prereg-host": "prereg.qa4.mosip.net",
+    "resident.view.history.serviceType.filters": "ALL,AUTHENTICATION_REQUEST,SERVICE_REQUEST,DATA_UPDATE_REQUEST,ID_MANAGEMENT_REQUEST,DATA_SHARE_REQUEST",
+    "mosip.utc-datetime-pattern": "yyyy-MM-dd\u0027T\u0027HH:mm:ss.SSS\u0027Z\u0027"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.mosip-prereg-ui-url</td>
+    <td>NOT VERIFIED</td>
+    <td>https://prereg.qa4.mosip.net/pre-registration-ui/</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@6af87130</td></tr>
+</table><p>
+</body>
+</html>

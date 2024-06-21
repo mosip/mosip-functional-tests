@@ -1,0 +1,505 @@
+<html>
+<head>
+<title>TestNG:  UpdateDocumentType</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>UpdateDocumentType</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>6/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:49:23 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>4 seconds (4472 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDocumentType_Invalid_Code_Blank()'><b>MasterData_UpdateDocumentType_Invalid_Code_Blank</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDocumentType_Invalid_Code_Blank)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDocumentType_Invalid_Code_Blank, endPoint=/v1/masterdata/documenttypes, role=admin, templateFields=[name, description], input={ "code": "", "description": "GSD Holder card", "isActive": false, "langCode": "eng", "name": "GSD", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.code: Should not be blank or size must be between 1 and 36" } ] }, inputTemplate=masterdata/DocumentType/documentType, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1062078732" onClick='toggleBox("Output-1062078732", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1062078732" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1062078732">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "",
+    "description": "GSD Holder card",
+    "isActive": false,
+    "langCode": "ara",
+    "name": "GSD"
+  },
+  "requesttime": "2023-07-14T17:19:27.519Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/documenttypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:19:28.226Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.code: Should not be blank or size must be between 1 and 36</td>
+    <td>request.code: Should not be blank or size must be between 1 and 36</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@464d25b2</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDocumentType_Invalid_Code_Char37()'><b>MasterData_UpdateDocumentType_Invalid_Code_Char37</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDocumentType_Invalid_Code_Blank)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDocumentType_Invalid_Code_Char37, endPoint=/v1/masterdata/documenttypes, role=admin, templateFields=[name, description], input={ "code": "abcdefghijklmnopqrstuvwxyzabcdefghijk", "description": "GSD Card Holder", "isActive": false, "langCode": "eng", "name": "GSD Card", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.code: Should not be blank or size must be between 1 and 36" } ] }, inputTemplate=masterdata/DocumentType/documentType, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-465890353" onClick='toggleBox("Output-465890353", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-465890353" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-465890353">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "abcdefghijklmnopqrstuvwxyzabcdefghijk",
+    "description": "GSD Card Holder",
+    "isActive": false,
+    "langCode": "ara",
+    "name": "GSD Card"
+  },
+  "requesttime": "2023-07-14T17:19:24.594Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/documenttypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:19:25.216Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.code: Should not be blank or size must be between 1 and 36</td>
+    <td>request.code: Should not be blank or size must be between 1 and 36</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@464d25b2</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDocumentType_Invalid_Descr_Char129()'><b>MasterData_UpdateDocumentType_Invalid_Descr_Char129</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDocumentType_Invalid_Code_Blank)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDocumentType_Invalid_Descr_Char129, endPoint=/v1/masterdata/documenttypes, role=admin, templateFields=[name, description], input={ "code": "GSD", "description": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy", "isActive": false, "langCode": "eng", "name": "GSD", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.description: size must be between 0 and 128" } ] }, inputTemplate=masterdata/DocumentType/documentType, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1403081623" onClick='toggleBox("Output-1403081623", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1403081623" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1403081623">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "GSD",
+    "description": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy",
+    "isActive": false,
+    "langCode": "ara",
+    "name": "GSD"
+  },
+  "requesttime": "2023-07-14T17:19:26.010Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/documenttypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:19:26.696Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.description: size must be between 0 and 128"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.description: size must be between 0 and 128</td>
+    <td>request.description: size must be between 0 and 128</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@464d25b2</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDocumentType_Invalid_Name_Blank()'><b>MasterData_UpdateDocumentType_Invalid_Name_Blank</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDocumentType_Invalid_Code_Blank)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDocumentType_Invalid_Name_Blank, endPoint=/v1/masterdata/documenttypes, role=admin, templateFields=[description], input={ "code": "GSD", "description": "GSD Holder card", "isActive": false, "langCode": "eng", "name": "", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.name: Should not be blank or size must be between 1 and 64" } ] }, inputTemplate=masterdata/DocumentType/documentType, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1462144963" onClick='toggleBox("Output-1462144963", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1462144963" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1462144963">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "GSD",
+    "description": "GSD Holder card",
+    "isActive": false,
+    "langCode": "ara",
+    "name": ""
+  },
+  "requesttime": "2023-07-14T17:19:26.763Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/documenttypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:19:27.446Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@464d25b2</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDocumentType_Invalid_Name_Char65()'><b>MasterData_UpdateDocumentType_Invalid_Name_Char65</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDocumentType_Invalid_Code_Blank)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDocumentType_Invalid_Name_Char65, endPoint=/v1/masterdata/documenttypes, role=admin, templateFields=[name, description], input={ "code": "GSD", "description": "GSD Card Holder", "isActive": false, "langCode": "eng", "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmf", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.name: Should not be blank or size must be between 1 and 64" } ] }, inputTemplate=masterdata/DocumentType/documentType, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1120415603" onClick='toggleBox("Output-1120415603", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1120415603" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1120415603">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "GSD",
+    "description": "GSD Card Holder",
+    "isActive": false,
+    "langCode": "ara",
+    "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmf"
+  },
+  "requesttime": "2023-07-14T17:19:25.287Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/documenttypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:19:25.938Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@464d25b2</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDocumentType_Valid_Smoke()'><b>MasterData_UpdateDocumentType_Valid_Smoke</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDocumentType_Invalid_Code_Blank)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDocumentType_Valid_Smoke, endPoint=/v1/masterdata/documenttypes, role=admin, templateFields=[name, description], input={ "code": "TestDocType0010", "description": "TestDocType0010 Card Holder updated", "isActive": true, "langCode": "eng", "name": "TestDocType0010 Card", "requesttime": "$TIMESTAMP$" }, output={ "code": "TestDocType0010", "description": "TestDocType0010 Card Holder updated", "isActive": $IGNORE$, "langCode": "eng", "name": "TestDocType0010 Card" }, inputTemplate=masterdata/DocumentType/documentType, outputTemplate=masterdata/DocumentType/documentTypeResult, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1954641756" onClick='toggleBox("Output-1954641756", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1954641756" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1954641756">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "TestDocType0010",
+    "description": "TestDocType0010 Card Holder updated",
+    "isActive": true,
+    "langCode": "ara",
+    "name": "TestDocType0010 Card"
+  },
+  "requesttime": "2023-07-14T17:19:23.828Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/documenttypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:19:24.523Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-118",
+      "message": "Document Type not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Document Type not found</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-MSD-118</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:19:24.523Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@464d25b2</td></tr>
+</table><p>
+</body>
+</html>

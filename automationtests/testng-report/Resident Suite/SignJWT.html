@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>TestNG:  SignJWT</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>SignJWT</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jan 12 19:09:07 IST 2024</td>
+</tr>
+<tr><td>Total time:</td><td>0 seconds (874 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.Resident_SignJWT_all_Valid_Smoke_sid()'><b>Resident_SignJWT_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (Resident_SignJWT_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=Resident_SignJWT_all_Valid_Smoke_sid, endPoint=/v1/keymanager/jwtSign, role=resident, templateFields=null, input={ "requesttime": "$TIMESTAMP$", "dataToSign": "$IDPCLIENTPAYLOAD$", "applicationId": "RESIDENT", "referenceId": "", "includePayload": true, "includeCertificate": true, "includeCertHash": false }, output={ }, inputTemplate=resident/SignJWT/SignJWT, outputTemplate=resident/SignJWT/SignJWTResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null, kycFields=null)<br/>
+<a href="#Output-297642807" onClick='toggleBox("Output-297642807", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-297642807" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-297642807">
+<b><u>Request: </u></b>(End Point URL: https://api-internal.qa-trinity.mosip.net/v1/keymanager/jwtSign) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requesttime": "2024-01-12T13:39:07.377Z",
+  "metadata": {},
+  "request": {
+    "dataToSign": "eyJzdWIiOiJ3Y2t3ZUFCYjhMeFNJem9peXRBNS0xUkN4UHRyY0tWdzRZY2ZqM2lnZi00IiwiYXVkIjoiaHR0cHM6XC9cL2VzaWduZXQucWEtdHJpbml0eS5tb3NpcC5uZXRcL3YxXC9lc2lnbmV0XC9vYXV0aFwvdG9rZW4iLCJpc3MiOiJ3Y2t3ZUFCYjhMeFNJem9peXRBNS0xUkN4UHRyY0tWdzRZY2ZqM2lnZi00IiwiZXhwIjoxNzA1MDcwMzQ3LCJpYXQiOjE3MDUwNjY3NDd9",
+    "applicationId": "RESIDENT",
+    "referenceId": "",
+    "includePayload": true,
+    "includeCertificate": true,
+    "includeCertHash": false
+  }
+}</textarea> </div></pre><br/>
+<b><u>Response: </u></b><pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Fri, 12 Jan 2024 13:39:08 GMT, Content-Type=application/json;charset=UTF-8, Content-Length=2602, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=135]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2024-01-12T13:39:08.196Z",
+  "response": {
+    "jwtSignedData": "eyJ4NWMiOlsiTUlJRHNqQ0NBcHFnQXdJQkFnSUloUk1SUXJRNXhZUXdEUVlKS29aSWh2Y05BUUVMQlFBd2NERUxNQWtHQTFVRUJoTUNTVTR4Q3pBSkJnTlZCQWdNQWt0Qk1SSXdFQVlEVlFRSERBbENRVTVIUVV4UFVrVXhEVEFMQmdOVkJBb01CRWxKVkVJeEdqQVlCZ05WQkFzTUVVMVBVMGxRTFZSRlEwZ3RRMFZPVkVWU01SVXdFd1lEVlFRRERBeDNkM2N1Ylc5emFYQXVhVzh3SGhjTk1qTXhNVEF4TURjek56QXdXaGNOTWpZeE1ETXhNRGN6TnpBd1dqQjdNUXN3Q1FZRFZRUUdFd0pKVGpFTE1Ba0dBMVVFQ0F3Q1MwRXhFakFRQmdOVkJBY01DVUpCVGtkQlRFOVNSVEVOTUFzR0ExVUVDZ3dFU1VsVVFqRWxNQ01HQTFVRUN3d2NUVTlUU1ZBdFZFVkRTQzFEUlU1VVJWSWdLRkpGVTBsRVJVNVVLVEVWTUJNR0ExVUVBd3dNZDNkM0xtMXZjMmx3TG1sdk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBMFdtOFVvTDJYc09MYWF2Q1RCU25DODV3OTErYTNMb0h5VFZFb2JGUkk1Q3IrU1RiemNVWE5LdTFMd21uL1ZEb2p2Yk5QRnF4czZKVU5lSWlWbjNpc2FIVXRQVTBjNkJKSm4rUVNzK2R0TTJZenpOSGFsaGFsYmRBVERZR2IxR3gwTkx5SUliYVdFSm5nMUtaMGc2a0ZHakF5K0JkMXcraEQwcUZEUHRzdXgydTFjSllwWldXZlBwMk1YK3kwcU56MXk1blE5S1hsVUwzQUNURWtDNGkyOWtuQVBBaGQzRkx1T3QzNDdLSDQ5UDdtMUFoc2VtczB4MWx5dVlZUHFNamNyQWxhbCtuOU85SVRDemI2ak5KTERDVG9ZYVB4OVJwSDhEYnpTQUluaVlrOGRJVnpJY0U4TEZVVjJERGhvcXZyc094bnY3d3YxMFdieDFZa2s3OHhRSURBUUFCbzBVd1F6QVNCZ05WSFJNQkFmOEVDREFHQVFIL0FnRUJNQjBHQTFVZERnUVdCQlRPRExQMDRodm9TZFdHTmoxMUZZSGNnenlNWkRBT0JnTlZIUThCQWY4RUJBTUNBb1F3RFFZSktvWklodmNOQVFFTEJRQURnZ0VCQU1UcGwwTTdaZ2hjSm1CL1BCdm9uOFNETGpaME9uU2pXM1lBa3lDN0RWSEJvbDhWV3k5WnZDWVBvK09LeEp3MitJVm9uSW8va0cxQzVCL1dxaFlSMUtJQ2pxQktXRHFXeHFpM0tZTjZKTVNieEl3ZWJTdTVrVWMvTlgrUmtwMUhYRVJoRmx3eXMrK25hdUhTRWYvME5sU1gwZFBwWVYrUDNDTm9uckQ4MEhEWnJEUkhmbGwwdExwNW1NRjdqaUFsOGE4RjRCQ2ZObnV2Rzl0SmJjVzdKNmp3WUFiWmxRVDFtMUMvTVR5S1hka3F0UEtFTjZ2d1J5aUZkb291TWtYaVpDN2NxUXlRRk5oY0gwZ2NFUDhkbnlsV3dkY3JLd2M1M1B0YUR2MHRqeFVObUJtOUg3NCtRV1QwdjVLOWN6cER5N1J4a21HekZsM3BWS2twcjhkVmJIaz0iXSwia2lkIjoiYnQ0SXJHc3hRcHM1S2d6NU1RYnpvOXIyV0EyTE42MUNKLVJ4dzBZWnk5RSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJ3Y2t3ZUFCYjhMeFNJem9peXRBNS0xUkN4UHRyY0tWdzRZY2ZqM2lnZi00IiwiYXVkIjoiaHR0cHM6XC9cL2VzaWduZXQucWEtdHJpbml0eS5tb3NpcC5uZXRcL3YxXC9lc2lnbmV0XC9vYXV0aFwvdG9rZW4iLCJpc3MiOiJ3Y2t3ZUFCYjhMeFNJem9peXRBNS0xUkN4UHRyY0tWdzRZY2ZqM2lnZi00IiwiZXhwIjoxNzA1MDcwMzQ3LCJpYXQiOjE3MDUwNjY3NDd9.yhew_eRvG40WI9kjwyXABG6vBGhRpug244gyBBjNswYZby8UceJUdJBYETHvfxX2qxlDdPiPC1TlHWiSxJ8zBGz6vxkfPL8Fy9wkaOr_KkBlDWGKMqR5sF13-h02yi3is_BS5L1SogrgCaBBGIL09XGXACgu6R0OrJAx2rUYecfgvbA8FfhUSQtpNOPe9bmQLE9HSYJjcRdPrSdD_Pwpvi3sTxc-AEL-o8MaO_-Mf9vgM_cmc9dGXgJT6oKnVsf_pPnK6982s-BnvW95GOKoGl84BTgQQaKWYbZr8G8o4wqrxxAK-53hLwthnh3XI84TIqBOUOJV3Pyd9qjKAR6Mhg",
+    "timestamp": "2024-01-12T13:39:08.196165"
+  }
+}</textarea> </div></pre><br/>
+<b> Marking test case as passed. As Output validation not performed and no errors in the response </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@6eda012b</td></tr>
+</table><p>
+</body>
+</html>

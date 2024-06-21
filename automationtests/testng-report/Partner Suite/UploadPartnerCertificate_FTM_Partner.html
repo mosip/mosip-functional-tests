@@ -1,0 +1,119 @@
+<html>
+<head>
+<title>TestNG:  UploadPartnerCertificate_FTM_Partner</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>UploadPartnerCertificate_FTM_Partner</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:30:43 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>1 seconds (1856 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_UploadCert_All_Valid_Smoke()'><b>Partner_UploadCert_All_Valid_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_UploadCert_All_Valid_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Partner_UploadCert_All_Valid_Smoke, endPoint=/v1/partnermanager/partners/certificate/upload, role=partner, templateFields=null, input={ "requesttime": "$TIMESTAMP$" }, output= { "errors": "$IGNORE$" }, inputTemplate=partner/FtpPartner/UploadCert/uploadCert, outputTemplate=partner/FtpPartner/UploadCert/uploadCertResult, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2068052316" onClick='toggleBox("Output-2068052316", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2068052316" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2068052316">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "certificateData": "-----BEGIN CERTIFICATE-----\n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\n-----END CERTIFICATE-----\n",
+    "partnerDomain": "DEVICE",
+    "partnerId": "FTP"
+  },
+  "requesttime": "2023-07-14T17:00:43.222Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/certificate/upload) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:00:43.947Z",
+  "response": {
+    "signedCertificateData": "-----BEGIN CERTIFICATE-----\nMIIEjTCCA3WgAwIBAgIIoZ3IDEbtToIwDQYJKoZIhvcNAQELBQAwdjELMAkGA1UE\nBhMCSU4xCzAJBgNVBAgMAktBMRIwEAYDVQQHDAlCQU5HQUxPUkUxDTALBgNVBAoM\nBElJVEIxIDAeBgNVBAsMF01PU0lQLVRFQ0gtQ0VOVEVSIChQTVMpMRUwEwYDVQQD\nDAx3d3cubW9zaXAuaW8wHhcNMjMwNzE0MTcwMDQ0WhcNMjQwNzEzMTcwMDQ0WjBT\nMQswCQYDVQQGEwJJTjEMMAoGA1UECAwDS0FSMQwwCgYDVQQHDANCTFIxDDAKBgNV\nBAoMA2Z0cDEMMAoGA1UECwwDZnRwMQwwCgYDVQQDDANmdHAwggIiMA0GCSqGSIb3\nDQEBAQUAA4ICDwAwggIKAoICAQDuifkMU0Po30mwH45Gab47exVQ27VDOHpvN01N\n03vfMrracy69gn7rH7fRZe93IyJ8hWPH5JjWJLDyLfqp+05KTBHMLF7yWzjTke7W\ntrxplABrncxCyd8EoIH9GKDqjY/MJHM/++eg8zHbdqgqHyzc4FOBJwkbqXzG4kd3\nOWI7QVvQefy/sUvzSuIVoyy6kJd6RDQZ88idZEhSKy+eTLbGnQN8/ckTZEYXCr8r\n5+8hOB0QKRR8tALw2A5uAu0NublOBuC+4kN26j406G5KqxCn/3z062YJqGmqIU5X\nWbmSh4fiVOGKCDTul3yj/uUu/kTi6Wt2TuvAgel7HwCPTvp7z3lTZ7QK3JA6O2WE\n+cLfanodoobS90N3nXsBm2kGKmDj11h5neNFHUIOqLIVYKmfWhNAfpSRqupkfKEW\nvA4UFw0SrKPrw0MH+EDS9TUDb7C/roUR2HQEQjDAHwyFDbkXs4Q717hhJTdGfey+\nw5t+4PHdHYPFwods2Xvj+lFP/dzAHrsUJm/WC9ZMBXip94mEMmjRKNgV6h+ySlor\nPGJcnDVrd4g+j5ndG9FBT8xkAxpEfFzRO+BOQh4NNqJncZehr2Y1b3YGNz0V6mKT\nw79skJiew9aj5GWKMZeo3HEm4a5jRNMF7lahWfCGe2x+wr/3uUx1RgNYK7Q4KxP9\nBDcMCQIDAQABo0IwQDAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBT2Y/KLDiBp\nGOl/2iKcwOblyWIjMTAOBgNVHQ8BAf8EBAMCAoQwDQYJKoZIhvcNAQELBQADggEB\nAFr8QjzU+dR6rrAWflYq5AhaJa0r9JB5z6ctQnFAuNjUI2lShkki+g3qR5LVl6re\nmVvLeOvEo6LTfy7Bg4/HMylegvVTEp5iGhOFiYPzH/5wp9MRahH+gBJWZWH8O5tO\ntDCclUbMwEFpb2XL2m9ZOcUE6fnEnFOgsZBZBXu+IIosl6GIBy7eL/qetoJoINfX\nkC3U12ryi+AQlt8+N1q73kqc9+G0W0AilmFlvvf3tOD9ygTPVqfZPWGamWWvKzZf\nWmB+DRr49H5w9NF37SKV9MKSq+fbCjAQlBS/fpRw8ZyRQTgJ7MrB+VwMjP1zuDZh\nXdgwN63CmWqu7SlXY8ZtPgU\u003d\n-----END CERTIFICATE-----",
+    "certificateId": "7d2194ab-5bad-4734-9ff9-bce2672ba2bb",
+    "timestamp": "2023-07-14T17:00:44.417545"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.SimplePost@76596288</td></tr>
+</table><p>
+</body>
+</html>

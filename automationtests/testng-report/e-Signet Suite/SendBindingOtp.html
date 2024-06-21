@@ -1,0 +1,1489 @@
+<html>
+<head>
+<title>TestNG:  SendBindingOtp</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>SendBindingOtp</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>32/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Aug 01 22:06:17 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>26 seconds (26243 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_Vid_Valid_Smoke_sid()'><b>ESignet_SendBindingOtp_Vid_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_Vid_Valid_Smoke_sid, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "$TIMESTAMP$", "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "maskedEmail": "$IGNORE$", "maskedMobile": "$IGNORE$" }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/SendBindingOtp/SendBindingOtpResult, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-2109567229" onClick='toggleBox("Output-2109567229", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2109567229" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2109567229">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:36:19.672Z",
+  "request": {
+    "otpChannels": [
+      "email",
+      "phone"
+    ],
+    "individualId": "3467937295083190"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:20.269Z",
+  "response": {
+    "maskedEmail": "XXiXXeXXAXXIXXnXXtXXVXX_XXnXXaXXoXXsXXkXXPXX@mosip.net",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_uin_Email_Valid_Smoke_sid()'><b>ESignet_SendBindingOtp_uin_Email_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_uin_Email_Valid_Smoke_sid, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "$TIMESTAMP$", "individualId": "$ID:AddIdentity_Valid_Params_WOPhone_smoke_Pos_UIN$", "otpChannels": [{channel: "email"}] }, output={ "maskedEmail": "$IGNORE$", "maskedMobile": "$IGNORE$" }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/SendBindingOtp/SendBindingOtpResult, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-2113582477" onClick='toggleBox("Output-2113582477", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2113582477" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2113582477">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:36:20.758Z",
+  "request": {
+    "otpChannels": [
+      "email"
+    ],
+    "individualId": "4391068378"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:21.373Z",
+  "response": {
+    "maskedEmail": "XXiXXeXXAXXIXXnXXtXXVXXiXXPXXaXX_XXPXXnXXsXXkXXPXX@mosip.net"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_uin_Empty_IndividualId_Neg()'><b>ESignet_SendBindingOtp_uin_Empty_IndividualId_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_uin_Empty_IndividualId_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "$TIMESTAMP$", "individualId": "", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "invalid_identifier", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-170101390" onClick='toggleBox("Output-170101390", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-170101390" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-170101390">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:36:31.425Z",
+  "request": {
+    "otpChannels": [
+      "email",
+      "phone"
+    ],
+    "individualId": ""
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:32.074Z",
+  "errors": [
+    {
+      "errorCode": "invalid_identifier",
+      "errorMessage": "request.individualId: invalid_identifier"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_identifier</td>
+    <td>invalid_identifier</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_uin_Empty_OtpChannels_Neg()'><b>ESignet_SendBindingOtp_uin_Empty_OtpChannels_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_uin_Empty_OtpChannels_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "$TIMESTAMP$", "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$", "otpChannels": [{channel: ""}] }, output={ "errors": [ { "errorCode": "invalid_otp_channel", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-473588918" onClick='toggleBox("Output-473588918", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-473588918" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-473588918">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:36:32.783Z",
+  "request": {
+    "otpChannels": [
+      ""
+    ],
+    "individualId": "2164581489"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:33.405Z",
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "request.otpChannels[0]: invalid_otp_channel"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_otp_channel</td>
+    <td>invalid_otp_channel</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_uin_Future_RequestTime_Neg()'><b>ESignet_SendBindingOtp_uin_Future_RequestTime_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_uin_Future_RequestTime_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "2033-11-07T06:51:30.195Z", "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-757020217" onClick='toggleBox("Output-757020217", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-757020217" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-757020217">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2033-11-07T06:51:30.195Z",
+  "request": {
+    "otpChannels": [
+      "email",
+      "phone"
+    ],
+    "individualId": "2164581489"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:25.005Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_uin_Invalid_Case_IndividualId_Neg()'><b>ESignet_SendBindingOtp_uin_Invalid_Case_IndividualId_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_uin_Invalid_Case_IndividualId_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "$TIMESTAMP$", "individualId": "@#$#$##", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "IDA-MLC-009", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-1147765156" onClick='toggleBox("Output-1147765156", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1147765156" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1147765156">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:36:27.342Z",
+  "request": {
+    "otpChannels": [
+      "email",
+      "phone"
+    ],
+    "individualId": "@#$#$##"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:28.023Z",
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "IDA-MLC-009"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDA-MLC-009</td>
+    <td>IDA-MLC-009</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_uin_Invalid_OtpChannels_Neg()'><b>ESignet_SendBindingOtp_uin_Invalid_OtpChannels_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_uin_Invalid_OtpChannels_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "$TIMESTAMP$", "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$", "otpChannels": [{channel: "emaeill"},{channel: "moebileee"}] }, output={ "errors": [ { "errorCode": "invalid_otp_channel", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-1413677222" onClick='toggleBox("Output-1413677222", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1413677222" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1413677222">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:36:33.446Z",
+  "request": {
+    "otpChannels": [
+      "emaeill",
+      "moebileee"
+    ],
+    "individualId": "2164581489"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:34.075Z",
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "request.otpChannels[0]: invalid_otp_channel"
+    },
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "request.otpChannels[1]: invalid_otp_channel"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_otp_channel</td>
+    <td>invalid_otp_channel</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_uin_Invalid_RequestTime_Neg()'><b>ESignet_SendBindingOtp_uin_Invalid_RequestTime_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_uin_Invalid_RequestTime_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "2022-11-08T06:35:53", "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-443824088" onClick='toggleBox("Output-443824088", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-443824088" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-443824088">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2022-11-08T06:35:53",
+  "request": {
+    "otpChannels": [
+      "email",
+      "phone"
+    ],
+    "individualId": "2164581489"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:23.652Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_uin_Missing_IndividualId_Neg()'><b>ESignet_SendBindingOtp_uin_Missing_IndividualId_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_uin_Missing_IndividualId_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "$TIMESTAMP$", "individualId": "$REMOVE$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "invalid_identifier", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-1919352942" onClick='toggleBox("Output-1919352942", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1919352942" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1919352942">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:36:30.282Z",
+  "request": {
+    "otpChannels": [
+      "phone",
+      "email"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:31.383Z",
+  "errors": [
+    {
+      "errorCode": "invalid_identifier",
+      "errorMessage": "request.individualId: invalid_identifier"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_identifier</td>
+    <td>invalid_identifier</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_uin_Missing_OtpChannels_Neg()'><b>ESignet_SendBindingOtp_uin_Missing_OtpChannels_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_uin_Missing_OtpChannels_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "$TIMESTAMP$", "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$", "otpChannels": "$REMOVE$" }, output={ "errors": [ { "errorCode": "invalid_otp_channel", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtpEmptyOtpChannel, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-52813883" onClick='toggleBox("Output-52813883", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-52813883" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-52813883">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:36:32.120Z",
+  "request": {
+    "individualId": "2164581489"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:32.740Z",
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "request.otpChannels: invalid_otp_channel"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_otp_channel</td>
+    <td>invalid_otp_channel</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_uin_Missing_RequestTime_Neg()'><b>ESignet_SendBindingOtp_uin_Missing_RequestTime_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_uin_Missing_RequestTime_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "$REMOVE$", "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-2147238293" onClick='toggleBox("Output-2147238293", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2147238293" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2147238293">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "otpChannels": [
+      "phone",
+      "email"
+    ],
+    "individualId": "2164581489"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:25.666Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_uin_NR_Email_IndividualId_Neg()'><b>ESignet_SendBindingOtp_uin_NR_Email_IndividualId_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_uin_NR_Email_IndividualId_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "$TIMESTAMP$", "individualId": "$ID:AddIdentity_Valid_Params_WOEmail_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "IDA-MLC-009", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-1092280535" onClick='toggleBox("Output-1092280535", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1092280535" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1092280535">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:36:28.066Z",
+  "request": {
+    "otpChannels": [
+      "email",
+      "phone"
+    ],
+    "individualId": "3927605401"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:29.046Z",
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "IDA-MLC-009"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDA-MLC-009</td>
+    <td>IDA-MLC-009</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_uin_NR_Phone_IndividualId_Neg()'><b>ESignet_SendBindingOtp_uin_NR_Phone_IndividualId_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_uin_NR_Phone_IndividualId_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "$TIMESTAMP$", "individualId": "$ID:AddIdentity_Valid_Params_WOPhone_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "IDA-MLC-009", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-1417465" onClick='toggleBox("Output-1417465", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1417465" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1417465">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:36:29.094Z",
+  "request": {
+    "otpChannels": [
+      "email",
+      "phone"
+    ],
+    "individualId": "4391068378"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:30.232Z",
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "IDA-MLC-009"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDA-MLC-009</td>
+    <td>IDA-MLC-009</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_uin_Past_RequestTime_Neg()'><b>ESignet_SendBindingOtp_uin_Past_RequestTime_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_uin_Past_RequestTime_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "2022-11-07T06:51:30.195Z", "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-163960683" onClick='toggleBox("Output-163960683", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-163960683" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-163960683">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2022-11-07T06:51:30.195Z",
+  "request": {
+    "otpChannels": [
+      "email",
+      "phone"
+    ],
+    "individualId": "2164581489"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:24.322Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_uin_Phone_Valid_Smoke_sid()'><b>ESignet_SendBindingOtp_uin_Phone_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_uin_Phone_Valid_Smoke_sid, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "$TIMESTAMP$", "individualId": "$ID:AddIdentity_Valid_Params_WOEmail_smoke_Pos_UIN$", "otpChannels": [{channel: "phone"}] }, output={ "maskedEmail": "$IGNORE$", "maskedMobile": "$IGNORE$" }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/SendBindingOtp/SendBindingOtpResult, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-643565394" onClick='toggleBox("Output-643565394", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-643565394" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-643565394">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:36:21.876Z",
+  "request": {
+    "otpChannels": [
+      "phone"
+    ],
+    "individualId": "3927605401"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:22.486Z",
+  "response": {
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_uin_Space_As_RequestTime_Neg()'><b>ESignet_SendBindingOtp_uin_Space_As_RequestTime_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_uin_Space_As_RequestTime_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": " ", "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-254093154" onClick='toggleBox("Output-254093154", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-254093154" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-254093154">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": " ",
+  "request": {
+    "otpChannels": [
+      "email",
+      "phone"
+    ],
+    "individualId": "2164581489"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:26.506Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_uin_Space_Sep_OtpChannels_Neg()'><b>ESignet_SendBindingOtp_uin_Space_Sep_OtpChannels_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_uin_Space_Sep_OtpChannels_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "$TIMESTAMP$", "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$", "otpChannels": [{channel: "em ail"},{channel: "mobi le"}] }, output={ "errors": [ { "errorCode": "invalid_otp_channel", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-887785215" onClick='toggleBox("Output-887785215", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-887785215" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-887785215">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:36:34.121Z",
+  "request": {
+    "otpChannels": [
+      "em ail",
+      "mobi le"
+    ],
+    "individualId": "2164581489"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:34.777Z",
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "request.otpChannels[0]: invalid_otp_channel"
+    },
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "request.otpChannels[1]: invalid_otp_channel"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_otp_channel</td>
+    <td>invalid_otp_channel</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_uin_all_Valid_Smoke_sid()'><b>ESignet_SendBindingOtp_uin_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_uin_all_Valid_Smoke_sid, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "$TIMESTAMP$", "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "maskedEmail": "$IGNORE$", "maskedMobile": "$IGNORE$" }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/SendBindingOtp/SendBindingOtpResult, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-1902630939" onClick='toggleBox("Output-1902630939", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1902630939" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1902630939">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:36:17.958Z",
+  "request": {
+    "otpChannels": [
+      "email",
+      "phone"
+    ],
+    "individualId": "2164581489"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:19.008Z",
+  "response": {
+    "maskedEmail": "XXiXXeXXAXXIXXnXXtXXVXXiXXPXXaXX_XXnXXtXXsXXkXXPXX@mosip.net",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_uin_invalid_individual_id_Neg()'><b>ESignet_SendBindingOtp_uin_invalid_individual_id_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_uin_invalid_individual_id_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "$TIMESTAMP$", "individualId": "168461341611351", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "IDA-MLC-009", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-72565662" onClick='toggleBox("Output-72565662", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-72565662" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-72565662">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:36:26.548Z",
+  "request": {
+    "otpChannels": [
+      "email",
+      "phone"
+    ],
+    "individualId": "168461341611351"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:27.289Z",
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "IDA-MLC-009"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDA-MLC-009</td>
+    <td>IDA-MLC-009</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_vid_Empty_IndividualId_Neg()'><b>ESignet_SendBindingOtp_vid_Empty_IndividualId_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_vid_Empty_IndividualId_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "$TIMESTAMP$", "individualId": "", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "invalid_identifier", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-1506844659" onClick='toggleBox("Output-1506844659", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1506844659" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1506844659">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:36:40.852Z",
+  "request": {
+    "otpChannels": [
+      "email",
+      "phone"
+    ],
+    "individualId": ""
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:41.460Z",
+  "errors": [
+    {
+      "errorCode": "invalid_identifier",
+      "errorMessage": "request.individualId: invalid_identifier"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_identifier</td>
+    <td>invalid_identifier</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_vid_Empty_OtpChannels_Neg()'><b>ESignet_SendBindingOtp_vid_Empty_OtpChannels_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_vid_Empty_OtpChannels_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "$TIMESTAMP$", "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$", "otpChannels": [{channel: ""}] }, output={ "errors": [ { "errorCode": "invalid_otp_channel", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-1288794477" onClick='toggleBox("Output-1288794477", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1288794477" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1288794477">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:36:42.166Z",
+  "request": {
+    "otpChannels": [
+      ""
+    ],
+    "individualId": "2164581489"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:42.800Z",
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "request.otpChannels[0]: invalid_otp_channel"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_otp_channel</td>
+    <td>invalid_otp_channel</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_vid_Future_RequestTime_Neg()'><b>ESignet_SendBindingOtp_vid_Future_RequestTime_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_vid_Future_RequestTime_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "2033-11-07T06:51:30.195Z", "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-1302056190" onClick='toggleBox("Output-1302056190", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1302056190" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1302056190">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2033-11-07T06:51:30.195Z",
+  "request": {
+    "otpChannels": [
+      "email",
+      "phone"
+    ],
+    "individualId": "3467937295083190"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:37.083Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_vid_Invalid_Case_IndividualId_Neg()'><b>ESignet_SendBindingOtp_vid_Invalid_Case_IndividualId_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_vid_Invalid_Case_IndividualId_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "$TIMESTAMP$", "individualId": "@#$#$##", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "IDA-MLC-009", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-584351497" onClick='toggleBox("Output-584351497", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-584351497" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-584351497">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:36:39.358Z",
+  "request": {
+    "otpChannels": [
+      "email",
+      "phone"
+    ],
+    "individualId": "@#$#$##"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:40.166Z",
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "IDA-MLC-009"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDA-MLC-009</td>
+    <td>IDA-MLC-009</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_vid_Invalid_OtpChannels_Neg()'><b>ESignet_SendBindingOtp_vid_Invalid_OtpChannels_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_vid_Invalid_OtpChannels_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "$TIMESTAMP$", "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$", "otpChannels": [{channel: "emaeill"},{channel: "moebileee"}] }, output={ "errors": [ { "errorCode": "invalid_otp_channel", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-1552014763" onClick='toggleBox("Output-1552014763", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1552014763" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1552014763">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:36:42.854Z",
+  "request": {
+    "otpChannels": [
+      "emaeill",
+      "moebileee"
+    ],
+    "individualId": "2164581489"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:43.488Z",
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "request.otpChannels[0]: invalid_otp_channel"
+    },
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "request.otpChannels[1]: invalid_otp_channel"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_otp_channel</td>
+    <td>invalid_otp_channel</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_vid_Invalid_RequestTime_Neg()'><b>ESignet_SendBindingOtp_vid_Invalid_RequestTime_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_vid_Invalid_RequestTime_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "2022-11-08T06:35:53", "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-98984875" onClick='toggleBox("Output-98984875", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-98984875" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-98984875">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2022-11-08T06:35:53",
+  "request": {
+    "otpChannels": [
+      "email",
+      "phone"
+    ],
+    "individualId": "3467937295083190"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:35.559Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_vid_Missing_IndividualId_Neg()'><b>ESignet_SendBindingOtp_vid_Missing_IndividualId_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_vid_Missing_IndividualId_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "$TIMESTAMP$", "individualId": "$REMOVE$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "invalid_identifier", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-2145041211" onClick='toggleBox("Output-2145041211", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2145041211" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2145041211">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:36:40.207Z",
+  "request": {
+    "otpChannels": [
+      "phone",
+      "email"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:40.810Z",
+  "errors": [
+    {
+      "errorCode": "invalid_identifier",
+      "errorMessage": "request.individualId: invalid_identifier"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_identifier</td>
+    <td>invalid_identifier</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_vid_Missing_OtpChannels_Neg()'><b>ESignet_SendBindingOtp_vid_Missing_OtpChannels_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_vid_Missing_OtpChannels_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "$TIMESTAMP$", "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$", "otpChannels": "$REMOVE$" }, output={ "errors": [ { "errorCode": "invalid_otp_channel", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtpEmptyOtpChannel, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-1664879201" onClick='toggleBox("Output-1664879201", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1664879201" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1664879201">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:36:41.500Z",
+  "request": {
+    "individualId": "2164581489"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:42.125Z",
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "request.otpChannels: invalid_otp_channel"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_otp_channel</td>
+    <td>invalid_otp_channel</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_vid_Missing_RequestTime_Neg()'><b>ESignet_SendBindingOtp_vid_Missing_RequestTime_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_vid_Missing_RequestTime_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "$REMOVE$", "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-1078027041" onClick='toggleBox("Output-1078027041", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1078027041" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1078027041">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "otpChannels": [
+      "phone",
+      "email"
+    ],
+    "individualId": "3467937295083190"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:37.792Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_vid_Past_RequestTime_Neg()'><b>ESignet_SendBindingOtp_vid_Past_RequestTime_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_vid_Past_RequestTime_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "2022-11-07T06:51:30.195Z", "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-1904811371" onClick='toggleBox("Output-1904811371", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1904811371" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1904811371">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2022-11-07T06:51:30.195Z",
+  "request": {
+    "otpChannels": [
+      "email",
+      "phone"
+    ],
+    "individualId": "3467937295083190"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:36.341Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_vid_Space_As_RequestTime_Neg()'><b>ESignet_SendBindingOtp_vid_Space_As_RequestTime_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_vid_Space_As_RequestTime_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": " ", "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-395393387" onClick='toggleBox("Output-395393387", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-395393387" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-395393387">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": " ",
+  "request": {
+    "otpChannels": [
+      "email",
+      "phone"
+    ],
+    "individualId": "3467937295083190"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:38.512Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg()'><b>ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "$TIMESTAMP$", "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$", "otpChannels": [{channel: "em ail"},{channel: "mobi le"}] }, output={ "errors": [ { "errorCode": "invalid_otp_channel", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-2112108114" onClick='toggleBox("Output-2112108114", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2112108114" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2112108114">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:36:43.530Z",
+  "request": {
+    "otpChannels": [
+      "em ail",
+      "mobi le"
+    ],
+    "individualId": "2164581489"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:44.149Z",
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "request.otpChannels[0]: invalid_otp_channel"
+    },
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "request.otpChannels[1]: invalid_otp_channel"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_otp_channel</td>
+    <td>invalid_otp_channel</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.ESignet_SendBindingOtp_vid_invalid_individual_id_Neg()'><b>ESignet_SendBindingOtp_vid_invalid_individual_id_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_SendBindingOtp_vid_invalid_individual_id_Neg, endPoint=/v1/esignet/binding/binding-otp, role=mobileauth, templateFields=null, input={ "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$", "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$", "requestTime": "$TIMESTAMP$", "individualId": "168461341611351", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "IDA-MLC-009", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/SendBindingOtp/SendBindingOtp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-2099343080" onClick='toggleBox("Output-2099343080", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2099343080" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2099343080">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:36:38.553Z",
+  "request": {
+    "otpChannels": [
+      "email",
+      "phone"
+    ],
+    "individualId": "168461341611351"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/binding/binding-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:36:39.303Z",
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "IDA-MLC-009"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDA-MLC-009</td>
+    <td>IDA-MLC-009</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6e8f2094</td></tr>
+</table><p>
+</body>
+</html>

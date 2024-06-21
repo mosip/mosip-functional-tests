@@ -1,0 +1,947 @@
+<html>
+<head>
+<title>TestNG:  HolidaySearch</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>HolidaySearch</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>9/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:53:19 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>6 seconds (6947 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_HolidaySearch_Invalid_FilterType_neg()'><b>MasterData_HolidaySearch_Invalid_FilterType_neg</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_HolidaySearch_Invalid_RequestTime_neg)<br>Parameters: TestCaseDTO(testCaseName=MasterData_HolidaySearch_Invalid_FilterType_neg, endPoint=/v1/masterdata/holidays/search, role=admin, templateFields=[value], input={ "filters": [ { "columnName": "holidayName", "type": "betweens", "value": "AutoTest user", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "holidayName", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-318", "message": "$IGNORE$" } ] }, inputTemplate=masterdata/HolidaySearch/holidaySearch, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1891600388" onClick='toggleBox("Output-1891600388", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1891600388" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1891600388">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "betweens",
+        "value": "AutoTest user",
+        "columnName": "holidayName"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "holidayName"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:23:23.754Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/holidays/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:23:24.404Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-318",
+      "message": "Column holidayName doesn\u0027t support filter type betweens"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-318</td>
+    <td>KER-MSD-318</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@623dc959</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_HolidaySearch_Invalid_RequestTime_neg()'><b>MasterData_HolidaySearch_Invalid_RequestTime_neg</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_HolidaySearch_Invalid_RequestTime_neg)<br>Parameters: TestCaseDTO(testCaseName=MasterData_HolidaySearch_Invalid_RequestTime_neg, endPoint=/v1/masterdata/holidays/search, role=admin, templateFields=[value], input={ "filters": [ { "columnName": "holidayName", "type": "equals", "value": "AutoTest user", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "asgsgg", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "2019-7-3T05:22:35.845" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "Invalid Format in field : requesttime" } ] }, inputTemplate=masterdata/HolidaySearch/holidaySearch, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-649991639" onClick='toggleBox("Output-649991639", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-649991639" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-649991639">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "AutoTest user",
+        "columnName": "holidayName"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "asgsgg"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2019-7-3T05:22:35.845",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/holidays/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:23:26.667Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : requesttime"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Invalid Format in field : requesttime</td>
+    <td>Invalid Format in field : requesttime</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@623dc959</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_HolidaySearch_Invalid_SortField_neg()'><b>MasterData_HolidaySearch_Invalid_SortField_neg</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_HolidaySearch_Invalid_RequestTime_neg)<br>Parameters: TestCaseDTO(testCaseName=MasterData_HolidaySearch_Invalid_SortField_neg, endPoint=/v1/masterdata/holidays/search, role=admin, templateFields=[value], input={ "filters": [ { "columnName": "holidayName", "type": "equals", "value": "AutoTest user", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "asgsgg", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-357", "message": "Invalid sort field asgsgg" } ] }, inputTemplate=masterdata/HolidaySearch/holidaySearch, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1413460685" onClick='toggleBox("Output-1413460685", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1413460685" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1413460685">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "AutoTest user",
+        "columnName": "holidayName"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "asgsgg"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:23:25.236Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/holidays/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:23:25.901Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-357",
+      "message": "Invalid sort field asgsgg"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Invalid sort field asgsgg</td>
+    <td>Invalid sort field asgsgg</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-357</td>
+    <td>KER-MSD-357</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@623dc959</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_HolidaySearch_Invalid_SortType_neg()'><b>MasterData_HolidaySearch_Invalid_SortType_neg</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_HolidaySearch_Invalid_RequestTime_neg)<br>Parameters: TestCaseDTO(testCaseName=MasterData_HolidaySearch_Invalid_SortType_neg, endPoint=/v1/masterdata/holidays/search, role=admin, templateFields=[value], input={ "filters": [ { "columnName": "holidayName", "type": "equals", "value": "AutoTest user", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "holidayName", "sortType": "adfdf" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-358", "message": "Sort type adfdf is not supported" } ] }, inputTemplate=masterdata/HolidaySearch/holidaySearch, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-615024544" onClick='toggleBox("Output-615024544", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-615024544" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-615024544">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "AutoTest user",
+        "columnName": "holidayName"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "adfdf",
+        "sortField": "holidayName"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:23:24.478Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/holidays/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:23:25.156Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-358",
+      "message": "Sort type adfdf is not supported"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Sort type adfdf is not supported</td>
+    <td>Sort type adfdf is not supported</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-358</td>
+    <td>KER-MSD-358</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@623dc959</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_HolidaySearch_contains_holidayName_eng_pos()'><b>MasterData_HolidaySearch_contains_holidayName_eng_pos</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_HolidaySearch_Invalid_RequestTime_neg)<br>Parameters: TestCaseDTO(testCaseName=MasterData_HolidaySearch_contains_holidayName_eng_pos, endPoint=/v1/masterdata/holidays/search, role=admin, templateFields=[value], input={ "filters": [ { "columnName": "holidayName", "type": "contains", "value": "AutoTest user", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "holidayName", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [{ "isActive": $IGNORE$, "holidayId": "$IGNORE$", "name": "$IGNORE$", "holidayDate": "2020-08-15", "holidayName": "$IGNORE$", "holidayDesc": "$IGNORE$", "langCode": "eng" }] }, inputTemplate=masterdata/HolidaySearch/holidaySearch, outputTemplate=masterdata/HolidaySearch/holidaySearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1438877828" onClick='toggleBox("Output-1438877828", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1438877828" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1438877828">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "contains",
+        "value": "AutoTest user",
+        "columnName": "holidayName"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "holidayName"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:23:22.972Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/holidays/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:23:23.633Z",
+  "response": {
+    "fromRecord": 0,
+    "toRecord": 0,
+    "totalRecord": 0
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.data</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.fromRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.toRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:23:23.633Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.totalRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@623dc959</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_HolidaySearch_equals_holidayName_ara_pos()'><b>MasterData_HolidaySearch_equals_holidayName_ara_pos</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_HolidaySearch_Invalid_RequestTime_neg)<br>Parameters: TestCaseDTO(testCaseName=MasterData_HolidaySearch_equals_holidayName_ara_pos, endPoint=/v1/masterdata/holidays/search, role=admin, templateFields=[value], input={ "filters": [ { "columnName": "holidayName", "type": "equals", "value": "AutoTest user Ara", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "holidayName", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "ara", "requesttime": "$TIMESTAMP$" }, output={ "data": [{ "isActive": $IGNORE$, "holidayId": "$IGNORE$", "name": "$IGNORE$", "holidayDate": "2020-08-15", "holidayName": "AutoTest user Ara", "holidayDesc": "$IGNORE$", "langCode": "ara" }] }, inputTemplate=masterdata/HolidaySearch/holidaySearch, outputTemplate=masterdata/HolidaySearch/holidaySearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1838057990" onClick='toggleBox("Output-1838057990", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1838057990" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1838057990">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "AutoTest user Ara",
+        "columnName": "holidayName"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "holidayName"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:23:20.598Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/holidays/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:23:21.360Z",
+  "response": {
+    "fromRecord": 0,
+    "toRecord": 0,
+    "totalRecord": 0
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.data</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.fromRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.toRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:23:21.360Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.totalRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@623dc959</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_HolidaySearch_equals_holidayName_eng_pos()'><b>MasterData_HolidaySearch_equals_holidayName_eng_pos</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_HolidaySearch_Invalid_RequestTime_neg)<br>Parameters: TestCaseDTO(testCaseName=MasterData_HolidaySearch_equals_holidayName_eng_pos, endPoint=/v1/masterdata/holidays/search, role=admin, templateFields=[value], input={ "filters": [ { "columnName": "holidayName", "type": "equals", "value": "AutoTest user Eng", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "holidayName", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [{ "isActive": $IGNORE$, "holidayId": "$IGNORE$", "name": "$IGNORE$", "holidayDate": "2020-08-15", "holidayName": "AutoTest user Eng", "holidayDesc": "$IGNORE$", "langCode": "eng" }] }, inputTemplate=masterdata/HolidaySearch/holidaySearch, outputTemplate=masterdata/HolidaySearch/holidaySearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1020874621" onClick='toggleBox("Output-1020874621", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1020874621" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1020874621">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "AutoTest user Eng",
+        "columnName": "holidayName"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "holidayName"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:23:19.794Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/holidays/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:23:20.493Z",
+  "response": {
+    "fromRecord": 0,
+    "toRecord": 0,
+    "totalRecord": 0
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.data</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.fromRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.toRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:23:20.493Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.totalRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@623dc959</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_HolidaySearch_startsWith_holidayName_ara_pos()'><b>MasterData_HolidaySearch_startsWith_holidayName_ara_pos</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_HolidaySearch_Invalid_RequestTime_neg)<br>Parameters: TestCaseDTO(testCaseName=MasterData_HolidaySearch_startsWith_holidayName_ara_pos, endPoint=/v1/masterdata/holidays/search, role=admin, templateFields=[value], input={ "filters": [ { "columnName": "holidayName", "type": "startsWith", "value": "AutoTest user", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "holidayName", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "ara", "requesttime": "$TIMESTAMP$" }, output={ "data": [{ "isActive": $IGNORE$, "holidayId": "$IGNORE$", "name": "$IGNORE$", "holidayDate": "2020-08-15", "holidayName": "AutoTest user Ara", "holidayDesc": "$IGNORE$", "langCode": "ara" }] }, inputTemplate=masterdata/HolidaySearch/holidaySearch, outputTemplate=masterdata/HolidaySearch/holidaySearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-488914619" onClick='toggleBox("Output-488914619", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-488914619" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-488914619">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "startsWith",
+        "value": "AutoTest user",
+        "columnName": "holidayName"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "holidayName"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:23:22.202Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/holidays/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:23:22.876Z",
+  "response": {
+    "fromRecord": 0,
+    "toRecord": 0,
+    "totalRecord": 0
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.data</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.fromRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.toRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:23:22.876Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.totalRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@623dc959</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_HolidaySearch_startsWith_holidayName_eng_pos()'><b>MasterData_HolidaySearch_startsWith_holidayName_eng_pos</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_HolidaySearch_Invalid_RequestTime_neg)<br>Parameters: TestCaseDTO(testCaseName=MasterData_HolidaySearch_startsWith_holidayName_eng_pos, endPoint=/v1/masterdata/holidays/search, role=admin, templateFields=[value], input={ "filters": [ { "columnName": "holidayName", "type": "startsWith", "value": "AutoTest user", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "holidayName", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [{ "isActive": $IGNORE$, "holidayId": "$IGNORE$", "name": "$IGNORE$", "holidayDate": "2020-08-15", "holidayName": "AutoTest user Eng", "holidayDesc": "$IGNORE$", "langCode": "eng" }] }, inputTemplate=masterdata/HolidaySearch/holidaySearch, outputTemplate=masterdata/HolidaySearch/holidaySearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1344487293" onClick='toggleBox("Output-1344487293", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1344487293" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1344487293">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "startsWith",
+        "value": "AutoTest user",
+        "columnName": "holidayName"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "holidayName"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:23:21.461Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/holidays/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:23:22.094Z",
+  "response": {
+    "fromRecord": 0,
+    "toRecord": 0,
+    "totalRecord": 0
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.data</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.fromRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.toRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:23:22.094Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.totalRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@623dc959</td></tr>
+</table><p>
+</body>
+</html>

@@ -1,0 +1,1549 @@
+<html>
+<head>
+<title>TestNG:  AuthInternalUnlock</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>AuthInternalUnlock</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>18/10/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Oct 12 14:27:56 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>20 seconds (20300 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Uin_Empty_Authtype()'><b>IdRepository_AuthInternalUnlock_Uin_Empty_Authtype</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Uin_Empty_Authtype, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "$ID:AddIdentity_AuthStatus_Valid_smoke_Pos_UIN$", "individualIdType": "UIN", "authType": "", "authSubType": "FACE", "locked": "false", "unlockForSeconds": 0, "id": "string", "version": "string", "requestTime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "IDR-IDC-003" } ] }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1305748956" onClick='toggleBox("Output-1305748956", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1305748956" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1305748956">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requestTime": "2023-10-12T08:58:07.231Z",
+  "consentObtained": true,
+  "individualId": "305723785218",
+  "individualIdType": "UIN",
+  "request": [
+    {
+      "authType": "",
+      "authSubType": "FACE",
+      "locked": "false",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:58:07 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=235]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "responsetime": "2023-10-12T08:58:07.649Z",
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-003</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Failed at otp output validation
+	at io.mosip.testrig.apirig.testscripts.SimplePost.test(SimplePost.java:153)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1305748956", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1305748956'><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Failed at otp output validation
+	at io.mosip.testrig.apirig.testscripts.SimplePost.test(SimplePost.java:153)
+	at jdk.internal.reflect.GeneratedMethodAccessor216.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Uin_Empty_authSubType()'><b>IdRepository_AuthInternalUnlock_Uin_Empty_authSubType</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Uin_Empty_authSubType, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "$ID:AddIdentity_AuthStatus_Valid_smoke_Pos_UIN$", "individualIdType": "UIN", "authType": "bio", "authSubType": "", "locked": "false", "unlockForSeconds": 0, "id": "string", "version": "string", "requestTime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "IDR-IDC-003" } ] }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-771996532" onClick='toggleBox("Output-771996532", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-771996532" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-771996532">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requestTime": "2023-10-12T08:58:09.006Z",
+  "consentObtained": true,
+  "individualId": "305723785218",
+  "individualIdType": "UIN",
+  "request": [
+    {
+      "authType": "bio",
+      "authSubType": "",
+      "locked": "false",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:58:09 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=129]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "responsetime": "2023-10-12T08:58:09.382Z",
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-003</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Failed at otp output validation
+	at io.mosip.testrig.apirig.testscripts.SimplePost.test(SimplePost.java:153)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace771996532", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace771996532'><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Failed at otp output validation
+	at io.mosip.testrig.apirig.testscripts.SimplePost.test(SimplePost.java:153)
+	at jdk.internal.reflect.GeneratedMethodAccessor216.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Uin_Empty_id()'><b>IdRepository_AuthInternalUnlock_Uin_Empty_id</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Uin_Empty_id, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "$ID:AddIdentity_AuthStatus_Valid_smoke_Pos_UIN$", "individualIdType": "UIN", "authType": "bio", "authSubType": "FACE", "locked": "false", "unlockForSeconds": 0, "id": "", "version": "string", "requestTime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "IDR-IDC-003" } ] }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-101272276" onClick='toggleBox("Output-101272276", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-101272276" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-101272276">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "",
+  "version": "string",
+  "requestTime": "2023-10-12T08:58:10.914Z",
+  "consentObtained": true,
+  "individualId": "305723785218",
+  "individualIdType": "UIN",
+  "request": [
+    {
+      "authType": "bio",
+      "authSubType": "FACE",
+      "locked": "false",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:58:11 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=187]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "responsetime": "2023-10-12T08:58:11.315Z",
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-003</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Failed at otp output validation
+	at io.mosip.testrig.apirig.testscripts.SimplePost.test(SimplePost.java:153)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace101272276", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace101272276'><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Failed at otp output validation
+	at io.mosip.testrig.apirig.testscripts.SimplePost.test(SimplePost.java:153)
+	at jdk.internal.reflect.GeneratedMethodAccessor216.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Uin_Empty_requestTime()'><b>IdRepository_AuthInternalUnlock_Uin_Empty_requestTime</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Uin_Empty_requestTime, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "$ID:AddIdentity_AuthStatus_Valid_smoke_Pos_UIN$", "individualIdType": "UIN", "authType": "bio", "authSubType": "FACE", "locked": "false", "unlockForSeconds": 0, "id": "string", "version": "string", "requestTime": "" }, output={ "errors": [ { "errorCode": "IDR-IDC-003" } ] }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1228034255" onClick='toggleBox("Output-1228034255", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1228034255" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1228034255">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requestTime": "",
+  "consentObtained": true,
+  "individualId": "305723785218",
+  "individualIdType": "UIN",
+  "request": [
+    {
+      "authType": "bio",
+      "authSubType": "FACE",
+      "locked": "false",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:58:14 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=149]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "responsetime": "2023-10-12T08:58:14.713Z",
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-003</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Failed at otp output validation
+	at io.mosip.testrig.apirig.testscripts.SimplePost.test(SimplePost.java:153)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1228034255", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1228034255'><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Failed at otp output validation
+	at io.mosip.testrig.apirig.testscripts.SimplePost.test(SimplePost.java:153)
+	at jdk.internal.reflect.GeneratedMethodAccessor216.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Uin_Empty_version()'><b>IdRepository_AuthInternalUnlock_Uin_Empty_version</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Uin_Empty_version, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "$ID:AddIdentity_AuthStatus_Valid_smoke_Pos_UIN$", "individualIdType": "UIN", "authType": "bio", "authSubType": "FACE", "locked": "false", "unlockForSeconds": 0, "id": "string", "version": "", "requestTime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "IDR-IDC-003" } ] }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1821576830" onClick='toggleBox("Output-1821576830", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1821576830" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1821576830">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "",
+  "requestTime": "2023-10-12T08:58:12.766Z",
+  "consentObtained": true,
+  "individualId": "305723785218",
+  "individualIdType": "UIN",
+  "request": [
+    {
+      "authType": "bio",
+      "authSubType": "FACE",
+      "locked": "false",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:58:13 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=144]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "responsetime": "2023-10-12T08:58:13.124Z",
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-003</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Failed at otp output validation
+	at io.mosip.testrig.apirig.testscripts.SimplePost.test(SimplePost.java:153)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1821576830", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1821576830'><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Failed at otp output validation
+	at io.mosip.testrig.apirig.testscripts.SimplePost.test(SimplePost.java:153)
+	at jdk.internal.reflect.GeneratedMethodAccessor216.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Vid_Empty_Authtype()'><b>IdRepository_AuthInternalUnlock_Vid_Empty_Authtype</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Vid_Empty_Authtype, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "$ID:CreateVID_withValidParameters_AuthStatus_Smoke_Perpetual_sid_VID$", "individualIdType": "VID", "authType": "", "authSubType": "FACE", "locked": "false", "unlockForSeconds": 0, "id": "string", "version": "string", "requestTime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "IDR-IDC-003" } ] }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-39179479" onClick='toggleBox("Output-39179479", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-39179479" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-39179479">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requestTime": "2023-10-12T08:58:07.852Z",
+  "consentObtained": true,
+  "individualId": "5320812735619851",
+  "individualIdType": "VID",
+  "request": [
+    {
+      "authType": "",
+      "authSubType": "FACE",
+      "locked": "false",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:58:08 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=755]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "responsetime": "2023-10-12T08:58:08.869Z",
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-003</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Failed at otp output validation
+	at io.mosip.testrig.apirig.testscripts.SimplePost.test(SimplePost.java:153)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace39179479", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace39179479'><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Failed at otp output validation
+	at io.mosip.testrig.apirig.testscripts.SimplePost.test(SimplePost.java:153)
+	at jdk.internal.reflect.GeneratedMethodAccessor216.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+</pre></div></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Vid_Empty_authSubType()'><b>IdRepository_AuthInternalUnlock_Vid_Empty_authSubType</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Vid_Empty_authSubType, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "$ID:CreateVID_withValidParameters_AuthStatus_Smoke_Perpetual_sid_VID$", "individualIdType": "VID", "authType": "bio", "authSubType": "", "locked": "false", "unlockForSeconds": 0, "id": "string", "version": "string", "requestTime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "IDR-IDC-003" } ] }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1373194140" onClick='toggleBox("Output-1373194140", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1373194140" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1373194140">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requestTime": "2023-10-12T08:58:09.492Z",
+  "consentObtained": true,
+  "individualId": "5320812735619851",
+  "individualIdType": "VID",
+  "request": [
+    {
+      "authType": "bio",
+      "authSubType": "",
+      "locked": "false",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:58:10 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=450]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "responsetime": "2023-10-12T08:58:10.234Z",
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-003</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Failed at otp output validation
+	at io.mosip.testrig.apirig.testscripts.SimplePost.test(SimplePost.java:153)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1373194140", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1373194140'><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Failed at otp output validation
+	at io.mosip.testrig.apirig.testscripts.SimplePost.test(SimplePost.java:153)
+	at jdk.internal.reflect.GeneratedMethodAccessor216.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Vid_Empty_id()'><b>IdRepository_AuthInternalUnlock_Vid_Empty_id</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Vid_Empty_id, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "$ID:CreateVID_withValidParameters_AuthStatus_Smoke_Perpetual_sid_VID$", "individualIdType": "VID", "authType": "bio", "authSubType": "FACE", "locked": "false", "unlockForSeconds": 0, "id": "", "version": "string", "requestTime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "IDR-IDC-003" } ] }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-255102480" onClick='toggleBox("Output-255102480", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-255102480" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-255102480">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "",
+  "version": "string",
+  "requestTime": "2023-10-12T08:58:11.534Z",
+  "consentObtained": true,
+  "individualId": "5320812735619851",
+  "individualIdType": "VID",
+  "request": [
+    {
+      "authType": "bio",
+      "authSubType": "FACE",
+      "locked": "false",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:58:12 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=719]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "responsetime": "2023-10-12T08:58:12.429Z",
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-003</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Failed at otp output validation
+	at io.mosip.testrig.apirig.testscripts.SimplePost.test(SimplePost.java:153)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace255102480", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace255102480'><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Failed at otp output validation
+	at io.mosip.testrig.apirig.testscripts.SimplePost.test(SimplePost.java:153)
+	at jdk.internal.reflect.GeneratedMethodAccessor216.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+</pre></div></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Vid_Empty_requestTime()'><b>IdRepository_AuthInternalUnlock_Vid_Empty_requestTime</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Vid_Empty_requestTime, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "$ID:CreateVID_withValidParameters_AuthStatus_Smoke_Perpetual_sid_VID$", "individualIdType": "VID", "authType": "bio", "authSubType": "FACE", "locked": "false", "unlockForSeconds": 0, "id": "string", "version": "string", "requestTime": "" }, output={ "errors": [ { "errorCode": "IDR-IDC-003" } ] }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1856911152" onClick='toggleBox("Output-1856911152", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1856911152" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1856911152">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requestTime": "",
+  "consentObtained": true,
+  "individualId": "5320812735619851",
+  "individualIdType": "VID",
+  "request": [
+    {
+      "authType": "bio",
+      "authSubType": "FACE",
+      "locked": "false",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:58:15 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=731]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "responsetime": "2023-10-12T08:58:15.723Z",
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-003</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Failed at otp output validation
+	at io.mosip.testrig.apirig.testscripts.SimplePost.test(SimplePost.java:153)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1856911152", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1856911152'><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Failed at otp output validation
+	at io.mosip.testrig.apirig.testscripts.SimplePost.test(SimplePost.java:153)
+	at jdk.internal.reflect.GeneratedMethodAccessor216.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+</pre></div></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Vid_Empty_version()'><b>IdRepository_AuthInternalUnlock_Vid_Empty_version</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Vid_Empty_version, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "$ID:CreateVID_withValidParameters_AuthStatus_Smoke_Perpetual_sid_VID$", "individualIdType": "VID", "authType": "bio", "authSubType": "FACE", "locked": "false", "unlockForSeconds": 0, "id": "string", "version": "", "requestTime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "IDR-IDC-003" } ] }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1759260499" onClick='toggleBox("Output-1759260499", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1759260499" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1759260499">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "",
+  "requestTime": "2023-10-12T08:58:13.377Z",
+  "consentObtained": true,
+  "individualId": "5320812735619851",
+  "individualIdType": "VID",
+  "request": [
+    {
+      "authType": "bio",
+      "authSubType": "FACE",
+      "locked": "false",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:58:14 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=609]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "responsetime": "2023-10-12T08:58:14.224Z",
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-003</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Failed at otp output validation
+	at io.mosip.testrig.apirig.testscripts.SimplePost.test(SimplePost.java:153)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1759260499", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1759260499'><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Failed at otp output validation
+	at io.mosip.testrig.apirig.testscripts.SimplePost.test(SimplePost.java:153)
+	at jdk.internal.reflect.GeneratedMethodAccessor216.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Uin_Demo_Smoke_Pos()'><b>IdRepository_AuthInternalUnlock_Uin_Demo_Smoke_Pos</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Uin_Demo_Smoke_Pos, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "id": "string", "version": "string", "requestTime": "$TIMESTAMP$", "individualId": "$ID:AddIdentity_AuthStatus_Valid_smoke_Pos_UIN$", "individualIdType": "UIN", "authType": "demo", "authSubType": "", "locked": "false", "unlockForSeconds": 0 }, output={ }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlockResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null)<br/>
+<a href="#Output-1815643381" onClick='toggleBox("Output-1815643381", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1815643381" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1815643381">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requestTime": "2023-10-12T08:57:56.885Z",
+  "consentObtained": true,
+  "individualId": "305723785218",
+  "individualIdType": "UIN",
+  "request": [
+    {
+      "authType": "demo",
+      "authSubType": "",
+      "locked": "false",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:57:57 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=97]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "responsetime": "2023-10-12T08:57:57.253Z",
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Marking test case as passed. As Output validation not performed and no errors in the response </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Uin_Empty_individualId()'><b>IdRepository_AuthInternalUnlock_Uin_Empty_individualId</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Uin_Empty_individualId, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "", "individualIdType": "UIN", "authType": "bio", "authSubType": "FACE", "locked": "false", "unlockForSeconds": 0, "id": "string", "version": "string", "requestTime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "IDR-IDC-002" } ] }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1924594328" onClick='toggleBox("Output-1924594328", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1924594328" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1924594328">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requestTime": "2023-10-12T08:58:15.809Z",
+  "consentObtained": true,
+  "individualId": "",
+  "individualIdType": "UIN",
+  "request": [
+    {
+      "authType": "bio",
+      "authSubType": "FACE",
+      "locked": "false",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:58:16 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=12]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.create",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:58:16.108Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - individualId"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-002</td>
+    <td>IDR-IDC-002</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Uin_Empty_individualIdType()'><b>IdRepository_AuthInternalUnlock_Uin_Empty_individualIdType</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Uin_Empty_individualIdType, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "$ID:AddIdentity_AuthStatus_Valid_smoke_Pos_UIN$", "individualIdType": "", "authType": "bio", "authSubType": "FACE", "locked": "false", "unlockForSeconds": 0, "id": "string", "version": "string", "requestTime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "IDR-IDC-004" } ] }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1592352066" onClick='toggleBox("Output-1592352066", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1592352066" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1592352066">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requestTime": "2023-10-12T08:58:16.441Z",
+  "consentObtained": true,
+  "individualId": "305723785218",
+  "individualIdType": "",
+  "request": [
+    {
+      "authType": "bio",
+      "authSubType": "FACE",
+      "locked": "false",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:58:16 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=13]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.create",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:58:16.783Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-004",
+      "message": "Unknown error occurred"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-004</td>
+    <td>IDR-IDC-004</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Uin_Empty_locked()'><b>IdRepository_AuthInternalUnlock_Uin_Empty_locked</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Uin_Empty_locked, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "$ID:AddIdentity_AuthStatus_Valid_smoke_Pos_UIN$", "individualIdType": "UIN", "authType": "bio", "authSubType": "FACE", "locked": "", "unlockForSeconds": 0, "id": "string", "version": "string", "requestTime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "IDR-IDC-004" } ] }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-2049060908" onClick='toggleBox("Output-2049060908", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2049060908" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2049060908">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requestTime": "2023-10-12T08:58:10.278Z",
+  "consentObtained": true,
+  "individualId": "305723785218",
+  "individualIdType": "UIN",
+  "request": [
+    {
+      "authType": "bio",
+      "authSubType": "FACE",
+      "locked": "",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:58:10 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=9]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.create",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:58:10.591Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-004",
+      "message": "Unknown error occurred"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-004</td>
+    <td>IDR-IDC-004</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Uin_FACE_Smoke_Pos()'><b>IdRepository_AuthInternalUnlock_Uin_FACE_Smoke_Pos</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Uin_FACE_Smoke_Pos, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "$ID:AddIdentity_AuthStatus_Valid_smoke_Pos_UIN$", "individualIdType": "UIN", "authType": "bio", "authSubType": "FACE", "locked": "false", "unlockForSeconds": 0, "id": "string", "version": "string", "requestTime": "$TIMESTAMP$" }, output={ }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlockResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null)<br/>
+<a href="#Output-1992162329" onClick='toggleBox("Output-1992162329", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1992162329" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1992162329">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requestTime": "2023-10-12T08:57:58.410Z",
+  "consentObtained": true,
+  "individualId": "305723785218",
+  "individualIdType": "UIN",
+  "request": [
+    {
+      "authType": "bio",
+      "authSubType": "FACE",
+      "locked": "false",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:57:58 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=84]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "responsetime": "2023-10-12T08:57:58.760Z",
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Marking test case as passed. As Output validation not performed and no errors in the response </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Uin_FINGER_Smoke_Pos()'><b>IdRepository_AuthInternalUnlock_Uin_FINGER_Smoke_Pos</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Uin_FINGER_Smoke_Pos, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "$ID:AddIdentity_AuthStatus_Valid_smoke_Pos_UIN$", "individualIdType": "UIN", "authType": "bio", "authSubType": "FINGER", "locked": "false", "unlockForSeconds": 0, "id": "string", "version": "string", "requestTime": "$TIMESTAMP$" }, output={ }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlockResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null)<br/>
+<a href="#Output-451573149" onClick='toggleBox("Output-451573149", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-451573149" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-451573149">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requestTime": "2023-10-12T08:58:01.403Z",
+  "consentObtained": true,
+  "individualId": "305723785218",
+  "individualIdType": "UIN",
+  "request": [
+    {
+      "authType": "bio",
+      "authSubType": "FINGER",
+      "locked": "false",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:58:02 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=561]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "responsetime": "2023-10-12T08:58:02.295Z",
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Marking test case as passed. As Output validation not performed and no errors in the response </b><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Uin_IRIS_Smoke_Pos()'><b>IdRepository_AuthInternalUnlock_Uin_IRIS_Smoke_Pos</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Uin_IRIS_Smoke_Pos, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "$ID:AddIdentity_AuthStatus_Valid_smoke_Pos_UIN$", "individualIdType": "UIN", "authType": "bio", "authSubType": "IRIS", "locked": "false", "unlockForSeconds": 0, "id": "string", "version": "string", "requestTime": "$TIMESTAMP$" }, output={ }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlockResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null)<br/>
+<a href="#Output-431731222" onClick='toggleBox("Output-431731222", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-431731222" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-431731222">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requestTime": "2023-10-12T08:57:59.754Z",
+  "consentObtained": true,
+  "individualId": "305723785218",
+  "individualIdType": "UIN",
+  "request": [
+    {
+      "authType": "bio",
+      "authSubType": "IRIS",
+      "locked": "false",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:58:00 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=77]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "responsetime": "2023-10-12T08:58:00.214Z",
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Marking test case as passed. As Output validation not performed and no errors in the response </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Uin_email_Smoke_Pos()'><b>IdRepository_AuthInternalUnlock_Uin_email_Smoke_Pos</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Uin_email_Smoke_Pos, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "$ID:AddIdentity_AuthStatus_Valid_smoke_Pos_UIN$", "individualIdType": "UIN", "authType": "otp", "authSubType": "email", "locked": "false", "unlockForSeconds": 0, "id": "string", "version": "string", "requestTime": "$TIMESTAMP$" }, output={ }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlockResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null)<br/>
+<a href="#Output-328046478" onClick='toggleBox("Output-328046478", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-328046478" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-328046478">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requestTime": "2023-10-12T08:58:03.958Z",
+  "consentObtained": true,
+  "individualId": "305723785218",
+  "individualIdType": "UIN",
+  "request": [
+    {
+      "authType": "otp",
+      "authSubType": "email",
+      "locked": "false",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:58:04 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=158]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "responsetime": "2023-10-12T08:58:04.377Z",
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Marking test case as passed. As Output validation not performed and no errors in the response </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Uin_phone_Smoke_Pos()'><b>IdRepository_AuthInternalUnlock_Uin_phone_Smoke_Pos</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Uin_phone_Smoke_Pos, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "$ID:AddIdentity_AuthStatus_Valid_smoke_Pos_UIN$", "individualIdType": "UIN", "authType": "otp", "authSubType": "phone", "locked": "false", "unlockForSeconds": 0, "id": "string", "version": "string", "requestTime": "$TIMESTAMP$" }, output={ }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlockResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null)<br/>
+<a href="#Output-24057252" onClick='toggleBox("Output-24057252", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-24057252" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-24057252">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requestTime": "2023-10-12T08:58:05.492Z",
+  "consentObtained": true,
+  "individualId": "305723785218",
+  "individualIdType": "UIN",
+  "request": [
+    {
+      "authType": "otp",
+      "authSubType": "phone",
+      "locked": "false",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:58:05 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=191]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "responsetime": "2023-10-12T08:58:05.939Z",
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Marking test case as passed. As Output validation not performed and no errors in the response </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Vid_Demo_Smoke_Pos()'><b>IdRepository_AuthInternalUnlock_Vid_Demo_Smoke_Pos</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Vid_Demo_Smoke_Pos, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "$ID:CreateVID_withValidParameters_AuthStatus_Smoke_Perpetual_sid_VID$", "individualIdType": "VID", "authType": "demo", "authSubType": "", "locked": "false", "unlockForSeconds": 0, "id": "string", "version": "string", "requestTime": "$TIMESTAMP$" }, output={ }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlockResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null)<br/>
+<a href="#Output-707885815" onClick='toggleBox("Output-707885815", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-707885815" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-707885815">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requestTime": "2023-10-12T08:57:57.534Z",
+  "consentObtained": true,
+  "individualId": "5320812735619851",
+  "individualIdType": "VID",
+  "request": [
+    {
+      "authType": "demo",
+      "authSubType": "",
+      "locked": "false",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:57:58 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=571]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "responsetime": "2023-10-12T08:57:58.338Z",
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Marking test case as passed. As Output validation not performed and no errors in the response </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Vid_Empty_individualId()'><b>IdRepository_AuthInternalUnlock_Vid_Empty_individualId</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Vid_Empty_individualId, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "", "individualIdType": "VID", "authType": "bio", "authSubType": "FACE", "locked": "false", "unlockForSeconds": 0, "id": "string", "version": "string", "requestTime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "IDR-IDC-002" } ] }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-169760655" onClick='toggleBox("Output-169760655", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-169760655" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-169760655">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requestTime": "2023-10-12T08:58:16.112Z",
+  "consentObtained": true,
+  "individualId": "",
+  "individualIdType": "VID",
+  "request": [
+    {
+      "authType": "bio",
+      "authSubType": "FACE",
+      "locked": "false",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:58:16 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=24]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.create",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:58:16.417Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - individualId"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-002</td>
+    <td>IDR-IDC-002</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType()'><b>IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "$ID:CreateVID_withValidParameters_AuthStatus_Smoke_Perpetual_sid_VID$", "individualIdType": "", "authType": "bio", "authSubType": "FACE", "locked": "false", "unlockForSeconds": 0, "id": "string", "version": "string", "requestTime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "IDR-IDC-004" } ] }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-569987043" onClick='toggleBox("Output-569987043", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-569987043" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-569987043">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requestTime": "2023-10-12T08:58:16.787Z",
+  "consentObtained": true,
+  "individualId": "5320812735619851",
+  "individualIdType": "",
+  "request": [
+    {
+      "authType": "bio",
+      "authSubType": "FACE",
+      "locked": "false",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:58:17 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=22]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.create",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:58:17.133Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-004",
+      "message": "Unknown error occurred"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-004</td>
+    <td>IDR-IDC-004</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Vid_Empty_locked()'><b>IdRepository_AuthInternalUnlock_Vid_Empty_locked</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Vid_Empty_locked, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "$ID:CreateVID_withValidParameters_AuthStatus_Smoke_Perpetual_sid_VID$", "individualIdType": "VID", "authType": "bio", "authSubType": "FACE", "locked": "", "unlockForSeconds": 0, "id": "string", "version": "string", "requestTime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "IDR-IDC-004" } ] }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-715544178" onClick='toggleBox("Output-715544178", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-715544178" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-715544178">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requestTime": "2023-10-12T08:58:10.597Z",
+  "consentObtained": true,
+  "individualId": "5320812735619851",
+  "individualIdType": "VID",
+  "request": [
+    {
+      "authType": "bio",
+      "authSubType": "FACE",
+      "locked": "",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:58:10 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=14]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.create",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:58:10.906Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-004",
+      "message": "Unknown error occurred"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-004</td>
+    <td>IDR-IDC-004</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Vid_FACE_Smoke_Pos()'><b>IdRepository_AuthInternalUnlock_Vid_FACE_Smoke_Pos</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Vid_FACE_Smoke_Pos, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "$ID:CreateVID_withValidParameters_AuthStatus_Smoke_Perpetual_sid_VID$", "individualIdType": "VID", "authType": "bio", "authSubType": "FACE", "locked": "false", "unlockForSeconds": 0, "id": "string", "version": "string", "requestTime": "$TIMESTAMP$" }, output={ }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlockResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null)<br/>
+<a href="#Output-629738723" onClick='toggleBox("Output-629738723", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-629738723" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-629738723">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requestTime": "2023-10-12T08:57:58.840Z",
+  "consentObtained": true,
+  "individualId": "5320812735619851",
+  "individualIdType": "VID",
+  "request": [
+    {
+      "authType": "bio",
+      "authSubType": "FACE",
+      "locked": "false",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:57:59 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=474]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "responsetime": "2023-10-12T08:57:59.630Z",
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Marking test case as passed. As Output validation not performed and no errors in the response </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Vid_FINGER_Smoke_Pos()'><b>IdRepository_AuthInternalUnlock_Vid_FINGER_Smoke_Pos</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Vid_FINGER_Smoke_Pos, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "$ID:CreateVID_withValidParameters_AuthStatus_Smoke_Perpetual_sid_VID$", "individualIdType": "VID", "authType": "bio", "authSubType": "FINGER", "locked": "false", "unlockForSeconds": 0, "id": "string", "version": "string", "requestTime": "$TIMESTAMP$" }, output={ }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlockResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null)<br/>
+<a href="#Output-2022798382" onClick='toggleBox("Output-2022798382", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2022798382" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2022798382">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requestTime": "2023-10-12T08:58:02.626Z",
+  "consentObtained": true,
+  "individualId": "5320812735619851",
+  "individualIdType": "VID",
+  "request": [
+    {
+      "authType": "bio",
+      "authSubType": "FINGER",
+      "locked": "false",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:58:03 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=651]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "responsetime": "2023-10-12T08:58:03.697Z",
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Marking test case as passed. As Output validation not performed and no errors in the response </b><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Vid_IRIS_Smoke_Pos()'><b>IdRepository_AuthInternalUnlock_Vid_IRIS_Smoke_Pos</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Vid_IRIS_Smoke_Pos, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "$ID:CreateVID_withValidParameters_AuthStatus_Smoke_Perpetual_sid_VID$", "individualIdType": "VID", "authType": "bio", "authSubType": "IRIS", "locked": "false", "unlockForSeconds": 0, "id": "string", "version": "string", "requestTime": "$TIMESTAMP$" }, output={ }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlockResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null)<br/>
+<a href="#Output-1618322666" onClick='toggleBox("Output-1618322666", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1618322666" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1618322666">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requestTime": "2023-10-12T08:58:00.240Z",
+  "consentObtained": true,
+  "individualId": "5320812735619851",
+  "individualIdType": "VID",
+  "request": [
+    {
+      "authType": "bio",
+      "authSubType": "IRIS",
+      "locked": "false",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:58:01 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=535]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "responsetime": "2023-10-12T08:58:01.176Z",
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Marking test case as passed. As Output validation not performed and no errors in the response </b><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Vid_email_Smoke_Pos()'><b>IdRepository_AuthInternalUnlock_Vid_email_Smoke_Pos</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Vid_email_Smoke_Pos, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "$ID:CreateVID_withValidParameters_AuthStatus_Smoke_Perpetual_sid_VID$", "individualIdType": "VID", "authType": "otp", "authSubType": "email", "locked": "false", "unlockForSeconds": 0, "id": "string", "version": "string", "requestTime": "$TIMESTAMP$" }, output={ }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlockResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null)<br/>
+<a href="#Output-1721002441" onClick='toggleBox("Output-1721002441", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1721002441" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1721002441">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requestTime": "2023-10-12T08:58:04.426Z",
+  "consentObtained": true,
+  "individualId": "5320812735619851",
+  "individualIdType": "VID",
+  "request": [
+    {
+      "authType": "otp",
+      "authSubType": "email",
+      "locked": "false",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:58:05 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=565]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "responsetime": "2023-10-12T08:58:05.231Z",
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Marking test case as passed. As Output validation not performed and no errors in the response </b><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.IdRepository_AuthInternalUnlock_Vid_phone_Smoke_Pos()'><b>IdRepository_AuthInternalUnlock_Vid_phone_Smoke_Pos</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (IdRepository_AuthInternalUnlock_Vid_Empty_individualIdType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_AuthInternalUnlock_Vid_phone_Smoke_Pos, endPoint=/idrepository/v1/identity/authtypes/status, role=idrepo, templateFields=null, input={ "individualId": "$ID:CreateVID_withValidParameters_AuthStatus_Smoke_Perpetual_sid_VID$", "individualIdType": "VID", "authType": "otp", "authSubType": "phone", "locked": "false", "unlockForSeconds": 0, "id": "string", "version": "string", "requestTime": "$TIMESTAMP$" }, output={ }, inputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlock, outputTemplate=idRepository/AuthInternalUnlock/AuthInternalUnlockResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null)<br/>
+<a href="#Output-554191469" onClick='toggleBox("Output-554191469", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-554191469" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-554191469">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requestTime": "2023-10-12T08:58:06.209Z",
+  "consentObtained": true,
+  "individualId": "5320812735619851",
+  "individualIdType": "VID",
+  "request": [
+    {
+      "authType": "otp",
+      "authSubType": "phone",
+      "locked": "false",
+      "unlockForSeconds": 0.0
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/authtypes/status) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:58:07 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=636]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "responsetime": "2023-10-12T08:58:07.105Z",
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Marking test case as passed. As Output validation not performed and no errors in the response </b><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@6b832551</td></tr>
+</table><p>
+</body>
+</html>

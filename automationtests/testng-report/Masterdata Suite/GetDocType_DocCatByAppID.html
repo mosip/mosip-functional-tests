@@ -1,0 +1,378 @@
+<html>
+<head>
+<title>TestNG:  GetDocType_DocCatByAppID</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GetDocType_DocCatByAppID</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>2/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Sep 20 13:40:00 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>0 seconds (743 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Masterdata_GetDocType_DocCatByAppID_invalid_language()'><b>Masterdata_GetDocType_DocCatByAppID_invalid_language</b><br>Test class: io.mosip.testscripts.GetWithParam (Masterdata_GetDocType_DocCatByAppID_invalid_language)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetDocType_DocCatByAppID_invalid_language, endPoint=/v1/masterdata/applicanttype/{applicantId}/languages?languages={languages}, role=admin, templateFields=null, input={ "applicantId": "001", "languages": "e@@@@456rfdhdh" }, output={ "errors": [ { "errorCode": "KER-MSD-150", "message": "Document Category- Document Type mapping not found" } ] }, inputTemplate=masterdata/GetDocType_DocCatByAppID/getDocType_DocCatByAppID, outputTemplate=masterdata/error, restMethod=get)<br/>
+<a href="#Output-1595694881" onClick='toggleBox("Output-1595694881", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1595694881" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1595694881">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "applicantId": "001",
+  "languages": "e@@@@456rfdhdh"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/applicanttype/{applicantId}/languages?languages={languages}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-09-20T08:10:00.922Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-150",
+      "message": "Document Category- Document Type mapping not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Document Category- Document Type mapping not found</td>
+    <td>Document Category- Document Type mapping not found</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-150</td>
+    <td>KER-MSD-150</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@219981e0</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Masterdata_GetDocType_DocCatByAppID_valid_smoke()'><b>Masterdata_GetDocType_DocCatByAppID_valid_smoke</b><br>Test class: io.mosip.testscripts.GetWithParam (Masterdata_GetDocType_DocCatByAppID_invalid_language)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetDocType_DocCatByAppID_valid_smoke, endPoint=/v1/masterdata/applicanttype/{applicantId}/languages?languages={languages}, role=admin, templateFields=null, input={ "applicantId": "001", "languages": "eng" }, output={ "langCode":"eng", "isActive":true, "documentCategories":[ { "langCode":"eng", "isActive":true }] }, inputTemplate=masterdata/GetDocType_DocCatByAppID/getDocType_DocCatByAppID, outputTemplate=masterdata/GetDocType_DocCatByAppID/getDocType_DocCatByAppIDResult, restMethod=get)<br/>
+<a href="#Output-671029211" onClick='toggleBox("Output-671029211", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-671029211" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-671029211">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "applicantId": "001",
+  "languages": "eng"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/applicanttype/{applicantId}/languages?languages={languages}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-09-20T08:10:00.538Z",
+  "response": {
+    "appTypeCode": "001",
+    "langCode": "eng",
+    "isActive": true,
+    "documentCategories": [
+      {
+        "code": "POI",
+        "name": "Proof of Identity",
+        "description": "Identity Proof",
+        "langCode": "eng",
+        "isActive": true,
+        "documentTypes": [
+          {
+            "code": "CIN",
+            "name": "Reference Identity Card",
+            "description": "Reference Identity Card",
+            "langCode": "eng",
+            "isActive": true
+          }
+        ]
+      },
+      {
+        "code": "POA",
+        "name": "Proof of Address",
+        "description": "Address Proof",
+        "langCode": "eng",
+        "isActive": true,
+        "documentTypes": [
+          {
+            "code": "RNC",
+            "name": "Rental contract",
+            "description": "Rental Agreement of address",
+            "langCode": "eng",
+            "isActive": true
+          }
+        ]
+      },
+      {
+        "code": "POR",
+        "name": "Proof of Relationship",
+        "description": "Proof Relationship of the person",
+        "langCode": "eng",
+        "isActive": true,
+        "documentTypes": [
+          {
+            "code": "CRN",
+            "name": "Certificate of Relationship",
+            "description": "Proof relationship of a person",
+            "langCode": "eng",
+            "isActive": true
+          }
+        ]
+      },
+      {
+        "code": "POB",
+        "name": "Proof of Birth",
+        "description": "Proof date of birth of the person",
+        "langCode": "eng",
+        "isActive": true,
+        "documentTypes": [
+          {
+            "code": "COB",
+            "name": "Certificate of Birth",
+            "description": "Proof birth and age of a person",
+            "langCode": "eng",
+            "isActive": true
+          }
+        ]
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(documentCategories)[3].(documentTypes)[0].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Proof birth and age of a person</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documentCategories)[3].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documentCategories)[3].(documentTypes)[0].code</td>
+    <td>NOT VERIFIED</td>
+    <td>COB</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documentCategories)[1].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documentCategories)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documentCategories)[1].code</td>
+    <td>NOT VERIFIED</td>
+    <td>POA</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documentCategories)[3].(documentTypes)[0].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documentCategories)[3].(documentTypes)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documentCategories)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documentCategories)[2].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Proof of Relationship</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documentCategories)[3].code</td>
+    <td>NOT VERIFIED</td>
+    <td>POB</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documentCategories)[2].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documentCategories)[1].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Proof of Address</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documentCategories)[1].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Address Proof</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documentCategories)[2].code</td>
+    <td>NOT VERIFIED</td>
+    <td>POR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documentCategories)[3].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Proof date of birth of the person</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documentCategories)[2].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Proof Relationship of the person</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documentCategories)[3].(documentTypes)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Certificate of Birth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documentCategories)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documentCategories)[3].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Proof of Birth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documentCategories)[0].isActive</td>
+    <td>true</td>
+    <td>true</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.langCode</td>
+    <td>eng</td>
+    <td>eng</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.isActive</td>
+    <td>true</td>
+    <td>true</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(documentCategories)[0].langCode</td>
+    <td>eng</td>
+    <td>eng</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@219981e0</td></tr>
+</table><p>
+</body>
+</html>

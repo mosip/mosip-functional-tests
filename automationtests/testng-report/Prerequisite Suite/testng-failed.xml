@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Prerequisite Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="io.mosip.report.CustomTestNGReporter"/>
+    <listener class-name="io.mosip.authentication.fw.util.AuthenticationTestsListener"/>
+    <listener class-name="io.mosip.authentication.e2e.E2EReport"/>
+  </listeners>
+  <test name="AddUser(failed)">
+    <parameter name="ymlFile" value="prerequisite/KeyCloak/AddUser/AddUser.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.SimplePostForKeyCloak">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0 1"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.SimplePostForKeyCloak -->
+    </classes>
+  </test> <!-- AddUser(failed) -->
+  <test name="GetUserDetails(failed)">
+    <parameter name="ymlFile" value="prerequisite/KeyCloak/GetUserDetails/GetUserDetails.yml"/>
+    <parameter name="idKeyName" value="id"/>
+    <classes>
+      <class name="io.mosip.testscripts.GetWithParamForAutoGenIdForKeyCloak">
+        <methods>
+          <include name="test" invocation-numbers="0 1"/>
+          <include name="testTearDown"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.GetWithParamForAutoGenIdForKeyCloak -->
+    </classes>
+  </test> <!-- GetUserDetails(failed) -->
+  <test name="GetRoleIdForAllRoles(failed)">
+    <parameter name="ymlFile" value="prerequisite/KeyCloak/GetRoleIdForAllRoles/GetRoleIdForAllRoles.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.GetWithParamForAutoGenIdForKeyCloak">
+        <methods>
+          <include name="test" invocation-numbers="0"/>
+          <include name="testTearDown"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.GetWithParamForAutoGenIdForKeyCloak -->
+    </classes>
+  </test> <!-- GetRoleIdForAllRoles(failed) -->
+  <test name="MapRolesToUser(failed)">
+    <parameter name="ymlFile" value="prerequisite/KeyCloak/MapRolesToUser/MapRolesToUser.yml"/>
+    <parameter name="pathParams" value="username"/>
+    <classes>
+      <class name="io.mosip.testscripts.SimplePostForKeyCloak">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0 1"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.SimplePostForKeyCloak -->
+    </classes>
+  </test> <!-- MapRolesToUser(failed) -->
+  <test name="DeleteUser(failed)">
+    <parameter name="ymlFile" value="prerequisite/KeyCloak/DeleteUser/DeleteUser.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.DeleteWithParamForKeyCloak">
+        <methods>
+          <include name="test" invocation-numbers="0"/>
+          <include name="testTearDown"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.DeleteWithParamForKeyCloak -->
+    </classes>
+  </test> <!-- DeleteUser(failed) -->
+</suite> <!-- Failed suite [Prerequisite Suite] -->

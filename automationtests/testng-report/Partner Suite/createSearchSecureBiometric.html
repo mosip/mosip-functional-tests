@@ -1,0 +1,2138 @@
+<html>
+<head>
+<title>TestNG:  createSearchSecureBiometric</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>createSearchSecureBiometric</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>5/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:31:37 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>3 seconds (3902 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchSecureBiometric_AllValid_Smoke()'><b>Partner_SearchSecureBiometric_AllValid_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchSecureBiometric_type_contains_Smoke_asc_sid)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchSecureBiometric_AllValid_Smoke, endPoint=/v1/partnermanager/securebiometricinterface/search, role=partner, templateFields=null, input={ "pageFetch": "$REMOVE$", "pageStart": "0", "requesttime": "$TIMESTAMP$" }, output={ "data": [ { "providerId": "$IGNORE$" } ] }, inputTemplate=partner/SearchAPIs/SearchSecureBiometric/createSearchSecureBiometric, outputTemplate=partner/SearchAPIs/SearchSecureBiometric/createSearchSecureBiometricResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2001804956" onClick='toggleBox("Output-2001804956", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2001804956" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2001804956">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0
+    },
+    "purpose": "string",
+    "filters": [],
+    "sort": []
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:01:37.521Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/securebiometricinterface/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:01:38.321Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 5,
+    "totalRecord": 5,
+    "data": [
+      {
+        "id": "618856c8-43fc-4e01-9d9b-67d20a07b352",
+        "swBinaryHash": "YmluYXJ5IGRhdGE\u003d",
+        "swVersion": "0.9.5",
+        "swCreateDateTime": "2022-02-23T12:40:13.103Z",
+        "swExpiryDateTime": "2021-10-01T12:03:00.000Z",
+        "isActive": true,
+        "approvalStatus": "Activated",
+        "providerId": "MOSIP.PROXY.SBI",
+        "partnerOrganizationName": "MOSIP",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:13.103354",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:13.103354",
+        "deleted": false
+      },
+      {
+        "id": "5fbe45ac-b4dc-4523-b368-c38f46633662",
+        "swBinaryHash": "YmluYXJ5IGRhdGE\u003d",
+        "swVersion": "0.9.5",
+        "swCreateDateTime": "2022-02-23T12:40:13.103Z",
+        "swExpiryDateTime": "2021-10-01T12:03:00.000Z",
+        "isActive": true,
+        "approvalStatus": "Activated",
+        "providerId": "MOSIP.PROXY.SBI",
+        "partnerOrganizationName": "MOSIP",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:13.103354",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:13.103354",
+        "deleted": false
+      },
+      {
+        "id": "d2479cf1-4c63-420e-9480-105e744caa99",
+        "swBinaryHash": "YmluYXJ5IGRhdGE\u003d",
+        "swVersion": "0.9.5",
+        "swCreateDateTime": "2022-02-23T12:40:13.103Z",
+        "swExpiryDateTime": "2021-10-01T12:03:00.000Z",
+        "isActive": true,
+        "approvalStatus": "Activated",
+        "providerId": "MOSIP.PROXY.SBI",
+        "partnerOrganizationName": "MOSIP",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:13.103354",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:13.103354",
+        "deleted": false
+      },
+      {
+        "id": "feea3037-8b7e-4f7e-8dd9-16aed490798f",
+        "swBinaryHash": "MA\u003d\u003d",
+        "swVersion": "MO.TD.100",
+        "swCreateDateTime": "2023-07-14T17:01:35.291Z",
+        "swExpiryDateTime": "2222-12-31T07:00:13.375Z",
+        "isActive": true,
+        "approvalStatus": "approved",
+        "providerId": "Tech-123",
+        "partnerOrganizationName": "Techno",
+        "crBy": "partner-111997",
+        "crDtimes": "2023-07-14T17:01:28.956212",
+        "updBy": "partner-111997",
+        "updDtimes": "2023-07-14T17:01:36.018479",
+        "deleted": false
+      },
+      {
+        "id": "0bb19aa4-dd0c-4441-899f-18032ae29f80",
+        "swBinaryHash": "MA\u003d\u003d",
+        "swVersion": "MO.TD.200",
+        "swCreateDateTime": "2023-07-14T17:01:36.034Z",
+        "swExpiryDateTime": "2222-12-31T07:00:13.375Z",
+        "isActive": true,
+        "approvalStatus": "rejected",
+        "providerId": "Tech-123",
+        "partnerOrganizationName": "Techno",
+        "crBy": "partner-111997",
+        "crDtimes": "2023-07-14T17:01:30.726141",
+        "updBy": "partner-111997",
+        "updDtimes": "2023-07-14T17:01:36.749891",
+        "deleted": false
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[1].deviceDetailId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>Techno</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>partner-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:36.749891</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].deleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].swExpiryDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2222-12-31T07:00:13.375Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>rejected</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>Activated</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].swCreateDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:35.291Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].deviceDetailId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:28.956212</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].swCreateDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:13.103Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>partner-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>partner-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].swVersion</td>
+    <td>NOT VERIFIED</td>
+    <td>0.9.5</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].swExpiryDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-10-01T12:03:00.000Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].swBinaryHash</td>
+    <td>NOT VERIFIED</td>
+    <td>YmluYXJ5IGRhdGE=</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].swVersion</td>
+    <td>NOT VERIFIED</td>
+    <td>MO.TD.100</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].swCreateDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:13.103Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].deviceDetailId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].swExpiryDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-10-01T12:03:00.000Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:13.103354</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>Techno</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>Activated</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].providerId</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP.PROXY.SBI</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].providerId</td>
+    <td>NOT VERIFIED</td>
+    <td>Tech-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].deleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].providerId</td>
+    <td>NOT VERIFIED</td>
+    <td>Tech-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].deleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].id</td>
+    <td>NOT VERIFIED</td>
+    <td>feea3037-8b7e-4f7e-8dd9-16aed490798f</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].providerId</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP.PROXY.SBI</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].deviceDetailId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].swBinaryHash</td>
+    <td>NOT VERIFIED</td>
+    <td>YmluYXJ5IGRhdGE=</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].swExpiryDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2222-12-31T07:00:13.375Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].swVersion</td>
+    <td>NOT VERIFIED</td>
+    <td>0.9.5</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].swVersion</td>
+    <td>NOT VERIFIED</td>
+    <td>MO.TD.200</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].id</td>
+    <td>NOT VERIFIED</td>
+    <td>0bb19aa4-dd0c-4441-899f-18032ae29f80</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:36.018479</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].swBinaryHash</td>
+    <td>NOT VERIFIED</td>
+    <td>MA==</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:13.103354</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>partner-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].id</td>
+    <td>NOT VERIFIED</td>
+    <td>5fbe45ac-b4dc-4523-b368-c38f46633662</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].swCreateDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:36.034Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:13.103354</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].deleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:30.726141</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:13.103354</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].swBinaryHash</td>
+    <td>NOT VERIFIED</td>
+    <td>MA==</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].id</td>
+    <td>NOT VERIFIED</td>
+    <td>d2479cf1-4c63-420e-9480-105e744caa99</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].delDtimes</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceDetailId</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@63a84bb6</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchSecureBiometric_Only_FilterCriteria_Smoke()'><b>Partner_SearchSecureBiometric_Only_FilterCriteria_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchSecureBiometric_type_contains_Smoke_asc_sid)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchSecureBiometric_Only_FilterCriteria_Smoke, endPoint=/v1/partnermanager/securebiometricinterface/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "providerId", "type": "equals", "value": "Tech-123" } ], "pageFetch": "$REMOVE$", "pageStart": "0", "requesttime": "$TIMESTAMP$" }, output={ "data": [ { "providerId": "Tech-123" } ] }, inputTemplate=partner/SearchAPIs/SearchSecureBiometric/createSearchSecureBiometric, outputTemplate=partner/SearchAPIs/SearchSecureBiometric/createSearchSecureBiometricResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-243130253" onClick='toggleBox("Output-243130253", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-243130253" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-243130253">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0
+    },
+    "purpose": "string",
+    "filters": [
+      {
+        "type": "equals",
+        "value": "Tech-123",
+        "columnName": "providerId"
+      }
+    ],
+    "sort": []
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:01:38.439Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/securebiometricinterface/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:01:39.210Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 2,
+    "totalRecord": 2,
+    "data": [
+      {
+        "id": "feea3037-8b7e-4f7e-8dd9-16aed490798f",
+        "swBinaryHash": "MA\u003d\u003d",
+        "swVersion": "MO.TD.100",
+        "swCreateDateTime": "2023-07-14T17:01:35.291Z",
+        "swExpiryDateTime": "2222-12-31T07:00:13.375Z",
+        "isActive": true,
+        "approvalStatus": "approved",
+        "providerId": "Tech-123",
+        "partnerOrganizationName": "Techno",
+        "crBy": "partner-111997",
+        "crDtimes": "2023-07-14T17:01:28.956212",
+        "updBy": "partner-111997",
+        "updDtimes": "2023-07-14T17:01:36.018479",
+        "deleted": false
+      },
+      {
+        "id": "0bb19aa4-dd0c-4441-899f-18032ae29f80",
+        "swBinaryHash": "MA\u003d\u003d",
+        "swVersion": "MO.TD.200",
+        "swCreateDateTime": "2023-07-14T17:01:36.034Z",
+        "swExpiryDateTime": "2222-12-31T07:00:13.375Z",
+        "isActive": true,
+        "approvalStatus": "rejected",
+        "providerId": "Tech-123",
+        "partnerOrganizationName": "Techno",
+        "crBy": "partner-111997",
+        "crDtimes": "2023-07-14T17:01:30.726141",
+        "updBy": "partner-111997",
+        "updDtimes": "2023-07-14T17:01:36.749891",
+        "deleted": false
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[1].deviceDetailId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].providerId</td>
+    <td>NOT VERIFIED</td>
+    <td>Tech-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].deleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].swBinaryHash</td>
+    <td>NOT VERIFIED</td>
+    <td>MA==</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].swVersion</td>
+    <td>NOT VERIFIED</td>
+    <td>MO.TD.200</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>rejected</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>partner-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:30.726141</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].swExpiryDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2222-12-31T07:00:13.375Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].id</td>
+    <td>NOT VERIFIED</td>
+    <td>0bb19aa4-dd0c-4441-899f-18032ae29f80</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>partner-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].swCreateDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:36.034Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:36.749891</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>Techno</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].delDtimes</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].providerId</td>
+    <td>Tech-123</td>
+    <td>Tech-123</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceDetailId</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@63a84bb6</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchSecureBiometric_Only_PaginationCriteria_Smoke()'><b>Partner_SearchSecureBiometric_Only_PaginationCriteria_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchSecureBiometric_type_contains_Smoke_asc_sid)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchSecureBiometric_Only_PaginationCriteria_Smoke, endPoint=/v1/partnermanager/securebiometricinterface/search, role=partner, templateFields=null, input={ "pageFetch": "10", "pageStart": "0", "requesttime": "$TIMESTAMP$" }, output={ "data": [ { "providerId": "$IGNORE$" } ] }, inputTemplate=partner/SearchAPIs/SearchSecureBiometric/createSearchSecureBiometric, outputTemplate=partner/SearchAPIs/SearchSecureBiometric/createSearchSecureBiometricResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1287817936" onClick='toggleBox("Output-1287817936", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1287817936" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1287817936">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requesttime": "2023-07-14T17:01:39.957Z",
+  "metadata": {},
+  "request": {
+    "filters": [],
+    "sort": [],
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 10
+    },
+    "purpose": "string"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/securebiometricinterface/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:01:40.672Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 5,
+    "totalRecord": 5,
+    "data": [
+      {
+        "id": "618856c8-43fc-4e01-9d9b-67d20a07b352",
+        "swBinaryHash": "YmluYXJ5IGRhdGE\u003d",
+        "swVersion": "0.9.5",
+        "swCreateDateTime": "2022-02-23T12:40:13.103Z",
+        "swExpiryDateTime": "2021-10-01T12:03:00.000Z",
+        "isActive": true,
+        "approvalStatus": "Activated",
+        "providerId": "MOSIP.PROXY.SBI",
+        "partnerOrganizationName": "MOSIP",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:13.103354",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:13.103354",
+        "deleted": false
+      },
+      {
+        "id": "5fbe45ac-b4dc-4523-b368-c38f46633662",
+        "swBinaryHash": "YmluYXJ5IGRhdGE\u003d",
+        "swVersion": "0.9.5",
+        "swCreateDateTime": "2022-02-23T12:40:13.103Z",
+        "swExpiryDateTime": "2021-10-01T12:03:00.000Z",
+        "isActive": true,
+        "approvalStatus": "Activated",
+        "providerId": "MOSIP.PROXY.SBI",
+        "partnerOrganizationName": "MOSIP",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:13.103354",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:13.103354",
+        "deleted": false
+      },
+      {
+        "id": "d2479cf1-4c63-420e-9480-105e744caa99",
+        "swBinaryHash": "YmluYXJ5IGRhdGE\u003d",
+        "swVersion": "0.9.5",
+        "swCreateDateTime": "2022-02-23T12:40:13.103Z",
+        "swExpiryDateTime": "2021-10-01T12:03:00.000Z",
+        "isActive": true,
+        "approvalStatus": "Activated",
+        "providerId": "MOSIP.PROXY.SBI",
+        "partnerOrganizationName": "MOSIP",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:13.103354",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:13.103354",
+        "deleted": false
+      },
+      {
+        "id": "feea3037-8b7e-4f7e-8dd9-16aed490798f",
+        "swBinaryHash": "MA\u003d\u003d",
+        "swVersion": "MO.TD.100",
+        "swCreateDateTime": "2023-07-14T17:01:35.291Z",
+        "swExpiryDateTime": "2222-12-31T07:00:13.375Z",
+        "isActive": true,
+        "approvalStatus": "approved",
+        "providerId": "Tech-123",
+        "partnerOrganizationName": "Techno",
+        "crBy": "partner-111997",
+        "crDtimes": "2023-07-14T17:01:28.956212",
+        "updBy": "partner-111997",
+        "updDtimes": "2023-07-14T17:01:36.018479",
+        "deleted": false
+      },
+      {
+        "id": "0bb19aa4-dd0c-4441-899f-18032ae29f80",
+        "swBinaryHash": "MA\u003d\u003d",
+        "swVersion": "MO.TD.200",
+        "swCreateDateTime": "2023-07-14T17:01:36.034Z",
+        "swExpiryDateTime": "2222-12-31T07:00:13.375Z",
+        "isActive": true,
+        "approvalStatus": "rejected",
+        "providerId": "Tech-123",
+        "partnerOrganizationName": "Techno",
+        "crBy": "partner-111997",
+        "crDtimes": "2023-07-14T17:01:30.726141",
+        "updBy": "partner-111997",
+        "updDtimes": "2023-07-14T17:01:36.749891",
+        "deleted": false
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[1].deviceDetailId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>Techno</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>partner-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:36.749891</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].deleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].swExpiryDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2222-12-31T07:00:13.375Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>rejected</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>Activated</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].swCreateDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:35.291Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].deviceDetailId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:28.956212</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].swCreateDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:13.103Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>partner-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>partner-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].swVersion</td>
+    <td>NOT VERIFIED</td>
+    <td>0.9.5</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].swExpiryDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-10-01T12:03:00.000Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].swBinaryHash</td>
+    <td>NOT VERIFIED</td>
+    <td>YmluYXJ5IGRhdGE=</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].swVersion</td>
+    <td>NOT VERIFIED</td>
+    <td>MO.TD.100</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].swCreateDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:13.103Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].deviceDetailId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].swExpiryDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-10-01T12:03:00.000Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:13.103354</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>Techno</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>Activated</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].providerId</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP.PROXY.SBI</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].providerId</td>
+    <td>NOT VERIFIED</td>
+    <td>Tech-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].deleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].providerId</td>
+    <td>NOT VERIFIED</td>
+    <td>Tech-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].deleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].id</td>
+    <td>NOT VERIFIED</td>
+    <td>feea3037-8b7e-4f7e-8dd9-16aed490798f</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].providerId</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP.PROXY.SBI</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].deviceDetailId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].swBinaryHash</td>
+    <td>NOT VERIFIED</td>
+    <td>YmluYXJ5IGRhdGE=</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].swExpiryDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2222-12-31T07:00:13.375Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].swVersion</td>
+    <td>NOT VERIFIED</td>
+    <td>0.9.5</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].swVersion</td>
+    <td>NOT VERIFIED</td>
+    <td>MO.TD.200</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].id</td>
+    <td>NOT VERIFIED</td>
+    <td>0bb19aa4-dd0c-4441-899f-18032ae29f80</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:36.018479</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].swBinaryHash</td>
+    <td>NOT VERIFIED</td>
+    <td>MA==</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:13.103354</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>partner-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].id</td>
+    <td>NOT VERIFIED</td>
+    <td>5fbe45ac-b4dc-4523-b368-c38f46633662</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].swCreateDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:36.034Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:13.103354</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].deleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:30.726141</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:13.103354</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].swBinaryHash</td>
+    <td>NOT VERIFIED</td>
+    <td>MA==</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].id</td>
+    <td>NOT VERIFIED</td>
+    <td>d2479cf1-4c63-420e-9480-105e744caa99</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].delDtimes</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceDetailId</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@63a84bb6</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchSecureBiometric_Only_SortCriteria_Smoke()'><b>Partner_SearchSecureBiometric_Only_SortCriteria_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchSecureBiometric_type_contains_Smoke_asc_sid)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchSecureBiometric_Only_SortCriteria_Smoke, endPoint=/v1/partnermanager/securebiometricinterface/search, role=partner, templateFields=null, input={ "sort": [ { "sortField": "swCreateDateTime", "sortType": "asc" } ], "pageFetch": "$REMOVE$", "pageStart": "0", "requesttime": "$TIMESTAMP$" }, output={ "data": [ { "providerId": "$IGNORE$" } ] }, inputTemplate=partner/SearchAPIs/SearchSecureBiometric/createSearchSecureBiometric, outputTemplate=partner/SearchAPIs/SearchSecureBiometric/createSearchSecureBiometricResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-203526568" onClick='toggleBox("Output-203526568", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-203526568" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-203526568">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0
+    },
+    "purpose": "string",
+    "filters": [],
+    "sort": [
+      {
+        "sortType": "asc",
+        "sortField": "swCreateDateTime"
+      }
+    ]
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:01:39.224Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/securebiometricinterface/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:01:39.930Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 5,
+    "totalRecord": 5,
+    "data": [
+      {
+        "id": "618856c8-43fc-4e01-9d9b-67d20a07b352",
+        "swBinaryHash": "YmluYXJ5IGRhdGE\u003d",
+        "swVersion": "0.9.5",
+        "swCreateDateTime": "2022-02-23T12:40:13.103Z",
+        "swExpiryDateTime": "2021-10-01T12:03:00.000Z",
+        "isActive": true,
+        "approvalStatus": "Activated",
+        "providerId": "MOSIP.PROXY.SBI",
+        "partnerOrganizationName": "MOSIP",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:13.103354",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:13.103354",
+        "deleted": false
+      },
+      {
+        "id": "5fbe45ac-b4dc-4523-b368-c38f46633662",
+        "swBinaryHash": "YmluYXJ5IGRhdGE\u003d",
+        "swVersion": "0.9.5",
+        "swCreateDateTime": "2022-02-23T12:40:13.103Z",
+        "swExpiryDateTime": "2021-10-01T12:03:00.000Z",
+        "isActive": true,
+        "approvalStatus": "Activated",
+        "providerId": "MOSIP.PROXY.SBI",
+        "partnerOrganizationName": "MOSIP",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:13.103354",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:13.103354",
+        "deleted": false
+      },
+      {
+        "id": "d2479cf1-4c63-420e-9480-105e744caa99",
+        "swBinaryHash": "YmluYXJ5IGRhdGE\u003d",
+        "swVersion": "0.9.5",
+        "swCreateDateTime": "2022-02-23T12:40:13.103Z",
+        "swExpiryDateTime": "2021-10-01T12:03:00.000Z",
+        "isActive": true,
+        "approvalStatus": "Activated",
+        "providerId": "MOSIP.PROXY.SBI",
+        "partnerOrganizationName": "MOSIP",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:13.103354",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:13.103354",
+        "deleted": false
+      },
+      {
+        "id": "feea3037-8b7e-4f7e-8dd9-16aed490798f",
+        "swBinaryHash": "MA\u003d\u003d",
+        "swVersion": "MO.TD.100",
+        "swCreateDateTime": "2023-07-14T17:01:35.291Z",
+        "swExpiryDateTime": "2222-12-31T07:00:13.375Z",
+        "isActive": true,
+        "approvalStatus": "approved",
+        "providerId": "Tech-123",
+        "partnerOrganizationName": "Techno",
+        "crBy": "partner-111997",
+        "crDtimes": "2023-07-14T17:01:28.956212",
+        "updBy": "partner-111997",
+        "updDtimes": "2023-07-14T17:01:36.018479",
+        "deleted": false
+      },
+      {
+        "id": "0bb19aa4-dd0c-4441-899f-18032ae29f80",
+        "swBinaryHash": "MA\u003d\u003d",
+        "swVersion": "MO.TD.200",
+        "swCreateDateTime": "2023-07-14T17:01:36.034Z",
+        "swExpiryDateTime": "2222-12-31T07:00:13.375Z",
+        "isActive": true,
+        "approvalStatus": "rejected",
+        "providerId": "Tech-123",
+        "partnerOrganizationName": "Techno",
+        "crBy": "partner-111997",
+        "crDtimes": "2023-07-14T17:01:30.726141",
+        "updBy": "partner-111997",
+        "updDtimes": "2023-07-14T17:01:36.749891",
+        "deleted": false
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[1].deviceDetailId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>Techno</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>partner-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:36.749891</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].deleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].swExpiryDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2222-12-31T07:00:13.375Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>rejected</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>Activated</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].swCreateDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:35.291Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].deviceDetailId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:28.956212</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].swCreateDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:13.103Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>partner-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>partner-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].swVersion</td>
+    <td>NOT VERIFIED</td>
+    <td>0.9.5</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].swExpiryDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-10-01T12:03:00.000Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].swBinaryHash</td>
+    <td>NOT VERIFIED</td>
+    <td>YmluYXJ5IGRhdGE=</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].swVersion</td>
+    <td>NOT VERIFIED</td>
+    <td>MO.TD.100</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].swCreateDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:13.103Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].deviceDetailId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].swExpiryDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-10-01T12:03:00.000Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:13.103354</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>Techno</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>Activated</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].providerId</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP.PROXY.SBI</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].providerId</td>
+    <td>NOT VERIFIED</td>
+    <td>Tech-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].deleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].providerId</td>
+    <td>NOT VERIFIED</td>
+    <td>Tech-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].deleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].id</td>
+    <td>NOT VERIFIED</td>
+    <td>feea3037-8b7e-4f7e-8dd9-16aed490798f</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].providerId</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP.PROXY.SBI</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].deviceDetailId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].swBinaryHash</td>
+    <td>NOT VERIFIED</td>
+    <td>YmluYXJ5IGRhdGE=</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].swExpiryDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2222-12-31T07:00:13.375Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].swVersion</td>
+    <td>NOT VERIFIED</td>
+    <td>0.9.5</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].swVersion</td>
+    <td>NOT VERIFIED</td>
+    <td>MO.TD.200</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].id</td>
+    <td>NOT VERIFIED</td>
+    <td>0bb19aa4-dd0c-4441-899f-18032ae29f80</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:36.018479</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].swBinaryHash</td>
+    <td>NOT VERIFIED</td>
+    <td>MA==</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:13.103354</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>partner-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].id</td>
+    <td>NOT VERIFIED</td>
+    <td>5fbe45ac-b4dc-4523-b368-c38f46633662</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].swCreateDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:36.034Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:13.103354</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].deleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:30.726141</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:13.103354</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].swBinaryHash</td>
+    <td>NOT VERIFIED</td>
+    <td>MA==</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].id</td>
+    <td>NOT VERIFIED</td>
+    <td>d2479cf1-4c63-420e-9480-105e744caa99</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].delDtimes</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceDetailId</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@63a84bb6</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchSecureBiometric_type_contains_Smoke_asc_sid()'><b>Partner_SearchSecureBiometric_type_contains_Smoke_asc_sid</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchSecureBiometric_type_contains_Smoke_asc_sid)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchSecureBiometric_type_contains_Smoke_asc_sid, endPoint=/v1/partnermanager/securebiometricinterface/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "providerId", "type": "equals", "value": "Tech-123" } ], "sort": [ { "sortField": "swCreateDateTime", "sortType": "asc" } ], "pageFetch": "10", "pageStart": "0", "requesttime": "$TIMESTAMP$" }, output={ "data": [ { "providerId": "Tech-123" } ] }, inputTemplate=partner/SearchAPIs/SearchSecureBiometric/createSearchSecureBiometric, outputTemplate=partner/SearchAPIs/SearchSecureBiometric/createSearchSecureBiometricResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1320400528" onClick='toggleBox("Output-1320400528", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1320400528" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1320400528">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requesttime": "2023-07-14T17:01:40.705Z",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "value": "Tech-123",
+        "columnName": "providerId",
+        "type": "equals"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "swCreateDateTime",
+        "sortType": "asc"
+      }
+    ],
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 10
+    },
+    "purpose": "string"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/securebiometricinterface/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:01:41.402Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 2,
+    "totalRecord": 2,
+    "data": [
+      {
+        "id": "feea3037-8b7e-4f7e-8dd9-16aed490798f",
+        "swBinaryHash": "MA\u003d\u003d",
+        "swVersion": "MO.TD.100",
+        "swCreateDateTime": "2023-07-14T17:01:35.291Z",
+        "swExpiryDateTime": "2222-12-31T07:00:13.375Z",
+        "isActive": true,
+        "approvalStatus": "approved",
+        "providerId": "Tech-123",
+        "partnerOrganizationName": "Techno",
+        "crBy": "partner-111997",
+        "crDtimes": "2023-07-14T17:01:28.956212",
+        "updBy": "partner-111997",
+        "updDtimes": "2023-07-14T17:01:36.018479",
+        "deleted": false
+      },
+      {
+        "id": "0bb19aa4-dd0c-4441-899f-18032ae29f80",
+        "swBinaryHash": "MA\u003d\u003d",
+        "swVersion": "MO.TD.200",
+        "swCreateDateTime": "2023-07-14T17:01:36.034Z",
+        "swExpiryDateTime": "2222-12-31T07:00:13.375Z",
+        "isActive": true,
+        "approvalStatus": "rejected",
+        "providerId": "Tech-123",
+        "partnerOrganizationName": "Techno",
+        "crBy": "partner-111997",
+        "crDtimes": "2023-07-14T17:01:30.726141",
+        "updBy": "partner-111997",
+        "updDtimes": "2023-07-14T17:01:36.749891",
+        "deleted": false
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[1].deviceDetailId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].providerId</td>
+    <td>NOT VERIFIED</td>
+    <td>Tech-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].deleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].swBinaryHash</td>
+    <td>NOT VERIFIED</td>
+    <td>MA==</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].swVersion</td>
+    <td>NOT VERIFIED</td>
+    <td>MO.TD.200</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>rejected</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>partner-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:30.726141</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].swExpiryDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2222-12-31T07:00:13.375Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].id</td>
+    <td>NOT VERIFIED</td>
+    <td>0bb19aa4-dd0c-4441-899f-18032ae29f80</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>partner-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].swCreateDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:36.034Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:36.749891</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>Techno</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].delDtimes</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].providerId</td>
+    <td>Tech-123</td>
+    <td>Tech-123</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceDetailId</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@63a84bb6</td></tr>
+</table><p>
+</body>
+</html>

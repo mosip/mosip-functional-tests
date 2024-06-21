@@ -7,6 +7,7 @@ import java.util.UUID;
 import org.json.simple.JSONObject;
 
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
+import io.mosip.testrig.apirig.testrunner.MockSMTPListener;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
@@ -507,12 +508,14 @@ public class KernelAuthentication extends BaseTestCase {
 		((JSONObject) actualRequest_generation.get(GlobalConstants.REQUEST)).put("langCode",
 				BaseTestCase.getLanguageList().get(0));
 		((JSONObject) actualRequest_generation.get(GlobalConstants.REQUEST)).get("userId").toString();
+		String userId = ((JSONObject) actualRequest_generation.get(GlobalConstants.REQUEST)).get("userId").toString();
 		JSONObject actualRequest_validation = getRequestJson("config/prereg_ValidateOtp.json");
 		appl.postWithJson(preregSendOtp, actualRequest_generation);
 		String otp = null;
-		if (proxy)
+		if (ConfigManager.getUsePreConfiguredOtp)
 			otp = "111111";
 		else {
+			otp = MockSMTPListener.getOtp(userId);
 		}
 		((JSONObject) actualRequest_validation.get(GlobalConstants.REQUEST)).put("otp", otp);
 		actualRequest_validation.put(GlobalConstants.REQUESTTIME, clib.getCurrentUTCTime());

@@ -1,0 +1,535 @@
+<html>
+<head>
+<title>TestNG:  UpdateRegCenterType</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>UpdateRegCenterType</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>5/1/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:52:56 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>4 seconds (4633 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateRegCenterType_All_Valid_Smoke()'><b>MasterData_UpdateRegCenterType_All_Valid_Smoke</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateRegCenterType_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateRegCenterType_All_Valid_Smoke, endPoint=/v1/masterdata/registrationcentertypes, role=admin, templateFields=[name, descr, langCode], input={ "code": "$ID:CreateRegCenterType_All_Valid_Smoke_sid_code$", "langCode": "eng", "name": "alternate", "descr": "alternate center updated", "isActive":true, "requesttime": "$TIMESTAMP$" }, output={ "code": "ALT-3", "langCode": "eng" }, inputTemplate=masterdata/RegCenterType/regCenterType, outputTemplate=masterdata/RegCenterType/regCenterTypeResult, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-38034605" onClick='toggleBox("Output-38034605", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-38034605" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-38034605">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "ALT-3",
+    "langCode": "ara",
+    "name": "alternate",
+    "descr": "alternate center updated",
+    "isActive": true
+  },
+  "requesttime": "2023-07-14T17:22:56.873Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/registrationcentertypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:22:57.610Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-120",
+      "message": "Registration Center Type not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Registration Center Type not found</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-MSD-120</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.langCode</td>
+    <td>ara</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.code</td>
+    <td>ALT-3</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.SimplePut.test(SimplePut.java:96)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:103)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace38034605", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace38034605'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.SimplePut.test(SimplePut.java:96)
+	at jdk.internal.reflect.GeneratedMethodAccessor187.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:103)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@3b5769b3</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateRegCenterType_InputParameter_Description_AboveMaxLen256()'><b>MasterData_UpdateRegCenterType_InputParameter_Description_AboveMaxLen256</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateRegCenterType_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateRegCenterType_InputParameter_Description_AboveMaxLen256, endPoint=/v1/masterdata/registrationcentertypes, role=admin, templateFields=[name, descr], input={ "code": "ALT-5", "langCode": "eng", "name": "alternate", "descr": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvW", "isActive":true, "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.descr: size must be between 0 and 128" } ] }, inputTemplate=masterdata/RegCenterType/regCenterType, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2083733961" onClick='toggleBox("Output-2083733961", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2083733961" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2083733961">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "ALT-5",
+    "langCode": "ara",
+    "name": "alternate",
+    "descr": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvW",
+    "isActive": true
+  },
+  "requesttime": "2023-07-14T17:22:59.892Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/registrationcentertypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:23:00.596Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.descr: size must be between 0 and 128"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.descr: size must be between 0 and 128</td>
+    <td>request.descr: size must be between 0 and 128</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@3b5769b3</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateRegCenterType_InputParameter_Name_AboveMaxLen64()'><b>MasterData_UpdateRegCenterType_InputParameter_Name_AboveMaxLen64</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateRegCenterType_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateRegCenterType_InputParameter_Name_AboveMaxLen64, endPoint=/v1/masterdata/registrationcentertypes, role=admin, templateFields=[name, descr], input={ "code": "ALT-3", "langCode": "eng", "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm", "descr": "alternate center updated", "isActive":true, "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.name: Should not be blank or size must be between 1 and 64" } ] }, inputTemplate=masterdata/RegCenterType/regCenterType, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1348639302" onClick='toggleBox("Output-1348639302", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1348639302" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1348639302">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "ALT-3",
+    "langCode": "ara",
+    "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
+    "descr": "alternate center updated",
+    "isActive": true
+  },
+  "requesttime": "2023-07-14T17:22:59.139Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/registrationcentertypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:22:59.816Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@3b5769b3</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateRegCenterType_InputParameter_Name_Empty()'><b>MasterData_UpdateRegCenterType_InputParameter_Name_Empty</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateRegCenterType_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateRegCenterType_InputParameter_Name_Empty, endPoint=/v1/masterdata/registrationcentertypes, role=admin, templateFields=[descr], input={ "code": "ALT-3", "langCode": "eng", "name": "", "descr": "alternate center updated", "isActive":true, "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.name: Should not be blank or size must be between 1 and 64" } ] }, inputTemplate=masterdata/RegCenterType/regCenterType, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1516819670" onClick='toggleBox("Output-1516819670", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1516819670" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1516819670">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "ALT-3",
+    "langCode": "ara",
+    "name": "",
+    "descr": "alternate center updated",
+    "isActive": true
+  },
+  "requesttime": "2023-07-14T17:22:58.404Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/registrationcentertypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:22:59.063Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@3b5769b3</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateRegCenterType_InputParameter_Name_Missing()'><b>MasterData_UpdateRegCenterType_InputParameter_Name_Missing</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateRegCenterType_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateRegCenterType_InputParameter_Name_Missing, endPoint=/v1/masterdata/registrationcentertypes, role=admin, templateFields=[descr], input={ "code": "ALT-3", "langCode": "eng", "name": "$REMOVE$", "descr": "alternate center updated", "isActive":true, "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.name: must not be null" } ] }, inputTemplate=masterdata/RegCenterType/regCenterType, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-429135896" onClick='toggleBox("Output-429135896", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-429135896" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-429135896">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "descr": "alternate center updated",
+    "code": "ALT-3",
+    "langCode": "ara",
+    "isActive": true
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:22:57.684Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/registrationcentertypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:22:58.323Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: must not be null"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.name: must not be null</td>
+    <td>request.name: must not be null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@3b5769b3</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateRegCenterType_InputParameter_isActive_Missing()'><b>MasterData_UpdateRegCenterType_InputParameter_isActive_Missing</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateRegCenterType_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateRegCenterType_InputParameter_isActive_Missing, endPoint=/v1/masterdata/registrationcentertypes, role=admin, templateFields=[name, descr], input={ "code": "ALT-3", "langCode": "eng", "name": "alternate", "descr": "alternate center", "isActive":"$REMOVE$", "requesttime": "$TIMESTAMP$" }, output={ "code": "ALT-3", "langCode": "eng" }, inputTemplate=masterdata/RegCenterType/regCenterType, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-520282396" onClick='toggleBox("Output-520282396", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-520282396" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-520282396">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "descr": "alternate center",
+    "code": "ALT-3",
+    "langCode": "ara",
+    "name": "alternate"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:23:00.667Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/registrationcentertypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:23:01.415Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-120",
+      "message": "Registration Center Type not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Registration Center Type not found</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-MSD-120</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@3b5769b3</td></tr>
+</table><p>
+</body>
+</html>

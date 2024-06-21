@@ -1,0 +1,1505 @@
+<html>
+<head>
+<title>TestNG:  DefinePolicy</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>DefinePolicy</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>15/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Aug 04 12:01:01 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>30 seconds (30346 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.Esignet_DefinePolicy_All_Valid_Smoke_sid()'><b>Esignet_DefinePolicy_All_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (Esignet_DefinePolicy_Auth_S2_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=Esignet_DefinePolicy_All_Valid_Smoke_sid, endPoint=/v1/policymanager/policies, role=partner, templateFields=null, input={ "desc": "$POLICYDESC$", "name": "$POLICYNAME$", "policyGroupName": "$ID:DefinePolicyGroup_All_Valid_Smoke_sid_name$", "policyType": "Auth", "version": "1.0", "requesttime": "$TIMESTAMP$" }, output= { "policyGroupName": "$IGNORE$", "name": "$IGNORE$", "desc": "$IGNORE$", "is_Active": false }, inputTemplate=esignet/PmsIntegration/DefinePolicy/definePolicy, outputTemplate=esignet/PmsIntegration/DefinePolicy/definePolicyResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-674480275" onClick='toggleBox("Output-674480275", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-674480275" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-674480275">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "desc": "policyDescForAutomationEsi82782",
+    "name": "policyNameForAutomationEsi4382",
+    "policyGroupName": "policyGroupNameForAutomationEsi56121",
+    "policyType": "Auth",
+    "version": "1.0",
+    "policies": {
+      "authTokenType": "policy",
+      "allowedKycAttributes": [
+        {
+          "attributeName": "fullName"
+        },
+        {
+          "attributeName": "gender"
+        },
+        {
+          "attributeName": "phone"
+        },
+        {
+          "attributeName": "email"
+        },
+        {
+          "attributeName": "dateOfBirth"
+        },
+        {
+          "attributeName": "city"
+        },
+        {
+          "attributeName": "face"
+        },
+        {
+          "attributeName": "addressLine1"
+        }
+      ],
+      "allowedAuthTypes": [
+        {
+          "authSubType": "IRIS",
+          "authType": "bio",
+          "mandatory": false
+        },
+        {
+          "authSubType": "FINGER",
+          "authType": "bio",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "otp",
+          "mandatory": false
+        },
+        {
+          "authSubType": "FACE",
+          "authType": "bio",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "otp-request",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kyc",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "demo",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kycauth",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kycexchange",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "keybinding",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kbt",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "wla",
+          "mandatory": false
+        }
+      ]
+    }
+  },
+  "requesttime": "2023-08-04T06:31:01.137Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/policymanager/policies) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-08-04T06:31:02.245Z",
+  "response": {
+    "id": "86467",
+    "policyGroupName": "policyGroupNameForAutomationEsi56121",
+    "name": "policyNameForAutomationEsi4382",
+    "desc": "policyDescForAutomationEsi82782",
+    "is_Active": false,
+    "cr_by": "esignet-111997",
+    "cr_dtimes": "2023-08-04T06:31:03.222+00:00"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.is_Active</td>
+    <td>false</td>
+    <td>false</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@7bede4ea</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.Esignet_DefinePolicy_Auth_False_Valid_Smoke_sid()'><b>Esignet_DefinePolicy_Auth_False_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (Esignet_DefinePolicy_Auth_S2_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=Esignet_DefinePolicy_Auth_False_Valid_Smoke_sid, endPoint=/v1/policymanager/policies, role=partner, templateFields=null, input={ "desc": "$POLICYDESC1$", "name": "$RANDOMPOLICYNAME$", "policyGroupName": "$ID:DefinePolicyGroup_Misp_Valid_Smoke_sid_name$", "policyType": "Auth", "version": "1.0", "requesttime": "$TIMESTAMP$" }, output= { "policyGroupName": "$IGNORE$", "name": "$IGNORE$", "desc": "$IGNORE$", "is_Active": false }, inputTemplate=esignet/PmsIntegration/DefinePolicy/definePolicyWOPhone, outputTemplate=esignet/PmsIntegration/DefinePolicy/definePolicyResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-84324483" onClick='toggleBox("Output-84324483", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-84324483" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-84324483">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "desc": "policyDescForAutomationEsi82782pol",
+    "name": "o40tRDNPa646Pz7",
+    "policyGroupName": "policyGroupNameForMispEsi548801088",
+    "policyType": "Auth",
+    "version": "1.0",
+    "policies": {
+      "authTokenType": "policy",
+      "allowedKycAttributes": [
+        {
+          "attributeName": "fullName"
+        },
+        {
+          "attributeName": "gender"
+        },
+        {
+          "attributeName": "email"
+        },
+        {
+          "attributeName": "dateOfBirth"
+        },
+        {
+          "attributeName": "city"
+        },
+        {
+          "attributeName": "face"
+        },
+        {
+          "attributeName": "addressLine1"
+        }
+      ],
+      "allowedAuthTypes": [
+        {
+          "authSubType": "IRIS",
+          "authType": "bio",
+          "mandatory": false
+        },
+        {
+          "authSubType": "FINGER",
+          "authType": "bio",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "otp",
+          "mandatory": false
+        },
+        {
+          "authSubType": "FACE",
+          "authType": "bio",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "otp-request",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kyc",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "demo",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kycauth",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kycexchange",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "keybinding",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kbt",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "wla",
+          "mandatory": false
+        }
+      ]
+    }
+  },
+  "requesttime": "2023-08-04T06:31:25.295Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/policymanager/policies) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-08-04T06:31:26.134Z",
+  "response": {
+    "id": "70178",
+    "policyGroupName": "policyGroupNameForMispEsi548801088",
+    "name": "o40tRDNPa646Pz7",
+    "desc": "policyDescForAutomationEsi82782pol",
+    "is_Active": false,
+    "cr_by": "esignet-111997",
+    "cr_dtimes": "2023-08-04T06:31:26.465+00:00"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.is_Active</td>
+    <td>false</td>
+    <td>false</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@7bede4ea</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.Esignet_DefinePolicy_Auth_S2_Valid_Smoke_sid()'><b>Esignet_DefinePolicy_Auth_S2_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (Esignet_DefinePolicy_Auth_S2_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=Esignet_DefinePolicy_Auth_S2_Valid_Smoke_sid, endPoint=/v1/policymanager/policies, role=partner, templateFields=null, input={ "desc": "$POLICYDESC1$", "name": "$RANDOMPOLICYNAME$", "policyGroupName": "$ID:DefinePolicyGroup_Misp_Valid_Smoke_sid_name$", "policyType": "Auth", "version": "1.0", "requesttime": "$TIMESTAMP$" }, output= { "policyGroupName": "$IGNORE$", "name": "$IGNORE$", "desc": "$IGNORE$", "is_Active": false }, inputTemplate=esignet/PmsIntegration/DefinePolicy/definePolicy, outputTemplate=esignet/PmsIntegration/DefinePolicy/definePolicyResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1037521082" onClick='toggleBox("Output-1037521082", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1037521082" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1037521082">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "desc": "policyDescForAutomationEsi82782pol",
+    "name": "FNBJJgtxo823c54",
+    "policyGroupName": "policyGroupNameForMispEsi548801088",
+    "policyType": "Auth",
+    "version": "1.0",
+    "policies": {
+      "authTokenType": "policy",
+      "allowedKycAttributes": [
+        {
+          "attributeName": "fullName"
+        },
+        {
+          "attributeName": "gender"
+        },
+        {
+          "attributeName": "phone"
+        },
+        {
+          "attributeName": "email"
+        },
+        {
+          "attributeName": "dateOfBirth"
+        },
+        {
+          "attributeName": "city"
+        },
+        {
+          "attributeName": "face"
+        },
+        {
+          "attributeName": "addressLine1"
+        }
+      ],
+      "allowedAuthTypes": [
+        {
+          "authSubType": "IRIS",
+          "authType": "bio",
+          "mandatory": false
+        },
+        {
+          "authSubType": "FINGER",
+          "authType": "bio",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "otp",
+          "mandatory": false
+        },
+        {
+          "authSubType": "FACE",
+          "authType": "bio",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "otp-request",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kyc",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "demo",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kycauth",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kycexchange",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "keybinding",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kbt",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "wla",
+          "mandatory": false
+        }
+      ]
+    }
+  },
+  "requesttime": "2023-08-04T06:31:28.120Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/policymanager/policies) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-08-04T06:31:28.966Z",
+  "response": {
+    "id": "58797",
+    "policyGroupName": "policyGroupNameForMispEsi548801088",
+    "name": "FNBJJgtxo823c54",
+    "desc": "policyDescForAutomationEsi82782pol",
+    "is_Active": false,
+    "cr_by": "esignet-111997",
+    "cr_dtimes": "2023-08-04T06:31:31.314+00:00"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.is_Active</td>
+    <td>false</td>
+    <td>false</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@7bede4ea</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.Esignet_DefinePolicy_Auth_Valid_Smoke_sid()'><b>Esignet_DefinePolicy_Auth_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (Esignet_DefinePolicy_Auth_S2_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=Esignet_DefinePolicy_Auth_Valid_Smoke_sid, endPoint=/v1/policymanager/policies, role=partner, templateFields=null, input={ "desc": "$POLICYDESC1$", "name": "$POLICYNAME1$", "policyGroupName": "$ID:DefinePolicyGroup_Misp_Valid_Smoke_sid_name$", "policyType": "Auth", "version": "1.0", "requesttime": "$TIMESTAMP$" }, output= { "policyGroupName": "$IGNORE$", "name": "$IGNORE$", "desc": "$IGNORE$", "is_Active": false }, inputTemplate=esignet/PmsIntegration/DefinePolicy/definePolicy, outputTemplate=esignet/PmsIntegration/DefinePolicy/definePolicyResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-308434156" onClick='toggleBox("Output-308434156", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-308434156" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-308434156">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "desc": "policyDescForAutomationEsi82782pol",
+    "name": "policyNameForAutomationEsi4382pold",
+    "policyGroupName": "policyGroupNameForMispEsi548801088",
+    "policyType": "Auth",
+    "version": "1.0",
+    "policies": {
+      "authTokenType": "policy",
+      "allowedKycAttributes": [
+        {
+          "attributeName": "fullName"
+        },
+        {
+          "attributeName": "gender"
+        },
+        {
+          "attributeName": "phone"
+        },
+        {
+          "attributeName": "email"
+        },
+        {
+          "attributeName": "dateOfBirth"
+        },
+        {
+          "attributeName": "city"
+        },
+        {
+          "attributeName": "face"
+        },
+        {
+          "attributeName": "addressLine1"
+        }
+      ],
+      "allowedAuthTypes": [
+        {
+          "authSubType": "IRIS",
+          "authType": "bio",
+          "mandatory": false
+        },
+        {
+          "authSubType": "FINGER",
+          "authType": "bio",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "otp",
+          "mandatory": false
+        },
+        {
+          "authSubType": "FACE",
+          "authType": "bio",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "otp-request",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kyc",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "demo",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kycauth",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kycexchange",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "keybinding",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kbt",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "wla",
+          "mandatory": false
+        }
+      ]
+    }
+  },
+  "requesttime": "2023-08-04T06:31:06.499Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/policymanager/policies) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-08-04T06:31:07.191Z",
+  "response": {
+    "id": "93318",
+    "policyGroupName": "policyGroupNameForMispEsi548801088",
+    "name": "policyNameForAutomationEsi4382pold",
+    "desc": "policyDescForAutomationEsi82782pol",
+    "is_Active": false,
+    "cr_by": "esignet-111997",
+    "cr_dtimes": "2023-08-04T06:31:07.598+00:00"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.is_Active</td>
+    <td>false</td>
+    <td>false</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@7bede4ea</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.Esignet_DefinePolicy_Invalid_MispPolicy_Neg()'><b>Esignet_DefinePolicy_Invalid_MispPolicy_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (Esignet_DefinePolicy_Auth_S2_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=Esignet_DefinePolicy_Invalid_MispPolicy_Neg, endPoint=/v1/policymanager/policies, role=partner, templateFields=null, input={ "desc": "$MISPPOLICYDESC$", "name": "$RANDOMPOLICYNAME$", "policyGroupName": "$ID:DefinePolicyGroup_Misp_Valid_Smoke_sid_name$", "policyType": "MISP", "version": "1.0", "requesttime": "$TIMESTAMP$" }, output= { "policyGroupName": "$IGNORE$", "name": "$IGNORE$", "desc": "$IGNORE$", "is_Active": false }, inputTemplate=esignet/PmsIntegration/DefinePolicy/definePolicyInvalid2, outputTemplate=esignet/PmsIntegration/DefinePolicy/definePolicyResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-725617616" onClick='toggleBox("Output-725617616", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-725617616" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-725617616">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "desc": "policyDescForMispEsit869024150",
+    "name": "RKny5Sm7xkV5GAp",
+    "policyGroupName": "policyGroupNameForMispEsi548801088",
+    "policyType": "MISP",
+    "version": "1.0",
+    "policies": {
+      "trustBindedAuthVerificationToken": true,
+      "allowAuthRequestDelegation": true,
+      "allowKycRequestDelegation": true,
+      "allowKeyBindingDelegation": true,
+      "allowOTPRequestDelegation": true
+    },
+    "authTokenType": "policy",
+    "allowedKycAttributes": [
+      {
+        "attributeName": "fullName"
+      },
+      {
+        "attributeName": "gender"
+      },
+      {
+        "attributeName": "phone"
+      },
+      {
+        "attributeName": "email"
+      },
+      {
+        "attributeName": "dateOfBirth"
+      },
+      {
+        "attributeName": "city"
+      },
+      {
+        "attributeName": "face"
+      },
+      {
+        "attributeName": "addressLine1"
+      }
+    ],
+    "allowedAuthTypes": [
+      {
+        "authSubType": "IRIS",
+        "authType": "bio",
+        "mandatory": false
+      },
+      {
+        "authSubType": "FINGER",
+        "authType": "bio",
+        "mandatory": false
+      },
+      {
+        "authSubType": "",
+        "authType": "otp",
+        "mandatory": false
+      },
+      {
+        "authSubType": "FACE",
+        "authType": "bio",
+        "mandatory": false
+      },
+      {
+        "authSubType": "",
+        "authType": "otp-request",
+        "mandatory": false
+      },
+      {
+        "authSubType": "",
+        "authType": "kyc",
+        "mandatory": false
+      },
+      {
+        "authSubType": "",
+        "authType": "demo",
+        "mandatory": false
+      },
+      {
+        "authSubType": "",
+        "authType": "kycauth",
+        "mandatory": false
+      },
+      {
+        "authSubType": "",
+        "authType": "kycexchange",
+        "mandatory": false
+      },
+      {
+        "authSubType": "",
+        "authType": "keybinding",
+        "mandatory": false
+      },
+      {
+        "authSubType": "",
+        "authType": "kbt",
+        "mandatory": false
+      },
+      {
+        "authSubType": "",
+        "authType": "wla",
+        "mandatory": false
+      }
+    ]
+  },
+  "requesttime": "2023-08-04T06:31:18.296Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/policymanager/policies) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-08-04T06:31:18.926Z",
+  "response": {
+    "id": "9374",
+    "policyGroupName": "policyGroupNameForMispEsi548801088",
+    "name": "RKny5Sm7xkV5GAp",
+    "desc": "policyDescForMispEsit869024150",
+    "is_Active": false,
+    "cr_by": "esignet-111997",
+    "cr_dtimes": "2023-08-04T06:31:21.102+00:00"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.is_Active</td>
+    <td>false</td>
+    <td>false</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@7bede4ea</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.Esignet_DefinePolicy_Invalid_PolicyAuth_Neg()'><b>Esignet_DefinePolicy_Invalid_PolicyAuth_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (Esignet_DefinePolicy_Auth_S2_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=Esignet_DefinePolicy_Invalid_PolicyAuth_Neg, endPoint=/v1/policymanager/policies, role=partner, templateFields=null, input={ "desc": "$MISPPOLICYDESC$", "name": "$RANDOMPOLICYNAME$", "policyGroupName": "$ID:DefinePolicyGroup_Misp_Valid_Smoke_sid_name$", "policyType": "MISP", "version": "1.0", "requesttime": "$TIMESTAMP$" }, output= { "policyGroupName": "$IGNORE$", "name": "$IGNORE$", "desc": "$IGNORE$", "is_Active": false }, inputTemplate=esignet/PmsIntegration/DefinePolicy/definePolicyInvalid, outputTemplate=esignet/PmsIntegration/DefinePolicy/definePolicyResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-486965279" onClick='toggleBox("Output-486965279", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-486965279" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-486965279">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "desc": "policyDescForMispEsit869024150",
+    "name": "2W1Mu4Sz7RGDU2e",
+    "policyGroupName": "policyGroupNameForMispEsi548801088",
+    "policyType": "MISP",
+    "version": "1.0",
+    "policies": {
+      "trustBindedAuthVerificationToken": true,
+      "allowAuthRequestDelegation": true,
+      "allowKycRequestDelegation": true,
+      "allowKeyBindingDelegation": true,
+      "allowOTPRequestDelegation": true
+    },
+    "allowedAuthTypes": [
+      {
+        "authSubType": "IRIS",
+        "authType": "bio",
+        "mandatory": false
+      },
+      {
+        "authSubType": "FINGER",
+        "authType": "bio",
+        "mandatory": false
+      },
+      {
+        "authSubType": "",
+        "authType": "otp",
+        "mandatory": false
+      },
+      {
+        "authSubType": "FACE",
+        "authType": "bio",
+        "mandatory": false
+      },
+      {
+        "authSubType": "",
+        "authType": "otp-request",
+        "mandatory": false
+      },
+      {
+        "authSubType": "",
+        "authType": "kyc",
+        "mandatory": false
+      },
+      {
+        "authSubType": "",
+        "authType": "demo",
+        "mandatory": false
+      },
+      {
+        "authSubType": "",
+        "authType": "kycauth",
+        "mandatory": false
+      },
+      {
+        "authSubType": "",
+        "authType": "kycexchange",
+        "mandatory": false
+      },
+      {
+        "authSubType": "",
+        "authType": "keybinding",
+        "mandatory": false
+      },
+      {
+        "authSubType": "",
+        "authType": "kbt",
+        "mandatory": false
+      },
+      {
+        "authSubType": "",
+        "authType": "wla",
+        "mandatory": false
+      }
+    ]
+  },
+  "requesttime": "2023-08-04T06:31:16.745Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/policymanager/policies) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-08-04T06:31:17.338Z",
+  "response": {
+    "id": "44957",
+    "policyGroupName": "policyGroupNameForMispEsi548801088",
+    "name": "2W1Mu4Sz7RGDU2e",
+    "desc": "policyDescForMispEsit869024150",
+    "is_Active": false,
+    "cr_by": "esignet-111997",
+    "cr_dtimes": "2023-08-04T06:31:18.192+00:00"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.is_Active</td>
+    <td>false</td>
+    <td>false</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@7bede4ea</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.Esignet_DefinePolicy_Invalid_PolicyGroupName_Neg()'><b>Esignet_DefinePolicy_Invalid_PolicyGroupName_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (Esignet_DefinePolicy_Auth_S2_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=Esignet_DefinePolicy_Invalid_PolicyGroupName_Neg, endPoint=/v1/policymanager/policies, role=partner, templateFields=null, input={ "desc": "$MISPPOLICYDESC$", "name": "$MISPPOLICYNAME$", "policyGroupName": "sdnvfsjf", "policyType": "MISP", "version": "1.0", "requesttime": "$TIMESTAMP$" }, output= { "errors": [ { "errorCode": "PMS_POL_019", "message": "$IGNORE$" } ] }, inputTemplate=esignet/PmsIntegration/DefinePolicy/definePolicyMisp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-91286940" onClick='toggleBox("Output-91286940", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-91286940" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-91286940">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "desc": "policyDescForMispEsit869024150",
+    "name": "policyNameForMispEsi698240372",
+    "policyGroupName": "sdnvfsjf",
+    "policyType": "MISP",
+    "version": "1.0",
+    "policies": {
+      "trustBindedAuthVerificationToken": true,
+      "allowAuthRequestDelegation": true,
+      "allowKycRequestDelegation": true,
+      "allowKeyBindingDelegation": true,
+      "allowOTPRequestDelegation": true
+    }
+  },
+  "requesttime": "2023-08-04T06:31:15.849Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/policymanager/policies) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-08-04T06:31:16.680Z",
+  "errors": [
+    {
+      "errorCode": "PMS_POL_019",
+      "message": "Policy group name does not exist"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_POL_019</td>
+    <td>PMS_POL_019</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@7bede4ea</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.Esignet_DefinePolicy_Invalid_PolicyType_Neg()'><b>Esignet_DefinePolicy_Invalid_PolicyType_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (Esignet_DefinePolicy_Auth_S2_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=Esignet_DefinePolicy_Invalid_PolicyType_Neg, endPoint=/v1/policymanager/policies, role=partner, templateFields=null, input={ "desc": "$MISPPOLICYDESC$", "name": "$MISPPOLICYNAME$", "policyGroupName": "$ID:DefinePolicyGroup_Misp_Valid_Smoke_sid_name$", "policyType": "shdb", "version": "1.0", "requesttime": "$TIMESTAMP$" }, output= { "errors": [ { "errorCode": "PMS_POL_023", "message": "$IGNORE$" } ] }, inputTemplate=esignet/PmsIntegration/DefinePolicy/definePolicyMisp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2142777203" onClick='toggleBox("Output-2142777203", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2142777203" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2142777203">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "desc": "policyDescForMispEsit869024150",
+    "name": "policyNameForMispEsi698240372",
+    "policyGroupName": "policyGroupNameForMispEsi548801088",
+    "policyType": "shdb",
+    "version": "1.0",
+    "policies": {
+      "trustBindedAuthVerificationToken": true,
+      "allowAuthRequestDelegation": true,
+      "allowKycRequestDelegation": true,
+      "allowKeyBindingDelegation": true,
+      "allowOTPRequestDelegation": true
+    }
+  },
+  "requesttime": "2023-08-04T06:31:13.879Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/policymanager/policies) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-08-04T06:31:15.781Z",
+  "errors": [
+    {
+      "errorCode": "PMS_POL_023",
+      "message": "Given policy type is not allowed "
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_POL_023</td>
+    <td>PMS_POL_023</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@7bede4ea</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.Esignet_DefinePolicy_Misp_False_Valid_Smoke_sid()'><b>Esignet_DefinePolicy_Misp_False_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (Esignet_DefinePolicy_Auth_S2_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=Esignet_DefinePolicy_Misp_False_Valid_Smoke_sid, endPoint=/v1/policymanager/policies, role=partner, templateFields=null, input={ "desc": "$MISPPOLICYDESC$", "name": "$RANDOMPOLICYNAME$", "policyGroupName": "$ID:DefinePolicyGroup_Misp_Valid_Smoke_sid_name$", "policyType": "MISP", "version": "1.0", "requesttime": "$TIMESTAMP$" }, output= { "policyGroupName": "$IGNORE$", "name": "$IGNORE$", "desc": "$IGNORE$", "is_Active": false }, inputTemplate=esignet/PmsIntegration/DefinePolicy/definePolicyMispFalse, outputTemplate=esignet/PmsIntegration/DefinePolicy/definePolicyResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1535684464" onClick='toggleBox("Output-1535684464", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1535684464" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1535684464">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "desc": "policyDescForMispEsit869024150",
+    "name": "KeNoqPMTUzU0ZSi",
+    "policyGroupName": "policyGroupNameForMispEsi548801088",
+    "policyType": "MISP",
+    "version": "1.0",
+    "policies": {
+      "trustBindedAuthVerificationToken": true,
+      "allowAuthRequestDelegation": false,
+      "allowKycRequestDelegation": false,
+      "allowKeyBindingDelegation": true,
+      "allowOTPRequestDelegation": false
+    }
+  },
+  "requesttime": "2023-08-04T06:31:22.369Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/policymanager/policies) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-08-04T06:31:23.016Z",
+  "response": {
+    "id": "80179",
+    "policyGroupName": "policyGroupNameForMispEsi548801088",
+    "name": "KeNoqPMTUzU0ZSi",
+    "desc": "policyDescForMispEsit869024150",
+    "is_Active": false,
+    "cr_by": "esignet-111997",
+    "cr_dtimes": "2023-08-04T06:31:25.201+00:00"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.is_Active</td>
+    <td>false</td>
+    <td>false</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@7bede4ea</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.Esignet_DefinePolicy_Misp_S2_Valid_Smoke_sid()'><b>Esignet_DefinePolicy_Misp_S2_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (Esignet_DefinePolicy_Auth_S2_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=Esignet_DefinePolicy_Misp_S2_Valid_Smoke_sid, endPoint=/v1/policymanager/policies, role=partner, templateFields=null, input={ "desc": "$MISPPOLICYDESC$", "name": "$RANDOMPOLICYNAME$", "policyGroupName": "$ID:DefinePolicyGroup_Misp_Valid_Smoke_sid_name$", "policyType": "MISP", "version": "1.0", "requesttime": "$TIMESTAMP$" }, output= { "policyGroupName": "$IGNORE$", "name": "$IGNORE$", "desc": "$IGNORE$", "is_Active": false }, inputTemplate=esignet/PmsIntegration/DefinePolicy/definePolicyMisp, outputTemplate=esignet/PmsIntegration/DefinePolicy/definePolicyResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1366832221" onClick='toggleBox("Output-1366832221", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1366832221" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1366832221">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "desc": "policyDescForMispEsit869024150",
+    "name": "r7iMvetETlfwxC9",
+    "policyGroupName": "policyGroupNameForMispEsi548801088",
+    "policyType": "MISP",
+    "version": "1.0",
+    "policies": {
+      "trustBindedAuthVerificationToken": true,
+      "allowAuthRequestDelegation": true,
+      "allowKycRequestDelegation": true,
+      "allowKeyBindingDelegation": true,
+      "allowOTPRequestDelegation": true
+    }
+  },
+  "requesttime": "2023-08-04T06:31:26.601Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/policymanager/policies) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-08-04T06:31:27.425Z",
+  "response": {
+    "id": "91830",
+    "policyGroupName": "policyGroupNameForMispEsi548801088",
+    "name": "r7iMvetETlfwxC9",
+    "desc": "policyDescForMispEsit869024150",
+    "is_Active": false,
+    "cr_by": "esignet-111997",
+    "cr_dtimes": "2023-08-04T06:31:27.780+00:00"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.is_Active</td>
+    <td>false</td>
+    <td>false</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@7bede4ea</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.Esignet_DefinePolicy_Misp_Valid_Smoke_sid()'><b>Esignet_DefinePolicy_Misp_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (Esignet_DefinePolicy_Auth_S2_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=Esignet_DefinePolicy_Misp_Valid_Smoke_sid, endPoint=/v1/policymanager/policies, role=partner, templateFields=null, input={ "desc": "$MISPPOLICYDESC$", "name": "$MISPPOLICYNAME$", "policyGroupName": "$ID:DefinePolicyGroup_Misp_Valid_Smoke_sid_name$", "policyType": "MISP", "version": "1.0", "requesttime": "$TIMESTAMP$" }, output= { "policyGroupName": "$IGNORE$", "name": "$IGNORE$", "desc": "$IGNORE$", "is_Active": false }, inputTemplate=esignet/PmsIntegration/DefinePolicy/definePolicyMisp, outputTemplate=esignet/PmsIntegration/DefinePolicy/definePolicyResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-873447850" onClick='toggleBox("Output-873447850", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-873447850" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-873447850">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "desc": "policyDescForMispEsit869024150",
+    "name": "policyNameForMispEsi698240372",
+    "policyGroupName": "policyGroupNameForMispEsi548801088",
+    "policyType": "MISP",
+    "version": "1.0",
+    "policies": {
+      "trustBindedAuthVerificationToken": true,
+      "allowAuthRequestDelegation": true,
+      "allowKycRequestDelegation": true,
+      "allowKeyBindingDelegation": true,
+      "allowOTPRequestDelegation": true
+    }
+  },
+  "requesttime": "2023-08-04T06:31:03.512Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/policymanager/policies) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-08-04T06:31:04.559Z",
+  "response": {
+    "id": "29155",
+    "policyGroupName": "policyGroupNameForMispEsi548801088",
+    "name": "policyNameForMispEsi698240372",
+    "desc": "policyDescForMispEsit869024150",
+    "is_Active": false,
+    "cr_by": "esignet-111997",
+    "cr_dtimes": "2023-08-04T06:31:06.118+00:00"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.is_Active</td>
+    <td>false</td>
+    <td>false</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@7bede4ea</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.Esignet_DefinePolicy_NonAuth_All_Valid_Smoke_sid()'><b>Esignet_DefinePolicy_NonAuth_All_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (Esignet_DefinePolicy_Auth_S2_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=Esignet_DefinePolicy_NonAuth_All_Valid_Smoke_sid, endPoint=/v1/policymanager/policies, role=partner, templateFields=null, input={ "desc": "$POLICYDESC$", "name": "$POLICYNAMENONAUTH$", "policyGroupName": "$ID:DefinePolicyGroup_All_Valid_Smoke_sid_name$", "policyType": "Auth", "version": "1.0", "requesttime": "$TIMESTAMP$" }, output= { "policyGroupName": "$IGNORE$", "name": "$IGNORE$", "desc": "$IGNORE$", "is_Active": false }, inputTemplate=esignet/PmsIntegration/DefinePolicy/definePolicyNonAuth, outputTemplate=esignet/PmsIntegration/DefinePolicy/definePolicyResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-502296269" onClick='toggleBox("Output-502296269", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-502296269" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-502296269">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "desc": "policyDescForAutomationEsi82782",
+    "name": "policyNameForEsignet4039",
+    "policyGroupName": "policyGroupNameForAutomationEsi56121",
+    "policyType": "Auth",
+    "version": "1.0",
+    "policies": {
+      "authTokenType": "policy",
+      "allowedKycAttributes": [
+        {
+          "attributeName": "fullName"
+        },
+        {
+          "attributeName": "gender"
+        },
+        {
+          "attributeName": "phone"
+        },
+        {
+          "attributeName": "email"
+        },
+        {
+          "attributeName": "dateOfBirth"
+        },
+        {
+          "attributeName": "city"
+        },
+        {
+          "attributeName": "face"
+        },
+        {
+          "attributeName": "addressLine1"
+        }
+      ],
+      "allowedAuthTypes": [
+        {
+          "authSubType": "",
+          "authType": "otp-request",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kyc",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "demo",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kycauth",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kycexchange",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "keybinding",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kbt",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "wla",
+          "mandatory": false
+        }
+      ]
+    }
+  },
+  "requesttime": "2023-08-04T06:31:07.715Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/policymanager/policies) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-08-04T06:31:08.455Z",
+  "response": {
+    "id": "625",
+    "policyGroupName": "policyGroupNameForAutomationEsi56121",
+    "name": "policyNameForEsignet4039",
+    "desc": "policyDescForAutomationEsi82782",
+    "is_Active": false,
+    "cr_by": "esignet-111997",
+    "cr_dtimes": "2023-08-04T06:31:08.921+00:00"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.is_Active</td>
+    <td>false</td>
+    <td>false</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@7bede4ea</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.Esignet_DefinePolicy_With_1_Policy_All_Valid_Smoke_sid()'><b>Esignet_DefinePolicy_With_1_Policy_All_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (Esignet_DefinePolicy_Auth_S2_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=Esignet_DefinePolicy_With_1_Policy_All_Valid_Smoke_sid, endPoint=/v1/policymanager/policies, role=partner, templateFields=null, input={ "desc": "$POLICYDESC$", "name": "$RANDOMPOLICYNAME$", "policyGroupName": "$ID:DefinePolicyGroup_Misp_Valid_Smoke_sid_name$", "policyType": "MISP", "version": "1.0", "requesttime": "$TIMESTAMP$" }, output= { "errors": [ { "errorCode": "PMS_PV_006", "message": "$IGNORE$" } ] }, inputTemplate=esignet/PmsIntegration/DefinePolicy/definePolicyMisp1, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-390994841" onClick='toggleBox("Output-390994841", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-390994841" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-390994841">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "desc": "policyDescForAutomationEsi82782",
+    "name": "Pi333S6WzmpTcE6",
+    "policyGroupName": "policyGroupNameForMispEsi548801088",
+    "policyType": "MISP",
+    "version": "1.0",
+    "policies": {
+      "allowAuthRequestDelegation": true
+    }
+  },
+  "requesttime": "2023-08-04T06:31:09.060Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/policymanager/policies) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-08-04T06:31:11.450Z",
+  "errors": [
+    {
+      "errorCode": "PMS_PV_006",
+      "message": "Missing input parameter - allowKeyBindingDelegation"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_PV_006</td>
+    <td>PMS_PV_006</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@7bede4ea</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.Esignet_DefinePolicy_With_2_Policy_All_Valid_Smoke_sid()'><b>Esignet_DefinePolicy_With_2_Policy_All_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (Esignet_DefinePolicy_Auth_S2_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=Esignet_DefinePolicy_With_2_Policy_All_Valid_Smoke_sid, endPoint=/v1/policymanager/policies, role=partner, templateFields=null, input={ "desc": "$POLICYDESC$", "name": "$RANDOMPOLICYNAME$", "policyGroupName": "$ID:DefinePolicyGroup_Misp_Valid_Smoke_sid_name$", "policyType": "MISP", "version": "1.0", "requesttime": "$TIMESTAMP$" }, output= { "errors": [ { "errorCode": "PMS_PV_006", "message": "$IGNORE$" } ] }, inputTemplate=esignet/PmsIntegration/DefinePolicy/definePolicyMisp2, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1561227322" onClick='toggleBox("Output-1561227322", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1561227322" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1561227322">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "desc": "policyDescForAutomationEsi82782",
+    "name": "y5Xcnl2q3qZo9uD",
+    "policyGroupName": "policyGroupNameForMispEsi548801088",
+    "policyType": "MISP",
+    "version": "1.0",
+    "policies": {
+      "allowAuthRequestDelegation": true,
+      "allowKycRequestDelegation": true
+    }
+  },
+  "requesttime": "2023-08-04T06:31:11.708Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/policymanager/policies) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-08-04T06:31:13.207Z",
+  "errors": [
+    {
+      "errorCode": "PMS_PV_006",
+      "message": "Missing input parameter - allowKeyBindingDelegation"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_PV_006</td>
+    <td>PMS_PV_006</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@7bede4ea</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.Esignet_DefinePolicy__Invalid_Misp_Name_Neg()'><b>Esignet_DefinePolicy__Invalid_Misp_Name_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (Esignet_DefinePolicy_Auth_S2_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=Esignet_DefinePolicy__Invalid_Misp_Name_Neg, endPoint=/v1/policymanager/policies, role=partner, templateFields=null, input={ "desc": "$MISPPOLICYDESC$", "name": "$MISPPOLICYNAME$", "policyGroupName": "$ID:DefinePolicyGroup_Misp_Valid_Smoke_sid_name$", "policyType": "MISP", "version": "1.0", "requesttime": "$TIMESTAMP$" }, output= { "errors": [ { "errorCode": "PMS_POL_009", "message": "$IGNORE$" } ] }, inputTemplate=esignet/PmsIntegration/DefinePolicy/definePolicyMisp, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-530681735" onClick='toggleBox("Output-530681735", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-530681735" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-530681735">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "desc": "policyDescForMispEsit869024150",
+    "name": "policyNameForMispEsi698240372",
+    "policyGroupName": "policyGroupNameForMispEsi548801088",
+    "policyType": "MISP",
+    "version": "1.0",
+    "policies": {
+      "trustBindedAuthVerificationToken": true,
+      "allowAuthRequestDelegation": true,
+      "allowKycRequestDelegation": true,
+      "allowKeyBindingDelegation": true,
+      "allowOTPRequestDelegation": true
+    }
+  },
+  "requesttime": "2023-08-04T06:31:21.574Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/policymanager/policies) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-08-04T06:31:22.320Z",
+  "errors": [
+    {
+      "errorCode": "PMS_POL_009",
+      "message": "Auth policy exists with name : policyNameForMispEsi698240372"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_POL_009</td>
+    <td>PMS_POL_009</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@7bede4ea</td></tr>
+</table><p>
+</body>
+</html>

@@ -1,0 +1,422 @@
+<html>
+<head>
+<title>TestNG:  RetrieveVIDByUIN</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>RetrieveVIDByUIN</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>6/1/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Oct 12 14:23:57 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>2 seconds (2858 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_RetrieveVIDByUIN_With_blocked_vid_()'><b>IdRepository_RetrieveVIDByUIN_With_blocked_vid_</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_RetrieveVIDByUIN_With_Space Uin)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_RetrieveVIDByUIN_With_blocked_vid_, endPoint=/idrepository/v1/vid/uin/{UIN}, role=idrepo, templateFields=null, input={ "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$" }, output={ "errors": [ { "errorCode": "IDR-VID-003" } ] }, inputTemplate=idRepository/RetrieveVIDByUIN/retrieveVIDByUIN, outputTemplate=idRepository/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null)<br/>
+<a href="#Output-1671900358" onClick='toggleBox("Output-1671900358", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1671900358" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1671900358">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "UIN": "843950763168"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/vid/uin/{UIN}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:53:57 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=69]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "responsetime": "2023-10-12T08:53:57.785Z",
+  "response": [
+    {
+      "vid": "6854671205694501",
+      "vidType": "TEMPORARY",
+      "expiryTimestamp": "2023-10-12T09:23:09.86266",
+      "transactionLimit": 1,
+      "hashAttributes": {
+        "SALT": "YgkSH6aqsq9AGxuPfgNcZg\u003d\u003d",
+        "MODULO": "941",
+        "id_hash": "ACD02F929DE25E8407BA4B8451FB0671F8ADF897762D5BA270C1AFBCBC23BD92"
+      }
+    }
+  ],
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-VID-003</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testrig.apirig.testscripts.GetWithParam.test(GetWithParam.java:149)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1671900358", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1671900358'><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testrig.apirig.testscripts.GetWithParam.test(GetWithParam.java:149)
+	at jdk.internal.reflect.GeneratedMethodAccessor205.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@63f9ddf9</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_RetrieveVIDByUIN_With_All_Vid_Valid_Smoke()'><b>IdRepository_RetrieveVIDByUIN_With_All_Vid_Valid_Smoke</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_RetrieveVIDByUIN_With_Space Uin)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_RetrieveVIDByUIN_With_All_Vid_Valid_Smoke, endPoint=/idrepository/v1/vid/uin/{UIN}, role=idrepo, templateFields=null, input={ "UIN":"$ID:AddIdentity_For_NewScen_smoke_Pos_UIN$" }, output={ "vidType": "$IGNORE$" }, inputTemplate=idRepository/RetrieveVIDByUIN/retrieveVIDByUIN, outputTemplate=idRepository/RetrieveVIDByUIN/retrieveVIDByUINResult, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null)<br/>
+<a href="#Output-208438522" onClick='toggleBox("Output-208438522", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-208438522" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-208438522">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "UIN": "762970917542"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/vid/uin/{UIN}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:53:58 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=101]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "responsetime": "2023-10-12T08:53:58.697Z",
+  "response": [
+    {
+      "vid": "4630651398019021",
+      "vidType": "PERPETUAL",
+      "expiryTimestamp": "9999-12-31T23:59:59.1",
+      "hashAttributes": {
+        "SALT": "2AlLkJk7Em3clDT8ULtk3w\u003d\u003d",
+        "MODULO": "299",
+        "id_hash": "352BD2B9D4875FCF642A609C724B3D9BD3C832B9B7029A536D164640C7B7D466"
+      }
+    },
+    {
+      "vid": "5763490158948235",
+      "vidType": "ONETIMEUSE",
+      "expiryTimestamp": "9999-12-31T23:59:59.1",
+      "transactionLimit": 1,
+      "hashAttributes": {
+        "SALT": "KJxftyHCbx9p797p1DfJWA\u003d\u003d",
+        "MODULO": "114",
+        "id_hash": "55A365252E02DCC1621738694A48A08E48C0DDDF29FB8D284A997E69177D79FF"
+      }
+    },
+    {
+      "vid": "3798163103260589",
+      "vidType": "TEMPORARY",
+      "expiryTimestamp": "2023-10-12T09:23:38.704376",
+      "transactionLimit": 1,
+      "hashAttributes": {
+        "SALT": "0NEmOuH0P+WLo6NEXmETsQ\u003d\u003d",
+        "MODULO": "389",
+        "id_hash": "ABA8C88F7DDAD34432D69946053D1B2E95538DD6F6356E980CB6479C6439A437"
+      }
+    },
+    {
+      "vid": "5762781734186905",
+      "vidType": "TEMPORARY",
+      "expiryTimestamp": "2023-10-12T09:23:40.837734",
+      "transactionLimit": 1,
+      "hashAttributes": {
+        "SALT": "86OWRfwy0CzJQQL/JNbvKw\u003d\u003d",
+        "MODULO": "2",
+        "id_hash": "8E223A561C2463D1EB0360202735728FB57874C6DADDC1F3E78C58708418EB23"
+      }
+    },
+    {
+      "vid": "3725084697164387",
+      "vidType": "TEMPORARY",
+      "expiryTimestamp": "2023-10-12T09:23:43.680493",
+      "transactionLimit": 1,
+      "hashAttributes": {
+        "SALT": "3l2d//YrQvPY6iQeDEhOKw\u003d\u003d",
+        "MODULO": "346",
+        "id_hash": "AC5F05FE47940985DE42810E60A1DDCCFA67D6DF9EE9B7024E33E9209F53D296"
+      }
+    }
+  ],
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Marking test case as passed. As Output validation not performed and no errors in the response </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@63f9ddf9</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_RetrieveVIDByUIN_With_Empty Uin()'><b>IdRepository_RetrieveVIDByUIN_With_Empty Uin</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_RetrieveVIDByUIN_With_Space Uin)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_RetrieveVIDByUIN_With_Empty Uin, endPoint=/idrepository/v1/vid/uin/{UIN}, role=idrepo, templateFields=null, input={ "UIN":"" }, output={ "errors": [ { "errorCode": "IDR-IDC-002" } ] }, inputTemplate=idRepository/RetrieveVIDByUIN/retrieveVIDByUIN, outputTemplate=idRepository/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-88469686" onClick='toggleBox("Output-88469686", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-88469686" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-88469686">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "UIN": ""
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/vid/uin/{UIN}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:53:59 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=16]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.vid.read",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:53:59.498Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - vid"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-002</td>
+    <td>IDR-IDC-002</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@63f9ddf9</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_RetrieveVIDByUIN_With_Invalid Uin()'><b>IdRepository_RetrieveVIDByUIN_With_Invalid Uin</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_RetrieveVIDByUIN_With_Space Uin)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_RetrieveVIDByUIN_With_Invalid Uin, endPoint=/idrepository/v1/vid/uin/{UIN}, role=idrepo, templateFields=null, input={ "UIN":"sdfhsbfdk" }, output={ "errors": [ { "errorCode": "IDR-IDC-004" } ] }, inputTemplate=idRepository/RetrieveVIDByUIN/retrieveVIDByUIN, outputTemplate=idRepository/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1948456514" onClick='toggleBox("Output-1948456514", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1948456514" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1948456514">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "UIN": "sdfhsbfdk"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/vid/uin/{UIN}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:53:59 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=101]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.vid.read",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:53:59.139Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-004",
+      "message": "Unknown error occurred"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-004</td>
+    <td>IDR-IDC-004</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@63f9ddf9</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_RetrieveVIDByUIN_With_Space Uin()'><b>IdRepository_RetrieveVIDByUIN_With_Space Uin</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_RetrieveVIDByUIN_With_Space Uin)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_RetrieveVIDByUIN_With_Space Uin, endPoint=/idrepository/v1/vid/uin/{UIN}, role=idrepo, templateFields=null, input={ "UIN":" " }, output={ "errors": [ { "errorCode": "IDR-IDC-004" } ] }, inputTemplate=idRepository/RetrieveVIDByUIN/retrieveVIDByUIN, outputTemplate=idRepository/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1571025706" onClick='toggleBox("Output-1571025706", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1571025706" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1571025706">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "UIN": " "
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/vid/uin/{UIN}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:53:59 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=75]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.vid.read",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:53:59.904Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-004",
+      "message": "Unknown error occurred"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-004</td>
+    <td>IDR-IDC-004</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@63f9ddf9</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_RetrieveVIDByUIN_With_Valid_Smoke_Perp()'><b>IdRepository_RetrieveVIDByUIN_With_Valid_Smoke_Perp</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_RetrieveVIDByUIN_With_Space Uin)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_RetrieveVIDByUIN_With_Valid_Smoke_Perp, endPoint=/idrepository/v1/vid/uin/{UIN}, role=idrepo, templateFields=null, input={ "UIN":"$ID:AddIdentity_ValidParam_smoke_Pos_UIN$" }, output={ "vidType": "$IGNORE$"
+}, inputTemplate=idRepository/RetrieveVIDByUIN/retrieveVIDByUIN, outputTemplate=idRepository/RetrieveVIDByUIN/retrieveVIDByUINResult, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null)<br/>
+<a href="#Output-1723402931" onClick='toggleBox("Output-1723402931", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1723402931" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1723402931">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "UIN": "472407389350"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/vid/uin/{UIN}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:53:58 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=88]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "responsetime": "2023-10-12T08:53:58.217Z",
+  "response": [
+    {
+      "vid": "6081465347263076",
+      "vidType": "PERPETUAL",
+      "expiryTimestamp": "9999-12-31T23:59:59.1",
+      "hashAttributes": {
+        "SALT": "0D1HjnYnbCMgdtY50sj94A\u003d\u003d",
+        "MODULO": "559",
+        "id_hash": "1D1250EB94CE8784221488976C8D43252CC91C24A87EF63E4F5B9F8C3F71D0B0"
+      }
+    }
+  ],
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Marking test case as passed. As Output validation not performed and no errors in the response </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@63f9ddf9</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_RetrieveVIDByUIN_With_Valid_Smoke_Temp()'><b>IdRepository_RetrieveVIDByUIN_With_Valid_Smoke_Temp</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_RetrieveVIDByUIN_With_Space Uin)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_RetrieveVIDByUIN_With_Valid_Smoke_Temp, endPoint=/idrepository/v1/vid/uin/{UIN}, role=idrepo, templateFields=null, input={ "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$" }, output={ "vidType": "$IGNORE$" }, inputTemplate=idRepository/RetrieveVIDByUIN/retrieveVIDByUIN, outputTemplate=idRepository/RetrieveVIDByUIN/retrieveVIDByUINResult, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null)<br/>
+<a href="#Output-577828237" onClick='toggleBox("Output-577828237", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-577828237" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-577828237">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "UIN": "843950763168"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/vid/uin/{UIN}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:53:57 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=55]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "responsetime": "2023-10-12T08:53:57.410Z",
+  "response": [
+    {
+      "vid": "6854671205694501",
+      "vidType": "TEMPORARY",
+      "expiryTimestamp": "2023-10-12T09:23:09.86266",
+      "transactionLimit": 1,
+      "hashAttributes": {
+        "SALT": "YgkSH6aqsq9AGxuPfgNcZg\u003d\u003d",
+        "MODULO": "941",
+        "id_hash": "ACD02F929DE25E8407BA4B8451FB0671F8ADF897762D5BA270C1AFBCBC23BD92"
+      }
+    }
+  ],
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Marking test case as passed. As Output validation not performed and no errors in the response </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@63f9ddf9</td></tr>
+</table><p>
+</body>
+</html>

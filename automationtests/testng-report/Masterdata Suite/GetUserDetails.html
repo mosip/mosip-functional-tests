@@ -1,0 +1,281 @@
+<html>
+<head>
+<title>TestNG:  GetUserDetails</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GetUserDetails</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>3/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Sep 20 13:40:28 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>1 seconds (1141 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.MasterData_GetUserDetails_ByUserId_allValid_smoke()'><b>MasterData_GetUserDetails_ByUserId_allValid_smoke</b><br>Test class: io.mosip.testscripts.GetWithParam (MasterData_GetUserDetails_InValid_InvalidUserID)<br>Parameters: TestCaseDTO(testCaseName=MasterData_GetUserDetails_ByUserId_allValid_smoke, endPoint=/v1/masterdata/users/{id}, role=admin, templateFields=null, input={ "id":"func_auto_test_user" }, output={ "id": "func_auto_test_user", "langCode": "eng", "name": "$IGNORE$", "statusCode": "$IGNORE$", "regCenterId": "10005", "isActive": $IGNORE$, "zoneCode": "$IGNORE$" }, inputTemplate=masterdata/GetUserDetails/getUserDetails, outputTemplate=masterdata/GetUserDetails/getUserDetailsByIDResult, restMethod=get)<br/>
+<a href="#Output-1392086043" onClick='toggleBox("Output-1392086043", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1392086043" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1392086043">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "func_auto_test_user"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/users/{id}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-09-20T08:10:29.311Z",
+  "errors": [
+    {
+      "errorCode": "KER-USR-007",
+      "message": "User Center mapping not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>User Center mapping not found</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-USR-007</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-09-20T08:10:29.311Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@31eb7290</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.MasterData_GetUserDetails_InValid_InvalidUserID()'><b>MasterData_GetUserDetails_InValid_InvalidUserID</b><br>Test class: io.mosip.testscripts.GetWithParam (MasterData_GetUserDetails_InValid_InvalidUserID)<br>Parameters: TestCaseDTO(testCaseName=MasterData_GetUserDetails_InValid_InvalidUserID, endPoint=/v1/masterdata/users/{id}, role=admin, templateFields=null, input={ "id":"abc" }, output={ "errors": [ { "errorCode": "KER-USR-007", "message": "User Center mapping not found" } ] }, inputTemplate=masterdata/GetUserDetails/getUserDetails, outputTemplate=masterdata/error, restMethod=get)<br/>
+<a href="#Output-1734207188" onClick='toggleBox("Output-1734207188", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1734207188" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1734207188">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "abc"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/users/{id}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-09-20T08:10:29.702Z",
+  "errors": [
+    {
+      "errorCode": "KER-USR-007",
+      "message": "User Center mapping not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>User Center mapping not found</td>
+    <td>User Center mapping not found</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-USR-007</td>
+    <td>KER-USR-007</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@31eb7290</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.MasterData_GetUserDetails_allValid_smoke()'><b>MasterData_GetUserDetails_allValid_smoke</b><br>Test class: io.mosip.testscripts.GetWithParam (MasterData_GetUserDetails_InValid_InvalidUserID)<br>Parameters: TestCaseDTO(testCaseName=MasterData_GetUserDetails_allValid_smoke, endPoint=/v1/masterdata/users, role=admin, templateFields=null, input={ "id":"$REMOVE$" }, output={ "id": "auto_test_user", "langCode": "eng", "name": "$IGNORE$", "statusCode": "$IGNORE$", "regCenterId": "10005", "isActive": $IGNORE$, "zoneCode": "$IGNORE$" }, inputTemplate=masterdata/GetUserDetails/getUserDetails, outputTemplate=masterdata/GetUserDetails/getUserDetailsResult, restMethod=get)<br/>
+<a href="#Output-886690315" onClick='toggleBox("Output-886690315", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-886690315" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-886690315">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/users) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-09-20T08:10:28.945Z",
+  "errors": [
+    {
+      "errorCode": "KER-USR-004",
+      "message": "Error occurred while retrieving User details could not resolve property: cr_dtimes of: io.mosip.kernel.masterdata.entity.UserDetails"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Error occurred while retrieving User details could not resolve property: cr_dtimes of: io.mosip.kernel.masterdata.entity.UserDetails</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-USR-004</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-09-20T08:10:28.945Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@31eb7290</td></tr>
+</table><p>
+</body>
+</html>

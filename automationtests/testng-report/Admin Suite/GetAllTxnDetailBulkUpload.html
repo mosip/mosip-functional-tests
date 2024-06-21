@@ -1,0 +1,856 @@
+<html>
+<head>
+<title>TestNG:  GetAllTxnDetailBulkUpload</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GetAllTxnDetailBulkUpload</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Dec 15 15:09:37 IST 2021</td>
+</tr>
+<tr><td>Total time:</td><td>0 seconds (824 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithQueryParam.master_GetAllTxnDetailBulkUpload_Smoke()'><b>master_GetAllTxnDetailBulkUpload_Smoke</b><br>Test class: io.mosip.testscripts.GetWithQueryParam (master_GetAllTxnDetailBulkUpload_Smoke)<br>Parameters: TestCaseDTO(testCaseName=master_GetAllTxnDetailBulkUpload_Smoke, endPoint=/v1/admin/bulkupload/getAllTransactions, role=admin, templateFields=null, input={ "category":"masterdata" }, output={ "entityName": "$IGNORE$", "operation": "$IGNORE$", "category": "$IGNORE$" }, inputTemplate=masterdata/GetAllTxnDetailBulkUpload/allTxnDetails, outputTemplate=masterdata/GetAllTxnDetailBulkUpload/allTxnDetailsResult, restMethod=get)<br/>
+<a href="#Output-986604358" onClick='toggleBox("Output-986604358", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-986604358" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-986604358">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "category": "masterdata"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/admin/bulkupload/getAllTransactions) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2021-12-15T09:39:38.009Z",
+  "response": {
+    "pageNo": 0,
+    "totalPages": 41,
+    "totalItems": 408,
+    "data": [
+      {
+        "transcationId": "a50180cd-b474-4b8f-814c-3ad88dc4e43e",
+        "entityName": "IndividualType",
+        "operation": "Insert",
+        "count": 1,
+        "category": "masterdata",
+        "status": "COMPLETED",
+        "uploadedBy": "110123",
+        "timeStamp": "2021-12-15T08:46:54.136971"
+      },
+      {
+        "transcationId": "bc768e2a-6b29-465f-979e-b4d2ee403877",
+        "entityName": "DynamicField",
+        "operation": "Delete",
+        "count": 1,
+        "category": "masterdata",
+        "status": "COMPLETED",
+        "uploadedBy": "110123",
+        "timeStamp": "2021-12-15T08:43:35.786421"
+      },
+      {
+        "transcationId": "d4df337f-2ff5-4503-82d3-39fab09f844e",
+        "entityName": "DynamicField",
+        "operation": "Update",
+        "count": 1,
+        "category": "masterdata",
+        "status": "COMPLETED",
+        "uploadedBy": "110123",
+        "timeStamp": "2021-12-15T08:43:24.915987"
+      },
+      {
+        "transcationId": "4b5bd2ac-4a2c-4528-8478-1bc0f4ee0951",
+        "entityName": "DynamicField",
+        "operation": "Insert",
+        "count": 1,
+        "category": "masterdata",
+        "status": "COMPLETED",
+        "uploadedBy": "110123",
+        "timeStamp": "2021-12-15T08:43:14.327853"
+      },
+      {
+        "transcationId": "8de00324-c74a-43d3-8eda-6cc50ba5a5df",
+        "entityName": "DocumentType",
+        "operation": "Insert",
+        "count": 1,
+        "category": "masterdata",
+        "status": "FAILED",
+        "statusDescription": "[ADM-BLK-008 --\u003e Entry already exists with this id \u003e\u003e CodeAndLanguageCodeID(code\u003dTC002, langCode\u003deng)]",
+        "uploadedBy": "110123",
+        "timeStamp": "2021-12-15T08:42:13.943329"
+      },
+      {
+        "transcationId": "d3ec3a67-4bfd-46c8-bf8b-3625b8ace074",
+        "entityName": "DocumentCategory",
+        "operation": "Delete",
+        "count": 1,
+        "category": "masterdata",
+        "status": "COMPLETED",
+        "uploadedBy": "110123",
+        "timeStamp": "2021-12-15T08:41:53.381557"
+      },
+      {
+        "transcationId": "411080de-e119-4e68-98c7-121650b251ab",
+        "entityName": "DocumentCategory",
+        "operation": "Update",
+        "count": 1,
+        "category": "masterdata",
+        "status": "COMPLETED",
+        "uploadedBy": "110123",
+        "timeStamp": "2021-12-15T08:41:42.598583"
+      },
+      {
+        "transcationId": "f82c0372-0bed-42ec-913f-2f025278ab31",
+        "entityName": "DocumentCategory",
+        "operation": "Insert",
+        "count": 1,
+        "category": "masterdata",
+        "status": "COMPLETED",
+        "uploadedBy": "110123",
+        "timeStamp": "2021-12-15T08:41:31.729430"
+      },
+      {
+        "transcationId": "9088320b-7821-42ee-844b-916739ef3952",
+        "entityName": "DeviceType",
+        "operation": "Delete",
+        "count": 1,
+        "category": "masterdata",
+        "status": "COMPLETED",
+        "uploadedBy": "110123",
+        "timeStamp": "2021-12-15T08:41:11.732442"
+      },
+      {
+        "transcationId": "0eef32f6-9cc0-4752-9e03-e3a9ccee0e7d",
+        "entityName": "DeviceType",
+        "operation": "Update",
+        "count": 1,
+        "category": "masterdata",
+        "status": "COMPLETED",
+        "uploadedBy": "110123",
+        "timeStamp": "2021-12-15T08:41:00.888515"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].status</td>
+    <td>NOT VERIFIED</td>
+    <td>COMPLETED</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].entityName</td>
+    <td>NOT VERIFIED</td>
+    <td>DocumentCategory</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].entityName</td>
+    <td>NOT VERIFIED</td>
+    <td>DynamicField</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].entityName</td>
+    <td>NOT VERIFIED</td>
+    <td>DeviceType</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].entityName</td>
+    <td>NOT VERIFIED</td>
+    <td>DocumentType</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].entityName</td>
+    <td>NOT VERIFIED</td>
+    <td>DeviceType</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].entityName</td>
+    <td>NOT VERIFIED</td>
+    <td>DynamicField</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].entityName</td>
+    <td>NOT VERIFIED</td>
+    <td>DynamicField</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].timeStamp</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T08:41:31.729430</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].status</td>
+    <td>NOT VERIFIED</td>
+    <td>COMPLETED</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].operation</td>
+    <td>NOT VERIFIED</td>
+    <td>Insert</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].entityName</td>
+    <td>NOT VERIFIED</td>
+    <td>IndividualType</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].operation</td>
+    <td>NOT VERIFIED</td>
+    <td>Insert</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].transcationId</td>
+    <td>NOT VERIFIED</td>
+    <td>d4df337f-2ff5-4503-82d3-39fab09f844e</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].timeStamp</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T08:43:35.786421</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].category</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].transcationId</td>
+    <td>NOT VERIFIED</td>
+    <td>0eef32f6-9cc0-4752-9e03-e3a9ccee0e7d</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].count</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].category</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].operation</td>
+    <td>NOT VERIFIED</td>
+    <td>Update</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].count</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].count</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].entityName</td>
+    <td>NOT VERIFIED</td>
+    <td>DocumentCategory</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].entityName</td>
+    <td>NOT VERIFIED</td>
+    <td>DocumentCategory</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].transcationId</td>
+    <td>NOT VERIFIED</td>
+    <td>4b5bd2ac-4a2c-4528-8478-1bc0f4ee0951</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].count</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].statusDescription</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].count</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].operation</td>
+    <td>NOT VERIFIED</td>
+    <td>Delete</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].status</td>
+    <td>NOT VERIFIED</td>
+    <td>COMPLETED</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].status</td>
+    <td>NOT VERIFIED</td>
+    <td>COMPLETED</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].logs</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].category</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].timeStamp</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T08:46:54.136971</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T09:39:38.009Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].category</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].uploadedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].uploadedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].uploadedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].category</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].uploadedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].transcationId</td>
+    <td>NOT VERIFIED</td>
+    <td>d3ec3a67-4bfd-46c8-bf8b-3625b8ace074</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].uploadedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.totalItems</td>
+    <td>NOT VERIFIED</td>
+    <td>408</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].uploadedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].statusDescription</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].statusDescription</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].uploadedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].logs</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].logs</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].uploadedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].uploadedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].category</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].count</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].statusDescription</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].statusDescription</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].statusDescription</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].statusDescription</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].uploadedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].statusDescription</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].statusDescription</td>
+    <td>NOT VERIFIED</td>
+    <td>[ADM-BLK-008 --> Entry already exists with this id >> CodeAndLanguageCodeID(code=TC002, langCode=eng)]</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].statusDescription</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].transcationId</td>
+    <td>NOT VERIFIED</td>
+    <td>f82c0372-0bed-42ec-913f-2f025278ab31</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].status</td>
+    <td>NOT VERIFIED</td>
+    <td>COMPLETED</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.totalPages</td>
+    <td>NOT VERIFIED</td>
+    <td>41</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].operation</td>
+    <td>NOT VERIFIED</td>
+    <td>Delete</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].logs</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].status</td>
+    <td>NOT VERIFIED</td>
+    <td>COMPLETED</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].logs</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].category</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].timeStamp</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T08:41:11.732442</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].logs</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].operation</td>
+    <td>NOT VERIFIED</td>
+    <td>Update</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].transcationId</td>
+    <td>NOT VERIFIED</td>
+    <td>bc768e2a-6b29-465f-979e-b4d2ee403877</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].logs</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].timeStamp</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T08:43:24.915987</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].category</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].transcationId</td>
+    <td>NOT VERIFIED</td>
+    <td>a50180cd-b474-4b8f-814c-3ad88dc4e43e</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].timeStamp</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T08:41:00.888515</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].status</td>
+    <td>NOT VERIFIED</td>
+    <td>COMPLETED</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].transcationId</td>
+    <td>NOT VERIFIED</td>
+    <td>9088320b-7821-42ee-844b-916739ef3952</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].count</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].logs</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].timeStamp</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T08:41:42.598583</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].status</td>
+    <td>NOT VERIFIED</td>
+    <td>COMPLETED</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].timeStamp</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T08:43:14.327853</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].operation</td>
+    <td>NOT VERIFIED</td>
+    <td>Insert</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].category</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].logs</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].status</td>
+    <td>NOT VERIFIED</td>
+    <td>COMPLETED</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].transcationId</td>
+    <td>NOT VERIFIED</td>
+    <td>411080de-e119-4e68-98c7-121650b251ab</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].operation</td>
+    <td>NOT VERIFIED</td>
+    <td>Insert</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.pageNo</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].timeStamp</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T08:42:13.943329</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].operation</td>
+    <td>NOT VERIFIED</td>
+    <td>Update</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].category</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].count</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].timeStamp</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T08:41:53.381557</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].status</td>
+    <td>NOT VERIFIED</td>
+    <td>FAILED</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].logs</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].count</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].count</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].transcationId</td>
+    <td>NOT VERIFIED</td>
+    <td>8de00324-c74a-43d3-8eda-6cc50ba5a5df</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].operation</td>
+    <td>NOT VERIFIED</td>
+    <td>Delete</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithQueryParam@640cc04b</td></tr>
+</table><p>
+</body>
+</html>

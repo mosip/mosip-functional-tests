@@ -1,0 +1,1878 @@
+<html>
+<head>
+<title>TestNG:  UpdateOIDCClient</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>UpdateOIDCClient</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>29/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Aug 01 22:23:30 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>23 seconds (23110 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_2_all_Valid_Smoke()'><b>ESignet_UpdateOIDCClient_2_all_Valid_Smoke</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_2_all_Valid_Smoke, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "ACTIVE", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "clientId": "$ID:CreateOIDCClient_2_Same_RelyParty_Valid_Smoke_sid_clientId$", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "clientId": "$IGNORE$", "status": "ACTIVE" }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClientResult, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-312501701" onClick='toggleBox("Output-312501701", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-312501701" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-312501701">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:30.845Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:31.425Z",
+  "response": {
+    "clientId": "mosip341690907200359",
+    "status": "ACTIVE"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.status</td>
+    <td>ACTIVE</td>
+    <td>ACTIVE</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_Diff_RequestTime_Neg()'><b>ESignet_UpdateOIDCClient_Diff_RequestTime_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_Diff_RequestTime_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "2022-11-07T06:51:30.195Z", "status": "ACTIVE", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-330758189" onClick='toggleBox("Output-330758189", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-330758189" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-330758189">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2022-11-07T06:51:30.195Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:32.562Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_Empty_authContextRefs_Neg()'><b>ESignet_UpdateOIDCClient_Empty_authContextRefs_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_Empty_authContextRefs_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "ACTIVE", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: ""}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_acr", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-32772296" onClick='toggleBox("Output-32772296", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-32772296" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-32772296">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:45.007Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      ""
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:45.578Z",
+  "errors": [
+    {
+      "errorCode": "invalid_acr",
+      "errorMessage": "request.authContextRefs[0]: invalid_acr"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_acr</td>
+    <td>invalid_acr</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_Empty_clientAuthMethods_Neg()'><b>ESignet_UpdateOIDCClient_Empty_clientAuthMethods_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_Empty_clientAuthMethods_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "ACTIVE", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "" }, output={ "errors": [ { "errorCode": "invalid_client_auth", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1311212526" onClick='toggleBox("Output-1311212526", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1311212526" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1311212526">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:50.584Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      ""
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:51.138Z",
+  "errors": [
+    {
+      "errorCode": "invalid_client_auth",
+      "errorMessage": "request.clientAuthMethods[0]: invalid_client_auth"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_client_auth</td>
+    <td>invalid_client_auth</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_Empty_grantTypes_Neg()'><b>ESignet_UpdateOIDCClient_Empty_grantTypes_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_Empty_grantTypes_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "ACTIVE", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_grant_type", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1942504156" onClick='toggleBox("Output-1942504156", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1942504156" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1942504156">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:47.970Z",
+  "request": {
+    "grantTypes": [
+      ""
+    ],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:48.804Z",
+  "errors": [
+    {
+      "errorCode": "invalid_grant_type",
+      "errorMessage": "request.grantTypes[0]: invalid_grant_type"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_grant_type</td>
+    <td>invalid_grant_type</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_Empty_redirectUris_Neg()'><b>ESignet_UpdateOIDCClient_Empty_redirectUris_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_Empty_redirectUris_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "ACTIVE", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$", "redirectUris": "", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_redirect_uri", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1185714469" onClick='toggleBox("Output-1185714469", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1185714469" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1185714469">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:42.082Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      ""
+    ],
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:43.191Z",
+  "errors": [
+    {
+      "errorCode": "invalid_redirect_uri",
+      "errorMessage": "request.redirectUris[0]: invalid_redirect_uri"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_redirect_uri</td>
+    <td>invalid_redirect_uri</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_Exceding_Range_ClientId_Neg()'><b>ESignet_UpdateOIDCClient_Exceding_Range_ClientId_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_Exceding_Range_ClientId_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "ACTIVE", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "clientId": "8nr2xe4jlxa54n9okvcv1kbjjl7srfy3veqp88g2u1nn2do7za1svus4hdfj", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_client_id", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1545098604" onClick='toggleBox("Output-1545098604", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1545098604" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1545098604">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:39.453Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:40.088Z",
+  "errors": [
+    {
+      "errorCode": "invalid_client_id",
+      "errorMessage": "invalid_client_id"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_client_id</td>
+    <td>invalid_client_id</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_Exceding_Range_ClientName()'><b>ESignet_UpdateOIDCClient_Exceding_Range_ClientName</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_Exceding_Range_ClientName, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "ACTIVE", "clientName": "vc0neervbsu10dfbo2vu282lt0r9hf044b1q8wm957k97wpjmrmwz6kcbpv5p9zyocksfyg41u4rpm71hhqy29sqcixg1i0ed2aaxlfd9f5wtpf3py2igi3orhttvh6vqys16nmnke9qwjjr8byjflotzyw078t1azc9rvoftuhdis40mgy9uoyzoypwdbomdkjg3v9y216y7bfpiyoenhgaudirgn432u3c2x27z23zvd094m7ug4lvid8av6jhc24j", "logoUri": "https://health-services.com/logo.png", "clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_client_name", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-192783044" onClick='toggleBox("Output-192783044", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-192783044" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-192783044">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:52.709Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientName": "vc0neervbsu10dfbo2vu282lt0r9hf044b1q8wm957k97wpjmrmwz6kcbpv5p9zyocksfyg41u4rpm71hhqy29sqcixg1i0ed2aaxlfd9f5wtpf3py2igi3orhttvh6vqys16nmnke9qwjjr8byjflotzyw078t1azc9rvoftuhdis40mgy9uoyzoypwdbomdkjg3v9y216y7bfpiyoenhgaudirgn432u3c2x27z23zvd094m7ug4lvid8av6jhc24j",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:53.284Z",
+  "errors": [
+    {
+      "errorCode": "invalid_client_name",
+      "errorMessage": "request.clientName: invalid_client_name"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_client_name</td>
+    <td>invalid_client_name</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_Exceding_Range_logoUri_Neg()'><b>ESignet_UpdateOIDCClient_Exceding_Range_logoUri_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_Exceding_Range_logoUri_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "ACTIVE", "clientName": "MOSIP OIDC Client", "logoUri": "jfwy2ky9paqhidten6vg2g4iznvd7l3b6pjnghdvlqzpzmcyq8vdwjm0jalich5t3ro7j716t5zsbg8rqfc99py504vqq74b7p6jtyux9qzzz9ufu24hrgicws8ntszzcwva4tlj8lz1tfubr1vneuv503kn5b591zi0gdfqgj440z86syg0ikpwhpy0hgw1qp5px8dstsoncuc5f43t0hpj3rmiejdhyswpeu6fte0z7811zxauzadx22ii3rsffc7yxu216sqtblwfly7j8r7u32vi47grtqza0yvvondsnek32tktqtb7vycyo33nqhv7rpt5al4vxxa70fablzlr7rf3xzo0u2kti791nywnqed0du1e8356vfu5fsm1tfk6hbscc7ys77hipwernpsctvw3fgvk06qunxylzfmpwz645y8p8liv8s76nwrd3xae1amleljiheuvmrn2qqzcojv65tdreti1cy1sskw3srbgig0h4n6w3l9nts4pb90l19cgmp9y9h54m69uqwwexx8r5jgtcb3cpixwg35gjhzqjo8ub0lrk4etr81b25couzom4mr2ek8s416329cd8fh9k8w2cyr2uas0h9gvvvvvpbh7701kgmpoz712mi37ny7kv6oionrf3370ycsja9eenrr3aybnpt2htl65th9fqlwcpszvhr6ffhcu6q5fss521jr111cfeeobn6byherzj6ayr0io7kgjytucorl2hwir7ragjsdshd579ts55230dvmb4iv8823p7qjf47ik66igdu6b5pn4v3108hfi3gjmre12dusj6g1066n59400183urt2ungulo395k0krhvjotfkg42msujren8pnnz8pmf6vgc3megxhzi3ypycl7o77iq2596n9141mgmgwbe2vlfcc994mv483vwjr7dko10xv3y9n60wfb04a9egu83vws66hgljzey2ore7amcvi7t89kmjfwsy8mywtmokbh9d9jr0a40p76is71t", "clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_uri", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-543119166" onClick='toggleBox("Output-543119166", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-543119166" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-543119166">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:41.274Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "jfwy2ky9paqhidten6vg2g4iznvd7l3b6pjnghdvlqzpzmcyq8vdwjm0jalich5t3ro7j716t5zsbg8rqfc99py504vqq74b7p6jtyux9qzzz9ufu24hrgicws8ntszzcwva4tlj8lz1tfubr1vneuv503kn5b591zi0gdfqgj440z86syg0ikpwhpy0hgw1qp5px8dstsoncuc5f43t0hpj3rmiejdhyswpeu6fte0z7811zxauzadx22ii3rsffc7yxu216sqtblwfly7j8r7u32vi47grtqza0yvvondsnek32tktqtb7vycyo33nqhv7rpt5al4vxxa70fablzlr7rf3xzo0u2kti791nywnqed0du1e8356vfu5fsm1tfk6hbscc7ys77hipwernpsctvw3fgvk06qunxylzfmpwz645y8p8liv8s76nwrd3xae1amleljiheuvmrn2qqzcojv65tdreti1cy1sskw3srbgig0h4n6w3l9nts4pb90l19cgmp9y9h54m69uqwwexx8r5jgtcb3cpixwg35gjhzqjo8ub0lrk4etr81b25couzom4mr2ek8s416329cd8fh9k8w2cyr2uas0h9gvvvvvpbh7701kgmpoz712mi37ny7kv6oionrf3370ycsja9eenrr3aybnpt2htl65th9fqlwcpszvhr6ffhcu6q5fss521jr111cfeeobn6byherzj6ayr0io7kgjytucorl2hwir7ragjsdshd579ts55230dvmb4iv8823p7qjf47ik66igdu6b5pn4v3108hfi3gjmre12dusj6g1066n59400183urt2ungulo395k0krhvjotfkg42msujren8pnnz8pmf6vgc3megxhzi3ypycl7o77iq2596n9141mgmgwbe2vlfcc994mv483vwjr7dko10xv3y9n60wfb04a9egu83vws66hgljzey2ore7amcvi7t89kmjfwsy8mywtmokbh9d9jr0a40p76is71t",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:41.939Z",
+  "errors": [
+    {
+      "errorCode": "invalid_uri",
+      "errorMessage": "request.logoUri: invalid_uri"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_uri</td>
+    <td>invalid_uri</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_Invalid_Range_ClientId_Neg()'><b>ESignet_UpdateOIDCClient_Invalid_Range_ClientId_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_Invalid_Range_ClientId_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "ACTIVE", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "clientId": " ", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_client_id", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1295675429" onClick='toggleBox("Output-1295675429", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1295675429" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1295675429">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:34.301Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:39.425Z",
+  "errors": [
+    {
+      "errorCode": "invalid_client_id",
+      "errorMessage": "invalid_client_id"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_client_id</td>
+    <td>invalid_client_id</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>5</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_Invalid_Range_ClientName()'><b>ESignet_UpdateOIDCClient_Invalid_Range_ClientName</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_Invalid_Range_ClientName, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "ACTIVE", "clientName": "", "logoUri": "https://health-services.com/logo.png", "clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_client_name", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-981442300" onClick='toggleBox("Output-981442300", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-981442300" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-981442300">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:52.115Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientName": "",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:52.679Z",
+  "errors": [
+    {
+      "errorCode": "invalid_client_name",
+      "errorMessage": "request.clientName: invalid_client_name"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_client_name</td>
+    <td>invalid_client_name</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_Invalid_Range_logoUri_Neg()'><b>ESignet_UpdateOIDCClient_Invalid_Range_logoUri_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_Invalid_Range_logoUri_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "ACTIVE", "clientName": "MOSIP OIDC Client", "logoUri": "", "clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_uri", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1181946054" onClick='toggleBox("Output-1181946054", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1181946054" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1181946054">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:40.672Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:41.241Z",
+  "errors": [
+    {
+      "errorCode": "invalid_uri",
+      "errorMessage": "request.logoUri: invalid_uri"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_uri</td>
+    <td>invalid_uri</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_Invalid_RequestTime_Neg()'><b>ESignet_UpdateOIDCClient_Invalid_RequestTime_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_Invalid_RequestTime_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "2022-11-07T06:51:30", "status": "ACTIVE", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1226766604" onClick='toggleBox("Output-1226766604", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1226766604" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1226766604">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2022-11-07T06:51:30",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:31.990Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_Invalid_authContextRefs_Neg()'><b>ESignet_UpdateOIDCClient_Invalid_authContextRefs_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_Invalid_authContextRefs_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "ACTIVE", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "invalid_acr"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_acr", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-434809611" onClick='toggleBox("Output-434809611", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-434809611" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-434809611">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:44.443Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "invalid_acr"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:44.982Z",
+  "errors": [
+    {
+      "errorCode": "invalid_acr",
+      "errorMessage": "request.authContextRefs[0]: invalid_acr"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_acr</td>
+    <td>invalid_acr</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_Invalid_clientAuthMethods_Neg()'><b>ESignet_UpdateOIDCClient_Invalid_clientAuthMethods_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_Invalid_clientAuthMethods_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "ACTIVE", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "$$#@@A" }, output={ "errors": [ { "errorCode": "invalid_client_auth", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-736370064" onClick='toggleBox("Output-736370064", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-736370064" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-736370064">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:49.446Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      "$$#@@A"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:49.989Z",
+  "errors": [
+    {
+      "errorCode": "invalid_client_auth",
+      "errorMessage": "request.clientAuthMethods[0]: invalid_client_auth"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_client_auth</td>
+    <td>invalid_client_auth</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_Invalid_clientId_Neg()'><b>ESignet_UpdateOIDCClient_Invalid_clientId_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_Invalid_clientId_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "ACTIVE", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "clientId": "@#DDSS$", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_client_id", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2058334020" onClick='toggleBox("Output-2058334020", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2058334020" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2058334020">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:32.596Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:33.173Z",
+  "errors": [
+    {
+      "errorCode": "invalid_client_id",
+      "errorMessage": "invalid_client_id"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_client_id</td>
+    <td>invalid_client_id</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_Invalid_grantTypes_Neg()'><b>ESignet_UpdateOIDCClient_Invalid_grantTypes_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_Invalid_grantTypes_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "ACTIVE", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "$$@###$", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_grant_type", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1515507807" onClick='toggleBox("Output-1515507807", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1515507807" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1515507807">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:46.816Z",
+  "request": {
+    "grantTypes": [
+      "$$@###$"
+    ],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:47.361Z",
+  "errors": [
+    {
+      "errorCode": "invalid_grant_type",
+      "errorMessage": "request.grantTypes[0]: invalid_grant_type"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_grant_type</td>
+    <td>invalid_grant_type</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_Invalid_status_Neg()'><b>ESignet_UpdateOIDCClient_Invalid_status_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_Invalid_status_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "@$$##%", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_status", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-194383899" onClick='toggleBox("Output-194383899", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-194383899" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-194383899">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:40.114Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "status": "@$$##%",
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:40.644Z",
+  "errors": [
+    {
+      "errorCode": "invalid_status",
+      "errorMessage": "request.status: invalid_status"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_status</td>
+    <td>invalid_status</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_Invalid_userClaims_Neg()'><b>ESignet_UpdateOIDCClient_Invalid_userClaims_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_Invalid_userClaims_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "ACTIVE", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "xyz", "userClaims2": "fd@gh.com", "userClaims3": "$REMOVE$", "userClaims4": "$REMOVE$", "userClaims5": "$REMOVE$", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_claim", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1616835353" onClick='toggleBox("Output-1616835353", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1616835353" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1616835353">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:43.853Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "xyz",
+      "fd@gh.com"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:44.409Z",
+  "errors": [
+    {
+      "errorCode": "invalid_claim",
+      "errorMessage": "request.userClaims[0]: invalid_claim"
+    },
+    {
+      "errorCode": "invalid_claim",
+      "errorMessage": "request.userClaims[1]: invalid_claim"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_claim</td>
+    <td>invalid_claim</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_Missing_authContextRefs_Neg()'><b>ESignet_UpdateOIDCClient_Missing_authContextRefs_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_Missing_authContextRefs_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "ACTIVE", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "$REMOVE$"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_acr", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1683963531" onClick='toggleBox("Output-1683963531", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1683963531" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1683963531">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:46.221Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "birthdate",
+      "gender",
+      "name",
+      "phone_number",
+      "email"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:46.790Z",
+  "errors": [
+    {
+      "errorCode": "invalid_acr",
+      "errorMessage": "request.authContextRefs: invalid_acr"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_acr</td>
+    <td>invalid_acr</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_Missing_clientAuthMethods_Neg()'><b>ESignet_UpdateOIDCClient_Missing_clientAuthMethods_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_Missing_clientAuthMethods_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "ACTIVE", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "$REMOVE$" }, output={ "errors": [ { "errorCode": "invalid_client_auth", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1978975308" onClick='toggleBox("Output-1978975308", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1978975308" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1978975308">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:51.162Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "birthdate",
+      "gender",
+      "name",
+      "phone_number",
+      "email"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": []
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:52.088Z",
+  "errors": [
+    {
+      "errorCode": "invalid_client_auth",
+      "errorMessage": "request.clientAuthMethods: invalid_client_auth"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_client_auth</td>
+    <td>invalid_client_auth</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_Missing_grantTypes_Neg()'><b>ESignet_UpdateOIDCClient_Missing_grantTypes_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_Missing_grantTypes_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "ACTIVE", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "$REMOVE$", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_grant_type", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-54615406" onClick='toggleBox("Output-54615406", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-54615406" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-54615406">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:48.833Z",
+  "request": {
+    "grantTypes": [],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "birthdate",
+      "gender",
+      "name",
+      "phone_number",
+      "email"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:49.421Z",
+  "errors": [
+    {
+      "errorCode": "invalid_grant_type",
+      "errorMessage": "request.grantTypes: invalid_grant_type"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_grant_type</td>
+    <td>invalid_grant_type</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_Missing_redirectUris_Neg()'><b>ESignet_UpdateOIDCClient_Missing_redirectUris_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_Missing_redirectUris_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "ACTIVE", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$", "redirectUris": "$REMOVE$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_redirect_uri", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1789462987" onClick='toggleBox("Output-1789462987", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1789462987" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1789462987">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:43.217Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [],
+    "userClaims": [
+      "birthdate",
+      "gender",
+      "name",
+      "phone_number",
+      "email"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:43.828Z",
+  "errors": [
+    {
+      "errorCode": "invalid_redirect_uri",
+      "errorMessage": "request.redirectUris: invalid_redirect_uri"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_redirect_uri</td>
+    <td>invalid_redirect_uri</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_Null_authContextRefs_Neg()'><b>ESignet_UpdateOIDCClient_Null_authContextRefs_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_Null_authContextRefs_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "ACTIVE", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "null"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_acr", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-596142568" onClick='toggleBox("Output-596142568", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-596142568" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-596142568">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:45.616Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "null"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:46.197Z",
+  "errors": [
+    {
+      "errorCode": "invalid_acr",
+      "errorMessage": "request.authContextRefs[0]: invalid_acr"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_acr</td>
+    <td>invalid_acr</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_Null_clientAuthMethods_Neg()'><b>ESignet_UpdateOIDCClient_Null_clientAuthMethods_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_Null_clientAuthMethods_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "ACTIVE", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "null" }, output={ "errors": [ { "errorCode": "invalid_client_auth", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-428468716" onClick='toggleBox("Output-428468716", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-428468716" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-428468716">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:50.015Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      "null"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:50.559Z",
+  "errors": [
+    {
+      "errorCode": "invalid_client_auth",
+      "errorMessage": "request.clientAuthMethods[0]: invalid_client_auth"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_client_auth</td>
+    <td>invalid_client_auth</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_Null_grantTypes_Neg()'><b>ESignet_UpdateOIDCClient_Null_grantTypes_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_Null_grantTypes_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "ACTIVE", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "null", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_grant_type", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1029660808" onClick='toggleBox("Output-1029660808", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1029660808" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1029660808">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:47.390Z",
+  "request": {
+    "grantTypes": [
+      "null"
+    ],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:47.947Z",
+  "errors": [
+    {
+      "errorCode": "invalid_grant_type",
+      "errorMessage": "request.grantTypes[0]: invalid_grant_type"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_grant_type</td>
+    <td>invalid_grant_type</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_StatusCode_Diff_Token_Neg()'><b>ESignet_UpdateOIDCClient_StatusCode_Diff_Token_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_StatusCode_Diff_Token_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=idrepo, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "ACTIVE", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output=403, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClientResult, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1617488345" onClick='toggleBox("Output-1617488345", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1617488345" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1617488345">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:33.473Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>null</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>403</td>
+    <td>403</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_StatusCode_Invalid_Token_Neg()'><b>ESignet_UpdateOIDCClient_StatusCode_Invalid_Token_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_StatusCode_Invalid_Token_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "ACTIVE", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output=401, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClientResult, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-711248067" onClick='toggleBox("Output-711248067", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-711248067" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-711248067">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:33.197Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>null</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>401</td>
+    <td>401</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.ESignet_UpdateOIDCClient_all_Valid_Smoke()'><b>ESignet_UpdateOIDCClient_all_Valid_Smoke</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (ESignet_UpdateOIDCClient_Exceding_Range_ClientName)<br>Parameters: TestCaseDTO(testCaseName=ESignet_UpdateOIDCClient_all_Valid_Smoke, endPoint=/v1/esignet/client-mgmt/oidc-client/{clientId}, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "status": "ACTIVE", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"},{acrValues: "mosip:idp:acr:biometrics"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "clientId": "$IGNORE$", "status": "ACTIVE" }, inputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClient, outputTemplate=esignet/UpdateOIDCClient/UpdateOIDCClientResult, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-921232353" onClick='toggleBox("Output-921232353", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-921232353" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-921232353">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:30.216Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code",
+      "mosip:idp:acr:biometrics"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "status": "ACTIVE",
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client/{clientId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:30.817Z",
+  "response": {
+    "clientId": "mosip931690907200359",
+    "status": "ACTIVE"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.status</td>
+    <td>ACTIVE</td>
+    <td>ACTIVE</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@70d3cdbf</td></tr>
+</table><p>
+</body>
+</html>

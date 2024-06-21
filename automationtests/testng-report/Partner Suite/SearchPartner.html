@@ -1,0 +1,5406 @@
+<html>
+<head>
+<title>TestNG:  SearchPartner</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>SearchPartner</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>21/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:30:23 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>17 seconds (17313 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPartner_AllValid_Smoke()'><b>Partner_SearchPartner_AllValid_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPartner_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPartner_AllValid_Smoke, endPoint=/v1/partnermanager/partners/search, role=partner, templateFields=null, input={ "partnerType": "all", "pageFetch": "$REMOVE$", "pageStart": "0", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": "[]" }, inputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartner, outputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartnerResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1242611737" onClick='toggleBox("Output-1242611737", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1242611737" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1242611737">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": "0"
+    },
+    "filters": [],
+    "partnerType": "all",
+    "sort": []
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:00:23.323Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:00:24.070Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 10,
+    "totalRecord": 568,
+    "data": [
+      {
+        "id": "MOSIP.PROXY.SBI",
+        "address": "headoffice9",
+        "contactNo": "9988776655",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.372+00:00",
+        "emailId": "abc@mock.co.in",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "MOSIP",
+        "policyGroupId": "mpolicygroup-default-mockdevice",
+        "partnerTypeCode": "Device_Provider",
+        "approvalStatus": "Activated",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:25.372+00:00",
+        "userId": "MOSIP.PROXY.SBI"
+      },
+      {
+        "id": "mpartner-default-adjudication",
+        "address": "mpartner-default-adjudication",
+        "contactNo": "9232121212",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.372+00:00",
+        "emailId": "adjudication@mosip.io",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mpartner-default-adjudication",
+        "policyGroupId": "mpolicygroup-default-adjudication",
+        "partnerTypeCode": "Manual_Adjudication",
+        "approvalStatus": "Activated",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:25.372+00:00",
+        "userId": "mpartner-default-adjudication"
+      },
+      {
+        "id": "auth",
+        "address": "Bengaluru",
+        "contactNo": "9232121214",
+        "crBy": "110124",
+        "crDtimes": "2022-03-09T06:25:17.198+00:00",
+        "emailId": "auth@gmail.com",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "auth",
+        "policyGroupId": "31624",
+        "certificateAlias": "fa357691-39ea-45b2-ac7c-7eddb0c314b9",
+        "partnerTypeCode": "Auth_Partner",
+        "approvalStatus": "approved",
+        "updBy": "110124",
+        "updDtimes": "2022-03-09T06:25:51.037+00:00",
+        "userId": "auth"
+      },
+      {
+        "id": "DP2",
+        "address": "randomaddress",
+        "contactNo": "9899898989",
+        "crBy": "110068",
+        "crDtimes": "2022-02-24T06:00:30.658+00:00",
+        "emailId": "qa@gmail.com",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "DP2",
+        "certificateAlias": "6f724e57-132c-4264-bc8f-b69ab067403d",
+        "partnerTypeCode": "Device_Provider",
+        "approvalStatus": "approved",
+        "updBy": "110068",
+        "updDtimes": "2022-02-24T06:12:50.006+00:00",
+        "userId": "DP2"
+      },
+      {
+        "id": "qaup",
+        "address": "randomaddress",
+        "contactNo": "9899898989",
+        "crBy": "110068",
+        "crDtimes": "2022-02-28T05:56:43.553+00:00",
+        "emailId": "Octavia_Abernathy@example.org",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "qaup",
+        "certificateAlias": "f6f861f7-00f5-4dc2-84ae-0c8f94e35e94",
+        "partnerTypeCode": "Device_Provider",
+        "approvalStatus": "approved",
+        "updBy": "110068",
+        "updDtimes": "2022-02-28T07:20:56.598+00:00",
+        "userId": "qaup"
+      },
+      {
+        "id": "qaupgrade",
+        "address": "randomaddress",
+        "contactNo": "9899898989",
+        "crBy": "110068",
+        "crDtimes": "2022-02-28T09:13:44.727+00:00",
+        "emailId": "Isai_Rohan81@example.com",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "qaupgrade",
+        "certificateAlias": "3be59c24-c8e0-4546-a274-a2cdd1f49499",
+        "partnerTypeCode": "Device_Provider",
+        "approvalStatus": "approved",
+        "updBy": "110068",
+        "updDtimes": "2022-02-28T11:30:54.158+00:00",
+        "userId": "qaupgrade"
+      },
+      {
+        "id": "qaupgrad",
+        "address": "randomaddress",
+        "contactNo": "9899898989",
+        "crBy": "110068",
+        "crDtimes": "2022-02-28T13:20:09.884+00:00",
+        "emailId": "Emmy.Reichert42@example.com",
+        "isActive": false,
+        "isDeleted": false,
+        "name": "qaupgrad",
+        "partnerTypeCode": "Device_Provider",
+        "approvalStatus": "InProgress",
+        "userId": "qaupgrad"
+      },
+      {
+        "id": "126",
+        "address": "testaddrd",
+        "contactNo": "9232121222",
+        "crBy": "110124",
+        "crDtimes": "2022-03-09T06:28:27.696+00:00",
+        "emailId": "Damion28@yahoo.com",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "126",
+        "certificateAlias": "7e18ea31-b953-4f8a-bf9d-4ea535d179df",
+        "partnerTypeCode": "Device_Provider",
+        "approvalStatus": "approved",
+        "updBy": "110124",
+        "updDtimes": "2022-03-09T06:28:41.260+00:00",
+        "userId": "126"
+      },
+      {
+        "id": "482",
+        "address": "testaddrd",
+        "contactNo": "9232121222",
+        "crBy": "110124",
+        "crDtimes": "2022-03-09T06:29:03.501+00:00",
+        "emailId": "Dan6@hotmail.com",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "482",
+        "certificateAlias": "2726216f-c411-4889-8229-fc3a81c5ae9c",
+        "partnerTypeCode": "FTM_Provider",
+        "approvalStatus": "approved",
+        "updBy": "110124",
+        "updDtimes": "2022-03-09T06:29:12.979+00:00",
+        "userId": "482"
+      },
+      {
+        "id": "DP5",
+        "address": "bangalore",
+        "contactNo": "9876543111",
+        "crBy": "110126",
+        "crDtimes": "2022-03-02T12:22:34.952+00:00",
+        "emailId": "dp5@gm.com",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "DP5",
+        "certificateAlias": "4945592f-e407-46c4-8c1d-123134b073cf",
+        "partnerTypeCode": "Device_Provider",
+        "approvalStatus": "approved",
+        "updBy": "110126",
+        "updDtimes": "2022-03-02T13:23:46.455+00:00",
+        "userId": "DP5"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[8].id</td>
+    <td>NOT VERIFIED</td>
+    <td>482</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>qaupgrad</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-mockdevice</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>9899898989</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-28T07:20:56.598+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>f6f861f7-00f5-4dc2-84ae-0c8f94e35e94</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].address</td>
+    <td>NOT VERIFIED</td>
+    <td>mpartner-default-adjudication</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].address</td>
+    <td>NOT VERIFIED</td>
+    <td>testaddrd</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>Activated</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Manual_Adjudication</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>9232121222</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-09T06:28:41.260+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-24T06:00:30.658+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>auth@gmail.com</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].address</td>
+    <td>NOT VERIFIED</td>
+    <td>randomaddress</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110068</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110068</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>Dan6@hotmail.com</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].address</td>
+    <td>NOT VERIFIED</td>
+    <td>headoffice9</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>6f724e57-132c-4264-bc8f-b69ab067403d</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].name</td>
+    <td>NOT VERIFIED</td>
+    <td>126</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-28T09:13:44.727+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110068</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>InProgress</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>Damion28@yahoo.com</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>adjudication@mosip.io</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110126</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>fa357691-39ea-45b2-ac7c-7eddb0c314b9</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>9232121212</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].id</td>
+    <td>NOT VERIFIED</td>
+    <td>qaupgrad</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110068</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Device_Provider</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-09T06:25:17.198+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>DP2</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>9988776655</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].name</td>
+    <td>NOT VERIFIED</td>
+    <td>482</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>FTM_Provider</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].address</td>
+    <td>NOT VERIFIED</td>
+    <td>Bengaluru</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-28T13:20:09.884+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110068</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>abc@mock.co.in</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mpartner-default-adjudication</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>qa@gmail.com</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].id</td>
+    <td>NOT VERIFIED</td>
+    <td>qaup</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Device_Provider</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-24T06:12:50.006+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].name</td>
+    <td>NOT VERIFIED</td>
+    <td>auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>31624</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].address</td>
+    <td>NOT VERIFIED</td>
+    <td>bangalore</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.372+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110068</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>Isai_Rohan81@example.com</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-09T06:25:51.037+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>126</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.372+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].id</td>
+    <td>NOT VERIFIED</td>
+    <td>auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>qaup</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].name</td>
+    <td>NOT VERIFIED</td>
+    <td>DP2</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.372+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110068</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth_Partner</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>4945592f-e407-46c4-8c1d-123134b073cf</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].address</td>
+    <td>NOT VERIFIED</td>
+    <td>randomaddress</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP.PROXY.SBI</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].name</td>
+    <td>NOT VERIFIED</td>
+    <td>qaupgrad</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].id</td>
+    <td>NOT VERIFIED</td>
+    <td>DP5</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>Activated</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].id</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP.PROXY.SBI</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-09T06:29:03.501+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].name</td>
+    <td>NOT VERIFIED</td>
+    <td>DP5</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>9232121214</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].id</td>
+    <td>NOT VERIFIED</td>
+    <td>qaupgrade</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Device_Provider</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].id</td>
+    <td>NOT VERIFIED</td>
+    <td>126</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-02T12:22:34.952+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].address</td>
+    <td>NOT VERIFIED</td>
+    <td>randomaddress</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-28T11:30:54.158+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>9876543111</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>2726216f-c411-4889-8229-fc3a81c5ae9c</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>482</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>7e18ea31-b953-4f8a-bf9d-4ea535d179df</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110126</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>Emmy.Reichert42@example.com</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>qaupgrade</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-09T06:29:12.979+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>dp5@gm.com</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].id</td>
+    <td>NOT VERIFIED</td>
+    <td>DP2</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>9232121222</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>9899898989</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>mpartner-default-adjudication</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Device_Provider</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-adjudication</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].name</td>
+    <td>NOT VERIFIED</td>
+    <td>qaup</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Device_Provider</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.372+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>9899898989</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mpartner-default-adjudication</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].address</td>
+    <td>NOT VERIFIED</td>
+    <td>randomaddress</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Device_Provider</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-02T13:23:46.455+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>Octavia_Abernathy@example.org</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>DP5</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].name</td>
+    <td>NOT VERIFIED</td>
+    <td>qaupgrade</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-09T06:28:27.696+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Device_Provider</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>9899898989</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].address</td>
+    <td>NOT VERIFIED</td>
+    <td>testaddrd</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-28T05:56:43.553+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>3be59c24-c8e0-4546-a274-a2cdd1f49499</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@7afbf2a0</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPartner_Only_FilterCriteria_Smoke()'><b>Partner_SearchPartner_Only_FilterCriteria_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPartner_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPartner_Only_FilterCriteria_Smoke, endPoint=/v1/partnermanager/partners/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "name", "type": "equals", "value": "IITB" } ],"pageFetch": "$REMOVE$", "pageStart": "0", "partnerType": "all", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": "[]" }, inputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartner, outputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartnerResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1634960959" onClick='toggleBox("Output-1634960959", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1634960959" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1634960959">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": "0"
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "IITB",
+        "columnName": "name"
+      }
+    ],
+    "partnerType": "all",
+    "sort": []
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:00:25.175Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:00:25.905Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 2,
+    "totalRecord": 2,
+    "data": [
+      {
+        "id": "mpartner-default-auth",
+        "address": "mpartner-default-auth",
+        "contactNo": "9232121212",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.372+00:00",
+        "emailId": "info@mosip.io",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "IITB",
+        "policyGroupId": "mpolicygroup-default-auth",
+        "certificateAlias": "7e3a8c24-c11f-4e8a-9c31-1b614ba534a6",
+        "partnerTypeCode": "Online_Verification_Partner",
+        "approvalStatus": "approved",
+        "updBy": "service-account-mosip-ida-client",
+        "updDtimes": "2023-05-02T14:29:37.753+00:00",
+        "userId": "mpartner-default-auth"
+      },
+      {
+        "id": "mpartner-default-resident",
+        "address": "mpartner-default-resident",
+        "contactNo": "9232121212",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.372+00:00",
+        "emailId": "resident@mosip.io",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "IITB",
+        "policyGroupId": "mpolicygroup-deafult-resident",
+        "certificateAlias": "dc4ae949-4d12-431f-8d10-95313d440bd8",
+        "partnerTypeCode": "Credential_Partner",
+        "approvalStatus": "approved",
+        "updBy": "service-account-mosip-ida-client",
+        "updDtimes": "2023-05-11T09:52:31.791+00:00",
+        "userId": "mpartner-default-resident"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[0].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>9232121212</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.372+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>dc4ae949-4d12-431f-8d10-95313d440bd8</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].address</td>
+    <td>NOT VERIFIED</td>
+    <td>mpartner-default-resident</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>mpartner-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Credential_Partner</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>info@mosip.io</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>mpartner-default-resident</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mpartner-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].name</td>
+    <td>NOT VERIFIED</td>
+    <td>IITB</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-deafult-resident</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>service-account-mosip-ida-client</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Online_Verification_Partner</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>service-account-mosip-ida-client</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>7e3a8c24-c11f-4e8a-9c31-1b614ba534a6</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.372+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].address</td>
+    <td>NOT VERIFIED</td>
+    <td>mpartner-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-05-02T14:29:37.753+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mpartner-default-resident</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>resident@mosip.io</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>9232121212</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>IITB</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-05-11T09:52:31.791+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@7afbf2a0</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPartner_Only_PaginationCriteria_Smoke()'><b>Partner_SearchPartner_Only_PaginationCriteria_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPartner_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPartner_Only_PaginationCriteria_Smoke, endPoint=/v1/partnermanager/partners/search, role=partner, templateFields=null, input={ "pageFetch": "10", "pageStart": "0", "partnerType": "all", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": "[]" }, inputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartner, outputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartnerResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-369249097" onClick='toggleBox("Output-369249097", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-369249097" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-369249097">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "partnerType": "all",
+    "sort": []
+  },
+  "requesttime": "2023-07-14T17:00:25.988Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:00:26.748Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 10,
+    "totalRecord": 568,
+    "data": [
+      {
+        "id": "MOSIP.PROXY.SBI",
+        "address": "headoffice9",
+        "contactNo": "9988776655",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.372+00:00",
+        "emailId": "abc@mock.co.in",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "MOSIP",
+        "policyGroupId": "mpolicygroup-default-mockdevice",
+        "partnerTypeCode": "Device_Provider",
+        "approvalStatus": "Activated",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:25.372+00:00",
+        "userId": "MOSIP.PROXY.SBI"
+      },
+      {
+        "id": "mpartner-default-adjudication",
+        "address": "mpartner-default-adjudication",
+        "contactNo": "9232121212",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.372+00:00",
+        "emailId": "adjudication@mosip.io",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mpartner-default-adjudication",
+        "policyGroupId": "mpolicygroup-default-adjudication",
+        "partnerTypeCode": "Manual_Adjudication",
+        "approvalStatus": "Activated",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:25.372+00:00",
+        "userId": "mpartner-default-adjudication"
+      },
+      {
+        "id": "auth",
+        "address": "Bengaluru",
+        "contactNo": "9232121214",
+        "crBy": "110124",
+        "crDtimes": "2022-03-09T06:25:17.198+00:00",
+        "emailId": "auth@gmail.com",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "auth",
+        "policyGroupId": "31624",
+        "certificateAlias": "fa357691-39ea-45b2-ac7c-7eddb0c314b9",
+        "partnerTypeCode": "Auth_Partner",
+        "approvalStatus": "approved",
+        "updBy": "110124",
+        "updDtimes": "2022-03-09T06:25:51.037+00:00",
+        "userId": "auth"
+      },
+      {
+        "id": "DP2",
+        "address": "randomaddress",
+        "contactNo": "9899898989",
+        "crBy": "110068",
+        "crDtimes": "2022-02-24T06:00:30.658+00:00",
+        "emailId": "qa@gmail.com",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "DP2",
+        "certificateAlias": "6f724e57-132c-4264-bc8f-b69ab067403d",
+        "partnerTypeCode": "Device_Provider",
+        "approvalStatus": "approved",
+        "updBy": "110068",
+        "updDtimes": "2022-02-24T06:12:50.006+00:00",
+        "userId": "DP2"
+      },
+      {
+        "id": "qaup",
+        "address": "randomaddress",
+        "contactNo": "9899898989",
+        "crBy": "110068",
+        "crDtimes": "2022-02-28T05:56:43.553+00:00",
+        "emailId": "Octavia_Abernathy@example.org",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "qaup",
+        "certificateAlias": "f6f861f7-00f5-4dc2-84ae-0c8f94e35e94",
+        "partnerTypeCode": "Device_Provider",
+        "approvalStatus": "approved",
+        "updBy": "110068",
+        "updDtimes": "2022-02-28T07:20:56.598+00:00",
+        "userId": "qaup"
+      },
+      {
+        "id": "qaupgrade",
+        "address": "randomaddress",
+        "contactNo": "9899898989",
+        "crBy": "110068",
+        "crDtimes": "2022-02-28T09:13:44.727+00:00",
+        "emailId": "Isai_Rohan81@example.com",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "qaupgrade",
+        "certificateAlias": "3be59c24-c8e0-4546-a274-a2cdd1f49499",
+        "partnerTypeCode": "Device_Provider",
+        "approvalStatus": "approved",
+        "updBy": "110068",
+        "updDtimes": "2022-02-28T11:30:54.158+00:00",
+        "userId": "qaupgrade"
+      },
+      {
+        "id": "qaupgrad",
+        "address": "randomaddress",
+        "contactNo": "9899898989",
+        "crBy": "110068",
+        "crDtimes": "2022-02-28T13:20:09.884+00:00",
+        "emailId": "Emmy.Reichert42@example.com",
+        "isActive": false,
+        "isDeleted": false,
+        "name": "qaupgrad",
+        "partnerTypeCode": "Device_Provider",
+        "approvalStatus": "InProgress",
+        "userId": "qaupgrad"
+      },
+      {
+        "id": "126",
+        "address": "testaddrd",
+        "contactNo": "9232121222",
+        "crBy": "110124",
+        "crDtimes": "2022-03-09T06:28:27.696+00:00",
+        "emailId": "Damion28@yahoo.com",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "126",
+        "certificateAlias": "7e18ea31-b953-4f8a-bf9d-4ea535d179df",
+        "partnerTypeCode": "Device_Provider",
+        "approvalStatus": "approved",
+        "updBy": "110124",
+        "updDtimes": "2022-03-09T06:28:41.260+00:00",
+        "userId": "126"
+      },
+      {
+        "id": "482",
+        "address": "testaddrd",
+        "contactNo": "9232121222",
+        "crBy": "110124",
+        "crDtimes": "2022-03-09T06:29:03.501+00:00",
+        "emailId": "Dan6@hotmail.com",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "482",
+        "certificateAlias": "2726216f-c411-4889-8229-fc3a81c5ae9c",
+        "partnerTypeCode": "FTM_Provider",
+        "approvalStatus": "approved",
+        "updBy": "110124",
+        "updDtimes": "2022-03-09T06:29:12.979+00:00",
+        "userId": "482"
+      },
+      {
+        "id": "DP5",
+        "address": "bangalore",
+        "contactNo": "9876543111",
+        "crBy": "110126",
+        "crDtimes": "2022-03-02T12:22:34.952+00:00",
+        "emailId": "dp5@gm.com",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "DP5",
+        "certificateAlias": "4945592f-e407-46c4-8c1d-123134b073cf",
+        "partnerTypeCode": "Device_Provider",
+        "approvalStatus": "approved",
+        "updBy": "110126",
+        "updDtimes": "2022-03-02T13:23:46.455+00:00",
+        "userId": "DP5"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[8].id</td>
+    <td>NOT VERIFIED</td>
+    <td>482</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>qaupgrad</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-mockdevice</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>9899898989</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-28T07:20:56.598+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>f6f861f7-00f5-4dc2-84ae-0c8f94e35e94</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].address</td>
+    <td>NOT VERIFIED</td>
+    <td>mpartner-default-adjudication</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].address</td>
+    <td>NOT VERIFIED</td>
+    <td>testaddrd</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>Activated</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Manual_Adjudication</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>9232121222</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-09T06:28:41.260+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-24T06:00:30.658+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>auth@gmail.com</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].address</td>
+    <td>NOT VERIFIED</td>
+    <td>randomaddress</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110068</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110068</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>Dan6@hotmail.com</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].address</td>
+    <td>NOT VERIFIED</td>
+    <td>headoffice9</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>6f724e57-132c-4264-bc8f-b69ab067403d</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].name</td>
+    <td>NOT VERIFIED</td>
+    <td>126</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-28T09:13:44.727+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110068</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>InProgress</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>Damion28@yahoo.com</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>adjudication@mosip.io</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110126</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>fa357691-39ea-45b2-ac7c-7eddb0c314b9</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>9232121212</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].id</td>
+    <td>NOT VERIFIED</td>
+    <td>qaupgrad</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110068</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Device_Provider</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-09T06:25:17.198+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>DP2</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>9988776655</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].name</td>
+    <td>NOT VERIFIED</td>
+    <td>482</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>FTM_Provider</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].address</td>
+    <td>NOT VERIFIED</td>
+    <td>Bengaluru</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-28T13:20:09.884+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110068</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>abc@mock.co.in</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mpartner-default-adjudication</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>qa@gmail.com</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].id</td>
+    <td>NOT VERIFIED</td>
+    <td>qaup</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Device_Provider</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-24T06:12:50.006+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].name</td>
+    <td>NOT VERIFIED</td>
+    <td>auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>31624</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].address</td>
+    <td>NOT VERIFIED</td>
+    <td>bangalore</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.372+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110068</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>Isai_Rohan81@example.com</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-09T06:25:51.037+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>126</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.372+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].id</td>
+    <td>NOT VERIFIED</td>
+    <td>auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>qaup</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].name</td>
+    <td>NOT VERIFIED</td>
+    <td>DP2</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.372+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110068</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth_Partner</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>4945592f-e407-46c4-8c1d-123134b073cf</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].address</td>
+    <td>NOT VERIFIED</td>
+    <td>randomaddress</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP.PROXY.SBI</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].name</td>
+    <td>NOT VERIFIED</td>
+    <td>qaupgrad</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].id</td>
+    <td>NOT VERIFIED</td>
+    <td>DP5</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>Activated</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].id</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP.PROXY.SBI</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-09T06:29:03.501+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].name</td>
+    <td>NOT VERIFIED</td>
+    <td>DP5</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>9232121214</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].id</td>
+    <td>NOT VERIFIED</td>
+    <td>qaupgrade</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Device_Provider</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].id</td>
+    <td>NOT VERIFIED</td>
+    <td>126</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-02T12:22:34.952+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].address</td>
+    <td>NOT VERIFIED</td>
+    <td>randomaddress</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-28T11:30:54.158+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>9876543111</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>2726216f-c411-4889-8229-fc3a81c5ae9c</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>482</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>7e18ea31-b953-4f8a-bf9d-4ea535d179df</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110126</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>Emmy.Reichert42@example.com</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>qaupgrade</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-09T06:29:12.979+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>dp5@gm.com</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].id</td>
+    <td>NOT VERIFIED</td>
+    <td>DP2</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>9232121222</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>9899898989</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>mpartner-default-adjudication</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Device_Provider</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-adjudication</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].name</td>
+    <td>NOT VERIFIED</td>
+    <td>qaup</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Device_Provider</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.372+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>9899898989</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mpartner-default-adjudication</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].address</td>
+    <td>NOT VERIFIED</td>
+    <td>randomaddress</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Device_Provider</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-02T13:23:46.455+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>Octavia_Abernathy@example.org</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>DP5</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].name</td>
+    <td>NOT VERIFIED</td>
+    <td>qaupgrade</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-09T06:28:27.696+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Device_Provider</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>9899898989</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].address</td>
+    <td>NOT VERIFIED</td>
+    <td>testaddrd</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-28T05:56:43.553+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>3be59c24-c8e0-4546-a274-a2cdd1f49499</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@7afbf2a0</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPartner_Only_SortCriteria_Smoke()'><b>Partner_SearchPartner_Only_SortCriteria_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPartner_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPartner_Only_SortCriteria_Smoke, endPoint=/v1/partnermanager/partners/search, role=partner, templateFields=null, input={ "sort": [ { "sortField": "name", "sortType": "asc" } ], "pageFetch": "$REMOVE$", "pageStart": "0", "partnerType": "all", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": "[]" }, inputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartner, outputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartnerResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-803404994" onClick='toggleBox("Output-803404994", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-803404994" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-803404994">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": "0"
+    },
+    "filters": [],
+    "partnerType": "all",
+    "sort": [
+      {
+        "sortType": "asc",
+        "sortField": "name"
+      }
+    ]
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:00:24.203Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:00:25.021Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 10,
+    "totalRecord": 568,
+    "data": [
+      {
+        "id": "1121",
+        "address": "INDIA",
+        "contactNo": "fsgshsyd",
+        "crBy": "110070",
+        "crDtimes": "2023-04-27T10:44:28.528+00:00",
+        "emailId": "hwe23jfk@gmail.com",
+        "isActive": false,
+        "isDeleted": false,
+        "name": "1121",
+        "partnerTypeCode": "FTM_Provider",
+        "approvalStatus": "InProgress",
+        "userId": "1121"
+      },
+      {
+        "id": "1213",
+        "address": "INDIA",
+        "contactNo": "fsgshsydrtr",
+        "crBy": "110070",
+        "crDtimes": "2023-04-27T11:46:00.923+00:00",
+        "emailId": "wfk@gmail.com",
+        "isActive": false,
+        "isDeleted": false,
+        "name": "1213",
+        "policyGroupId": "576847",
+        "partnerTypeCode": "Auth_Partner",
+        "approvalStatus": "InProgress",
+        "userId": "1213"
+      },
+      {
+        "id": "1214",
+        "address": "INDIA",
+        "contactNo": "fsgseehsydrtr",
+        "crBy": "110070",
+        "crDtimes": "2023-04-27T12:44:59.296+00:00",
+        "emailId": "wssfk@gmail.com",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "1214",
+        "certificateAlias": "705fbb64-7366-438e-b63c-3e7b610825e5",
+        "partnerTypeCode": "MISP_Partner",
+        "approvalStatus": "approved",
+        "updBy": "110070",
+        "updDtimes": "2023-04-27T13:17:21.243+00:00",
+        "userId": "1214"
+      },
+      {
+        "id": "123",
+        "address": "testaddrd",
+        "contactNo": "9232121222",
+        "crBy": "110068",
+        "crDtimes": "2022-08-03T07:32:10.259+00:00",
+        "emailId": "Nina_Boyle@gmail.com",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "123",
+        "policyGroupId": "730592",
+        "certificateAlias": "09322b31-89f5-4b30-808c-4c1471010f2a",
+        "partnerTypeCode": "Auth_Partner",
+        "approvalStatus": "approved",
+        "updBy": "110068",
+        "updDtimes": "2022-08-03T07:32:32.966+00:00",
+        "userId": "123"
+      },
+      {
+        "id": "126",
+        "address": "testaddrd",
+        "contactNo": "9232121222",
+        "crBy": "110124",
+        "crDtimes": "2022-03-09T06:28:27.696+00:00",
+        "emailId": "Damion28@yahoo.com",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "126",
+        "certificateAlias": "7e18ea31-b953-4f8a-bf9d-4ea535d179df",
+        "partnerTypeCode": "Device_Provider",
+        "approvalStatus": "approved",
+        "updBy": "110124",
+        "updDtimes": "2022-03-09T06:28:41.260+00:00",
+        "userId": "126"
+      },
+      {
+        "id": "137",
+        "address": "testaddrd",
+        "contactNo": "9232121222",
+        "crBy": "110068",
+        "crDtimes": "2022-08-03T07:35:37.020+00:00",
+        "emailId": "Sim13@gmail.com",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "137",
+        "certificateAlias": "14847e7c-5410-41e6-9f11-3d6fd80ccdaa",
+        "partnerTypeCode": "FTM_Provider",
+        "approvalStatus": "approved",
+        "updBy": "110068",
+        "updDtimes": "2022-08-03T07:36:17.913+00:00",
+        "userId": "137"
+      },
+      {
+        "id": "1911",
+        "address": "INDIA",
+        "contactNo": "9777837593",
+        "crBy": "110070",
+        "crDtimes": "2023-04-27T07:58:53.272+00:00",
+        "emailId": "damo@gmail.com",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "1911",
+        "policyGroupId": "516401",
+        "certificateAlias": "b3328201-5191-4d8f-8e38-2bfeeb057630",
+        "partnerTypeCode": "Auth_Partner",
+        "approvalStatus": "approved",
+        "updBy": "110070",
+        "updDtimes": "2023-04-27T09:30:45.180+00:00",
+        "userId": "1911"
+      },
+      {
+        "id": "192",
+        "address": "INDIA",
+        "contactNo": "abcdefghd",
+        "crBy": "110070",
+        "crDtimes": "2023-04-27T10:24:14.282+00:00",
+        "emailId": "hjfk@gmail.com",
+        "isActive": false,
+        "isDeleted": false,
+        "name": "192",
+        "policyGroupId": "75945",
+        "partnerTypeCode": "Auth_Partner",
+        "approvalStatus": "InProgress",
+        "userId": "192"
+      },
+      {
+        "id": "193348",
+        "address": "INDIA",
+        "contactNo": "fsgshsydrtr",
+        "crBy": "service-account-mosip-pms-client",
+        "crDtimes": "2023-04-27T11:10:25.593+00:00",
+        "emailId": "hwewejfk@gmail.com",
+        "isActive": false,
+        "isDeleted": false,
+        "name": "193348",
+        "policyGroupId": "75945",
+        "partnerTypeCode": "Auth_Partner",
+        "approvalStatus": "InProgress",
+        "userId": "193348"
+      },
+      {
+        "id": "19334867",
+        "address": "INDIA",
+        "contactNo": "fsgshsydrtr",
+        "crBy": "service-account-mosip-pms-client",
+        "crDtimes": "2023-04-27T11:17:25.785+00:00",
+        "emailId": "hwewweejfk@gmail.com",
+        "isActive": false,
+        "isDeleted": false,
+        "name": "19334867",
+        "partnerTypeCode": "Device_Provider",
+        "approvalStatus": "InProgress",
+        "userId": "19334867"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[8].id</td>
+    <td>NOT VERIFIED</td>
+    <td>193348</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>1911</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>9232121222</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-09T06:28:41.260+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>7e18ea31-b953-4f8a-bf9d-4ea535d179df</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].address</td>
+    <td>NOT VERIFIED</td>
+    <td>INDIA</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].address</td>
+    <td>NOT VERIFIED</td>
+    <td>INDIA</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>InProgress</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth_Partner</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>abcdefghd</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>1214</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-08-03T07:32:10.259+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>wssfk@gmail.com</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].address</td>
+    <td>NOT VERIFIED</td>
+    <td>INDIA</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110068</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110068</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>hwewejfk@gmail.com</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].address</td>
+    <td>NOT VERIFIED</td>
+    <td>INDIA</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>75945</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>09322b31-89f5-4b30-808c-4c1471010f2a</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>516401</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].name</td>
+    <td>NOT VERIFIED</td>
+    <td>192</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-08-03T07:35:37.020+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110068</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>InProgress</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>hjfk@gmail.com</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>wfk@gmail.com</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>705fbb64-7366-438e-b63c-3e7b610825e5</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>fsgshsydrtr</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].id</td>
+    <td>NOT VERIFIED</td>
+    <td>1911</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth_Partner</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T12:44:59.296+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>fsgshsyd</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].name</td>
+    <td>NOT VERIFIED</td>
+    <td>193348</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth_Partner</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].address</td>
+    <td>NOT VERIFIED</td>
+    <td>INDIA</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T07:58:53.272+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110068</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>b3328201-5191-4d8f-8e38-2bfeeb057630</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>hwe23jfk@gmail.com</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].name</td>
+    <td>NOT VERIFIED</td>
+    <td>1213</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>Nina_Boyle@gmail.com</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].id</td>
+    <td>NOT VERIFIED</td>
+    <td>126</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>FTM_Provider</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-08-03T07:32:32.966+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].name</td>
+    <td>NOT VERIFIED</td>
+    <td>1214</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].address</td>
+    <td>NOT VERIFIED</td>
+    <td>INDIA</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>Sim13@gmail.com</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T13:17:21.243+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>192</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].id</td>
+    <td>NOT VERIFIED</td>
+    <td>1214</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>126</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].name</td>
+    <td>NOT VERIFIED</td>
+    <td>123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T10:44:28.528+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>MISP_Partner</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].address</td>
+    <td>NOT VERIFIED</td>
+    <td>testaddrd</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>1121</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].name</td>
+    <td>NOT VERIFIED</td>
+    <td>1911</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>InProgress</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].id</td>
+    <td>NOT VERIFIED</td>
+    <td>19334867</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>InProgress</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].id</td>
+    <td>NOT VERIFIED</td>
+    <td>1121</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T11:10:25.593+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].name</td>
+    <td>NOT VERIFIED</td>
+    <td>19334867</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>fsgseehsydrtr</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].id</td>
+    <td>NOT VERIFIED</td>
+    <td>137</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Device_Provider</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T09:30:45.180+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].id</td>
+    <td>NOT VERIFIED</td>
+    <td>192</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>75945</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T11:17:25.785+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].address</td>
+    <td>NOT VERIFIED</td>
+    <td>testaddrd</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>1121</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-08-03T07:36:17.913+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>fsgshsydrtr</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>193348</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>service-account-mosip-pms-client</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>damo@gmail.com</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>137</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>hwewweejfk@gmail.com</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].id</td>
+    <td>NOT VERIFIED</td>
+    <td>123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>fsgshsydrtr</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>9232121222</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>1213</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Device_Provider</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>576847</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].name</td>
+    <td>NOT VERIFIED</td>
+    <td>126</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>FTM_Provider</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T11:46:00.923+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>9777837593</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].id</td>
+    <td>NOT VERIFIED</td>
+    <td>1213</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].address</td>
+    <td>NOT VERIFIED</td>
+    <td>testaddrd</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>service-account-mosip-pms-client</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth_Partner</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].emailId</td>
+    <td>NOT VERIFIED</td>
+    <td>Damion28@yahoo.com</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>730592</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>19334867</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].name</td>
+    <td>NOT VERIFIED</td>
+    <td>137</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T10:24:14.282+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].partnerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth_Partner</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].contactNo</td>
+    <td>NOT VERIFIED</td>
+    <td>9232121222</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].address</td>
+    <td>NOT VERIFIED</td>
+    <td>INDIA</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-09T06:28:27.696+00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>InProgress</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].certificateAlias</td>
+    <td>NOT VERIFIED</td>
+    <td>14847e7c-5410-41e6-9f11-3d6fd80ccdaa</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@7afbf2a0</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPartner_columnname_address_asc_sid()'><b>Partner_SearchPartner_columnname_address_asc_sid</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPartner_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPartner_columnname_address_asc_sid, endPoint=/v1/partnermanager/partners/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "address", "type": "startswith", "value": "headoffice9" } ], "sort": [ { "sortField": "address", "sortType": "asc" } ], "pageFetch": "10", "pageStart": "0", "partnerType": "all", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "data": [ { "isActive": true } ], "errors": "[]" }, inputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartner, outputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartnerResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1822623878" onClick='toggleBox("Output-1822623878", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1822623878" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1822623878">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "address",
+        "type": "startswith",
+        "value": "headoffice9"
+      }
+    ],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "partnerType": "all",
+    "sort": [
+      {
+        "sortField": "address",
+        "sortType": "asc"
+      }
+    ]
+  },
+  "requesttime": "2023-07-14T17:00:33.077Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:00:33.806Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "id": "MOSIP.PROXY.SBI",
+        "address": "headoffice9",
+        "contactNo": "9988776655",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.372+00:00",
+        "emailId": "abc@mock.co.in",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "MOSIP",
+        "policyGroupId": "mpolicygroup-default-mockdevice",
+        "partnerTypeCode": "Device_Provider",
+        "approvalStatus": "Activated",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:25.372+00:00",
+        "userId": "MOSIP.PROXY.SBI"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[0].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>true</td>
+    <td>true</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@7afbf2a0</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPartner_columnname_address_desc_sid()'><b>Partner_SearchPartner_columnname_address_desc_sid</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPartner_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPartner_columnname_address_desc_sid, endPoint=/v1/partnermanager/partners/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "address", "type": "startswith", "value": "headoffice9" } ], "sort": [ { "sortField": "address", "sortType": "desc" } ], "pageFetch": "10", "pageStart": "0", "partnerType": "all", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "data": [ { "isActive": true } ], "errors": "[]" }, inputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartner, outputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartnerResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-752383955" onClick='toggleBox("Output-752383955", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-752383955" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-752383955">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "address",
+        "type": "startswith",
+        "value": "headoffice9"
+      }
+    ],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "partnerType": "all",
+    "sort": [
+      {
+        "sortField": "address",
+        "sortType": "desc"
+      }
+    ]
+  },
+  "requesttime": "2023-07-14T17:00:33.832Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:00:34.519Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "id": "MOSIP.PROXY.SBI",
+        "address": "headoffice9",
+        "contactNo": "9988776655",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.372+00:00",
+        "emailId": "abc@mock.co.in",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "MOSIP",
+        "policyGroupId": "mpolicygroup-default-mockdevice",
+        "partnerTypeCode": "Device_Provider",
+        "approvalStatus": "Activated",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:25.372+00:00",
+        "userId": "MOSIP.PROXY.SBI"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[0].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>true</td>
+    <td>true</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@7afbf2a0</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPartner_columnname_id_asc_sid()'><b>Partner_SearchPartner_columnname_id_asc_sid</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPartner_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPartner_columnname_id_asc_sid, endPoint=/v1/partnermanager/partners/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "id", "type": "startswith", "value": "MOSIP.PROXY.SBI" } ], "sort": [ { "sortField": "id", "sortType": "asc" } ], "pageFetch": "10", "pageStart": "0", "partnerType": "all", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "data": [ { "isActive": true } ], "errors": "[]" }, inputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartner, outputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartnerResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-997609062" onClick='toggleBox("Output-997609062", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-997609062" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-997609062">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "id",
+        "type": "startswith",
+        "value": "MOSIP.PROXY.SBI"
+      }
+    ],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "partnerType": "all",
+    "sort": [
+      {
+        "sortField": "id",
+        "sortType": "asc"
+      }
+    ]
+  },
+  "requesttime": "2023-07-14T17:00:32.362Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:00:33.050Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "id": "MOSIP.PROXY.SBI",
+        "address": "headoffice9",
+        "contactNo": "9988776655",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.372+00:00",
+        "emailId": "abc@mock.co.in",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "MOSIP",
+        "policyGroupId": "mpolicygroup-default-mockdevice",
+        "partnerTypeCode": "Device_Provider",
+        "approvalStatus": "Activated",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:25.372+00:00",
+        "userId": "MOSIP.PROXY.SBI"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[0].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>true</td>
+    <td>true</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@7afbf2a0</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPartner_columnname_id_desc_sid()'><b>Partner_SearchPartner_columnname_id_desc_sid</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPartner_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPartner_columnname_id_desc_sid, endPoint=/v1/partnermanager/partners/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "id", "type": "startswith", "value": "MOSIP.PROXY.SBI" } ], "sort": [ { "sortField": "id", "sortType": "desc" } ], "pageFetch": "10", "pageStart": "0", "partnerType": "all", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "data": [ { "isActive": true } ], "errors": "[]" }, inputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartner, outputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartnerResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1030178285" onClick='toggleBox("Output-1030178285", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1030178285" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1030178285">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "id",
+        "type": "startswith",
+        "value": "MOSIP.PROXY.SBI"
+      }
+    ],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "partnerType": "all",
+    "sort": [
+      {
+        "sortField": "id",
+        "sortType": "desc"
+      }
+    ]
+  },
+  "requesttime": "2023-07-14T17:00:31.616Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:00:32.316Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "id": "MOSIP.PROXY.SBI",
+        "address": "headoffice9",
+        "contactNo": "9988776655",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.372+00:00",
+        "emailId": "abc@mock.co.in",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "MOSIP",
+        "policyGroupId": "mpolicygroup-default-mockdevice",
+        "partnerTypeCode": "Device_Provider",
+        "approvalStatus": "Activated",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:25.372+00:00",
+        "userId": "MOSIP.PROXY.SBI"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[0].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>true</td>
+    <td>true</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@7afbf2a0</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPartner_type_contains_Smoke_asc_sid()'><b>Partner_SearchPartner_type_contains_Smoke_asc_sid</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPartner_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPartner_type_contains_Smoke_asc_sid, endPoint=/v1/partnermanager/partners/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "name", "type": "contains", "value": "Airtekiboi" } ], "sort": [ { "sortField": "name", "sortType": "asc" } ], "pageFetch": "10", "pageStart": "0", "partnerType": "all", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": "[]" }, inputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartner, outputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartnerResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1400539413" onClick='toggleBox("Output-1400539413", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1400539413" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1400539413">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "contains",
+        "value": "Airtekiboi"
+      }
+    ],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "partnerType": "all",
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "asc"
+      }
+    ]
+  },
+  "requesttime": "2023-07-14T17:00:26.914Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:00:27.636Z",
+  "response": {
+    "fromRecord": 0,
+    "toRecord": 0,
+    "totalRecord": 0
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.data</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@7afbf2a0</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPartner_type_contains_Smoke_desc_sid()'><b>Partner_SearchPartner_type_contains_Smoke_desc_sid</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPartner_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPartner_type_contains_Smoke_desc_sid, endPoint=/v1/partnermanager/partners/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "name", "type": "contains", "value": "Airtekiboi" } ], "sort": [ { "sortField": "name", "sortType": "desc" } ], "pageFetch": "10", "pageStart": "0", "partnerType": "all", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": "[]" }, inputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartner, outputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartnerResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2117495919" onClick='toggleBox("Output-2117495919", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2117495919" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2117495919">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "contains",
+        "value": "Airtekiboi"
+      }
+    ],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "partnerType": "all",
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "desc"
+      }
+    ]
+  },
+  "requesttime": "2023-07-14T17:00:27.695Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:00:28.401Z",
+  "response": {
+    "fromRecord": 0,
+    "toRecord": 0,
+    "totalRecord": 0
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.data</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@7afbf2a0</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPartner_type_equals_Smoke_asc_sid()'><b>Partner_SearchPartner_type_equals_Smoke_asc_sid</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPartner_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPartner_type_equals_Smoke_asc_sid, endPoint=/v1/partnermanager/partners/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "name", "type": "equals", "value": "Airtekiboi" } ], "sort": [ { "sortField": "name", "sortType": "asc" } ], "pageFetch": "10", "pageStart": "0", "partnerType": "all", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": "[]" }, inputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartner, outputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartnerResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2067156807" onClick='toggleBox("Output-2067156807", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2067156807" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2067156807">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "Airtekiboi"
+      }
+    ],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "partnerType": "all",
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "asc"
+      }
+    ]
+  },
+  "requesttime": "2023-07-14T17:00:29.299Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:00:30.042Z",
+  "response": {
+    "fromRecord": 0,
+    "toRecord": 0,
+    "totalRecord": 0
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.data</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@7afbf2a0</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPartner_type_equals_Smoke_desc_sid()'><b>Partner_SearchPartner_type_equals_Smoke_desc_sid</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPartner_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPartner_type_equals_Smoke_desc_sid, endPoint=/v1/partnermanager/partners/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "name", "type": "equals", "value": "Airtekiboi" } ], "sort": [ { "sortField": "name", "sortType": "desc" } ], "pageFetch": "10", "pageStart": "0", "partnerType": "all", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": "[]" }, inputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartner, outputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartnerResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1794282388" onClick='toggleBox("Output-1794282388", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1794282388" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1794282388">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "Airtekiboi"
+      }
+    ],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "partnerType": "all",
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "desc"
+      }
+    ]
+  },
+  "requesttime": "2023-07-14T17:00:28.432Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:00:29.267Z",
+  "response": {
+    "fromRecord": 0,
+    "toRecord": 0,
+    "totalRecord": 0
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.data</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@7afbf2a0</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPartner_type_startswith_Smoke_asc_sid()'><b>Partner_SearchPartner_type_startswith_Smoke_asc_sid</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPartner_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPartner_type_startswith_Smoke_asc_sid, endPoint=/v1/partnermanager/partners/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "name", "type": "startswith", "value": "Airtekiboi" } ], "sort": [ { "sortField": "name", "sortType": "asc" } ], "pageFetch": "10", "pageStart": "0", "partnerType": "all", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": "[]" }, inputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartner, outputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartnerResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1800576322" onClick='toggleBox("Output-1800576322", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1800576322" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1800576322">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "startswith",
+        "value": "Airtekiboi"
+      }
+    ],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "partnerType": "all",
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "asc"
+      }
+    ]
+  },
+  "requesttime": "2023-07-14T17:00:30.072Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:00:30.779Z",
+  "response": {
+    "fromRecord": 0,
+    "toRecord": 0,
+    "totalRecord": 0
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.data</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@7afbf2a0</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPartner_type_startswith_Smoke_desc_sid()'><b>Partner_SearchPartner_type_startswith_Smoke_desc_sid</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPartner_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPartner_type_startswith_Smoke_desc_sid, endPoint=/v1/partnermanager/partners/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "name", "type": "startswith", "value": "Airtekiboi" } ], "sort": [ { "sortField": "name", "sortType": "desc" } ], "pageFetch": "10", "pageStart": "0", "partnerType": "all", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": "[]" }, inputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartner, outputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartnerResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2025994974" onClick='toggleBox("Output-2025994974", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2025994974" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2025994974">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "startswith",
+        "value": "Airtekiboi"
+      }
+    ],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "partnerType": "all",
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "desc"
+      }
+    ]
+  },
+  "requesttime": "2023-07-14T17:00:30.839Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:00:31.589Z",
+  "response": {
+    "fromRecord": 0,
+    "toRecord": 0,
+    "totalRecord": 0
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.data</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@7afbf2a0</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPartner_with_invalid_columnName()'><b>Partner_SearchPartner_with_invalid_columnName</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPartner_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPartner_with_invalid_columnName, endPoint=/v1/partnermanager/partners/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "a@@@334455667788s", "type": "startswith", "value": "headoffice9" } ], "sort": [ { "sortField": "address", "sortType": "desc" } ], "pageFetch": "10", "pageStart": "0", "partnerType": "all", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": [ { "errorCode": "PMS-MSD-310", "message": "Invalid column received : a@@@334455667788s" } ] }, inputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartner, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-246540392" onClick='toggleBox("Output-246540392", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-246540392" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-246540392">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "a@@@334455667788s",
+        "type": "startswith",
+        "value": "headoffice9"
+      }
+    ],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "partnerType": "all",
+    "sort": [
+      {
+        "sortField": "address",
+        "sortType": "desc"
+      }
+    ]
+  },
+  "requesttime": "2023-07-14T17:00:34.547Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.partnermanagement",
+  "version": "1.0",
+  "responsetime": "2023-07-14T17:00:35.313Z",
+  "errors": [
+    {
+      "errorCode": "PMS-MSD-310",
+      "message": "Invalid column received : a@@@334455667788s"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS-MSD-310</td>
+    <td>PMS-MSD-310</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@7afbf2a0</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPartner_with_invalid_sort_field()'><b>Partner_SearchPartner_with_invalid_sort_field</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPartner_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPartner_with_invalid_sort_field, endPoint=/v1/partnermanager/partners/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "address", "type": "startswith", "value": "headoffice9" } ], "sort": [ { "sortField": "mo@@@del", "sortType": "asc" } ], "pageFetch": "10", "pageStart": "0", "partnerType": "all", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": [ { "errorCode": "PMS-MSD-357", "message": "Invalid sort field mo@@@del" } ] }, inputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartner, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1287200676" onClick='toggleBox("Output-1287200676", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1287200676" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1287200676">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "address",
+        "type": "startswith",
+        "value": "headoffice9"
+      }
+    ],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "partnerType": "all",
+    "sort": [
+      {
+        "sortField": "mo@@@del",
+        "sortType": "asc"
+      }
+    ]
+  },
+  "requesttime": "2023-07-14T17:00:38.162Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.partnermanagement",
+  "version": "1.0",
+  "responsetime": "2023-07-14T17:00:38.864Z",
+  "errors": [
+    {
+      "errorCode": "PMS-MSD-357",
+      "message": "Invalid sort field mo@@@del"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS-MSD-357</td>
+    <td>PMS-MSD-357</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@7afbf2a0</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPartner_with_invalid_sort_type()'><b>Partner_SearchPartner_with_invalid_sort_type</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPartner_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPartner_with_invalid_sort_type, endPoint=/v1/partnermanager/partners/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "address", "type": "startswith", "value": "headoffice9" } ], "sort": [ { "sortField": "address", "sortType": "dc" } ], "pageFetch": "10", "pageStart": "0", "partnerType": "all", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": [ { "errorCode": "PMS-MSD-358", "message": "Sort type dc is not supported" } ] }, inputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartner, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-306090132" onClick='toggleBox("Output-306090132", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-306090132" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-306090132">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "address",
+        "type": "startswith",
+        "value": "headoffice9"
+      }
+    ],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "partnerType": "all",
+    "sort": [
+      {
+        "sortField": "address",
+        "sortType": "dc"
+      }
+    ]
+  },
+  "requesttime": "2023-07-14T17:00:36.720Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.partnermanagement",
+  "version": "1.0",
+  "responsetime": "2023-07-14T17:00:37.446Z",
+  "errors": [
+    {
+      "errorCode": "PMS-MSD-358",
+      "message": "Sort type dc is not supported"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS-MSD-358</td>
+    <td>PMS-MSD-358</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@7afbf2a0</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPartner_with_missing_columnName()'><b>Partner_SearchPartner_with_missing_columnName</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPartner_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPartner_with_missing_columnName, endPoint=/v1/partnermanager/partners/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "$REMOVE$", "type": "startswith", "value": "headoffice9" } ], "sort": [ { "sortField": "address", "sortType": "desc" } ], "pageFetch": "10", "pageStart": "0", "partnerType": "all", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": [ { "errorCode": "PMS-MSD-311", "message": "Column is missing in request" } ] }, inputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartner, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-826322241" onClick='toggleBox("Output-826322241", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-826322241" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-826322241">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": "0",
+      "pageFetch": "10"
+    },
+    "filters": [
+      {
+        "type": "startswith",
+        "value": "headoffice9"
+      }
+    ],
+    "partnerType": "all",
+    "sort": [
+      {
+        "sortType": "desc",
+        "sortField": "address"
+      }
+    ]
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:00:35.305Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.partnermanagement",
+  "version": "1.0",
+  "responsetime": "2023-07-14T17:00:36.023Z",
+  "errors": [
+    {
+      "errorCode": "PMS-MSD-311",
+      "message": "Column is missing in request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS-MSD-311</td>
+    <td>PMS-MSD-311</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@7afbf2a0</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPartner_with_missing_sort_field()'><b>Partner_SearchPartner_with_missing_sort_field</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPartner_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPartner_with_missing_sort_field, endPoint=/v1/partnermanager/partners/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "address", "type": "startswith", "value": "headoffice9" } ], "sort": [ { "sortField": "$REMOVE$", "sortType": "asc" } ], "pageFetch": "10", "pageStart": "0", "partnerType": "all", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": [ { "errorCode": "PMS-MSD-314", "message": "Missing sort field or sort type values" } ] }, inputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartner, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1089558406" onClick='toggleBox("Output-1089558406", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1089558406" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1089558406">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": "0",
+      "pageFetch": "10"
+    },
+    "filters": [
+      {
+        "type": "startswith",
+        "value": "headoffice9",
+        "columnName": "address"
+      }
+    ],
+    "partnerType": "all",
+    "sort": [
+      {
+        "sortType": "asc"
+      }
+    ]
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:00:38.852Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.partnermanagement",
+  "version": "1.0",
+  "responsetime": "2023-07-14T17:00:40.615Z",
+  "errors": [
+    {
+      "errorCode": "PMS-MSD-314",
+      "message": "Missing sort field or sort type values"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS-MSD-314</td>
+    <td>PMS-MSD-314</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.SimplePost@7afbf2a0</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPartner_with_missing_sort_type()'><b>Partner_SearchPartner_with_missing_sort_type</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPartner_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPartner_with_missing_sort_type, endPoint=/v1/partnermanager/partners/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "address", "type": "startswith", "value": "headoffice9" } ], "sort": [ { "sortField": "address", "sortType": "$REMOVE$" } ], "pageFetch": "10", "pageStart": "0", "partnerType": "all", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": [ { "errorCode": "PMS-MSD-314", "message": "Missing sort field or sort type values" } ] }, inputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartner, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1752213359" onClick='toggleBox("Output-1752213359", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1752213359" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1752213359">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": "0",
+      "pageFetch": "10"
+    },
+    "filters": [
+      {
+        "type": "startswith",
+        "value": "headoffice9",
+        "columnName": "address"
+      }
+    ],
+    "partnerType": "all",
+    "sort": [
+      {
+        "sortField": "address"
+      }
+    ]
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:00:37.437Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.partnermanagement",
+  "version": "1.0",
+  "responsetime": "2023-07-14T17:00:38.164Z",
+  "errors": [
+    {
+      "errorCode": "PMS-MSD-314",
+      "message": "Missing sort field or sort type values"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS-MSD-314</td>
+    <td>PMS-MSD-314</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@7afbf2a0</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPartner_with_missing_type()'><b>Partner_SearchPartner_with_missing_type</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPartner_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPartner_with_missing_type, endPoint=/v1/partnermanager/partners/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "address", "type": "$REMOVE$", "value": "headoffice9" } ], "sort": [ { "sortField": "address", "sortType": "desc" } ], "pageFetch": "10", "pageStart": "0", "partnerType": "all", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": [ { "errorCode": "PMS-MSD-312", "message": "Filter type is missing" } ] }, inputTemplate=partner/SearchAPIs/SearchPartner/createSearchPartner, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2044812362" onClick='toggleBox("Output-2044812362", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2044812362" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2044812362">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": "0",
+      "pageFetch": "10"
+    },
+    "filters": [
+      {
+        "value": "headoffice9",
+        "columnName": "address"
+      }
+    ],
+    "partnerType": "all",
+    "sort": [
+      {
+        "sortType": "desc",
+        "sortField": "address"
+      }
+    ]
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:00:36.014Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.partnermanagement",
+  "version": "1.0",
+  "responsetime": "2023-07-14T17:00:36.726Z",
+  "errors": [
+    {
+      "errorCode": "PMS-MSD-312",
+      "message": "Filter type is missing"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS-MSD-312</td>
+    <td>PMS-MSD-312</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@7afbf2a0</td></tr>
+</table><p>
+</body>
+</html>

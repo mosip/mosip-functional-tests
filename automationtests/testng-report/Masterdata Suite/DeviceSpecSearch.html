@@ -1,0 +1,1627 @@
+<html>
+<head>
+<title>TestNG:  DeviceSpecSearch</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>DeviceSpecSearch</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>16/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:47:48 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>12 seconds (12410 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecSearch_ASC_Name_eng()'><b>MasterData_DeviceSpecSearch_ASC_Name_eng</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecSearch_StartsWith_Name_eng)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecSearch_ASC_Name_eng, endPoint=/v1/masterdata/devicespecifications/search, role=admin, templateFields=[languageCode], input={ "filters": [ { "columnName": "name", "type": "contains", "value": "Webcam", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [{ "id": "$IGNORE$", "name": "Webcam", "brand": "Logitech", "model": "C270", "deviceTypeCode": "CMR", "minDriverversion": "2.086", "description": "$IGNORE$", "langCode": "$IGNORE$", "isActive": "$IGNORE$", "deviceTypeName": "$IGNORE$" }] }, inputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearch, outputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2025173753" onClick='toggleBox("Output-2025173753", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2025173753" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2025173753">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "contains",
+        "value": "Webcam",
+        "columnName": "name"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "name"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:17:53.724Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devicespecifications/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:17:54.392Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2022-02-23T12:40:30.919Z",
+        "updatedDateTime": "2022-02-25T06:12:10.150Z",
+        "isDeleted": false,
+        "id": "736",
+        "name": "Webcam",
+        "brand": "Logitech",
+        "model": "C270",
+        "deviceTypeCode": "CMR",
+        "minDriverversion": "2.086",
+        "description": "To capture photo",
+        "langCode": "eng",
+        "deviceTypeName": "Camera"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceTypeCode</td>
+    <td>CMR</td>
+    <td>CMR</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].brand</td>
+    <td>Logitech</td>
+    <td>Logitech</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].minDriverversion</td>
+    <td>2.086</td>
+    <td>2.086</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].model</td>
+    <td>C270</td>
+    <td>C270</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].name</td>
+    <td>Webcam</td>
+    <td>Webcam</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2c7fff1b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecSearch_Contains_Name_eng()'><b>MasterData_DeviceSpecSearch_Contains_Name_eng</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecSearch_StartsWith_Name_eng)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecSearch_Contains_Name_eng, endPoint=/v1/masterdata/devicespecifications/search, role=admin, templateFields=[languageCode], input={ "filters": [ { "columnName": "name", "type": "contains", "value": "Webcam", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [{ "id": "$IGNORE$", "name": "Webcam", "brand": "Logitech", "model": "C270", "deviceTypeCode": "CMR", "minDriverversion": "2.086", "description": "$IGNORE$", "langCode": "$IGNORE$", "isActive": "$IGNORE$", "deviceTypeName": "$IGNORE$" }] }, inputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearch, outputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1323741703" onClick='toggleBox("Output-1323741703", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1323741703" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1323741703">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "contains",
+        "value": "Webcam",
+        "columnName": "name"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "name"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:17:58.306Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devicespecifications/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:17:58.948Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2022-02-23T12:40:30.919Z",
+        "updatedDateTime": "2022-02-25T06:12:10.150Z",
+        "isDeleted": false,
+        "id": "736",
+        "name": "Webcam",
+        "brand": "Logitech",
+        "model": "C270",
+        "deviceTypeCode": "CMR",
+        "minDriverversion": "2.086",
+        "description": "To capture photo",
+        "langCode": "eng",
+        "deviceTypeName": "Camera"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceTypeCode</td>
+    <td>CMR</td>
+    <td>CMR</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].brand</td>
+    <td>Logitech</td>
+    <td>Logitech</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].minDriverversion</td>
+    <td>2.086</td>
+    <td>2.086</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].model</td>
+    <td>C270</td>
+    <td>C270</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].name</td>
+    <td>Webcam</td>
+    <td>Webcam</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2c7fff1b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecSearch_DESC_Name_eng()'><b>MasterData_DeviceSpecSearch_DESC_Name_eng</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecSearch_StartsWith_Name_eng)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecSearch_DESC_Name_eng, endPoint=/v1/masterdata/devicespecifications/search, role=admin, templateFields=[languageCode], input={ "filters": [ { "columnName": "name", "type": "contains", "value": "Webcam", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "name", "sortType": "DESC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [{ "id": "$IGNORE$", "name": "Webcam", "brand": "$IGNORE$", "model": "$IGNORE$", "deviceTypeCode": "$IGNORE$", "minDriverversion": "$IGNORE$", "description": "$IGNORE$", "langCode": "$IGNORE$", "isActive": "$IGNORE$", "deviceTypeName": "$IGNORE$" }] }, inputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearch, outputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-961572626" onClick='toggleBox("Output-961572626", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-961572626" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-961572626">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "contains",
+        "value": "Webcam",
+        "columnName": "name"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "DESC",
+        "sortField": "name"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:17:54.505Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devicespecifications/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:17:55.219Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2022-02-23T12:40:30.919Z",
+        "updatedDateTime": "2022-02-25T06:12:10.150Z",
+        "isDeleted": false,
+        "id": "736",
+        "name": "Webcam",
+        "brand": "Logitech",
+        "model": "C270",
+        "deviceTypeCode": "CMR",
+        "minDriverversion": "2.086",
+        "description": "To capture photo",
+        "langCode": "eng",
+        "deviceTypeName": "Camera"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].name</td>
+    <td>Webcam</td>
+    <td>Webcam</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2c7fff1b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecSearch_Equals_Brand()'><b>MasterData_DeviceSpecSearch_Equals_Brand</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecSearch_StartsWith_Name_eng)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecSearch_Equals_Brand, endPoint=/v1/masterdata/devicespecifications/search, role=admin, templateFields=[languageCode], input={ "filters": [ { "columnName": "brand", "type": "equals", "value": "Logitech", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "brand", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [{ "id": "$IGNORE$", "name": "$IGNORE$", "brand": "Logitech", "model": "$IGNORE$", "deviceTypeCode": "$IGNORE$", "minDriverversion": "$IGNORE$", "description": "$IGNORE$", "langCode": "$IGNORE$", "isActive": "$IGNORE$", "deviceTypeName": "$IGNORE$" }] }, inputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearch, outputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1500585639" onClick='toggleBox("Output-1500585639", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1500585639" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1500585639">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "Logitech",
+        "columnName": "brand"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "brand"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:17:49.009Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devicespecifications/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:17:49.669Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2022-02-23T12:40:30.919Z",
+        "updatedDateTime": "2022-02-25T06:12:10.150Z",
+        "isDeleted": false,
+        "id": "736",
+        "name": "Webcam",
+        "brand": "Logitech",
+        "model": "C270",
+        "deviceTypeCode": "CMR",
+        "minDriverversion": "2.086",
+        "description": "To capture photo",
+        "langCode": "eng",
+        "deviceTypeName": "Camera"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].brand</td>
+    <td>Logitech</td>
+    <td>Logitech</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2c7fff1b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecSearch_Equals_DeviceTypeName()'><b>MasterData_DeviceSpecSearch_Equals_DeviceTypeName</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecSearch_StartsWith_Name_eng)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecSearch_Equals_DeviceTypeName, endPoint=/v1/masterdata/devicespecifications/search, role=admin, templateFields=[languageCode], input={ "filters": [ { "columnName": "deviceTypeName", "type": "equals", "value": "Camera", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [{ "id": "$IGNORE$", "name": "$IGNORE$", "brand": "$IGNORE$", "model": "$IGNORE$", "deviceTypeCode": "$IGNORE$", "minDriverversion": "$IGNORE$", "description": "$IGNORE$", "langCode": "$IGNORE$", "isActive": "$IGNORE$", "deviceTypeName": "Camera" }] }, inputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearch, outputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-941086854" onClick='toggleBox("Output-941086854", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-941086854" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-941086854">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "Camera",
+        "columnName": "deviceTypeName"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "name"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:17:50.497Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devicespecifications/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:17:51.188Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 2,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2022-02-23T12:40:30.919Z",
+        "updatedDateTime": "2022-02-25T06:12:10.150Z",
+        "isDeleted": false,
+        "id": "736",
+        "name": "Webcam",
+        "brand": "Logitech",
+        "model": "C270",
+        "deviceTypeCode": "CMR",
+        "minDriverversion": "2.086",
+        "description": "To capture photo",
+        "langCode": "eng",
+        "deviceTypeName": "Camera"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceTypeName</td>
+    <td>Camera</td>
+    <td>Camera</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2c7fff1b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecSearch_Equals_Model()'><b>MasterData_DeviceSpecSearch_Equals_Model</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecSearch_StartsWith_Name_eng)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecSearch_Equals_Model, endPoint=/v1/masterdata/devicespecifications/search, role=admin, templateFields=[languageCode], input={ "filters": [ { "columnName": "model", "type": "equals", "value": "C270", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "model", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [{ "id": "$IGNORE$", "name": "$IGNORE$", "brand": "$IGNORE$", "model": "C270", "deviceTypeCode": "$IGNORE$", "minDriverversion": "$IGNORE$", "description": "$IGNORE$", "langCode": "$IGNORE$", "isActive": "$IGNORE$", "deviceTypeName": "$IGNORE$" }] }, inputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearch, outputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-989196506" onClick='toggleBox("Output-989196506", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-989196506" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-989196506">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "C270",
+        "columnName": "model"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "model"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:17:49.769Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devicespecifications/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:17:50.400Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2022-02-23T12:40:30.919Z",
+        "updatedDateTime": "2022-02-25T06:12:10.150Z",
+        "isDeleted": false,
+        "id": "736",
+        "name": "Webcam",
+        "brand": "Logitech",
+        "model": "C270",
+        "deviceTypeCode": "CMR",
+        "minDriverversion": "2.086",
+        "description": "To capture photo",
+        "langCode": "eng",
+        "deviceTypeName": "Camera"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].model</td>
+    <td>C270</td>
+    <td>C270</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2c7fff1b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecSearch_Equals_Name_eng_smoke()'><b>MasterData_DeviceSpecSearch_Equals_Name_eng_smoke</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecSearch_StartsWith_Name_eng)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecSearch_Equals_Name_eng_smoke, endPoint=/v1/masterdata/devicespecifications/search, role=admin, templateFields=[languageCode], input={ "filters": [ { "columnName": "name", "type": "equals", "value": "Webcam", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [{ "id": "$IGNORE$", "name": "Webcam", "brand": "Logitech", "model": "C270", "deviceTypeCode": "CMR", "minDriverversion": "2.086", "description": "$IGNORE$", "langCode": "$IGNORE$", "isActive": "$IGNORE$", "deviceTypeName": "$IGNORE$" }] }, inputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearch, outputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-784581139" onClick='toggleBox("Output-784581139", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-784581139" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-784581139">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "Webcam",
+        "columnName": "name"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "name"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:17:48.271Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devicespecifications/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:17:48.910Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2022-02-23T12:40:30.919Z",
+        "updatedDateTime": "2022-02-25T06:12:10.150Z",
+        "isDeleted": false,
+        "id": "736",
+        "name": "Webcam",
+        "brand": "Logitech",
+        "model": "C270",
+        "deviceTypeCode": "CMR",
+        "minDriverversion": "2.086",
+        "description": "To capture photo",
+        "langCode": "eng",
+        "deviceTypeName": "Camera"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceTypeCode</td>
+    <td>CMR</td>
+    <td>CMR</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].brand</td>
+    <td>Logitech</td>
+    <td>Logitech</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].minDriverversion</td>
+    <td>2.086</td>
+    <td>2.086</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].model</td>
+    <td>C270</td>
+    <td>C270</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].name</td>
+    <td>Webcam</td>
+    <td>Webcam</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2c7fff1b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecSearch_InvalidPageFetch()'><b>MasterData_DeviceSpecSearch_InvalidPageFetch</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecSearch_StartsWith_Name_eng)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecSearch_InvalidPageFetch, endPoint=/v1/masterdata/devicespecifications/search, role=admin, templateFields=[languageCode], input={ "filters": [ { "columnName": "name", "type": "equals", "value": "Camera", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": -1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [] }, inputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearch, outputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1269179433" onClick='toggleBox("Output-1269179433", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1269179433" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1269179433">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": -1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "Camera",
+        "columnName": "name"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "name"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:17:52.100Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devicespecifications/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:17:52.815Z",
+  "response": {
+    "fromRecord": 0,
+    "toRecord": 0,
+    "totalRecord": 0
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.data</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2c7fff1b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecSearch_InvalidPageStart()'><b>MasterData_DeviceSpecSearch_InvalidPageStart</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecSearch_StartsWith_Name_eng)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecSearch_InvalidPageStart, endPoint=/v1/masterdata/devicespecifications/search, role=admin, templateFields=[languageCode], input={ "filters": [ { "columnName": "name", "type": "equals", "value": "Webcam", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ], "pageStart": -1, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-313", "message": "$IGNORE$" } ] }, inputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearch, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2000420438" onClick='toggleBox("Output-2000420438", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2000420438" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2000420438">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": -1,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "Webcam",
+        "columnName": "name"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "name"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:17:52.944Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devicespecifications/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:17:53.654Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-313",
+      "message": "Invalid pagination value received pagestart:-1 and pagefetch:1"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-313</td>
+    <td>KER-MSD-313</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2c7fff1b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecSearch_Invalid_ColumnName()'><b>MasterData_DeviceSpecSearch_Invalid_ColumnName</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecSearch_StartsWith_Name_eng)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecSearch_Invalid_ColumnName, endPoint=/v1/masterdata/devicespecifications/search, role=admin, templateFields=[languageCode], input={ "filters": [ { "columnName": "dfadf", "type": "equal", "value": "Camera", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-317", "message": "$IGNORE$" } ] }, inputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearch, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2047400579" onClick='toggleBox("Output-2047400579", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2047400579" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2047400579">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equal",
+        "value": "Camera",
+        "columnName": "dfadf"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "name"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:17:56.854Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devicespecifications/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:17:57.545Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-317",
+      "message": "Column dfadf doesn\u0027t exist for the searched entity"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-317</td>
+    <td>KER-MSD-317</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2c7fff1b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecSearch_Invalid_FilterType()'><b>MasterData_DeviceSpecSearch_Invalid_FilterType</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecSearch_StartsWith_Name_eng)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecSearch_Invalid_FilterType, endPoint=/v1/masterdata/devicespecifications/search, role=admin, templateFields=[languageCode], input={ "filters": [ { "columnName": "name", "type": "equal", "value": "Camera", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-318", "message": "$IGNORE$" } ] }, inputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearch, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1426212043" onClick='toggleBox("Output-1426212043", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1426212043" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1426212043">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equal",
+        "value": "Camera",
+        "columnName": "name"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "name"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:17:55.333Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devicespecifications/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:17:56.015Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-318",
+      "message": "Column name doesn\u0027t support filter type equal"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-318</td>
+    <td>KER-MSD-318</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2c7fff1b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecSearch_Invalid_RequestTime()'><b>MasterData_DeviceSpecSearch_Invalid_RequestTime</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecSearch_StartsWith_Name_eng)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecSearch_Invalid_RequestTime, endPoint=/v1/masterdata/devicespecifications/search, role=admin, templateFields=[languageCode], input={ "filters": [ { "columnName": "name", "type": "equal", "value": "Camera", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "", "requesttime": "2019-7-3T05:22:35.845" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "Invalid Format in field : requesttime" } ] }, inputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearch, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1701133730" onClick='toggleBox("Output-1701133730", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1701133730" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1701133730">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equal",
+        "value": "Camera",
+        "columnName": "name"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "name"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2019-7-3T05:22:35.845",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devicespecifications/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:17:58.237Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : requesttime"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Invalid Format in field : requesttime</td>
+    <td>Invalid Format in field : requesttime</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2c7fff1b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecSearch_Invalid_SortType()'><b>MasterData_DeviceSpecSearch_Invalid_SortType</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecSearch_StartsWith_Name_eng)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecSearch_Invalid_SortType, endPoint=/v1/masterdata/devicespecifications/search, role=admin, templateFields=[languageCode], input={ "filters": [ { "columnName": "name", "type": "equal", "value": "Camera", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "name", "sortType": "AESCENDING" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-318", "message": "$IGNORE$" } ] }, inputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearch, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1785363539" onClick='toggleBox("Output-1785363539", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1785363539" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1785363539">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equal",
+        "value": "Camera",
+        "columnName": "name"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "AESCENDING",
+        "sortField": "name"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:17:56.089Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devicespecifications/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:17:56.776Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-318",
+      "message": "Column name doesn\u0027t support filter type equal"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-318</td>
+    <td>KER-MSD-318</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2c7fff1b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecSearch_Invalid_Value_Name()'><b>MasterData_DeviceSpecSearch_Invalid_Value_Name</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecSearch_StartsWith_Name_eng)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecSearch_Invalid_Value_Name, endPoint=/v1/masterdata/devicespecifications/search, role=admin, templateFields=[], input={ "filters": [ { "columnName": "name", "type": "equals", "value": "Language", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [] }, inputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearch, outputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-402542351" onClick='toggleBox("Output-402542351", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-402542351" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-402542351">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "Language",
+        "columnName": "name"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "name"
+      }
+    ],
+    "languageCode": "eng"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:17:51.294Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devicespecifications/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:17:51.977Z",
+  "response": {
+    "fromRecord": 0,
+    "toRecord": 0,
+    "totalRecord": 0
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.data</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2c7fff1b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecSearch_StartsWith_Name_eng()'><b>MasterData_DeviceSpecSearch_StartsWith_Name_eng</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecSearch_StartsWith_Name_eng)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecSearch_StartsWith_Name_eng, endPoint=/v1/masterdata/devicespecifications/search, role=admin, templateFields=[languageCode], input={ "filters": [ { "columnName": "name", "type": "startsWith", "value": "Webcam", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [{ "id": "$IGNORE$", "name": "Webcam", "brand": "$IGNORE$", "model": "$IGNORE$", "deviceTypeCode": "$IGNORE$", "minDriverversion": "$IGNORE$", "description": "$IGNORE$", "langCode": "$IGNORE$", "isActive": "$IGNORE$", "deviceTypeName": "$IGNORE$" }] }, inputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearch, outputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-12275979" onClick='toggleBox("Output-12275979", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-12275979" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-12275979">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "startsWith",
+        "value": "Webcam",
+        "columnName": "name"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "name"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:17:59.892Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devicespecifications/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:18:00.575Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2022-02-23T12:40:30.919Z",
+        "updatedDateTime": "2022-02-25T06:12:10.150Z",
+        "isDeleted": false,
+        "id": "736",
+        "name": "Webcam",
+        "brand": "Logitech",
+        "model": "C270",
+        "deviceTypeCode": "CMR",
+        "minDriverversion": "2.086",
+        "description": "To capture photo",
+        "langCode": "eng",
+        "deviceTypeName": "Camera"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].name</td>
+    <td>Webcam</td>
+    <td>Webcam</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2c7fff1b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecSearch_TwoValueSearch_pos()'><b>MasterData_DeviceSpecSearch_TwoValueSearch_pos</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecSearch_StartsWith_Name_eng)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecSearch_TwoValueSearch_pos, endPoint=/v1/masterdata/devicespecifications/search, role=admin, templateFields=[languageCode], input={ "filters": [ { "columnName": "name", "type": "contains", "value": "Webcam", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" }, { "columnName": "brand", "type": "contains", "value": "hogwarts", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [{ "id": "$IGNORE$", "name": "$IGNORE$", "brand": "$IGNORE$", "model": "$IGNORE$", "deviceTypeCode": "$IGNORE$", "minDriverversion": "$IGNORE$", "description": "$IGNORE$", "langCode": "$IGNORE$", "isActive": "$IGNORE$", "deviceTypeName": "$IGNORE$" }] }, inputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearch, outputTemplate=masterdata/DeviceSpecSearch/deviceSpecSearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1961042685" onClick='toggleBox("Output-1961042685", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1961042685" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1961042685">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "contains",
+        "value": "Webcam",
+        "columnName": "name"
+      },
+      {
+        "type": "contains",
+        "value": "hogwarts",
+        "columnName": "brand"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "name"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:17:59.064Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devicespecifications/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:17:59.770Z",
+  "response": {
+    "fromRecord": 0,
+    "toRecord": 0,
+    "totalRecord": 0
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.data</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2c7fff1b</td></tr>
+</table><p>
+</body>
+</html>

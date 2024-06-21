@@ -1,0 +1,522 @@
+<html>
+<head>
+<title>TestNG:  GenerateLinkCode</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GenerateLinkCode</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>11/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Jan 18 17:14:58 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>6 seconds (6557 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.IDP_GenerateLinkCode_Empty_transactionId_Neg()'><b>IDP_GenerateLinkCode_Empty_transactionId_Neg</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (IDP_GenerateLinkCode_Null_transactionId_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_GenerateLinkCode_Empty_transactionId_Neg, endPoint=/v1/idp/linked-authorization/link-code, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "" }, output={ "errors": [ { "errorCode": "invalid_transaction_id", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/GenerateLinkCode/GenerateLinkCode, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-262929529" onClick='toggleBox("Output-262929529", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-262929529" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-262929529">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:04.258Z",
+  "request": {
+    "transactionId": ""
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/linked-authorization/link-code) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:04.793Z",
+  "errors": [
+    {
+      "errorCode": "invalid_transaction_id",
+      "errorMessage": "request.transactionId: invalid_transaction_id"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_transaction_id</td>
+    <td>invalid_transaction_id</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@37b1149b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.IDP_GenerateLinkCode_Expired_transactionId_Neg()'><b>IDP_GenerateLinkCode_Expired_transactionId_Neg</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (IDP_GenerateLinkCode_Null_transactionId_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_GenerateLinkCode_Expired_transactionId_Neg, endPoint=/v1/idp/linked-authorization/link-code, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "4eKDB4GPk6fP8XXEDY7rktwtQF6WiwrOCehT2CwyVT0" }, output={ "errors": [ { "errorCode": "invalid_transaction", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/GenerateLinkCode/GenerateLinkCode, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1230752231" onClick='toggleBox("Output-1230752231", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1230752231" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1230752231">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:03.094Z",
+  "request": {
+    "transactionId": "4eKDB4GPk6fP8XXEDY7rktwtQF6WiwrOCehT2CwyVT0"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/linked-authorization/link-code) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:03.620Z",
+  "errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "invalid_transaction"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_transaction</td>
+    <td>invalid_transaction</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@37b1149b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.IDP_GenerateLinkCode_Future_RequestTime_Neg()'><b>IDP_GenerateLinkCode_Future_RequestTime_Neg</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (IDP_GenerateLinkCode_Null_transactionId_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_GenerateLinkCode_Future_RequestTime_Neg, endPoint=/v1/idp/linked-authorization/link-code, role=resident, templateFields=null, input={ "requestTime": "2033-11-07T06:51:30.195Z", "transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$" }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/GenerateLinkCode/GenerateLinkCode, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-6393777" onClick='toggleBox("Output-6393777", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-6393777" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-6393777">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2033-11-07T06:51:30.195Z",
+  "request": {
+    "transactionId": "4rvMN0xRsmJM3UDDXM8fM3Z1ZQT2wXjtae4qWTfqgEw"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/linked-authorization/link-code) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:01.135Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@37b1149b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.IDP_GenerateLinkCode_Invalid_RequestTime_Neg()'><b>IDP_GenerateLinkCode_Invalid_RequestTime_Neg</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (IDP_GenerateLinkCode_Null_transactionId_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_GenerateLinkCode_Invalid_RequestTime_Neg, endPoint=/v1/idp/linked-authorization/link-code, role=resident, templateFields=null, input={ "requestTime": "2022-11-08T06:35:53", "transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$" }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/GenerateLinkCode/GenerateLinkCode, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1327693149" onClick='toggleBox("Output-1327693149", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1327693149" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1327693149">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2022-11-08T06:35:53",
+  "request": {
+    "transactionId": "4rvMN0xRsmJM3UDDXM8fM3Z1ZQT2wXjtae4qWTfqgEw"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/linked-authorization/link-code) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:44:59.967Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@37b1149b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.IDP_GenerateLinkCode_Invalid_transactionId_Neg()'><b>IDP_GenerateLinkCode_Invalid_transactionId_Neg</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (IDP_GenerateLinkCode_Null_transactionId_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_GenerateLinkCode_Invalid_transactionId_Neg, endPoint=/v1/idp/linked-authorization/link-code, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "transactionId" }, output={ "errors": [ { "errorCode": "invalid_transaction", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/GenerateLinkCode/GenerateLinkCode, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1525595340" onClick='toggleBox("Output-1525595340", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1525595340" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1525595340">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:02.382Z",
+  "request": {
+    "transactionId": "transactionId"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/linked-authorization/link-code) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:03.059Z",
+  "errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "invalid_transaction"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_transaction</td>
+    <td>invalid_transaction</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@37b1149b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.IDP_GenerateLinkCode_Missing_RequestTime_Neg()'><b>IDP_GenerateLinkCode_Missing_RequestTime_Neg</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (IDP_GenerateLinkCode_Null_transactionId_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_GenerateLinkCode_Missing_RequestTime_Neg, endPoint=/v1/idp/linked-authorization/link-code, role=resident, templateFields=null, input={ "requestTime": "$REMOVE$", "transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$" }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/GenerateLinkCode/GenerateLinkCode, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1060354927" onClick='toggleBox("Output-1060354927", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1060354927" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1060354927">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "transactionId": "4rvMN0xRsmJM3UDDXM8fM3Z1ZQT2wXjtae4qWTfqgEw"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/linked-authorization/link-code) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:01.809Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@37b1149b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.IDP_GenerateLinkCode_Missing_transactionId_Neg()'><b>IDP_GenerateLinkCode_Missing_transactionId_Neg</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (IDP_GenerateLinkCode_Null_transactionId_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_GenerateLinkCode_Missing_transactionId_Neg, endPoint=/v1/idp/linked-authorization/link-code, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$REMOVE$" }, output={ "errors": [ { "errorCode": "invalid_transaction_id", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/GenerateLinkCode/GenerateLinkCode, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1049228732" onClick='toggleBox("Output-1049228732", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1049228732" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1049228732">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:03.634Z",
+  "request": {}
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/linked-authorization/link-code) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:04.232Z",
+  "errors": [
+    {
+      "errorCode": "invalid_transaction_id",
+      "errorMessage": "request.transactionId: invalid_transaction_id"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_transaction_id</td>
+    <td>invalid_transaction_id</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@37b1149b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.IDP_GenerateLinkCode_Null_transactionId_Neg()'><b>IDP_GenerateLinkCode_Null_transactionId_Neg</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (IDP_GenerateLinkCode_Null_transactionId_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_GenerateLinkCode_Null_transactionId_Neg, endPoint=/v1/idp/linked-authorization/link-code, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "null" }, output={ "errors": [ { "errorCode": "invalid_transaction", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/GenerateLinkCode/GenerateLinkCode, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-309276344" onClick='toggleBox("Output-309276344", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-309276344" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-309276344">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:04.816Z",
+  "request": {
+    "transactionId": "null"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/linked-authorization/link-code) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:05.359Z",
+  "errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "invalid_transaction"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_transaction</td>
+    <td>invalid_transaction</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@37b1149b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.IDP_GenerateLinkCode_Past_RequestTime_Neg()'><b>IDP_GenerateLinkCode_Past_RequestTime_Neg</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (IDP_GenerateLinkCode_Null_transactionId_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_GenerateLinkCode_Past_RequestTime_Neg, endPoint=/v1/idp/linked-authorization/link-code, role=resident, templateFields=null, input={ "requestTime": "2022-11-07T06:51:30.195Z", "transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$" }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/GenerateLinkCode/GenerateLinkCode, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1816986148" onClick='toggleBox("Output-1816986148", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1816986148" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1816986148">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2022-11-07T06:51:30.195Z",
+  "request": {
+    "transactionId": "4rvMN0xRsmJM3UDDXM8fM3Z1ZQT2wXjtae4qWTfqgEw"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/linked-authorization/link-code) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:00.553Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@37b1149b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.IDP_GenerateLinkCode_Space_As_RequestTime_Neg()'><b>IDP_GenerateLinkCode_Space_As_RequestTime_Neg</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (IDP_GenerateLinkCode_Null_transactionId_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_GenerateLinkCode_Space_As_RequestTime_Neg, endPoint=/v1/idp/linked-authorization/link-code, role=resident, templateFields=null, input={ "requestTime": " ", "transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$" }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/GenerateLinkCode/GenerateLinkCode, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1276200583" onClick='toggleBox("Output-1276200583", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1276200583" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1276200583">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": " ",
+  "request": {
+    "transactionId": "4rvMN0xRsmJM3UDDXM8fM3Z1ZQT2wXjtae4qWTfqgEw"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/linked-authorization/link-code) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:02.357Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@37b1149b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.IDP_GenerateLinkCode_all_Valid_Smoke_sid()'><b>IDP_GenerateLinkCode_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (IDP_GenerateLinkCode_Null_transactionId_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_GenerateLinkCode_all_Valid_Smoke_sid, endPoint=/v1/idp/linked-authorization/link-code, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Valid_Smoke_sid_transactionId$" }, output={
+}, inputTemplate=idp/GenerateLinkCode/GenerateLinkCode, outputTemplate=idp/GenerateLinkCode/GenerateLinkCodeResult, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-349346006" onClick='toggleBox("Output-349346006", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-349346006" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-349346006">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:44:58.857Z",
+  "request": {
+    "transactionId": "kcXX39Vz5QiD8dCraSM51geWgt1ONlYYmNIonXEEEW8"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/linked-authorization/link-code) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:44:59.388Z",
+  "response": {
+    "transactionId": "kcXX39Vz5QiD8dCraSM51geWgt1ONlYYmNIonXEEEW8",
+    "linkCode": "abRhCZ9mSknfyrH",
+    "expireDateTime": "2023-01-18T11:45:59.388Z"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@37b1149b</td></tr>
+</table><p>
+</body>
+</html>

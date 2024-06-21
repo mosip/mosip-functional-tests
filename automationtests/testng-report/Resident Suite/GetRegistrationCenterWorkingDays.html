@@ -1,0 +1,519 @@
+<html>
+<head>
+<title>TestNG:  GetRegistrationCenterWorkingDays</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GetRegistrationCenterWorkingDays</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>6/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Aug 24 11:56:07 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>5 seconds (5396 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetRegistrationCenterWorkingDays_Empty_langCode_Neg()'><b>Resident_GetRegistrationCenterWorkingDays_Empty_langCode_Neg</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetRegistrationCenterWorkingDays_Empty_langCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetRegistrationCenterWorkingDays_Empty_langCode_Neg, endPoint=/resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}, role=resident, templateFields=null, input={ "langCode": "", "registrationCenterID": "10011" }, output={ }, inputTemplate=resident/GetRegistrationCenterWorkingDays/getRegistrationCenterWorkingDays, outputTemplate=resident/error, restMethod=get)<br/>
+<a href="#Output-2134486335" onClick='toggleBox("Output-2134486335", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2134486335" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2134486335">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "registrationCenterID": "10011",
+  "langCode": ""
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "timestamp": "2022-08-24T06:26:12.518+00:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available",
+  "path": "/resident/v1/proxy/masterdata/workingdays/10011/"
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>path</td>
+    <td>NOT VERIFIED</td>
+    <td>/resident/v1/proxy/masterdata/workingdays/10011/</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>error</td>
+    <td>NOT VERIFIED</td>
+    <td>Not Found</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>message</td>
+    <td>NOT VERIFIED</td>
+    <td>No message available</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@2c7c0e36</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetRegistrationCenterWorkingDays_Empty_registrationCenterID_Neg()'><b>Resident_GetRegistrationCenterWorkingDays_Empty_registrationCenterID_Neg</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetRegistrationCenterWorkingDays_Empty_langCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetRegistrationCenterWorkingDays_Empty_registrationCenterID_Neg, endPoint=/resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}, role=resident, templateFields=[langCode], input={ "langCode": "eng", "registrationCenterID": "" }, output={ }, inputTemplate=resident/GetRegistrationCenterWorkingDays/getRegistrationCenterWorkingDays, outputTemplate=resident/error, restMethod=get)<br/>
+<a href="#Output-733673859" onClick='toggleBox("Output-733673859", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-733673859" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-733673859">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "registrationCenterID": "",
+  "langCode": "eng"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "timestamp": "2022-08-24T06:26:11.418+00:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available",
+  "path": "/resident/v1/proxy/masterdata/workingdays/eng"
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>path</td>
+    <td>NOT VERIFIED</td>
+    <td>/resident/v1/proxy/masterdata/workingdays/eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>error</td>
+    <td>NOT VERIFIED</td>
+    <td>Not Found</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>message</td>
+    <td>NOT VERIFIED</td>
+    <td>No message available</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "registrationCenterID": "",
+  "langCode": "ara"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "timestamp": "2022-08-24T06:26:11.965+00:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available",
+  "path": "/resident/v1/proxy/masterdata/workingdays/ara"
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>path</td>
+    <td>NOT VERIFIED</td>
+    <td>/resident/v1/proxy/masterdata/workingdays/ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>error</td>
+    <td>NOT VERIFIED</td>
+    <td>Not Found</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>message</td>
+    <td>NOT VERIFIED</td>
+    <td>No message available</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.GetWithParam@2c7c0e36</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetRegistrationCenterWorkingDays_Invalid_langCode()'><b>Resident_GetRegistrationCenterWorkingDays_Invalid_langCode</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetRegistrationCenterWorkingDays_Empty_langCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetRegistrationCenterWorkingDays_Invalid_langCode, endPoint=/resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}, role=resident, templateFields=null, input={ "langCode": "eng1", "registrationCenterID": "10011" }, output={ "errors": [ { "errorCode": "RES-SER-418", "message": "$IGNORE$" } ] }, inputTemplate=resident/GetRegistrationCenterWorkingDays/getRegistrationCenterWorkingDays, outputTemplate=resident/error, restMethod=get)<br/>
+<a href="#Output-16040937" onClick='toggleBox("Output-16040937", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-16040937" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-16040937">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "registrationCenterID": "10011",
+  "langCode": "eng1"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:26:09.021Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>RES-SER-418</td>
+    <td>RES-SER-418</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@2c7c0e36</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetRegistrationCenterWorkingDays_Invalid_langCode_registrationCenterID()'><b>Resident_GetRegistrationCenterWorkingDays_Invalid_langCode_registrationCenterID</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetRegistrationCenterWorkingDays_Empty_langCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetRegistrationCenterWorkingDays_Invalid_langCode_registrationCenterID, endPoint=/resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}, role=resident, templateFields=null, input={ "langCode": "eng1", "registrationCenterID": "10011222" }, output={ "errors": [ { "errorCode": "RES-SER-418", "message": "$IGNORE$" } ] }, inputTemplate=resident/GetRegistrationCenterWorkingDays/getRegistrationCenterWorkingDays, outputTemplate=resident/error, restMethod=get)<br/>
+<a href="#Output-451573149" onClick='toggleBox("Output-451573149", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-451573149" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-451573149">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "registrationCenterID": "10011222",
+  "langCode": "eng1"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:26:10.850Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>RES-SER-418</td>
+    <td>RES-SER-418</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@2c7c0e36</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetRegistrationCenterWorkingDays_Invalid_registrationCenterID()'><b>Resident_GetRegistrationCenterWorkingDays_Invalid_registrationCenterID</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetRegistrationCenterWorkingDays_Empty_langCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetRegistrationCenterWorkingDays_Invalid_registrationCenterID, endPoint=/resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}, role=resident, templateFields=[langCode], input={ "langCode": "eng", "registrationCenterID": "1001112" }, output={ "errors": [ { "errorCode": "RES-SER-418", "message": "$IGNORE$" } ] }, inputTemplate=resident/GetRegistrationCenterWorkingDays/getRegistrationCenterWorkingDays, outputTemplate=resident/error, restMethod=get)<br/>
+<a href="#Output-431731222" onClick='toggleBox("Output-431731222", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-431731222" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-431731222">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "registrationCenterID": "1001112",
+  "langCode": "eng"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:26:09.632Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Center ID is invalid"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>RES-SER-418</td>
+    <td>RES-SER-418</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "registrationCenterID": "1001112",
+  "langCode": "ara"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:26:10.247Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Center ID is invalid"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>RES-SER-418</td>
+    <td>RES-SER-418</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.GetWithParam@2c7c0e36</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetRegistrationCenterWorkingDays_allValid_smoke()'><b>Resident_GetRegistrationCenterWorkingDays_allValid_smoke</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetRegistrationCenterWorkingDays_Empty_langCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetRegistrationCenterWorkingDays_allValid_smoke, endPoint=/resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}, role=resident, templateFields=[langCode], input={ "langCode": "eng", "registrationCenterID": "10011" }, output={ "errors": null }, inputTemplate=resident/GetRegistrationCenterWorkingDays/getRegistrationCenterWorkingDays, outputTemplate=resident/GetRegistrationCenterWorkingDays/getRegistrationCenterWorkingDaysResult, restMethod=get)<br/>
+<a href="#Output-242619213" onClick='toggleBox("Output-242619213", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-242619213" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-242619213">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "registrationCenterID": "10011",
+  "langCode": "eng"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:26:07.748Z",
+  "response": {
+    "workingdays": [
+      {
+        "code": "102",
+        "name": "MON",
+        "order": 2,
+        "languageCode": "eng"
+      },
+      {
+        "code": "103",
+        "name": "TUE",
+        "order": 3,
+        "languageCode": "eng"
+      },
+      {
+        "code": "104",
+        "name": "WED",
+        "order": 4,
+        "languageCode": "eng"
+      },
+      {
+        "code": "105",
+        "name": "THU",
+        "order": 5,
+        "languageCode": "eng"
+      },
+      {
+        "code": "106",
+        "name": "FRI",
+        "order": 6,
+        "languageCode": "eng"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "registrationCenterID": "10011",
+  "langCode": "ara"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:26:08.355Z",
+  "response": {
+    "workingdays": [
+      {
+        "code": "102",
+        "name": "الإثنين",
+        "order": 2,
+        "languageCode": "ara"
+      },
+      {
+        "code": "103",
+        "name": "الثلاثاء",
+        "order": 3,
+        "languageCode": "ara"
+      },
+      {
+        "code": "104",
+        "name": "تزوج",
+        "order": 4,
+        "languageCode": "ara"
+      },
+      {
+        "code": "105",
+        "name": "خميس",
+        "order": 5,
+        "languageCode": "ara"
+      },
+      {
+        "code": "106",
+        "name": "الجمعة",
+        "order": 6,
+        "languageCode": "ara"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.GetWithParam@2c7c0e36</td></tr>
+</table><p>
+</body>
+</html>

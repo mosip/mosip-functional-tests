@@ -1,0 +1,1000 @@
+<html>
+<head>
+<title>TestNG:  DeviceSpecFilter</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>DeviceSpecFilter</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>11/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Dec 15 15:12:05 IST 2021</td>
+</tr>
+<tr><td>Total time:</td><td>6 seconds (6895 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecFilter_All_Brand_eng_smoke()'><b>MasterData_DeviceSpecFilter_All_Brand_eng_smoke</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecFilter_inValid_columnName)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecFilter_All_Brand_eng_smoke, endPoint=/v1/masterdata/devicespecifications/filtervalues, role=admin, templateFields=[languageCode], input={ "filters": [{ "columnName": "brand", "type": "all", "text": "Technoforte" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "filters": [ { "fieldID": "brand", "fieldValue": "Technoforte" } ] }, inputTemplate=masterdata/DeviceSpecFilter/deviceSpecFilter, outputTemplate=masterdata/DeviceSpecFilter/deviceSpecFilterResult, restMethod=post)<br/>
+<a href="#Output-1654919801" onClick='toggleBox("Output-1654919801", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1654919801" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1654919801">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2021-12-15T09:42:07.415Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "brand",
+        "type": "all",
+        "text": "Technoforte"
+      }
+    ],
+    "languageCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devicespecifications/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:42:08.078Z",
+  "response": {
+    "filters": [
+      {
+        "fieldID": "brand",
+        "fieldValue": "Technoforte",
+        "fieldCode": "743"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldCode</td>
+    <td>NOT VERIFIED</td>
+    <td>743</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldValue</td>
+    <td>Technoforte</td>
+    <td>Technoforte</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldID</td>
+    <td>brand</td>
+    <td>brand</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@54b2fc58</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecFilter_All_Name_eng_smoke()'><b>MasterData_DeviceSpecFilter_All_Name_eng_smoke</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecFilter_inValid_columnName)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecFilter_All_Name_eng_smoke, endPoint=/v1/masterdata/devicespecifications/filtervalues, role=admin, templateFields=[languageCode], input={ "filters": [{ "columnName": "name", "type": "all", "text": "Fingerprint Scanner" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "filters": [ { "fieldID": "name", "fieldValue": "Fingerprint Scanner" } ] }, inputTemplate=masterdata/DeviceSpecFilter/deviceSpecFilter, outputTemplate=masterdata/DeviceSpecFilter/deviceSpecFilterResult, restMethod=post)<br/>
+<a href="#Output-230532210" onClick='toggleBox("Output-230532210", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-230532210" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-230532210">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2021-12-15T09:42:06.151Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "all",
+        "text": "Fingerprint Scanner"
+      }
+    ],
+    "languageCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devicespecifications/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:42:06.698Z",
+  "response": {
+    "filters": [
+      {
+        "fieldID": "name",
+        "fieldValue": "Fingerprint Scanner",
+        "fieldCode": "165"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldCode</td>
+    <td>NOT VERIFIED</td>
+    <td>165</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldValue</td>
+    <td>Fingerprint Scanner</td>
+    <td>Fingerprint Scanner</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldID</td>
+    <td>name</td>
+    <td>name</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@54b2fc58</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecFilter_Invalid_FilterType_neg()'><b>MasterData_DeviceSpecFilter_Invalid_FilterType_neg</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecFilter_inValid_columnName)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecFilter_Invalid_FilterType_neg, endPoint=/v1/masterdata/devicespecifications/filtervalues, role=admin, templateFields=[languageCode], input={ "filters": [{ "columnName": "name", "type": "equal", "text": "Cam" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-324", "message": "Received Filter Type not supported" } ] }, inputTemplate=masterdata/DeviceSpecFilter/deviceSpecFilter, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-1685778749" onClick='toggleBox("Output-1685778749", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1685778749" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1685778749">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2021-12-15T09:42:10.666Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equal",
+        "text": "Cam"
+      }
+    ],
+    "languageCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devicespecifications/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:42:11.294Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-324",
+      "message": "Received Filter Type not supported"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Received Filter Type not supported</td>
+    <td>Received Filter Type not supported</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-324</td>
+    <td>KER-MSD-324</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@54b2fc58</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecFilter_Invalid_RequestTime_neg()'><b>MasterData_DeviceSpecFilter_Invalid_RequestTime_neg</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecFilter_inValid_columnName)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecFilter_Invalid_RequestTime_neg, endPoint=/v1/masterdata/devicespecifications/filtervalues, role=admin, templateFields=[languageCode], input={ "filters": [{ "columnName": "name", "type": "unique", "text": "Cam" }], "languageCode": "eng", "requesttime": "2019-7-3T05:22:35.845" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "Invalid Format in field : requesttime" } ] }, inputTemplate=masterdata/DeviceSpecFilter/deviceSpecFilter, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-1002881295" onClick='toggleBox("Output-1002881295", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1002881295" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1002881295">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2019-7-3T05:22:35.845",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "unique",
+        "text": "Cam"
+      }
+    ],
+    "languageCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devicespecifications/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:42:10.078Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : requesttime"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Invalid Format in field : requesttime</td>
+    <td>Invalid Format in field : requesttime</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@54b2fc58</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecFilter_Invalid_Value_Name_neg()'><b>MasterData_DeviceSpecFilter_Invalid_Value_Name_neg</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecFilter_inValid_columnName)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecFilter_Invalid_Value_Name_neg, endPoint=/v1/masterdata/devicespecifications/filtervalues, role=admin, templateFields=[languageCode], input={ "filters": [{ "columnName": "name", "type": "unique", "text": "Language" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "filters": [] }, inputTemplate=masterdata/DeviceSpecFilter/deviceSpecFilter, outputTemplate=masterdata/DeviceSpecFilter/deviceSpecFilterResult, restMethod=post)<br/>
+<a href="#Output-956052733" onClick='toggleBox("Output-956052733", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-956052733" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-956052733">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2021-12-15T09:42:10.079Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "unique",
+        "text": "Language"
+      }
+    ],
+    "languageCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devicespecifications/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:42:10.659Z",
+  "response": {
+    "filters": []
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@54b2fc58</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecFilter_Unique_Brand_eng_smoke()'><b>MasterData_DeviceSpecFilter_Unique_Brand_eng_smoke</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecFilter_inValid_columnName)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecFilter_Unique_Brand_eng_smoke, endPoint=/v1/masterdata/devicespecifications/filtervalues, role=admin, templateFields=[languageCode], input={ "filters": [{ "columnName": "brand", "type": "unique", "text": "Technoforte" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "filters": [ { "fieldID": "brand", "fieldValue": "Technoforte" } ] }, inputTemplate=masterdata/DeviceSpecFilter/deviceSpecFilter, outputTemplate=masterdata/DeviceSpecFilter/deviceSpecFilterResult, restMethod=post)<br/>
+<a href="#Output-1045813316" onClick='toggleBox("Output-1045813316", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1045813316" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1045813316">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2021-12-15T09:42:06.706Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "brand",
+        "type": "unique",
+        "text": "Technoforte"
+      }
+    ],
+    "languageCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devicespecifications/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:42:07.403Z",
+  "response": {
+    "filters": [
+      {
+        "fieldID": "brand",
+        "fieldValue": "Technoforte",
+        "fieldCode": "743"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldCode</td>
+    <td>NOT VERIFIED</td>
+    <td>743</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldValue</td>
+    <td>Technoforte</td>
+    <td>Technoforte</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldID</td>
+    <td>brand</td>
+    <td>brand</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@54b2fc58</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecFilter_Unique_IsActive_smoke()'><b>MasterData_DeviceSpecFilter_Unique_IsActive_smoke</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecFilter_inValid_columnName)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecFilter_Unique_IsActive_smoke, endPoint=/v1/masterdata/devicespecifications/filtervalues, role=admin, templateFields=[languageCode], input={ "filters": [{ "columnName": "isActive", "type": "unique", "text": "true" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "filters": [ { "fieldID": "isActive", "fieldValue": "true" } ] }, inputTemplate=masterdata/DeviceSpecFilter/deviceSpecFilter, outputTemplate=masterdata/DeviceSpecFilter/deviceSpecFilterResult, restMethod=post)<br/>
+<a href="#Output-2051535038" onClick='toggleBox("Output-2051535038", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2051535038" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2051535038">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2021-12-15T09:42:08.773Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "isActive",
+        "type": "unique",
+        "text": "true"
+      }
+    ],
+    "languageCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devicespecifications/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:42:09.457Z",
+  "response": {
+    "filters": [
+      {
+        "fieldID": "isActive",
+        "fieldValue": "true",
+        "fieldCode": ""
+      },
+      {
+        "fieldID": "isActive",
+        "fieldValue": "false",
+        "fieldCode": ""
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(filters)[1].fieldCode</td>
+    <td>NOT VERIFIED</td>
+    <td></td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldCode</td>
+    <td>NOT VERIFIED</td>
+    <td></td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[1].fieldID</td>
+    <td>NOT VERIFIED</td>
+    <td>isActive</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[1].fieldValue</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldValue</td>
+    <td>true</td>
+    <td>true</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldID</td>
+    <td>isActive</td>
+    <td>isActive</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@54b2fc58</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecFilter_Unique_Model_smoke()'><b>MasterData_DeviceSpecFilter_Unique_Model_smoke</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecFilter_inValid_columnName)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecFilter_Unique_Model_smoke, endPoint=/v1/masterdata/devicespecifications/filtervalues, role=admin, templateFields=[languageCode], input={ "filters": [{ "columnName": "model", "type": "unique", "text": "2020" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "filters": [ { "fieldID": "model", "fieldValue": "2020" } ] }, inputTemplate=masterdata/DeviceSpecFilter/deviceSpecFilter, outputTemplate=masterdata/DeviceSpecFilter/deviceSpecFilterResult, restMethod=post)<br/>
+<a href="#Output-943043201" onClick='toggleBox("Output-943043201", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-943043201" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-943043201">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2021-12-15T09:42:08.091Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "model",
+        "type": "unique",
+        "text": "2020"
+      }
+    ],
+    "languageCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devicespecifications/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:42:08.757Z",
+  "response": {
+    "filters": [
+      {
+        "fieldID": "model",
+        "fieldValue": "2020",
+        "fieldCode": "743"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldCode</td>
+    <td>NOT VERIFIED</td>
+    <td>743</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldValue</td>
+    <td>2020</td>
+    <td>2020</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldID</td>
+    <td>model</td>
+    <td>model</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@54b2fc58</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecFilter_Unique_Name_eng_smoke()'><b>MasterData_DeviceSpecFilter_Unique_Name_eng_smoke</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecFilter_inValid_columnName)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecFilter_Unique_Name_eng_smoke, endPoint=/v1/masterdata/devicespecifications/filtervalues, role=admin, templateFields=[languageCode], input={ "filters": [{ "columnName": "name", "type": "unique", "text": "Fingerprint Scanner" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "filters": [ { "fieldID": "name", "fieldValue": "Fingerprint Scanner" } ] }, inputTemplate=masterdata/DeviceSpecFilter/deviceSpecFilter, outputTemplate=masterdata/DeviceSpecFilter/deviceSpecFilterResult, restMethod=post)<br/>
+<a href="#Output-370723210" onClick='toggleBox("Output-370723210", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-370723210" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-370723210">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2021-12-15T09:42:05.538Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "unique",
+        "text": "Fingerprint Scanner"
+      }
+    ],
+    "languageCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devicespecifications/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:42:06.137Z",
+  "response": {
+    "filters": [
+      {
+        "fieldID": "name",
+        "fieldValue": "Fingerprint Scanner",
+        "fieldCode": "165"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldCode</td>
+    <td>NOT VERIFIED</td>
+    <td>165</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldValue</td>
+    <td>Fingerprint Scanner</td>
+    <td>Fingerprint Scanner</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldID</td>
+    <td>name</td>
+    <td>name</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@54b2fc58</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecFilter_inValid_blank_FilterType_neg()'><b>MasterData_DeviceSpecFilter_inValid_blank_FilterType_neg</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecFilter_inValid_columnName)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecFilter_inValid_blank_FilterType_neg, endPoint=/v1/masterdata/devicespecifications/filtervalues, role=admin, templateFields=[languageCode], input={ "filters": [{ "columnName": "name", "type": "", "text": "Cam" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-322", "message": "Filter Type cannot be empty or null" } ] }, inputTemplate=masterdata/DeviceSpecFilter/deviceSpecFilter, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-1046597629" onClick='toggleBox("Output-1046597629", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1046597629" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1046597629">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2021-12-15T09:42:11.306Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "",
+        "text": "Cam"
+      }
+    ],
+    "languageCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devicespecifications/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:42:11.877Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-322",
+      "message": "Filter Type cannot be empty or null"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Filter Type cannot be empty or null</td>
+    <td>Filter Type cannot be empty or null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-322</td>
+    <td>KER-MSD-322</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@54b2fc58</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSpecFilter_inValid_columnName()'><b>MasterData_DeviceSpecFilter_inValid_columnName</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSpecFilter_inValid_columnName)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSpecFilter_inValid_columnName, endPoint=/v1/masterdata/devicespecifications/filtervalues, role=admin, templateFields=[languageCode], input={ "filters": [{ "columnName": "fbheafg", "type": "unique", "text": "Cam" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-317", "message": "$IGNORE$" } ] }, inputTemplate=masterdata/DeviceSpecFilter/deviceSpecFilter, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-592987198" onClick='toggleBox("Output-592987198", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-592987198" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-592987198">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2021-12-15T09:42:11.874Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "fbheafg",
+        "type": "unique",
+        "text": "Cam"
+      }
+    ],
+    "languageCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devicespecifications/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:42:12.431Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-317",
+      "message": "Column fbheafg doesn\u0027t exist for the searched entity"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-317</td>
+    <td>KER-MSD-317</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@54b2fc58</td></tr>
+</table><p>
+</body>
+</html>

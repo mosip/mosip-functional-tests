@@ -1,0 +1,424 @@
+<html>
+<head>
+<title>TestNG:  GetLocationDetailsByLocCodeAndLangCode</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GetLocationDetailsByLocCodeAndLangCode</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>5/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Aug 24 11:56:12 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>4 seconds (4887 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetLocationDetailsByLocCodeAndLangCode_Empty_LangCode_Neg()'><b>Resident_GetLocationDetailsByLocCodeAndLangCode_Empty_LangCode_Neg</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetLocationDetailsByLocCodeAndLangCode_Empty_LocationCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetLocationDetailsByLocCodeAndLangCode_Empty_LangCode_Neg, endPoint=/resident/v1/proxy/masterdata/locations/info/{loccode}/{langCode}, role=resident, templateFields=null, input={ "langCode": "", "loccode": "14022" }, output={ }, inputTemplate=resident/GetLocationDetailsByLocCodeAndLangCode/getLocationDetailsByLocCodeAndLangCode, outputTemplate=resident/error, restMethod=get)<br/>
+<a href="#Output-1380728404" onClick='toggleBox("Output-1380728404", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1380728404" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1380728404">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langCode": "",
+  "loccode": "14022"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/locations/info/{loccode}/{langCode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "timestamp": "2022-08-24T06:26:16.283+00:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available",
+  "path": "/resident/v1/proxy/masterdata/locations/info/14022/"
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>path</td>
+    <td>NOT VERIFIED</td>
+    <td>/resident/v1/proxy/masterdata/locations/info/14022/</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>error</td>
+    <td>NOT VERIFIED</td>
+    <td>Not Found</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>message</td>
+    <td>NOT VERIFIED</td>
+    <td>No message available</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@5864e8bf</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetLocationDetailsByLocCodeAndLangCode_Empty_LocationCode_Neg()'><b>Resident_GetLocationDetailsByLocCodeAndLangCode_Empty_LocationCode_Neg</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetLocationDetailsByLocCodeAndLangCode_Empty_LocationCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetLocationDetailsByLocCodeAndLangCode_Empty_LocationCode_Neg, endPoint=/resident/v1/proxy/masterdata/locations/info/{loccode}/{langCode}, role=resident, templateFields=[langCode], input={ "langCode": "eng", "loccode": "" }, output={ }, inputTemplate=resident/GetLocationDetailsByLocCodeAndLangCode/getLocationDetailsByLocCodeAndLangCode, outputTemplate=resident/error, restMethod=get)<br/>
+<a href="#Output-1159524199" onClick='toggleBox("Output-1159524199", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1159524199" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1159524199">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langCode": "eng",
+  "loccode": ""
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/locations/info/{loccode}/{langCode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "timestamp": "2022-08-24T06:26:16.842+00:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available",
+  "path": "/resident/v1/proxy/masterdata/locations/info/eng"
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>path</td>
+    <td>NOT VERIFIED</td>
+    <td>/resident/v1/proxy/masterdata/locations/info/eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>error</td>
+    <td>NOT VERIFIED</td>
+    <td>Not Found</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>message</td>
+    <td>NOT VERIFIED</td>
+    <td>No message available</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langCode": "ara",
+  "loccode": ""
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/locations/info/{loccode}/{langCode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "timestamp": "2022-08-24T06:26:17.407+00:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available",
+  "path": "/resident/v1/proxy/masterdata/locations/info/ara"
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>path</td>
+    <td>NOT VERIFIED</td>
+    <td>/resident/v1/proxy/masterdata/locations/info/ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>error</td>
+    <td>NOT VERIFIED</td>
+    <td>Not Found</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>message</td>
+    <td>NOT VERIFIED</td>
+    <td>No message available</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.GetWithParam@5864e8bf</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetLocationDetailsByLocCodeAndLangCode_Invalid_LangCode()'><b>Resident_GetLocationDetailsByLocCodeAndLangCode_Invalid_LangCode</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetLocationDetailsByLocCodeAndLangCode_Empty_LocationCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetLocationDetailsByLocCodeAndLangCode_Invalid_LangCode, endPoint=/resident/v1/proxy/masterdata/locations/info/{loccode}/{langCode}, role=resident, templateFields=null, input={ "langCode": "engg", "loccode": "14022" }, output={ "errors": [ { "errorCode": "RES-SER-418", "message": "$IGNORE$" } ] }, inputTemplate=resident/GetLocationDetailsByLocCodeAndLangCode/getLocationDetailsByLocCodeAndLangCode, outputTemplate=resident/error, restMethod=get)<br/>
+<a href="#Output-2007939739" onClick='toggleBox("Output-2007939739", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2007939739" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2007939739">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langCode": "engg",
+  "loccode": "14022"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/locations/info/{loccode}/{langCode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:26:14.454Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Location not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>RES-SER-418</td>
+    <td>RES-SER-418</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@5864e8bf</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetLocationDetailsByLocCodeAndLangCode_Invalid_LocationCode()'><b>Resident_GetLocationDetailsByLocCodeAndLangCode_Invalid_LocationCode</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetLocationDetailsByLocCodeAndLangCode_Empty_LocationCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetLocationDetailsByLocCodeAndLangCode_Invalid_LocationCode, endPoint=/resident/v1/proxy/masterdata/locations/info/{loccode}/{langCode}, role=resident, templateFields=[langCode], input={ "langCode": "eng", "loccode": "kk" }, output={ "errors": [ { "errorCode": "RES-SER-418", "message": "$IGNORE$" } ] }, inputTemplate=resident/GetLocationDetailsByLocCodeAndLangCode/getLocationDetailsByLocCodeAndLangCode, outputTemplate=resident/error, restMethod=get)<br/>
+<a href="#Output-1160316046" onClick='toggleBox("Output-1160316046", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1160316046" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1160316046">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langCode": "eng",
+  "loccode": "kk"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/locations/info/{loccode}/{langCode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:26:15.034Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Location not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>RES-SER-418</td>
+    <td>RES-SER-418</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langCode": "ara",
+  "loccode": "kk"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/locations/info/{loccode}/{langCode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:26:15.681Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Location not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>RES-SER-418</td>
+    <td>RES-SER-418</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.GetWithParam@5864e8bf</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetLocationDetailsByLocCodeAndLangCode_allValid_smoke()'><b>Resident_GetLocationDetailsByLocCodeAndLangCode_allValid_smoke</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetLocationDetailsByLocCodeAndLangCode_Empty_LocationCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetLocationDetailsByLocCodeAndLangCode_allValid_smoke, endPoint=/resident/v1/proxy/masterdata/locations/info/{loccode}/{langCode}, role=resident, templateFields=[langCode], input={ "langCode": "eng", "loccode": "14022" }, output={ "id": null, "version": null, "responsetime": "$IGNORE$", "metadata": null, "response": { "isActive": "$IGNORE$", "createdBy": "$IGNORE$", "createdDateTime": "$IGNORE$", "updatedBy": "$IGNORE$", "updatedDateTime": "$IGNORE$", "isDeleted": "$IGNORE$", "deletedDateTime": "$IGNORE$", "code": "$IGNORE$", "name": "$IGNORE$", "hierarchyLevel": "$IGNORE$", "hierarchyName": "$IGNORE$", "parentLocCode": "$IGNORE$", "langCode": "$IGNORE$" }, "errors": null }, inputTemplate=resident/GetLocationDetailsByLocCodeAndLangCode/getLocationDetailsByLocCodeAndLangCode, outputTemplate=resident/GetLocationDetailsByLocCodeAndLangCode/getLocationDetailsByLocCodeAndLangCodeResult, restMethod=get)<br/>
+<a href="#Output-1023522313" onClick='toggleBox("Output-1023522313", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1023522313" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1023522313">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langCode": "eng",
+  "loccode": "14022"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/locations/info/{loccode}/{langCode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:26:13.160Z",
+  "response": {
+    "isActive": true,
+    "createdBy": "admin",
+    "createdDateTime": "2022-08-22T12:29:45.256Z",
+    "isDeleted": false,
+    "code": "14022",
+    "name": "14022",
+    "hierarchyLevel": 0,
+    "hierarchyName": "Postal Code",
+    "parentLocCode": "BNMR",
+    "langCode": "eng"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langCode": "ara",
+  "loccode": "14022"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/locations/info/{loccode}/{langCode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:26:13.795Z",
+  "response": {
+    "isActive": true,
+    "createdBy": "admin",
+    "createdDateTime": "2022-08-22T12:29:45.256Z",
+    "isDeleted": false,
+    "code": "14022",
+    "name": "14022",
+    "hierarchyLevel": 0,
+    "hierarchyName": "رمز بريدي",
+    "parentLocCode": "BNMR",
+    "langCode": "ara"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.GetWithParam@5864e8bf</td></tr>
+</table><p>
+</body>
+</html>

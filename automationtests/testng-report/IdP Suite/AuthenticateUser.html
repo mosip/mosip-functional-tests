@@ -1,0 +1,2493 @@
+<html>
+<head>
+<title>TestNG:  AuthenticateUser</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>AuthenticateUser</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>26/1/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Jan 18 17:15:55 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>37 seconds (37629 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_2_Otp_UnAuthenticated_Neg()'><b>IDP_AuthenticateUserIDP_2_Otp_UnAuthenticated_Neg</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_2_Otp_UnAuthenticated_Neg, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_2_all_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Valid_Parameters_Sce2_smoke_Pos_UIN$", "authFactorType" : "OTP", "challenge" : "111111", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "errors": [ { "errorCode": "IDA-MLC-007", "errorMessage": "$IGNORE$" } ], "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-2058316797" onClick='toggleBox("Output-2058316797", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2058316797" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2058316797">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:02.850Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3782986927453084",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:03.085Z",
+  "response": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:03.540Z",
+  "request": {
+    "transactionId": "U1JKuuPav_kZ59cCroA_sbqu3tIfVKx30pxndxJg3Yc",
+    "individualId": "2478067126",
+    "challengeList": [
+      {
+        "authFactorType": "OTP",
+        "challenge": "111111"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:04.202Z",
+  "errors": [
+    {
+      "errorCode": "IDA-OTA-005",
+      "errorMessage": "IDA-OTA-005"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDA-MLC-007</td>
+    <td>IDA-OTA-005</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.test(PostWithAutogenIdWithOtpGenerate.java:137)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:177)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:124)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2058316797", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2058316797'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.test(PostWithAutogenIdWithOtpGenerate.java:137)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:177)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:124)
+</pre></div></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_2nd_Otp_Valid_Smoke()'><b>IDP_AuthenticateUserIDP_2nd_Otp_Valid_Smoke</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_2nd_Otp_Valid_Smoke, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_2nd_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Valid_Parameters_smoke_Pos_UIN$", "authFactorType" : "OTP", "challenge" : "111111", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_2nd_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Valid_Parameters_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/AuthenticateUser/AuthenticateUserResult, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1016893923" onClick='toggleBox("Output-1016893923", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1016893923" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1016893923">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:57.286Z",
+  "request": {
+    "transactionId": "q26h5rABmDWYRRF-7yW2vtYW_y7umi52yFhZvvRar5E",
+    "individualId": "2069785021",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:57.580Z",
+  "response": {
+    "transactionId": "q26h5rABmDWYRRF-7yW2vtYW_y7umi52yFhZvvRar5E",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:58.282Z",
+  "request": {
+    "transactionId": "q26h5rABmDWYRRF-7yW2vtYW_y7umi52yFhZvvRar5E",
+    "individualId": "2069785021",
+    "challengeList": [
+      {
+        "authFactorType": "OTP",
+        "challenge": "111111"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:58.587Z",
+  "response": {
+    "transactionId": "q26h5rABmDWYRRF-7yW2vtYW_y7umi52yFhZvvRar5E"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_Diff_AuthFactorType_Neg()'><b>IDP_AuthenticateUserIDP_Diff_AuthFactorType_Neg</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_Diff_AuthFactorType_Neg, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "authFactorType" : "bio", "challenge" : "111111", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "errors": [ { "errorCode": "auth_factor_mismatch", "errorMessage": "$IGNORE$" } ], "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-696759961" onClick='toggleBox("Output-696759961", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-696759961" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-696759961">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:24.077Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:24.379Z",
+  "response": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:24.822Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "challengeList": [
+      {
+        "authFactorType": "bio",
+        "challenge": "111111"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:25.139Z",
+  "errors": [
+    {
+      "errorCode": "auth_factor_mismatch",
+      "errorMessage": "auth_factor_mismatch"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>auth_factor_mismatch</td>
+    <td>auth_factor_mismatch</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_Diff_RequestTime_Neg()'><b>IDP_AuthenticateUserIDP_Diff_RequestTime_Neg</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_Diff_RequestTime_Neg, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "2022-11-07T06:51:30.195Z", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "authFactorType" : "OTP", "challenge" : "111111", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ], "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1919573610" onClick='toggleBox("Output-1919573610", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1919573610" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1919573610">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:05.128Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:05.370Z",
+  "response": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2022-11-07T06:51:30.195Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "challengeList": [
+      {
+        "authFactorType": "OTP",
+        "challenge": "111111"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:06.187Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_Empty_AuthFactorType_Neg()'><b>IDP_AuthenticateUserIDP_Empty_AuthFactorType_Neg</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_Empty_AuthFactorType_Neg, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "authFactorType" : "", "challenge" : "111111", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "errors": [ { "errorCode": "invalid_auth_factor_type", "errorMessage": "$IGNORE$" } ], "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-439946124" onClick='toggleBox("Output-439946124", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-439946124" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-439946124">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:21.428Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:21.736Z",
+  "response": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:22.509Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "challengeList": [
+      {
+        "authFactorType": "",
+        "challenge": "111111"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:22.836Z",
+  "errors": [
+    {
+      "errorCode": "invalid_auth_factor_type",
+      "errorMessage": "request.challengeList[0].authFactorType: invalid_auth_factor_type"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_auth_factor_type</td>
+    <td>invalid_auth_factor_type</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_Empty_Challenge_Neg()'><b>IDP_AuthenticateUserIDP_Empty_Challenge_Neg</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_Empty_Challenge_Neg, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "authFactorType" : "OTP", "challenge" : "", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "errors": [ { "errorCode": "invalid_challenge", "errorMessage": "$IGNORE$" } ], "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-370034120" onClick='toggleBox("Output-370034120", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-370034120" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-370034120">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:28.267Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:28.496Z",
+  "response": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:29.441Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "challengeList": [
+      {
+        "authFactorType": "OTP",
+        "challenge": ""
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:29.685Z",
+  "errors": [
+    {
+      "errorCode": "invalid_challenge",
+      "errorMessage": "request.challengeList[0].challenge: invalid_challenge"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_challenge</td>
+    <td>invalid_challenge</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_Empty_IndividualId_Neg()'><b>IDP_AuthenticateUserIDP_Empty_IndividualId_Neg</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_Empty_IndividualId_Neg, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "", "authFactorType" : "OTP", "challenge" : "111111", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "errors": [ { "errorCode": "invalid_identifier", "errorMessage": "$IGNORE$" } ], "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-976592764" onClick='toggleBox("Output-976592764", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-976592764" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-976592764">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:16.250Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:16.547Z",
+  "response": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:16.876Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "",
+    "challengeList": [
+      {
+        "authFactorType": "OTP",
+        "challenge": "111111"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:17.120Z",
+  "errors": [
+    {
+      "errorCode": "invalid_identifier",
+      "errorMessage": "request.individualId: invalid_identifier"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_identifier</td>
+    <td>invalid_identifier</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_Empty_TransactionId_Neg()'><b>IDP_AuthenticateUserIDP_Empty_TransactionId_Neg</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_Empty_TransactionId_Neg, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "authFactorType" : "OTP", "challenge" : "111111", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "errors": [ { "errorCode": "invalid_transaction_id", "errorMessage": "$IGNORE$" } ], "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-2127092492" onClick='toggleBox("Output-2127092492", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2127092492" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2127092492">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:11.233Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:11.507Z",
+  "response": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:12.247Z",
+  "request": {
+    "transactionId": "",
+    "individualId": "3021364370",
+    "challengeList": [
+      {
+        "authFactorType": "OTP",
+        "challenge": "111111"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:12.533Z",
+  "errors": [
+    {
+      "errorCode": "invalid_transaction_id",
+      "errorMessage": "request.transactionId: invalid_transaction_id"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_transaction_id</td>
+    <td>invalid_transaction_id</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_Expired_TransactionId_Neg()'><b>IDP_AuthenticateUserIDP_Expired_TransactionId_Neg</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_Expired_TransactionId_Neg, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "eZJZ0j3EeZJ_d9CsSakCoA0-Trbm6fOECY6J_q3dZtc", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "authFactorType" : "OTP", "challenge" : "111111", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "errors": [ { "errorCode": "invalid_transaction", "errorMessage": "$IGNORE$" } ], "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-402265251" onClick='toggleBox("Output-402265251", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-402265251" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-402265251">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:08.334Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:08.572Z",
+  "response": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:09.518Z",
+  "request": {
+    "transactionId": "eZJZ0j3EeZJ_d9CsSakCoA0-Trbm6fOECY6J_q3dZtc",
+    "individualId": "3021364370",
+    "challengeList": [
+      {
+        "authFactorType": "OTP",
+        "challenge": "111111"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:09.794Z",
+  "errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "invalid_transaction"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_transaction</td>
+    <td>invalid_transaction</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_Future_RequestTime_Neg()'><b>IDP_AuthenticateUserIDP_Future_RequestTime_Neg</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_Future_RequestTime_Neg, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "2033-11-07T06:51:30.195Z", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "authFactorType" : "OTP", "challenge" : "111111", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ], "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-111281534" onClick='toggleBox("Output-111281534", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-111281534" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-111281534">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:06.208Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:06.437Z",
+  "response": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2033-11-07T06:51:30.195Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "challengeList": [
+      {
+        "authFactorType": "OTP",
+        "challenge": "111111"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:07.349Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_Invalid_AuthFactorType_Neg()'><b>IDP_AuthenticateUserIDP_Invalid_AuthFactorType_Neg</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_Invalid_AuthFactorType_Neg, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "authFactorType" : "#$%FDF", "challenge" : "111111", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "errors": [ { "errorCode": "auth_factor_mismatch", "errorMessage": "$IGNORE$" } ], "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1809503163" onClick='toggleBox("Output-1809503163", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1809503163" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1809503163">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:18.408Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:18.689Z",
+  "response": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:19.594Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "challengeList": [
+      {
+        "authFactorType": "#$%FDF",
+        "challenge": "111111"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:19.922Z",
+  "errors": [
+    {
+      "errorCode": "auth_factor_mismatch",
+      "errorMessage": "auth_factor_mismatch"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>auth_factor_mismatch</td>
+    <td>auth_factor_mismatch</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_Invalid_Challenge_Neg()'><b>IDP_AuthenticateUserIDP_Invalid_Challenge_Neg</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_Invalid_Challenge_Neg, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "authFactorType" : "OTP", "challenge" : "23432", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "errors": [ { "errorCode": "IDA-OTA-004", "errorMessage": "$IGNORE$" } ], "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1139305484" onClick='toggleBox("Output-1139305484", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1139305484" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1139305484">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:25.164Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:25.395Z",
+  "response": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:25.789Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "challengeList": [
+      {
+        "authFactorType": "OTP",
+        "challenge": "23432"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:26.623Z",
+  "errors": [
+    {
+      "errorCode": "IDA-OTA-004",
+      "errorMessage": "IDA-OTA-004"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDA-OTA-004</td>
+    <td>IDA-OTA-004</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_Invalid_IndividualId_Neg()'><b>IDP_AuthenticateUserIDP_Invalid_IndividualId_Neg</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_Invalid_IndividualId_Neg, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "@#WE$#", "authFactorType" : "OTP", "challenge" : "111111", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "errors": [ { "errorCode": "IDA-MLC-009", "errorMessage": "$IGNORE$" } ], "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-146714845" onClick='toggleBox("Output-146714845", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-146714845" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-146714845">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:13.980Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:14.264Z",
+  "response": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:14.744Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "@#WE$#",
+    "challengeList": [
+      {
+        "authFactorType": "OTP",
+        "challenge": "111111"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:15.250Z",
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "IDA-MLC-009"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDA-MLC-009</td>
+    <td>IDA-MLC-009</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg()'><b>IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "authFactorType" : "OTP", "challenge" : "113453", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "errors": [ { "errorCode": "IDA-OTA-004", "errorMessage": "$IGNORE$" } ], "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1421436947" onClick='toggleBox("Output-1421436947", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1421436947" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1421436947">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:31.792Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:32.065Z",
+  "response": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:32.505Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "challengeList": [
+      {
+        "authFactorType": "OTP",
+        "challenge": "113453"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:33.315Z",
+  "errors": [
+    {
+      "errorCode": "IDA-OTA-004",
+      "errorMessage": "IDA-OTA-004"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDA-OTA-004</td>
+    <td>IDA-OTA-004</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_Invalid_RequestTime_Neg()'><b>IDP_AuthenticateUserIDP_Invalid_RequestTime_Neg</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_Invalid_RequestTime_Neg, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "2022-11-07T06:51:30", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "authFactorType" : "OTP", "challenge" : "111111", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ], "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1481617469" onClick='toggleBox("Output-1481617469", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1481617469" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1481617469">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:04.214Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:04.487Z",
+  "response": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2022-11-07T06:51:30",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "challengeList": [
+      {
+        "authFactorType": "OTP",
+        "challenge": "111111"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:05.118Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_Invalid_TransactionId_Neg()'><b>IDP_AuthenticateUserIDP_Invalid_TransactionId_Neg</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_Invalid_TransactionId_Neg, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "transactionId", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "authFactorType" : "OTP", "challenge" : "111111", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "errors": [ { "errorCode": "invalid_transaction", "errorMessage": "$IGNORE$" } ], "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1885172464" onClick='toggleBox("Output-1885172464", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1885172464" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1885172464">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:07.370Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:07.675Z",
+  "response": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:08.039Z",
+  "request": {
+    "transactionId": "transactionId",
+    "individualId": "3021364370",
+    "challengeList": [
+      {
+        "authFactorType": "OTP",
+        "challenge": "111111"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:08.313Z",
+  "errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "invalid_transaction"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_transaction</td>
+    <td>invalid_transaction</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_Missing_AuthFactorType_Neg()'><b>IDP_AuthenticateUserIDP_Missing_AuthFactorType_Neg</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_Missing_AuthFactorType_Neg, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "authFactorType" : "$REMOVE$", "challenge" : "111111", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "errors": [ { "errorCode": "invalid_auth_factor_type", "errorMessage": "$IGNORE$" } ], "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1714241157" onClick='toggleBox("Output-1714241157", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1714241157" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1714241157">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:19.949Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:20.180Z",
+  "response": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:21.178Z",
+  "request": {
+    "challengeList": [
+      {
+        "challenge": "111111"
+      }
+    ],
+    "individualId": "3021364370",
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:21.417Z",
+  "errors": [
+    {
+      "errorCode": "invalid_auth_factor_type",
+      "errorMessage": "request.challengeList[0].authFactorType: invalid_auth_factor_type"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_auth_factor_type</td>
+    <td>invalid_auth_factor_type</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_Missing_Challenge_Neg()'><b>IDP_AuthenticateUserIDP_Missing_Challenge_Neg</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_Missing_Challenge_Neg, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "authFactorType" : "OTP", "challenge" : "$REMOVE$", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "errors": [ { "errorCode": "invalid_challenge", "errorMessage": "$IGNORE$" } ], "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-2006081398" onClick='toggleBox("Output-2006081398", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2006081398" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2006081398">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:26.645Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:26.876Z",
+  "response": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:28.008Z",
+  "request": {
+    "challengeList": [
+      {
+        "authFactorType": "OTP"
+      }
+    ],
+    "individualId": "3021364370",
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:28.246Z",
+  "errors": [
+    {
+      "errorCode": "invalid_challenge",
+      "errorMessage": "request.challengeList[0].challenge: invalid_challenge"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_challenge</td>
+    <td>invalid_challenge</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_Missing_IndividualId_Neg()'><b>IDP_AuthenticateUserIDP_Missing_IndividualId_Neg</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_Missing_IndividualId_Neg, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$REMOVE$", "authFactorType" : "OTP", "challenge" : "111111", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "errors": [ { "errorCode": "invalid_identifier", "errorMessage": "$IGNORE$" } ], "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1851859234" onClick='toggleBox("Output-1851859234", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1851859234" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1851859234">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:15.262Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:15.543Z",
+  "response": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:15.943Z",
+  "request": {
+    "challengeList": [
+      {
+        "authFactorType": "OTP",
+        "challenge": "111111"
+      }
+    ],
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:16.226Z",
+  "errors": [
+    {
+      "errorCode": "invalid_identifier",
+      "errorMessage": "request.individualId: invalid_identifier"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_identifier</td>
+    <td>invalid_identifier</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_Missing_TransactionId_Neg()'><b>IDP_AuthenticateUserIDP_Missing_TransactionId_Neg</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_Missing_TransactionId_Neg, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$REMOVE$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "authFactorType" : "OTP", "challenge" : "111111", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "errors": [ { "errorCode": "invalid_transaction_id", "errorMessage": "$IGNORE$" } ], "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-2025082827" onClick='toggleBox("Output-2025082827", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2025082827" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2025082827">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:09.816Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:10.081Z",
+  "response": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:10.981Z",
+  "request": {
+    "challengeList": [
+      {
+        "authFactorType": "OTP",
+        "challenge": "111111"
+      }
+    ],
+    "individualId": "3021364370"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:11.212Z",
+  "errors": [
+    {
+      "errorCode": "invalid_transaction_id",
+      "errorMessage": "request.transactionId: invalid_transaction_id"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_transaction_id</td>
+    <td>invalid_transaction_id</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_Null_AuthFactorType_Neg()'><b>IDP_AuthenticateUserIDP_Null_AuthFactorType_Neg</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_Null_AuthFactorType_Neg, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "authFactorType" : "null", "challenge" : "111111", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "errors": [ { "errorCode": "auth_factor_mismatch", "errorMessage": "$IGNORE$" } ], "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1556643300" onClick='toggleBox("Output-1556643300", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1556643300" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1556643300">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:22.863Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:23.151Z",
+  "response": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:23.809Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "challengeList": [
+      {
+        "authFactorType": "null",
+        "challenge": "111111"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:24.065Z",
+  "errors": [
+    {
+      "errorCode": "auth_factor_mismatch",
+      "errorMessage": "auth_factor_mismatch"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>auth_factor_mismatch</td>
+    <td>auth_factor_mismatch</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_Null_Challenge_Neg()'><b>IDP_AuthenticateUserIDP_Null_Challenge_Neg</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_Null_Challenge_Neg, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "authFactorType" : "OTP", "challenge" : "null", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "errors": [ { "errorCode": "IDA-OTA-004", "errorMessage": "$IGNORE$" } ], "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-924413267" onClick='toggleBox("Output-924413267", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-924413267" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-924413267">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:29.695Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:30.043Z",
+  "response": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:30.799Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "challengeList": [
+      {
+        "authFactorType": "OTP",
+        "challenge": "null"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:31.780Z",
+  "errors": [
+    {
+      "errorCode": "IDA-OTA-004",
+      "errorMessage": "IDA-OTA-004"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDA-OTA-004</td>
+    <td>IDA-OTA-004</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_Null_IndividualId_Neg()'><b>IDP_AuthenticateUserIDP_Null_IndividualId_Neg</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_Null_IndividualId_Neg, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "null", "authFactorType" : "OTP", "challenge" : "111111", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "errors": [ { "errorCode": "IDA-MLC-009", "errorMessage": "$IGNORE$" } ], "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-698681873" onClick='toggleBox("Output-698681873", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-698681873" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-698681873">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:17.131Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:17.373Z",
+  "response": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:17.801Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "null",
+    "challengeList": [
+      {
+        "authFactorType": "OTP",
+        "challenge": "111111"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:18.377Z",
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "IDA-MLC-009"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDA-MLC-009</td>
+    <td>IDA-MLC-009</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_Null_TransactionId_Neg()'><b>IDP_AuthenticateUserIDP_Null_TransactionId_Neg</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_Null_TransactionId_Neg, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "null", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "authFactorType" : "OTP", "challenge" : "111111", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "errors": [ { "errorCode": "invalid_transaction", "errorMessage": "$IGNORE$" } ], "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-709613209" onClick='toggleBox("Output-709613209", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-709613209" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-709613209">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:12.561Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:12.790Z",
+  "response": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:13.732Z",
+  "request": {
+    "transactionId": "null",
+    "individualId": "3021364370",
+    "challengeList": [
+      {
+        "authFactorType": "OTP",
+        "challenge": "111111"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:13.968Z",
+  "errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "invalid_transaction"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_transaction</td>
+    <td>invalid_transaction</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_Otp_Valid_Smoke()'><b>IDP_AuthenticateUserIDP_Otp_Valid_Smoke</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_Otp_Valid_Smoke, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Valid_Parameters_smoke_Pos_UIN$", "authFactorType" : "OTP", "challenge" : "111111", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Valid_Parameters_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/AuthenticateUser/AuthenticateUserResult, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-138992060" onClick='toggleBox("Output-138992060", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-138992060" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-138992060">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:55.717Z",
+  "request": {
+    "transactionId": "7psH_Lek6DPQgRMmhuLPQs2FUFn3GUvU4CEpkrPj1Ng",
+    "individualId": "2069785021",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:55.960Z",
+  "response": {
+    "transactionId": "7psH_Lek6DPQgRMmhuLPQs2FUFn3GUvU4CEpkrPj1Ng",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:56.357Z",
+  "request": {
+    "transactionId": "7psH_Lek6DPQgRMmhuLPQs2FUFn3GUvU4CEpkrPj1Ng",
+    "individualId": "2069785021",
+    "challengeList": [
+      {
+        "authFactorType": "OTP",
+        "challenge": "111111"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:56.697Z",
+  "response": {
+    "transactionId": "7psH_Lek6DPQgRMmhuLPQs2FUFn3GUvU4CEpkrPj1Ng"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_Otp_Vid_Invalid_Neg()'><b>IDP_AuthenticateUserIDP_Otp_Vid_Invalid_Neg</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_Otp_Vid_Invalid_Neg, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:Generate_Temporary_VID_Valid_Smoke_sid_vid$", "authFactorType" : "OTP", "challenge" : "111111", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "errors": [ { "errorCode": "IDA-OTA-004", "errorMessage": "$IGNORE$" } ], "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1344320927" onClick='toggleBox("Output-1344320927", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1344320927" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1344320927">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:01.276Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "3782986927453084",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:01.577Z",
+  "response": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:01.986Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "5462586048137532",
+    "challengeList": [
+      {
+        "authFactorType": "OTP",
+        "challenge": "111111"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:02.838Z",
+  "errors": [
+    {
+      "errorCode": "IDA-OTA-004",
+      "errorMessage": "IDA-OTA-004"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDA-OTA-004</td>
+    <td>IDA-OTA-004</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.IDP_AuthenticateUserIDP_Otp_Vid_Valid_Smoke()'><b>IDP_AuthenticateUserIDP_Otp_Vid_Valid_Smoke</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_AuthenticateUserIDP_Otp_Vid_Valid_Smoke, endPoint=/v1/idp/authorization/authenticate, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Vid_Valid_Smoke_sid_transactionId$", "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$", "authFactorType" : "OTP", "challenge" : "111111", "sendOtp":{ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Vid_Valid_Smoke_sid_transactionId$", "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$", "otpChannels": [{channel: "email"},{channel: "phone"}], "sendOtpReqTemplate": "idp/SendOtp/SendOtp", "sendOtpEndPoint": "/v1/idp/authorization/send-otp" } }, output={ "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"idp/SendOtp/SendOtpResult", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" } }, inputTemplate=idp/AuthenticateUser/AuthenticateUser, outputTemplate=idp/AuthenticateUser/AuthenticateUserResult, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1986901753" onClick='toggleBox("Output-1986901753", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1986901753" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1986901753">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:59.362Z",
+  "request": {
+    "transactionId": "C6iN6MeDDMnzkBwMjShpeq8FNwem7mmM73PTLHkgaZY",
+    "individualId": "3782986927453084",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:59.665Z",
+  "response": {
+    "transactionId": "C6iN6MeDDMnzkBwMjShpeq8FNwem7mmM73PTLHkgaZY",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:46:00.432Z",
+  "request": {
+    "transactionId": "C6iN6MeDDMnzkBwMjShpeq8FNwem7mmM73PTLHkgaZY",
+    "individualId": "3782986927453084",
+    "challengeList": [
+      {
+        "authFactorType": "OTP",
+        "challenge": "111111"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/authenticate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:46:00.713Z",
+  "response": {
+    "transactionId": "C6iN6MeDDMnzkBwMjShpeq8FNwem7mmM73PTLHkgaZY"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@7b211077</td></tr>
+</table><p>
+</body>
+</html>

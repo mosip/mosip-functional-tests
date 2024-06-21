@@ -1,0 +1,533 @@
+<html>
+<head>
+<title>TestNG:  PolicyGroupFilter</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>PolicyGroupFilter</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>7/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:32:04 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>5 seconds (5864 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.partner_PolicyGroupFilter_Invalid_Column_doesnt_exist()'><b>partner_PolicyGroupFilter_Invalid_Column_doesnt_exist</b><br>Test class: io.mosip.testscripts.SimplePost (partner_PolicyGroupFilter_Invalid_Type_doesnt_exist)<br>Parameters: TestCaseDTO(testCaseName=partner_PolicyGroupFilter_Invalid_Column_doesnt_exist, endPoint=/v1/policymanager/policies/group/filtervalues, role=partner, templateFields=null, input={ "filters": [{ "columnName": "sfg", "type": "all", "text": "mpolicygroup-default-auth" }], "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PMS_COR_003", "message": "Could not process the request" } ] }, inputTemplate=partner/FilterAPIs/PolicyGroupFilter/policyGroupFilter, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-737096679" onClick='toggleBox("Output-737096679", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-737096679" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-737096679">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "sfg",
+        "text": "mpolicygroup-default-auth",
+        "type": "all"
+      }
+    ]
+  },
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:02:09.784Z",
+  "errors": [
+    {
+      "errorCode": "PMS_COR_003",
+      "message": "Could not process the request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_COR_003</td>
+    <td>PMS_COR_003</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@3b021664</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.partner_PolicyGroupFilter_Invalid_EmptyColumnName()'><b>partner_PolicyGroupFilter_Invalid_EmptyColumnName</b><br>Test class: io.mosip.testscripts.SimplePost (partner_PolicyGroupFilter_Invalid_Type_doesnt_exist)<br>Parameters: TestCaseDTO(testCaseName=partner_PolicyGroupFilter_Invalid_EmptyColumnName, endPoint=/v1/policymanager/policies/group/filtervalues, role=partner, templateFields=null, input={ "filters": [{ "columnName": "", "type": "all", "text": "mpolicygroup-default-auth" }], "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PMS_COR_001", "message": "Invalid request parameter - must not be blank :request.filters[0].columnName" } ] }, inputTemplate=partner/FilterAPIs/PolicyGroupFilter/policyGroupFilter, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-635096154" onClick='toggleBox("Output-635096154", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-635096154" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-635096154">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "",
+        "text": "mpolicygroup-default-auth",
+        "type": "all"
+      }
+    ]
+  },
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:02:09.020Z",
+  "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Invalid request parameter - must not be blank :request.filters[0].columnName"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_COR_001</td>
+    <td>PMS_COR_001</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@3b021664</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.partner_PolicyGroupFilter_Invalid_EmptyFilterType()'><b>partner_PolicyGroupFilter_Invalid_EmptyFilterType</b><br>Test class: io.mosip.testscripts.SimplePost (partner_PolicyGroupFilter_Invalid_Type_doesnt_exist)<br>Parameters: TestCaseDTO(testCaseName=partner_PolicyGroupFilter_Invalid_EmptyFilterType, endPoint=/v1/policymanager/policies/group/filtervalues, role=partner, templateFields=null, input={ "filters": [{ "columnName": "name", "type": "", "text": "mpolicygroup-default-auth" }], "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PMS_COR_003", "message": "Could not process the request" } ] }, inputTemplate=partner/FilterAPIs/PolicyGroupFilter/policyGroupFilter, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-208144409" onClick='toggleBox("Output-208144409", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-208144409" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-208144409">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "text": "mpolicygroup-default-auth",
+        "type": ""
+      }
+    ]
+  },
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:02:08.339Z",
+  "errors": [
+    {
+      "errorCode": "PMS_COR_003",
+      "message": "Could not process the request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_COR_003</td>
+    <td>PMS_COR_003</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@3b021664</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.partner_PolicyGroupFilter_Invalid_Type_doesnt_exist()'><b>partner_PolicyGroupFilter_Invalid_Type_doesnt_exist</b><br>Test class: io.mosip.testscripts.SimplePost (partner_PolicyGroupFilter_Invalid_Type_doesnt_exist)<br>Parameters: TestCaseDTO(testCaseName=partner_PolicyGroupFilter_Invalid_Type_doesnt_exist, endPoint=/v1/policymanager/policies/group/filtervalues, role=partner, templateFields=null, input={ "filters": [{ "columnName": "name", "type": "sfgar", "text": "mpolicygroup-default-auth" }], "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PMS_COR_003", "message": "Could not process the request" } ] }, inputTemplate=partner/FilterAPIs/PolicyGroupFilter/policyGroupFilter, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-717735555" onClick='toggleBox("Output-717735555", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-717735555" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-717735555">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "text": "mpolicygroup-default-auth",
+        "type": "sfgar"
+      }
+    ]
+  },
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:02:10.583Z",
+  "errors": [
+    {
+      "errorCode": "PMS_COR_003",
+      "message": "Could not process the request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_COR_003</td>
+    <td>PMS_COR_003</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@3b021664</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.partner_PolicyGroupFilter_all_Valid_Smoke()'><b>partner_PolicyGroupFilter_all_Valid_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (partner_PolicyGroupFilter_Invalid_Type_doesnt_exist)<br>Parameters: TestCaseDTO(testCaseName=partner_PolicyGroupFilter_all_Valid_Smoke, endPoint=/v1/policymanager/policies/group/filtervalues, role=partner, templateFields=null, input={ "filters": [{ "columnName": "name", "type": "all", "text": "mpolicygroup-default-auth" }], "requesttime": "$TIMESTAMP$" }, output={ "filters": [ { "fieldID": "name", "fieldValue": "mpolicygroup-default-auth", "fieldCode": "mpolicygroup-default-auth" } ] }, inputTemplate=partner/FilterAPIs/PolicyGroupFilter/policyGroupFilter, outputTemplate=partner/FilterAPIs/PolicyGroupFilter/policyGroupFilterResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-236791681" onClick='toggleBox("Output-236791681", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-236791681" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-236791681">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "text": "mpolicygroup-default-auth",
+        "type": "all"
+      }
+    ]
+  },
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:02:06.624Z",
+  "response": {
+    "filters": [
+      {
+        "fieldID": "name",
+        "fieldValue": "mpolicygroup-default-auth",
+        "fieldCode": "mpolicygroup-default-auth"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldValue</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldID</td>
+    <td>NOT VERIFIED</td>
+    <td>name</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldCode</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:02:06.624Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.SimplePost@3b021664</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.partner_PolicyGroupFilter_using_desc_Valid_Smoke()'><b>partner_PolicyGroupFilter_using_desc_Valid_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (partner_PolicyGroupFilter_Invalid_Type_doesnt_exist)<br>Parameters: TestCaseDTO(testCaseName=partner_PolicyGroupFilter_using_desc_Valid_Smoke, endPoint=/v1/policymanager/policies/group/filtervalues, role=partner, templateFields=null, input={ "filters": [{ "columnName": "descr", "type": "unique", "text": "mpolicygroup-default-auth" }], "requesttime": "$TIMESTAMP$" }, output={ "filters": [ { "fieldID": "name", "fieldValue": "mpolicygroup-default-auth", "fieldCode": "mpolicygroup-default-auth" } ] }, inputTemplate=partner/FilterAPIs/PolicyGroupFilter/policyGroupFilter, outputTemplate=partner/FilterAPIs/PolicyGroupFilter/policyGroupFilterResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-794413935" onClick='toggleBox("Output-794413935", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-794413935" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-794413935">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "descr",
+        "text": "mpolicygroup-default-auth",
+        "type": "unique"
+      }
+    ]
+  },
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:02:07.589Z",
+  "errors": [
+    {
+      "errorCode": "PMS_COR_003",
+      "message": "Could not process the request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Could not process the request</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PMS_COR_003</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:02:07.589Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@3b021664</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.partner_PolicyGroupFilter_using_name_Valid_Smoke()'><b>partner_PolicyGroupFilter_using_name_Valid_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (partner_PolicyGroupFilter_Invalid_Type_doesnt_exist)<br>Parameters: TestCaseDTO(testCaseName=partner_PolicyGroupFilter_using_name_Valid_Smoke, endPoint=/v1/policymanager/policies/group/filtervalues, role=partner, templateFields=null, input={ "filters": [{ "columnName": "name", "type": "unique", "text": "update_policy_group" }], "requesttime": "$TIMESTAMP$" }, output={ "filters": [ { "fieldID": "name", "fieldValue": "update_policy_group", "fieldCode": "update_policy_group" } ] }, inputTemplate=partner/FilterAPIs/PolicyGroupFilter/policyGroupFilter, outputTemplate=partner/FilterAPIs/PolicyGroupFilter/policyGroupFilterResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-710778590" onClick='toggleBox("Output-710778590", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-710778590" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-710778590">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "text": "update_policy_group",
+        "type": "unique"
+      }
+    ]
+  },
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:02:05.496Z",
+  "response": {
+    "filters": [
+      {
+        "fieldID": "name",
+        "fieldValue": "update_policy_group",
+        "fieldCode": "update_policy_group"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldValue</td>
+    <td>NOT VERIFIED</td>
+    <td>update_policy_group</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldID</td>
+    <td>NOT VERIFIED</td>
+    <td>name</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldCode</td>
+    <td>NOT VERIFIED</td>
+    <td>update_policy_group</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:02:05.496Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.SimplePost@3b021664</td></tr>
+</table><p>
+</body>
+</html>

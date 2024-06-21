@@ -1,0 +1,1147 @@
+<html>
+<head>
+<title>TestNG:  UpdateIdentity</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>UpdateIdentity</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>15/3/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Oct 12 14:23:59 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>49 seconds (49905 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.UpdateIdentity.IdRepository_UpdateIdentity_with_Invalid_registrationId()'><b>IdRepository_UpdateIdentity_with_Invalid_registrationId</b><br>Test class: io.mosip.testrig.apirig.testscripts.UpdateIdentity (IdRepository_UpdateIdentity_DEACTIVATED_Full_all_valid_smoke)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_UpdateIdentity_with_Invalid_registrationId, endPoint=/idrepository/v1/identity/, role=idrepo, templateFields=null, input={ "registrationId":"sdfdgdg", "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "email": "user@mailinator.com", "phone": "8249742850", "status": "ACTIVATED", "dateOfBirth": "1992/04/15", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": [ { "errorCode": "IDR-IDC-001" } ] }, inputTemplate=idRepository/UpdateIdentity/updateIdentity, outputTemplate=idRepository/error, restMethod=patch, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-685072424" onClick='toggleBox("Output-685072424", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-685072424" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-685072424">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "request": {
+    "registrationId": "sdfdgdg",
+    "status": "ACTIVATED",
+    "identity": {
+      "IDSchemaVersion": 1.5,
+      "email": "user@mailinator.com",
+      "mobileno": "8249742850",
+      "dateOfBirth": "1992/04/15",
+      "UIN": "843950763168"
+    }
+  },
+  "requesttime": "2023-10-12T08:54:29.337Z",
+  "version": "v1"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:54:32 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=1483]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:54:32.991Z",
+  "response": {
+    "status": "ACTIVATED"
+  },
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-001</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at io.mosip.testrig.apirig.testscripts.UpdateIdentity.updateIdentity(UpdateIdentity.java:171)
+	at io.mosip.testrig.apirig.testscripts.UpdateIdentity.test(UpdateIdentity.java:94)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace685072424", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace685072424'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:93)
+	at org.testng.Assert.failNotEquals(Assert.java:512)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:134)
+	at org.testng.Assert.assertEquals(Assert.java:115)
+	at org.testng.Assert.assertEquals(Assert.java:304)
+	at org.testng.Assert.assertEquals(Assert.java:314)
+	at io.mosip.testrig.apirig.testscripts.UpdateIdentity.updateIdentity(UpdateIdentity.java:171)
+	at io.mosip.testrig.apirig.testscripts.UpdateIdentity.test(UpdateIdentity.java:94)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+</pre></div></td>
+<td>3</td>
+<td>io.mosip.testrig.apirig.testscripts.UpdateIdentity@38087342</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.UpdateIdentity.IdRepository_UpdateIdentity_with_Past_requestTime()'><b>IdRepository_UpdateIdentity_with_Past_requestTime</b><br>Test class: io.mosip.testrig.apirig.testscripts.UpdateIdentity (IdRepository_UpdateIdentity_DEACTIVATED_Full_all_valid_smoke)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_UpdateIdentity_with_Past_requestTime, endPoint=/idrepository/v1/identity/, role=idrepo, templateFields=null, input={ "registrationId":"$ID:AddIdentity_withValidParameters_smoke_Pos_RID$", "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "email": "user@mailinator.com", "phone": "8249742850", "status": "ACTIVATED", "dateOfBirth": "1992/04/15", "requesttime": "2022-05-23T06:56:01.667Z", "version": "v1" }, output={ "errors": [ { "errorCode": "IDR-IDC-002", "message": "Invalid Input Parameter - requesttime" } ] }, inputTemplate=idRepository/UpdateIdentity/updateIdentity, outputTemplate=idRepository/error, restMethod=patch, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1671933702" onClick='toggleBox("Output-1671933702", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1671933702" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1671933702">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "request": {
+    "registrationId": "27847063600702520231012141602",
+    "status": "ACTIVATED",
+    "identity": {
+      "IDSchemaVersion": 1.5,
+      "email": "user@mailinator.com",
+      "mobileno": "8249742850",
+      "dateOfBirth": "1992/04/15",
+      "UIN": "843950763168"
+    }
+  },
+  "requesttime": "2022-05-23T06:56:01.667Z",
+  "version": "v1"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:54:23 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=91]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:54:23.868Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-012",
+      "message": "Record already exists in DB"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-002</td>
+    <td>IDR-IDC-012</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at io.mosip.testrig.apirig.testscripts.UpdateIdentity.updateIdentity(UpdateIdentity.java:171)
+	at io.mosip.testrig.apirig.testscripts.UpdateIdentity.test(UpdateIdentity.java:94)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1671933702", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1671933702'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:93)
+	at org.testng.Assert.failNotEquals(Assert.java:512)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:134)
+	at org.testng.Assert.assertEquals(Assert.java:115)
+	at org.testng.Assert.assertEquals(Assert.java:304)
+	at org.testng.Assert.assertEquals(Assert.java:314)
+	at io.mosip.testrig.apirig.testscripts.UpdateIdentity.updateIdentity(UpdateIdentity.java:171)
+	at io.mosip.testrig.apirig.testscripts.UpdateIdentity.test(UpdateIdentity.java:94)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+</pre></div></td>
+<td>2</td>
+<td>io.mosip.testrig.apirig.testscripts.UpdateIdentity@38087342</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.UpdateIdentity.IdRepository_UpdateIdentity_with_invalid_phonenumber()'><b>IdRepository_UpdateIdentity_with_invalid_phonenumber</b><br>Test class: io.mosip.testrig.apirig.testscripts.UpdateIdentity (IdRepository_UpdateIdentity_DEACTIVATED_Full_all_valid_smoke)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_UpdateIdentity_with_invalid_phonenumber, endPoint=/idrepository/v1/identity/, role=idrepo, templateFields=null, input={ "registrationId":"$ID:AddIdentity_withValidParameters_smoke_Pos_RID$", "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "email": "user@mailinator.com", "phone": "824222@@@@@####850", "status": "ACTIVATED", "dateOfBirth": "1992/04/15", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": [ { "errorCode": "IDR-IDC-002", "message": "Invalid Input Parameter - identity/phone" } ] }, inputTemplate=idRepository/UpdateIdentity/updateIdentity, outputTemplate=idRepository/error, restMethod=patch, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1107514015" onClick='toggleBox("Output-1107514015", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1107514015" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1107514015">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "request": {
+    "registrationId": "27847063600702520231012141602",
+    "status": "ACTIVATED",
+    "identity": {
+      "IDSchemaVersion": 1.5,
+      "email": "user@mailinator.com",
+      "mobileno": "824222@@@@@####850",
+      "dateOfBirth": "1992/04/15",
+      "UIN": "843950763168"
+    }
+  },
+  "requesttime": "2023-10-12T08:54:40.959Z",
+  "version": "v1"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:54:43 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=104]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:54:43.776Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-012",
+      "message": "Record already exists in DB"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-002</td>
+    <td>IDR-IDC-012</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at io.mosip.testrig.apirig.testscripts.UpdateIdentity.updateIdentity(UpdateIdentity.java:171)
+	at io.mosip.testrig.apirig.testscripts.UpdateIdentity.test(UpdateIdentity.java:94)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1107514015", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1107514015'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:93)
+	at org.testng.Assert.failNotEquals(Assert.java:512)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:134)
+	at org.testng.Assert.assertEquals(Assert.java:115)
+	at org.testng.Assert.assertEquals(Assert.java:304)
+	at org.testng.Assert.assertEquals(Assert.java:314)
+	at io.mosip.testrig.apirig.testscripts.UpdateIdentity.updateIdentity(UpdateIdentity.java:171)
+	at io.mosip.testrig.apirig.testscripts.UpdateIdentity.test(UpdateIdentity.java:94)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+</pre></div></td>
+<td>2</td>
+<td>io.mosip.testrig.apirig.testscripts.UpdateIdentity@38087342</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.UpdateIdentity.IdRepository_UpdateIdentity_ACTIVATED_all_valid_smoke()'><b>IdRepository_UpdateIdentity_ACTIVATED_all_valid_smoke</b><br>Test class: io.mosip.testrig.apirig.testscripts.UpdateIdentity (IdRepository_UpdateIdentity_DEACTIVATED_Full_all_valid_smoke)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_UpdateIdentity_ACTIVATED_all_valid_smoke, endPoint=/idrepository/v1/identity/, role=idrepo, templateFields=null, input={ "registrationId":"$RID$", "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "email": "user@mailinator.com", "status": "ACTIVATED", "phone": "8249742850", "dateOfBirth": "1992/04/15", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "status": "ACTIVATED" }, inputTemplate=idRepository/UpdateIdentity/updateIdentity, outputTemplate=idRepository/UpdateIdentity/updateIdentityResult, restMethod=patch, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-7881234" onClick='toggleBox("Output-7881234", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-7881234" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-7881234">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "request": {
+    "registrationId": "27847965762707020231012142403",
+    "status": "ACTIVATED",
+    "identity": {
+      "IDSchemaVersion": 1.5,
+      "email": "user@mailinator.com",
+      "mobileno": "8249742850",
+      "dateOfBirth": "1992/04/15",
+      "UIN": "843950763168"
+    }
+  },
+  "requesttime": "2023-10-12T08:54:03.586Z",
+  "version": "v1"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:54:06 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=838]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:54:06.680Z",
+  "response": {
+    "status": "ACTIVATED"
+  },
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.status</td>
+    <td>ACTIVATED</td>
+    <td>ACTIVATED</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>io.mosip.testrig.apirig.testscripts.UpdateIdentity@38087342</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.UpdateIdentity.IdRepository_UpdateIdentity_DEACTIVATED_Full_all_valid_smoke()'><b>IdRepository_UpdateIdentity_DEACTIVATED_Full_all_valid_smoke</b><br>Test class: io.mosip.testrig.apirig.testscripts.UpdateIdentity (IdRepository_UpdateIdentity_DEACTIVATED_Full_all_valid_smoke)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_UpdateIdentity_DEACTIVATED_Full_all_valid_smoke, endPoint=/idrepository/v1/identity/, role=idrepo, templateFields=null, input={ "registrationId":"$RID$", "UIN":"$ID:AddIdentity_For_DeactivateScen_smoke_Pos_UIN$", "email": "user@mailinator.com", "status": "DEACTIVATED", "phone": "8249742850", "dateOfBirth": "1992/04/15", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "status": "DEACTIVATED" }, inputTemplate=idRepository/UpdateIdentity/updateIdentity, outputTemplate=idRepository/UpdateIdentity/updateIdentityResult, restMethod=patch, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1164645391" onClick='toggleBox("Output-1164645391", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1164645391" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1164645391">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "request": {
+    "registrationId": "27847605582842720231012142446",
+    "status": "DEACTIVATED",
+    "identity": {
+      "IDSchemaVersion": 1.5,
+      "email": "user@mailinator.com",
+      "mobileno": "8249742850",
+      "dateOfBirth": "1992/04/15",
+      "UIN": "952365849047"
+    }
+  },
+  "requesttime": "2023-10-12T08:54:46.697Z",
+  "version": "v1"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:54:49 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=367]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:54:49.819Z",
+  "response": {
+    "status": "DEACTIVATED"
+  },
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.status</td>
+    <td>DEACTIVATED</td>
+    <td>DEACTIVATED</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>io.mosip.testrig.apirig.testscripts.UpdateIdentity@38087342</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.UpdateIdentity.IdRepository_UpdateIdentity_DEACTIVATED_all_valid_smoke()'><b>IdRepository_UpdateIdentity_DEACTIVATED_all_valid_smoke</b><br>Test class: io.mosip.testrig.apirig.testscripts.UpdateIdentity (IdRepository_UpdateIdentity_DEACTIVATED_Full_all_valid_smoke)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_UpdateIdentity_DEACTIVATED_all_valid_smoke, endPoint=/idrepository/v1/identity/, role=idrepo, templateFields=null, input={ "registrationId":"$RID$", "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "email": "user@mailinator.com", "status": "DEACTIVATED", "phone": "8249742850", "dateOfBirth": "1992/04/15", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "status": "DEACTIVATED" }, inputTemplate=idRepository/UpdateIdentity/updateIdentity, outputTemplate=idRepository/UpdateIdentity/updateIdentityResult, restMethod=patch, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-974386787" onClick='toggleBox("Output-974386787", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-974386787" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-974386787">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "request": {
+    "registrationId": "27847051480316120231012142359",
+    "status": "DEACTIVATED",
+    "identity": {
+      "IDSchemaVersion": 1.5,
+      "email": "user@mailinator.com",
+      "mobileno": "8249742850",
+      "dateOfBirth": "1992/04/15",
+      "UIN": "843950763168"
+    }
+  },
+  "requesttime": "2023-10-12T08:53:59.969Z",
+  "version": "v1"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:54:03 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=1450]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:54:03.557Z",
+  "response": {
+    "status": "DEACTIVATED"
+  },
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.status</td>
+    <td>DEACTIVATED</td>
+    <td>DEACTIVATED</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>io.mosip.testrig.apirig.testscripts.UpdateIdentity@38087342</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.UpdateIdentity.IdRepository_UpdateIdentity_with_Empty_requestTime()'><b>IdRepository_UpdateIdentity_with_Empty_requestTime</b><br>Test class: io.mosip.testrig.apirig.testscripts.UpdateIdentity (IdRepository_UpdateIdentity_DEACTIVATED_Full_all_valid_smoke)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_UpdateIdentity_with_Empty_requestTime, endPoint=/idrepository/v1/identity/, role=idrepo, templateFields=null, input={ "registrationId":"$ID:AddIdentity_withValidParameters_smoke_Pos_RID$", "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "email": "user@mailinator.com", "phone": "8249742850", "status": "ACTIVATED", "dateOfBirth": "1992/04/15", "requesttime": "", "version": "v1" }, output={ "errors": [ { "errorCode": "IDR-IDC-004", "message": "Invalid Input Parameter - requesttime" } ] }, inputTemplate=idRepository/UpdateIdentity/updateIdentity, outputTemplate=idRepository/error, restMethod=patch, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1631904921" onClick='toggleBox("Output-1631904921", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1631904921" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1631904921">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "request": {
+    "registrationId": "27847063600702520231012141602",
+    "status": "ACTIVATED",
+    "identity": {
+      "IDSchemaVersion": 1.5,
+      "email": "user@mailinator.com",
+      "mobileno": "8249742850",
+      "dateOfBirth": "1992/04/15",
+      "UIN": "843950763168"
+    }
+  },
+  "requesttime": "",
+  "version": "v1"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:54:18 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=14]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:54:18.748Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-004",
+      "message": "Unknown error occurred"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-004</td>
+    <td>IDR-IDC-004</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testrig.apirig.testscripts.UpdateIdentity@38087342</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.UpdateIdentity.IdRepository_UpdateIdentity_with_Empty_version()'><b>IdRepository_UpdateIdentity_with_Empty_version</b><br>Test class: io.mosip.testrig.apirig.testscripts.UpdateIdentity (IdRepository_UpdateIdentity_DEACTIVATED_Full_all_valid_smoke)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_UpdateIdentity_with_Empty_version, endPoint=/idrepository/v1/identity/, role=idrepo, templateFields=null, input={ "registrationId":"$ID:AddIdentity_withValidParameters_smoke_Pos_RID$", "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "email": "user@mailinator.com", "phone": "8249742850", "status": "ACTIVATED", "dateOfBirth": "1992/04/15", "requesttime": "$TIMESTAMP$", "version": "" }, output={ "errors": [ { "errorCode": "IDR-IDC-002", "message": "Invalid Input Parameter - version" } ] }, inputTemplate=idRepository/UpdateIdentity/updateIdentity, outputTemplate=idRepository/error, restMethod=patch, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1639923805" onClick='toggleBox("Output-1639923805", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1639923805" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1639923805">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "request": {
+    "registrationId": "27847063600702520231012141602",
+    "status": "ACTIVATED",
+    "identity": {
+      "IDSchemaVersion": 1.5,
+      "email": "user@mailinator.com",
+      "mobileno": "8249742850",
+      "dateOfBirth": "1992/04/15",
+      "UIN": "843950763168"
+    }
+  },
+  "requesttime": "2023-10-12T08:54:08.957Z",
+  "version": ""
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:54:11 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=20]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:54:11.350Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - version"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-002</td>
+    <td>IDR-IDC-002</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testrig.apirig.testscripts.UpdateIdentity@38087342</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.UpdateIdentity.IdRepository_UpdateIdentity_with_Future_requestTime()'><b>IdRepository_UpdateIdentity_with_Future_requestTime</b><br>Test class: io.mosip.testrig.apirig.testscripts.UpdateIdentity (IdRepository_UpdateIdentity_DEACTIVATED_Full_all_valid_smoke)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_UpdateIdentity_with_Future_requestTime, endPoint=/idrepository/v1/identity/, role=idrepo, templateFields=null, input={ "registrationId":"$ID:AddIdentity_withValidParameters_smoke_Pos_RID$", "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "email": "user@mailinator.com", "phone": "8249742850", "status": "ACTIVATED", "dateOfBirth": "1992/04/15", "requesttime": "2072-05-23T06:56:01.667Z", "version": "v1" }, output={ "errors": [ { "errorCode": "IDR-IDC-002", "message": "Invalid Input Parameter - requesttime" } ] }, inputTemplate=idRepository/UpdateIdentity/updateIdentity, outputTemplate=idRepository/error, restMethod=patch, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-2008165125" onClick='toggleBox("Output-2008165125", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2008165125" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2008165125">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "request": {
+    "registrationId": "27847063600702520231012141602",
+    "status": "ACTIVATED",
+    "identity": {
+      "IDSchemaVersion": 1.5,
+      "email": "user@mailinator.com",
+      "mobileno": "8249742850",
+      "dateOfBirth": "1992/04/15",
+      "UIN": "843950763168"
+    }
+  },
+  "requesttime": "2072-05-23T06:56:01.667Z",
+  "version": "v1"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:54:26 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=16]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:54:26.187Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - requesttime"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-002</td>
+    <td>IDR-IDC-002</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testrig.apirig.testscripts.UpdateIdentity@38087342</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.UpdateIdentity.IdRepository_UpdateIdentity_with_Invalid_requestTime()'><b>IdRepository_UpdateIdentity_with_Invalid_requestTime</b><br>Test class: io.mosip.testrig.apirig.testscripts.UpdateIdentity (IdRepository_UpdateIdentity_DEACTIVATED_Full_all_valid_smoke)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_UpdateIdentity_with_Invalid_requestTime, endPoint=/idrepository/v1/identity/, role=idrepo, templateFields=null, input={ "registrationId":"$ID:AddIdentity_withValidParameters_smoke_Pos_RID$", "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "email": "user@mailinator.com", "phone": "8249742850", "status": "ACTIVATED", "dateOfBirth": "1992/04/15", "requesttime": "$T", "version": "v1" }, output={ "errors": [ { "errorCode": "IDR-IDC-002", "message": "Invalid Input Parameter - requesttime" } ] }, inputTemplate=idRepository/UpdateIdentity/updateIdentity, outputTemplate=idRepository/error, restMethod=patch, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-499831151" onClick='toggleBox("Output-499831151", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-499831151" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-499831151">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "request": {
+    "registrationId": "27847063600702520231012141602",
+    "status": "ACTIVATED",
+    "identity": {
+      "IDSchemaVersion": 1.5,
+      "email": "user@mailinator.com",
+      "mobileno": "8249742850",
+      "dateOfBirth": "1992/04/15",
+      "UIN": "843950763168"
+    }
+  },
+  "requesttime": "$T",
+  "version": "v1"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:54:16 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=54]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:54:16.386Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - requesttime"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-002</td>
+    <td>IDR-IDC-002</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testrig.apirig.testscripts.UpdateIdentity@38087342</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.UpdateIdentity.IdRepository_UpdateIdentity_with_Invalid_version()'><b>IdRepository_UpdateIdentity_with_Invalid_version</b><br>Test class: io.mosip.testrig.apirig.testscripts.UpdateIdentity (IdRepository_UpdateIdentity_DEACTIVATED_Full_all_valid_smoke)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_UpdateIdentity_with_Invalid_version, endPoint=/idrepository/v1/identity/, role=idrepo, templateFields=null, input={ "registrationId":"$ID:AddIdentity_withValidParameters_smoke_Pos_RID$", "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "email": "user@mailinator.com", "phone": "8249742850", "status": "ACTIVATED", "dateOfBirth": "1992/04/15", "requesttime": "$TIMESTAMP$", "version": "89HTR" }, output={ "errors": [ { "errorCode": "IDR-IDC-002", "message": "Invalid Input Parameter - version" } ] }, inputTemplate=idRepository/UpdateIdentity/updateIdentity, outputTemplate=idRepository/error, restMethod=patch, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-549353786" onClick='toggleBox("Output-549353786", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-549353786" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-549353786">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "request": {
+    "registrationId": "27847063600702520231012141602",
+    "status": "ACTIVATED",
+    "identity": {
+      "IDSchemaVersion": 1.5,
+      "email": "user@mailinator.com",
+      "mobileno": "8249742850",
+      "dateOfBirth": "1992/04/15",
+      "UIN": "843950763168"
+    }
+  },
+  "requesttime": "2023-10-12T08:54:06.800Z",
+  "version": "89HTR"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:54:08 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=22]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:54:08.890Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - version"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-002</td>
+    <td>IDR-IDC-002</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testrig.apirig.testscripts.UpdateIdentity@38087342</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.UpdateIdentity.IdRepository_UpdateIdentity_with_Missing_registrationId()'><b>IdRepository_UpdateIdentity_with_Missing_registrationId</b><br>Test class: io.mosip.testrig.apirig.testscripts.UpdateIdentity (IdRepository_UpdateIdentity_DEACTIVATED_Full_all_valid_smoke)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_UpdateIdentity_with_Missing_registrationId, endPoint=/idrepository/v1/identity/, role=idrepo, templateFields=null, input={ "registrationId":"$REMOVE$", "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "email": "user@mailinator.com", "phone": "8249742850", "status": "ACTIVATED", "dateOfBirth": "1992/04/15", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": [ { "errorCode": "IDR-IDC-001", "message": "Missing Input Parameter - registrationId" } ] }, inputTemplate=idRepository/UpdateIdentity/updateIdentity, outputTemplate=idRepository/error, restMethod=patch, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1128958264" onClick='toggleBox("Output-1128958264", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1128958264" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1128958264">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "request": {
+    "identity": {
+      "IDSchemaVersion": 1.5,
+      "dateOfBirth": "1992/04/15",
+      "mobileno": "8249742850",
+      "UIN": "843950763168",
+      "email": "user@mailinator.com"
+    },
+    "status": "ACTIVATED"
+  },
+  "requesttime": "2023-10-12T08:54:26.231Z",
+  "id": "mosip.id.update",
+  "version": "v1"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:54:29 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=47]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:54:29.323Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "Missing Input Parameter - registrationId"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-001</td>
+    <td>IDR-IDC-001</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>io.mosip.testrig.apirig.testscripts.UpdateIdentity@38087342</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.UpdateIdentity.IdRepository_UpdateIdentity_with_Missing_requestTime()'><b>IdRepository_UpdateIdentity_with_Missing_requestTime</b><br>Test class: io.mosip.testrig.apirig.testscripts.UpdateIdentity (IdRepository_UpdateIdentity_DEACTIVATED_Full_all_valid_smoke)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_UpdateIdentity_with_Missing_requestTime, endPoint=/idrepository/v1/identity/, role=idrepo, templateFields=null, input={ "registrationId":"$ID:AddIdentity_withValidParameters_smoke_Pos_RID$", "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "email": "user@mailinator.com", "phone": "8249742850", "status": "ACTIVATED", "dateOfBirth": "1992/04/15", "requesttime": "$REMOVE$", "version": "v1" }, output={ "errors": [ { "errorCode": "IDR-IDC-001", "message": "Missing Input Parameter - requesttime" } ] }, inputTemplate=idRepository/UpdateIdentity/updateIdentity, outputTemplate=idRepository/error, restMethod=patch, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1375949608" onClick='toggleBox("Output-1375949608", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1375949608" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1375949608">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "request": {
+    "identity": {
+      "IDSchemaVersion": 1.5,
+      "dateOfBirth": "1992/04/15",
+      "mobileno": "8249742850",
+      "UIN": "843950763168",
+      "email": "user@mailinator.com"
+    },
+    "registrationId": "27847063600702520231012141602",
+    "status": "ACTIVATED"
+  },
+  "id": "mosip.id.update",
+  "version": "v1"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:54:38 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=11]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:54:38.340Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "Missing Input Parameter - requesttime"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-001</td>
+    <td>IDR-IDC-001</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testrig.apirig.testscripts.UpdateIdentity@38087342</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.UpdateIdentity.IdRepository_UpdateIdentity_with_Missing_version()'><b>IdRepository_UpdateIdentity_with_Missing_version</b><br>Test class: io.mosip.testrig.apirig.testscripts.UpdateIdentity (IdRepository_UpdateIdentity_DEACTIVATED_Full_all_valid_smoke)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_UpdateIdentity_with_Missing_version, endPoint=/idrepository/v1/identity/, role=idrepo, templateFields=null, input={ "registrationId":"$ID:AddIdentity_withValidParameters_smoke_Pos_RID$", "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "email": "user@mailinator.com", "phone": "8249742850", "status": "ACTIVATED", "dateOfBirth": "1992/04/15", "requesttime": "$TIMESTAMP$", "version": "$REMOVE$" }, output={ "errors": [ { "errorCode": "IDR-IDC-001", "message": "Missing Input Parameter - version" } ] }, inputTemplate=idRepository/UpdateIdentity/updateIdentity, outputTemplate=idRepository/error, restMethod=patch, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-2014725453" onClick='toggleBox("Output-2014725453", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2014725453" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2014725453">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "request": {
+    "identity": {
+      "IDSchemaVersion": 1.5,
+      "dateOfBirth": "1992/04/15",
+      "mobileno": "8249742850",
+      "UIN": "843950763168",
+      "email": "user@mailinator.com"
+    },
+    "registrationId": "27847063600702520231012141602",
+    "status": "ACTIVATED"
+  },
+  "requesttime": "2023-10-12T08:54:33.119Z",
+  "id": "mosip.id.update"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:54:35 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=18]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:54:35.675Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "Missing Input Parameter - version"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-001</td>
+    <td>IDR-IDC-001</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testrig.apirig.testscripts.UpdateIdentity@38087342</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.UpdateIdentity.IdRepository_UpdateIdentity_with_SpaceVal_requestTime()'><b>IdRepository_UpdateIdentity_with_SpaceVal_requestTime</b><br>Test class: io.mosip.testrig.apirig.testscripts.UpdateIdentity (IdRepository_UpdateIdentity_DEACTIVATED_Full_all_valid_smoke)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_UpdateIdentity_with_SpaceVal_requestTime, endPoint=/idrepository/v1/identity/, role=idrepo, templateFields=null, input={ "registrationId":"$ID:AddIdentity_withValidParameters_smoke_Pos_RID$", "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "email": "user@mailinator.com", "phone": "8249742850", "status": "ACTIVATED", "dateOfBirth": "1992/04/15", "requesttime": " ", "version": "v1" }, output={ "errors": [ { "errorCode": "IDR-IDC-004", "message": "Invalid Input Parameter - requesttime" } ] }, inputTemplate=idRepository/UpdateIdentity/updateIdentity, outputTemplate=idRepository/error, restMethod=patch, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-956052733" onClick='toggleBox("Output-956052733", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-956052733" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-956052733">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "request": {
+    "registrationId": "27847063600702520231012141602",
+    "status": "ACTIVATED",
+    "identity": {
+      "IDSchemaVersion": 1.5,
+      "email": "user@mailinator.com",
+      "mobileno": "8249742850",
+      "dateOfBirth": "1992/04/15",
+      "UIN": "843950763168"
+    }
+  },
+  "requesttime": " ",
+  "version": "v1"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:54:21 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=25]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:54:21.369Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-004",
+      "message": "Unknown error occurred"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-004</td>
+    <td>IDR-IDC-004</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testrig.apirig.testscripts.UpdateIdentity@38087342</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.UpdateIdentity.IdRepository_UpdateIdentity_with_Space_version()'><b>IdRepository_UpdateIdentity_with_Space_version</b><br>Test class: io.mosip.testrig.apirig.testscripts.UpdateIdentity (IdRepository_UpdateIdentity_DEACTIVATED_Full_all_valid_smoke)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_UpdateIdentity_with_Space_version, endPoint=/idrepository/v1/identity/, role=idrepo, templateFields=null, input={ "registrationId":"$ID:AddIdentity_withValidParameters_smoke_Pos_RID$", "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "email": "user@mailinator.com", "phone": "8249742850", "status": "ACTIVATED", "dateOfBirth": "1992/04/15", "requesttime": "$TIMESTAMP$", "version": " " }, output={ "errors": [ { "errorCode": "IDR-IDC-002", "message": "Invalid Input Parameter - version" } ] }, inputTemplate=idRepository/UpdateIdentity/updateIdentity, outputTemplate=idRepository/error, restMethod=patch, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1354952534" onClick='toggleBox("Output-1354952534", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1354952534" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1354952534">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "request": {
+    "registrationId": "27847063600702520231012141602",
+    "status": "ACTIVATED",
+    "identity": {
+      "IDSchemaVersion": 1.5,
+      "email": "user@mailinator.com",
+      "mobileno": "8249742850",
+      "dateOfBirth": "1992/04/15",
+      "UIN": "843950763168"
+    }
+  },
+  "requesttime": "2023-10-12T08:54:11.363Z",
+  "version": " "
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:54:13 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=82]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:54:13.779Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - version"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-002</td>
+    <td>IDR-IDC-002</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testrig.apirig.testscripts.UpdateIdentity@38087342</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.UpdateIdentity.IdRepository_UpdateIdentity_with_invalid_dob()'><b>IdRepository_UpdateIdentity_with_invalid_dob</b><br>Test class: io.mosip.testrig.apirig.testscripts.UpdateIdentity (IdRepository_UpdateIdentity_DEACTIVATED_Full_all_valid_smoke)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_UpdateIdentity_with_invalid_dob, endPoint=/idrepository/v1/identity/, role=idrepo, templateFields=null, input={ "registrationId":"$ID:AddIdentity_withValidParameters_smoke_Pos_RID$", "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "email": "user@mailinator.com", "phone": "8249742850", "status": "ACTIVATED", "dateOfBirth": "1992/15", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": [ { "errorCode": "IDR-IDC-002", "message": "Invalid Input Parameter - identity/dateOfBirth" } ] }, inputTemplate=idRepository/UpdateIdentity/updateIdentity, outputTemplate=idRepository/error, restMethod=patch, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-2034549539" onClick='toggleBox("Output-2034549539", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2034549539" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2034549539">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "request": {
+    "registrationId": "27847063600702520231012141602",
+    "status": "ACTIVATED",
+    "identity": {
+      "IDSchemaVersion": 1.5,
+      "email": "user@mailinator.com",
+      "mobileno": "8249742850",
+      "dateOfBirth": "1992/15",
+      "UIN": "843950763168"
+    }
+  },
+  "requesttime": "2023-10-12T08:54:38.350Z",
+  "version": "v1"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:54:40 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=17]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:54:40.872Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - identity/dateOfBirth"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-002</td>
+    <td>IDR-IDC-002</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testrig.apirig.testscripts.UpdateIdentity@38087342</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.UpdateIdentity.IdRepository_UpdateIdentity_with_invalid_email()'><b>IdRepository_UpdateIdentity_with_invalid_email</b><br>Test class: io.mosip.testrig.apirig.testscripts.UpdateIdentity (IdRepository_UpdateIdentity_DEACTIVATED_Full_all_valid_smoke)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_UpdateIdentity_with_invalid_email, endPoint=/idrepository/v1/identity/, role=idrepo, templateFields=null, input={ "registrationId":"$ID:AddIdentity_withValidParameters_smoke_Pos_RID$", "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "email": "us####@@@@$%%^^^^%%ator.com", "phone": "8249742850", "status": "ACTIVATED", "dateOfBirth": "1992/04/15", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": [ { "errorCode": "IDR-IDC-002", "message": "Invalid Input Parameter - identity/email" } ] }, inputTemplate=idRepository/UpdateIdentity/updateIdentity, outputTemplate=idRepository/error, restMethod=patch, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1473247236" onClick='toggleBox("Output-1473247236", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1473247236" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1473247236">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "request": {
+    "registrationId": "27847063600702520231012141602",
+    "status": "ACTIVATED",
+    "identity": {
+      "IDSchemaVersion": 1.5,
+      "email": "us####@@@@$%%^^^^%%ator.com",
+      "mobileno": "8249742850",
+      "dateOfBirth": "1992/04/15",
+      "UIN": "843950763168"
+    }
+  },
+  "requesttime": "2023-10-12T08:54:43.796Z",
+  "version": "v1"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:54:46 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=16]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.update",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:54:46.676Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - identity/email"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-002</td>
+    <td>IDR-IDC-002</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testrig.apirig.testscripts.UpdateIdentity@38087342</td></tr>
+</table><p>
+</body>
+</html>

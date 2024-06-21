@@ -1,0 +1,1424 @@
+<html>
+<head>
+<title>TestNG:  GetCoordinateSpecificRegistrationCenters</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GetCoordinateSpecificRegistrationCenters</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>14/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Aug 24 11:55:52 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>14 seconds (14638 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetCoordinateSpecificRegistrationCenters_Empty_LangCode_Neg()'><b>Resident_GetCoordinateSpecificRegistrationCenters_Empty_LangCode_Neg</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetCoordinateSpecificRegistrationCenters_Empty_Longitude_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetCoordinateSpecificRegistrationCenters_Empty_LangCode_Neg, endPoint=/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}, role=resident, templateFields=null, input={ "langcode": "", "latitude": "34.52117", "proximitydistance": "21", "longitude": "-6.453275" }, output={
+}, inputTemplate=resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters, outputTemplate=resident/error, restMethod=get)<br/>
+<a href="#Output-1620570661" onClick='toggleBox("Output-1620570661", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1620570661" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1620570661">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "",
+  "longitude": "-6.453275",
+  "latitude": "34.52117",
+  "proximitydistance": 21
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "timestamp": "2022-08-24T06:26:04.843+00:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available",
+  "path": "/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/-6.453275/34.52117/21"
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>path</td>
+    <td>NOT VERIFIED</td>
+    <td>/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/-6.453275/34.52117/21</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>error</td>
+    <td>NOT VERIFIED</td>
+    <td>Not Found</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>message</td>
+    <td>NOT VERIFIED</td>
+    <td>No message available</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@4409cae6</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetCoordinateSpecificRegistrationCenters_Empty_Latitude_Neg()'><b>Resident_GetCoordinateSpecificRegistrationCenters_Empty_Latitude_Neg</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetCoordinateSpecificRegistrationCenters_Empty_Longitude_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetCoordinateSpecificRegistrationCenters_Empty_Latitude_Neg, endPoint=/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}, role=resident, templateFields=[langcode], input={ "langcode": "eng", "latitude": "", "proximitydistance": "21", "longitude": "-6.453275" }, output={
+}, inputTemplate=resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters, outputTemplate=resident/error, restMethod=get)<br/>
+<a href="#Output-2046030668" onClick='toggleBox("Output-2046030668", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2046030668" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2046030668">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "eng",
+  "longitude": "-6.453275",
+  "latitude": "",
+  "proximitydistance": 21
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "timestamp": "2022-08-24T06:26:05.400+00:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available",
+  "path": "/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/eng/-6.453275/21"
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>path</td>
+    <td>NOT VERIFIED</td>
+    <td>/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/eng/-6.453275/21</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>error</td>
+    <td>NOT VERIFIED</td>
+    <td>Not Found</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>message</td>
+    <td>NOT VERIFIED</td>
+    <td>No message available</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "ara",
+  "longitude": "-6.453275",
+  "latitude": "",
+  "proximitydistance": 21
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "timestamp": "2022-08-24T06:26:05.982+00:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available",
+  "path": "/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/ara/-6.453275/21"
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>path</td>
+    <td>NOT VERIFIED</td>
+    <td>/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/ara/-6.453275/21</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>error</td>
+    <td>NOT VERIFIED</td>
+    <td>Not Found</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>message</td>
+    <td>NOT VERIFIED</td>
+    <td>No message available</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.GetWithParam@4409cae6</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetCoordinateSpecificRegistrationCenters_Empty_Longitude_Neg()'><b>Resident_GetCoordinateSpecificRegistrationCenters_Empty_Longitude_Neg</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetCoordinateSpecificRegistrationCenters_Empty_Longitude_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetCoordinateSpecificRegistrationCenters_Empty_Longitude_Neg, endPoint=/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}, role=resident, templateFields=[langcode], input={ "langcode": "eng", "latitude": "34.52117", "proximitydistance": "21", "longitude": "" }, output={
+}, inputTemplate=resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters, outputTemplate=resident/error, restMethod=get)<br/>
+<a href="#Output-2119032302" onClick='toggleBox("Output-2119032302", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2119032302" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2119032302">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "eng",
+  "longitude": "",
+  "latitude": "34.52117",
+  "proximitydistance": 21
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "timestamp": "2022-08-24T06:26:06.548+00:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available",
+  "path": "/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/eng/34.52117/21"
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>path</td>
+    <td>NOT VERIFIED</td>
+    <td>/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/eng/34.52117/21</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>error</td>
+    <td>NOT VERIFIED</td>
+    <td>Not Found</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>message</td>
+    <td>NOT VERIFIED</td>
+    <td>No message available</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "ara",
+  "longitude": "",
+  "latitude": "34.52117",
+  "proximitydistance": 21
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "timestamp": "2022-08-24T06:26:07.118+00:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available",
+  "path": "/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/ara/34.52117/21"
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>path</td>
+    <td>NOT VERIFIED</td>
+    <td>/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/ara/34.52117/21</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>error</td>
+    <td>NOT VERIFIED</td>
+    <td>Not Found</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>message</td>
+    <td>NOT VERIFIED</td>
+    <td>No message available</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.GetWithParam@4409cae6</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetCoordinateSpecificRegistrationCenters_Invalid_Latitude()'><b>Resident_GetCoordinateSpecificRegistrationCenters_Invalid_Latitude</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetCoordinateSpecificRegistrationCenters_Empty_Longitude_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetCoordinateSpecificRegistrationCenters_Invalid_Latitude, endPoint=/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}, role=resident, templateFields=[langcode], input={ "langcode": "eng", "latitude": "134.52117", "proximitydistance": "21", "longitude": "-6.453275" }, output={ "errors": [ { "errorCode": "RES-SER-418", "message": "$IGNORE$" } ] }, inputTemplate=resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters, outputTemplate=resident/error, restMethod=get)<br/>
+<a href="#Output-981297526" onClick='toggleBox("Output-981297526", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-981297526" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-981297526">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "eng",
+  "longitude": "-6.453275",
+  "latitude": "134.52117",
+  "proximitydistance": 21
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:25:55.012Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Registration Center not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>RES-SER-418</td>
+    <td>RES-SER-418</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "ara",
+  "longitude": "-6.453275",
+  "latitude": "134.52117",
+  "proximitydistance": 21
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:25:55.623Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Registration Center not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>RES-SER-418</td>
+    <td>RES-SER-418</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.GetWithParam@4409cae6</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetCoordinateSpecificRegistrationCenters_Invalid_Latitude_Neg()'><b>Resident_GetCoordinateSpecificRegistrationCenters_Invalid_Latitude_Neg</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetCoordinateSpecificRegistrationCenters_Empty_Longitude_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetCoordinateSpecificRegistrationCenters_Invalid_Latitude_Neg, endPoint=/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}, role=resident, templateFields=[langcode], input={ "langcode": "eng", "latitude": "134.52117", "proximitydistance": "100", "longitude": "-6.453275" }, output={ "errors": [ { "errorCode": "$IGNORE$", "message": "$IGNORE$" } ] }, inputTemplate=resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters, outputTemplate=resident/error, restMethod=get)<br/>
+<a href="#Output-377204235" onClick='toggleBox("Output-377204235", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-377204235" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-377204235">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "eng",
+  "longitude": "-6.453275",
+  "latitude": "134.52117",
+  "proximitydistance": 100
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:26:01.428Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Registration Center not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "ara",
+  "longitude": "-6.453275",
+  "latitude": "134.52117",
+  "proximitydistance": 100
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:26:02.025Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Registration Center not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.GetWithParam@4409cae6</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetCoordinateSpecificRegistrationCenters_Invalid_Longitude()'><b>Resident_GetCoordinateSpecificRegistrationCenters_Invalid_Longitude</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetCoordinateSpecificRegistrationCenters_Empty_Longitude_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetCoordinateSpecificRegistrationCenters_Invalid_Longitude, endPoint=/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}, role=resident, templateFields=[langcode], input={ "langcode": "eng", "latitude": "34.52117", "proximitydistance": "21", "longitude": "999" }, output={ "errors": [ { "errorCode": "RES-SER-418", "message": "$IGNORE$" } ] }, inputTemplate=resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters, outputTemplate=resident/error, restMethod=get)<br/>
+<a href="#Output-1842475577" onClick='toggleBox("Output-1842475577", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1842475577" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1842475577">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "eng",
+  "longitude": "999",
+  "latitude": "34.52117",
+  "proximitydistance": 21
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:26:03.247Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Registration Center not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>RES-SER-418</td>
+    <td>RES-SER-418</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "ara",
+  "longitude": "999",
+  "latitude": "34.52117",
+  "proximitydistance": 21
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:26:03.847Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Registration Center not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>RES-SER-418</td>
+    <td>RES-SER-418</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.GetWithParam@4409cae6</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetCoordinateSpecificRegistrationCenters_Invalid_Proximity_Distance_Neg()'><b>Resident_GetCoordinateSpecificRegistrationCenters_Invalid_Proximity_Distance_Neg</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetCoordinateSpecificRegistrationCenters_Empty_Longitude_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetCoordinateSpecificRegistrationCenters_Invalid_Proximity_Distance_Neg, endPoint=/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}, role=resident, templateFields=null, input={ "langcode": "eng", "latitude": "34.52117", "proximitydistance": "0", "longitude": "-6.453275" }, output={ "errors": [ { "errorCode": "$IGNORE$", "message": "$IGNORE$" } ] }, inputTemplate=resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters, outputTemplate=resident/error, restMethod=get)<br/>
+<a href="#Output-1763768885" onClick='toggleBox("Output-1763768885", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1763768885" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1763768885">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "eng",
+  "longitude": "-6.453275",
+  "latitude": "34.52117",
+  "proximitydistance": 0
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:26:02.644Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Registration Center not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@4409cae6</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetCoordinateSpecificRegistrationCenters_Invalid_Random_Proximity_Distance()'><b>Resident_GetCoordinateSpecificRegistrationCenters_Invalid_Random_Proximity_Distance</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetCoordinateSpecificRegistrationCenters_Empty_Longitude_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetCoordinateSpecificRegistrationCenters_Invalid_Random_Proximity_Distance, endPoint=/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}, role=resident, templateFields=[langcode], input={ "langcode": "eng", "latitude": "34.52117", "proximitydistance": "tt", "longitude": "-6.453275" }, output={ "errors": [ { "errorCode": "RES-SER-418", "message": "$IGNORE$" } ] }, inputTemplate=resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters, outputTemplate=resident/error, restMethod=get)<br/>
+<a href="#Output-2002410087" onClick='toggleBox("Output-2002410087", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2002410087" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2002410087">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "eng",
+  "longitude": "-6.453275",
+  "latitude": "34.52117",
+  "proximitydistance": "tt"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:25:56.178Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Failed to convert value of type \u0027java.lang.String\u0027 to required type \u0027int\u0027; nested exception is java.lang.NumberFormatException: For input string: \"tt\""
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>RES-SER-418</td>
+    <td>RES-SER-418</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "ara",
+  "longitude": "-6.453275",
+  "latitude": "34.52117",
+  "proximitydistance": "tt"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:25:56.750Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Failed to convert value of type \u0027java.lang.String\u0027 to required type \u0027int\u0027; nested exception is java.lang.NumberFormatException: For input string: \"tt\""
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>RES-SER-418</td>
+    <td>RES-SER-418</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.GetWithParam@4409cae6</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetCoordinateSpecificRegistrationCenters_Invalid_langCode()'><b>Resident_GetCoordinateSpecificRegistrationCenters_Invalid_langCode</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetCoordinateSpecificRegistrationCenters_Empty_Longitude_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetCoordinateSpecificRegistrationCenters_Invalid_langCode, endPoint=/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}, role=resident, templateFields=null, input={ "langcode": "engg", "latitude": "34.52117", "proximitydistance": "21", "longitude": "-6.453275" }, output={ "errors": [ { "errorCode": "RES-SER-418", "message": "$IGNORE$" } ] }, inputTemplate=resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters, outputTemplate=resident/error, restMethod=get)<br/>
+<a href="#Output-39284878" onClick='toggleBox("Output-39284878", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-39284878" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-39284878">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "engg",
+  "longitude": "-6.453275",
+  "latitude": "34.52117",
+  "proximitydistance": 21
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:25:54.399Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Registration Center not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>RES-SER-418</td>
+    <td>RES-SER-418</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@4409cae6</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetCoordinateSpecificRegistrationCenters_Invalid_langCode_Neg()'><b>Resident_GetCoordinateSpecificRegistrationCenters_Invalid_langCode_Neg</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetCoordinateSpecificRegistrationCenters_Empty_Longitude_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetCoordinateSpecificRegistrationCenters_Invalid_langCode_Neg, endPoint=/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}, role=resident, templateFields=null, input={ "langcode": "asd", "latitude": "34.52117", "proximitydistance": "100", "longitude": "-6.453275" }, output={ "errors": [ { "errorCode": "$IGNORE$", "message": "$IGNORE$" } ] }, inputTemplate=resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters, outputTemplate=resident/error, restMethod=get)<br/>
+<a href="#Output-1728752676" onClick='toggleBox("Output-1728752676", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1728752676" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1728752676">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "asd",
+  "longitude": "-6.453275",
+  "latitude": "34.52117",
+  "proximitydistance": 100
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:26:00.840Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Registration Center not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@4409cae6</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetCoordinateSpecificRegistrationCenters_Random_Latitude()'><b>Resident_GetCoordinateSpecificRegistrationCenters_Random_Latitude</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetCoordinateSpecificRegistrationCenters_Empty_Longitude_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetCoordinateSpecificRegistrationCenters_Random_Latitude, endPoint=/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}, role=resident, templateFields=[langcode], input={ "langcode": "eng", "latitude": "tt", "proximitydistance": "21", "longitude": "-6.453275" }, output={ "errors": [ { "errorCode": "RES-SER-418", "message": "$IGNORE$" } ] }, inputTemplate=resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters, outputTemplate=resident/error, restMethod=get)<br/>
+<a href="#Output-438188203" onClick='toggleBox("Output-438188203", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-438188203" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-438188203">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "eng",
+  "longitude": "-6.453275",
+  "latitude": "tt",
+  "proximitydistance": 21
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:25:58.456Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Failed to convert value of type \u0027java.lang.String\u0027 to required type \u0027double\u0027; nested exception is java.lang.NumberFormatException: For input string: \"tt\""
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>RES-SER-418</td>
+    <td>RES-SER-418</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "ara",
+  "longitude": "-6.453275",
+  "latitude": "tt",
+  "proximitydistance": 21
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:25:59.015Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Failed to convert value of type \u0027java.lang.String\u0027 to required type \u0027double\u0027; nested exception is java.lang.NumberFormatException: For input string: \"tt\""
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>RES-SER-418</td>
+    <td>RES-SER-418</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.GetWithParam@4409cae6</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetCoordinateSpecificRegistrationCenters_Random_Longitude()'><b>Resident_GetCoordinateSpecificRegistrationCenters_Random_Longitude</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetCoordinateSpecificRegistrationCenters_Empty_Longitude_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetCoordinateSpecificRegistrationCenters_Random_Longitude, endPoint=/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}, role=resident, templateFields=[langcode], input={ "langcode": "eng", "latitude": "34.52117", "proximitydistance": "21", "longitude": "tt" }, output={ "errors": [ { "errorCode": "RES-SER-418", "message": "$IGNORE$" } ] }, inputTemplate=resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters, outputTemplate=resident/error, restMethod=get)<br/>
+<a href="#Output-1370558854" onClick='toggleBox("Output-1370558854", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1370558854" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1370558854">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "eng",
+  "longitude": "tt",
+  "latitude": "34.52117",
+  "proximitydistance": 21
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:25:57.317Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Failed to convert value of type \u0027java.lang.String\u0027 to required type \u0027double\u0027; nested exception is java.lang.NumberFormatException: For input string: \"tt\""
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>RES-SER-418</td>
+    <td>RES-SER-418</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "ara",
+  "longitude": "tt",
+  "latitude": "34.52117",
+  "proximitydistance": 21
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:25:57.889Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Failed to convert value of type \u0027java.lang.String\u0027 to required type \u0027double\u0027; nested exception is java.lang.NumberFormatException: For input string: \"tt\""
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>RES-SER-418</td>
+    <td>RES-SER-418</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.GetWithParam@4409cae6</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetCoordinateSpecificRegistrationCenters_Valid_smoke()'><b>Resident_GetCoordinateSpecificRegistrationCenters_Valid_smoke</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetCoordinateSpecificRegistrationCenters_Empty_Longitude_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetCoordinateSpecificRegistrationCenters_Valid_smoke, endPoint=/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}, role=resident, templateFields=[langcode], input={ "langcode": "eng", "latitude": "34.52117", "proximitydistance": "100", "longitude": "-6.453275" }, output={ "registrationCenters": [{ "id": "$IGNORE$", "name": "$IGNORE$", "centerTypeCode": "$IGNORE$", "addressLine1": "$IGNORE$", "addressLine2": "$IGNORE$", "addressLine3": "$IGNORE$", "latitude": "{{latitude}}", "longitude": "{{longitude}}", "locationCode": "$IGNORE$", "holidayLocationCode": "$IGNORE$", "contactPhone": "$IGNORE$", "workingHours": "$IGNORE$", "langCode": "$IGNORE$", "numberOfKiosks": "$IGNORE$", "perKioskProcessTime": "$IGNORE$", "centerStartTime": "$IGNORE$", "centerEndTime": "$IGNORE$", "timeZone": "$IGNORE$", "contactPerson": "$IGNORE$", "lunchStartTime": "$IGNORE$", "lunchEndTime": "$IGNORE$", "isActive": "$IGNORE$", "zoneCode": "$IGNORE$" }] }, inputTemplate=resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters, outputTemplate=resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCentersResult, restMethod=get)<br/>
+<a href="#Output-736974888" onClick='toggleBox("Output-736974888", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-736974888" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-736974888">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "eng",
+  "longitude": "-6.453275",
+  "latitude": "34.52117",
+  "proximitydistance": 100
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:25:59.619Z",
+  "response": {
+    "registrationCenters": [
+      {
+        "id": "10001",
+        "name": "Center A Ben Mansour",
+        "centerTypeCode": "REG",
+        "addressLine1": "P4238",
+        "addressLine2": "Ben Mansour",
+        "addressLine3": "MyCountry",
+        "latitude": "34.52117",
+        "longitude": "-6.453275",
+        "locationCode": "14022",
+        "holidayLocationCode": "KTA",
+        "contactPhone": "779517433",
+        "workingHours": "8:00:00",
+        "langCode": "eng",
+        "numberOfKiosks": 3,
+        "perKioskProcessTime": "00:15:00",
+        "centerStartTime": "09:00:00",
+        "centerEndTime": "17:00:00",
+        "timeZone": "(GTM+01:00) CENTRAL EUROPEAN TIME",
+        "contactPerson": "John Doe",
+        "lunchStartTime": "13:00:00",
+        "lunchEndTime": "14:00:00",
+        "isActive": true,
+        "zoneCode": "RBT"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].addressLine1</td>
+    <td>NOT VERIFIED</td>
+    <td>P4238</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].centerEndTime</td>
+    <td>NOT VERIFIED</td>
+    <td>17:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].addressLine2</td>
+    <td>NOT VERIFIED</td>
+    <td>Ben Mansour</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].timeZone</td>
+    <td>NOT VERIFIED</td>
+    <td>(GTM+01:00) CENTRAL EUROPEAN TIME</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].zoneCode</td>
+    <td>NOT VERIFIED</td>
+    <td>RBT</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].perKioskProcessTime</td>
+    <td>NOT VERIFIED</td>
+    <td>00:15:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-08-24T06:25:59.619Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].contactPerson</td>
+    <td>NOT VERIFIED</td>
+    <td>John Doe</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].centerStartTime</td>
+    <td>NOT VERIFIED</td>
+    <td>09:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].lunchEndTime</td>
+    <td>NOT VERIFIED</td>
+    <td>14:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].addressLine3</td>
+    <td>NOT VERIFIED</td>
+    <td>MyCountry</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].workingHours</td>
+    <td>NOT VERIFIED</td>
+    <td>8:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].lunchStartTime</td>
+    <td>NOT VERIFIED</td>
+    <td>13:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].centerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>REG</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].latitude</td>
+    <td>NOT VERIFIED</td>
+    <td>34.52117</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].longitude</td>
+    <td>NOT VERIFIED</td>
+    <td>-6.453275</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].holidayLocationCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KTA</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Center A Ben Mansour</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].numberOfKiosks</td>
+    <td>NOT VERIFIED</td>
+    <td>3</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].id</td>
+    <td>NOT VERIFIED</td>
+    <td>10001</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].contactPhone</td>
+    <td>NOT VERIFIED</td>
+    <td>779517433</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].locationCode</td>
+    <td>NOT VERIFIED</td>
+    <td>14022</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "ara",
+  "longitude": "-6.453275",
+  "latitude": "34.52117",
+  "proximitydistance": 100
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:26:00.233Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Registration Center not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Registration Center not found</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>RES-SER-418</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-08-24T06:26:00.233Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.GetWithParam@4409cae6</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetCoordinateSpecificRegistrationCenters_allValid_smoke()'><b>Resident_GetCoordinateSpecificRegistrationCenters_allValid_smoke</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetCoordinateSpecificRegistrationCenters_Empty_Longitude_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetCoordinateSpecificRegistrationCenters_allValid_smoke, endPoint=/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}, role=resident, templateFields=[langcode], input={ "langcode": "eng", "latitude": "34.52117", "proximitydistance": "21", "longitude": "-6.453275" }, output={ "registrationCenters": [{ "id": "$IGNORE$", "name": "$IGNORE$", "centerTypeCode": "$IGNORE$", "addressLine1": "$IGNORE$", "addressLine2": "$IGNORE$", "addressLine3": "$IGNORE$", "latitude": "{{latitude}}", "longitude": "{{longitude}}", "locationCode": "$IGNORE$", "holidayLocationCode": "$IGNORE$", "contactPhone": "$IGNORE$", "workingHours": "$IGNORE$", "langCode": "$IGNORE$", "numberOfKiosks": "$IGNORE$", "perKioskProcessTime": "$IGNORE$", "centerStartTime": "$IGNORE$", "centerEndTime": "$IGNORE$", "timeZone": "$IGNORE$", "contactPerson": "$IGNORE$", "lunchStartTime": "$IGNORE$", "lunchEndTime": "$IGNORE$", "isActive": "$IGNORE$", "zoneCode": "$IGNORE$" }] }, inputTemplate=resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters, outputTemplate=resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCentersResult, restMethod=get)<br/>
+<a href="#Output-1252913476" onClick='toggleBox("Output-1252913476", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1252913476" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1252913476">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "eng",
+  "longitude": "-6.453275",
+  "latitude": "34.52117",
+  "proximitydistance": 21
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:25:53.091Z",
+  "response": {
+    "registrationCenters": [
+      {
+        "id": "10001",
+        "name": "Center A Ben Mansour",
+        "centerTypeCode": "REG",
+        "addressLine1": "P4238",
+        "addressLine2": "Ben Mansour",
+        "addressLine3": "MyCountry",
+        "latitude": "34.52117",
+        "longitude": "-6.453275",
+        "locationCode": "14022",
+        "holidayLocationCode": "KTA",
+        "contactPhone": "779517433",
+        "workingHours": "8:00:00",
+        "langCode": "eng",
+        "numberOfKiosks": 3,
+        "perKioskProcessTime": "00:15:00",
+        "centerStartTime": "09:00:00",
+        "centerEndTime": "17:00:00",
+        "timeZone": "(GTM+01:00) CENTRAL EUROPEAN TIME",
+        "contactPerson": "John Doe",
+        "lunchStartTime": "13:00:00",
+        "lunchEndTime": "14:00:00",
+        "isActive": true,
+        "zoneCode": "RBT"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].addressLine1</td>
+    <td>NOT VERIFIED</td>
+    <td>P4238</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].centerEndTime</td>
+    <td>NOT VERIFIED</td>
+    <td>17:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].addressLine2</td>
+    <td>NOT VERIFIED</td>
+    <td>Ben Mansour</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].timeZone</td>
+    <td>NOT VERIFIED</td>
+    <td>(GTM+01:00) CENTRAL EUROPEAN TIME</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].zoneCode</td>
+    <td>NOT VERIFIED</td>
+    <td>RBT</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].perKioskProcessTime</td>
+    <td>NOT VERIFIED</td>
+    <td>00:15:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-08-24T06:25:53.091Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].contactPerson</td>
+    <td>NOT VERIFIED</td>
+    <td>John Doe</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].centerStartTime</td>
+    <td>NOT VERIFIED</td>
+    <td>09:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].lunchEndTime</td>
+    <td>NOT VERIFIED</td>
+    <td>14:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].addressLine3</td>
+    <td>NOT VERIFIED</td>
+    <td>MyCountry</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].workingHours</td>
+    <td>NOT VERIFIED</td>
+    <td>8:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].lunchStartTime</td>
+    <td>NOT VERIFIED</td>
+    <td>13:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].centerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>REG</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].latitude</td>
+    <td>NOT VERIFIED</td>
+    <td>34.52117</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].longitude</td>
+    <td>NOT VERIFIED</td>
+    <td>-6.453275</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].holidayLocationCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KTA</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Center A Ben Mansour</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].numberOfKiosks</td>
+    <td>NOT VERIFIED</td>
+    <td>3</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].id</td>
+    <td>NOT VERIFIED</td>
+    <td>10001</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].contactPhone</td>
+    <td>NOT VERIFIED</td>
+    <td>779517433</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(registrationCenters)[0].locationCode</td>
+    <td>NOT VERIFIED</td>
+    <td>14022</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "ara",
+  "longitude": "-6.453275",
+  "latitude": "34.52117",
+  "proximitydistance": 21
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:25:53.747Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Registration Center not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Registration Center not found</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>RES-SER-418</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-08-24T06:25:53.747Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.GetWithParam@4409cae6</td></tr>
+</table><p>
+</body>
+</html>

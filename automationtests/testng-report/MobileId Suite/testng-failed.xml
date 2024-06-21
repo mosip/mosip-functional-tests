@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [MobileId Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="io.mosip.testrig.apirig.report.CustomTestNGReporter"/>
+    <listener class-name="io.mosip.testrig.apirig.authentication.fw.util.AuthenticationTestsListener"/>
+    <listener class-name="io.mosip.testrig.apirig.authentication.e2e.E2EReport"/>
+    <listener class-name="io.mosip.testrig.apirig.customReport.EmailableReport"/>
+  </listeners>
+  <test name="AddIdentity(failed)">
+    <parameter name="ymlFile" value="mobileId/AddIdentity/AddIdentity.yml"/>
+    <classes>
+      <class name="io.mosip.testrig.apirig.testscripts.AddIdentity">
+        <methods>
+          <include name="setLogLevel"/>
+          <include name="test"/>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+          <include name="waittime"/>
+        </methods>
+      </class> <!-- io.mosip.testrig.apirig.testscripts.AddIdentity -->
+    </classes>
+  </test> <!-- AddIdentity(failed) -->
+  <test name="GenerateVID(failed)">
+    <parameter name="ymlFile" value="mobileId/GenerateVID/createGenerateVID.yml"/>
+    <parameter name="idKeyName" value="vid"/>
+    <classes>
+      <class name="io.mosip.testrig.apirig.testscripts.PostWithAutogenIdWithOtpGenerate">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="waittime"/>
+          <include name="testTearDown"/>
+          <include name="setLogLevel"/>
+          <include name="test"/>
+        </methods>
+      </class> <!-- io.mosip.testrig.apirig.testscripts.PostWithAutogenIdWithOtpGenerate -->
+    </classes>
+  </test> <!-- GenerateVID(failed) -->
+  <test name="AuthLock(failed)">
+    <parameter name="ymlFile" value="mobileId/AuthLock/createAuthLock.yml"/>
+    <classes>
+      <class name="io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate">
+        <methods>
+          <include name="setLogLevel"/>
+          <include name="test"/>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+        </methods>
+      </class> <!-- io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate -->
+    </classes>
+  </test> <!-- AuthLock(failed) -->
+  <test name="AuthUnLock(failed)">
+    <parameter name="ymlFile" value="mobileId/AuthUnLock/createAuthUnLock.yml"/>
+    <classes>
+      <class name="io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate">
+        <methods>
+          <include name="setLogLevel"/>
+          <include name="test"/>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+        </methods>
+      </class> <!-- io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate -->
+    </classes>
+  </test> <!-- AuthUnLock(failed) -->
+  <test name="RequestCredentials(failed)">
+    <parameter name="ymlFile" value="mobileId/CredentialIssuance/RequestCredentials/ReqCredential.yml"/>
+    <parameter name="idKeyName" value="requestId"/>
+    <classes>
+      <class name="io.mosip.testrig.apirig.testscripts.PostWithAutogenIdWithOtpGenerate">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="waittime"/>
+          <include name="testTearDown"/>
+          <include name="setLogLevel"/>
+          <include name="test"/>
+        </methods>
+      </class> <!-- io.mosip.testrig.apirig.testscripts.PostWithAutogenIdWithOtpGenerate -->
+    </classes>
+  </test> <!-- RequestCredentials(failed) -->
+  <test name="CredentialCheckStatus(failed)">
+    <parameter name="ymlFile" value="mobileId/CredentialIssuance/CredentialCheckStatus/CredentialCheckStatus.yml"/>
+    <classes>
+      <class name="io.mosip.testrig.apirig.testscripts.GetWithParam">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+          <include name="setLogLevel"/>
+          <include name="test"/>
+        </methods>
+      </class> <!-- io.mosip.testrig.apirig.testscripts.GetWithParam -->
+    </classes>
+  </test> <!-- CredentialCheckStatus(failed) -->
+  <test name="DownloadCredential(failed)">
+    <parameter name="ymlFile" value="mobileId/CredentialIssuance/DownloadWithReqid/DownloadWithReqid.yml"/>
+    <classes>
+      <class name="io.mosip.testrig.apirig.testscripts.SimplePost">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="test"/>
+          <include name="setLogLevel"/>
+          <include name="testTearDown"/>
+        </methods>
+      </class> <!-- io.mosip.testrig.apirig.testscripts.SimplePost -->
+    </classes>
+  </test> <!-- DownloadCredential(failed) -->
+  <test name="SendOTP1(failed)">
+    <parameter name="ymlFile" value="mobileId/SendOTP1/SendOTP.yml"/>
+    <classes>
+      <class name="io.mosip.testrig.apirig.testscripts.SimplePost">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="test"/>
+          <include name="setLogLevel"/>
+          <include name="testTearDown"/>
+        </methods>
+      </class> <!-- io.mosip.testrig.apirig.testscripts.SimplePost -->
+    </classes>
+  </test> <!-- SendOTP1(failed) -->
+  <test name="SendOTPUIN(failed)">
+    <parameter name="ymlFile" value="mobileId/SendOTPUIN/createSendOTP.yml"/>
+    <classes>
+      <class name="io.mosip.testrig.apirig.testscripts.SimplePost">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="test"/>
+          <include name="setLogLevel"/>
+          <include name="testTearDown"/>
+        </methods>
+      </class> <!-- io.mosip.testrig.apirig.testscripts.SimplePost -->
+    </classes>
+  </test> <!-- SendOTPUIN(failed) -->
+  <test name="AidGetIndividualId(failed)">
+    <parameter name="ymlFile" value="mobileId/AidGetIndividualId/AidGetIndividualId.yml"/>
+    <classes>
+      <class name="io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate">
+        <methods>
+          <include name="setLogLevel"/>
+          <include name="test"/>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+        </methods>
+      </class> <!-- io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate -->
+    </classes>
+  </test> <!-- AidGetIndividualId(failed) -->
+  <test name="BindingOtp(failed)">
+    <parameter name="ymlFile" value="mobileId/BindingOtp/BindingOtp.yml"/>
+    <classes>
+      <class name="io.mosip.testrig.apirig.testscripts.SimplePost">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="test"/>
+          <include name="setLogLevel"/>
+          <include name="testTearDown"/>
+        </methods>
+      </class> <!-- io.mosip.testrig.apirig.testscripts.SimplePost -->
+    </classes>
+  </test> <!-- BindingOtp(failed) -->
+  <test name="WalletBinding(failed)">
+    <parameter name="ymlFile" value="mobileId/WalletBinding/WalletBinding.yml"/>
+    <classes>
+      <class name="io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate">
+        <methods>
+          <include name="setLogLevel"/>
+          <include name="test"/>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+        </methods>
+      </class> <!-- io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate -->
+    </classes>
+  </test> <!-- WalletBinding(failed) -->
+  <test name="GetAllIssuers(failed)">
+    <parameter name="ymlFile" value="mobileId/GetAllIssuers/GetAllIssuers.yml"/>
+    <classes>
+      <class name="io.mosip.testrig.apirig.testscripts.GetWithParam">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+          <include name="setLogLevel"/>
+          <include name="test"/>
+        </methods>
+      </class> <!-- io.mosip.testrig.apirig.testscripts.GetWithParam -->
+    </classes>
+  </test> <!-- GetAllIssuers(failed) -->
+</suite> <!-- Failed suite [MobileId Suite] -->

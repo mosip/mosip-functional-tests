@@ -1,0 +1,1358 @@
+<html>
+<head>
+<title>TestNG:  SearchRegCenterType</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>SearchRegCenterType</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>15/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:52:45 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>11 seconds (11267 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchRegCenterType_allValid_somke()'><b>MasterData_SearchRegCenterType_allValid_somke</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchRegCenterType_inValid_requestTime_format)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchRegCenterType_allValid_somke, endPoint=/v1/masterdata/registrationcentertypes/search, role=admin, templateFields=[languageCode], input={ "filters": [{ "columnName": "name", "type": "equals", "value": "Center A Ben Mansour" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ],
+"pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [ { "isActive": $IGNORE$, "code": "$IGNORE$", "name": "$IGNORE$", "descr": "$IGNORE$", "langCode": "$IGNORE$" } ] }, inputTemplate=masterdata/SearchRegCenterType/searchRegCenterType, outputTemplate=masterdata/SearchRegCenterType/searchRegCenterTypeResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-66144407" onClick='toggleBox("Output-66144407", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-66144407" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-66144407">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "requesttime": "2023-07-14T17:22:45.590Z",
+  "version": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "Center A Ben Mansour"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+    "pagination": {
+      "pageStart": 0.0,
+      "pageFetch": 1.0
+    },
+    "languageCode": "ara"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/registrationcentertypes/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:22:46.250Z",
+  "response": {
+    "fromRecord": 0,
+    "toRecord": 0,
+    "totalRecord": 0
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.data</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@48e7e2ca</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchRegCenterType_inValid_columnName()'><b>MasterData_SearchRegCenterType_inValid_columnName</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchRegCenterType_inValid_requestTime_format)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchRegCenterType_inValid_columnName, endPoint=/v1/masterdata/registrationcentertypes/search, role=admin, templateFields=[value], input={ "filters": [{ "columnName": "abdgf", "type": "startsWith", "value": "alter" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ],
+"pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-317", "message": "$IGNORE$" } ] }, inputTemplate=masterdata/SearchRegCenterType/searchRegCenterType, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1547018299" onClick='toggleBox("Output-1547018299", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1547018299" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1547018299">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "requesttime": "2023-07-14T17:22:49.395Z",
+  "version": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "abdgf",
+        "type": "startsWith",
+        "value": "alter"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+    "pagination": {
+      "pageStart": 0.0,
+      "pageFetch": 1.0
+    },
+    "languageCode": "ara"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/registrationcentertypes/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:22:50.081Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-317",
+      "message": "Column abdgf doesn\u0027t exist for the searched entity"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-317</td>
+    <td>KER-MSD-317</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@48e7e2ca</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchRegCenterType_inValid_columnName_blank()'><b>MasterData_SearchRegCenterType_inValid_columnName_blank</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchRegCenterType_inValid_requestTime_format)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchRegCenterType_inValid_columnName_blank, endPoint=/v1/masterdata/registrationcentertypes/search, role=admin, templateFields=[value], input={ "filters": [{ "columnName": "", "type": "startsWith", "value": "alter" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ],
+"pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-311", "message": "Column is missing in request" } ] }, inputTemplate=masterdata/SearchRegCenterType/searchRegCenterType, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1318801048" onClick='toggleBox("Output-1318801048", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1318801048" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1318801048">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "requesttime": "2023-07-14T17:22:48.565Z",
+  "version": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "",
+        "type": "startsWith",
+        "value": "alter"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+    "pagination": {
+      "pageStart": 0.0,
+      "pageFetch": 1.0
+    },
+    "languageCode": "ara"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/registrationcentertypes/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:22:49.325Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-311",
+      "message": "Column is missing in request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Column is missing in request</td>
+    <td>Column is missing in request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-311</td>
+    <td>KER-MSD-311</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@48e7e2ca</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchRegCenterType_inValid_filterType()'><b>MasterData_SearchRegCenterType_inValid_filterType</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchRegCenterType_inValid_requestTime_format)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchRegCenterType_inValid_filterType, endPoint=/v1/masterdata/registrationcentertypes/search, role=admin, templateFields=[value], input={ "filters": [{ "columnName": "name", "type": "adfdd", "value": "alternate" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ],
+"pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-318", "message": "$IGNORE$" } ] }, inputTemplate=masterdata/SearchRegCenterType/searchRegCenterType, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1052063317" onClick='toggleBox("Output-1052063317", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1052063317" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1052063317">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "requesttime": "2023-07-14T17:22:55.332Z",
+  "version": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "adfdd",
+        "value": "alternate"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+    "pagination": {
+      "pageStart": 0.0,
+      "pageFetch": 1.0
+    },
+    "languageCode": "ara"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/registrationcentertypes/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:22:56.065Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-318",
+      "message": "Column name doesn\u0027t support filter type adfdd"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-318</td>
+    <td>KER-MSD-318</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@48e7e2ca</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchRegCenterType_inValid_filterType_blank()'><b>MasterData_SearchRegCenterType_inValid_filterType_blank</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchRegCenterType_inValid_requestTime_format)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchRegCenterType_inValid_filterType_blank, endPoint=/v1/masterdata/registrationcentertypes/search, role=admin, templateFields=[value], input={ "filters": [{ "columnName": "name", "type": "", "value": "alternate" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ],
+"pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-312", "message": "Filter type is missing" } ] }, inputTemplate=masterdata/SearchRegCenterType/searchRegCenterType, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-911328461" onClick='toggleBox("Output-911328461", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-911328461" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-911328461">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "requesttime": "2023-07-14T17:22:54.616Z",
+  "version": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "",
+        "value": "alternate"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+    "pagination": {
+      "pageStart": 0.0,
+      "pageFetch": 1.0
+    },
+    "languageCode": "ara"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/registrationcentertypes/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:22:55.261Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-312",
+      "message": "Filter type is missing"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Filter type is missing</td>
+    <td>Filter type is missing</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-312</td>
+    <td>KER-MSD-312</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@48e7e2ca</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchRegCenterType_inValid_filter_value()'><b>MasterData_SearchRegCenterType_inValid_filter_value</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchRegCenterType_inValid_requestTime_format)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchRegCenterType_inValid_filter_value, endPoint=/v1/masterdata/registrationcentertypes/search, role=admin, templateFields=[value], input={ "filters": [{ "columnName": "name", "type": "equals", "value": "abdesff" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ],
+"pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [] }, inputTemplate=masterdata/SearchRegCenterType/searchRegCenterType, outputTemplate=masterdata/SearchRegCenterType/searchRegCenterTypeResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-829576976" onClick='toggleBox("Output-829576976", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-829576976" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-829576976">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "requesttime": "2023-07-14T17:22:50.155Z",
+  "version": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "abdesff"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+    "pagination": {
+      "pageStart": 0.0,
+      "pageFetch": 1.0
+    },
+    "languageCode": "ara"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/registrationcentertypes/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:22:50.869Z",
+  "response": {
+    "fromRecord": 0,
+    "toRecord": 0,
+    "totalRecord": 0
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.data</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@48e7e2ca</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchRegCenterType_inValid_filter_value_blank()'><b>MasterData_SearchRegCenterType_inValid_filter_value_blank</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchRegCenterType_inValid_requestTime_format)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchRegCenterType_inValid_filter_value_blank, endPoint=/v1/masterdata/registrationcentertypes/search, role=admin, templateFields=[value], input={ "filters": [{ "columnName": "name", "type": "equals", "value": "" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ],
+"pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-390", "message": "Invalid filter value" } ] }, inputTemplate=masterdata/SearchRegCenterType/searchRegCenterType, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-187828388" onClick='toggleBox("Output-187828388", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-187828388" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-187828388">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "requesttime": "2023-07-14T17:22:50.958Z",
+  "version": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": ""
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+    "pagination": {
+      "pageStart": 0.0,
+      "pageFetch": 1.0
+    },
+    "languageCode": "ara"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/registrationcentertypes/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:22:51.655Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-390",
+      "message": "Invalid filter value"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Invalid filter value</td>
+    <td>Invalid filter value</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-390</td>
+    <td>KER-MSD-390</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@48e7e2ca</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchRegCenterType_inValid_requestTime_format()'><b>MasterData_SearchRegCenterType_inValid_requestTime_format</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchRegCenterType_inValid_requestTime_format)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchRegCenterType_inValid_requestTime_format, endPoint=/v1/masterdata/registrationcentertypes/search, role=admin, templateFields=[value], input={ "filters": [{ "columnName": "name", "type": "equals", "value": "alternate" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ],
+"pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "2018-12-10 06:12:52.994Z" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "Invalid Format in field : requesttime" } ] }, inputTemplate=masterdata/SearchRegCenterType/searchRegCenterType, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-540697999" onClick='toggleBox("Output-540697999", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-540697999" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-540697999">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "requesttime": "2018-12-10 06:12:52.994Z",
+  "version": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "alternate"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+    "pagination": {
+      "pageStart": 0.0,
+      "pageFetch": 1.0
+    },
+    "languageCode": "ara"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/registrationcentertypes/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:22:56.776Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : requesttime"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Invalid Format in field : requesttime</td>
+    <td>Invalid Format in field : requesttime</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@48e7e2ca</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchRegCenterType_inValid_sortField()'><b>MasterData_SearchRegCenterType_inValid_sortField</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchRegCenterType_inValid_requestTime_format)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchRegCenterType_inValid_sortField, endPoint=/v1/masterdata/registrationcentertypes/search, role=admin, templateFields=[value], input={ "filters": [{ "columnName": "name", "type": "equals", "value": "alternate" } ], "sort": [ { "sortField": "fbheafg", "sortType": "ASC" } ],
+"pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-357", "message": "Invalid sort field fbheafg" } ] }, inputTemplate=masterdata/SearchRegCenterType/searchRegCenterType, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-837700512" onClick='toggleBox("Output-837700512", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-837700512" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-837700512">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "requesttime": "2023-07-14T17:22:51.725Z",
+  "version": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "alternate"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "fbheafg",
+        "sortType": "ASC"
+      }
+    ],
+    "pagination": {
+      "pageStart": 0.0,
+      "pageFetch": 1.0
+    },
+    "languageCode": "ara"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/registrationcentertypes/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:22:52.368Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-357",
+      "message": "Invalid sort field fbheafg"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Invalid sort field fbheafg</td>
+    <td>Invalid sort field fbheafg</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-357</td>
+    <td>KER-MSD-357</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@48e7e2ca</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchRegCenterType_inValid_sortField_blank()'><b>MasterData_SearchRegCenterType_inValid_sortField_blank</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchRegCenterType_inValid_requestTime_format)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchRegCenterType_inValid_sortField_blank, endPoint=/v1/masterdata/registrationcentertypes/search, role=admin, templateFields=[value], input={ "filters": [{ "columnName": "name", "type": "equals", "value": "alternate" } ], "sort": [ { "sortField": "", "sortType": "ASC" } ],
+"pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-314", "message": "Missing sort field or sort type values" } ] }, inputTemplate=masterdata/SearchRegCenterType/searchRegCenterType, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1491213790" onClick='toggleBox("Output-1491213790", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1491213790" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1491213790">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "requesttime": "2023-07-14T17:22:53.204Z",
+  "version": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "alternate"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "",
+        "sortType": "ASC"
+      }
+    ],
+    "pagination": {
+      "pageStart": 0.0,
+      "pageFetch": 1.0
+    },
+    "languageCode": "ara"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/registrationcentertypes/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:22:53.834Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-314",
+      "message": "Missing sort field or sort type values"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Missing sort field or sort type values</td>
+    <td>Missing sort field or sort type values</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-314</td>
+    <td>KER-MSD-314</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@48e7e2ca</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchRegCenterType_inValid_sortType()'><b>MasterData_SearchRegCenterType_inValid_sortType</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchRegCenterType_inValid_requestTime_format)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchRegCenterType_inValid_sortType, endPoint=/v1/masterdata/registrationcentertypes/search, role=admin, templateFields=[value], input={ "filters": [{ "columnName": "name", "type": "equals", "value": "alternate" } ], "sort": [ { "sortField": "name", "sortType": "addfd" } ],
+"pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-358", "message": "Sort type addfd is not supported" } ] }, inputTemplate=masterdata/SearchRegCenterType/searchRegCenterType, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1420812989" onClick='toggleBox("Output-1420812989", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1420812989" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1420812989">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "requesttime": "2023-07-14T17:22:52.444Z",
+  "version": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "alternate"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "addfd"
+      }
+    ],
+    "pagination": {
+      "pageStart": 0.0,
+      "pageFetch": 1.0
+    },
+    "languageCode": "ara"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/registrationcentertypes/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:22:53.129Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-358",
+      "message": "Sort type addfd is not supported"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Sort type addfd is not supported</td>
+    <td>Sort type addfd is not supported</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-358</td>
+    <td>KER-MSD-358</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@48e7e2ca</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchRegCenterType_inValid_sortType_blank()'><b>MasterData_SearchRegCenterType_inValid_sortType_blank</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchRegCenterType_inValid_requestTime_format)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchRegCenterType_inValid_sortType_blank, endPoint=/v1/masterdata/registrationcentertypes/search, role=admin, templateFields=[value], input={ "filters": [{ "columnName": "name", "type": "equals", "value": "alternate" } ], "sort": [ { "sortField": "name", "sortType": "" } ],
+"pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-314", "message": "Missing sort field or sort type values" } ] }, inputTemplate=masterdata/SearchRegCenterType/searchRegCenterType, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1092856598" onClick='toggleBox("Output-1092856598", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1092856598" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1092856598">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "requesttime": "2023-07-14T17:22:53.907Z",
+  "version": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "alternate"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": ""
+      }
+    ],
+    "pagination": {
+      "pageStart": 0.0,
+      "pageFetch": 1.0
+    },
+    "languageCode": "ara"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/registrationcentertypes/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:22:54.547Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-314",
+      "message": "Missing sort field or sort type values"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Missing sort field or sort type values</td>
+    <td>Missing sort field or sort type values</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-314</td>
+    <td>KER-MSD-314</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@48e7e2ca</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchRegCenterType_valid_col_isActive_true()'><b>MasterData_SearchRegCenterType_valid_col_isActive_true</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchRegCenterType_inValid_requestTime_format)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchRegCenterType_valid_col_isActive_true, endPoint=/v1/masterdata/registrationcentertypes/search, role=admin, templateFields=[languageCode], input={ "filters": [{ "columnName": "isActive", "type": "equals", "value": "true" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ],
+"pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [ { "isActive": true, "code": "$IGNORE$", "name": "$IGNORE$", "descr": "$IGNORE$", "langCode": "$IGNORE$" } ] }, inputTemplate=masterdata/SearchRegCenterType/searchRegCenterType, outputTemplate=masterdata/SearchRegCenterType/searchRegCenterTypeResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-198921214" onClick='toggleBox("Output-198921214", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-198921214" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-198921214">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "requesttime": "2023-07-14T17:22:46.339Z",
+  "version": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "isActive",
+        "type": "equals",
+        "value": "true"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+    "pagination": {
+      "pageStart": 0.0,
+      "pageFetch": 1.0
+    },
+    "languageCode": "ara"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/registrationcentertypes/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:22:46.979Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2022-02-23T12:40:29.402Z",
+        "isDeleted": false,
+        "code": "REG",
+        "langCode": "ara",
+        "name": "منتظم",
+        "descr": "مركز التسجيل العادي"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deletedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updatedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updatedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>true</td>
+    <td>true</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@48e7e2ca</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchRegCenterType_valid_typeFilter_contains()'><b>MasterData_SearchRegCenterType_valid_typeFilter_contains</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchRegCenterType_inValid_requestTime_format)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchRegCenterType_valid_typeFilter_contains, endPoint=/v1/masterdata/registrationcentertypes/search, role=admin, templateFields=[languageCode], input={ "filters": [{ "columnName": "name", "type": "contains", "value": "Center A Ben Mansour" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ],
+"pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [ { "isActive": $IGNORE$, "code": "$IGNORE$", "name": "$IGNORE$", "descr": "$IGNORE$", "langCode": "$IGNORE$" } ] }, inputTemplate=masterdata/SearchRegCenterType/searchRegCenterType, outputTemplate=masterdata/SearchRegCenterType/searchRegCenterTypeResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-914505647" onClick='toggleBox("Output-914505647", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-914505647" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-914505647">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "requesttime": "2023-07-14T17:22:47.064Z",
+  "version": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "contains",
+        "value": "Center A Ben Mansour"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+    "pagination": {
+      "pageStart": 0.0,
+      "pageFetch": 1.0
+    },
+    "languageCode": "ara"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/registrationcentertypes/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:22:47.722Z",
+  "response": {
+    "fromRecord": 0,
+    "toRecord": 0,
+    "totalRecord": 0
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.data</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@48e7e2ca</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchRegCenterType_valid_typeFilter_startsWith()'><b>MasterData_SearchRegCenterType_valid_typeFilter_startsWith</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchRegCenterType_inValid_requestTime_format)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchRegCenterType_valid_typeFilter_startsWith, endPoint=/v1/masterdata/registrationcentertypes/search, role=admin, templateFields=[languageCode], input={ "filters": [{ "columnName": "name", "type": "startsWith", "value": "Center A Ben Mansour" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ],
+"pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [ { "isActive": $IGNORE$, "code": "$IGNORE$", "name": "$IGNORE$", "descr": "$IGNORE$", "langCode": "$IGNORE$" } ] }, inputTemplate=masterdata/SearchRegCenterType/searchRegCenterType, outputTemplate=masterdata/SearchRegCenterType/searchRegCenterTypeResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-104309819" onClick='toggleBox("Output-104309819", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-104309819" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-104309819">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "requesttime": "2023-07-14T17:22:47.808Z",
+  "version": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "startsWith",
+        "value": "Center A Ben Mansour"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+    "pagination": {
+      "pageStart": 0.0,
+      "pageFetch": 1.0
+    },
+    "languageCode": "ara"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/registrationcentertypes/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:22:48.459Z",
+  "response": {
+    "fromRecord": 0,
+    "toRecord": 0,
+    "totalRecord": 0
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.data</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@48e7e2ca</td></tr>
+</table><p>
+</body>
+</html>

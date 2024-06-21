@@ -1,0 +1,6886 @@
+<html>
+<head>
+<title>TestNG:  createSearchPolicyGroup</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>createSearchPolicyGroup</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>13/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:31:52 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>11 seconds (11962 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPolicyGroup_AllValid_Smoke()'><b>Partner_SearchPolicyGroup_AllValid_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPolicyGroup_with_missing_columnName)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPolicyGroup_AllValid_Smoke, endPoint=/v1/policymanager/policies/group/search, role=partner, templateFields=null, input={ "pageFetch": "$REMOVE$", "pageStart": "0", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "data": [ { "isActive": "$IGNORE$" } ] }, inputTemplate=partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup, outputTemplate=partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1916150078" onClick='toggleBox("Output-1916150078", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1916150078" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1916150078">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": "0"
+    },
+    "filters": [],
+    "sort": []
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:01:52.864Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:01:53.675Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 10,
+    "totalRecord": 293,
+    "data": [
+      {
+        "id": "mpolicygroup-default-auth",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.533632",
+        "desc": "mpolicygroup-default-auth",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mpolicygroup-default-auth",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:25.533632",
+        "userId": "superadmin"
+      },
+      {
+        "id": "mpolicygroup-deafult-abis",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.533632",
+        "desc": "mpolicygroup-deafult-abis",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mpolicygroup-deafult-abis",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:25.533632",
+        "userId": "superadmin"
+      },
+      {
+        "id": "mpolicygroup-deafult-print",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.533632",
+        "desc": "mpolicygroup-deafult-print",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mpolicygroup-deafult-print",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:25.533632",
+        "userId": "superadmin"
+      },
+      {
+        "id": "mpolicygroup-default-mockdevice",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.533632",
+        "desc": "mpolicygroup-default-mockdevice",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mmpolicygroup-default-mockdevice",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:25.533632",
+        "userId": "superadmin"
+      },
+      {
+        "id": "mpolicygroup-deafult-resident",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.533632",
+        "desc": "mpolicygroup-deafult-resident",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mpolicygroup-deafult-resident",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:25.533632",
+        "userId": "superadmin"
+      },
+      {
+        "id": "mpolicygroup-default-adjudication",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.533632",
+        "desc": " mpolicygroup-deafult-resident",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mpolicygroup-default-adjudication",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:25.533632",
+        "userId": "superadmin"
+      },
+      {
+        "id": "442883",
+        "crBy": "110068",
+        "crDtimes": "2022-02-28T06:26:48.028514",
+        "desc": "datashare Policy Group",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "{{datasharepolicygroupname}}",
+        "userId": "110068"
+      },
+      {
+        "id": "779925",
+        "crBy": "110068",
+        "crDtimes": "2022-02-28T06:28:10.61898",
+        "desc": "datashare Policy Group",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mpoli",
+        "userId": "110068"
+      },
+      {
+        "id": "256295",
+        "crBy": "110124",
+        "crDtimes": "2022-03-09T06:20:04.258754",
+        "desc": "PolicyGroup",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "{{policygroupname}}",
+        "userId": "110124"
+      },
+      {
+        "id": "31624",
+        "crBy": "110124",
+        "crDtimes": "2022-03-09T06:24:29.513164",
+        "desc": "PolicyGroup",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "365",
+        "userId": "110124"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[8].id</td>
+    <td>NOT VERIFIED</td>
+    <td>256295</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>110068</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.totalRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>293</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>datashare Policy Group</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-deafult-resident</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mpoli</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].id</td>
+    <td>NOT VERIFIED</td>
+    <td>442883</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110068</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].name</td>
+    <td>NOT VERIFIED</td>
+    <td>{{policygroupname}}</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-28T06:26:48.028514</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-deafult-abis</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>PolicyGroup</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:53.675Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-deafult-abis</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-deafult-resident</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-deafult-print</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-deafult-print</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.fromRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>PolicyGroup</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>110068</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-deafult-print</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mmpolicygroup-default-mockdevice</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110068</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-mockdevice</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].name</td>
+    <td>NOT VERIFIED</td>
+    <td>{{datasharepolicygroupname}}</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].id</td>
+    <td>NOT VERIFIED</td>
+    <td>31624</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-09T06:20:04.258754</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].name</td>
+    <td>NOT VERIFIED</td>
+    <td>365</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-adjudication</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>datashare Policy Group</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].id</td>
+    <td>NOT VERIFIED</td>
+    <td>779925</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-09T06:24:29.513164</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>110124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.toRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>10</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].desc</td>
+    <td>NOT VERIFIED</td>
+    <td> mpolicygroup-deafult-resident</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-mockdevice</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-deafult-resident</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-deafult-abis</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>110124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-adjudication</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-28T06:28:10.61898</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.SimplePost@d1c5cf2</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPolicyGroup_Only_FilterCriteria_Smoke()'><b>Partner_SearchPolicyGroup_Only_FilterCriteria_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPolicyGroup_with_missing_columnName)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPolicyGroup_Only_FilterCriteria_Smoke, endPoint=/v1/policymanager/policies/group/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "name", "type": "contains", "value": "Auth" } ], "pageFetch": "$REMOVE$", "pageStart": "0", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "data": [ { "isActive": "$IGNORE$" } ] }, inputTemplate=partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup, outputTemplate=partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-661565357" onClick='toggleBox("Output-661565357", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-661565357" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-661565357">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": "0"
+    },
+    "filters": [
+      {
+        "fromValue": "string",
+        "toValue": "string",
+        "type": "contains",
+        "value": "Auth",
+        "columnName": "name"
+      }
+    ],
+    "sort": []
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:01:54.026Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:01:54.704Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 10,
+    "totalRecord": 159,
+    "data": [
+      {
+        "id": "mpolicygroup-default-auth",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.533632",
+        "desc": "mpolicygroup-default-auth",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mpolicygroup-default-auth",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:25.533632",
+        "userId": "superadmin"
+      },
+      {
+        "id": "561179",
+        "crBy": "110070",
+        "crDtimes": "2023-04-27T07:26:23.959289",
+        "desc": "Auth Policy Group129",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "Auth Policy Group129",
+        "userId": "110070"
+      },
+      {
+        "id": "215510",
+        "crBy": "110070",
+        "crDtimes": "2023-04-27T07:29:08.689328",
+        "desc": "Auth Policy Group191",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "Auth Policy Group191",
+        "userId": "110070"
+      },
+      {
+        "id": "516401",
+        "crBy": "110070",
+        "crDtimes": "2023-04-27T07:48:46.709675",
+        "desc": "Auth Policy Group1911",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "Auth Policy Group1911",
+        "userId": "110070"
+      },
+      {
+        "id": "75945",
+        "crBy": "110070",
+        "crDtimes": "2023-04-27T10:20:22.17071",
+        "desc": "Auth Policy Group192",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "Auth Policy Group192",
+        "userId": "110070"
+      },
+      {
+        "id": "576847",
+        "crBy": "service-account-mosip-pms-client",
+        "crDtimes": "2023-04-27T11:22:36.504261",
+        "desc": "Auth Policy Group193",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "Auth Policy Group193",
+        "userId": "service-account-mosip-pms-client"
+      },
+      {
+        "id": "18851",
+        "crBy": "auth-111997",
+        "crDtimes": "2023-06-28T05:25:18.677331",
+        "desc": "desc mosip auth policy group",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mosip auth policy group 1687929914165",
+        "userId": "auth-111997"
+      },
+      {
+        "id": "26351",
+        "crBy": "idp-111997",
+        "crDtimes": "2023-06-29T09:12:49.110382",
+        "desc": "desc mosip auth policy group",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mosip auth policy group 1688029962615",
+        "userId": "idp-111997"
+      },
+      {
+        "id": "64420",
+        "crBy": "idp-111997",
+        "crDtimes": "2023-06-28T05:27:56.781138",
+        "desc": "desc mosip auth policy group",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mosip auth policy group 1687930070290",
+        "userId": "idp-111997"
+      },
+      {
+        "id": "13535",
+        "crBy": "auth-111997",
+        "crDtimes": "2023-06-28T05:29:13.004818",
+        "desc": "desc mosip auth policy group",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mosip auth policy group 1687930150955",
+        "userId": "auth-111997"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[8].id</td>
+    <td>NOT VERIFIED</td>
+    <td>64420</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>auth-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.totalRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>159</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>desc mosip auth policy group</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T07:48:46.709675</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group192</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mosip auth policy group 1688029962615</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T11:22:36.504261</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].id</td>
+    <td>NOT VERIFIED</td>
+    <td>18851</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>auth-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T07:29:08.689328</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mosip auth policy group 1687930070290</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-06-28T05:25:18.677331</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>service-account-mosip-pms-client</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group129</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>desc mosip auth policy group</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:54.704Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group129</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].id</td>
+    <td>NOT VERIFIED</td>
+    <td>75945</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group191</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group191</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.fromRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>desc mosip auth policy group</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].id</td>
+    <td>NOT VERIFIED</td>
+    <td>215510</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group1911</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group1911</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mosip auth policy group 1687929914165</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].id</td>
+    <td>NOT VERIFIED</td>
+    <td>13535</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-06-28T05:27:56.781138</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mosip auth policy group 1687930150955</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].id</td>
+    <td>NOT VERIFIED</td>
+    <td>576847</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>desc mosip auth policy group</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].id</td>
+    <td>NOT VERIFIED</td>
+    <td>26351</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-06-28T05:29:13.004818</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.toRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>10</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group193</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>auth-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>service-account-mosip-pms-client</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].id</td>
+    <td>NOT VERIFIED</td>
+    <td>516401</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group192</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T07:26:23.959289</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].id</td>
+    <td>NOT VERIFIED</td>
+    <td>561179</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>auth-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group193</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-06-29T09:12:49.110382</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T10:20:22.17071</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@d1c5cf2</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPolicyGroup_Only_PaginationCriteria_Smoke()'><b>Partner_SearchPolicyGroup_Only_PaginationCriteria_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPolicyGroup_with_missing_columnName)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPolicyGroup_Only_PaginationCriteria_Smoke, endPoint=/v1/policymanager/policies/group/search, role=partner, templateFields=null, input={ "pageFetch": "10", "pageStart": "0", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "data": [ { "isActive": "$IGNORE$" } ] }, inputTemplate=partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup, outputTemplate=partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2031522930" onClick='toggleBox("Output-2031522930", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2031522930" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2031522930">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "sort": []
+  },
+  "requesttime": "2023-07-14T17:01:55.765Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:01:56.475Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 10,
+    "totalRecord": 293,
+    "data": [
+      {
+        "id": "mpolicygroup-default-auth",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.533632",
+        "desc": "mpolicygroup-default-auth",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mpolicygroup-default-auth",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:25.533632",
+        "userId": "superadmin"
+      },
+      {
+        "id": "mpolicygroup-deafult-abis",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.533632",
+        "desc": "mpolicygroup-deafult-abis",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mpolicygroup-deafult-abis",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:25.533632",
+        "userId": "superadmin"
+      },
+      {
+        "id": "mpolicygroup-deafult-print",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.533632",
+        "desc": "mpolicygroup-deafult-print",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mpolicygroup-deafult-print",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:25.533632",
+        "userId": "superadmin"
+      },
+      {
+        "id": "mpolicygroup-default-mockdevice",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.533632",
+        "desc": "mpolicygroup-default-mockdevice",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mmpolicygroup-default-mockdevice",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:25.533632",
+        "userId": "superadmin"
+      },
+      {
+        "id": "mpolicygroup-deafult-resident",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.533632",
+        "desc": "mpolicygroup-deafult-resident",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mpolicygroup-deafult-resident",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:25.533632",
+        "userId": "superadmin"
+      },
+      {
+        "id": "mpolicygroup-default-adjudication",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.533632",
+        "desc": " mpolicygroup-deafult-resident",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mpolicygroup-default-adjudication",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:25.533632",
+        "userId": "superadmin"
+      },
+      {
+        "id": "442883",
+        "crBy": "110068",
+        "crDtimes": "2022-02-28T06:26:48.028514",
+        "desc": "datashare Policy Group",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "{{datasharepolicygroupname}}",
+        "userId": "110068"
+      },
+      {
+        "id": "779925",
+        "crBy": "110068",
+        "crDtimes": "2022-02-28T06:28:10.61898",
+        "desc": "datashare Policy Group",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mpoli",
+        "userId": "110068"
+      },
+      {
+        "id": "256295",
+        "crBy": "110124",
+        "crDtimes": "2022-03-09T06:20:04.258754",
+        "desc": "PolicyGroup",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "{{policygroupname}}",
+        "userId": "110124"
+      },
+      {
+        "id": "31624",
+        "crBy": "110124",
+        "crDtimes": "2022-03-09T06:24:29.513164",
+        "desc": "PolicyGroup",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "365",
+        "userId": "110124"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[8].id</td>
+    <td>NOT VERIFIED</td>
+    <td>256295</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>110068</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.totalRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>293</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>datashare Policy Group</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-deafult-resident</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mpoli</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].id</td>
+    <td>NOT VERIFIED</td>
+    <td>442883</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110068</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].name</td>
+    <td>NOT VERIFIED</td>
+    <td>{{policygroupname}}</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-28T06:26:48.028514</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-deafult-abis</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>PolicyGroup</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:56.475Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-deafult-abis</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-deafult-resident</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-deafult-print</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-deafult-print</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.fromRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>PolicyGroup</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>110068</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-deafult-print</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mmpolicygroup-default-mockdevice</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110068</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-mockdevice</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].name</td>
+    <td>NOT VERIFIED</td>
+    <td>{{datasharepolicygroupname}}</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].id</td>
+    <td>NOT VERIFIED</td>
+    <td>31624</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-09T06:20:04.258754</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].name</td>
+    <td>NOT VERIFIED</td>
+    <td>365</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-adjudication</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>datashare Policy Group</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].id</td>
+    <td>NOT VERIFIED</td>
+    <td>779925</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-09T06:24:29.513164</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>110124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.toRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>10</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].desc</td>
+    <td>NOT VERIFIED</td>
+    <td> mpolicygroup-deafult-resident</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-mockdevice</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-deafult-resident</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-deafult-abis</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>110124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-adjudication</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-28T06:28:10.61898</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@d1c5cf2</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPolicyGroup_Only_SortCriteria_Smoke()'><b>Partner_SearchPolicyGroup_Only_SortCriteria_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPolicyGroup_with_missing_columnName)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPolicyGroup_Only_SortCriteria_Smoke, endPoint=/v1/policymanager/policies/group/search, role=partner, templateFields=null, input={ "sort": [ { "sortField": "name", "sortType": "asc" } ], "pageFetch": "$REMOVE$", "pageStart": "0", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "data": [ { "isActive": "$IGNORE$" } ] }, inputTemplate=partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup, outputTemplate=partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-771192427" onClick='toggleBox("Output-771192427", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-771192427" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-771192427">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": "0"
+    },
+    "filters": [],
+    "sort": [
+      {
+        "sortType": "asc",
+        "sortField": "name"
+      }
+    ]
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:01:54.849Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:01:55.545Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 10,
+    "totalRecord": 293,
+    "data": [
+      {
+        "id": "391745",
+        "crBy": "110124",
+        "crDtimes": "2022-03-11T04:37:18.670885",
+        "desc": "PolicyGroup",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "107",
+        "userId": "110124"
+      },
+      {
+        "id": "84828",
+        "crBy": "idp-111997",
+        "crDtimes": "2023-07-07T05:06:14.905017",
+        "desc": "278470492569780",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "278470492569780",
+        "userId": "idp-111997"
+      },
+      {
+        "id": "98738",
+        "crBy": "idp-111997",
+        "crDtimes": "2023-07-05T05:04:56.180816",
+        "desc": "278470753864875",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "278470753864875",
+        "userId": "idp-111997"
+      },
+      {
+        "id": "8215",
+        "crBy": "idp-111997",
+        "crDtimes": "2023-07-11T05:05:13.930471",
+        "desc": "278471016077812",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "278471016077812",
+        "userId": "idp-111997"
+      },
+      {
+        "id": "3647",
+        "crBy": "idp-111997",
+        "crDtimes": "2023-07-04T05:04:41.886991",
+        "desc": "278471182565768",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "278471182565768",
+        "userId": "idp-111997"
+      },
+      {
+        "id": "88890",
+        "crBy": "idp-111997",
+        "crDtimes": "2023-07-09T05:07:33.842819",
+        "desc": "278472177592107",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "278472177592107",
+        "userId": "idp-111997"
+      },
+      {
+        "id": "353",
+        "crBy": "idp-111997",
+        "crDtimes": "2023-07-14T05:05:22.482053",
+        "desc": "278472751198864",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "278472751198864",
+        "userId": "idp-111997"
+      },
+      {
+        "id": "31421",
+        "crBy": "idp-111997",
+        "crDtimes": "2023-07-06T05:05:13.929014",
+        "desc": "278475341590012",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "278475341590012",
+        "userId": "idp-111997"
+      },
+      {
+        "id": "1550",
+        "crBy": "idp-111997",
+        "crDtimes": "2023-07-08T05:05:26.438",
+        "desc": "278476847856189",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "278476847856189",
+        "userId": "idp-111997"
+      },
+      {
+        "id": "5741",
+        "crBy": "idp-111997",
+        "crDtimes": "2023-07-12T05:09:28.346853",
+        "desc": "278477354330995",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "278477354330995",
+        "userId": "idp-111997"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[8].id</td>
+    <td>NOT VERIFIED</td>
+    <td>1550</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.totalRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>293</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>278475341590012</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-11T05:05:13.930471</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>278471182565768</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].name</td>
+    <td>NOT VERIFIED</td>
+    <td>278475341590012</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-09T05:07:33.842819</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].id</td>
+    <td>NOT VERIFIED</td>
+    <td>353</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-05T05:04:56.180816</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].name</td>
+    <td>NOT VERIFIED</td>
+    <td>278476847856189</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T05:05:22.482053</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>278470492569780</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>278477354330995</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:55.545Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].name</td>
+    <td>NOT VERIFIED</td>
+    <td>278470492569780</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].id</td>
+    <td>NOT VERIFIED</td>
+    <td>3647</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].name</td>
+    <td>NOT VERIFIED</td>
+    <td>278470753864875</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>278470753864875</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.fromRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>278476847856189</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].id</td>
+    <td>NOT VERIFIED</td>
+    <td>98738</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].name</td>
+    <td>NOT VERIFIED</td>
+    <td>278471016077812</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-11T04:37:18.670885</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>278471016077812</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>110124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].name</td>
+    <td>NOT VERIFIED</td>
+    <td>278472751198864</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].id</td>
+    <td>NOT VERIFIED</td>
+    <td>5741</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].id</td>
+    <td>NOT VERIFIED</td>
+    <td>391745</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-08T05:05:26.438</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].name</td>
+    <td>NOT VERIFIED</td>
+    <td>278477354330995</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].id</td>
+    <td>NOT VERIFIED</td>
+    <td>88890</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>278472751198864</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].id</td>
+    <td>NOT VERIFIED</td>
+    <td>31421</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-12T05:09:28.346853</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>107</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>PolicyGroup</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.toRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>10</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>278472177592107</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].id</td>
+    <td>NOT VERIFIED</td>
+    <td>8215</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].name</td>
+    <td>NOT VERIFIED</td>
+    <td>278471182565768</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-07T05:06:14.905017</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].id</td>
+    <td>NOT VERIFIED</td>
+    <td>84828</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].name</td>
+    <td>NOT VERIFIED</td>
+    <td>278472177592107</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-06T05:05:13.929014</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-04T05:04:41.886991</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@d1c5cf2</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPolicyGroup_columnname_id_asc_smoke()'><b>Partner_SearchPolicyGroup_columnname_id_asc_smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPolicyGroup_with_missing_columnName)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPolicyGroup_columnname_id_asc_smoke, endPoint=/v1/policymanager/policies/group/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "id", "type": "contains", "value": "mpolicygroup-default-auth" } ], "sort": [ { "sortField": "id", "sortType": "asc" } ], "pageFetch": "10", "pageStart": "0", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "data": [ { "isActive": "true" } ] }, inputTemplate=partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup, outputTemplate=partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1208947473" onClick='toggleBox("Output-1208947473", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1208947473" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1208947473">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "id",
+        "fromValue": "string",
+        "toValue": "string",
+        "type": "contains",
+        "value": "mpolicygroup-default-auth"
+      }
+    ],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "sort": [
+      {
+        "sortField": "id",
+        "sortType": "asc"
+      }
+    ]
+  },
+  "requesttime": "2023-07-14T17:02:02.952Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:02:03.687Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "id": "mpolicygroup-default-auth",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.533632",
+        "desc": "mpolicygroup-default-auth",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mpolicygroup-default-auth",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:25.533632",
+        "userId": "superadmin"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[0].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.toRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.totalRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.fromRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:02:03.687Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@d1c5cf2</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPolicyGroup_columnname_id_desc_smoke()'><b>Partner_SearchPolicyGroup_columnname_id_desc_smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPolicyGroup_with_missing_columnName)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPolicyGroup_columnname_id_desc_smoke, endPoint=/v1/policymanager/policies/group/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "id", "type": "contains", "value": "mpolicygroup-default-auth" } ], "sort": [ { "sortField": "id", "sortType": "desc" } ], "pageFetch": "10", "pageStart": "0", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "data": [ { "isActive": "true" } ] }, inputTemplate=partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup, outputTemplate=partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1393484058" onClick='toggleBox("Output-1393484058", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1393484058" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1393484058">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "id",
+        "fromValue": "string",
+        "toValue": "string",
+        "type": "contains",
+        "value": "mpolicygroup-default-auth"
+      }
+    ],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "sort": [
+      {
+        "sortField": "id",
+        "sortType": "desc"
+      }
+    ]
+  },
+  "requesttime": "2023-07-14T17:02:02.041Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:02:02.731Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "id": "mpolicygroup-default-auth",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.533632",
+        "desc": "mpolicygroup-default-auth",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mpolicygroup-default-auth",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:25.533632",
+        "userId": "superadmin"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[0].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.toRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.totalRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.fromRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:02:02.731Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@d1c5cf2</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPolicyGroup_type_contains_Smoke_asc_sid()'><b>Partner_SearchPolicyGroup_type_contains_Smoke_asc_sid</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPolicyGroup_with_missing_columnName)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPolicyGroup_type_contains_Smoke_asc_sid, endPoint=/v1/policymanager/policies/group/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "name", "type": "contains", "value": "Auth" } ], "sort": [ { "sortField": "name", "sortType": "asc" } ], "pageFetch": "10", "pageStart": "0", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "data": [ { "isActive": "$IGNORE$" } ] }, inputTemplate=partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup, outputTemplate=partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1684281752" onClick='toggleBox("Output-1684281752", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1684281752" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1684281752">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "fromValue": "string",
+        "toValue": "string",
+        "type": "contains",
+        "value": "Auth"
+      }
+    ],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "asc"
+      }
+    ]
+  },
+  "requesttime": "2023-07-14T17:01:56.720Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:01:57.437Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 10,
+    "totalRecord": 159,
+    "data": [
+      {
+        "id": "561179",
+        "crBy": "110070",
+        "crDtimes": "2023-04-27T07:26:23.959289",
+        "desc": "Auth Policy Group129",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "Auth Policy Group129",
+        "userId": "110070"
+      },
+      {
+        "id": "215510",
+        "crBy": "110070",
+        "crDtimes": "2023-04-27T07:29:08.689328",
+        "desc": "Auth Policy Group191",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "Auth Policy Group191",
+        "userId": "110070"
+      },
+      {
+        "id": "516401",
+        "crBy": "110070",
+        "crDtimes": "2023-04-27T07:48:46.709675",
+        "desc": "Auth Policy Group1911",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "Auth Policy Group1911",
+        "userId": "110070"
+      },
+      {
+        "id": "75945",
+        "crBy": "110070",
+        "crDtimes": "2023-04-27T10:20:22.17071",
+        "desc": "Auth Policy Group192",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "Auth Policy Group192",
+        "userId": "110070"
+      },
+      {
+        "id": "576847",
+        "crBy": "service-account-mosip-pms-client",
+        "crDtimes": "2023-04-27T11:22:36.504261",
+        "desc": "Auth Policy Group193",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "Auth Policy Group193",
+        "userId": "service-account-mosip-pms-client"
+      },
+      {
+        "id": "18851",
+        "crBy": "auth-111997",
+        "crDtimes": "2023-06-28T05:25:18.677331",
+        "desc": "desc mosip auth policy group",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mosip auth policy group 1687929914165",
+        "userId": "auth-111997"
+      },
+      {
+        "id": "64420",
+        "crBy": "idp-111997",
+        "crDtimes": "2023-06-28T05:27:56.781138",
+        "desc": "desc mosip auth policy group",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mosip auth policy group 1687930070290",
+        "userId": "idp-111997"
+      },
+      {
+        "id": "13535",
+        "crBy": "auth-111997",
+        "crDtimes": "2023-06-28T05:29:13.004818",
+        "desc": "desc mosip auth policy group",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mosip auth policy group 1687930150955",
+        "userId": "auth-111997"
+      },
+      {
+        "id": "64294",
+        "crBy": "idp-111997",
+        "crDtimes": "2023-06-28T05:31:24.595552",
+        "desc": "desc mosip auth policy group",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mosip auth policy group 1687930281439",
+        "userId": "idp-111997"
+      },
+      {
+        "id": "85241",
+        "crBy": "auth-111997",
+        "crDtimes": "2023-06-28T05:32:50.52694",
+        "desc": "desc mosip auth policy group",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mosip auth policy group 1687930368533",
+        "userId": "auth-111997"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[8].id</td>
+    <td>NOT VERIFIED</td>
+    <td>64294</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.totalRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>159</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>desc mosip auth policy group</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T10:20:22.17071</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group193</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mosip auth policy group 1687930150955</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-06-28T05:25:18.677331</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].id</td>
+    <td>NOT VERIFIED</td>
+    <td>64420</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T07:48:46.709675</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mosip auth policy group 1687930281439</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-06-28T05:27:56.781138</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>auth-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group191</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>desc mosip auth policy group</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:57.437Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group191</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].id</td>
+    <td>NOT VERIFIED</td>
+    <td>576847</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group1911</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group1911</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.fromRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>desc mosip auth policy group</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>auth-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].id</td>
+    <td>NOT VERIFIED</td>
+    <td>516401</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>service-account-mosip-pms-client</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group192</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>auth-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T07:26:23.959289</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>service-account-mosip-pms-client</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group192</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mosip auth policy group 1687930070290</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].id</td>
+    <td>NOT VERIFIED</td>
+    <td>85241</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].id</td>
+    <td>NOT VERIFIED</td>
+    <td>561179</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-06-28T05:31:24.595552</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mosip auth policy group 1687930368533</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].id</td>
+    <td>NOT VERIFIED</td>
+    <td>18851</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>desc mosip auth policy group</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].id</td>
+    <td>NOT VERIFIED</td>
+    <td>13535</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-06-28T05:32:50.52694</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group129</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group129</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.toRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>10</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>desc mosip auth policy group</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>auth-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>auth-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].id</td>
+    <td>NOT VERIFIED</td>
+    <td>75945</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group193</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T07:29:08.689328</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].id</td>
+    <td>NOT VERIFIED</td>
+    <td>215510</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>auth-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mosip auth policy group 1687929914165</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-06-28T05:29:13.004818</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T11:22:36.504261</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@d1c5cf2</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPolicyGroup_type_contains_Smoke_desc_sid()'><b>Partner_SearchPolicyGroup_type_contains_Smoke_desc_sid</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPolicyGroup_with_missing_columnName)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPolicyGroup_type_contains_Smoke_desc_sid, endPoint=/v1/policymanager/policies/group/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "name", "type": "contains", "value": "Auth" } ], "sort": [ { "sortField": "name", "sortType": "desc" } ], "pageFetch": "10", "pageStart": "0", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "data": [ { "isActive": "$IGNORE$", "isDeleted": "$IGNORE$" } ] }, inputTemplate=partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup, outputTemplate=partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-565678786" onClick='toggleBox("Output-565678786", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-565678786" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-565678786">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "fromValue": "string",
+        "toValue": "string",
+        "type": "contains",
+        "value": "Auth"
+      }
+    ],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "desc"
+      }
+    ]
+  },
+  "requesttime": "2023-07-14T17:01:57.594Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:01:58.273Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 10,
+    "totalRecord": 159,
+    "data": [
+      {
+        "id": "mpolicygroup-default-auth",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.533632",
+        "desc": "mpolicygroup-default-auth",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mpolicygroup-default-auth",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:25.533632",
+        "userId": "superadmin"
+      },
+      {
+        "id": "10581",
+        "crBy": "masterdata-111997",
+        "crDtimes": "2023-07-14T12:22:04.073178",
+        "desc": "desc mosip auth policy group",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mosip auth policy group 1689337150984",
+        "userId": "masterdata-111997"
+      },
+      {
+        "id": "37337",
+        "crBy": "masterdata-111997",
+        "crDtimes": "2023-07-14T11:38:08.827812",
+        "desc": "desc mosip auth policy group",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mosip auth policy group 1689334501925",
+        "userId": "masterdata-111997"
+      },
+      {
+        "id": "70955",
+        "crBy": "masterdata-111997",
+        "crDtimes": "2023-07-14T11:34:36.876809",
+        "desc": "desc mosip auth policy group",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mosip auth policy group 1689334317968",
+        "userId": "masterdata-111997"
+      },
+      {
+        "id": "28256",
+        "crBy": "masterdata-111997",
+        "crDtimes": "2023-07-14T11:17:53.085261",
+        "desc": "desc mosip auth policy group",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mosip auth policy group 1689333323489",
+        "userId": "masterdata-111997"
+      },
+      {
+        "id": "2427",
+        "crBy": "masterdata-111997",
+        "crDtimes": "2023-07-14T11:02:31.712651",
+        "desc": "desc mosip auth policy group",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mosip auth policy group 1689332381675",
+        "userId": "masterdata-111997"
+      },
+      {
+        "id": "55880",
+        "crBy": "masterdata-111997",
+        "crDtimes": "2023-07-14T10:08:55.656789",
+        "desc": "desc mosip auth policy group",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mosip auth policy group 1689329224500",
+        "userId": "masterdata-111997"
+      },
+      {
+        "id": "77051",
+        "crBy": "masterdata-111997",
+        "crDtimes": "2023-07-14T10:03:16.231463",
+        "desc": "desc mosip auth policy group",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mosip auth policy group 1689328823729",
+        "userId": "masterdata-111997"
+      },
+      {
+        "id": "46915",
+        "crBy": "masterdata-111997",
+        "crDtimes": "2023-07-14T07:32:30.336243",
+        "desc": "desc mosip auth policy group",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mosip auth policy group 1689319790872",
+        "userId": "masterdata-111997"
+      },
+      {
+        "id": "63455",
+        "crBy": "masterdata-111997",
+        "crDtimes": "2023-07-14T06:56:13.334108",
+        "desc": "desc mosip auth policy group",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mosip auth policy group 1689317620720",
+        "userId": "masterdata-111997"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[8].id</td>
+    <td>NOT VERIFIED</td>
+    <td>46915</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.totalRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>159</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>desc mosip auth policy group</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T11:34:36.876809</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>desc mosip auth policy group</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mosip auth policy group 1689328823729</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T11:02:31.712651</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].id</td>
+    <td>NOT VERIFIED</td>
+    <td>55880</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T11:38:08.827812</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mosip auth policy group 1689319790872</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T10:08:55.656789</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>desc mosip auth policy group</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>desc mosip auth policy group</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:58.273Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mosip auth policy group 1689337150984</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].id</td>
+    <td>NOT VERIFIED</td>
+    <td>28256</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mosip auth policy group 1689334501925</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>desc mosip auth policy group</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.fromRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>desc mosip auth policy group</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].id</td>
+    <td>NOT VERIFIED</td>
+    <td>37337</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mosip auth policy group 1689334317968</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>desc mosip auth policy group</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mosip auth policy group 1689329224500</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].id</td>
+    <td>NOT VERIFIED</td>
+    <td>63455</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T07:32:30.336243</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mosip auth policy group 1689317620720</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].id</td>
+    <td>NOT VERIFIED</td>
+    <td>2427</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>desc mosip auth policy group</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].id</td>
+    <td>NOT VERIFIED</td>
+    <td>77051</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T06:56:13.334108</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.toRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>10</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>desc mosip auth policy group</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].id</td>
+    <td>NOT VERIFIED</td>
+    <td>70955</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mosip auth policy group 1689333323489</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T12:22:04.073178</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].id</td>
+    <td>NOT VERIFIED</td>
+    <td>10581</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mosip auth policy group 1689332381675</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T10:03:16.231463</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T11:17:53.085261</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@d1c5cf2</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPolicyGroup_type_equals_Smoke_asc_sid()'><b>Partner_SearchPolicyGroup_type_equals_Smoke_asc_sid</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPolicyGroup_with_missing_columnName)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPolicyGroup_type_equals_Smoke_asc_sid, endPoint=/v1/policymanager/policies/group/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "name", "type": "equals", "value": "mpolicygroup-default-auth" } ], "sort": [ { "sortField": "name", "sortType": "asc" } ], "pageFetch": "10", "pageStart": "0", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "data": [ { "isActive": "true", "isDeleted":"false" } ] }, inputTemplate=partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup, outputTemplate=partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1523661796" onClick='toggleBox("Output-1523661796", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1523661796" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1523661796">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "fromValue": "string",
+        "toValue": "string",
+        "type": "equals",
+        "value": "mpolicygroup-default-auth"
+      }
+    ],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "asc"
+      }
+    ]
+  },
+  "requesttime": "2023-07-14T17:01:59.328Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:02:00.026Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "id": "mpolicygroup-default-auth",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.533632",
+        "desc": "mpolicygroup-default-auth",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mpolicygroup-default-auth",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:25.533632",
+        "userId": "superadmin"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[0].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.toRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.totalRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.fromRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:02:00.026Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@d1c5cf2</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPolicyGroup_type_equals_Smoke_desc_sid()'><b>Partner_SearchPolicyGroup_type_equals_Smoke_desc_sid</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPolicyGroup_with_missing_columnName)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPolicyGroup_type_equals_Smoke_desc_sid, endPoint=/v1/policymanager/policies/group/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "name", "type": "equals", "value": "mpolicygroup-default-auth" } ], "sort": [ { "sortField": "name", "sortType": "desc" } ], "pageFetch": "10", "pageStart": "0", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "data": [ { "isActive": "true", "isDeleted":"false" } ] }, inputTemplate=partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup, outputTemplate=partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-186540981" onClick='toggleBox("Output-186540981", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-186540981" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-186540981">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "fromValue": "string",
+        "toValue": "string",
+        "type": "equals",
+        "value": "mpolicygroup-default-auth"
+      }
+    ],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "desc"
+      }
+    ]
+  },
+  "requesttime": "2023-07-14T17:01:58.516Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:01:59.217Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "id": "mpolicygroup-default-auth",
+        "crBy": "superadmin",
+        "crDtimes": "2022-02-23T12:40:25.533632",
+        "desc": "mpolicygroup-default-auth",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "mpolicygroup-default-auth",
+        "updBy": "superadmin",
+        "updDtimes": "2022-02-23T12:40:25.533632",
+        "userId": "superadmin"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[0].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.toRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.totalRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.fromRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:59.217Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@d1c5cf2</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPolicyGroup_type_startswith_Smoke_asc_sid()'><b>Partner_SearchPolicyGroup_type_startswith_Smoke_asc_sid</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPolicyGroup_with_missing_columnName)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPolicyGroup_type_startswith_Smoke_asc_sid, endPoint=/v1/policymanager/policies/group/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "name", "type": "startswith", "value": "Auth" } ], "sort": [ { "sortField": "name", "sortType": "asc" } ], "pageFetch": "10", "pageStart": "0", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "data": [ { "isActive": "true", "isDeleted":"false" } ] }, inputTemplate=partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup, outputTemplate=partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1711349692" onClick='toggleBox("Output-1711349692", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1711349692" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1711349692">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "fromValue": "string",
+        "toValue": "string",
+        "type": "startswith",
+        "value": "Auth"
+      }
+    ],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "asc"
+      }
+    ]
+  },
+  "requesttime": "2023-07-14T17:02:00.125Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:02:00.858Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 5,
+    "totalRecord": 5,
+    "data": [
+      {
+        "id": "561179",
+        "crBy": "110070",
+        "crDtimes": "2023-04-27T07:26:23.959289",
+        "desc": "Auth Policy Group129",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "Auth Policy Group129",
+        "userId": "110070"
+      },
+      {
+        "id": "215510",
+        "crBy": "110070",
+        "crDtimes": "2023-04-27T07:29:08.689328",
+        "desc": "Auth Policy Group191",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "Auth Policy Group191",
+        "userId": "110070"
+      },
+      {
+        "id": "516401",
+        "crBy": "110070",
+        "crDtimes": "2023-04-27T07:48:46.709675",
+        "desc": "Auth Policy Group1911",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "Auth Policy Group1911",
+        "userId": "110070"
+      },
+      {
+        "id": "75945",
+        "crBy": "110070",
+        "crDtimes": "2023-04-27T10:20:22.17071",
+        "desc": "Auth Policy Group192",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "Auth Policy Group192",
+        "userId": "110070"
+      },
+      {
+        "id": "576847",
+        "crBy": "service-account-mosip-pms-client",
+        "crDtimes": "2023-04-27T11:22:36.504261",
+        "desc": "Auth Policy Group193",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "Auth Policy Group193",
+        "userId": "service-account-mosip-pms-client"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[4].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>service-account-mosip-pms-client</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group192</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T07:26:23.959289</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>service-account-mosip-pms-client</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group192</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.totalRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>5</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].id</td>
+    <td>NOT VERIFIED</td>
+    <td>561179</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T10:20:22.17071</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group193</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group129</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group129</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T07:48:46.709675</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.toRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>5</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].id</td>
+    <td>NOT VERIFIED</td>
+    <td>75945</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group191</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group191</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:02:00.858Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group193</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].id</td>
+    <td>NOT VERIFIED</td>
+    <td>576847</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group1911</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T07:29:08.689328</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group1911</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].id</td>
+    <td>NOT VERIFIED</td>
+    <td>215510</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.fromRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T11:22:36.504261</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].id</td>
+    <td>NOT VERIFIED</td>
+    <td>516401</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@d1c5cf2</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPolicyGroup_type_startswith_Smoke_desc_sid()'><b>Partner_SearchPolicyGroup_type_startswith_Smoke_desc_sid</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPolicyGroup_with_missing_columnName)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPolicyGroup_type_startswith_Smoke_desc_sid, endPoint=/v1/policymanager/policies/group/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "name", "type": "startswith", "value": "Auth" } ], "sort": [ { "sortField": "name", "sortType": "desc" } ], "pageFetch": "10", "pageStart": "0", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "data": [ { "isActive": "true", "isDeleted": "false" } ] }, inputTemplate=partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup, outputTemplate=partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1311429106" onClick='toggleBox("Output-1311429106", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1311429106" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1311429106">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "name",
+        "fromValue": "string",
+        "toValue": "string",
+        "type": "startswith",
+        "value": "Auth"
+      }
+    ],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "desc"
+      }
+    ]
+  },
+  "requesttime": "2023-07-14T17:02:01.072Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:02:01.779Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 5,
+    "totalRecord": 5,
+    "data": [
+      {
+        "id": "576847",
+        "crBy": "service-account-mosip-pms-client",
+        "crDtimes": "2023-04-27T11:22:36.504261",
+        "desc": "Auth Policy Group193",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "Auth Policy Group193",
+        "userId": "service-account-mosip-pms-client"
+      },
+      {
+        "id": "75945",
+        "crBy": "110070",
+        "crDtimes": "2023-04-27T10:20:22.17071",
+        "desc": "Auth Policy Group192",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "Auth Policy Group192",
+        "userId": "110070"
+      },
+      {
+        "id": "516401",
+        "crBy": "110070",
+        "crDtimes": "2023-04-27T07:48:46.709675",
+        "desc": "Auth Policy Group1911",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "Auth Policy Group1911",
+        "userId": "110070"
+      },
+      {
+        "id": "215510",
+        "crBy": "110070",
+        "crDtimes": "2023-04-27T07:29:08.689328",
+        "desc": "Auth Policy Group191",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "Auth Policy Group191",
+        "userId": "110070"
+      },
+      {
+        "id": "561179",
+        "crBy": "110070",
+        "crDtimes": "2023-04-27T07:26:23.959289",
+        "desc": "Auth Policy Group129",
+        "isActive": true,
+        "isDeleted": false,
+        "name": "Auth Policy Group129",
+        "userId": "110070"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[4].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group191</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T11:22:36.504261</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group191</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.totalRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>5</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>service-account-mosip-pms-client</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>service-account-mosip-pms-client</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].id</td>
+    <td>NOT VERIFIED</td>
+    <td>576847</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T07:29:08.689328</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group129</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group193</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group193</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T07:48:46.709675</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.toRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>5</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].id</td>
+    <td>NOT VERIFIED</td>
+    <td>215510</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group192</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].userId</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group192</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:02:01.779Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group129</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].id</td>
+    <td>NOT VERIFIED</td>
+    <td>561179</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group1911</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T10:20:22.17071</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].desc</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth Policy Group1911</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].id</td>
+    <td>NOT VERIFIED</td>
+    <td>75945</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.fromRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].delDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].crDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-04-27T07:26:23.959289</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].crBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110070</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updDtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].id</td>
+    <td>NOT VERIFIED</td>
+    <td>516401</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@d1c5cf2</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchPolicyGroup_with_missing_columnName()'><b>Partner_SearchPolicyGroup_with_missing_columnName</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchPolicyGroup_with_missing_columnName)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchPolicyGroup_with_missing_columnName, endPoint=/v1/policymanager/policies/group/search, role=partner, templateFields=null, input={ "filters": [ { "columnName": "$REMOVE$", "type": "startswith", "value": "Data Share" } ], "sort": [ { "sortField": "descr", "sortType": "desc" } ], "pageFetch": "10", "pageStart": "0", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": [ { "errorCode": "PMS-MSD-311", "message": "Column is missing in request" } ] }, inputTemplate=partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-597118124" onClick='toggleBox("Output-597118124", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-597118124" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-597118124">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": "0",
+      "pageFetch": "10"
+    },
+    "filters": [
+      {
+        "fromValue": "string",
+        "toValue": "string",
+        "type": "startswith",
+        "value": "Data Share"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "desc",
+        "sortField": "descr"
+      }
+    ]
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:02:03.877Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:02:04.683Z",
+  "errors": [
+    {
+      "errorCode": "PMS-MSD-311",
+      "message": "Column is missing in request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS-MSD-311</td>
+    <td>PMS-MSD-311</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@d1c5cf2</td></tr>
+</table><p>
+</body>
+</html>
