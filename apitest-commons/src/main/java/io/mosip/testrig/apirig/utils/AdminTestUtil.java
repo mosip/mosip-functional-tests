@@ -1117,7 +1117,8 @@ public class AdminTestUtil extends BaseTestCase {
 		if (BaseTestCase.currentModule.equals(GlobalConstants.MIMOTO) || BaseTestCase.currentModule.equals("auth")
 				|| BaseTestCase.currentModule.equals(GlobalConstants.ESIGNET)
 				|| BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT)
-				|| BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)) {
+				|| BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)
+				|| BaseTestCase.currentModule.equals(GlobalConstants.PREREG)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 		if (bothAccessAndIdToken) {
@@ -6430,18 +6431,7 @@ public class AdminTestUtil extends BaseTestCase {
 				}
 			}
 		}
-		if (BaseTestCase.currentModule.equals(GlobalConstants.PREREG)) {
-			if (request.has(GlobalConstants.REQUEST)) {
-				if (request.getJSONObject(GlobalConstants.REQUEST).has("otp")) {
-					emailId = request.getJSONObject(GlobalConstants.REQUEST).getString("userId");
-					logger.info(emailId);
-					otp = MockSMTPListener.getOtp(emailId);
-					request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
-					inputJson = request.toString();
-					return inputJson;
-				}
-			}
-		}
+		
 
 		if (BaseTestCase.currentModule.equals("auth")) {
 			if (testCaseName.startsWith("auth_GenerateVID") || testCaseName.startsWith("auth_AuthLock")
