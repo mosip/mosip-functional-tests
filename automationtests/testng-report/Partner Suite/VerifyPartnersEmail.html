@@ -1,0 +1,158 @@
+<html>
+<head>
+<title>TestNG:  VerifyPartnersEmail</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>VerifyPartnersEmail</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:33:30 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>0 seconds (957 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Partner_VerifyPartnersEmail_AllValid_smoke()'><b>Partner_VerifyPartnersEmail_AllValid_smoke</b><br>Test class: io.mosip.testscripts.SimplePut (Partner_VerifyPartnersEmail_AllValid_smoke)<br>Parameters: TestCaseDTO(testCaseName=Partner_VerifyPartnersEmail_AllValid_smoke, endPoint=/v1/partnermanager/partners/email/verify, role=partner, templateFields=null, input={ "emailId": "print@mosip.io", "requesttime": "$TIMESTAMP$" }, output={ "emailExists": true }, inputTemplate=partner/VerifyPartnersEmail/verifyPartnersEmail, outputTemplate=partner/VerifyPartnersEmail/verifyPartnersEmailResult, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1476213591" onClick='toggleBox("Output-1476213591", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1476213591" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1476213591">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requesttime": "2023-07-14T17:03:30.249Z",
+  "metadata": {},
+  "request": {
+    "emailId": "print@mosip.io"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/email/verify) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:03:31.120Z",
+  "response": {
+    "emailExists": true,
+    "policyRequiredPartnerTypes": [
+      "AUTH_PARTNER",
+      "CREDENTIAL_PARTNER",
+      "ONLINE_VERIFICATION_PARTNER",
+      "ABIS_PARTNER",
+      "MANUAL_ADJUDICATION"
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(policyRequiredPartnerTypes)[0]</td>
+    <td>NOT VERIFIED</td>
+    <td>AUTH_PARTNER</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(policyRequiredPartnerTypes)[2]</td>
+    <td>NOT VERIFIED</td>
+    <td>ONLINE_VERIFICATION_PARTNER</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(policyRequiredPartnerTypes)[1]</td>
+    <td>NOT VERIFIED</td>
+    <td>CREDENTIAL_PARTNER</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(policyRequiredPartnerTypes)[4]</td>
+    <td>NOT VERIFIED</td>
+    <td>MANUAL_ADJUDICATION</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(policyRequiredPartnerTypes)[3]</td>
+    <td>NOT VERIFIED</td>
+    <td>ABIS_PARTNER</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.emailExists</td>
+    <td>true</td>
+    <td>true</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@77cddc0c</td></tr>
+</table><p>
+</body>
+</html>

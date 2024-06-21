@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Partner Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="io.mosip.report.CustomTestNGReporter"/>
+    <listener class-name="io.mosip.authentication.e2e.E2EReport"/>
+    <listener class-name="io.mosip.customReport.EmailableReport"/>
+  </listeners>
+  <test name="AuditLogCreatePolicyGroup(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogCreatePolicyGroup(failed) -->
+  <test name="AuditLogDefinePolicy(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogDefinePolicy(failed) -->
+  <test name="AuditLogDataSharePolicy(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogDataSharePolicy(failed) -->
+  <test name="AuditLogPublishPolicy(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogPublishPolicy(failed) -->
+  <test name="AuditLogPublishDataSharePolicy(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogPublishDataSharePolicy(failed) -->
+  <test name="PrintPartner(failed)">
+    <parameter name="ymlFile" value="partner/PrintPartner/CreatePartner/CreatePartner.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.SimplePost">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.SimplePost -->
+    </classes>
+  </test> <!-- PrintPartner(failed) -->
+  <test name="UploadCACertificatePrintPartner(failed)">
+    <parameter name="ymlFile" value="partner/PrintPartner/UploadCertificate/UploadCertificate.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.SimplePost">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.SimplePost -->
+    </classes>
+  </test> <!-- UploadCACertificatePrintPartner(failed) -->
+  <test name="UpdatePrintPartner(failed)">
+    <parameter name="ymlFile" value="partner/PrintPartner/UpdatePrintPartner/UpdatePrintPartner.yml"/>
+    <parameter name="pathParams" value="partnerId"/>
+    <classes>
+      <class name="io.mosip.testscripts.PutWithPathParamsAndBody">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.PutWithPathParamsAndBody -->
+    </classes>
+  </test> <!-- UpdatePrintPartner(failed) -->
+  <test name="GetPrintPartnerDetails(failed)">
+    <parameter name="ymlFile" value="partner/PrintPartner/GetPartnerDetails/GetPartnerDetails.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.GetWithQueryParam">
+        <methods>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.GetWithQueryParam -->
+    </classes>
+  </test> <!-- GetPrintPartnerDetails(failed) -->
+  <test name="AuditLogCreatePartner(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogCreatePartner(failed) -->
+  <test name="UploadCACertificate(failed)">
+    <parameter name="ymlFile" value="partner/authPartner/UploadCertificate/UploadCertificate.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.SimplePost">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.SimplePost -->
+    </classes>
+  </test> <!-- UploadCACertificate(failed) -->
+  <test name="AuditLogUploadCACertificate(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogUploadCACertificate(failed) -->
+  <test name="AuditLogUploadPartnerCertificate(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogUploadPartnerCertificate(failed) -->
+  <test name="AuditLogUpdatePartner(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogUpdatePartner(failed) -->
+  <test name="AuditLogAddAdditionalContact(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogAddAdditionalContact(failed) -->
+  <test name="AuditLogApproveAPIKey(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogApproveAPIKey(failed) -->
+  <test name="AuditLogOnline_Verification_Partner(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogOnline_Verification_Partner(failed) -->
+  <test name="UploadCACertificate_Online_Verification_Partner(failed)">
+    <parameter name="ymlFile" value="partner/credentialPartner/UploadCertificate/UploadCertificate.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.SimplePost">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0 1"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.SimplePost -->
+    </classes>
+  </test> <!-- UploadCACertificate_Online_Verification_Partner(failed) -->
+  <test name="AuditLog_UploadCACertificateOnline_Verification_Partner(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLog_UploadCACertificateOnline_Verification_Partner(failed) -->
+  <test name="AuditLog_OVP(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLog_OVP(failed) -->
+  <test name="AuditLogAPIKeyCredentialPartner(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogAPIKeyCredentialPartner(failed) -->
+  <test name="AuditLogAddBioExtractors(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogAddBioExtractors(failed) -->
+  <test name="AuditLogApproveAPIKey_Online_Verification_Partner(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogApproveAPIKey_Online_Verification_Partner(failed) -->
+  <test name="AuditLogCreatePartner_Device_Provider(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogCreatePartner_Device_Provider(failed) -->
+  <test name="UploadCACertificate_Device_Provider(failed)">
+    <parameter name="ymlFile" value="partner/devicePartner/UploadCertificate/UploadCertificate.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.SimplePost">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0 1"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.SimplePost -->
+    </classes>
+  </test> <!-- UploadCACertificate_Device_Provider(failed) -->
+  <test name="AuditLog9(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLog9(failed) -->
+  <test name="UploadCACertificate_MISP_Provider(failed)">
+    <parameter name="ymlFile" value="partner/mispPartner/UploadCertificate/UploadCertificate.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.SimplePost">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0 1"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.SimplePost -->
+    </classes>
+  </test> <!-- UploadCACertificate_MISP_Provider(failed) -->
+  <test name="AuditLogUploadCACertificate_MISP_Provider(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogUploadCACertificate_MISP_Provider(failed) -->
+  <test name="AuditLogUploadPartnerCertificate_MISP_Provider(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogUploadPartnerCertificate_MISP_Provider(failed) -->
+  <test name="UploadCACertificate_FTM_Partner(failed)">
+    <parameter name="ymlFile" value="partner/FtpPartner/UploadCertificate/UploadCertificate.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.SimplePost">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0 1"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.SimplePost -->
+    </classes>
+  </test> <!-- UploadCACertificate_FTM_Partner(failed) -->
+  <test name="AuditLogFTM_Partner(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogFTM_Partner(failed) -->
+  <test name="AuditLogUploadPartnerCertificate_FTM_Partner(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogUploadPartnerCertificate_FTM_Partner(failed) -->
+  <test name="AuditLogCreateDeviceDetail(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogCreateDeviceDetail(failed) -->
+  <test name="AuditLogUpdateDeviceDetail(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogUpdateDeviceDetail(failed) -->
+  <test name="AuditLogCreateSecureBiometricInterface(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogCreateSecureBiometricInterface(failed) -->
+  <test name="AuditLogUpdateSecureBiometricInterface(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogUpdateSecureBiometricInterface(failed) -->
+  <test name="AuditLogFtpChipDetail(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogFtpChipDetail(failed) -->
+  <test name="AuditLogUploadCertificate_FTP(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogUploadCertificate_FTP(failed) -->
+  <test name="AuditLogMispLicense(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogMispLicense(failed) -->
+  <test name="AuditLogBioExtractors(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogBioExtractors(failed) -->
+  <test name="AuditLogActivateDeactivatePartner(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogActivateDeactivatePartner(failed) -->
+  <test name="AuditLoggenerateApiKey(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLoggenerateApiKey(failed) -->
+  <test name="AuditLogGenerateApiKey(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogGenerateApiKey(failed) -->
+  <test name="AuditLogPartnerApiKey_(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogPartnerApiKey_(failed) -->
+  <test name="AuditLogUpdatePolicyGroupForPartner(failed)">
+    <parameter name="ymlFile" value="partner/AuditLog/AuditLog.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.AuditValidator">
+        <methods>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.AuditValidator -->
+    </classes>
+  </test> <!-- AuditLogUpdatePolicyGroupForPartner(failed) -->
+  <test name="DBValidator(failed)">
+    <parameter name="ymlFile" value="partner/DbValidatorTest/DbValidatorTest.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.DBValidator">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="test" invocation-numbers="0 1 2 3"/>
+          <include name="testTearDown"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.DBValidator -->
+    </classes>
+  </test> <!-- DBValidator(failed) -->
+</suite> <!-- Failed suite [Partner Suite] -->

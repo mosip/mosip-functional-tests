@@ -1,0 +1,676 @@
+<html>
+<head>
+<title>TestNG:  GetPartnersPolicy</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GetPartnersPolicy</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>2/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:31:48 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>1 seconds (1539 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.partner_GetPartnersPolicy_allValid_smoke()'><b>partner_GetPartnersPolicy_allValid_smoke</b><br>Test class: io.mosip.testscripts.GetWithParam (partner_GetPartnersPolicy_invalid_partnerId)<br>Parameters: TestCaseDTO(testCaseName=partner_GetPartnersPolicy_allValid_smoke, endPoint=/v1/policymanager/policies/{policyId}/partner/{partnerId}, role=partner, templateFields=null, input={ "partnerId": "mpartner-default-auth", "policyId": "mpolicy-default-auth", "requesttime": "$TIMESTAMP$" }, output={ "policyGroupId": "mpolicygroup-default-auth", "policyGroupName": "mpolicygroup-default-auth", "policyId": "mpolicy-default-auth", "policyName": "mpolicy-default-auth", "status": "PUBLISHED", "policies": "$IGNORE$" }, inputTemplate=partner/GetPartnersPolicy/getPartnersPolicy, outputTemplate=partner/GetPartnersPolicy/getPartnersPolicyResult, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1575405527" onClick='toggleBox("Output-1575405527", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1575405527" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1575405527">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "partnerId": "mpartner-default-auth",
+  "policyId": "mpolicy-default-auth"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/{policyId}/partner/{partnerId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:01:48.799Z",
+  "response": {
+    "policyGroupId": "mpolicygroup-default-auth",
+    "policyGroupName": "mpolicygroup-default-auth",
+    "policyGroupDesc": "mpolicygroup-default-auth",
+    "policyGroupStatus": true,
+    "policyGroup_cr_by": "superadmin",
+    "policyGroup_cr_dtimes": "2022-02-23T12:40:25.533632",
+    "policyGroup_up_by": "superadmin",
+    "policyGroup_upd_dtimes": "2022-02-23T12:40:25.533632",
+    "policyId": "mpolicy-default-auth",
+    "policyName": "mpolicy-default-auth",
+    "policyDesc": "mpolicy-default-auth",
+    "policyType": "DataShare",
+    "publishDate": "2022-02-23T12:40:25.659548",
+    "validTill": "2025-04-28T09:37:00",
+    "status": "PUBLISHED",
+    "version": "1",
+    "schema": "https://schemas.mosip.io/v1/auth-policy",
+    "is_Active": true,
+    "cr_by": "admin",
+    "cr_dtimes": "2022-02-23T12:40:25.659548",
+    "up_by": "admin",
+    "upd_dtimes": "2022-02-23T12:40:25.659548",
+    "policies": {
+      "shareableAttributes": [
+        {
+          "encrypted": true,
+          "attributeName": "fullName",
+          "source": [
+            {
+              "attribute": "fullName"
+            }
+          ]
+        },
+        {
+          "encrypted": true,
+          "attributeName": "dateOfBirth",
+          "source": [
+            {
+              "attribute": "dateOfBirth"
+            }
+          ]
+        },
+        {
+          "encrypted": true,
+          "attributeName": "gender",
+          "source": [
+            {
+              "attribute": "gender"
+            }
+          ]
+        },
+        {
+          "encrypted": true,
+          "attributeName": "phone",
+          "source": [
+            {
+              "attribute": "phone"
+            }
+          ]
+        },
+        {
+          "encrypted": true,
+          "attributeName": "email",
+          "source": [
+            {
+              "attribute": "email"
+            }
+          ]
+        },
+        {
+          "encrypted": true,
+          "attributeName": "addressLine1",
+          "source": [
+            {
+              "attribute": "addressLine1"
+            }
+          ]
+        },
+        {
+          "encrypted": true,
+          "attributeName": "addressLine2",
+          "source": [
+            {
+              "attribute": "addressLine2"
+            }
+          ]
+        },
+        {
+          "encrypted": true,
+          "attributeName": "addressLine3",
+          "source": [
+            {
+              "attribute": "addressLine3"
+            }
+          ]
+        },
+        {
+          "encrypted": true,
+          "attributeName": "region",
+          "source": [
+            {
+              "attribute": "region"
+            }
+          ]
+        },
+        {
+          "encrypted": true,
+          "attributeName": "province",
+          "source": [
+            {
+              "attribute": "province"
+            }
+          ]
+        },
+        {
+          "encrypted": true,
+          "attributeName": "city",
+          "source": [
+            {
+              "attribute": "city"
+            }
+          ]
+        },
+        {
+          "encrypted": true,
+          "attributeName": "UIN",
+          "source": [
+            {
+              "attribute": "UIN"
+            }
+          ]
+        },
+        {
+          "encrypted": true,
+          "attributeName": "postalCode",
+          "source": [
+            {
+              "attribute": "postalCode"
+            }
+          ]
+        },
+        {
+          "encrypted": true,
+          "format": "extraction",
+          "attributeName": "biometrics",
+          "source": [
+            {
+              "attribute": "individualBiometrics"
+            }
+          ],
+          "group": "CBEFF"
+        }
+      ],
+      "dataSharePolicies": {
+        "typeOfShare": "Data Share",
+        "transactionsAllowed": "2",
+        "shareDomain": "datashare.datashare",
+        "encryptionType": "Partner Based",
+        "source": "ID Repository",
+        "validForInMinutes": "30"
+      }
+    }
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[4].encrypted</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.is_Active</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[13].(source)[0].attribute</td>
+    <td>NOT VERIFIED</td>
+    <td>individualBiometrics</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[11].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>UIN</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.dataSharePolicies.typeOfShare</td>
+    <td>NOT VERIFIED</td>
+    <td>Data Share</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[13].encrypted</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[3].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>phone</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.cr_by</td>
+    <td>NOT VERIFIED</td>
+    <td>admin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[1].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>dateOfBirth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyGroupName</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.publishDate</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.659548</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyGroupDesc</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[6].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>addressLine2</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.dataSharePolicies.validForInMinutes</td>
+    <td>NOT VERIFIED</td>
+    <td>30</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[1].encrypted</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicygroup-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.dataSharePolicies.encryptionType</td>
+    <td>NOT VERIFIED</td>
+    <td>Partner Based</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[10].encrypted</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyGroup_cr_dtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[11].encrypted</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyGroupStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.dataSharePolicies.shareDomain</td>
+    <td>NOT VERIFIED</td>
+    <td>datashare.datashare</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.upd_dtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.659548</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[6].encrypted</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyName</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicy-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[5].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>addressLine1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[13].group</td>
+    <td>NOT VERIFIED</td>
+    <td>CBEFF</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[12].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>postalCode</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[13].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>biometrics</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[7].encrypted</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.schema</td>
+    <td>NOT VERIFIED</td>
+    <td>https://schemas.mosip.io/v1/auth-policy</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[4].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>email</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[12].encrypted</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyGroup_up_by</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.up_by</td>
+    <td>NOT VERIFIED</td>
+    <td>admin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[7].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>addressLine3</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[13].format</td>
+    <td>NOT VERIFIED</td>
+    <td>extraction</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.dataSharePolicies.source</td>
+    <td>NOT VERIFIED</td>
+    <td>ID Repository</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[0].encrypted</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyDesc</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicy-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.cr_dtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.659548</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[5].encrypted</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[10].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>city</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[8].encrypted</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:01:48.799Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyType</td>
+    <td>NOT VERIFIED</td>
+    <td>DataShare</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[2].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>gender</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.validTill</td>
+    <td>NOT VERIFIED</td>
+    <td>2025-04-28T09:37:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[9].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>province</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[9].encrypted</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyGroup_upd_dtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:25.533632</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[2].encrypted</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyGroup_cr_by</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyId</td>
+    <td>NOT VERIFIED</td>
+    <td>mpolicy-default-auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[8].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>region</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[3].encrypted</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.dataSharePolicies.transactionsAllowed</td>
+    <td>NOT VERIFIED</td>
+    <td>2</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[0].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>fullName</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.status</td>
+    <td>NOT VERIFIED</td>
+    <td>PUBLISHED</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@63187d63</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.partner_GetPartnersPolicy_invalid_partnerId()'><b>partner_GetPartnersPolicy_invalid_partnerId</b><br>Test class: io.mosip.testscripts.GetWithParam (partner_GetPartnersPolicy_invalid_partnerId)<br>Parameters: TestCaseDTO(testCaseName=partner_GetPartnersPolicy_invalid_partnerId, endPoint=/v1/policymanager/policies/{policyId}/partner/{partnerId}, role=partner, templateFields=null, input={ "partnerId": "abcd", "policyId": "mpolicy-default-auth", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PMS_POL_017", "message": "No policy available for given partner" } ] }, inputTemplate=partner/GetPartnersPolicy/getPartnersPolicy, outputTemplate=partner/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-219541553" onClick='toggleBox("Output-219541553", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-219541553" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-219541553">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "partnerId": "abcd",
+  "policyId": "mpolicy-default-auth"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/{policyId}/partner/{partnerId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:01:49.583Z",
+  "errors": [
+    {
+      "errorCode": "PMS_POL_017",
+      "message": "No policy available for given partner"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_POL_017</td>
+    <td>PMS_POL_017</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@63187d63</td></tr>
+</table><p>
+</body>
+</html>

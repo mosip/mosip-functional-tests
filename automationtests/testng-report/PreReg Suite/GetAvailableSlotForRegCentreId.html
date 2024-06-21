@@ -1,0 +1,6198 @@
+<html>
+<head>
+<title>TestNG:  GetAvailableSlotForRegCentreId</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GetAvailableSlotForRegCentreId</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>2/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 21:59:28 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>3 seconds (3946 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Prereg_GetAvailableSlotForRegCentreId_All_Valid_Smoke_sid()'><b>Prereg_GetAvailableSlotForRegCentreId_All_Valid_Smoke_sid</b><br>Test class: io.mosip.testscripts.GetWithParam (Prereg_GetAvailableSlotForRegCentreId_inValid_registrationCenterId_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_GetAvailableSlotForRegCentreId_All_Valid_Smoke_sid, endPoint=/preregistration/v1/appointment/availability/{registrationCenterId}, role=batch, templateFields=null, input={ "registrationCenterId": "10003" }, output={ "regCenterId": "10003" }, inputTemplate=preReg/GetAvailableSlotForRegCentreId/getAvailableSlotForRegCentreId, outputTemplate=preReg/GetAvailableSlotForRegCentreId/getAvailableSlotForRegCentreIdResult, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-438709907" onClick='toggleBox("Output-438709907", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-438709907" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-438709907">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "registrationCenterId": "10003"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/appointment/availability/{registrationCenterId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.appointment.availability",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:29:30.166Z",
+  "response": {
+    "regCenterId": "10003",
+    "centerDetails": [
+      {
+        "date": "2023-07-16",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-07-17",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-07-18",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-07-19",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-07-20",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-07-21",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-07-22",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-07-23",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-07-24",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-07-25",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-07-26",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-07-27",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-07-28",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-07-29",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-07-30",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-07-31",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-08-01",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-08-02",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-08-03",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-08-04",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-08-05",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-08-06",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-08-07",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-08-08",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-08-09",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-08-10",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-08-11",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-08-12",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-08-13",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-08-14",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-08-15",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-08-16",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-08-17",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-08-18",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      },
+      {
+        "date": "2023-08-19",
+        "timeSlots": [
+          {
+            "fromTime": "09:00:00",
+            "toTime": "09:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:15:00",
+            "toTime": "09:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:30:00",
+            "toTime": "09:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "09:45:00",
+            "toTime": "10:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:00:00",
+            "toTime": "10:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:15:00",
+            "toTime": "10:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:30:00",
+            "toTime": "10:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "10:45:00",
+            "toTime": "11:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:00:00",
+            "toTime": "11:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:15:00",
+            "toTime": "11:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:30:00",
+            "toTime": "11:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "11:45:00",
+            "toTime": "12:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:00:00",
+            "toTime": "12:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:15:00",
+            "toTime": "12:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:30:00",
+            "toTime": "12:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "12:45:00",
+            "toTime": "13:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:00:00",
+            "toTime": "14:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:15:00",
+            "toTime": "14:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:30:00",
+            "toTime": "14:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "14:45:00",
+            "toTime": "15:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:00:00",
+            "toTime": "15:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:15:00",
+            "toTime": "15:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:30:00",
+            "toTime": "15:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "15:45:00",
+            "toTime": "16:00:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:00:00",
+            "toTime": "16:15:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:15:00",
+            "toTime": "16:30:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:30:00",
+            "toTime": "16:45:00",
+            "availability": 4
+          },
+          {
+            "fromTime": "16:45:00",
+            "toTime": "17:00:00",
+            "availability": 4
+          }
+        ],
+        "holiday": false
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[22].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>15:30:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[11].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>12:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[4].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>10:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[31].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[4].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[17].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[3].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[15].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>13:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[22].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[13].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[20].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>15:15:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[2].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>09:45:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[18].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[14].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>12:30:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[27].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[12].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[3].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>09:45:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[1].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-17</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[30].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[23].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>15:45:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[15].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-31</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[27].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-08-12</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[12].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-28</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[6].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>10:45:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[19].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>15:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[4].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-20</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[12].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[1].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[26].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[13].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>12:15:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[32].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-08-17</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[21].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[6].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[28].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[24].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-08-09</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[24].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>16:15:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[23].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[10].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[7].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-23</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[23].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[0].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-16</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[16].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>14:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[12].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>12:15:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[24].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>16:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[29].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[26].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[31].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-08-16</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[2].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[19].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[3].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>10:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[2].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>09:30:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[9].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[0].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[27].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>16:45:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[16].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>14:15:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[25].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-08-10</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[30].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-08-15</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[21].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>15:15:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[24].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[19].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>14:45:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[5].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>10:15:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[21].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>15:30:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[21].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[8].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>11:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[32].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[18].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[7].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>11:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[8].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[25].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>16:30:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[6].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-22</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[14].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-30</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[9].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[26].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>16:45:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[11].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>11:45:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[18].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>14:30:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[7].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[25].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[26].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-08-11</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[13].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>12:30:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[16].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-08-01</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[0].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>09:15:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[13].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-29</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[7].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>10:45:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[23].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-08-08</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[7].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[0].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>09:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[33].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-08-18</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[2].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[15].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[20].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[5].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-21</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[17].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>14:30:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[2].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-18</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[25].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[10].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[17].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>14:15:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[20].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-08-05</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[0].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[6].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[24].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[4].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>10:15:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[22].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[8].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-24</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[16].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[16].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[22].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>15:45:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[19].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-08-04</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[6].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>10:30:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[26].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>16:30:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[10].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>11:30:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[11].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[1].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[8].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>11:15:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[10].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>11:45:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[14].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[17].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[27].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>17:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[15].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[11].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[20].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>15:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[5].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[11].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-27</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[21].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-08-06</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[8].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[5].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[14].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>12:45:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[14].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[9].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>11:15:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[1].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>09:30:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[28].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-08-13</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[27].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[18].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-08-03</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[10].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-26</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[5].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>10:30:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[33].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[17].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-08-02</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[18].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>14:45:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[3].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[25].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>16:15:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[4].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[12].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>12:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[29].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-08-14</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[9].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>11:30:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[13].availability</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[22].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-08-07</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[19].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[3].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-19</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[9].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-25</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[23].toTime</td>
+    <td>NOT VERIFIED</td>
+    <td>16:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[1].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>09:15:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].date</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-08-19</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[34].(timeSlots)[15].fromTime</td>
+    <td>NOT VERIFIED</td>
+    <td>12:45:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(centerDetails)[20].holiday</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.regCenterId</td>
+    <td>10003</td>
+    <td>10003</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testscripts.GetWithParam@3002e397</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Prereg_GetAvailableSlotForRegCentreId_inValid_registrationCenterId_sid()'><b>Prereg_GetAvailableSlotForRegCentreId_inValid_registrationCenterId_sid</b><br>Test class: io.mosip.testscripts.GetWithParam (Prereg_GetAvailableSlotForRegCentreId_inValid_registrationCenterId_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_GetAvailableSlotForRegCentreId_inValid_registrationCenterId_sid, endPoint=/preregistration/v1/appointment/availability/{registrationCenterId}, role=batch, templateFields=null, input={ "registrationCenterId": "1shsbsb@@@GB3" }, output={ "errors": [ { "errorCode": "KER-MSD-215", "message": "Registration Center not found" } ] }, inputTemplate=preReg/GetAvailableSlotForRegCentreId/getAvailableSlotForRegCentreId, outputTemplate=preReg/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-984798796" onClick='toggleBox("Output-984798796", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-984798796" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-984798796">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "registrationCenterId": "1shsbsb@@@GB3"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/appointment/availability/{registrationCenterId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.appointment.availability",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:29:32.314Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-215",
+      "message": "Registration Center not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Registration Center not found</td>
+    <td>Registration Center not found</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-215</td>
+    <td>KER-MSD-215</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.GetWithParam@3002e397</td></tr>
+</table><p>
+</body>
+</html>

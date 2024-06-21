@@ -1,0 +1,270 @@
+<html>
+<head>
+<title>TestNG:  GetValidateToken</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GetValidateToken</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>3/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Aug 24 11:57:14 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>1 seconds (1498 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetValidateToken_Empty_Token()'><b>Resident_GetValidateToken_Empty_Token</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetValidateToken_Empty_Token)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetValidateToken_Empty_Token, endPoint=/resident/v1/authorize/admin/validateToken, role=null, templateFields=null, input={ }, output={ }, inputTemplate=resident/GetValidateToken/getValidateToken, outputTemplate=resident/error, restMethod=get)<br/>
+<a href="#Output-996328734" onClick='toggleBox("Output-996328734", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-996328734" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-996328734">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/authorize/admin/validateToken) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "timestamp": "2022-08-24T06:27:16.304+00:00",
+  "status": 500,
+  "error": "Internal Server Error",
+  "message": "The token was expected to have 3 parts, but got 1.",
+  "path": "/resident/v1/authorize/admin/validateToken"
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>path</td>
+    <td>NOT VERIFIED</td>
+    <td>/resident/v1/authorize/admin/validateToken</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>error</td>
+    <td>NOT VERIFIED</td>
+    <td>Internal Server Error</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>message</td>
+    <td>NOT VERIFIED</td>
+    <td>The token was expected to have 3 parts, but got 1.</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@65600fb3</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetValidateToken_Invalid_Token()'><b>Resident_GetValidateToken_Invalid_Token</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetValidateToken_Empty_Token)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetValidateToken_Invalid_Token, endPoint=/resident/v1/authorize/admin/validateToken, role=residen, templateFields=null, input={ }, output={ "errors": [ { "errorCode": "KER-ATH-401", "message": "$IGNORE$" } ] }, inputTemplate=resident/GetValidateToken/getValidateToken, outputTemplate=resident/error, restMethod=get)<br/>
+<a href="#Output-1948950538" onClick='toggleBox("Output-1948950538", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1948950538" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1948950538">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/authorize/admin/validateToken) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:27:16.024Z",
+  "errors": [
+    {
+      "errorCode": "KER-ATH-401",
+      "message": "Authentication Failed"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-ATH-401</td>
+    <td>KER-ATH-401</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@65600fb3</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetValidateToken_all_Valid_Smoke()'><b>Resident_GetValidateToken_all_Valid_Smoke</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetValidateToken_Empty_Token)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetValidateToken_all_Valid_Smoke, endPoint=/resident/v1/authorize/admin/validateToken, role=residentNew, templateFields=null, input={ }, output={ }, inputTemplate=resident/GetValidateToken/getValidateToken, outputTemplate=resident/GetValidateToken/getValidateTokenResult, restMethod=get)<br/>
+<a href="#Output-522219842" onClick='toggleBox("Output-522219842", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-522219842" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-522219842">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/authorize/admin/validateToken) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:27:15.444Z",
+  "response": {
+    "userId": "111995",
+    "mail": "automation111995@automationlabs.com",
+    "name": "111995",
+    "role": "offline_access,PARTNER_ADMIN,uma_authorization,default-roles-mosip,",
+    "token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ5SXh6V0hpaTZwZU1uV2xzOGk5X2RuQmpJLTF5TU9NWjh2U1B0dTRJR0lRIn0.eyJleHAiOjE2NjEzNTg0MzMsImlhdCI6MTY2MTMyMjQzMywianRpIjoiZDBjMDRiOWQtMGNjMi00MTZlLWJmOWEtZjI1M2Y5ZDQ1OGZlIiwiaXNzIjoiaHR0cHM6Ly9pYW0ucWE0Lm1vc2lwLm5ldC9hdXRoL3JlYWxtcy9tb3NpcCIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI5NjA5ODhmMi1jYjFlLTRkMDktOGFkNy0wNTNiNTBjYjdhYzciLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJtb3NpcC1yZXNpZGVudC1jbGllbnQiLCJzZXNzaW9uX3N0YXRlIjoiNTJiMTU1YTAtOTRiYy00OGFlLTg5MDItNTNlMmNhZDIyMDUzIiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsIlBBUlRORVJfQURNSU4iLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtbW9zaXAiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImluZGl2aWR1YWxfaWQgaWRhX3Rva2VuIHByb2ZpbGUgZW1haWwiLCJzaWQiOiI1MmIxNTVhMC05NGJjLTQ4YWUtODkwMi01M2UyY2FkMjIwNTMiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiIxMTE5OTUgMTExOTk1IiwicHJlZmVycmVkX3VzZXJuYW1lIjoiMTExOTk1IiwiZ2l2ZW5fbmFtZSI6IjExMTk5NSIsImZhbWlseV9uYW1lIjoiMTExOTk1IiwiZW1haWwiOiJhdXRvbWF0aW9uMTExOTk1QGF1dG9tYXRpb25sYWJzLmNvbSJ9.Eeq3kd8r1IzL-aRgT8Wl9XuVbzzI2beD8-FXoYfSGMvIll5e1kiFACEr3NytfKpRUacFFWTNlD_A3HEPTDeiOYhy9KztxJeUQP-xKFuzNQyTTSe9AcRjccBVxYJtQIz-DnY-xE-4Ij7clpqv8rvhLTuZlrPzFClT_e2zso_oZhsvO6tS_uWoIl0-ovWWgPlJq0POvP6ModL9RFSSz8oq6b2E5JL6REVUmn1Tdv_oJtUyD3QjgCWEapXnqLo-N9_xzHesnrtvIhdLCPTwn0zYz8EFog6-xmgQz7hSW_n0UtptA8TdZjyaanNUPI23QHfTp6l7anM2oxhqZMGbMwNhuA"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.name</td>
+    <td>NOT VERIFIED</td>
+    <td>111995</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.token</td>
+    <td>NOT VERIFIED</td>
+    <td>eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ5SXh6V0hpaTZwZU1uV2xzOGk5X2RuQmpJLTF5TU9NWjh2U1B0dTRJR0lRIn0.eyJleHAiOjE2NjEzNTg0MzMsImlhdCI6MTY2MTMyMjQzMywianRpIjoiZDBjMDRiOWQtMGNjMi00MTZlLWJmOWEtZjI1M2Y5ZDQ1OGZlIiwiaXNzIjoiaHR0cHM6Ly9pYW0ucWE0Lm1vc2lwLm5ldC9hdXRoL3JlYWxtcy9tb3NpcCIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI5NjA5ODhmMi1jYjFlLTRkMDktOGFkNy0wNTNiNTBjYjdhYzciLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJtb3NpcC1yZXNpZGVudC1jbGllbnQiLCJzZXNzaW9uX3N0YXRlIjoiNTJiMTU1YTAtOTRiYy00OGFlLTg5MDItNTNlMmNhZDIyMDUzIiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsIlBBUlRORVJfQURNSU4iLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtbW9zaXAiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImluZGl2aWR1YWxfaWQgaWRhX3Rva2VuIHByb2ZpbGUgZW1haWwiLCJzaWQiOiI1MmIxNTVhMC05NGJjLTQ4YWUtODkwMi01M2UyY2FkMjIwNTMiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiIxMTE5OTUgMTExOTk1IiwicHJlZmVycmVkX3VzZXJuYW1lIjoiMTExOTk1IiwiZ2l2ZW5fbmFtZSI6IjExMTk5NSIsImZhbWlseV9uYW1lIjoiMTExOTk1IiwiZW1haWwiOiJhdXRvbWF0aW9uMTExOTk1QGF1dG9tYXRpb25sYWJzLmNvbSJ9.Eeq3kd8r1IzL-aRgT8Wl9XuVbzzI2beD8-FXoYfSGMvIll5e1kiFACEr3NytfKpRUacFFWTNlD_A3HEPTDeiOYhy9KztxJeUQP-xKFuzNQyTTSe9AcRjccBVxYJtQIz-DnY-xE-4Ij7clpqv8rvhLTuZlrPzFClT_e2zso_oZhsvO6tS_uWoIl0-ovWWgPlJq0POvP6ModL9RFSSz8oq6b2E5JL6REVUmn1Tdv_oJtUyD3QjgCWEapXnqLo-N9_xzHesnrtvIhdLCPTwn0zYz8EFog6-xmgQz7hSW_n0UtptA8TdZjyaanNUPI23QHfTp6l7anM2oxhqZMGbMwNhuA</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.mobile</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.userId</td>
+    <td>NOT VERIFIED</td>
+    <td>111995</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.rid</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.userPassword</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.role</td>
+    <td>NOT VERIFIED</td>
+    <td>offline_access,PARTNER_ADMIN,uma_authorization,default-roles-mosip,</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.mail</td>
+    <td>NOT VERIFIED</td>
+    <td>automation111995@automationlabs.com</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@65600fb3</td></tr>
+</table><p>
+</body>
+</html>

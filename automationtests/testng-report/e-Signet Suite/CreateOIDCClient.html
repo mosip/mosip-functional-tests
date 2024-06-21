@@ -1,0 +1,2503 @@
+<html>
+<head>
+<title>TestNG:  CreateOIDCClient</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>CreateOIDCClient</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>32/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Aug 01 22:23:05 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>25 seconds (25155 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_2_Same_RelyParty_Valid_Smoke_sid()'><b>ESignet_CreateOIDCClient_2_Same_RelyParty_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_2_Same_RelyParty_Valid_Smoke_sid, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$RANDOMID$2", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "clientId": "$IGNORE$", "status": "ACTIVE" }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/CreateOIDCClient/CreateOIDCClientResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1338314734" onClick='toggleBox("Output-1338314734", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1338314734" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1338314734">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:05.945Z",
+  "request": {
+    "clientId": "mosip341690907200359",
+    "clientName": "MOSIP OIDC Client",
+    "publicKey": {
+      "p": "6lYomOPC5BB6FeojhSmePxKsvgDMHwfrKsjgZ7ftGb-tX5J8HaC-HKyEGDNv0hlaNjYcuAwVxZHclXEsY4B4HVvsLFjBhKhO5E1cjh9-h96latLW6MjEDnIaHOYw5mEQJRld_QbzLJMBHS3r6nLoUTuNDH4QL_ZkUqEf9vAHyO0",
+      "kty": "RSA",
+      "q": "5y5oEiuWeWxCgFhKhZTdviY0ZE1rcLJ9ct35AmTrSVSIcFPnqjNYUG6v8YPsiZCs451cCw3X5vggPapZDKyF6WI6PNXgzrG9EbwjWMN8PW1033_xGn52QAgwDHK1cKdVXqQBtYql8Y76WZ-FtINq9DG5El70Kz27B8SztvPHg38",
+      "d": "li4d7mK7ElxM26AjI048RUUeQ0YrjZCezOuDlLI8U9Ow3Vk959lgXfECtp0Fp3GLRk7maVrdKJYMWczx0fkZelPkU8Booc3a3EcPcNKKcme-Max0EK4lKykZR7ZMeDkIJ5X-sf5b4PYoUnaciYn8PecJQDjmdcWXTn_Xs7iCtLNQ7kCyCf74L4zY9S34kFz0Yt38GNGVkwXd9vLHL2BeT73F1plodeJX-pVO-PWHXdD_DCq7z1rPhwmkvO1Xu__3AShZRk06IXCsuwmJ0PZadgMmuzt0Ez7_9cE8m8NJ3tdCbygmiCOCIhkdZQkFdMhN7QqGg7t81LLh1QuQDCOTMQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "NFciUr3aC6Hu7MUbzqGPVdpD3nIiEdij6DHfHwFVEBbC4KJBwi4uwS2MJffmGIzNKLlXHdMynMqNeg2wR305xpY7szBfHc6jHAgMHIybAwhOFpt4gZZJtL6oxhdDPyJeFEuvuxZNd0izEBiL7C1I-AlB3sI0T8TQLvod-v0wVac",
+      "dp": "j3ceNbRDbhM0W1RUWMNJEb5iKZUdYuYbML94u6ccLsZt43QwLodpvO5VlOdwz0UcONJaNMeZULLjRE7caTKO1xKe_et81rWgTx-ZyZ04fwBtb4ATeMLpXRq4J_c5-uFz2_Ky2yU1HZYGeZHSvF-LIah-yyYmzOZhN0FT63-6lGU",
+      "dq": "x-nggz4ALNZKl7RCFUwLiSB-k_JDI7ymMQv1BnYA5XPdXM2h-xPVnhBpw7-ib7-VUmvEqaZ5-ri9ILZLtWMHli-kTvFhKzyWVFzOcDb0HCaoN5HrDE8psOujqVAUyOtbLrFC7RuNrttGcPQ66kPu3GaXNWS5Xx9NukUGaAJdmL8",
+      "n": "0545YONw9opTurf8wq4KTRaeogu6fdlL6UqbSRKZSseyJ4gdVRRxmk_nB-nf5vDEsm-Vv5ujrj9TTLPaWGnU41SoeGnsv1yHdXsmNZ8qjXhFGK8yb4bwoOOW_AYOPJkx3EGwRvdCNjHJd8bAOrBGrFfi48Z8JS_FdTk-pXULItwaBxbn834OoEQzuTzJ_p3VQsGIw9cCUVpBXKgnGC-uisKNT_HtOycMUIvFuAvKG5H59pOF-7Pq93vC1xrFRFbkPNeMlrXKcbJ5kE9N-M9k_KcuAwxv5t3EBLRnytYDNGRruMO3z3GFpHXlg8GIlMGzQQAru8sxXJwXkMGZNuj0kw"
+    },
+    "relyingPartyId": "Bharathi-Inc",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:06.766Z",
+  "response": {
+    "clientId": "mosip341690907200359",
+    "status": "ACTIVE"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.status</td>
+    <td>ACTIVE</td>
+    <td>ACTIVE</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Diff_RequestTime_Neg()'><b>ESignet_CreateOIDCClient_Diff_RequestTime_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Diff_RequestTime_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "2022-11-07T06:51:30.195Z", "clientId": "$RANDOMID$", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-525107161" onClick='toggleBox("Output-525107161", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-525107161" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-525107161">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2022-11-07T06:51:30.195Z",
+  "request": {
+    "clientId": "mosip931690907200359",
+    "clientName": "MOSIP OIDC Client",
+    "publicKey": {
+      "p": "8oQRqsiTtlz3_iYf4EgXcg33MABpDhKXvJiZIwmCVBnfxTTFl1Hs63OaBnIjgHOg7XVs9NabqL3cZQEtILsZxLWFsePEC-RRa18i71Q4Znfb7QJncFnWV5z2qB4R4kymf8uO7aM5kJAdt-_ugC1Rpn65QshyN8IjT6jC17yJf00",
+      "kty": "RSA",
+      "q": "1uIJzBI0x0TjsOPvZm1AwoN4f-QoEV4j90w4TJKgv5tuNNjmpdtwvdIrwQEYSgNmfBC2ir86WR16ED5dHP3-j0OuO8I2nqfdPP_tC6nvNv4YimScVdw3GOrslL07ubj6BXNP0LQN2TUhlO0AnHAqtrCeamijSQelTFyMyXRcwQ0",
+      "d": "eRNqcnLPag2Vqlh3azT_Z3-mP4rYUCNLzp2XWrlSZ3Q-6rJeLt6PXLWyVDzGd-US3WJcv1G55g6T00kmy3E6V7X_h3RxR9BqauucD6_u2QurgQs2EaTaaP8N8TMY4xpdeMgseEo7Wkv7qzjWA3i6Glxn8mS60jZD6iTFPtk5m5Mt8rAyDiHB4tHIbB07tr70pF42c_6BNtaptLcacs94V-WEOBzIEoaminiTOvi5d-7bEzITdpBA14KMoq8AlvlntPGRW6flxlzxLBI853yqaQktU91QWC2pdVPsHvKpgsCnRsxDgzZIHpc294c4JvBWPAzRD47JIPGrY92mj1ZyQQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "LzK363boidCi1tUHTpkD33OTDhSRZLhWbN8dTKzDFBElz5WUszJieEsupY0tZaoMCsL4EMuLRvr5xxV-jKqPnldHhafEiNep9JuDsk5NH4edVW7iP9mj0-ndpsLCyerox46DB4uNYozrdB8vvelB_SeT3ZnP4EJ8KIn6qZbnXfs",
+      "dp": "s4MdDLzB0ihJDWAtEjhq2msKAQccvGT42opeOHgud5Bbej9Qz2y-IZ8FcSYFr2xnv72-9BDzUdmQDVfsjqDQNzJij0XYdTEBL6hRVLSTtw2bxnmUFa76IQo37kOr20X_rPMBjlfXIXH7_Y5ljY1-Ne7xtURof2t99dYmu8h8QrU",
+      "dq": "DpjkWXyTIUZIwWd6h9a8I3qS4P06y5M9ljsTSABd8yY34lcps_KoQfzZBA9y-vQoLh1kiSBccllSRXA3GxUWCd1rJJwY4cY9fTtVewlcOrwgJqaXCC4hgAvVbnU8bW1nbp9auK7CkhLN6TQAaqAkBq0Q1eGt1fQzAnD3D2hcNLE",
+      "n": "y5CIpFOM6tVBzjuKBRKkep8gzkc-M01xeOB9NE7KcNi3QHLOHyJ7EdFkEx5cBx26t1h29gif4IgklHUf8rUkfrpn9Z-KtOfR8c0ig5X3Ex1fkxOeJnpxvAXuFep470mV8WDkPFwS1sc3qSD6EKWW42He1usY3uF9BWPLls4rRZMl4ZBD2pJf-jOao9q8PVx7upFAk1jBbeUvudiMtAdoxBSapuKlJhtjqiuWCJPZtK--O0btefY10SrTHlvX_iU3xme_ZSdBbixyrq68WbcxRCu6PWTyq2nJ-R6yK6ec82I4vnx08H8nSYMCCcPKZ5VNRJat0x2ZRRziq6il36CD6Q"
+    },
+    "relyingPartyId": "Bharathi-Inc",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:08.332Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Empty_authContextRefs()'><b>ESignet_CreateOIDCClient_Empty_authContextRefs</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Empty_authContextRefs, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$RANDOMID$", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: ""}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_acr", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1999255309" onClick='toggleBox("Output-1999255309", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1999255309" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1999255309">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:21.458Z",
+  "request": {
+    "clientId": "mosip931690907200359",
+    "clientName": "MOSIP OIDC Client",
+    "publicKey": {
+      "p": "vX6riFOf9Xoqhu5uu25hM1odPT1d8LhF4TJ4Ej95078oUsleSSxmwTf5QHXLK3rsSnqEH9y4CNfZtBYubb3kYx-66dDWHWjuGjXLZP-Hjb4ar0iZ6v98bGoTRc4J_mlcYnbZpI-TAMRP-kZ8BxiGKLGzZ4zdYomFcl6hvjPYiLE",
+      "kty": "RSA",
+      "q": "tshGELYZn1WpvH8QhffqKphtda-Zs1P4dLHxph7d4gq-BXkB3hLKNoX_qTndyK4EPflxe9EZcQulEKdgWEZjbUgBHBA40DWo3P2ua4cyIrcfi4Zeaiyf0vNrin14sssZuzmskf5NideMTRJ8ADBgWYaUvz4p2ta_9lM9aoN9KvE",
+      "d": "MxGAtQGdcAzZOlZdtE0N_A-7-8YLYneiWiRnebKVBoKpnxlomI9VC8aDTgcC9kiLCNLaQc4hwonHdy05_taBD7VzGpJXX7dsdHeLPzvn67arqgXOTKC7IRpYtARWtBGBRGm1k00naNV0RXwhlJDhbkSvuHHxq9lRQ0-xhzsGD_SfwKdxJ84fihMx1tV4febb7owE-hBmk8N9GfUuf_Q_0M0Fo9KxM05vummzEOE6j-GzLMd4xBxxvV8DzAKBon3YgsHziHaIxfFSj9GOzual239pCjOLlE5Fy9YDG-q4uiBFzpCm4nlfWC-E13NrhzPMa4SotLR4z5kIzM0YRl8lAQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "Nrh4g5yW7uTjzLp6x2uYLV8z4QMk5tvP4z4_9aSLfUq_zetn1Q0bRjx-hotzamfv17kYtdjcfJbGAjyxYAcR8WpR0IfMt-AMrO7ZDL01G0aaDi5yq8NRhcvVpg6g5npfwoVP_B37PGKj4jyL28puESRyzBCIVETQXtpsxCDM3VY",
+      "dp": "D8o_VuPI_3aHlqjFl16yQMowh4rWihmA0SwYb0TUzP0vyf43mhdWFKGqZmGqZVwf1nDxE4qb1zjNTkFO6xwYrN3XAGbDgL3eoVZ8NVVJoVkG9jYxhTB22L3aD0YE9SsoZJgMuLayBC1XkL5Q1XKIs1ljXqyRQgW9lfMmvSeq0nE",
+      "dq": "XHdgip-0wphRb9xP_ZX3TmkiJsEY3lGChXZnqwQ-d1W734Th3vhed8q-FVwCyLzPxJJmSJ71YezkKlKiOMYTEnu0o__I3fvnWzSygg8427sMKEdniArfJ5ahNsRWxQxeDgsVNB4UF8GFZpANTwMqGuAsa7sE7YJqRjDCBxpRveE",
+      "n": "h0xMxe-SEiJZzI_Zh6E6XmuRDhXJN-egZRMsKODuCQqrye1uVDfmiFTZ6VGMimvem6VVmjEcegdzg31Tm_PJi-QWT_hnQvnNhF9UsV7xL9QIFEyLJ8gH4lWvx4GGCE1Ml1TPEhZHMzm6Ild6y-s9eUzhsyqg0b2NEmuoWsk3Uyp8BV1uWfkTPvvON3qsniP6Otv0DU0WdM8lVweWKrruxSM7Un4Ckge8-sllUdxhwW7SJFI5zi5tmkY-poDppdogXehm5MuB_F9F8nSDFyYHc7gjv0bg3Byu6A3td7q_k_NOOVydhDQd9jmyv2-MHnPmwIaJbpLEwBb3pF2HprK4oQ"
+    },
+    "relyingPartyId": "Bharathi-Inc",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      ""
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:22.449Z",
+  "errors": [
+    {
+      "errorCode": "invalid_acr",
+      "errorMessage": "request.authContextRefs[0]: invalid_acr"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_acr</td>
+    <td>invalid_acr</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Empty_clientAuthMethods_Neg()'><b>ESignet_CreateOIDCClient_Empty_clientAuthMethods_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Empty_clientAuthMethods_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$RANDOMID$", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "" }, output={ "errors": [ { "errorCode": "invalid_client_auth", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-379901353" onClick='toggleBox("Output-379901353", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-379901353" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-379901353">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:28.544Z",
+  "request": {
+    "clientId": "mosip931690907200359",
+    "clientName": "MOSIP OIDC Client",
+    "publicKey": {
+      "p": "7mV8ex0AuIsgMZ6nQK8m_QWuC4_d6vE0H72R5UytuDubgPcuKT2-p_rfhApzL2pc9VTz5lwMHL3eJggykBRODo5BtDNdfV-iNc6zP2ISNiI-GDMXcRInGkjbv0PYsbJ6qCTFYkcimQqEiuji_VspMkyWeJAiLLremfly3i4Z67c",
+      "kty": "RSA",
+      "q": "yHrLohLTm3i89-8aFkuY80qiT4LfPrW65bWuwWmnaKVHBaMiC6mKWrJ7coVyf6Zf8jPGjiPBzf7V9vdDVfgIFu2L-zGB_lLZ4x6-KMzRlJtb6lvYyUtFK_VYZH-Vp1ozzIlgyN2a_duaAiyuKJ51SEUtTcNI1Q54JLAU1PvbrVM",
+      "d": "iQnflEv4weNmw9FFZMUEU7l1gSIGroqrN96nUacKADs28x5IY0MdfWfxEEGr4L3kKmWUuIhOKmSFt0f-n66fm9US_2dZ4UcczxXO4LqlkRWxtXym7Ik1p8wHhxlPVhMdfHIGFiCCt8k-Nl70ijtF1Cvwr9yV-ghGQMOa1dTFftZ7EkJ3D7OOTW0rPOO40yqRAPUneqthxgiqgrXo4OX2l97yslhEexl9VWwvrV1tGC1wuQ-Jb3sc4U3AO1nVB0ghj_NN6Wi50-ArFXmPUGFrwYtthOhWxLWN0X2J-6Y6ZrGVbcP-N2oikbjshYhkpYrtTOJLKbW-PCP7lhXv0vX1eQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "Y7SlRAIjtwsu5LNnOdLGPHbjH7yxpemWCV-FG2rjtSngXT9b1OEwLZkfIy5GZHkesH1CC5AaslmZQg6KfT70HsCcjzdyo4kf0tVSt66ECYooOgntTEobt6uoxaZ6OEbjobASLL2j9_15C6QObyKdw2phu_YXTffz7dCb86YxTko",
+      "dp": "egA_4zVlgAvbDum1iFnapxQ4DLy0gh6sYS3_sww5vxXqL-bPndV2c7rklktOxU42gmrWYuZqYG8ed_IsBiYOCE7u-wxqZNYDSmwcuWw0C7Ycdv_2mCwFDOOKaeiLxeyj7tbamL_0ycNjLz-dorD7dT1SqCKDCscbUkshaOjI5SM",
+      "dq": "CIaIUF0imJL63kRRxK70UyxSWLVFDyKlTw154AnBL8cPjSLR2NMd6ht6-nTIWLtXizI-eF725-61ZKpBN8-zcF4rvMPvNkSJtYniJlQHeZ1dvEqpnm3QBD2Lw8JVN-ezGjihYAlkhPUoyHzj7yBF9ovSkGMEnuLdoxnF2QTY47c",
+      "n": "urGjPujK-ZqzrHj_d9KqfHMJsDzV2G-XoBgBtFxm79F2tzJZpRrQas0V6lLjwVesLQ0Y13yoDHINfpaW8IrId2YNEoVdnCawOEuDVujXkLCbMboOKWcRxM_LJDOsxGaTk2UBpoau3mY6QjTpeYiFKg-AQnvlbWRKw1rAit6xp1Pmf1-L8MLlC0eF4ivYKQicdCZ3cmo2VeuWIUqyOMeVEaj4eGCctqgLqjPQEvPMk6bTHM7cVCYmk0B2UjjcsuMLi_FvTgEUYGeX1a4kG_Lqp2q6Y4ujQkYh0SaAxQoOvm7PcRNXNrVG7Ogv5-F5JqtXGD_lQUFDopaXdr0FiT8XVQ"
+    },
+    "relyingPartyId": "Bharathi-Inc",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientAuthMethods": [
+      ""
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:29.420Z",
+  "errors": [
+    {
+      "errorCode": "invalid_client_auth",
+      "errorMessage": "request.clientAuthMethods[0]: invalid_client_auth"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_client_auth</td>
+    <td>invalid_client_auth</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Empty_grantTypes_Neg()'><b>ESignet_CreateOIDCClient_Empty_grantTypes_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Empty_grantTypes_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$RANDOMID$", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_grant_type", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-482348886" onClick='toggleBox("Output-482348886", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-482348886" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-482348886">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:26.344Z",
+  "request": {
+    "clientId": "mosip931690907200359",
+    "clientName": "MOSIP OIDC Client",
+    "publicKey": {
+      "p": "6zePxepDMyDCWbUhdWTYG4yF9HhUiC0LcfvPKlVtjQmmASfkrjcyPU2eGNgXdVWM0kmvzA1lNQAddBaL4GoE9D25JTaXd11OTWQ7t8rO0Xn8pNq5k4ZuIZWPmC5m4J3knDJlLx1ETh4g7etM4s30Amh_tL9lJ5npIDdlSyjMk2E",
+      "kty": "RSA",
+      "q": "oxRjntn33z1Stn9f-4skP_uXvqiD--wGSiOU1VRZ9NQ82xajT_LmHp6fJv257Lv3OvBv_JY72B-ZSL8TVb005UHXUQFXOEyXcfz4tHwOOcK8XELORU8t0YVvecus1RQNXzozLenWbMJparKO27B0V0iBDChl-iSZbpeaTJ_aoOc",
+      "d": "Rubh8G4012u_UOyXCtZNxLqNb-rlt4LajwLpfH-ZvtFlRKWd1nZCwYQNxLI7ANU4BGoTVzF9Y2510JuApK81asrc7NoNFMq8ui_HAEjDvZssZn_0kYde3RLhqQQZi-FEi0xdVM9wVESusRf3lVL3Iq5FBuvxBd-WDuezFXLmk2C-4vZh_TiA3oVvhFmsR60cq_CCc_sjpH5kHFUUTRsdZTHJjKR5NaGZWajfRI31fn_wluC7gZJlW25aUr-kxSA53OR1iwVIRPrzv-wRDoV3GNJ60Ft-dvfBdBbcya8Cp-cfmYttKKox8wME7tKOeg0X4BfwO1OZYNO_pv0xeIuAwQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "H9AFTfzLeIf-Wrrp1CyD_s9xNPEkeegkRpmPigAkb5l4fL1Vh9t0Ok7VzP6sUOL7Qh34Rz9a2yvjVsHt2hAwDMukThjM_wZeUbfo1jYjK4IxKGUThXe_xulU-s_i_bNHKxA8q1oUduPle9kuFf0uot8VhnpRXDreyIOAkz5SgY8",
+      "dp": "oDWB6c3743Emry9eELWVNH5sJu1mtjHoH8Thf_Yb3fp6ZUMk0TyrLXIWgtl8cODKP9kMsjFVg9oGNbG9qCbOJQV9e8lJNXYKBVCGFFNAtxEdcbPAvqjLjnhuC7tfOxKQSYtRu9t1ULfYufSQs9KPpqxCf3v1jBma3eSdS6oIXUE",
+      "dq": "LBOJrVh6LyMS5PJeTc1YmdZ1N_mx2nf7ZzRguJvYyFxIqmpe72_WFHaIy3AOPVa8RnjPu7QbLpmzwz6piiXeUwxNlr5HBZdl41AdJCLXcXMZl9ISkBcLajKnY4LSDrEhwBgp1wH5i2GsPkNOa0Aw4ZpeDpwom8gilApzkLwvygc",
+      "n": "ldccarDJNSSmj6ez6ntR-Uhwr7zy4s5pd2w0REMuq3O6vWFOqfDnNT56Kmo1RVps7oZPHHZZtTlGspHHjYyxb5ZEEcokl_33G8yYyVt5sSeM53oYEVXU9h3S1_PNtaT7fTaQOhbovix0HWkE5-ye6I8K5frECprIgTlQuE3UYdcgax25vdqFOstJl9EEglYHFyElNccFME7JXJAPwyJgLhpTEGB_wSEorVQmBEV71AbjVsfHZ0ZmqnjUkZ2n1THVci1YkeuPVJlV-AZLB6y5MzWSQ5j90B8PqJ_Df_LoGakzZCq5eDHGb54_s4pXuwm81k5txSlrZmdrPkjcbE-chw"
+    },
+    "relyingPartyId": "Bharathi-Inc",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      ""
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:26.937Z",
+  "errors": [
+    {
+      "errorCode": "invalid_grant_type",
+      "errorMessage": "request.grantTypes[0]: invalid_grant_type"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_grant_type</td>
+    <td>invalid_grant_type</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Exceding_Range_ClientId_Neg()'><b>ESignet_CreateOIDCClient_Exceding_Range_ClientId_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Exceding_Range_ClientId_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "8nr2xe4jlxa54n9okvcv1kbjjl7srfy3veqp88g2u1nn2do7za1svus4hdfj8nr2xe4jlxa54n9okvcv1kbjjl7srfy3veqp88g2u1nn2do7za1svus4hdfj", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_client_id", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1135858071" onClick='toggleBox("Output-1135858071", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1135858071" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1135858071">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:10.289Z",
+  "request": {
+    "clientId": "8nr2xe4jlxa54n9okvcv1kbjjl7srfy3veqp88g2u1nn2do7za1svus4hdfj8nr2xe4jlxa54n9okvcv1kbjjl7srfy3veqp88g2u1nn2do7za1svus4hdfj",
+    "clientName": "MOSIP OIDC Client",
+    "publicKey": {
+      "p": "y2kF2g4OOyjryIw50L8DH7H194Ye4JTybyubwnVXeyB9Ld-8rucR90L0Yp_b0n7v4THwBn5iHjQHAFW6BYTamDGIagzNFCcUgAfNTUM6QZMO6qREwh4mm5TkWCXdiq8ofiZ3NaCbuNN5jS9wi1WKolCg7zzXw6Dj0UH4YhFvam8",
+      "kty": "RSA",
+      "q": "t0bAXQGjZOsX0pzVVNsXyuHwRzc6Q1KgVU5ERlVsVd2KXY_2GqNtfrB0lhILNMayJQl2ERtQU4_YAQkfsh7dT9jxCsrm6XUUPxwxDSXkgZpvmgMYtzwnd6f0Fc6KNQQydXhNq3b3wmWPnny846nNE6eJ1Trk3_6QpUf9cT6rFHs",
+      "d": "aRbhmfqB8QqKWz9F00LWGDcMQv3WAn4zDNSkaxd81QVF99VMhNXHKWJ4y2RWokfQUxohP4eUqL1_tovF2tjKGb4ZZaxJcpMCK7ni_QkG8_vEd1N6HYmaUeI6rfndrRhm_k7ainawBkJVvDP7hbACKNm8Lpi0jnNS8tmGkXY1reyGP42bC580_jsd0KIPlDdoPQIswIvCfWJycZ7IodGFU4lMRGJM56ScQ7VMADZ34ra3Ii1Sazn25bTg_L3igdJP7yJ1KSx6-GFmFAVTuv8rBFwv6lHqWOYnmjvdmkHR_QTtSF54GGrtmGktcFINd0hnUxhaF7MSpfwUQHJ0vlpQKQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "XJdV7GlBPPPMSuaSiX7Y6sxBh-HAi_SeagXszkflePRS3sYE9AgjLi0bO2zYcUlN3hLd7wCPEDvW7aZYJ2P6DI2gJEGx2a1u-8f1LeUjH5POpU_aS8jW9-26iikPBsDtNVQK7sJvXkeR3j1tpaXz0iwpulsT8Y8ObjZtLlej7DI",
+      "dp": "Vs1viNkcq5RP4hotBe6tZ5Yq78EVZiNJvbUvV_F5Lnrz0GK9AypqWUkCPyAWz6IJveDwm-TM_DSZlEQBCR_jpLTmkNL7pRD0R5qMut7oellGMU1-ZhQ1x4jnVNJ70xXiQsspbgIm0d207lIDRgJwEco0k0M0lDARaBgt5bOpBxM",
+      "dq": "n4_Qb-i6OWVX4zw5mtv4VeDpEQdrCSvJfRtb46QBYqwzB4wLZlu8O10i03i4GuWWORqImRIfl_CWzSgFWUz3vsmP6aaG7N_KlbtUlS7VR2SOHxbtELIlZk5p-gZMWyXhTFZFwK8duzgylnfg95Bgg-kL3gGdO8pkYhFP_KTjyzs",
+      "n": "kaBKvySD7ASby1oF7LY6lanUFF0x2uPUG0eTpymEU-P0mHJCKGSdqfFlluiHk3kJbGm6RL-6SG_bCmahtbSR_XfDIrTEHaTOggp-gW88bMACs5nw9R5Sk8E8B9zQXwp9o21KwoxLooUzqgIkXMaAuX2IKLtZMKPeTMejIUWugN4fHwrElYZj1v_6y4XSTxvRPI7sDiqSph060z0d5R2wN5rfjURZM0rsEuv-6AYOU3i-jv-0PkZARHAx-gtfJaT4eL0C-Us9dHkyRVhN4EDSHWnXmsNLkw6bCjLxpwTE27gcMRy5HeovnznEaZWqBwc-xgfT8C5pD3w5-0-tDv3PVQ"
+    },
+    "relyingPartyId": "Bharathi-Inc",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:11.104Z",
+  "errors": [
+    {
+      "errorCode": "invalid_client_id",
+      "errorMessage": "request.clientId: invalid_client_id"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_client_id</td>
+    <td>invalid_client_id</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Exceding_Range_ClientName_Neg()'><b>ESignet_CreateOIDCClient_Exceding_Range_ClientName_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Exceding_Range_ClientName_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "8nr2xe4jlxa54n9okvcv1", "clientName": "vc0neervbsu10dfbo2vu282lt0r9hf044b1q8wm957k97wpjmrmwz6kcbpv5p9zyocksfyg41u4rpm71hhqy29sqcixg1i0ed2aaxlfd9f5wtpf3py2igi3orhttvh6vqys16nmnke9qwjjr8byjflotzyw078t1azc9rvoftuhdis40mgy9uoyzoypwdbomdkjg3v9y216y7bfpiyoenhgaudirgn432u3c2x27z23zvd094m7ug4lvid8av6jhc24j", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_client_name", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1421106430" onClick='toggleBox("Output-1421106430", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1421106430" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1421106430">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:12.160Z",
+  "request": {
+    "clientId": "8nr2xe4jlxa54n9okvcv1",
+    "clientName": "vc0neervbsu10dfbo2vu282lt0r9hf044b1q8wm957k97wpjmrmwz6kcbpv5p9zyocksfyg41u4rpm71hhqy29sqcixg1i0ed2aaxlfd9f5wtpf3py2igi3orhttvh6vqys16nmnke9qwjjr8byjflotzyw078t1azc9rvoftuhdis40mgy9uoyzoypwdbomdkjg3v9y216y7bfpiyoenhgaudirgn432u3c2x27z23zvd094m7ug4lvid8av6jhc24j",
+    "publicKey": {
+      "p": "_KlbmaYdRbnY7chDsr2U-xqMIL1xoYgtkJHL_ESt2MJdLjiDWmdex1ybelFpJLXXZ2VQC5ogxNOD7QdFDzf3cc9prPvduCPHLeZCHskiHoTKzjmCvL1FrNENIvKO2-by-YcYMNwjoKMQzO44O_EXMtJ-V7fEjh8TwoP5peCpagk",
+      "kty": "RSA",
+      "q": "5gDU0yPkzhp9Y9a666D9dxa9QxBYcfKb3TgJ4XHN6NnL-Js4Cmr6zdLC0-djNHHFuqcnA-K2m08dar7DKqWMN-60mjast13bYv0zcWMw32udHOhcGrVWpDWbgVpTZRG-_2sGDnJJ03D_-PaZM31cfvu8dGVyPu9SMCZFhdmUbzs",
+      "d": "dYkTFomIUlC65BfgjcidVCPug-hmK13NB1facxz9q5cFZYcuOLx0Rm8LA_Ct4Fl9rpLRKdYwUhbd-l2oXwuMbfd-t9F4ZAqvSLnr73e1YByGlzzQaarRCJKINkfjtqWVDIjynusGqGNxZ28v7AH96ALDGyajhTdiGM5_UQLten60LA4uQnYj518q5YtOnhaJQ6lVVqvc-CcnaRpExXcOD9dbc3sp1LCZ_4M5yKlocOgcUJQK_1apBLX1afi1ZI9x8uS_NzAc_1vWkLJM2DpD4rVWwh8ZD3i6CuLigmjGLx3BX51yEvUMwnEybb5wgu_Gb5wHlFIGcgrAnJHAztKLkQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "hjecK7yGwjhMRaY3pd_QdHpS6StH1ZsUUed91hAPvqIxD3pTw_gN-Wd-tcYXDd_hfjF4GrRIFLfwnsK2wic7rCZwc0ncrW69zOCs5qUr1rFM6ueQFh40z_i3N7-JC0-UwSEkPCZJ_Z56u424AaLYFBaUWip4Wuu3rEbthxo-vsQ",
+      "dp": "JqcaFlVtYP9finD6ult6cTfMfC2_NoEIx3cmh79SATkq3ClVHv11aHZoarwNo8oV3AGJz1yS6smZAyf7jqp3NngOqKIXd1Yx4Hm7X85RY-3YwNfXglxKTnfk1JXa-RVJ0payQrdK1AZeSZugCruFWwcMwQqiDUP_1-Aszw2hnVE",
+      "dq": "RUq602Fc7TrNy-ZFKfe2ZMpU-n9SJgIRMvRPBbxjbGMxMBSTLZBNPvTf_TcYjBQ6naD-AA2tNdz_38jYw2Bcff1MK6mNHzEHhysA9IgNkUG6c5sNJH69O3tq_e1YcnqGMCzuBiwoUasZcsfYH8sEsrzkaaymXo97E0Z0a37BWUE",
+      "n": "4wD6WK4dA58j_CDG-GGtNvwTCmFaGXv-QiPJ2r38ZfGJmq9IKQ-hv5yq-dGlhY003P2i--YIpdjn81pg45CkegkiPQEkCQvRGa6pnvZ6Wgw6HozCLaMXBy-5NetzCBrTPZ01dx0rp4Ghu7qOvyvejHbkI2kx54DEorB2K3ywH9h47CD6BdhFEybBEg3OdaqPa6lJAbINagY9cGcytlLc2_F4NLvCINI8bW3m3UmfLPG4m4W7HYY5c3Wf7TAXvpqrXgJpDj9qqqEf20uZMzhxyfB5M7v3PG0ONBMjyxYtkRbT-0pmz61UJaxs9DE984zdda2u2j2S8XPL7XYkKjlXEw"
+    },
+    "relyingPartyId": "Bharathi-Inc",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:12.834Z",
+  "errors": [
+    {
+      "errorCode": "invalid_client_name",
+      "errorMessage": "request.clientName: invalid_client_name"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_client_name</td>
+    <td>invalid_client_name</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Invalid_Exceding_Range_logoUri_Neg()'><b>ESignet_CreateOIDCClient_Invalid_Exceding_Range_logoUri_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Invalid_Exceding_Range_logoUri_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "8nr2xe4jlxa54n9okvcv1", "clientName": "MOSIP OIDC CLIENT", "logoUri": "jfwy2ky9paqhidten6vg2g4iznvd7l3b6pjnghdvlqzpzmcyq8vdwjm0jalich5t3ro7j716t5zsbg8rqfc99py504vqq74b7p6jtyux9qzzz9ufu24hrgicws8ntszzcwva4tlj8lz1tfubr1vneuv503kn5b591zi0gdfqgj440z86syg0ikpwhpy0hgw1qp5px8dstsoncuc5f43t0hpj3rmiejdhyswpeu6fte0z7811zxauzadx22ii3rsffc7yxu216sqtblwfly7j8r7u32vi47grtqza0yvvondsnek32tktqtb7vycyo33nqhv7rpt5al4vxxa70fablzlr7rf3xzo0u2kti791nywnqed0du1e8356vfu5fsm1tfk6hbscc7ys77hipwernpsctvw3fgvk06qunxylzfmpwz645y8p8liv8s76nwrd3xae1amleljiheuvmrn2qqzcojv65tdreti1cy1sskw3srbgig0h4n6w3l9nts4pb90l19cgmp9y9h54m69uqwwexx8r5jgtcb3cpixwg35gjhzqjo8ub0lrk4etr81b25couzom4mr2ek8s416329cd8fh9k8w2cyr2uas0h9gvvvvvpbh7701kgmpoz712mi37ny7kv6oionrf3370ycsja9eenrr3aybnpt2htl65th9fqlwcpszvhr6ffhcu6q5fss521jr111cfeeobn6byherzj6ayr0io7kgjytucorl2hwir7ragjsdshd579ts55230dvmb4iv8823p7qjf47ik66igdu6b5pn4v3108hfi3gjmre12dusj6g1066n59400183urt2ungulo395k0krhvjotfkg42msujren8pnnz8pmf6vgc3megxhzi3ypycl7o77iq2596n9141mgmgwbe2vlfcc994mv483vwjr7dko10xv3y9n60wfb04a9egu83vws66hgljzey2ore7amcvi7t89kmjfwsy8mywtmokbh9d9jr0a40p76is71t", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_uri", "errorMessage": "request.logoUri: invalid_uri" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1076682441" onClick='toggleBox("Output-1076682441", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1076682441" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1076682441">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:17.296Z",
+  "request": {
+    "clientId": "8nr2xe4jlxa54n9okvcv1",
+    "clientName": "MOSIP OIDC CLIENT",
+    "publicKey": {
+      "p": "3GVDgWqOePW0Fq4skFTNwT8z-SR9nbXUChLp9Akdpq-VEHmFhBLNxuhoe6jcmLXxjc92BRie3rYImNqv0KAQOTYHjPn3Jv6OT0XVCbu7jW0k4UM4x-mf3FAvUlLz2GRNUX4OD7Qw0LakDajAP9Zd01KToha847hqfYPfHJgNsm8",
+      "kty": "RSA",
+      "q": "qQgSpi-SIfP-8QTMz7iU5TlRxbvobEFS8ZC4RVSMradXfIoptXmjZsj9G81v1qMG-NCI6ZNHvkiAPr8ROJbH0BI2KXs-SxIBkGTKP04259UoQws_7LB_Tmf1bJTxDOEH7ivaH0IoYuALaDcOthWPc6yC95Qc3sCMlq6NO3EJO_c",
+      "d": "EB5M13Mot7WZxdFx2LARrCictHuOhe9GNyQkmFBBGtz0BnOSl6gfkuLSxY9sKzxi27rtvaD7y8CSzmGKqbNdBIQPMNmwMI0ZcY_Q-opc-CjUJ_SmfVYdVTU_-3TqLvU-WThZKVmLfbn0Q39aZSDn4s7hcyh2g7ulvmhWIRjrGUMHi2y3G6XKD-JPrUsR1WhdfHEqz5yvgmB-4j1Dp8y83vv4WeVo972jZb4NN2BqfsVWhEdrh-VnGIH9178amx5-EVJD7ukKLPlkk_NNM4XKb4NJWV6zpV2jh_kHwn3EbvszRXbHr7_Uqv8l5JLLOIIMkdE-bvXxLpsm02CRqoaE_Q",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "zToBVLgTtU2RTAFsgS8fxjk3Zwa6puYq2fMCfOEFGQe-7m0xRfDx76_ER8QsoBSU_TEhKCWKdHpmgNxNBezWnLFcEU2IuXb-COmd5Kaza_xdpKhE7HYMLFz-MIlTKQdlefzNf6l5Jn7U9ZrZ796ocF4cJwhluE-j5pwtKJGM2EQ",
+      "dp": "gV8X3zHza-Ge0ulu01JUbSlykr7u1dLUIw2zM0Lemufaco9C5qI7FJV8L4qR4zp6DqpHNvqa11S3ezJznd03aL3kdMaOY99tHe95_Hqsv3nf-jMBc6gZ5LNU89gpt045bKq4ClPVi86KQlJad56X-OIyMyVxv6KTMBZms1w2PhU",
+      "dq": "Zz3sDh9ONXjPhaz14AYQw7Vv8cNlIgIARFWth4Mt7b8hW4sUEKj8GgK3Pi0Lm2C2GHFevrPbhSjJVAnl3deSsc79z_ZbxQR5ehVlxqbiOFXkopaTc-EV0PEEYU7TsJcd_eZA8wi4nDPWI9BFJwgiN3fuAoQv4gpflIWG9ACFsF8",
+      "n": "kYXMyLzAqBd4Ifgos8k1XcipdY19Ws3kOX9Eif4lR-kbqctZO4UaqW9BAoLCRX6lQ2MLjUSkypWMyFOMTIeE_GfQfiTs7eIYASxHUlMADb8w8UBynamw6JF7NgZV1ZbhlNBwWT_TrfNNvlH0qUE-YGATQcThtoKb4VInnqF1Dl0sE9_aqcg3hSriuc6Q6c7zPUMr16uEsf6lr2r-MNr8VvQlHUeSUeK94EgtiVRdi2VnZotbaNJMp2TY7nZjnD0d6BS06Y1ePtEHz9wFCelbmHunT0jQZPwtxhf4RIXQdGak3e1Nan_eTtdFwsXjziLZmEeYKHu-eLHdqIJ1Ij2-GQ"
+    },
+    "relyingPartyId": "Bharathi-Inc",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "jfwy2ky9paqhidten6vg2g4iznvd7l3b6pjnghdvlqzpzmcyq8vdwjm0jalich5t3ro7j716t5zsbg8rqfc99py504vqq74b7p6jtyux9qzzz9ufu24hrgicws8ntszzcwva4tlj8lz1tfubr1vneuv503kn5b591zi0gdfqgj440z86syg0ikpwhpy0hgw1qp5px8dstsoncuc5f43t0hpj3rmiejdhyswpeu6fte0z7811zxauzadx22ii3rsffc7yxu216sqtblwfly7j8r7u32vi47grtqza0yvvondsnek32tktqtb7vycyo33nqhv7rpt5al4vxxa70fablzlr7rf3xzo0u2kti791nywnqed0du1e8356vfu5fsm1tfk6hbscc7ys77hipwernpsctvw3fgvk06qunxylzfmpwz645y8p8liv8s76nwrd3xae1amleljiheuvmrn2qqzcojv65tdreti1cy1sskw3srbgig0h4n6w3l9nts4pb90l19cgmp9y9h54m69uqwwexx8r5jgtcb3cpixwg35gjhzqjo8ub0lrk4etr81b25couzom4mr2ek8s416329cd8fh9k8w2cyr2uas0h9gvvvvvpbh7701kgmpoz712mi37ny7kv6oionrf3370ycsja9eenrr3aybnpt2htl65th9fqlwcpszvhr6ffhcu6q5fss521jr111cfeeobn6byherzj6ayr0io7kgjytucorl2hwir7ragjsdshd579ts55230dvmb4iv8823p7qjf47ik66igdu6b5pn4v3108hfi3gjmre12dusj6g1066n59400183urt2ungulo395k0krhvjotfkg42msujren8pnnz8pmf6vgc3megxhzi3ypycl7o77iq2596n9141mgmgwbe2vlfcc994mv483vwjr7dko10xv3y9n60wfb04a9egu83vws66hgljzey2ore7amcvi7t89kmjfwsy8mywtmokbh9d9jr0a40p76is71t",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:18.278Z",
+  "errors": [
+    {
+      "errorCode": "invalid_uri",
+      "errorMessage": "request.logoUri: invalid_uri"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_uri</td>
+    <td>invalid_uri</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Invalid_Exceding_Range_relyingPartyId_Neg()'><b>ESignet_CreateOIDCClient_Invalid_Exceding_Range_relyingPartyId_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Invalid_Exceding_Range_relyingPartyId_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "8nr2xe4jlxa54n9okvcv1", "clientName": "MOSIP OIDC CLIENT", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "8nr2xe4jlxa54n9okvcv1kbjjl7srfy3veqp88g2u1nn2do7za1svus4hdfj8nr2xe4jlxa54n9okvcv1kbjjl7srfy3veqp88g2u1nn2do7za1svus4hdfj", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_rp_id", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-729881884" onClick='toggleBox("Output-729881884", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-729881884" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-729881884">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:15.905Z",
+  "request": {
+    "clientId": "8nr2xe4jlxa54n9okvcv1",
+    "clientName": "MOSIP OIDC CLIENT",
+    "publicKey": {
+      "p": "z49aTSi9yDPaywjRXzJ0V3U5yFApvnM3fHNswIa4n5pCqFU1eoHCHevMFYJTkW12UQjzl6fSBJ099dAgjcthaPyyaQdsSeYMXeAQFcix6F5ii7_PEfMOeBFQ7Kciwyulsl4Lc9GX9zeFFwkvP6oHDhJKTrFd_d5Fwi66i-Jo6JE",
+      "kty": "RSA",
+      "q": "ymnc7_qudwxj8KbutzJfFty8X61n7bCu1Z7C75P42pIIMTfxJqKhYDULJygpHIvKoyTwhFVL6wmTjRZJ7G891KJCcrjc0vhGC0FBXC7ZTKrCve1qm-pnizFV5zCPlqPP1k96PuR3adUZoLhrvfEFKBSE6EFuG3M0EEHUYEfGJMk",
+      "d": "cU8vA37TB_uh4xMLqGTJOjYB8Rndb5PbIokQzIzJGzYEUoFFLngTqPblWrerwFTGQQ8WrcTOuizQKlFtVt1fjsRmlb6tarKbBzG7i9xPaZCXFZgki54ql80i9C-V31EYGyWVh6kBToxdvHAgCEkUl2bweTSlwA3Wtzo9s0LMThuGO_yGh23hqH3Yk3Bkuj5gKFkA_QcabfgBS_ANrxE0vEzTt5A9550SZJ8er4-3CeJ5miw3v0cx-NPL6yHclrtPjDNw_RWgKzEu94FwCp2QPrmdzLRhKr6FKxySfnG5YdRtsUVb6hJiN5LYYT6mMnEd5wmY-efYO8WgI4dqflVQgQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "xx56LOPNE8W_ob9eR5bzkYufbST8qL5igJvouh-8-dn7glNxTF-CK4eacQutXNvLNpcpdpFe0oBqWv6PrAofkrEJb32eOMuS8Toc1xqrmLCxolYPQRcyHmz3sJkTfGwwL7N1iaPoGbekRyplVq35td4DBD8dkmstnXhaK90dNSE",
+      "dp": "oaqApXTETXnGQzp9Ce8cmzpdZV67BPJtF2w4GsVUbEwU-1RTMTZ8Yh3VejNmr_FYpMmaIle-x4VKS3puwMLW_pVEyXXUrMKYg04QeUc2-0z46OzfdpWggXjLVWjhNK98gi-qL-3itdXyvfyTZr0ifZ1Vb3HLSf-kyhjniCkzmWE",
+      "dq": "hW8iMaUcy-gEHgm9xlDTdJvRJnWG1J8rsjE1qn_uhg_MjL2nIGQHZAezsX19FI9m5wOb9nDQWkH23gQ6eT2gEgNhMIWDNSRr8FF1R9Kudyb-t_vB0sTEu3KrgXt2vMSCZ3H_UWSE_-R2P4gzpoQzdQeJ0h4H-tqIEMuEuG-4RFk",
+      "n": "pBzyLq96hQCSGBhjaXFhqUPRfVe5T517nWDNmxD83w_vTUCC-59bnoAW6TkDnX49sHkpTK-GD99hWz-1Rrq_dvkcbiBYZuCsIvIO6T0dYQ5M5h-diLgzZ5VKem7jk2QkQVIZ3Ljq_alcgv6yHUdUgpMKNndbmDcHrvGM1NdTPsPOPEj6b2mD1CGowgNKCMK4gDaUvaIZVnD72tQsok-CaFy0iqq_fRUbXiY1D3RcVRuFNZzVqvOXLbAvzRMJtWtYY8z8HY9b14vOyKqFckKbt4L4EtBbWwd_O5-cos4fd4Q9rGzLYXPddZXi0_Vzxq-5KkZS5lUksYkBqKOvnDj92Q"
+    },
+    "relyingPartyId": "8nr2xe4jlxa54n9okvcv1kbjjl7srfy3veqp88g2u1nn2do7za1svus4hdfj8nr2xe4jlxa54n9okvcv1kbjjl7srfy3veqp88g2u1nn2do7za1svus4hdfj",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:16.615Z",
+  "errors": [
+    {
+      "errorCode": "invalid_rp_id",
+      "errorMessage": "request.relyingPartyId: invalid_rp_id"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_rp_id</td>
+    <td>invalid_rp_id</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Invalid_Range_ClientId_Neg()'><b>ESignet_CreateOIDCClient_Invalid_Range_ClientId_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Invalid_Range_ClientId_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_client_id", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-464246030" onClick='toggleBox("Output-464246030", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-464246030" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-464246030">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:09.378Z",
+  "request": {
+    "clientId": "",
+    "clientName": "MOSIP OIDC Client",
+    "publicKey": {
+      "p": "52b0de0-knUFaaRpQ74KHQxgVXpbec6mKYnVG9kLKF8M7WNI4l6ij8WGSNBt7zvA6a6Z7xD3VvMj2qo6PmrBFL55qgB42xPuBTpmimpa-q4--5sD5EtGAPiV0NEVsGoLOT_n8Ray8I3vcsKpRmNcBRnCAi57nhla7JHbaacZqnU",
+      "kty": "RSA",
+      "q": "pi4dXIhim_CF-RN63uKxmK0vX8HgsEXDsbtZt-l7ETWUcs4FZxvggmOmINpf7U8hvJol0MYNdMqBHPLiFdhPcIX6sk_t9g4YCY5O-65nr5fwBEmRifEqtxJb43wSIzVvEH4reXkVVKkCI79EC1PQPGK3DnGIDu8ESxvU8cniP-s",
+      "d": "K_vpKHW1nqbRrg0Tfe0_zlclfBEBm6OSOyEGko42vnVjdpW0KtyPEBEQ_OfppN7LqKGeWhrgjnHvVucrzcP32m4eI7AyGIicGJXAHzCb3XNPrA-Vyqb1L4M-ETj-tzRPuueVOKcg-eAy3nOdrhcrMokba521jVqQCfCSSJvZ675s6BocGQzI_vhD1KeM2VkrzsTBq3TWlCLbGkl36eOj95HtPlU7boSUmKhtw0bhQRXL7WZwY3xrbPMioLPWglQwks4Kv-Jd2Y_-4PyiRweMHSEp5kjKw2anKRdNQYPdC7FQrtG5nztVLXGoeFXtRyFNcMDQTpXEIykHuYqBFovTsQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "MVtAQeMTpwzxqdJAjNt1VZTx_Wjcst8L6r-qOrtxoFtFgb8jJGZKTrvN6ryHCYxWZIvSr8llT23ipV6MBpKpjVQ-uPui7FvB9Vu5LIr4NlMkHJ6sK3IXhJ8KB3QNmDs7bONPUYtTQL--rryarTFw8Xv8kITjpzFYDtLLyP81mx0",
+      "dp": "TUet9sBPuFvKffiBizUpbYAXoBRn_msMRS0Z9d3rgwUTbShOTANs6PT_nsu1G0NqbuB32kZhRDGZVMqq_vNqHkJqoWLc-dVTFX3mhu10CuoscJzZlOGqtGJQrldVlgAkVW9JR9Pb2MieIkZuf-po7e8nQtFBSZCQNBeWHlfHE40",
+      "dq": "fMxK7o_aBiP2aNxxPOtf1jnRRwdxts9drJ73PL-R1ZW4WxNPSWTNEP7G5ws4WR5BRsM4vPXPazMdDWF12lPtLKLhZ4HRQiTJdnux4x7R7TOcY4vgSYicvImECm3FrT1WoDswaPQ-yap22eOstRkHXCICOU2XkSd8wO8w1zf2ums",
+      "n": "ljZxjrMAPrSGbaP4_xN5JqVqyrLjilq9JdmMoK5LdiuD1AvGspwAD8vvAQ10T57jyn7uu-aitzjTpDLxT77CzNOH9ijKrN9ucmClfELZUGCm57zKKWsRIpxDMBexBzerCeOqu2iwiDF5x10XGfi06r1Z8yewiGR_YTSXImtzHwpJSX9EuJwPJoPfVC15N-D_fuzNYlCg-zgxn7DlyY_hoYQC5OYmT2xM9GLma-033p97PNq4eZ7xDvln1HqiaVxHWuauTW2kwx5sSStjg6PxwqpbiISwbuKt2Oyc6da5qCdX27kwQC4kaGutUb9KQlHbOGoH_8xuGwmIBXG_DcxEZw"
+    },
+    "relyingPartyId": "Bharathi-Inc",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:10.255Z",
+  "errors": [
+    {
+      "errorCode": "invalid_client_id",
+      "errorMessage": "request.clientId: invalid_client_id"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_client_id</td>
+    <td>invalid_client_id</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Invalid_Range_ClientName_Neg()'><b>ESignet_CreateOIDCClient_Invalid_Range_ClientName_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Invalid_Range_ClientName_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "8nr2xe4jlxa54n9okvcv1", "clientName": "", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_client_name", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2049672449" onClick='toggleBox("Output-2049672449", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2049672449" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2049672449">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:11.136Z",
+  "request": {
+    "clientId": "8nr2xe4jlxa54n9okvcv1",
+    "clientName": "",
+    "publicKey": {
+      "p": "zQl4XkxidlZEGAqUx2y5yDf7pXt7CvuVJWM_wQIDHcjVqJpK6PZI32oRhtTJEaWYr7AIOlaji_zf8qUQbLaRKXm1W5fWxZwDpDx4QS_IUoqEC6bu2J8ANnE6C4sMgfeNeSk5rxGnA8VU3yagtOlQD_7jcZjlvikClkb-sPSUmbc",
+      "kty": "RSA",
+      "q": "yN9m5Ae7CibVv1FvA-4VpyUlhbvXkiVnS7PNv4tBDQWmCwi8h6EMK3QOCBks5QX_Sr7uIcyh162ZMseMQSuW1fsae39H98ikKj2du7MVjukYau060ie6rKydEZ8Q0jtVlOPNCfUOnWt-YmzZ6ydzu9S4qSPKuArNpnphAGK69A8",
+      "d": "LZgWmg1zTxial6J2Yn7yOqkeW6gxcVFE6_3tsnc4QlSPxZtYpACs-_bZKBrVmstjZPpAWDt8H4SSVWaJA3cKlXZUqr_GLW4bbgrqVA5MpZta-sUwoaUOr77B7U4U0PcWHnVNzlmYnFpkTBHuTAwTKKEbir1_0erxx_NFXqgGLzQpK1OyPf6jIHhBKAYKs_lYt0NfRfFbllEXFrhwxvj6xbPHrOlvxHdWiWVbYqKFKi3AUa6Rb2wm6t3tdjyGf3zW81ajjJA2p5D-CnqTBfDv3E4XfsLT9hYe_NbskKLNRIZqciOZJ-l60_BHzxZVgGSEn-MkaYZjO_70wnJXk8v5ZQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "ePzE8NENJXsw008RhZ2B2NRHF_t9uzwx3ihXkLPwqXaSqJoBxEQBM_Z4tU_ZKaJeg-tz7EvMNmyqCMwTFqfNhI3TtXtib3p9QvJXdmJ1fhd1u5CzH4KQdKYAUvhPtkmqCGeLSc8-Y3H6X3h15oD1XhdlP3FVU59jCu7Fl30PBdQ",
+      "dp": "swUSwJrG2XXGrIsIjfrDVypyIHFo5BT3ixZWAuoD2IyS6EwXHcJzrAXLWcMN78d7QeJbvLwKvd5DlnNCnPjmU6U9kMRJNG5cy5g0kw3qRQ9F7XqKTj69i8tel9eHSy7eqiwxfkbWYTd5PAFZDbwsOFsfMP8DkP3zkUxZch2KZY8",
+      "dq": "dqHB0XBjXWZ8HEaKywZkUVeV5np-oPhoHgRtwe8LFxa77o5VUcCiQFOFKfE8W3IESO-kEeAZwRfsf1nsklyc83keNcuBBGzBz5SeQElOtR0i55t9frop_GrhRJPtyktyisFSycupuvzOInDo7oFZT5gdCv9xbOosdGKYQTMN-K8",
+      "n": "oOJTse5nTPq3dgO_1mRvqwei48PrWHxbihusQdem7NaqM0ozIKvPfbduiujTdedNe1fcMoANmrODet0lua13IyWIu6BbCuEKWnq0k5oROl945XgdUKuUuH9h0m6Znf-S6ViI5HdZsC4Zzxl2jReuzDESSd226YCN2BHvyidLXv4hjnbwpMKyvp5yWCh-9Aqk-dzE2cwDDY-O35v2AZvovPVRewt5VBkVoP4BoqIIixPNRWPQ3qM3yx_D2n5WlEjO-3v66pGWJg9bL1G0ZHHCtD26D3zcM9rPh5z-pFLczBlxqGFPyGc9VdzjJpd7bOFAbSd5GA6ZcCx8kINLtC1tuQ"
+    },
+    "relyingPartyId": "Bharathi-Inc",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:12.127Z",
+  "errors": [
+    {
+      "errorCode": "invalid_client_name",
+      "errorMessage": "request.clientName: invalid_client_name"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_client_name</td>
+    <td>invalid_client_name</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Invalid_Range_logoUri_Neg()'><b>ESignet_CreateOIDCClient_Invalid_Range_logoUri_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Invalid_Range_logoUri_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "8nr2xe4jlxa54n9okvcv1", "clientName": "MOSIP OIDC CLIENT", "logoUri": "", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_uri", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-74629437" onClick='toggleBox("Output-74629437", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-74629437" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-74629437">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:16.642Z",
+  "request": {
+    "clientId": "8nr2xe4jlxa54n9okvcv1",
+    "clientName": "MOSIP OIDC CLIENT",
+    "publicKey": {
+      "p": "7DkxK0WHwo_ehW337ONZsQPLGQNG1VBVXC9_Pr0NTjF4qkY-OTxd36CfFz63Bil2v0Dju6Q_2TR6a_21tIBHryeqpPSQrBzA-bkc-qkyTCgvw6QrmDu5iPAWtAc5RdPrjB76LPc4eF8RmUukkAVyGaFEecilnoQDl8wYBw1kztE",
+      "kty": "RSA",
+      "q": "mMXHyddiFlSn-sQtoTrADEoJhGZjTn8U-8yHkvYPSoaLw4YIRFKtvpTnN5rpeKqlJW3ydmvTPmXfJZUPGafDjtrvx7RiocCasEIS2x7iyqNOqlGxVfbhQzipUlSisbDWf1PxQmZBsnKw3DiOTTrO3-MuQM3Bf-JlJwnGGBv4aE8",
+      "d": "MOAL0keBX1IYrInM-z3gy4FyX10EQ5Rvh9LjEsqTUm7-CbviiaKFbBLaRhcqw0Wmkmf-mHQblwu-QGB83oYRhmCdXRAs9mqzcNDiI3urlLQRXOMVvmpyq_dCrWhsoxkbc6-dCDh3l3dJmPuq1nmjGV-Q21jsSEXwWhzgKGvhUypvPw-fEkdv570tyLTVPilluL-I10zzQadyqBtvnYCW2qWf1T1L7JIl3DaNow3C1Nhb8HTMNrC88MY0ZhX_FZbD7SMgjNn_7B1oZIvYiZjja-CV1QSeIwcZxNvay7irduKYK53bULkDbu_xLV_LwsndO1pCr-OByloyPxVfN4GOwQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "0Oy_1M4k045v3U1ea5h4eDKJbXVhLU1sK-CwLhq9pb1K4RrgkYBgTrJaGnSbXNHmJL7e8E-XHiDSEYaf65QkHrgJeWTth5U0_ptHgc7Mry-5SbAxf6lkzAtR_0Nv46VKnEmdWJziSbH1FSjf1Pe9ciwemqYT7BhnfBoSkP5afzk",
+      "dp": "iVX-5h94fH9UadKzb4AGZ0nDTHmBNweLeRsMKZeUIr_UXXqVNoWINjmWBNerZOO6bBr3y-IEVO2TtzE78QMbqhOvvFOLwOS-tPEQjhLMcUZz7pSF2-3tQlYDfQsuGxDIQyDHZlkc9a6f9rXpqOnhmlEOFJe44l3yENDRr1f0IeE",
+      "dq": "dSh_7c9qHnvvkoTuBU47x3Dj2ZB3qdQVcIDKm65tzZZfCqP4JQVOzu_8XY1EbNBY89pcbeqExr5zIawtN1yLwTsvVXSFi0xclL0nHrmR7RrOEhmyKJ265MVIPKZBWommBWGHjIdE7Ke98DTDFID784CSkQn50av6LLT3ILgaiUs",
+      "n": "jPh1jzxz5c92nz9nMP82NT-tcoeOQkz2ptF02ou61ZiT6pHtoUhA4T7ID4TjV7n8zQlFvtG9YdqzGG8xZ3uveKT8QX-398tLDYBFF0wVi8UIApLmtkvE2t1OWwYss1bN31yByh4OpVYQ_jvvtcfo9bt6othcIRqS30Xmr_CbYN-iWeGdUoaXJ2qN30yJfKg9AGAdDOSY7BXqSaeXMQHUwuI6lvOxp3MeM657qg1xOa38K_jWMGXgB86BvFjW2X3LsrCSMzhx38L2Rzd2qZxpnPZ7uUa25arq8GmsckvbkobFjZ8xbYZKudKBBe72PzaKwfsOKjkUao4cvuyue5i6fw"
+    },
+    "relyingPartyId": "Bharathi-Inc",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:17.271Z",
+  "errors": [
+    {
+      "errorCode": "invalid_uri",
+      "errorMessage": "request.logoUri: invalid_uri"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_uri</td>
+    <td>invalid_uri</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Invalid_Range_relyingPartyId_Neg()'><b>ESignet_CreateOIDCClient_Invalid_Range_relyingPartyId_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Invalid_Range_relyingPartyId_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "8nr2xe4jlxa54n9okvcv1", "clientName": "MOSIP OIDC CLIENT", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_rp_id", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-248582358" onClick='toggleBox("Output-248582358", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-248582358" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-248582358">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:15.242Z",
+  "request": {
+    "clientId": "8nr2xe4jlxa54n9okvcv1",
+    "clientName": "MOSIP OIDC CLIENT",
+    "publicKey": {
+      "p": "-0BrGnK86xyNAhUI1K-4YhOB0RebIfS4LGgT5jdXnBd_s7JtK3r_EYfPWEIeFC-T_OQE8EiXgL_2SwRGMsIRT2QJYktVhCZAfhPqKrTLJcuCnygInZn-St3mcKkhD4g9QteDO8LUfr_fdri41Bzwop0aOh04dZkHDBecIjgdSDc",
+      "kty": "RSA",
+      "q": "7BL8bKiXVB37PuDE_zwhJylLO0M5RBxmb9cDO-H1CcVTF5xc0NUbTz0dB3LsPYEIM8B_raztBeM7AcJLrEaJshBEjpU3DJPn4BHSHUh-wW8zKQ5rtmrnGJR16qq_wZSMEkGt7suoAi6Ie4oQqxhuLkSUp584l__bVEi3e8vfM9U",
+      "d": "lm6gD7n7Xez2_Hp6-_CfyKzDEAHpUFbBlzNCTqF-G1tEYjRRWEY7pw2yba8aTwHwSB3dG_FM6QuYOfeGMbIE0aldadPtQx6KNK-qdM85gtjB-mMqmpLTzR3DvNZa4NhAK27BhHX6MzC1bIlFSpm4WTigZQN1YLpUXm9DG0vF60vxCLPjrGzCKQO5Se3KhUm6JrviW9YlLNqQTQlhidNiZpNBLXhfpSN5QcL3gNGhYTy-lPAYLd8KarhTsr0tCuYuX2IbATBq1cwKXBYhlVgTNGUBk0xkkmudj8jgEkPCDQ1wu9ZEy1R1EAl4Ry1EQQ1FR5EvRWAO1tLqQR3tWhT5iQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "5zY5fRvLFYAf9r4XifnF0qzH-0q8U5z28Qa5zlGsnSv6D4tIqT6H6whIm4qvq1hY3PgjOYuJ-XCuj6TJfoyYy_pEBHbUHHop0ODiCZiMrlLzeQK_OiepF0gW_sgRHVsLbL71EdlgYymyApzEOfa9eHupVD_lOnLGsHaQwn8X5fY",
+      "dp": "VXwTdMo5EN2D9INnn8WxvFzavGOFusXiq-k1bAzEWC1-m4tHrZWJl1NX7rWAOmn9tft22rI4KewmRlvL7pUtApAMyU7MZ8wEAWGROLqOq-tUJAag985fQOXC8-33e6tk_IsK8ZhWaFGsHF65NCIslYdSVxd-EDTiuvCFhPcGr30",
+      "dq": "o11gITFpx2QYAaM5sAbESn1g-lnCv0eH-80nB8GN-Hz8y1IBSOKwS11XQVhd8xHfwzBrKpyISZK9urHh_A20K-zmBGVt-t4_j-fFJ06LqQByvu6jy1CfK3tRPlt651MMu3WID8APO7NH73XToxL87De5R2X_m_AKr4DCuICUrSE",
+      "n": "57IFAfe0PfhRD3b4I6NlMjWajr-zGd1SUibcxhqVoXfNHGIWUvZeERUYmNLPu1fmaC3mWGTi-S_CVIcUQ6YPK9R13d8cAAwEOxdngF46uDiVFDpKvrzXmaLJ1rqKPOp5Rl3GosMf-9SEjw9bzVYzjawCj49v7CshqnU4EcDfRY-n595Q6F-gmeuOBV_ssN-UQAgtVy5J2CfUCIVA0DZ6qk1pPYHpMKyvXJiJxZ21NfyHMP2sAcYzopC6I_pwe__psXsuDYFnvUX8rAKriDilT7t6tmKROM_Zl2ZZVku0WnTi3k95ZFNXqAZBYRaonuM4B700pOt5ai8oNtbZCqkKww"
+    },
+    "relyingPartyId": "",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:15.872Z",
+  "errors": [
+    {
+      "errorCode": "invalid_rp_id",
+      "errorMessage": "request.relyingPartyId: invalid_rp_id"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_rp_id</td>
+    <td>invalid_rp_id</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Invalid_RequestTime_Neg()'><b>ESignet_CreateOIDCClient_Invalid_RequestTime_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Invalid_RequestTime_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "2022-11-07T06:51:30", "clientId": "$RANDOMID$", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-965793166" onClick='toggleBox("Output-965793166", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-965793166" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-965793166">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2022-11-07T06:51:30",
+  "request": {
+    "clientId": "mosip931690907200359",
+    "clientName": "MOSIP OIDC Client",
+    "publicKey": {
+      "p": "x0MAnzb7J8mJ9y2JcEVP7zjhsXzwlZXV1QBuoRnHsmgIwWhXaPZ-l-B0Mrr7xhAnUji8sKAwGsAEbpHwiy-mKuzposKZzwMAlBmZX3HULtnxPc_gA8xPp0Efir96GeLXMmsSlxGKcOkbhJdnt9qGyMzJZc2WIRGCkH-jshIEQec",
+      "kty": "RSA",
+      "q": "vG80Vr6wSzfseqtNCaEvql9mChJm1-Rlsx83tOr0SiRL1v0D8fjCQLmcFB_VrAEvXKbO9dsVbC9MMFAkWOuxm07Fk2PNc7Y4Ev6O-p0V4s2QMKSfQKXuvp-c0Rdsm08r-MO9QWmfHfHfFX92Ld7MGRkpHwbx573NNN40aWa_W0U",
+      "d": "RdBiaJK-EQo5Oe5Flp06kPejOb5EK72_WV1d51213IMaBx7jkH5DDKVo66197gA2OkdHFHtSszHzVcW1EhUi5pnCpImbrVjpd0Q6gQ0Z6OGccTO9jxI0_QgRxDn9-9wZypWZI00wlsiq6w4vGTIeyoL4C5mfBynTdCplTOS-EVXvsAmm7DPWDwrWrEugByjwA9TIMvXxXtFlQN3Zb0z17biHS5nOg5mXyJeTmDAshWjXAjOTWDfikWUL5BW0ePBygwOl-ejluAOeaFoQS9flrgCl4LYFeSplb5JVJHqlTvU4IoS_E2Mcz4Leaq2cYen0xUaVuZF9TtchBY3RhZ69iQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "Csom8CiNJwjuE9VG-EX_vNISpHRanaxPzNTN1P_VfR7B917koQUScB5Nzp6fBRlS3TX76F9eA6OYTnTH8KjOCUBvoe5f2NOp2I0yKe7uyVQ2k4mMbBHzFdM4xiHtdEYcA8LQlMDWH9Wqxx4LxvB9EKCahkzHDRA3e3K-Fb-FxNQ",
+      "dp": "Kd9-pfab2MSVZYgANcObBJ5jbzTeKdEO2m_4z4nnWSpbjKkslTYXbDsSsAZzGjAS00hw_nzrHvPy-nlYnycoOCUJA9b5E3OCD51BibkV6bKK635fiOzKYE9jHXkXY5Ezv7iYc36QJSIXUkmu1gfqAxBl0irdvZ08Xrkz4RvAIUk",
+      "dq": "pnezjEKv6fOAxaoZx70PJ_tZYOJ62pVaxxB4HStIH0vLeCVT2-uAaL_Qw_KPyIHPfpGa2pXuagGq1C-ovKmT4PmJEDmmImhDR3x9gadO02v4yxBT5D_zF5JYblu8RcR-uyjpRCV0PXcVNp_BHqrqMe4JZvCyuqDx7Ze0Q71SpeU",
+      "n": "kqvDP1J4x9h_EeCyWYXIbXWPEwKZye9ukxTtuvKkS3lvZ3-9KWI4G1CXiF6uxtOtyrg-7M71tIXAwkV_w68w5mjW3RE17rBx-PkH5ZrWvv4qFt1ZthdB7rnVUACstirVs49nwu4qn8HGu7C-UZk0u0kVPBfR_BWWh91ZF24D6Cyn6TN3hZNweAuBFEvB0eRLYrLcHN7553dyk16hbcFjY4HUT-5AYcI5TMMH80_-qDePOsG4BnRqvWI-AdQ6lVjvZoPhpQcaSiZdL9hkvgZm4re_ufa_Ge7h6OhRfVWXbWYGNe8iKvhzyZY6cp1z4VdV_yb5diBP6cO6FIKUk-vgQw"
+    },
+    "relyingPartyId": "Bharathi-Inc",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:07.445Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Invalid_SpaceFirst_ClientId_Neg()'><b>ESignet_CreateOIDCClient_Invalid_SpaceFirst_ClientId_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Invalid_SpaceFirst_ClientId_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": " 8nr2xe4jlxa54n9okvcv12", "clientName": "MOSIP OIDC CLIENT", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_client_id", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-650157887" onClick='toggleBox("Output-650157887", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-650157887" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-650157887">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:12.861Z",
+  "request": {
+    "clientId": " 8nr2xe4jlxa54n9okvcv12",
+    "clientName": "MOSIP OIDC CLIENT",
+    "publicKey": {
+      "p": "9DwyzXbyAWvgQe2zYb7sYUy8Gzs9o-ENeMdTYhc4Mj7nkhUAWgO0ziM7ZNlPP9R2V2cGEhp38RJ98F-0G0NXTmxUSGCpKUvRAm8Ja9XOqx9_CfdHBntC69bXmATXf9jMxpTZBGlol0Tqi0jBkTECkiqMqjo4X4ZRb-pLuOFJZ-k",
+      "kty": "RSA",
+      "q": "jyZ67-7M2Z04bBh8HtDEhnqWgCkVd9Pqq2Sn5nKuevqb2sNYkAmP48R80ad7vP7bu7lwR7_Tg8pPBsJDtQwUJX75cc_f7bI7Qwp6_BBzEINGONS_YZBmKffqoAJ4_B8RquxNOxxZO4yL5Nm-zSKGSRl-NMl53PVNFzG9lKOOZVc",
+      "d": "CCd8pjnXpvKuSqmNVCqwTnfPkMF6Rkg5GtnkaEc6l47WxZAHTMtf_B574Im92yxSsiAApQdqKNCn-IIJXMluCpJcMSaKUc3mqbDZROyL3rKa0OCGS7izTcMOBXxkcC3qWl1EdvB8IqlNcH6gNJ7IGRzrAtTyzk-arQa9YWuGiIklOIpGpB2C6ofz4SgZxL3fVeQrLSQXMBGlEUTvcMKej-a-vtVaLvAlyNdDN7NYHUkKGCe0A6X69Ic1uZWNuszOfZ97xonHEjuc4lZaQKJCZBq8U4pNZZ-QiF5mQdbXsPCQMP_IzScjkZMwcxXWt9BQcgBXmdkRNWTF-5RW9Az7cQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "WHay3h5hUaJCYuzcWnzi0NhoBQi6rdAjREvGKE-t4dseKK-fVpgSKQcZqsTfBMTfIadtOJ8UDuADk2LUThoGhkN_QcFxECYYVUgSim_L5xf95gtB3Jky8yyQieXfqJUTrWiRQwMn1iEyyT-jKa73YZFH5BxPCogcFVWQp3inCMM",
+      "dp": "yjHMHS2LzIFydyJCj3lwWF0enay9qx51-LeL4Hk4nOBW9ilM0TigRsgEM8l0QnOyRUmVTQd8pKeae5W_lZJ6hQJKBGGBqh6KOmmScyPepOy-T5HXyxXgoT6L3d6kScNCRGSWBYD-hb0YL5dcKMdaSYfQTF1Grk6UvQJLDhP0oYE",
+      "dq": "eqhTMKFif5hajyzPtavWqRADQx9w2LMJYgCmaSyc2p0_zEwT55953oUvGomy2fdamljDn4b7mvJPkpAEae5GmPZakK24xzgv1Tr2tGL35Q9GrU2GCvgqwg0-ygo0VnvcrKM7bcnVn9PGzrnQ5n6Np7cjT-HO_IhnnNcvBVy7l5M",
+      "n": "iJJWmegtlglfBD4FNycWpYcZv4-ruDK6ZRQJTRwfldjEjoslR40rFKOOn5tnwVYnSHgJOgi2rQgZMtWIMvNtc-PrCFtLt4abBpNlMcZZUXuNWFff0_hY3-aaCn6nY6mLskCxLcryZs7fu7PkvBcTbHjo46tRqjEhu-wB16C9uwdzZtUzpG5Br9nVzvegR_bIOrJCgJrVUn8u5UJxzPapM9d4dnshrio-9M6oI-3YjpI2y4ey-1U-dsBrs_HheWQUO8Wsc8LVLXV6qQeeEZmpu9X40ljFEnZDArM2aJrW5FL4YMNySV4qiBuRMPqQz2HhoekWPmyhQ65zPnhLhC89Lw"
+    },
+    "relyingPartyId": "Bharathi-Inc",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:13.566Z",
+  "errors": [
+    {
+      "errorCode": "invalid_client_id",
+      "errorMessage": "request.clientId: invalid_client_id"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_client_id</td>
+    <td>invalid_client_id</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Invalid_SpaceLast_ClientId_Neg()'><b>ESignet_CreateOIDCClient_Invalid_SpaceLast_ClientId_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Invalid_SpaceLast_ClientId_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "8nr2xe4jlxa54n9okvcv12 ", "clientName": "MOSIP OIDC CLIENT", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_client_id", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-882678778" onClick='toggleBox("Output-882678778", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-882678778" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-882678778">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:13.600Z",
+  "request": {
+    "clientId": "8nr2xe4jlxa54n9okvcv12 ",
+    "clientName": "MOSIP OIDC CLIENT",
+    "publicKey": {
+      "p": "6cOQvSomVSiXihnU_Bk-ye1S42u2M8TdBI15xN6VnoXALg-TXX0ru9oG8U4M353AXJ0wPfeGDX9QYPo7twyhcgD-Awr7KY720HkJDnjPICzG1G30t5YiLGR-PWNrp3JNgY2jQhmuXEAaH4bUU257WgChaJ0vGS82msyWBP96CzU",
+      "kty": "RSA",
+      "q": "ts15pDMzldMiHx8xZB1qjkTnGHXjLuYDgmkI4XlDyCo3ffxhfeJN2erfcijnwppva_NFjtsaDh0ZWGIU5rZ-etNnwwqgDLPU74Kp0PWcSFtqY0ufi-UfyL26BKkwWr7IYV6XNmgMZFZF3pAJ1WcRNFukdks_YALV_lvmnyFayzU",
+      "d": "IAA28oH6lt8KZWyVaJK0RO1qkULXrF7yl32y2UwXkCAvaK6Nr8fe5hK5OMxoKm_UmlY7uHnSa5Ca1Su37TNbrJa6dZR0RhroM27YISX942VRoYF_2SaLKSRdeHdWAfRuaNke2DnHBhNHpgQgrQxTEhQVDQEkiND338UsactAJ2b4LeoDyMgS1c_AquXIsknWP1CdqAnp9LKMGWfGNCp0wzK55Qt2fhXmWRmfZgwmTtwJaVWDPTGRnvAB4iBFGIWowGmRtZe8kBqVlImQ2NnHdOY9tqoqz7wQo7JyJGVCbYmWo7-41ZTwo7DuZUUaSop679uxRQIY5fJvIQ5pSNbDQQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "UnoO8oz5-YAPnugwVm2mNvhymp1_8Kkr_RoEfHjnmTQce-8Tbq3UM8cortcUeFq3s0V1bbIxahbDm4NUN83ls72GOafA_40rm_zB3OEZvglkzPMh-gjb6rdYc3NodxCPi-qsvkHSPrAqR-gEL39eMoIkmmthuFKCAHVPYztovaw",
+      "dp": "k1-kz21UT1nQ99LDUNAFor5JBHFyo_6XrHgY7cG6J_-AoklViZoRSVPyDo07VnsYvAqpUFfNnpLGNO1tWkDPQ5VWjsqMf63O8q1rxUDqrAkurNxJbLhtAPm2ELOuOhm4vVVzOIgCQcxz665QC-1aPOqq185I1CLM1Rjn92ytH4U",
+      "dq": "A69GmWmyy31S_b-aNkNlh3KaGeMebi6SuYk2dZ0FIb7AGZkBuhDast7KHDn42fJU9p8Tstp1vv0VKrPnafMZv44NVGAdc8QYMa-3jo-007yL-25ly-MVbe1tF3T1lY6s6VGHyL_2J_uZMvBCUnveW-jQ-tVvdJb6C0N89Y4tj1U",
+      "n": "puyplMLlM_NPuBgE_seeBreyYenZrX28z1lLCyTwMWKwty0zZO6c7qxISH01Mpz0Y6dyz55rNE4MBF8i0gSU_GGe78JCO3rz_Ds-WXOh-WHS_I8ldrd4DA2ATVzM7JIPbhm_o-okWOKH-RFVW3dnZPbveiLAYuS17dijT3VSdAxghgA6IyfJMrX2YNkiMQIHxshjkOcZH65BmmjjD7uXDVvxUcAdgNFKcLUCD-1OQGJ70RHjstsXdvR1WWy4Ba_ihWMgneiFO9nNfqf6yLJSavemBDuzQqwADNjv89IFWIh7msYYxIQw1FlaEbkRHBCKAcbpmVxrLY2OtyXjcMlY-Q"
+    },
+    "relyingPartyId": "Bharathi-Inc",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:14.414Z",
+  "errors": [
+    {
+      "errorCode": "invalid_client_id",
+      "errorMessage": "request.clientId: invalid_client_id"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_client_id</td>
+    <td>invalid_client_id</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Invalid_SpaceMiddle_ClientId_Neg()'><b>ESignet_CreateOIDCClient_Invalid_SpaceMiddle_ClientId_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Invalid_SpaceMiddle_ClientId_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "8nr2xe4j lxa54n9okvcv12", "clientName": "MOSIP OIDC CLIENT", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_client_id", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1394567289" onClick='toggleBox("Output-1394567289", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1394567289" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1394567289">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:14.447Z",
+  "request": {
+    "clientId": "8nr2xe4j lxa54n9okvcv12",
+    "clientName": "MOSIP OIDC CLIENT",
+    "publicKey": {
+      "p": "_qo7u2mmAiChzL44qAxlgUc5hOEig7YJAVsamIoON4Xgvj5enV9NS7OrWkh6sFPfpfdnegO90qJpChhj-R8HLG2BMhm_P1c8LGXy49iESwfj7DbF758-19UTq15Rcz4gyMoW1_irHZioFdii1GzD7RqkbNRIsXb1RMqopAEhIwE",
+      "kty": "RSA",
+      "q": "rFAlNf_U6oA1Nf6c6YPTz-TP-MVR_PCj587G-e8OWRnceEm5es0PLvbfodOrFX2F0sGtExXZsoiVAZxp4otaj4GuubqGs5zMFnHHPT606yh2mZHFZDege5ANHTunGJjzPDVrwYDIeDoG2VNwWfT5wT-Kgc0lg8eR4fl2z8Tcm88",
+      "d": "e80dDFstARVqQDziEarH6EWW4JA0SchKLumL2dF0hiZ--Vn3kLcBB4h46SqcVbup9lVXpw3azP1mo6DesFfpLgdrTl4vW4_C4_Fk_jvVVpV24PwMXCH_eUXjwyFhAFUamX8ONSoBZjd53k3c4I72pg-s_dEILs328sXQqbD_51eJpyNaTur4gFfai3rSRYEBwKGAjNtpFWXqnVJpxAhjg6ZJM-BH-j3OA9i9A85iqSfTp5JE2H7kC6kJWVYCHxyssJ2f62xfSfZnFkakA7L3FKpQgPNaO_N7Fwil0WxDTrjmDX7X55AoWuoS9ELpt8KcVMfKNY-qG7hNfS3zdDuSAQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "Uo3yE3apn7LIAwlM3W6V8Kzwurv0dz_EeJ9so-oW7eiaStaA-4U4qiBXOaGG89CsA09DBj_rKzKhnYVj75vCfoOEikEWrdgKLcrFspvBOecCqHxlgEej-23mcF8e48bor5iJRwbEMMbvqzFc_QAxeUvIDWvAOZ3LVT8-YN61_bc",
+      "dp": "az2otb1BqTewqxWXqjy-KfiiYjCkZi6sECQbSQ0p-3unLrX5BfByDmT0zaoj8EkBr1RGAP2-XAsEjLnEr82_KZhbhYuOG9BSiKfN5uDwpOAHvRs7szKuNhmGlO29AviwuZ1QjVYsSORWNAzsVOQQhbJod2PV0NW1Z2ioJ5hKKgE",
+      "dq": "a8SEQU2LwE4G-YoQYQuNwYv9dj0Slft6x1PPpikY9Cj0dlbFpkPxpxHHs9JKQdqLg9CVikY0LTC24JcOsh0tumsE-CvsaxE5ox_t2CQLyrc31bwRlCgmOqFRUmMokn22QoW2qwL8XhUMi4df0SMhwPcYjS3ctJpwZsA6yp74yok",
+      "n": "q2oaWOfsYSC-q0KxmJroWrgh_6NYrA7XOJku79SM0DMrnl79JIFFtoG6_FjAJ5cS3ACz-ZrAlwyjO9efN1vvstAzm01QF8rm4wR3kaDGnN9FNDwbPPYE6vO-mydx38mgys4-5uO42N0OZAt2KVo5vFo1XkPB7mmShn3aPDojmb1ivC--kXudDKpaKYk5-CC8pGNdWkgewwV1aZO6bvSM7L59FhMxjB4LglAwOUN77LkCk6GpML0g2rFm7uo02MZR8356HE4ZG0ZL9w6VmisVYQV1c4AZuKt5jJ6SzFXNqVAMEE7wlfL8tub579cBl6NoOPcNNOiSwPHursRh0tjozw"
+    },
+    "relyingPartyId": "Bharathi-Inc",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:15.214Z",
+  "errors": [
+    {
+      "errorCode": "invalid_client_id",
+      "errorMessage": "request.clientId: invalid_client_id"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_client_id</td>
+    <td>invalid_client_id</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Invalid_UserClaims()'><b>ESignet_CreateOIDCClient_Invalid_UserClaims</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Invalid_UserClaims, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$RA5315$", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "xyz", "userClaims2": "fd@gh.com", "userClaims3": "$REMOVE$", "userClaims4": "$REMOVE$", "userClaims5": "$REMOVE$", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_claim", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-6096495" onClick='toggleBox("Output-6096495", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-6096495" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-6096495">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:23.118Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientId": "$RA5315$",
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "relyingPartyId": "Bharathi-Inc",
+    "publicKey": {
+      "p": "20u6DqB7qe3tX21uPOBfw4JUikSs_Bcyl28ZlHwrgxgLeLeJkLudYfFxquRAUhbNSm6Mte33WFq_FF97hFF77lkdbHfJ09lMelURMJysn3gbH2dXTNvt-I3jyJYT347Zgntgu6DJgwh1RoIRe2JQzBjViKfJDotTGiRjZgyzym8",
+      "kty": "RSA",
+      "q": "m_stTvZQeNlwCxajVNeUIPmHboy_bs0-rGL2CDzA8h5dt2WXgFd7CeqzPumZh9F_UnRQh1J45mldK2ncPS3V1_5BBI1kojpqevg-uTVV5V62ZyhZEcGrDUYx-I-w7IIFOpIhiGz2J3AM-HUUHdJnAjDx6Jb1P5BaRfRsIMvZso0",
+      "d": "BhgP2UbY7qnq3BbvJqNpM9t6x2XcKofAZjg4wvKq4BguQTtYdqGUTFEN5t47ZNbssoMc971W-fGNAjgYwZZhMcAcON5ov3iduTL77v5JS4ZHzCNmj6mAqeqRGaLusettC5ph0FMRkhgTQ498UDuYXRZuOqoXH9bau0Gfcfnp1c59DkmcgUgwXbUrRSqwvvEnyPltCP8JLb4LLyjpjl8AlbKPI59UPaUN683lAdkohgw0m3h4V78Bd3OCJ92OQ_KDrNpdhAKQaIXvSGzTjOMkDdHJmML_BBspvxT8gqnb1Ay_R0zs9aPpplAQ3dRbAJs9bzVOgoJOSUyLY5CIPuZDCQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "RdEAXFSUqCp7odvKFgFIkUw9U4qvNKdn4MJSwJkjscOAANCWdxogct_czeeK9mByci-Xh2ySaNptoMRSqMJTTo6-QHgQQ6r9XMu1R4CNYWV-xJuhiN4nsDefke2QUfaNEBA_T7P0mizRLLYcJspxSXbMBPZ5Q9JCNY3-A89h-Jg",
+      "dp": "RCQHsDvVsTupIpnSQ0BFAW8h7cThK4PZyIxRGn5q1tVF20DMkhh6EtD_TOaXxeon6BTpzC4hSWcJML9qlfbr12gBaI7gO9-tj-WW7dABI5wicWOfENbV3wHX4aAglLrCg3Tq3eJcO0cJidsoq3olOQYOc-QO6WIJdHoSGMehpik",
+      "dq": "jveRVs-zgKEj7jXorOoPbo3oEW7WQ9PBvzXRdklhPEqS8XcfftYwAy3o7yAjxfZCciwEZ5QzFlW6vQEBid3KJHh51ZdXhs5uLJn-u7lkKqE-JJ05zmmpw7f0M3RY4N5ntoCcVbQxhoJQkSaWsqLYIY0FHX_H-GPyKi5XMVRHDD0",
+      "n": "hZ4DtjtJL8dCuEulsOjyfZ4S6uZapfpBbp-7EYJBKEJSK9E13sXA9GHT-Hl4bSRcR5XAsaizdJx5QclE60jz71MpR72tFUWP9RkFOPluCmmhey2J5cwgJ1T2ro1Yt89DfhwK2iI__hXe6K61uDg8Wq7VWxINspKtXBns87KPAdUAzrZFmUFFdQSZDRnemTJkR-OuV0vi83Mkk6HfoyGkHyCLg9xHtyKpbaSu20_Ryd8KUNeSD6Y4o3n_1wWLqxD-Nv9ni6eaOkkOV4N4ketNrcegTXLbEewWjPmKpVRMcYeT3Edyx62ef9mfI3IRMdOlC2fV81ufLq0tZyvWnt6tIw"
+    },
+    "logoUri": "https://health-services.com/logo.png",
+    "userClaims": [
+      "xyz",
+      "fd@gh.com"
+    ],
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:24.114Z",
+  "errors": [
+    {
+      "errorCode": "invalid_claim",
+      "errorMessage": "request.userClaims[1]: invalid_claim"
+    },
+    {
+      "errorCode": "invalid_claim",
+      "errorMessage": "request.userClaims[0]: invalid_claim"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_claim</td>
+    <td>invalid_claim</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Invalid_authContextRefs()'><b>ESignet_CreateOIDCClient_Invalid_authContextRefs</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Invalid_authContextRefs, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$RANDOMID$", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "invalid_acr"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_acr", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2084273532" onClick='toggleBox("Output-2084273532", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2084273532" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2084273532">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:19.082Z",
+  "request": {
+    "clientId": "mosip931690907200359",
+    "clientName": "MOSIP OIDC Client",
+    "publicKey": {
+      "p": "8sLhtuEcaoNZeoCuT4KqGAJFB9_3txRedKMhu8A8E2PmNofQIa4GWrNmsEgpLnG0ONjKyaPaykwJtOZPaJ-vXt85GW3y8JP9BBAB4Dz_OX7kN7LLbe_wBFREWr7uYVuKCQ0_w2wS_iYKzgpx-vQrb6odzfLw--Hp9ovRRkR_fzM",
+      "kty": "RSA",
+      "q": "66pjNy73-guQQWvVGVL4DwtYZ91y1PoZDQ3anRYZNbQaWZZ9q1u-CA7XiY6JDd5ij53XvenQd9_hwK4TQYQSV4boQwxJjZyifqFJNugZW0S_6w-m8usTTypY6EIWpQkZqJxxU4Xi34my8Q6_n99_U3MTt4wRIRcU_Fq5GPtE-T0",
+      "d": "1hgdg1KF6KNsPFUA31JdfC-XoLQQAZVH8RSuew88V5cxnib5CgpK6eyS7hN0piWqK0CEirjcpCFbb8AU7JzEE5g-Wl5rh6Hzn9wIxF6jGXXlY4LhyHIk1tUj3yDN-bNVEype1RA9moK1dTD2p2EOZp8JgZvG2ADuuiIXIV0sA1BcQXrOytnk48GHfawEhnHYapClYrKzOz6wmTjBVgpcuhad3esGGGO4OZ8csZiv2x7NlTCDhv5cUJ02XOyorkWLT8QsOTBanwoUerAOPYImVr43Ld8G5aSJu3ogSkgctHf6kgxmg9Po-ns6Ror8pieEG21k4CSDJAR2sMk8oln3uQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "mxWOACktXyNmc8g-k6C_s4lB5vPayUhufSmOKJjgS6S7Tn8lxBvXYlQEpPrgGyDmXBCuKTDULxQoWSmcLfBGBb_-ktaJB8_nW0DIib2DRX6HFpiBw7PovJONUyMHJDdwsYytem4-IMp_KpjkKfXQaT8dTjaLGX5vZkDMLNxdZ_8",
+      "dp": "n_3ANH7381rNxea4-r3qzBfy1tXMtGRAPC6nNM3kygK03otzqD7BAVXq_5MPUQSu-igmve23bEvgudBv1UwokCYdw5yq19MwlVTXZ6nLq2Dtl6fGWpYfYTsIMaZUBOYHex-4PlsjyUvZIyHPLM1vMxCyw-Cw4dBqGYrcSasrO_E",
+      "dq": "5kv_4PF5S1T5h7UE7lZyKuF_ZyC1EwPEb0lWlaP-xshV56506Hwi3GUEpFwx-ueTkZ1CM0jGfB7A0jZKgv-5nOctGjhruIOVGAItNgbioJoyolcNYt3uZLKRZ4cN8gFOncMjy-dOqfw6be9nu6gBGV-fqQKrypZv35wYvhzublE",
+      "n": "33p4snXI9bGUJs4_kW8VhuGFR4dYIbedrcs6eRkLidGMBQJsOgblC46vJtjW5vZAkL4aq9oki7dncbqpkN1sHSm1JCyAGqwatMyKplj9xzja0NJJCjjFWbknYoAseGL-lDpQqC5c4urI_cV45o09kD5_v293Roanv7X1nd_VujpjW5kYzQFKAkKwE2S6Ushj0P4K01MPmgHyOCIBD-N65aS_ayFFiQ4L8J7xfOrYFdeDQe9OURtW6clPmFYlNjt6fam65kP2Q1VFbbZlLj05YYVHE87m5Am-2k9_GTVc0flLlLzjSyKR4pAWMN5GjjioMNDjXk4Refy0fzG7H6XqJw"
+    },
+    "relyingPartyId": "Bharathi-Inc",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      "invalid_acr"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:19.851Z",
+  "errors": [
+    {
+      "errorCode": "invalid_acr",
+      "errorMessage": "request.authContextRefs[0]: invalid_acr"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_acr</td>
+    <td>invalid_acr</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Invalid_clientAuthMethods_Neg()'><b>ESignet_CreateOIDCClient_Invalid_clientAuthMethods_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Invalid_clientAuthMethods_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$RANDOMID$", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "$$#@@A" }, output={ "errors": [ { "errorCode": "invalid_client_auth", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1451245168" onClick='toggleBox("Output-1451245168", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1451245168" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1451245168">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:27.917Z",
+  "request": {
+    "clientId": "mosip931690907200359",
+    "clientName": "MOSIP OIDC Client",
+    "publicKey": {
+      "p": "7soE5rJsblSpstYma4KZLEUSbmFwvT8qij0gyYoVrnLXj6v4ESQplg1Qruxzp05JjVEflB3Kg_RafWqhZfVoxOKwIuAH0dsYwqL5y9bbPhl5-QpFfw9XOd9fPXsvrXfEH9vf51qKBKKMJE5Cu5oAIRq9IcJzcgvmP2NkcP9ZQVU",
+      "kty": "RSA",
+      "q": "jzi8L1lxwTXBZ1c2XcyxT498U4t2TE9seKKbRIszBdNe1Or5VyTKNe5VfmJbAn1qzfMribu1tuVM2ouKO0LiRXYCb1psv-DBM_byR7K8RB8jg2Ts82caUVseK1nxlUmE3hPKIhZkOyflg1AL2a5x3qkUR4whPsG3lsR7A3T4WqM",
+      "d": "KeG0o_bamkjQinwvbDNSlVR3UDdnIkXscZGcLpU4MfsKH6A4NaKx0Wzf6RzXWH_leHeCbB6ZjOoD8kSwiX3OyayOIaz8tddr5fFFXTF9465xKYBvTsiyTLkcx1FvBYZCFgkltU8Qrc9cCZrQCxaBnEEuvd7f6G0aDaWsrkGDh4e3K7Ramj0_Y6kUd2yh4MmHX-Z53-d2rL2Uo0eJXNNUnhSZEV5kQeC6RT6r5r-vD9HtCO0cCZ4zL9lxGiRnyKCmmrEUNcvI-ZZot6e1yio-8OCOu5a28rSXfdN8mtxGdNus9t93mNF_R-1XYdwex7zTGSp9TIewDR0FA201s8kIUQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "1nH-5DFXVwqnIpkwP1O0NQSuB6sBj45AOZO5b3X9CF3YL9S_Mvs2GlAwGMxYOBx0SYLqu0W1XlZJQ0jdYfV7f7uyYPtLEek2DwsbRM3iteqI-GW54FJUuZhweyp4cn0ld_a_IBM9dC8R4662lGKLdk6jX-HPdUMW4qFtky2XuZk",
+      "dp": "XRukgZe8s-CLMtJRtMX9l8dvAl84KHKC0dg3-p2_CoB5EOpLFdP16y5R8YL9LZVXFKU3HPfoyT70McbsG-du7KY_a7nTEr7Njschg5vJbRNd_f9FTd_bcRNp_X0VAByc-pcvXPRusJP49QcW-jN4LXBRouJBRYziQIEu3uiSEuk",
+      "dq": "I7MwtVzGTjLoEqpakucDC6Hoi6qnwj3J_AgMS_mmrj0R1mD75gz1mpveE7LQnL5GcS-8Goj_sqdVkORXgI4beNUBpmAT24BaqGlV2yliZFiesZHmvoVkugLMcmHpJh09UV39dKHAOj6npyO80HX7TFU5CNyVLN98s8gmIaZ2gaE",
+      "n": "hZfEdnZAQdSgBom64KkKQAghv_C9tace0b_tqVjGDT9sAp7vjRtHvss2OZ-qissR-LxURhY_ydG1viuLc-5Cun2khc7J1bzjVZ0cKj_h9iLMY_9pea7TPKwQc83wyTewzxK2JMqFrh1HW2qAm_qtBuNBTX7WpkbaR-ozCN-zjzW7jh_I5wKDlMpyUw4Bq7xRole1BZCSvhCpUsQcsMqg54IDeidtuIeycKJHZDuo3hUnvlOzc5tzxHRxzFL6Hw4NZ0WIq4p1V6qlA9YQuFETEYKLA6MEHG2IxEIUwgCoRF1GPCxMR4C6dpjR5au3S-3cQRWMLqvGBROCSBjIxSR7Hw"
+    },
+    "relyingPartyId": "Bharathi-Inc",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientAuthMethods": [
+      "$$#@@A"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:28.516Z",
+  "errors": [
+    {
+      "errorCode": "invalid_client_auth",
+      "errorMessage": "request.clientAuthMethods[0]: invalid_client_auth"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_client_auth</td>
+    <td>invalid_client_auth</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Invalid_grantTypes_Neg()'><b>ESignet_CreateOIDCClient_Invalid_grantTypes_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Invalid_grantTypes_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$RANDOMID$", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "$$@###$", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_grant_type", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-420768472" onClick='toggleBox("Output-420768472", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-420768472" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-420768472">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:25.622Z",
+  "request": {
+    "clientId": "mosip931690907200359",
+    "clientName": "MOSIP OIDC Client",
+    "publicKey": {
+      "p": "6erPVDVA5UmQpk6kPPXW-g9khP98h3dRP0jAI4_DFCdYXUqS1YMo2JSEfkDPx__jjlCRInaBEcDDrMqXm6uSjYQOriTeXP56I8XMSQZzUSacj-xxZRvKTvPFGTGQNk0goBWzINxslxK2YUylLXAdF5Hcng72K4fcf3ts4EY4WLM",
+      "kty": "RSA",
+      "q": "r0aAorpbBLtAvo7TpCegXIe2C6bZG9FzLoXqxEpJy3PKmCWZzzrrEKFn8R5IwgMq5_clBLPqB4KhSULjTIclZtlDNvgRpm_-raDuaKXo1FQ87fPM24Qfo329sdWdtD4kKZbrHzMNpuwA1KljqSBtjFEEVR6jOSddwsPoK7535HE",
+      "d": "aA_qyyfIlQuvx2BlYRb3q3mMTpcworPbvfmbsbTJUgDNDxz6IQ6zAEPlDym6yvMD9i6KCUu4ymJtRbk9k4udWK5JczkZHpOW8ga0VmuVIAJQsfyxk5QyXhVujp7R4fu9GCf5gBorrgYFyIeT-NAQy5_XKcScHHWY2yZJWe850qEU_bNmyIbSVIMf_mqpM9ErdpdsBfcRbxDJHHAehc49zpUF-ZyL02WvuMdZpS2jhEvL9feMN6cHhf5u3QjrD9SsIk_AC5FYpA-Q605hbMtW8niqi6nUrgZL9SqUB01PbyqMO3a10P23LjhL5Gp4HR0l6oOgmXroaGtIQziFLlBvIQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "MWPYP_K0SrTYQmz4nCc0RX-EmhEjuK0-X1XDNH5mUThRtJhh0n4qOvhqVeBUH9Xkj_SLrUWVTJrx6xbSy610RKcjRBszxIxo1KJxV9BrFdScht-NBdSYTuEDaUEbL0UXg35Fpw2oL_UDbKsjquQU4drQBXHaQi5ddTxccWpSt3E",
+      "dp": "PF3VraSkn8eRZenrprPHC_eG-G-6oncfZ5aNx1-ld4ED4-eH50QW-XWyj6aIONQH1MVj_yHYA03c8a3C3HC1vIG1DCoFnLgrqymzo7Dfd7TgOKBLT02RszhjyDGrRug2oDmZZcSc3Yv9tzSBeC1zxI5nAf9Ydjl0pQ2kNmjIx9M",
+      "dq": "R41egg_VjE7tFV21JHRQ0LVOKd-JDgQpIzrkJhG1omq4r_fZnHGO-JELn7EfPqSQZXXNFOhlh39aXFAD_n_FUwEqoUwP2IQr0bG64dmo_NUOso0uegar69AvGmP8J1Ke7KOBhJEQ5628gRRNbQOh9QA15pHFTFW3vwS-yOzOgOE",
+      "n": "oCfveVn2_9PIQMi55Lh4ZQ2wAgp97y6WiMCUZBAnYchQLDX-SvjUCqVwu8C-YqoRJAsu6LPu8G5HN3AS1WnkGFVhVXwjtUQFQIKpk0Uy73hg1vdDIqHu53b1iKZ1GjonCjhvxYoVXffuVzcWywSxXrUgvm2VCFxTLwBC8tf6Ylcq_T2YcTb-TfpnSPyu-UDd-vV52vlrXQdBzWaHAFsh8e1_zzAVu9UbRgqnIMLmO320qbyfbsemtvuXd0rTSBbBFXjp42g24HmIg3q9L9kvHZq6jg7q7P2o2xrttyDgAhqG_dlfMZdyzuOEshwH7Man8rwtLjWdboVVA2GgQxOTAw"
+    },
+    "relyingPartyId": "Bharathi-Inc",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      "$$@###$"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:26.312Z",
+  "errors": [
+    {
+      "errorCode": "invalid_grant_type",
+      "errorMessage": "request.grantTypes[0]: invalid_grant_type"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_grant_type</td>
+    <td>invalid_grant_type</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Invalid_publicKey()'><b>ESignet_CreateOIDCClient_Invalid_publicKey</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Invalid_publicKey, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$RA5315$", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_public_key", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClientInvPublicKey, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-243977724" onClick='toggleBox("Output-243977724", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-243977724" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-243977724">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:22.482Z",
+  "request": {
+    "clientId": "$RA5315$",
+    "clientName": "MOSIP OIDC Client",
+    "publicKey": {},
+    "relyingPartyId": "Bharathi-Inc",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:23.053Z",
+  "errors": [
+    {
+      "errorCode": "invalid_public_key",
+      "errorMessage": "request.publicKey: invalid_public_key"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_public_key</td>
+    <td>invalid_public_key</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Missing_authContextRefs()'><b>ESignet_CreateOIDCClient_Missing_authContextRefs</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Missing_authContextRefs, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$RANDOMID$", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "$REMOVE$"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_acr", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-966639667" onClick='toggleBox("Output-966639667", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-966639667" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-966639667">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:20.756Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientId": "mosip931690907200359",
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [],
+    "relyingPartyId": "Bharathi-Inc",
+    "publicKey": {
+      "p": "55N_nUTpd4AQ1mS9r97LxLJipItO6YItP_YEabDNOotVHiJsxmX4gtzdqTJi6jWzgmBTKGOo9RvF-9qinzbrjraX7cqF9078yAeekCbtd15h-KJrmWBkj04qnhvcbHmEMLBWrvM_nj9nCdXEOaW82b2KqGTXUak0i6FU2Lh2ats",
+      "kty": "RSA",
+      "q": "k72nDpR1EI4-anXYGYMvWRn4TjWDvrV6piOwouQYHe9iXOxvZQlE3ONoFfCEF9cz76FwQADOKsqEc3awVJb19VB7P-NEsBPKCHQYiUyx34sl_uNqU0YHfTXNVCghYVVGqNkd_KwZbcwlFdTlEP_7CEG5nf5QKaF3nl61D-oy35c",
+      "d": "NBei6JsS-vMAOaVxQ9Zvo5jjuuY04JjM046MuEOFzEyWk08sWFnzaYnjlA9OEvR3x9w0oVNPdEFIrgJNPU0M4YrUpAiTNorxyI8s3r2HXlO6tTSbPA14ru-4FZ3IT_rjER7BSY2jVZs_6yaax9T5cxw245JCePBLSH_zQ3h12GAvqMRChOITxzByyWgC4gyzYhz4QwjuVXKt6xdMKlBeUn97sqh53_qVr80q0BrKN1ZywqjJcFNiDzVlfeJ-q1l0CYr-BgnmQHRJT7EzKPjpBycuUuINv5VPOu98Ld9wkjbVUy__HkTQrP7aZ08TIf-VhGg81u9cpgTX4f4iHs6QnQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "huv_UqR_BAvXwWj31Ze8ofF1hs1g-jmMnALwuwLsdnnwlN6VW5ksv84zJJFi_zVhedufSmaPvn7pSvBFbOnMqaigi8lHMTTHd-VHF7JI9gXEh4FnA2ANlwgXQVM7GzZa11dOU_PafzDgWloT1S15pBJ_b9a7taalhLYh1_E2cbM",
+      "dp": "dkNob6uqw2F-t8645KEWVTx4jemrAit96mU8ebFWDejsLjiMboHS-RnMhcT6qPuF0jZZIY5L0ek-IdHVLRRCFh7_1euQoO0QwSLLAnku2sAzrmNcKfcFQ_46W4aE-kzQioDzs-L8AVgFygsGbB5NJLHcpwTgxY5xDEH277q8lvM",
+      "dq": "fYNosoVDMu51bkJxdbMyfXMHtYHXTCSnbw_xF2HKb1wY57LiLCcEvtffbIwp3Isyj0lKsMU-YbItdl6GDUc269MU8kDk8OXPBQGEetiSYMS5YeLYSKi84g3cQ7vYJ_WnkvjpdejLrbD6bKKyfI_MN8aGqAgPGF8Z3Yy-LCgeUj8",
+      "n": "haVBSu5JrbP36LoHXl6oe3h2SsKORhE7M2To2TBlA-b5mF_2dGm-rK8bfRFJ2exyAhq46Z8PPQdLhnLb9_cz8pF5cIYe4KTq5lMNf4cpVl3U-hcndhxeSWG1yz7N4UQWNTFHqsQhWBXINEHrwsk5onnIGQZ23gtyYjkuNBbSewfJHRkx9_sicLQHlE_mPs-q2XT6WX4oxHLO9VntCju6QhK1ajKw3aGqiRzLdy3xkPbmRxuWlTLAZnsQ-lEk3jouGl3dU5jZiYFVMCsEWRicK_ImWBIzQhZK87xel4bu2GWl0OcHdmEQT_g63eBIvnVntt5jdiWkvAp-6TMmAbPMLQ"
+    },
+    "logoUri": "https://health-services.com/logo.png",
+    "userClaims": [
+      "birthdate",
+      "gender",
+      "name",
+      "phone_number",
+      "email"
+    ],
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:21.429Z",
+  "errors": [
+    {
+      "errorCode": "invalid_acr",
+      "errorMessage": "request.authContextRefs: invalid_acr"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_acr</td>
+    <td>invalid_acr</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Missing_clientAuthMethods_Neg()'><b>ESignet_CreateOIDCClient_Missing_clientAuthMethods_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Missing_clientAuthMethods_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$RANDOMID$", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "$REMOVE$" }, output={ "errors": [ { "errorCode": "invalid_client_auth", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-960545820" onClick='toggleBox("Output-960545820", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-960545820" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-960545820">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:26.968Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientId": "mosip931690907200359",
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "relyingPartyId": "Bharathi-Inc",
+    "publicKey": {
+      "p": "8YCn6gl-3P2f3cZwrVjFN6LFmEFLemX1cHepFngKW-Dfm5JqeYwFsjq6GZ0akc2UyH5m-thKu2__Vr_ulJqIhNbzM1DK8_cVX903ut_pJN2KbhY_QbudUXUqcjz4Y-V4o28r6aySVS5rLHuY6Tg1hiZ3YLAtmAw-wdyUIopM_6c",
+      "kty": "RSA",
+      "q": "4wKp_ikMqa7mR903Nx24-Gu3R47Fsv11DSOTINIjuRvQNmI9q8U5HgGhBpimvx3xwMx1impM505-rG9XXGSBsHXaeKK6z1Fdsb3-2uxa6Zn73c7tf5SsvfnRJyWHPBNAnAovYxsevaGtqClUXicgCa8nobf35aYwrKQG-7YUWMk",
+      "d": "ioBHEH7LgDsc6_zsmNWn8p-4za_1bJCyQEzu9Nw05wxM6XtXfkuM0BUf0oOWwWHy-HpbJ1kZED9_hV-R1FSnHZrt3fooPvEvYUvEaCfFnUY2j5gT_Y_ZWMgM3RLOon0_9HdSBlZuUe52PTDm_OUPqJaSIGQshOYDR_FyLQHr8dhYgcd_Ep2mxHiW3s2EGHC37z2YwYeoSM852ZbrzY0EKwCzVmciFBZ65zSJjWlGy3_mEZf8kcBwrOt4PygYB5Rx7VRVmP-M25uwnoMw1BrUycIhBXxgqVo_AaY14tPR2aJYiU0gBX3Dv-WDGzYFopWapun6irlnN8ya1QF65r-ssQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "N2n3zaMAsaMqrwpuxlBuAhf2JXRM9sXqiQ0C8YVILTJPduQv0hyDgFAzSvWPJw9MkAQSJ5ZfH3ONUGx5PkHdr_JTKbwdEEvNi2Q_iHwJ-WO1mpvejNIEyFRJ_oDvilHsrrVYvRXyXMWGDZkN0Z_MjsJpzl7DE1xGTY3_D4l6HbI",
+      "dp": "Rbk4QVh2eQT8Z8IH-_QaFEL5O0j2qqLPJqZVefg0PWyCAl9WQDtN1bQg0I5MAnZRE0VzI87YXJ8sH_aPwfWPnpKUamdUAPWABUpP8bL9k7gmZDwmDStGcyMZmxvBNs4kc0MAcZlyMgeRx6jzb7nbshxe8NpMf45hfATb-9DkBBc",
+      "dq": "hC8b7xvV_MQT4QqlyRksiLKoISm4YpYFX2Y0mKrkFDhm0BP6VxfbP2axbdbbWXPFPn-Pfc6SAyoIxr16gBkiDy9AzHftESUOyp2YVb_E3DtGloyUbHKU93YM3J-UlF2dhH7Fww6aos8PAFk4gC6GED2GdTtbRMS1mQFV86G9TUk",
+      "n": "1ieYQ4l5OGwShl_IqUZmQblRZVLOrO8yKssqLNjXkhTiuTI0CY-2oBrEpNxdywKqbHKooacVXwRBuBVy5VlVGOosvJ0AdapVF7ajTjxM-nwLwJ8WdcnjYwtSlwfz52eqPoIgQDf7RFV0AXfyaLg4LkdlRr8xDmiG8Uwb8XTiIaangrjWb1KVn5OhTU_os9zpznyJOEmf9Jl3exh-FHXVfvvy4TFycqfAB2UdQyBaz936nZDS5SMu-uRPjnzhlikNBMwxBIgciQA76rV5DMaSS_Vf2stxDFJyH9mGgqi5ag0KRdD9IUL_jkOTKISyjbjN7vr2kqq0wfmMmk0qwWIiHw"
+    },
+    "logoUri": "https://health-services.com/logo.png",
+    "userClaims": [
+      "birthdate",
+      "gender",
+      "name",
+      "phone_number",
+      "email"
+    ],
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "clientAuthMethods": []
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:27.886Z",
+  "errors": [
+    {
+      "errorCode": "invalid_client_auth",
+      "errorMessage": "request.clientAuthMethods: invalid_client_auth"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_client_auth</td>
+    <td>invalid_client_auth</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Missing_grantTypes_Neg()'><b>ESignet_CreateOIDCClient_Missing_grantTypes_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Missing_grantTypes_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$RANDOMID$", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "$REMOVE$", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_grant_type", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-249522421" onClick='toggleBox("Output-249522421", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-249522421" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-249522421">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:24.143Z",
+  "request": {
+    "grantTypes": [],
+    "clientId": "mosip931690907200359",
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "relyingPartyId": "Bharathi-Inc",
+    "publicKey": {
+      "p": "0xMp2wQ1XCawwM4C0-dv1qF5DeaGcmgO1F6SydY9KkG5cQcq06yFiXehr1C51RHizLcxpkxpfS7yHNWydvDMMwyauGDo96spKPU7g4owQUKG7aX6NzmpGzdJwjhZ-8uKzQjKwJ83jSUq6a0_ne7aX5jYHSjM58K833_ROLBaiTM",
+      "kty": "RSA",
+      "q": "sa5SmuK_zP5y0Zt0FtqQREt2zm_Abf10FxrGy0Q4OBuoAHk0CelJvjqFIMyPQhujyJY-MZa9eeiF5ylYIGIqa5lCbDB6CFVg-gUSbfOknRbMiIkc2SliWN7E7_gxed-WzANEUS8v6fVoeTf_KSqiQhqqOAMTZJnw-5N8uXH-KOs",
+      "d": "JjmWfVAJtS0rZK10u94w75EsiiBcYBl-4fVPeemNYVR-lqgdT-pKAybQks5tyIV0SUUqUpViyTYY6o7-wpuw88YO1XtyExrUmYlVgv29jk-xQgm4s2a4FPsz6XkVKeEtJ12mlYlll10wfqMSZzew89EyLFLmjD8F5ptXqsJkilJ_eSn-UOvlsLF-TDgiKlDMkHt6RsCM8je94rD1SMdaaW9nYhke_5y6QxZOYystW6LWe0nB3itSA8ocN5hA8aeRxY4kNzNdughGR_SmWeOgt2VKgjqn634p39LS7YCn97odscGyVxOqs4moLwMhZpCK9DT63DXtySIbF_0w7HPLcQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "GxxBrLaTdkW52CD5gbbqCiifl5L1neuBOVRL91djoOaOCOg0XT-sjkorqjSM0Yv5PMYn9TLNcpUtfJFFVE8aYpp85EcYIi7UCl0gNNwDuZ_u0ccEPvRPFZ0bjG9RthJMBMKncLHuUKzei8kfbBfOEznePsYQmy5Z2AFedyMwKmc",
+      "dp": "c1VLT5NTHNE_T3rB7MvPPnXo0YGfATB-uegbSRI5Rbe3_lyuOA9SwDSQMl1nzVcCmF2ZUYb7NR3LyZmy9G7LBTHj8M9zPLFXwjuNk2iUyXPyijRhLn_hOS_Sq79i28TySOp-7xWQox0l_51c34094XKA1B4RKKotzennhpRGRCU",
+      "dq": "eB-Fo0cXKqz_zSvO0UCUdkeam7g7nWDT4mbs7TFC3NP9wcwvXWAFxgDkTidd1vC-yvagN4BUux1zobN26_XR_gqQOHqRlh66wG07Z3Bn4vgt8UTZZwuufKym8iGWuXFrDqRKxKQlPYP3TLSJ4jf7mLtURyf1LXdRz5OHqAwkK18",
+      "n": "kn_7EriqJVmnR-6nsTzaa3Y18bORGn8Oe8f4kBgP-NeT5f3IqyPHbp3JpoURplf682LrsiXOg_7VjYCWsJJoTuk5PcYGzhIzNJsz3RO1r5iEAhSkCVVEBcxGQL-a9jbWoQHyCPtvktChYdenhvKmDF45z1THCdgmaNBd_Oq7JS3MjO5KWdiyC-p8_94C7WZts_0i2k0o5X3kJRPCKVGujDyB_eSZzv5vopcs9IdRIHlhecEAi_r0NDbsP4reX7njxQ_FQRPJ44a6XZMVOEbsxCCmQ0nB2j5BNx-Qevkgo-qlgDkMjFLFt-TStQdztTY7X1AEWNwyPS3UR7TWrCXp0Q"
+    },
+    "logoUri": "https://health-services.com/logo.png",
+    "userClaims": [
+      "birthdate",
+      "gender",
+      "name",
+      "phone_number",
+      "email"
+    ],
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:24.891Z",
+  "errors": [
+    {
+      "errorCode": "invalid_grant_type",
+      "errorMessage": "request.grantTypes: invalid_grant_type"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_grant_type</td>
+    <td>invalid_grant_type</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Missing_redirectUris()'><b>ESignet_CreateOIDCClient_Missing_redirectUris</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Missing_redirectUris, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "2222222dddfggf", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$REMOVE$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_redirect_uri", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1089101011" onClick='toggleBox("Output-1089101011", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1089101011" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1089101011">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:18.308Z",
+  "request": {
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientId": "2222222dddfggf",
+    "clientName": "MOSIP OIDC Client",
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "relyingPartyId": "Bharathi-Inc",
+    "publicKey": {
+      "p": "9B0V9ZJ6eUFeD-pbpzSzTCF87CPl3gfQy51Y-3HOvXN4ZJcsvXdDO7JSpH_ZDWa090Up76HeWDxwN6tEhP7tOJG5EyBny6U0diO4TrsEqm5XDc41ROhHNRRR8RFBrKdWWOs_o9g9IjUQivfaijc7xXYfwxhqAxpYIxUoYk9_K7c",
+      "kty": "RSA",
+      "q": "79z_OUPYj3r5U2juzbiqJio-vyJbNOMcu9MUWwiQSMYyDRudfNfXbeq4jNdeby6QM2AV9QST0Q6jMPpBJ8KxzbDWbXOpe4tAipAY9Oe8TFieQNSuGCclz7nnt0e8B12fYz9twwUrjBdW-mv0oPcYId1Ie-haJEXsiS1K06WBdBM",
+      "d": "FJLf-12I2KRf1C5vofaDUPmLSys2AI21PVu5cqkqSaKBSDbMjJrfrgNgkGPgRoyJa4i6ayBXvGaZYmBwIcwGbMAP8GW2-1k6XLWfN483nfLBkHgURyXXUfZGrpSEeLzX_HHIWa34noqp2dLjLk_0O8OWCQbShse4E1N4P_o7QoZHBOgVZD_WaRyO0wV69Dl9aMJmG1AUlrK-d2a9We2o7iKPoyABZzxf_mnMsqeyxWjwvuRmvFsdEZhcSV52A2YMbuSj5AjbPYjLbd5LI7SRhNXUvKuhr30zkera168DQpDIHGY3qweXsTaj54Sc5LX60g3W0il5NfV9V5_PQBoflQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "8dCtZd0cjx_oJ4WOxNn95EYE0iAOrd-IlBrRtz-1hwd62jbtlCfjCImLSmqcXfcViyGqztqY6fhs0nPQF5Dt3dZLBVKwPlwX8-37XwrUBDasU39Tbq0A_xhiLQdrFD0oNZuPd8Mz-Wbvx1VFkRvGgJVg-ArBPl0tFtamPdnwbb8",
+      "dp": "HdbsVz9XfzjxUYq5N2AmxpiVV5wvvgtAh5MtTFcmCVxzDAC6tFI-wq5Skc8a7htu5Ybr0GH99tU0dmmWD5fF0ZNmhyL_7RG9ru9A2UbdFCQ2ufZJ5qlqAuAAADK2z28JDAd9mP6WwnawFfykFx8XTFTbHxL96nEu8uLkM9g52FM",
+      "dq": "suYxtZRUwS8HJp7s_aLtxOldQ1FslVWO6MfWNs98TcsFKaGfJK4Xj3OxkdpQJLyl8KuJtOVlGlfAf5cnYXBlDPUH-Tp6_houWSqAcqkkWA0Ae3olHv6TxQrzOE_YfeXmKy_zvbDted8ukDhUjHm_FgLlPQVftg4xDV8qoBChLOE",
+      "n": "5Lnj3rbV1yUmdOp-6PJgTEtmeXFZ1ufjpTF_eVE0n9gslkJ51Emp94jGiVWJNARXYKF1Sf0VnYXf_leR95UBo_Tpp7327TSTvBR-gnjzadjO2dAAqUg9ItqjPAY2Vnni9cjh-AYBf6_DvrfpeGJtrvVD0MoAVITV9wjMFMdhyUUNPXw_T3OAomoPBBgJkFIu3XbrOrX5X4r1L0CvOkYifLHF-dIGKgIX0jBe6juskv_dS5-W3M8-NlYmfv3ldyWu4hHcEG4t-bKUgxSppRYL5moQFI04dPPRToakgYuTWB-rzX-AtuabI43qUfu-BT2a-7bMqSThkJbORH9ogHYqlQ"
+    },
+    "logoUri": "https://health-services.com/logo.png",
+    "userClaims": [
+      "birthdate",
+      "gender",
+      "name",
+      "phone_number",
+      "email"
+    ],
+    "redirectUris": [],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:19.055Z",
+  "errors": [
+    {
+      "errorCode": "invalid_redirect_uri",
+      "errorMessage": "request.redirectUris: invalid_redirect_uri"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_redirect_uri</td>
+    <td>invalid_redirect_uri</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Null_authContextRefs()'><b>ESignet_CreateOIDCClient_Null_authContextRefs</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Null_authContextRefs, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$RANDOMID$", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "null"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_acr", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1189100593" onClick='toggleBox("Output-1189100593", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1189100593" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1189100593">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:19.876Z",
+  "request": {
+    "clientId": "mosip931690907200359",
+    "clientName": "MOSIP OIDC Client",
+    "publicKey": {
+      "p": "2MLPqqfX_YNDbWp1QXqxWoO0I2LeFxF5uwHMMx2U2fnGyR9EIJw_4HqlJLk7BWX23Py5XybBsihhpx75--SDp9xHFq-nuHdehflpXtU0xDnXtnrdH7hFsvCN7x1FyaV4jo517G1kCNK8cMWDPMi04kTjeI2KIwGcPavCOK14AZ8",
+      "kty": "RSA",
+      "q": "mEMRMkvXq3uFpvJ6JWv3IBCPkQbM7_KIBQ73w8Y66ZgJlzURJ2yYR7jXngcA79F5Et2wmrEn6u20H8EvFVoYwHrmAy_Z-6hOsgHxWgqt8HilvkFVOyl6_XrUg28LkpCDiifB2fUQ0mBwTVMb_760UySgV5vPWJ234JPRhCxeRQE",
+      "d": "ZcA5iKMwHPzSxAVSAPsZLlqG4ktS2xOerWjiDCuR0kQ4QtyBByPC7k-95jXLH2pUWJSmlJbUGyFVlYOuOUuLq3QHsNOSNGo6jDaHwRdfPCRPn7qXKcfrxmjBGFyESMiJGka0rPyQ9tYkFxXmZl8C1TmBeHSdSH3m7ST3NV5UZw-ENuza9g43qqalnibsLAErIZs7MbU8Gb0m9fYJwJfDSO2UirLN_tLxGlYMEKKBbDTrQHoi_nY09yg9kDI-qIMuHs6rrKV_iXtgeKjpK-a6VAg9i-3P47bR5DFJf3nrpbsnNSfUhrjyyPAez-vQsMj1LwuVyQUsQcPyJUJSUcYIAQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "RYCRXaHAk7juSaEoYaA3KQ0ywxXxA1HkU_txnwT5-AHNsM-C4ZcFTQP2X4jnCaDJEk4x12sXs4ej7GSbXqDJrJhXH9jrccthbk7rsuqRnAyaJS0MtP4t5VLMt2TFjuDRhQYloCJ0qgZL1ZPCFiFzmhdUMZqyORRN7vmkHmsOmm4",
+      "dp": "gJ7YawM9fwissfhBq6EKLBOKiJTaBAYynWzrpkkfUliMRDtxSYhtvt4HsErZYtKmMWsk8_kjZnvftjMDUxy9opVq-WMxupvaUtU0WTlaHjXUcktlerT1ZsCm-AP-rTCq4KxX_PrMKRAjESeiQCc4bitCbv5NwYfrFg0dKlSEqTE",
+      "dq": "mB4xGQHCl1UR4wfPVoG15HgHJsoXhwXUNNGOYS4zf1rhAgsHd068GLOn3v56Rh4OCvYm0XV6PvB6i1sSsg9QOUTPdZGiAxVUge0E9oNC4cN3O0vEXhYEBShpFmKjuirc7_Lmbd2zj6q_p9EHYQti1sn5020byxnPMfQcVyOIjwE",
+      "n": "gOx02TNgwC2IY2xDGs-lS6oGrQAf3ant_U4tXGwVcxyy7Jozh-Smd3h86U-IXtEeXSHAGaUDwFvIwnTIknhGHg0K0Ejej-jK1hgiApG__h3zyQOJyqlLjvCTTE6eXaA6xcZiaUnkvG1V7T3u_tGzKuIAIOTOl1jT90TRRRm5vviHchifMs5ax7NnGaqT9F1S3AqsJGEc6A8jAijzD-16rdTgqE924hsDL7OruFP2ZeS9I6Gu5Lo3QVkrtLRG46u-aNvxrlXzyX5E2a-VNCSLDqPKowfyty6SlHXHL4tcuVCOjB-1qx7Dzwi_6vFRxkac0F26IUlu_IQRJgBN8kncnw"
+    },
+    "relyingPartyId": "Bharathi-Inc",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      "null"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:20.729Z",
+  "errors": [
+    {
+      "errorCode": "invalid_acr",
+      "errorMessage": "request.authContextRefs[0]: invalid_acr"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_acr</td>
+    <td>invalid_acr</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg()'><b>ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$RANDOMID$", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "null" }, output={ "errors": [ { "errorCode": "invalid_client_auth", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1716423607" onClick='toggleBox("Output-1716423607", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1716423607" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1716423607">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:29.449Z",
+  "request": {
+    "clientId": "mosip931690907200359",
+    "clientName": "MOSIP OIDC Client",
+    "publicKey": {
+      "p": "0yxzKLvZwsl4Uaqm62fYnwlQJ5j6TvlEDUmh6RVXtxottHsZNIXhkRzB9uCTzujkGg1M9Y_0FMPniMLOcMZLEnGd2_qj0QVlLFkVlYKcx0ZbFZkFP_qkDDK0NkjDs_5q05DpDf3kMlRddLfVcYoQ8OHT0zQxCPB1i4QHP8VBX-k",
+      "kty": "RSA",
+      "q": "v2wlXgmWnBty4zllpJNRPngVqrn3eDKvoavSA3sjBsE_CDo7r-VOppQyWNn8_18UOnkRmNIQGsGPORO9xVnJ8iWg_6WzOi3Vmx2cfoYHMQ_GTofBrOa9pKo7V3tlS5XWFmbcVwPmPdPjK9Oxe199j5V_aUaFUVx7AvKebwEDXwM",
+      "d": "Mb6AIRnE8Q-PcOnrIJaLDvBx7OVBcVQwK90YXoNtWsE6Yue8PEg_NoLSexYl194gBoXyjZJRGKpIV4qVh-oyQAhRkF-fONE57r0OeXff7mOxOYr-H5Rw8J-Ajy9rj0YpdSHCS-VrM-ma4HZ-czamAltMl6y0e-gKgB9MknfTgXUt6ApCe95GmPOXQwgNfxJmgSokLoDlQfc1hES9HhW7N2sgmLtww-Tgxm1y8taye3rq1O9fOUj3GhJLDbE0knSoI85Xh4q0LhwbiSPII6RCCTG5jxRB0IVMT55uyC0vYJCURDUPuD73EeITuzYkk8x9ziv9liNZXDwACQG9oqHw4Q",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "a07dtdn9Zax1W3S7dPVTYQW91do9t4miof7RCudMJeZSXJmw1GsRUiBfehb-NfUJ7gMg6fSFwpS_nR1U98XqTBgGN4NkX4jQrHt7XY4GltFDvp8drjmZYMIR6q6B9za3IHcveVrb7HCaPNfuANS3EWLK60F2qD3N9Lmzti7Iefo",
+      "dp": "YJoI5C1q5Gx9mf5S9YU_1yDPhg25E797ngh9BL86rQxQtCtL0HceRN--60y40QJAtpo3Bm6f3Y_wruNOxNAxL3LCIAt8PPYW3j6yXP6u8YoByNODT009FkdroRmQTRqpi7bSpg_rAAsP5YDjJ1ldfpQP7qIFfG1jmDsBhe6ahWE",
+      "dq": "ml_oHteSu-CzHabrXvdjvQJxTtddSXVvCO4dl6sVy1vLrqHwAuHmNRctJ1Td4UFXefSriVhXnoxdKgXOtLq9z2gjWCjUyuWt78PIsoz6fcmf_zMisYMAjCyxYNLmFTgIiNZ5ej9tzoz0FyNJbhrLkyFYuJkj6UKw_eaWeSUTB-s",
+      "n": "nedffvg2sSuT-0FlPFtONairLeSNPM10FbClZ4iETgy2E2tLafjaBHCAIqCPaasJjj8mzfEN8v9ke7vQ6bPLdCpgYKGvNdgbk3eSK_kS2bsBIZr2-vKwe5qJhNkTJ0c0_JfDQ1NjSXCY4vo1VskJKc1yVd7FdQhvy778U60-1PBUV0b-bY-MfW9WmbF1HOnnRVez7a3AXNYkM7OTUrDegcGAErNFX-AmX3e2rEbr0aWHu6PfD-jDQwUXsSdufT4K-Eo7f29E19L3V1daxzNtoP7hWR46ldU3AxxSKDLplE149_YMnWNdccux8fIBPy0Pyae_iypn4p5TjbUdmxaWuw"
+    },
+    "relyingPartyId": "Bharathi-Inc",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientAuthMethods": [
+      "null"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:30.171Z",
+  "errors": [
+    {
+      "errorCode": "invalid_client_auth",
+      "errorMessage": "request.clientAuthMethods[0]: invalid_client_auth"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_client_auth</td>
+    <td>invalid_client_auth</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_Null_grantTypes_Neg()'><b>ESignet_CreateOIDCClient_Null_grantTypes_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_Null_grantTypes_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$RANDOMID$", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "null", "clientAuthMethods": "private_key_jwt" }, output={ "errors": [ { "errorCode": "invalid_grant_type", "errorMessage": "$IGNORE$" } ] }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-460643720" onClick='toggleBox("Output-460643720", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-460643720" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-460643720">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:24.919Z",
+  "request": {
+    "clientId": "mosip931690907200359",
+    "clientName": "MOSIP OIDC Client",
+    "publicKey": {
+      "p": "xMgTA7dGiJc9mjJnPjS3XNUqRh291yq6c8xJLhWrVll_DJVF7LK-dxVJ91hd_tBOqvZoG0I1bh6BpmXa_PN7dy1XHlzDLf45FXiGSDLVlNFQFXpyf5HrlM7pYwr4-wKK1tt3HAVimziPe_ey2olXrGIfMb60FmYH49HxNdQGIOE",
+      "kty": "RSA",
+      "q": "rWBrjyQi_cWWub1k7__w3JtnqYfr2dua5ithrZ75TWEprzslnidQaf69aKBGHFV4zSoq7iszrsXfSRK4enaHXn8PejPv4cG52Mc-NanJZ_mu0Gm2cluyA2NELb6kHKXnXnD-VS8dwqe2T6_EMpLbJs78s9iUsZFGmwhFuxmGf9U",
+      "d": "GXtmzKR4a26DFlCMEMV4UyWRJ1ZHqFp5cHXUBPivx4PmQmF4PCu1zLZjDdG-BOCkmqpCJPUE8rPmtdYrJOKMwER7V62pW7ogb5dYWGCYMQpYW2Sk86piyCg67gUk_BcFmaEfoFmBN4oa7XVhQloGgTVnk_1lxuCfq21KMi95koMzxwVli6e6Gn8V6eouLtQjWC1GayHVIDcv2mdtzkiN_eQUbwuuEWIKAWGpwdl-sY41VgBkRPGh5vYLd-MBiWg3heJgB7_stLWf5kxN3ZzCX5idKrzjdgtdz3J2JL37-46lND9mA6JBSHYMx69YL3NZVtObvY9pVvm3dea-8mH0gQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "paVUzUOWzFOofWjeE53yPzPGDgdQJoNNVXKjENT3RZyGJGkqT_HKi_XRLWt62ZHFIELvWCP-t-rxonpBjQjq-2H8yNzEL-uwPSoDNuaNWJyjC0zYCNH37MfmjLtCpfOyLv_AFDc37blkxxN0G4h3QJbHvr6S7NpMJGwNSb-dFMw",
+      "dp": "RNvSM4mtp9xslQmwMQdXZqe9HD4KEUIFbsH8laDFjPjSSX_usQ43MgqEEIaela0k6hRBh9BaTAdmzOh1gfBdsu1tv9UsA2sjZI0BSEBplqLMCEgJyvQv4Kmq55qOV5-jH946Rtbnk3NuWi3qKyjGQi8vxUN7Vx8rAaCUbIaeAmE",
+      "dq": "YAMmbXWgnxJ9_sxAipwdAb5Z8MthtBrmNBLQG_sOqmhlUjIaCfRRlvFIaRlg2i4HIO76KTzpeR8BIRFp8f-TxaPtqUn7zPSge8kSzVsCOz9NLQNt0vSupyugxQhvD6Jcd7NxVTErdPG1h3mZ2Dv1ew9jaCFHbvI5vH8fRpbDIiU",
+      "n": "hUVSjku7mb_xt2L85rgsI9SyKYqsmZcnBMkyqSDi2fl1P-r4adKlcgUaQYNBU0NYTUgHqlfYHcMwt_a0SjvkMSMmopjfm2U7DjGkWSw9uuDKxrdXA86Hf5oUbzgEcB3HlmUmnwES6yC3hzphmxr2uthH8JNKbf_t8QZDnEHb9mD6u5wQlIxkjn86RwhjQsfFU2jdaXuwnfybmTp11s7vFOWepMPR4sicODPPwCi5VTwJbMpn5kS-2PpeVvBJG_dKaKJzwQ4FsOtyDr3GE-pkUM69wToW3PEWE-hCyuID7y9wtHoQiLyxXW326wcDmzf4B438X4PsCB8Bl6O-oi76NQ"
+    },
+    "relyingPartyId": "Bharathi-Inc",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      "null"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:25.592Z",
+  "errors": [
+    {
+      "errorCode": "invalid_grant_type",
+      "errorMessage": "request.grantTypes[0]: invalid_grant_type"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_grant_type</td>
+    <td>invalid_grant_type</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_StatusCode_Diff_Token_Neg()'><b>ESignet_CreateOIDCClient_StatusCode_Diff_Token_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_StatusCode_Diff_Token_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client, role=idrepo, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$RANDOMID$2", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output=403, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1708975436" onClick='toggleBox("Output-1708975436", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1708975436" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1708975436">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:08.664Z",
+  "request": {
+    "clientId": "mosip341690907200359",
+    "clientName": "MOSIP OIDC Client",
+    "publicKey": {
+      "p": "6gl3qe8bM8mid2Oa1njpS7KrpmMTF33XGUMI6rttlHOstzxzUnN-zK_xkJbUARUDcH8oaPYszs0FBpiiMdqn4Eei1i1DpJMg4q4ii39UbxKqNpTqTZoDlwaoIUj9fS82Q4IZbaVe4DZSNkfKz8hOeYTHbUR055CmdcTzh6senWs",
+      "kty": "RSA",
+      "q": "t-32baqgjyLvHru8nDSaTD1noDfrPA8mPYR17f_Zqtdo80qZC3hjgwZboFxYzwamwdE-7C0sQ0gTgf75gP_NE05uZOHsHjPmxB_WICuX5kPIIuyDcN6xcQd4nvMCjDx0Y8iHoeIfghxAAZXyf0Pa10ynSF5C6O8F4xiuOqTBYmE",
+      "d": "kI4n2L-7Hbwg4MAv3gS-RRRbAt333xT887VA9A6fny1ev_WajNcluk4ehXudtTSZaiTomRECE8CDKmEkoVy0lpSkTZ-ux60dh5tTFuovBVsrni_O6CcgrY3nP7mAYiumKeOfoYbt-iMgAIgComFyFFIfwbK6svI_oOojg-KGRwObv7HVHZmlyKmQMu2Uq-YHHwN1Hc0iSHd6YOVaE5hNfmeJQuPuYZjKUNf7VeMqS0ARPNRYXAuZI6Dio6hxBb3PPQapaLLeJO2MB3tIb1k2UpLeyCBcRBkxlQRsHTWOzvmwBV5iSqgzJudpfvLKsdU5sy56P_j3KBgUXSCcKNfGwQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "aR7iEQQkbcHwfLLs-7Kundtu3_IvKn2GUfvfXCKJNvLvM_msM8JoKw0xUiygxt7_yiHOwczVF11RHIg0kfzGpdwutpUUYNacJ14oS3CLAK9lpTmxX-xiMWNVfcxXq1dpMZ2d73K4_uz1tsavOXbcD8MyENkel2Ne-vVsOB-guxg",
+      "dp": "3aU3ui2j8ojsn-sqMiJyt-kvnTXJV_8q3lbZNA1ruyNOGH9crGKLXOjoe0oM4DV5e2pB6B3006nhL50QRuzQ_px5gCOAI3XfuC64sqpVWZgwsd6YhAPvkHGSe2t3_r3ew1KMKIZscyWe-J9HWT9X6sgwYrBpkwEwVOrAxOTv6p8",
+      "dq": "miIISI6cTlbwG8knnZ9XTlyG4nT55DKt0Q-X5AJr3gb2JCt3ZW1Vtw806YV5xsPEKte26yRP23IjJuUNIVU7_dnUGSZaQFUuJVyoi_z8JjLXHK0m2QdFm3qvUkRC9lITFyuMvdRIozgZSzrlJFEwqwvJg5O6bokfXdfo6av3gwE",
+      "n": "qCZQl51BH4_j2dGvB_fN6vls84gl5lTnpOFfnsxG5A5LWcXOSxRomp1IDsSRiAKAe5UpUPj52xIstvOM1g20KVFE6EbnFWoNY6KJu0bguSQTzH1EcUaulV15LQS4sXq7p7tgwWmJIYiN5BefruKZc2hrpmPh-4GIFhvflb1jo1clKhh6UNBo9q4dteFCJed1_dYgYBuC5kKA3q0xXc9yZUi6NcG7eIOh9QG72iCowHyhH05xVXl5GFOZX_KPbS27hkgmCE3Uq3v1QLK8t_50-GoYYT3IKTBbVGNbxlMIgCgcebDSSLujPDRtgJpQzwwlrUv3IHswCT2-uDkUyIebiw"
+    },
+    "relyingPartyId": "Bharathi-Inc",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>null</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>403</td>
+    <td>403</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_StatusCode_Invalid_Token_Neg()'><b>ESignet_CreateOIDCClient_StatusCode_Invalid_Token_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_StatusCode_Invalid_Token_Neg, endPoint=/v1/esignet/client-mgmt/oidc-client, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$RANDOMID$2", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output=401, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2109781002" onClick='toggleBox("Output-2109781002", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2109781002" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2109781002">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:08.358Z",
+  "request": {
+    "clientId": "mosip341690907200359",
+    "clientName": "MOSIP OIDC Client",
+    "publicKey": {
+      "p": "-PP7ySjGfLR45Xl9nL9ziWjTsG4A1mnvXYH_9PriCLFlKUNZ9bqzw-yvO_w9_bsUaIN3JXBmFMnjl31TSOQgypRDiXrbSvCBeQ1wmxFPaYRae1d_Az5Wut9vWTPjSFRv3-aamgRDgEraY4LZZd3gMWZwhLwVaFqvr9sgl_HnR0k",
+      "kty": "RSA",
+      "q": "pbwVqbpKRJsXU9Kd10p67Ulo2hkwmDCi2z59F25DfSt5P3ciLBIsKMRUXeSAgit_wKWW35gFrNGK8EEq1oldi0wVCUtXBi4U3JcbgwS3dmMSaUYuooCK1lbEHZ7Bx25ITgyIuxaABOYaHYc_TmExyhJ00S41T4n-NHEhAxDlyx8",
+      "d": "VIyiTCni_ZXLCaoxBBlEf694JvJob8uh2G6xrxWqadNImSeoijg2dDv1V490V5gJLKjQmZ_993IiW8bWL_vwgiFeEIrQkrYB6GKgs5K60fBcBvy8V29QQuy_OnEqLViqtYbFkE7PL4sZVvzIjJB2e-eGyv5sAtrEqbFvroMwuCL9OqZpsxLIE6aGQXpJbv6A8pZ4Q_H0SJTbaGwmt8_wgoBh0ZIxakzqCIw688Cqx9f-K-6pCbkE0NYMiZG8XLtxYhRK2ib2DlAEWyCrBoZORTfCukhf9qDTgKA7evfOR9_bpykIj9-YqL7CHXELf3HOODTx4-SRuTZg1-GpbSeZQQ",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "E8Pw4j2KwzzI2P3GqecCystIOyfC0e3no5Qa28GX05dcIbXn_O8dDhtPbZWuwdlgREAq6Y5WIb7RLd5yo9B5wBy7_KXBjvzs7_Q_Jg4wGKYMrnEYrwngCvJ5ZN8RFnHWTAUI6b9xIZR_lJF17xRoHUNjvcSSUBvFZDkzG7FeoEc",
+      "dp": "gbtjMmi1RrclaS_ubYi3RJwD9KTeet2phyj_oUI8GBuZg-89KfipRShKCRBhnZ-n-u7HYBM6nwq2N3Nvu0RmcirhJvuG236JefOvAp_6qhn2rN_jqGUL_UYCWJHZlw-pXRxm5GvkYS6gr8q4T4VYF2YyrHj3DvJzK0kdqxC8XUE",
+      "dq": "PvLdV4YGR2CQz6mjge4sGoxTYuNGbcerU5K8eHXM9HHar5xUQmD0nNdVJARyOv7Cmy1JzMs0_JrqJq7Z0nqCKTJQmyMefp5qFg7eyDi2ZiTjDVE2zUn9ccOq4YU3HMRqehqQpF67aSDssmJ4TRDllFbGP91JKljDUK_XVg7I-Qk",
+      "n": "oSwphqDkFnaqyCIIvnXzvFvLoGj091zpL3N9w7X3W88ryW-s-V0VF0ek4oTefCzrz6T1FlAtcoXs-1UrU_qkdQIs_TyPi0rxbFxmgXhZJphN2j0VYwCBC1NiMb5UR5-tL1bJOA7E----fTN-kMLvJQH0wpfGlaEpZ3zl0Z3iHvNVVxGSDYrG5g4rACj_SsW_WXGb6Ry0HErT2cW_JhdRZnODlD3I9L56kTDmZRMyULFVxwJwzAhiKStBt6EavXbQzzPTbOK0Kc0_ar4kZPdkePBkcAL3vFNUwmz6tCtuDomfVUEOOTwXy1rdpEkzXxGbhU9TTOXR0bymioZrBNWE1w"
+    },
+    "relyingPartyId": "Bharathi-Inc",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>null</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>401</td>
+    <td>401</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_CreateOIDCClient_all_Valid_Smoke_sid()'><b>ESignet_CreateOIDCClient_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_CreateOIDCClient_Null_clientAuthMethods_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_CreateOIDCClient_all_Valid_Smoke_sid, endPoint=/v1/esignet/client-mgmt/oidc-client, role=partner, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$RANDOMID$", "clientName": "MOSIP OIDC Client", "logoUri": "https://health-services.com/logo.png", "relyingPartyId": "Bharathi-Inc", "redirectUris": "$IDPREDIRECTURI$", "publicKey": "$JWKKEY$", "userClaims1": "name", "userClaims2": "email", "userClaims3": "gender", "userClaims4": "phone_number", "userClaims5": "birthdate", "authContextRefs": [{acrValues: "mosip:idp:acr:static-code"},{acrValues: "mosip:idp:acr:generated-code"},{acrValues: "mosip:idp:acr:biometrics"}], "grantTypes": "authorization_code", "clientAuthMethods": "private_key_jwt" }, output={ "clientId": "$IGNORE$", "status": "ACTIVE" }, inputTemplate=esignet/CreateOIDCClient/CreateOIDCClient, outputTemplate=esignet/CreateOIDCClient/CreateOIDCClientResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-944573983" onClick='toggleBox("Output-944573983", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-944573983" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-944573983">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:53:05.058Z",
+  "request": {
+    "clientId": "mosip931690907200359",
+    "clientName": "MOSIP OIDC Client",
+    "publicKey": {
+      "p": "8dgwqCAUWDcGfgL2D6FCPw7zY6qY2Tkg_Mg-aAJI9NroVyxKQTv2nq404x7JigFCmMFaHPuA2Yz3rmv7QBOVjeoQ-GTmWMk5o4Y4DsfyRVG7ExDJAjlNyWF-I6vMm6TkRcw1Jibj_VKk-fZXJ0sQ9RHqGvaBB20vdVdNk4-7ZZM",
+      "kty": "RSA",
+      "q": "tZpL9ECsnXgCF-hXvPPz8SlFxhd76A46oncakRGDsud8_kogO5i9mRDVy1i-JzLLUmwDrtH1DSS6UzP_fnCEfkDkJyTmJoa6WP7ikBCBusqQ8u3jnYB7ZRoEW_ohCmWIFKj3BtJz-2CFzDDxoBAjwtgQmKDwe-a7RI0JvaQdf8c",
+      "d": "pBcCkA-DlrnnWH3BCWKn5Gd4Nw2GhvTONfJ8vJr_jm6iyuJiRbEpn33yxeTeieuG9Kb5JNAw-FvK09XxHNf9lI4CAxONOPIsIYfIbQwGqb3awigJhluUxXKQ4yAnUeQq-ZO9qUPAFsYCzx0JiG_1NeIZHeQQ4gC0fG1b-galmfpjKzFcqZUU4QPQB6n6Oy2idgLMJwGHzF5duBlM4peBHsiugfX3EM8oZb9GyDLmrBt1FsyzurqcK-XqSL9BI6L-E8bma33BBiEjJptnRBsyr2CSzLqjWRPc40wDAF-R8zbPNgxS0z5Ql2PK1vVpvf5j6ZMVmzpX9QnBd0mozhNN5Q",
+      "e": "AQAB",
+      "use": "sig",
+      "kid": "RSAKeyID",
+      "qi": "SLlIGSGjtfDrDW0oy9lju5FSrjhzaCxWFVyyFYEe09Q1c3ditPb2dIs4lL9AANlx8ppiXTpF684fKifpHKVTmuvkgzC4fzXryNk1HM1Eci5FaaMz2FHwrqmcd4oDEY_QjGyd1buTiFIqMCbgZQ7Jc5Spzn4c0SSDk0k6YpcYOok",
+      "dp": "Rjl2d3tJLQxdUD3f4U38BH984RXqaDkUgRJMPLtdH-xoxtdPgH2-8Pi41rJb5zzSb7TFS-Ej2wf566XjQQnuxVSQNPBniqRzni4dHP2mNcazwaeAFqs5ER7EF-uM8C0DM9lGHZvxW9-hlAuZ5wj_FYpsJgQqF1P3EeWV2yFDUw0",
+      "dq": "NvLnBJMFJ-iGCaHd2mieaVwpppS4gzC7ASm0uixogxuUMIVRV3cR91ymtA64CrhN2TShsKYK1d1FG6PiLOnyzRjpcAa0NPgTLpaBC0JTXqeoUDk25BNaQu8qXoJCuRibolS12jSXr3o3Qd-VXO9FQtGJxAT-fx8Djux2BBHCc0U",
+      "n": "q4-eNTk6bm4wEAe_5LN1QMpsiiVPYixuVFJtSx3gHAaF7AR7F-S3PtbjFIucU_4f-pFkHHq5fcNVErp9SQgAm05nVr9Sft9T9m05M00u4Th_IMtFBqhMwGNqRQQyNZrkDUar1gnEMgeo8vvIqLndAd0TzbB-umTcivq0Y742dY2lwTRqqaUJ-1e0uRMFbNk51go2sQVO7_n18gU3pPjt4i9p1h17raIDDsG-IIfOV8-JJRl0tk87qBHRl1PckvnzKx7rirbf2bVd73_nemuCRGhLO5oSCGaD2x3kwAxQGnoFMdADwY5i9ybQPn2oXkPyik54VVnlT0KKB__WX7biRQ"
+    },
+    "relyingPartyId": "Bharathi-Inc",
+    "userClaims": [
+      "name",
+      "email",
+      "gender",
+      "phone_number",
+      "birthdate"
+    ],
+    "authContextRefs": [
+      "mosip:idp:acr:static-code",
+      "mosip:idp:acr:generated-code",
+      "mosip:idp:acr:biometrics"
+    ],
+    "logoUri": "https://health-services.com/logo.png",
+    "redirectUris": [
+      "https://healthservices.dev3.mosip.net/userprofile"
+    ],
+    "grantTypes": [
+      "authorization_code"
+    ],
+    "clientAuthMethods": [
+      "private_key_jwt"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/client-mgmt/oidc-client) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:53:05.911Z",
+  "response": {
+    "clientId": "mosip931690907200359",
+    "status": "ACTIVE"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.status</td>
+    <td>ACTIVE</td>
+    <td>ACTIVE</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+</table><p>
+</body>
+</html>

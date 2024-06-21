@@ -1,0 +1,183 @@
+<html>
+<head>
+<title>TestNG:  GenerateVID</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GenerateVID</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Apr 28 11:41:21 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>398 seconds (398282 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate.Resident_Generate_Perpetual_VID_Valid_Smoke_sid()'><b>Resident_Generate_Perpetual_VID_Valid_Smoke_sid</b><br>Test class: io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate (Resident_Generate_Perpetual_VID_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=Resident_Generate_Perpetual_VID_Valid_Smoke_sid, endPoint=/resident/v1/vid, role=resident, templateFields=null, input={ "transactionID": "$TRANSACTIONID$", "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$", "individualIdType": "UIN", "requesttime": "$TIMESTAMP$", "id": "mosip.resident.vid", "version": "v1", "vidType": "Perpetual", "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$", "sendOtp":{ "transactionID": "$TRANSACTIONID$", "requestTime": "$TIMESTAMP$", "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$", "individualIdType": "UIN", "sendOtpReqTemplate": "resident/SendOTP/createSendOTP", "sendOtpEndPoint": "/resident/v1/req/otp" } }, output={ "vid": "$IGNORE$", "message": "Notification has been sent to the provided contact detail(s)", "sendOtpResp":{ "maskedMobile": "XXXXXX3210", "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult", "maskedEmail": "$IGNORE$" } }, inputTemplate=resident/GenerateVID/createGenerateVID, outputTemplate=resident/GenerateVID/createGenerateVIDResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=true)<br/>
+<a href="#Output-1317395634" onClick='toggleBox("Output-1317395634", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1317395634" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1317395634">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "individualId": "2093256396",
+  "individualIdType": "UIN",
+  "metadata": {},
+  "otpChannel": [
+    "PHONE",
+    "EMAIL"
+  ],
+  "requestTime": "2023-04-28T06:14:02.495Z",
+  "transactionID": "5406928455",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev2.mosip.net/resident/v1/req/otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "version": "1.0",
+  "transactionID": "5406928455",
+  "responseTime": "2023-04-28T06:14:03.879Z",
+  "response": {
+    "maskedMobile": "XXXXXX3210",
+    "maskedEmail": "XXsXXeXX_XXdXXeXXiXX_XXsXXiXX_XXEXXmXXe@mosip.net"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.identity.otp.internal</td>
+    <td>mosip.identity.otp.internal</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "otp": "111111",
+    "individualId": "2093256396",
+    "individualIdType": "UIN",
+    "transactionID": "5406928455",
+    "vidType": "Perpetual"
+  },
+  "requesttime": "2023-04-28T06:14:25.642Z",
+  "id": "mosip.resident.vid",
+  "version": "v1"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev2.mosip.net/resident/v1/vid) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.resident.vid",
+  "version": "v1",
+  "responsetime": "2023-04-28T06:14:28.224Z",
+  "response": {
+    "vid": "6271928130218725",
+    "message": "Notification has been sent to the provided contact detail(s)"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.resident.vid</td>
+    <td>mosip.resident.vid</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.message</td>
+    <td>Notification has been sent to the provided contact detail(s)</td>
+    <td>Notification has been sent to the provided contact detail(s)</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>308</td>
+<td>io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate@61b838f2</td></tr>
+</table><p>
+</body>
+</html>

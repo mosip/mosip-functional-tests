@@ -1,0 +1,259 @@
+<html>
+<head>
+<title>TestNG:  Transliteration</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Transliteration</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>3/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 21:59:57 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>5 seconds (5862 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Prereg_Transliteration_All_Valid_Smoke_sid()'><b>Prereg_Transliteration_All_Valid_Smoke_sid</b><br>Test class: io.mosip.testscripts.SimplePost (Prereg_Transliteration_inValid_fromfieldlang)<br>Parameters: TestCaseDTO(testCaseName=Prereg_Transliteration_All_Valid_Smoke_sid, endPoint=/preregistration/v1/transliteration/transliterate, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.transliteration.transliterate", "version": "1.0", "requesttime": "$TIMESTAMP$", "from_field_value": "string", "from_field_lang": "eng", "to_field_lang": "ara"
+}, output={ "from_field_value": "string", "from_field_lang": "eng", "to_field_value": "سترِنگ", "to_field_lang": "ara" }, inputTemplate=preReg/Transliteration/translate, outputTemplate=preReg/Transliteration/translateResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1704943410" onClick='toggleBox("Output-1704943410", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1704943410" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1704943410">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.transliteration.transliterate",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:29:57.708Z",
+  "request": {
+    "from_field_value": "string",
+    "from_field_lang": "eng",
+    "to_field_lang": "ara"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/transliteration/transliterate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.transliteration.transliterate",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:29:59.312Z",
+  "response": {
+    "from_field_value": "string",
+    "from_field_lang": "eng",
+    "to_field_value": "سترِنگ",
+    "to_field_lang": "ara"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.to_field_value</td>
+    <td>سترِنگ</td>
+    <td>سترِنگ</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.from_field_value</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.to_field_lang</td>
+    <td>ara</td>
+    <td>ara</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.from_field_lang</td>
+    <td>eng</td>
+    <td>eng</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.SimplePost@4602f874</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Prereg_Transliteration_inValid_fromfieldlang()'><b>Prereg_Transliteration_inValid_fromfieldlang</b><br>Test class: io.mosip.testscripts.SimplePost (Prereg_Transliteration_inValid_fromfieldlang)<br>Parameters: TestCaseDTO(testCaseName=Prereg_Transliteration_inValid_fromfieldlang, endPoint=/preregistration/v1/transliteration/transliterate, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.transliteration.transliterate", "version": "1.0", "requesttime": "$TIMESTAMP$", "from_field_value": "string", "from_field_lang": "wqeffv", "to_field_lang": "ara"
+}, output={ "errors": [ { "errorCode": "PRG_TRL_APP_002", "message": "Unsupported language" } ] }, inputTemplate=preReg/Transliteration/translate, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-560609978" onClick='toggleBox("Output-560609978", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-560609978" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-560609978">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.transliteration.transliterate",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:30:01.264Z",
+  "request": {
+    "from_field_value": "string",
+    "from_field_lang": "wqeffv",
+    "to_field_lang": "ara"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/transliteration/transliterate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.transliteration.transliterate",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:30:03.490Z",
+  "errors": [
+    {
+      "errorCode": "PRG_TRL_APP_002",
+      "message": "Unsupported language"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Unsupported language</td>
+    <td>Unsupported language</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_TRL_APP_002</td>
+    <td>PRG_TRL_APP_002</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testscripts.SimplePost@4602f874</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Prereg_Transliteration_inValid_tofieldlang()'><b>Prereg_Transliteration_inValid_tofieldlang</b><br>Test class: io.mosip.testscripts.SimplePost (Prereg_Transliteration_inValid_fromfieldlang)<br>Parameters: TestCaseDTO(testCaseName=Prereg_Transliteration_inValid_tofieldlang, endPoint=/preregistration/v1/transliteration/transliterate, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.transliteration.transliterate", "version": "1.0", "requesttime": "$TIMESTAMP$", "from_field_value": "string", "from_field_lang": "eng", "to_field_lang": "asdlka"
+}, output={ "errors": [ { "errorCode": "PRG_TRL_APP_002", "message": "Unsupported language" } ] }, inputTemplate=preReg/Transliteration/translate, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-510805466" onClick='toggleBox("Output-510805466", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-510805466" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-510805466">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.transliteration.transliterate",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:29:59.389Z",
+  "request": {
+    "from_field_value": "string",
+    "from_field_lang": "eng",
+    "to_field_lang": "asdlka"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/transliteration/transliterate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.transliteration.transliterate",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:30:01.168Z",
+  "errors": [
+    {
+      "errorCode": "PRG_TRL_APP_002",
+      "message": "Unsupported language"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Unsupported language</td>
+    <td>Unsupported language</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_TRL_APP_002</td>
+    <td>PRG_TRL_APP_002</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.SimplePost@4602f874</td></tr>
+</table><p>
+</body>
+</html>

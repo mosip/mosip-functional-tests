@@ -1,0 +1,621 @@
+<html>
+<head>
+<title>TestNG:  DeviceTypeSearch</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>DeviceTypeSearch</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>6/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:47:04 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>4 seconds (4874 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceTypeSearch_Contains_Name_eng_smoke()'><b>MasterData_DeviceTypeSearch_Contains_Name_eng_smoke</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceTypeSearch_Invalid_ColumnName_neg)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceTypeSearch_Contains_Name_eng_smoke, endPoint=/v1/masterdata/devicetypes/search, role=admin, templateFields=[languageCode], input={ "filters": [ { "columnName": "name", "type": "contains", "value": "Finger Print Scanner", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [ { "isActive": "$IGNORE$", "createdBy": "$IGNORE$", "code": "FRS", "langCode": "$IGNORE$", "name": "$IGNORE$", "description": "$IGNORE$" } ] }, inputTemplate=masterdata/DeviceTypeSearch/deviceTypeSearch, outputTemplate=masterdata/DeviceTypeSearch/deviceTypeSearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-448540805" onClick='toggleBox("Output-448540805", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-448540805" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-448540805">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "contains",
+        "value": "Finger Print Scanner",
+        "columnName": "name"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "name"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:17:05.645Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devicetypes/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:17:06.421Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2022-02-23T12:40:28.615Z",
+        "isDeleted": false,
+        "code": "FRS",
+        "langCode": "eng",
+        "name": "Finger Print Scanner",
+        "description": "For scanning fingerprints"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].code</td>
+    <td>FRS</td>
+    <td>FRS</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@b6a5cf5</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceTypeSearch_Equals_Name_eng_smoke()'><b>MasterData_DeviceTypeSearch_Equals_Name_eng_smoke</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceTypeSearch_Invalid_ColumnName_neg)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceTypeSearch_Equals_Name_eng_smoke, endPoint=/v1/masterdata/devicetypes/search, role=admin, templateFields=[languageCode], input={ "filters": [ { "columnName": "name", "type": "equals", "value": "Finger Print Scanner", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [ { "isActive": "$IGNORE$", "createdBy": "$IGNORE$", "code": "FRS", "langCode": "$IGNORE$", "name": "$IGNORE$", "description": "$IGNORE$" } ] }, inputTemplate=masterdata/DeviceTypeSearch/deviceTypeSearch, outputTemplate=masterdata/DeviceTypeSearch/deviceTypeSearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1492063555" onClick='toggleBox("Output-1492063555", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1492063555" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1492063555">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "Finger Print Scanner",
+        "columnName": "name"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "name"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:17:04.038Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devicetypes/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:17:04.753Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2022-02-23T12:40:28.615Z",
+        "isDeleted": false,
+        "code": "FRS",
+        "langCode": "eng",
+        "name": "Finger Print Scanner",
+        "description": "For scanning fingerprints"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].code</td>
+    <td>FRS</td>
+    <td>FRS</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@b6a5cf5</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceTypeSearch_Equals_isActive_eng_smoke()'><b>MasterData_DeviceTypeSearch_Equals_isActive_eng_smoke</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceTypeSearch_Invalid_ColumnName_neg)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceTypeSearch_Equals_isActive_eng_smoke, endPoint=/v1/masterdata/devicetypes/search, role=admin, templateFields=[languageCode], input={ "filters": [ { "columnName": "isActive", "type": "equals", "value": "true", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" }, { "columnName": "name", "type": "equals", "value": "GST", "fromValue": "string", "toValue": "string" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [ { "isActive": "$IGNORE$", "createdBy": "$IGNORE$", "code": "$IGNORE$", "langCode": "$IGNORE$", "name": "$IGNORE$", "description": "$IGNORE$" } ] }, inputTemplate=masterdata/DeviceTypeSearch/deviceTypeSearch, outputTemplate=masterdata/DeviceTypeSearch/deviceTypeSearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1001367899" onClick='toggleBox("Output-1001367899", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1001367899" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1001367899">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "true",
+        "columnName": "isActive"
+      },
+      {
+        "fromValue": "string",
+        "toValue": "string",
+        "type": "equals",
+        "value": "GST",
+        "columnName": "name"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "name"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:17:04.879Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devicetypes/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:17:05.552Z",
+  "response": {
+    "fromRecord": 0,
+    "toRecord": 0,
+    "totalRecord": 0
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.data</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@b6a5cf5</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceTypeSearch_Invalid_ColumnName_neg()'><b>MasterData_DeviceTypeSearch_Invalid_ColumnName_neg</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceTypeSearch_Invalid_ColumnName_neg)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceTypeSearch_Invalid_ColumnName_neg, endPoint=/v1/masterdata/devicetypes/search, role=admin, templateFields=[value], input={ "filters": [ { "columnName": "12abcd21", "type": "equals", "value": "GST", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-317", "message": "$IGNORE$" } ] }, inputTemplate=masterdata/DeviceTypeSearch/deviceTypeSearch, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1089365580" onClick='toggleBox("Output-1089365580", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1089365580" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1089365580">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "GST",
+        "columnName": "12abcd21"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "name"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:17:08.179Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devicetypes/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:17:08.834Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-317",
+      "message": "Column 12abcd21 doesn\u0027t exist for the searched entity"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-317</td>
+    <td>KER-MSD-317</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@b6a5cf5</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceTypeSearch_Invalid_Value_Name_smoke()'><b>MasterData_DeviceTypeSearch_Invalid_Value_Name_smoke</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceTypeSearch_Invalid_ColumnName_neg)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceTypeSearch_Invalid_Value_Name_smoke, endPoint=/v1/masterdata/devicetypes/search, role=admin, templateFields=[value], input={ "filters": [ { "columnName": "name", "type": "equals", "value": "GST1", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [] }, inputTemplate=masterdata/DeviceTypeSearch/deviceTypeSearch, outputTemplate=masterdata/DeviceTypeSearch/deviceTypeSearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-66339477" onClick='toggleBox("Output-66339477", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-66339477" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-66339477">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "GST1",
+        "columnName": "name"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "name"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:17:07.420Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devicetypes/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:17:08.072Z",
+  "response": {
+    "fromRecord": 0,
+    "toRecord": 0,
+    "totalRecord": 0
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.data</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@b6a5cf5</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceTypeSearch_startsWith_Name_eng_smoke()'><b>MasterData_DeviceTypeSearch_startsWith_Name_eng_smoke</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceTypeSearch_Invalid_ColumnName_neg)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceTypeSearch_startsWith_Name_eng_smoke, endPoint=/v1/masterdata/devicetypes/search, role=admin, templateFields=[languageCode], input={ "filters": [ { "columnName": "name", "type": "startsWith", "value": "Finger Print Scanner", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [ { "isActive": "$IGNORE$", "createdBy": "$IGNORE$", "code": "$IGNORE$", "langCode": "$IGNORE$", "name": "$IGNORE$", "description": "$IGNORE$" } ] }, inputTemplate=masterdata/DeviceTypeSearch/deviceTypeSearch, outputTemplate=masterdata/DeviceTypeSearch/deviceTypeSearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2089561347" onClick='toggleBox("Output-2089561347", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2089561347" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2089561347">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "startsWith",
+        "value": "Finger Print Scanner",
+        "columnName": "name"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "name"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:17:06.526Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devicetypes/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:17:07.299Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2022-02-23T12:40:28.615Z",
+        "isDeleted": false,
+        "code": "FRS",
+        "langCode": "eng",
+        "name": "Finger Print Scanner",
+        "description": "For scanning fingerprints"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@b6a5cf5</td></tr>
+</table><p>
+</body>
+</html>

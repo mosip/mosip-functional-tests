@@ -1,0 +1,373 @@
+<html>
+<head>
+<title>TestNG:  UserCenterMapping</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>UserCenterMapping</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>4/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Sep 20 13:40:26 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>1 seconds (1568 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_UserCenterMapping_All_Valid_Smoke()'><b>MasterData_UserCenterMapping_All_Valid_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_UserCenterMapping_Invalid_InputParameter_Invalid_regCenterId)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UserCenterMapping_All_Valid_Smoke, endPoint=/v1/masterdata/usercentermapping, role=admin, templateFields=[name], input={ "id": "func_auto_test_user", "name": "automation", "statusCode": "active", "regCenterId": "10005", "isActive": true, "langCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "id": "func_auto_test_user", "langCode": "eng", "name": "automation", "statusCode": "active", "regCenterId": "10005", "isActive": $IGNORE$, "zoneCode": "BSN", "zoneName": "Benslimane", "regCenterName": "Center Mehdia" }, inputTemplate=masterdata/UserCenterMapping/userCenterMapping, outputTemplate=masterdata/UserCenterMapping/userCenterMappingResult, restMethod=post)<br/>
+<a href="#Output-1510249755" onClick='toggleBox("Output-1510249755", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1510249755" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1510249755">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "id": "func_auto_test_user",
+    "name": "َُتُمَتُِن",
+    "statusCode": "active",
+    "regCenterId": "10005",
+    "isActive": true,
+    "langCode": "ara"
+  },
+  "requesttime": "2022-09-20T08:10:26.235Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/usercentermapping) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2022-09-20T08:10:26.567Z",
+  "errors": [
+    {
+      "errorCode": "KER-USR-008",
+      "message": "Zone user mapping not exists or not active"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Zone user mapping not exists or not active</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-USR-008</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-09-20T08:10:26.567Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@63c512c6</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_UserCenterMapping_Invalid_InputParameter_Invalid_regCenterId()'><b>MasterData_UserCenterMapping_Invalid_InputParameter_Invalid_regCenterId</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_UserCenterMapping_Invalid_InputParameter_Invalid_regCenterId)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UserCenterMapping_Invalid_InputParameter_Invalid_regCenterId, endPoint=/v1/masterdata/usercentermapping, role=admin, templateFields=[name], input={ "id": "auto_test_user1", "name": "automation", "statusCode": "active", "regCenterId": "10006", "isActive": true, "langCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-USR-008", "message": "Zone user mapping not exists or not active" } ] }, inputTemplate=masterdata/UserCenterMapping/userCenterMapping, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-1120310258" onClick='toggleBox("Output-1120310258", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1120310258" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1120310258">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "id": "auto_test_user1",
+    "name": "َُتُمَتُِن",
+    "statusCode": "active",
+    "regCenterId": "10006",
+    "isActive": true,
+    "langCode": "ara"
+  },
+  "requesttime": "2022-09-20T08:10:27.323Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/usercentermapping) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2022-09-20T08:10:27.766Z",
+  "errors": [
+    {
+      "errorCode": "KER-USR-008",
+      "message": "Zone user mapping not exists or not active"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Zone user mapping not exists or not active</td>
+    <td>Zone user mapping not exists or not active</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-USR-008</td>
+    <td>KER-USR-008</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@63c512c6</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_UserCenterMapping_Invalid_InputParameter_regCenterId_Missing()'><b>MasterData_UserCenterMapping_Invalid_InputParameter_regCenterId_Missing</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_UserCenterMapping_Invalid_InputParameter_Invalid_regCenterId)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UserCenterMapping_Invalid_InputParameter_regCenterId_Missing, endPoint=/v1/masterdata/usercentermapping, role=admin, templateFields=[name], input={ "id": "auto_test_user1", "name": "automation", "statusCode": "active", "regCenterId": "", "isActive": true, "langCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-USR-008", "message": "Zone user mapping not exists or not active" } ] }, inputTemplate=masterdata/UserCenterMapping/userCenterMapping, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-1121452005" onClick='toggleBox("Output-1121452005", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1121452005" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1121452005">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "id": "auto_test_user1",
+    "name": "َُتُمَتُِن",
+    "statusCode": "active",
+    "regCenterId": "",
+    "isActive": true,
+    "langCode": "ara"
+  },
+  "requesttime": "2022-09-20T08:10:26.949Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/usercentermapping) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2022-09-20T08:10:27.296Z",
+  "errors": [
+    {
+      "errorCode": "KER-USR-008",
+      "message": "Zone user mapping not exists or not active"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Zone user mapping not exists or not active</td>
+    <td>Zone user mapping not exists or not active</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-USR-008</td>
+    <td>KER-USR-008</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@63c512c6</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_UserCenterMapping_Invalid_duplicate_entry()'><b>MasterData_UserCenterMapping_Invalid_duplicate_entry</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_UserCenterMapping_Invalid_InputParameter_Invalid_regCenterId)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UserCenterMapping_Invalid_duplicate_entry, endPoint=/v1/masterdata/usercentermapping, role=admin, templateFields=[name], input={ "id": "auto_test_user", "name": "automation", "statusCode": "active", "regCenterId": "10005", "isActive": true, "langCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-USR-008", "message": "Zone user mapping not exists or not active" } ] }, inputTemplate=masterdata/UserCenterMapping/userCenterMapping, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-1407136331" onClick='toggleBox("Output-1407136331", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1407136331" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1407136331">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "id": "auto_test_user",
+    "name": "َُتُمَتُِن",
+    "statusCode": "active",
+    "regCenterId": "10005",
+    "isActive": true,
+    "langCode": "ara"
+  },
+  "requesttime": "2022-09-20T08:10:26.592Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/usercentermapping) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2022-09-20T08:10:26.924Z",
+  "errors": [
+    {
+      "errorCode": "KER-USR-008",
+      "message": "Zone user mapping not exists or not active"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Zone user mapping not exists or not active</td>
+    <td>Zone user mapping not exists or not active</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-USR-008</td>
+    <td>KER-USR-008</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@63c512c6</td></tr>
+</table><p>
+</body>
+</html>

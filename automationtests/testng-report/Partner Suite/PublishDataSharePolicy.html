@@ -1,0 +1,411 @@
+<html>
+<head>
+<title>TestNG:  PublishDataSharePolicy</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>PublishDataSharePolicy</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>4/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:28:45 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>5 seconds (5386 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithOnlyPathParam.Partner_PublishDataSharePolicy_All_Valid_Smoke()'><b>Partner_PublishDataSharePolicy_All_Valid_Smoke</b><br>Test class: io.mosip.testscripts.PostWithOnlyPathParam (Partner_PublishDataSharePolicy_InValid_policyId)<br>Parameters: TestCaseDTO(testCaseName=Partner_PublishDataSharePolicy_All_Valid_Smoke, endPoint=/v1/policymanager/policies/{policyId}/group/{policygroupId}/publish, role=partner, templateFields=null, input={ "policygroupId": "$ID:DefinePolicyGroup_All_Valid_Smoke_sid_id$", "policyId": "MDSP", "requesttime": "$TIMESTAMP$" }, output={ "policyGroupName": "mosip policy group", "policyGroupDesc": "desc mosip policy group updated", "policyGroupStatus": true, "policyName": "mosip data share policy", "policyDesc": "mosip data share policy", "policyType": "DataShare", "status": "PUBLISHED", "is_Active": true, "format":"extraction", "attributeName":"biometrics" }, inputTemplate=partner/policy/PublishDataSharePolicy/publishDataSharePolicy, outputTemplate=partner/policy/PublishDataSharePolicy/publishDataSharePolicyResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1341157484" onClick='toggleBox("Output-1341157484", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1341157484" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1341157484">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "policygroupId": "63894",
+  "policyId": "MDSP"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/{policyId}/group/{policygroupId}/publish) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T16:58:46.480Z",
+  "response": {
+    "policyGroupId": "63894",
+    "policyGroupName": "mosip policy group",
+    "policyGroupDesc": "desc mosip policy group updated",
+    "policyGroupStatus": true,
+    "policyGroup_cr_by": "partner-111997",
+    "policyGroup_cr_dtimes": "2023-07-14T16:57:38.266157",
+    "policyGroup_up_by": "partner-111997",
+    "policyGroup_upd_dtimes": "2023-07-14T16:57:51.207123",
+    "policyId": "MDSP",
+    "policyName": "mosip data share policy",
+    "policyDesc": "mosip data share policy",
+    "policyType": "DataShare",
+    "publishDate": "2023-07-14T16:58:15.318812",
+    "validTill": "2223-07-14T16:58:15.318813",
+    "status": "PUBLISHED",
+    "version": "1.0",
+    "schema": "https://schemas.mosip.io/v1/auth-policy",
+    "is_Active": true,
+    "cr_by": "partner-111997",
+    "cr_dtimes": "2023-07-14T16:58:15.318544",
+    "up_by": "partner-111997",
+    "upd_dtimes": "2023-07-14T16:58:46.697954",
+    "policies": {
+      "shareableAttributes": [
+        {
+          "encrypted": true,
+          "format": "extraction",
+          "attributeName": "biometrics",
+          "source": [
+            {
+              "filter": [
+                {
+                  "type": "Iris"
+                }
+              ],
+              "attribute": "registration-client/NEW/individualBiometrics"
+            },
+            {
+              "filter": [
+                {
+                  "type": "Finger"
+                }
+              ],
+              "attribute": "CNIE/verification/biometrics"
+            },
+            {
+              "filter": [
+                {
+                  "type": "Face"
+                }
+              ],
+              "attribute": "CNIE/verification/biometrics"
+            }
+          ]
+        }
+      ],
+      "dataSharePolicies": {
+        "typeOfShare": "Data Share",
+        "transactionsAllowed": "2",
+        "shareDomain": "datashare-service",
+        "encryptionType": "Partner Based",
+        "source": "Packet Manager",
+        "validForInMinutes": "30"
+      }
+    }
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.is_Active</td>
+    <td>true</td>
+    <td>true</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.policies.dataSharePolicies.typeOfShare</td>
+    <td>Data Share</td>
+    <td>Data Share</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.policies.dataSharePolicies.source</td>
+    <td>Packet Manager</td>
+    <td>Packet Manager</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[0].encrypted</td>
+    <td>true</td>
+    <td>true</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.policyDesc</td>
+    <td>mosip data share policy</td>
+    <td>mosip data share policy</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.policyGroupName</td>
+    <td>mosip policy group</td>
+    <td>mosip policy group</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.policyGroupDesc</td>
+    <td>desc mosip policy group updated</td>
+    <td>desc mosip policy group updated</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[0].(source)[2].attribute</td>
+    <td>CNIE/verification/biometrics</td>
+    <td>CNIE/verification/biometrics</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.policies.dataSharePolicies.validForInMinutes</td>
+    <td>30</td>
+    <td>30</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.policies.dataSharePolicies.encryptionType</td>
+    <td>Partner Based</td>
+    <td>Partner Based</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.policyType</td>
+    <td>DataShare</td>
+    <td>DataShare</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[0].format</td>
+    <td>extraction</td>
+    <td>extraction</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[0].(source)[1].attribute</td>
+    <td>CNIE/verification/biometrics</td>
+    <td>CNIE/verification/biometrics</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.policyGroupStatus</td>
+    <td>true</td>
+    <td>true</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.policies.dataSharePolicies.shareDomain</td>
+    <td>datashare-service</td>
+    <td>datashare-service</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.policyName</td>
+    <td>mosip data share policy</td>
+    <td>mosip data share policy</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[0].(source)[0].attribute</td>
+    <td>registration-client/NEW/individualBiometrics</td>
+    <td>registration-client/NEW/individualBiometrics</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[0].(source)[2].(filter)[0].type</td>
+    <td>Face</td>
+    <td>Face</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.policies.dataSharePolicies.transactionsAllowed</td>
+    <td>2</td>
+    <td>2</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.policies.(shareableAttributes)[0].attributeName</td>
+    <td>biometrics</td>
+    <td>biometrics</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithOnlyPathParam@54f2df29</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithOnlyPathParam.Partner_PublishDataSharePolicy_InValid_AlreadyPublished()'><b>Partner_PublishDataSharePolicy_InValid_AlreadyPublished</b><br>Test class: io.mosip.testscripts.PostWithOnlyPathParam (Partner_PublishDataSharePolicy_InValid_policyId)<br>Parameters: TestCaseDTO(testCaseName=Partner_PublishDataSharePolicy_InValid_AlreadyPublished, endPoint=/v1/policymanager/policies/{policyId}/group/{policygroupId}/publish, role=partner, templateFields=null, input={ "policygroupId": "$ID:DefinePolicyGroup_All_Valid_Smoke_sid_id$", "policyId": "MDSP", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PMS_POL_020", "message": "Can not publish the published policy" } ] }, inputTemplate=partner/policy/PublishDataSharePolicy/publishDataSharePolicy, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-271696288" onClick='toggleBox("Output-271696288", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-271696288" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-271696288">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "policygroupId": "63894",
+  "policyId": "MDSP"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/{policyId}/group/{policygroupId}/publish) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T16:58:48.109Z",
+  "errors": [
+    {
+      "errorCode": "PMS_POL_020",
+      "message": "Can not publish the published policy"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_POL_020</td>
+    <td>PMS_POL_020</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithOnlyPathParam@54f2df29</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithOnlyPathParam.Partner_PublishDataSharePolicy_InValid_policyId()'><b>Partner_PublishDataSharePolicy_InValid_policyId</b><br>Test class: io.mosip.testscripts.PostWithOnlyPathParam (Partner_PublishDataSharePolicy_InValid_policyId)<br>Parameters: TestCaseDTO(testCaseName=Partner_PublishDataSharePolicy_InValid_policyId, endPoint=/v1/policymanager/policies/{policyId}/group/{policygroupId}/publish, role=partner, templateFields=null, input={ "policygroupId": "$ID:DefinePolicyGroup_All_Valid_Smoke_sid_id$", "policyId": "afgrwfg", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PMS_POL_008", "message": "Policy ID does not exist" } ] }, inputTemplate=partner/policy/PublishDataSharePolicy/publishDataSharePolicy, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1124663701" onClick='toggleBox("Output-1124663701", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1124663701" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1124663701">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "policygroupId": "63894",
+  "policyId": "afgrwfg"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/{policyId}/group/{policygroupId}/publish) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T16:58:50.861Z",
+  "errors": [
+    {
+      "errorCode": "PMS_POL_008",
+      "message": "Policy ID does not exist"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_POL_008</td>
+    <td>PMS_POL_008</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithOnlyPathParam@54f2df29</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithOnlyPathParam.Partner_PublishDataSharePolicy_InValid_policygroupId()'><b>Partner_PublishDataSharePolicy_InValid_policygroupId</b><br>Test class: io.mosip.testscripts.PostWithOnlyPathParam (Partner_PublishDataSharePolicy_InValid_policyId)<br>Parameters: TestCaseDTO(testCaseName=Partner_PublishDataSharePolicy_InValid_policygroupId, endPoint=/v1/policymanager/policies/{policyId}/group/{policygroupId}/publish, role=partner, templateFields=null, input={ "policygroupId": "sgdasfgbv", "policyId": "MDSP", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PMS_POL_016", "message": "Policy Group ID does not exist" } ] }, inputTemplate=partner/policy/PublishDataSharePolicy/publishDataSharePolicy, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1106392217" onClick='toggleBox("Output-1106392217", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1106392217" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1106392217">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "policygroupId": "sgdasfgbv",
+  "policyId": "MDSP"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/{policyId}/group/{policygroupId}/publish) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T16:58:49.348Z",
+  "errors": [
+    {
+      "errorCode": "PMS_POL_016",
+      "message": "Policy Group ID does not exist"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_POL_016</td>
+    <td>PMS_POL_016</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithOnlyPathParam@54f2df29</td></tr>
+</table><p>
+</body>
+</html>

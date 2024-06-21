@@ -1,0 +1,218 @@
+<html>
+<head>
+<title>TestNG:  CreateSecureBiometricInterface</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>CreateSecureBiometricInterface</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>3/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:31:28 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>3 seconds (3308 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Partner_SaveSecureBiometricInterface_All_Valid_Smoke_sid()'><b>Partner_SaveSecureBiometricInterface_All_Valid_Smoke_sid</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Partner_SaveSecureBiometricInterface_Missing_InputParameter_swVersion)<br>Parameters: TestCaseDTO(testCaseName=Partner_SaveSecureBiometricInterface_All_Valid_Smoke_sid, endPoint=/v1/partnermanager/securebiometricinterface, role=partner, templateFields=null, input={ "swBinaryHash": "0", "swCreateDateTime": "$TIMESTAMP$", "swExpiryDateTime": "2222-12-30T08:23:57.986Z", "swVersion": "MO.TD.01", "requesttime": "$TIMESTAMP$", "providerId": "Tech-123" }, output={ "id": "$IGNORE$" }, inputTemplate=partner/device/SecureBiometricInterface/create/createSecureBiometricInterface, outputTemplate=partner/device/SecureBiometricInterface/create/createSecureBiometricInterfaceResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1682716048" onClick='toggleBox("Output-1682716048", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1682716048" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1682716048">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requesttime": "2023-07-14T17:01:28.181Z",
+  "metadata": {},
+  "request": {
+    "swBinaryHash": "0",
+    "swVersion": "MO.TD.01",
+    "swCreateDateTime": "2023-07-14T17:01:28.181Z",
+    "swExpiryDateTime": "2222-12-30T08:23:57.986Z",
+    "providerId": "Tech-123"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/securebiometricinterface) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:01:28.949Z",
+  "response": {
+    "id": "feea3037-8b7e-4f7e-8dd9-16aed490798f"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@7e2bc2f4</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Partner_SaveSecureBiometricInterface_Missing_InputParameter_swVersion()'><b>Partner_SaveSecureBiometricInterface_Missing_InputParameter_swVersion</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Partner_SaveSecureBiometricInterface_Missing_InputParameter_swVersion)<br>Parameters: TestCaseDTO(testCaseName=Partner_SaveSecureBiometricInterface_Missing_InputParameter_swVersion, endPoint=/v1/partnermanager/securebiometricinterface, role=partner, templateFields=null, input={ "swBinaryHash": "0", "swCreateDateTime": "$TIMESTAMP$", "swExpiryDateTime": "2222-12-30T08:23:57.986Z", "swVersion": "$REMOVE$", "requesttime": "$TIMESTAMP$", "providerId": "Tech-123" }, output={ "errors": [ { "errorCode": "PMS_COR_001", "message": "Invalid request parameter - value is empty or null :request.swVersion" } ] }, inputTemplate=partner/device/SecureBiometricInterface/create/createSecureBiometricInterface, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1872257073" onClick='toggleBox("Output-1872257073", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1872257073" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1872257073">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "providerId": "Tech-123",
+    "swBinaryHash": "0",
+    "swExpiryDateTime": "2222-12-30T08:23:57.986Z",
+    "swCreateDateTime": "2023-07-14T17:01:30.759Z"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:01:30.759Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/securebiometricinterface) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:01:31.470389",
+  "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Invalid request parameter - value is empty or null :request.swVersion"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_COR_001</td>
+    <td>PMS_COR_001</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@7e2bc2f4</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Partner_SaveSecureBiometricInterface_Valid_Smoke_sid()'><b>Partner_SaveSecureBiometricInterface_Valid_Smoke_sid</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Partner_SaveSecureBiometricInterface_Missing_InputParameter_swVersion)<br>Parameters: TestCaseDTO(testCaseName=Partner_SaveSecureBiometricInterface_Valid_Smoke_sid, endPoint=/v1/partnermanager/securebiometricinterface, role=partner, templateFields=null, input={ "swBinaryHash": "0", "swCreateDateTime": "$TIMESTAMP$", "swExpiryDateTime": "2222-12-30T08:23:57.986Z", "swVersion": "MO.TD.02", "requesttime": "$TIMESTAMP$", "providerId": "Tech-123" }, output={ "id": "$IGNORE$" }, inputTemplate=partner/device/SecureBiometricInterface/create/createSecureBiometricInterface, outputTemplate=partner/device/SecureBiometricInterface/create/createSecureBiometricInterfaceResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-885186621" onClick='toggleBox("Output-885186621", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-885186621" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-885186621">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requesttime": "2023-07-14T17:01:28.979Z",
+  "metadata": {},
+  "request": {
+    "swBinaryHash": "0",
+    "swVersion": "MO.TD.02",
+    "swCreateDateTime": "2023-07-14T17:01:28.979Z",
+    "swExpiryDateTime": "2222-12-30T08:23:57.986Z",
+    "providerId": "Tech-123"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/securebiometricinterface) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:01:30.723Z",
+  "response": {
+    "id": "0bb19aa4-dd0c-4441-899f-18032ae29f80"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@7e2bc2f4</td></tr>
+</table><p>
+</body>
+</html>

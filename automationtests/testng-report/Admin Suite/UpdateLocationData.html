@@ -1,0 +1,869 @@
+<html>
+<head>
+<title>TestNG:  UpdateLocationData</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>UpdateLocationData</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>11/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Dec 15 15:16:22 IST 2021</td>
+</tr>
+<tr><td>Total time:</td><td>6 seconds (6942 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateLocationData_All_Valid_Smoke()'><b>MasterData_UpdateLocationData_All_Valid_Smoke</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateLocationData_Invalid_requestTime_format)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateLocationData_All_Valid_Smoke, endPoint=/v1/masterdata/locations, role=admin, templateFields=[hierarchyName], input={ "code": "TST12", "name": "Test_Loc_A_updated", "hierarchyLevel": "4", "hierarchyName": "City", "parentLocCode": "KNT", "langCode": "eng", "isActive": true, "requesttime": "$TIMESTAMP$" }, output={ "isActive": "$IGNORE$", "code": "TST12", "name": "Test_Loc_A_updated", "hierarchyLevel": "4", "hierarchyName": "$IGNORE$", "parentLocCode": "KNT", "langCode": "$IGNORE$" }, inputTemplate=masterdata/LocationData/locationData, outputTemplate=masterdata/LocationData/locationDataResult, restMethod=put)<br/>
+<a href="#Output-126197703" onClick='toggleBox("Output-126197703", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-126197703" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-126197703">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "TST12",
+    "name": "Test_Loc_A_updated",
+    "hierarchyLevel": 4,
+    "hierarchyName": "City",
+    "parentLocCode": "KNT",
+    "langCode": "eng",
+    "isActive": true
+  },
+  "requesttime": "2021-12-15T09:46:22.762Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/locations) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:46:23.432Z",
+  "response": {
+    "code": "TST12",
+    "name": "Test_Loc_A_updated",
+    "hierarchyLevel": 4,
+    "hierarchyName": "City",
+    "parentLocCode": "KNT",
+    "langCode": "eng",
+    "isActive": false,
+    "createdBy": "110005",
+    "createdDateTime": "2021-12-15T09:46:16.723Z",
+    "updatedBy": "110005",
+    "updatedDateTime": "2021-12-15T09:46:23.467Z",
+    "isDeleted": false
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.hierarchyLevel</td>
+    <td>4</td>
+    <td>4</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.name</td>
+    <td>Test_Loc_A_updated</td>
+    <td>Test_Loc_A_updated</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.langCode</td>
+    <td>eng</td>
+    <td>eng</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.code</td>
+    <td>TST12</td>
+    <td>TST12</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.parentLocCode</td>
+    <td>KNT</td>
+    <td>KNT</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@478b0739</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateLocationData_Invalid_EmptyCode_PrimaryLang_eng()'><b>MasterData_UpdateLocationData_Invalid_EmptyCode_PrimaryLang_eng</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateLocationData_Invalid_requestTime_format)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateLocationData_Invalid_EmptyCode_PrimaryLang_eng, endPoint=/v1/masterdata/locations, role=admin, templateFields=[langCode], input={ "code": "", "name": "Test_Loc_1_A", "hierarchyLevel":"4", "hierarchyName":"TestZone", "parentLocCode":"KNT", "langCode": "eng", "isActive": false, "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.code: Should not be blank or size must be between 1 and 36" } ] }, inputTemplate=masterdata/LocationData/locationData, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-343016386" onClick='toggleBox("Output-343016386", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-343016386" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-343016386">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "",
+    "name": "Test_Loc_1_A",
+    "hierarchyLevel": 4,
+    "hierarchyName": "TestZone",
+    "parentLocCode": "KNT",
+    "langCode": "eng",
+    "isActive": false
+  },
+  "requesttime": "2021-12-15T09:46:24.020Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/locations) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:46:24.627Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.code: Should not be blank or size must be between 1 and 36</td>
+    <td>request.code: Should not be blank or size must be between 1 and 36</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@478b0739</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateLocationData_Invalid_EmptyHierarchyName()'><b>MasterData_UpdateLocationData_Invalid_EmptyHierarchyName</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateLocationData_Invalid_requestTime_format)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateLocationData_Invalid_EmptyHierarchyName, endPoint=/v1/masterdata/locations, role=admin, templateFields=[hierarchyName], input={ "code": "NST", "name": "NDATA", "hierarchyLevel":"3", "hierarchyName":"", "parentLocCode":"KNT", "langCode": "eng", "isActive": false, "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.hierarchyName: Should not be blank or size must be between 1 and 64" } ] }, inputTemplate=masterdata/LocationData/locationData, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-52931619" onClick='toggleBox("Output-52931619", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-52931619" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-52931619">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "NST",
+    "name": "NDATA",
+    "hierarchyLevel": 3,
+    "hierarchyName": "",
+    "parentLocCode": "KNT",
+    "langCode": "eng",
+    "isActive": false
+  },
+  "requesttime": "2021-12-15T09:46:27.829Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/locations) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:46:28.414Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.hierarchyName: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.hierarchyName: Should not be blank or size must be between 1 and 64</td>
+    <td>request.hierarchyName: Should not be blank or size must be between 1 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@478b0739</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateLocationData_Invalid_EmptyName()'><b>MasterData_UpdateLocationData_Invalid_EmptyName</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateLocationData_Invalid_requestTime_format)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateLocationData_Invalid_EmptyName, endPoint=/v1/masterdata/locations, role=admin, templateFields=[hierarchyName], input={ "code": "NST", "name": "", "hierarchyLevel":"4", "hierarchyName":"TestZone", "parentLocCode":"KNT", "langCode": "eng", "isActive": false, "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.name: Should not be blank or size must be between 0 and 128" } ] }, inputTemplate=masterdata/LocationData/locationData, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-579264461" onClick='toggleBox("Output-579264461", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-579264461" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-579264461">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "NST",
+    "name": "",
+    "hierarchyLevel": 4,
+    "hierarchyName": "TestZone",
+    "parentLocCode": "KNT",
+    "langCode": "eng",
+    "isActive": false
+  },
+  "requesttime": "2021-12-15T09:46:25.278Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/locations) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:46:26.005Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 0 and 128"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.name: Should not be blank or size must be between 0 and 128</td>
+    <td>request.name: Should not be blank or size must be between 0 and 128</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@478b0739</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateLocationData_Invalid_HierarchyLevel_LongInt()'><b>MasterData_UpdateLocationData_Invalid_HierarchyLevel_LongInt</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateLocationData_Invalid_requestTime_format)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateLocationData_Invalid_HierarchyLevel_LongInt, endPoint=/v1/masterdata/locations, role=admin, templateFields=[hierarchyName], input={ "code": "NST", "name": "NDATA", "hierarchyLevel":"2147483647", "hierarchyName":"TestZone", "parentLocCode":"KNT", "langCode": "eng", "isActive": false, "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "Invalid Format in field : hierarchyLevel" } ] }, inputTemplate=masterdata/LocationData/locationData, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-1784116580" onClick='toggleBox("Output-1784116580", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1784116580" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1784116580">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "NST",
+    "name": "NDATA",
+    "hierarchyLevel": 2147483647,
+    "hierarchyName": "TestZone",
+    "parentLocCode": "KNT",
+    "langCode": "eng",
+    "isActive": false
+  },
+  "requesttime": "2021-12-15T09:46:26.003Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/locations) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:46:26.581Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : hierarchyLevel"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Invalid Format in field : hierarchyLevel</td>
+    <td>Invalid Format in field : hierarchyLevel</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@478b0739</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateLocationData_Invalid_NameLength129()'><b>MasterData_UpdateLocationData_Invalid_NameLength129</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateLocationData_Invalid_requestTime_format)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateLocationData_Invalid_NameLength129, endPoint=/v1/masterdata/locations, role=admin, templateFields=[hierarchyName], input={ "code": "NST", "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy", "hierarchyLevel":"4", "hierarchyName":"TestZone", "parentLocCode":"KNT", "langCode": "eng", "isActive": false, "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.name: Should not be blank or size must be between 0 and 128" } ] }, inputTemplate=masterdata/LocationData/locationData, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-593185514" onClick='toggleBox("Output-593185514", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-593185514" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-593185514">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "NST",
+    "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy",
+    "hierarchyLevel": 4,
+    "hierarchyName": "TestZone",
+    "parentLocCode": "KNT",
+    "langCode": "eng",
+    "isActive": false
+  },
+  "requesttime": "2021-12-15T09:46:24.631Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/locations) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:46:25.278Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 0 and 128"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.name: Should not be blank or size must be between 0 and 128</td>
+    <td>request.name: Should not be blank or size must be between 0 and 128</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@478b0739</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateLocationData_Invalid_code_for_primaryLang_eng()'><b>MasterData_UpdateLocationData_Invalid_code_for_primaryLang_eng</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateLocationData_Invalid_requestTime_format)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateLocationData_Invalid_code_for_primaryLang_eng, endPoint=/v1/masterdata/locations, role=admin, templateFields=[langCode], input={ "code": "anyString", "name": "Test_Loc_B_2", "hierarchyLevel":"4", "hierarchyName":"TestZone", "parentLocCode":"KNT", "langCode": "eng", "isActive": false, "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-244", "message": "Location hierarchy is invalid" } ] }, inputTemplate=masterdata/LocationData/locationData, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-1187589415" onClick='toggleBox("Output-1187589415", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1187589415" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1187589415">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "anyString",
+    "name": "Test_Loc_B_2",
+    "hierarchyLevel": 4,
+    "hierarchyName": "TestZone",
+    "parentLocCode": "KNT",
+    "langCode": "eng",
+    "isActive": false
+  },
+  "requesttime": "2021-12-15T09:46:23.472Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/locations) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:46:24.023Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-244",
+      "message": "Location hierarchy is invalid"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Location hierarchy is invalid</td>
+    <td>Location hierarchy is invalid</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-244</td>
+    <td>KER-MSD-244</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@478b0739</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateLocationData_Invalid_requestTime_format()'><b>MasterData_UpdateLocationData_Invalid_requestTime_format</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateLocationData_Invalid_requestTime_format)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateLocationData_Invalid_requestTime_format, endPoint=/v1/masterdata/locations, role=admin, templateFields=[hierarchyName], input={ "code": "NST", "name": "NDATA", "hierarchyLevel":"3", "hierarchyName":"City", "parentLocCode":"KNT", "langCode": "eng", "isActive": false, "requesttime": "2019/12/20" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "Invalid Format in field : requesttime" } ] }, inputTemplate=masterdata/LocationData/locationData, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-1552439732" onClick='toggleBox("Output-1552439732", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1552439732" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1552439732">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "NST",
+    "name": "NDATA",
+    "hierarchyLevel": 3,
+    "hierarchyName": "City",
+    "parentLocCode": "KNT",
+    "langCode": "eng",
+    "isActive": false
+  },
+  "requesttime": "2019/12/20",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/locations) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:46:29.702Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : requesttime"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Invalid Format in field : requesttime</td>
+    <td>Invalid Format in field : requesttime</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@478b0739</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateLocationData_inValid_HierarchyName65()'><b>MasterData_UpdateLocationData_inValid_HierarchyName65</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateLocationData_Invalid_requestTime_format)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateLocationData_inValid_HierarchyName65, endPoint=/v1/masterdata/locations, role=admin, templateFields=[hierarchyName], input={ "code": "NST", "name": "NDATA", "hierarchyLevel":"3", "hierarchyName":"abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm", "parentLocCode":"KNT", "langCode": "eng", "isActive": false, "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.hierarchyName: Should not be blank or size must be between 1 and 64" } ] }, inputTemplate=masterdata/LocationData/locationData, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-1784322521" onClick='toggleBox("Output-1784322521", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1784322521" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1784322521">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "NST",
+    "name": "NDATA",
+    "hierarchyLevel": 3,
+    "hierarchyName": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
+    "parentLocCode": "KNT",
+    "langCode": "eng",
+    "isActive": false
+  },
+  "requesttime": "2021-12-15T09:46:27.213Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/locations) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:46:27.824Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.hierarchyName: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.hierarchyName: Should not be blank or size must be between 1 and 64</td>
+    <td>request.hierarchyName: Should not be blank or size must be between 1 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@478b0739</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateLocationData_inValid_hierLevel_locHierCombo()'><b>MasterData_UpdateLocationData_inValid_hierLevel_locHierCombo</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateLocationData_Invalid_requestTime_format)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateLocationData_inValid_hierLevel_locHierCombo, endPoint=/v1/masterdata/locations, role=admin, templateFields=[hierarchyName], input={ "code": "NST", "name": "NDATA", "hierarchyLevel":"11", "hierarchyName":"TestZone", "parentLocCode":"KNT", "langCode": "eng", "isActive": false, "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-244", "message": "Location hierarchy is invalid" } ] }, inputTemplate=masterdata/LocationData/locationData, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-1161542555" onClick='toggleBox("Output-1161542555", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1161542555" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1161542555">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "NST",
+    "name": "NDATA",
+    "hierarchyLevel": 11,
+    "hierarchyName": "TestZone",
+    "parentLocCode": "KNT",
+    "langCode": "eng",
+    "isActive": false
+  },
+  "requesttime": "2021-12-15T09:46:26.580Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/locations) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:46:27.215Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-244",
+      "message": "Location hierarchy is invalid"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Location hierarchy is invalid</td>
+    <td>Location hierarchy is invalid</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-244</td>
+    <td>KER-MSD-244</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@478b0739</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateLocationData_inValid_parentLocCode_nonExisting_inDB()'><b>MasterData_UpdateLocationData_inValid_parentLocCode_nonExisting_inDB</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateLocationData_Invalid_requestTime_format)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateLocationData_inValid_parentLocCode_nonExisting_inDB, endPoint=/v1/masterdata/locations, role=admin, templateFields=[hierarchyName], input={ "code": "NST", "name": "NDATA", "hierarchyLevel":"4", "hierarchyName":"TestZone", "parentLocCode":"fbheafg", "langCode": "eng", "isActive": false, "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-027", "message": "Parent Location fbheafg does not exist" } ] }, inputTemplate=masterdata/LocationData/locationData, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-1783130875" onClick='toggleBox("Output-1783130875", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1783130875" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1783130875">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "NST",
+    "name": "NDATA",
+    "hierarchyLevel": 4,
+    "hierarchyName": "TestZone",
+    "parentLocCode": "fbheafg",
+    "langCode": "eng",
+    "isActive": false
+  },
+  "requesttime": "2021-12-15T09:46:28.421Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/locations) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:46:29.063Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-027",
+      "message": "Parent Location fbheafg does not exist"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Parent Location fbheafg does not exist</td>
+    <td>Parent Location fbheafg does not exist</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-027</td>
+    <td>KER-MSD-027</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@478b0739</td></tr>
+</table><p>
+</body>
+</html>

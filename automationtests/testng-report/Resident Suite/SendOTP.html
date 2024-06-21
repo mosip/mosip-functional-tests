@@ -1,0 +1,1014 @@
+<html>
+<head>
+<title>TestNG:  SendOTP</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>SendOTP</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>9/5/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Aug 24 11:55:24 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>9 seconds (9330 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Resident_SendOTP_Empty_individualIdType_Smoke()'><b>Resident_SendOTP_Empty_individualIdType_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Resident_SendOTP_Empty_individualIdType_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Resident_SendOTP_Empty_individualIdType_Smoke, endPoint=/resident/v1/req/otp, role=resident, templateFields=null, input={ "transactionID": "1234567890", "requestTime": "$TIMESTAMP$", "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "individualIdType": "" }, output={ "maskedMobile": "XXXXXX3210", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" }, inputTemplate=resident/SendOTP/createSendOTP, outputTemplate=resident/SendOTP/createSendOTPResult, restMethod=post)<br/>
+<a href="#Output-1005849716" onClick='toggleBox("Output-1005849716", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1005849716" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1005849716">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "individualId": "6748512875",
+  "individualIdType": "",
+  "metadata": {},
+  "otpChannel": [
+    "PHONE",
+    "EMAIL"
+  ],
+  "requestTime": "2022-08-24T06:25:33.000Z",
+  "transactionID": "1234567890",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/req/otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "version": "1.0",
+  "transactionID": "1234567890",
+  "responseTime": "2022-08-24T06:25:33.576Z",
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-018",
+      "errorMessage": "UIN not available in database"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>IDA-MLC-018</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorMessage</td>
+    <td>NOT VERIFIED</td>
+    <td>UIN not available in database</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.identity.otp.internal</td>
+    <td>mosip.identity.otp.internal</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.SimplePost.test(SimplePost.java:117)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:164)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:111)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1005849716", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1005849716'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.SimplePost.test(SimplePost.java:117)
+	at jdk.internal.reflect.GeneratedMethodAccessor189.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:164)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:111)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@67c6f4d8</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Resident_SendOTP_RevokedVID_Invalid()'><b>Resident_SendOTP_RevokedVID_Invalid</b><br>Test class: io.mosip.testscripts.SimplePost (Resident_SendOTP_Empty_individualIdType_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Resident_SendOTP_RevokedVID_Invalid, endPoint=/resident/v1/req/otp, role=resident, templateFields=null, input={ "transactionID": "1234567890", "requestTime": "$TIMESTAMP$", "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$", "individualIdType": "UIN" }, output={ "errorCode": "IDA-MLC-018", "errorMessage": "$IGNORE$" }, inputTemplate=resident/SendOTP/createSendOTP, outputTemplate=resident/SendOTP/createSendOTPErrorResult, restMethod=post)</td>
+<td><div><pre>java.lang.NullPointerException
+</pre></div><a href='#' onClick='toggleBox("stack-trace2000769148", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2000769148'><pre>java.lang.NullPointerException
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@67c6f4d8</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Resident_SendOTP_Valid_UIN_All_Smoke()'><b>Resident_SendOTP_Valid_UIN_All_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Resident_SendOTP_Empty_individualIdType_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Resident_SendOTP_Valid_UIN_All_Smoke, endPoint=/resident/v1/req/otp, role=resident, templateFields=null, input={ "transactionID": "1234567890", "requestTime": "$TIMESTAMP$", "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "individualIdType": "UIN" }, output={ "maskedMobile": "XXXXXX3210", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" }, inputTemplate=resident/SendOTP/createSendOTP, outputTemplate=resident/SendOTP/createSendOTPResult, restMethod=post)<br/>
+<a href="#Output-280150479" onClick='toggleBox("Output-280150479", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-280150479" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-280150479">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "individualId": "6748512875",
+  "individualIdType": "UIN",
+  "metadata": {},
+  "otpChannel": [
+    "PHONE",
+    "EMAIL"
+  ],
+  "requestTime": "2022-08-24T06:25:24.393Z",
+  "transactionID": "1234567890",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/req/otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "version": "1.0",
+  "transactionID": "1234567890",
+  "responseTime": "2022-08-24T06:25:24.989Z",
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-018",
+      "errorMessage": "UIN not available in database"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>IDA-MLC-018</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorMessage</td>
+    <td>NOT VERIFIED</td>
+    <td>UIN not available in database</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.identity.otp.internal</td>
+    <td>mosip.identity.otp.internal</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.SimplePost.test(SimplePost.java:117)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:164)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:111)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace280150479", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace280150479'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.SimplePost.test(SimplePost.java:117)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:164)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:111)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@67c6f4d8</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Resident_SendOTP_Valid_UIN_Email_Smoke()'><b>Resident_SendOTP_Valid_UIN_Email_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Resident_SendOTP_Empty_individualIdType_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Resident_SendOTP_Valid_UIN_Email_Smoke, endPoint=/resident/v1/req/otp, role=resident, templateFields=null, input={ "transactionID": "1234567890", "requestTime": "$TIMESTAMP$", "otpChannel": "[\"EMAIL\"]", "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "individualIdType": "UIN" }, output={ "maskedMobile": "$IGNORE$", "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com" }, inputTemplate=resident/SendOTP/createSendOTP2, outputTemplate=resident/SendOTP/createSendOTPResult, restMethod=post)<br/>
+<a href="#Output-274720798" onClick='toggleBox("Output-274720798", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-274720798" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-274720798">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "individualId": "6748512875",
+  "individualIdType": "UIN",
+  "metadata": {},
+  "otpChannel": [
+    "EMAIL"
+  ],
+  "requestTime": "2022-08-24T06:25:25.884Z",
+  "transactionID": "1234567890",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/req/otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "version": "1.0",
+  "transactionID": "1234567890",
+  "responseTime": "2022-08-24T06:25:26.464Z",
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-018",
+      "errorMessage": "UIN not available in database"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>IDA-MLC-018</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorMessage</td>
+    <td>NOT VERIFIED</td>
+    <td>UIN not available in database</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.identity.otp.internal</td>
+    <td>mosip.identity.otp.internal</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.SimplePost.test(SimplePost.java:117)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:164)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:111)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace274720798", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace274720798'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.SimplePost.test(SimplePost.java:117)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:164)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:111)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@67c6f4d8</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Resident_SendOTP_Valid_UIN_Phone_Smoke()'><b>Resident_SendOTP_Valid_UIN_Phone_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Resident_SendOTP_Empty_individualIdType_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Resident_SendOTP_Valid_UIN_Phone_Smoke, endPoint=/resident/v1/req/otp, role=resident, templateFields=null, input={ "transactionID": "1234567890", "requestTime": "$TIMESTAMP$", "otpChannel": "[\"PHONE\"]", "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "individualIdType": "UIN" }, output={ "maskedMobile": "XXXXXX3210", "maskedEmail": "$IGNORE$" }, inputTemplate=resident/SendOTP/createSendOTP2, outputTemplate=resident/SendOTP/createSendOTPResult, restMethod=post)<br/>
+<a href="#Output-1217517351" onClick='toggleBox("Output-1217517351", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1217517351" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1217517351">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "individualId": "6748512875",
+  "individualIdType": "UIN",
+  "metadata": {},
+  "otpChannel": [
+    "PHONE"
+  ],
+  "requestTime": "2022-08-24T06:25:25.115Z",
+  "transactionID": "1234567890",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/req/otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "version": "1.0",
+  "transactionID": "1234567890",
+  "responseTime": "2022-08-24T06:25:25.747Z",
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-018",
+      "errorMessage": "UIN not available in database"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>IDA-MLC-018</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorMessage</td>
+    <td>NOT VERIFIED</td>
+    <td>UIN not available in database</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.identity.otp.internal</td>
+    <td>mosip.identity.otp.internal</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.SimplePost.test(SimplePost.java:117)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:164)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:111)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1217517351", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1217517351'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.SimplePost.test(SimplePost.java:117)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:164)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:111)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@67c6f4d8</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Resident_SendOTP_Empty_individualId_Neg()'><b>Resident_SendOTP_Empty_individualId_Neg</b><br>Test class: io.mosip.testscripts.SimplePost (Resident_SendOTP_Empty_individualIdType_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Resident_SendOTP_Empty_individualId_Neg, endPoint=/resident/v1/req/otp, role=resident, templateFields=null, input={ "transactionID": "1234567890", "requestTime": "$TIMESTAMP$", "individualId": "", "individualIdType": "UIN" }, output={ "errorCode": "IDA-MLC-009", "errorMessage": "$IGNORE$" }, inputTemplate=resident/SendOTP/createSendOTP, outputTemplate=resident/SendOTP/createSendOTPErrorResult, restMethod=post)<br/>
+<a href="#Output-1340711830" onClick='toggleBox("Output-1340711830", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1340711830" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1340711830">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "individualId": "",
+  "individualIdType": "UIN",
+  "metadata": {},
+  "otpChannel": [
+    "PHONE",
+    "EMAIL"
+  ],
+  "requestTime": "2022-08-24T06:25:32.338Z",
+  "transactionID": "1234567890",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/req/otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "version": "1.0",
+  "transactionID": "1234567890",
+  "responseTime": "2022-08-24T06:25:32.897Z",
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "Invalid Input Parameter - individualId"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDA-MLC-009</td>
+    <td>IDA-MLC-009</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@67c6f4d8</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Resident_SendOTP_InValid_Empty_requestTime()'><b>Resident_SendOTP_InValid_Empty_requestTime</b><br>Test class: io.mosip.testscripts.SimplePost (Resident_SendOTP_Empty_individualIdType_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Resident_SendOTP_InValid_Empty_requestTime, endPoint=/resident/v1/req/otp, role=resident, templateFields=null, input={ "transactionID": "1234567890", "requestTime": "", "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "individualIdType": "UIN" }, output={ "errorCode": "IDA-MLC-006", "errorMessage": "$IGNORE$" }, inputTemplate=resident/SendOTP/createSendOTP, outputTemplate=resident/SendOTP/createSendOTPErrorResult, restMethod=post)<br/>
+<a href="#Output-392189111" onClick='toggleBox("Output-392189111", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-392189111" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-392189111">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "individualId": "6748512875",
+  "individualIdType": "UIN",
+  "metadata": {},
+  "otpChannel": [
+    "PHONE",
+    "EMAIL"
+  ],
+  "requestTime": "",
+  "transactionID": "1234567890",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/req/otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "version": "1.0",
+  "transactionID": "1234567890",
+  "responseTime": "2022-08-24T06:25:31.511Z",
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-006",
+      "errorMessage": "Missing Input Parameter - requestTime"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDA-MLC-006</td>
+    <td>IDA-MLC-006</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@67c6f4d8</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Resident_SendOTP_InValid_Empty_transactionID()'><b>Resident_SendOTP_InValid_Empty_transactionID</b><br>Test class: io.mosip.testscripts.SimplePost (Resident_SendOTP_Empty_individualIdType_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Resident_SendOTP_InValid_Empty_transactionID, endPoint=/resident/v1/req/otp, role=resident, templateFields=null, input={ "transactionID": "", "requestTime": "$TIMESTAMP$", "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "individualIdType": "UIN" }, output={ "errorCode": "IDA-MLC-006", "errorMessage": "$IGNORE$" }, inputTemplate=resident/SendOTP/createSendOTP, outputTemplate=resident/SendOTP/createSendOTPErrorResult, restMethod=post)<br/>
+<a href="#Output-1238173945" onClick='toggleBox("Output-1238173945", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1238173945" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1238173945">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "individualId": "6748512875",
+  "individualIdType": "UIN",
+  "metadata": {},
+  "otpChannel": [
+    "PHONE",
+    "EMAIL"
+  ],
+  "requestTime": "2022-08-24T06:25:28.729Z",
+  "transactionID": "",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/req/otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "version": "1.0",
+  "transactionID": "",
+  "responseTime": "2022-08-24T06:25:29.289Z",
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-006",
+      "errorMessage": "Missing Input Parameter - transactionID"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDA-MLC-006</td>
+    <td>IDA-MLC-006</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@67c6f4d8</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Resident_SendOTP_InValid_Missing_individualId()'><b>Resident_SendOTP_InValid_Missing_individualId</b><br>Test class: io.mosip.testscripts.SimplePost (Resident_SendOTP_Empty_individualIdType_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Resident_SendOTP_InValid_Missing_individualId, endPoint=/resident/v1/req/otp, role=resident, templateFields=null, input={ "transactionID": "1234567890", "requestTime": "$TIMESTAMP$", "individualId": "$REMOVE$", "individualIdType": "UIN" }, output={ "errorCode": "IDA-MLC-009", "errorMessage": "$IGNORE$" }, inputTemplate=resident/SendOTP/createSendOTP, outputTemplate=resident/SendOTP/createSendOTPErrorResult, restMethod=post)<br/>
+<a href="#Output-1076089407" onClick='toggleBox("Output-1076089407", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1076089407" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1076089407">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2022-08-24T06:25:28.052Z",
+  "metadata": {},
+  "otpChannel": [
+    "PHONE",
+    "EMAIL"
+  ],
+  "id": "mosip.identity.otp.internal",
+  "version": "1.0",
+  "individualIdType": "UIN",
+  "transactionID": "1234567890"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/req/otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "version": "1.0",
+  "transactionID": "1234567890",
+  "responseTime": "2022-08-24T06:25:28.622Z",
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "Invalid Input Parameter - individualId"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDA-MLC-009</td>
+    <td>IDA-MLC-009</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@67c6f4d8</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Resident_SendOTP_InValid_Missing_transactionID()'><b>Resident_SendOTP_InValid_Missing_transactionID</b><br>Test class: io.mosip.testscripts.SimplePost (Resident_SendOTP_Empty_individualIdType_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Resident_SendOTP_InValid_Missing_transactionID, endPoint=/resident/v1/req/otp, role=resident, templateFields=null, input={ "transactionID": "$REMOVE$", "requestTime": "$TIMESTAMP$", "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "individualIdType": "UIN" }, output={ "errorCode": "RES-SER-425", "message": "$IGNORE$" }, inputTemplate=resident/SendOTP/createSendOTP, outputTemplate=resident/SendOTP/createSendOTPErrorResult2, restMethod=post)<br/>
+<a href="#Output-929035017" onClick='toggleBox("Output-929035017", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-929035017" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-929035017">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2022-08-24T06:25:30.166Z",
+  "metadata": {},
+  "otpChannel": [
+    "PHONE",
+    "EMAIL"
+  ],
+  "id": "mosip.identity.otp.internal",
+  "individualId": "6748512875",
+  "version": "1.0",
+  "individualIdType": "UIN"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/req/otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "version": "v1",
+  "responsetime": "2022-08-24T06:25:30.843Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-425",
+      "message": "while generating otp error is occured"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-08-24T06:25:30.843Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>RES-SER-425</td>
+    <td>RES-SER-425</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@67c6f4d8</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Resident_SendOTP_InValid_individualId()'><b>Resident_SendOTP_InValid_individualId</b><br>Test class: io.mosip.testscripts.SimplePost (Resident_SendOTP_Empty_individualIdType_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Resident_SendOTP_InValid_individualId, endPoint=/resident/v1/req/otp, role=resident, templateFields=null, input={ "transactionID": "1234567890", "requestTime": "$TIMESTAMP$", "individualId": "asfvgaf", "individualIdType": "UIN" }, output={ "errorCode": "IDA-MLC-009", "errorMessage": "$IGNORE$" }, inputTemplate=resident/SendOTP/createSendOTP, outputTemplate=resident/SendOTP/createSendOTPErrorResult, restMethod=post)<br/>
+<a href="#Output-2128847597" onClick='toggleBox("Output-2128847597", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2128847597" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2128847597">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "individualId": "asfvgaf",
+  "individualIdType": "UIN",
+  "metadata": {},
+  "otpChannel": [
+    "PHONE",
+    "EMAIL"
+  ],
+  "requestTime": "2022-08-24T06:25:27.325Z",
+  "transactionID": "1234567890",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/req/otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "version": "1.0",
+  "transactionID": "1234567890",
+  "responseTime": "2022-08-24T06:25:27.911Z",
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "Invalid Input Parameter - individualId"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDA-MLC-009</td>
+    <td>IDA-MLC-009</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@67c6f4d8</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Resident_SendOTP_InValid_requestTime()'><b>Resident_SendOTP_InValid_requestTime</b><br>Test class: io.mosip.testscripts.SimplePost (Resident_SendOTP_Empty_individualIdType_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Resident_SendOTP_InValid_requestTime, endPoint=/resident/v1/req/otp, role=resident, templateFields=null, input={ "transactionID": "1234567890", "requestTime": "asvfv", "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "individualIdType": "UIN" }, output={ "errorCode": "RES-SER-425", "message": "$IGNORE$" }, inputTemplate=resident/SendOTP/createSendOTP, outputTemplate=resident/SendOTP/createSendOTPErrorResult2, restMethod=post)<br/>
+<a href="#Output-1300011842" onClick='toggleBox("Output-1300011842", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1300011842" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1300011842">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "individualId": "6748512875",
+  "individualIdType": "UIN",
+  "metadata": {},
+  "otpChannel": [
+    "PHONE",
+    "EMAIL"
+  ],
+  "requestTime": "asvfv",
+  "transactionID": "1234567890",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/req/otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "version": "v1",
+  "responsetime": "2022-08-24T06:25:32.297Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-425",
+      "message": "while generating otp error is occured"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-08-24T06:25:32.297Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>RES-SER-425</td>
+    <td>RES-SER-425</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@67c6f4d8</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Resident_SendOTP_InValid_transactionID()'><b>Resident_SendOTP_InValid_transactionID</b><br>Test class: io.mosip.testscripts.SimplePost (Resident_SendOTP_Empty_individualIdType_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Resident_SendOTP_InValid_transactionID, endPoint=/resident/v1/req/otp, role=resident, templateFields=null, input={ "transactionID": "asdveve", "requestTime": "$TIMESTAMP$", "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "individualIdType": "UIN" }, output={ "errorCode": "IDA-MLC-009", "errorMessage": "$IGNORE$" }, inputTemplate=resident/SendOTP/createSendOTP, outputTemplate=resident/SendOTP/createSendOTPErrorResult, restMethod=post)<br/>
+<a href="#Output-333509504" onClick='toggleBox("Output-333509504", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-333509504" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-333509504">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "individualId": "6748512875",
+  "individualIdType": "UIN",
+  "metadata": {},
+  "otpChannel": [
+    "PHONE",
+    "EMAIL"
+  ],
+  "requestTime": "2022-08-24T06:25:29.474Z",
+  "transactionID": "asdveve",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/req/otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "version": "1.0",
+  "transactionID": "asdveve",
+  "responseTime": "2022-08-24T06:25:30.042Z",
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "Invalid Input Parameter - transactionID"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDA-MLC-009</td>
+    <td>IDA-MLC-009</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@67c6f4d8</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Resident_SendOTP_Valid_UIN_Invalid_empty_otpChannel()'><b>Resident_SendOTP_Valid_UIN_Invalid_empty_otpChannel</b><br>Test class: io.mosip.testscripts.SimplePost (Resident_SendOTP_Empty_individualIdType_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Resident_SendOTP_Valid_UIN_Invalid_empty_otpChannel, endPoint=/resident/v1/req/otp, role=resident, templateFields=null, input={ "transactionID": "1234567890", "requestTime": "$TIMESTAMP$", "otpChannel": "[]", "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$", "individualIdType": "UIN" }, output={ "errorCode": "IDA-OTA-008", "errorMessage": "$IGNORE$" }, inputTemplate=resident/SendOTP/createSendOTP2, outputTemplate=resident/SendOTP/createSendOTPErrorResult, restMethod=post)<br/>
+<a href="#Output-1956382313" onClick='toggleBox("Output-1956382313", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1956382313" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1956382313">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "individualId": "6748512875",
+  "individualIdType": "UIN",
+  "metadata": {},
+  "otpChannel": [],
+  "requestTime": "2022-08-24T06:25:26.590Z",
+  "transactionID": "1234567890",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/req/otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp.internal",
+  "version": "1.0",
+  "transactionID": "1234567890",
+  "responseTime": "2022-08-24T06:25:27.173Z",
+  "errors": [
+    {
+      "errorCode": "IDA-OTA-008",
+      "errorMessage": "OTP Notification Channel not provided"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDA-OTA-008</td>
+    <td>IDA-OTA-008</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@67c6f4d8</td></tr>
+</table><p>
+</body>
+</html>

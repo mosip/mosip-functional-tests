@@ -1,0 +1,471 @@
+<html>
+<head>
+<title>TestNG:  CreateGender</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>CreateGender</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>6/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Dec 16 14:55:51 IST 2021</td>
+</tr>
+<tr><td>Total time:</td><td>3 seconds (3621 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateGender_InputParameter_isActive_Missing()'><b>Masterdata_CreateGender_InputParameter_isActive_Missing</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateGender_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateGender_InputParameter_isActive_Missing, endPoint=/v1/masterdata/gendertypes, role=admin, templateFields=[genderName], input={ "code": "Genderdummy", "genderName": "TestGenderName", "isActive": "$REMOVE$", "langCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.isActive: must not be null" } ] }, inputTemplate=masterdata/Gender/gender, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-253648773" onClick='toggleBox("Output-253648773", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-253648773" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-253648773">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "code": "Genderdummy",
+    "langCode": "eng",
+    "genderName": "TestGenderName"
+  },
+  "metadata": {},
+  "requesttime": "2021-12-16T09:25:54.886Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://dev2.mosip.net/v1/masterdata/gendertypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-16T09:25:55.535Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.isActive: must not be null"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.isActive: must not be null</td>
+    <td>request.isActive: must not be null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@1095d23a</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateGender_Invalid_InputParameter_Code_Empty()'><b>Masterdata_CreateGender_Invalid_InputParameter_Code_Empty</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateGender_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateGender_Invalid_InputParameter_Code_Empty, endPoint=/v1/masterdata/gendertypes, role=admin, templateFields=[genderName], input={ "code": "", "genderName": "TestGenderName", "isActive": false, "langCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.code: Should not be blank or size must be between 1 and 16" } ] }, inputTemplate=masterdata/Gender/gender, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-92183762" onClick='toggleBox("Output-92183762", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-92183762" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-92183762">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "2021-12-16T09:25:53.056Z",
+  "request": {
+    "code": "",
+    "genderName": "TestGenderName",
+    "isActive": false,
+    "langCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://dev2.mosip.net/v1/masterdata/gendertypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-16T09:25:53.666Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: Should not be blank or size must be between 1 and 16"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.code: Should not be blank or size must be between 1 and 16</td>
+    <td>request.code: Should not be blank or size must be between 1 and 16</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@1095d23a</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateGender_Invalid_InputParameter_Code_Missing()'><b>Masterdata_CreateGender_Invalid_InputParameter_Code_Missing</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateGender_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateGender_Invalid_InputParameter_Code_Missing, endPoint=/v1/masterdata/gendertypes, role=admin, templateFields=[genderName], input={ "code": "$REMOVE$", "genderName": "TestGenderName", "isActive": false, "langCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.code: must not be null" } ] }, inputTemplate=masterdata/Gender/gender, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-57918311" onClick='toggleBox("Output-57918311", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-57918311" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-57918311">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "langCode": "eng",
+    "isActive": false,
+    "genderName": "TestGenderName"
+  },
+  "metadata": {},
+  "requesttime": "2021-12-16T09:25:52.504Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://dev2.mosip.net/v1/masterdata/gendertypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-16T09:25:53.032Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: must not be null"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.code: must not be null</td>
+    <td>request.code: must not be null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@1095d23a</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateGender_Invalid_InputParameter_GenderName_AboveMaxLen64()'><b>Masterdata_CreateGender_Invalid_InputParameter_GenderName_AboveMaxLen64</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateGender_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateGender_Invalid_InputParameter_GenderName_AboveMaxLen64, endPoint=/v1/masterdata/gendertypes, role=admin, templateFields=[], input={ "code": "Genderdummy", "genderName": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm", "isActive": false, "langCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.genderName: Should not be blank or size must be between 1 and 64" } ] }, inputTemplate=masterdata/Gender/gender, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-2077672286" onClick='toggleBox("Output-2077672286", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2077672286" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2077672286">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "2021-12-16T09:25:54.307Z",
+  "request": {
+    "code": "Genderdummy",
+    "genderName": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
+    "isActive": false,
+    "langCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://dev2.mosip.net/v1/masterdata/gendertypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-16T09:25:54.866Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.genderName: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.genderName: Should not be blank or size must be between 1 and 64</td>
+    <td>request.genderName: Should not be blank or size must be between 1 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@1095d23a</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateGender_Invalid_InputParameter_GenderName_Empty()'><b>Masterdata_CreateGender_Invalid_InputParameter_GenderName_Empty</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateGender_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateGender_Invalid_InputParameter_GenderName_Empty, endPoint=/v1/masterdata/gendertypes, role=admin, templateFields=[langCode], input={ "code": "Genderdummy", "genderName": "", "isActive": false, "langCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.genderName: Should not be blank or size must be between 1 and 64" } ] }, inputTemplate=masterdata/Gender/gender, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-1434192741" onClick='toggleBox("Output-1434192741", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1434192741" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1434192741">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "2021-12-16T09:25:53.715Z",
+  "request": {
+    "code": "Genderdummy",
+    "genderName": "",
+    "isActive": false,
+    "langCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://dev2.mosip.net/v1/masterdata/gendertypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-16T09:25:54.285Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.genderName: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.genderName: Should not be blank or size must be between 1 and 64</td>
+    <td>request.genderName: Should not be blank or size must be between 1 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@1095d23a</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateGender_Valid_Smoke_sid()'><b>Masterdata_CreateGender_Valid_Smoke_sid</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateGender_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateGender_Valid_Smoke_sid, endPoint=/v1/masterdata/gendertypes, role=admin, templateFields=[genderName], input={ "code": "Genderdummy", "genderName": "TestGenderName", "isActive": false, "langCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "code": "Genderdummy", "langCode": "eng" }, inputTemplate=masterdata/Gender/gender, outputTemplate=masterdata/Gender/genderResult, restMethod=post)<br/>
+<a href="#Output-1171055810" onClick='toggleBox("Output-1171055810", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1171055810" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1171055810">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "2021-12-16T09:25:51.936Z",
+  "request": {
+    "code": "Genderdummy",
+    "genderName": "TestGenderName",
+    "isActive": false,
+    "langCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://dev2.mosip.net/v1/masterdata/gendertypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-16T09:25:52.470Z",
+  "response": {
+    "code": "Genderdummy",
+    "langCode": "eng"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.langCode</td>
+    <td>eng</td>
+    <td>eng</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.code</td>
+    <td>Genderdummy</td>
+    <td>Genderdummy</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@1095d23a</td></tr>
+</table><p>
+</body>
+</html>

@@ -1,0 +1,672 @@
+<html>
+<head>
+<title>TestNG:  UpdateDeviceType</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>UpdateDeviceType</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>9/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Dec 15 15:12:29 IST 2021</td>
+</tr>
+<tr><td>Total time:</td><td>6 seconds (6000 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDeviceType_All_Valid_Mandatory_Fields()'><b>MasterData_UpdateDeviceType_All_Valid_Mandatory_Fields</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDeviceType_InputParameter_Description_AboveMaxLen128)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDeviceType_All_Valid_Mandatory_Fields, endPoint=/v1/masterdata/devicetypes, role=admin, templateFields=null, input={ "code": "GST4", "description": "$REMOVE$", "isActive": true, "langCode": "eng", "name": "GST updated", "requesttime": "$TIMESTAMP$" }, output={ "code": "GST4", "langCode": "eng" }, inputTemplate=masterdata/DeviceType/deviceType, outputTemplate=masterdata/DeviceType/deviceTypeResult, restMethod=put)<br/>
+<a href="#Output-148337038" onClick='toggleBox("Output-148337038", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-148337038" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-148337038">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "code": "GST4",
+    "langCode": "eng",
+    "name": "GST updated",
+    "isActive": true
+  },
+  "metadata": {},
+  "requesttime": "2021-12-15T09:42:30.216Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devicetypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:42:30.828Z",
+  "response": {
+    "code": "GST4",
+    "langCode": "eng"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.langCode</td>
+    <td>eng</td>
+    <td>eng</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.code</td>
+    <td>GST4</td>
+    <td>GST4</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@760487aa</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDeviceType_All_Valid_Smoke()'><b>MasterData_UpdateDeviceType_All_Valid_Smoke</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDeviceType_InputParameter_Description_AboveMaxLen128)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDeviceType_All_Valid_Smoke, endPoint=/v1/masterdata/devicetypes, role=admin, templateFields=[description, name], input={ "code": "GST3", "description": "test 1.0.8", "isActive": true, "langCode": "eng", "name": "GST updated", "requesttime": "$TIMESTAMP$" }, output={ "code": "GST3", "langCode": "eng" }, inputTemplate=masterdata/DeviceType/deviceType, outputTemplate=masterdata/DeviceType/deviceTypeResult, restMethod=put)<br/>
+<a href="#Output-1626288305" onClick='toggleBox("Output-1626288305", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1626288305" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1626288305">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "GST3",
+    "description": "test 1.0.8",
+    "isActive": true,
+    "langCode": "eng",
+    "name": "GST updated"
+  },
+  "requesttime": "2021-12-15T09:42:29.569Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devicetypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:42:30.181Z",
+  "response": {
+    "code": "GST3",
+    "langCode": "eng"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.langCode</td>
+    <td>eng</td>
+    <td>eng</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.code</td>
+    <td>GST3</td>
+    <td>GST3</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@760487aa</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDeviceType_InputParameter_Code_AboveMaxLen36()'><b>MasterData_UpdateDeviceType_InputParameter_Code_AboveMaxLen36</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDeviceType_InputParameter_Description_AboveMaxLen128)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDeviceType_InputParameter_Code_AboveMaxLen36, endPoint=/v1/masterdata/devicetypes, role=admin, templateFields=[description, name], input={ "code": "abcdefghijklmnopqrstuvwxyzabcdefghijk", "description": "test 1.0.8", "isActive": true, "langCode": "eng", "name": "GST updated", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.code: Should not be blank or size must be between 1 and 36" } ] }, inputTemplate=masterdata/DeviceType/deviceType, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-373275593" onClick='toggleBox("Output-373275593", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-373275593" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-373275593">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "abcdefghijklmnopqrstuvwxyzabcdefghijk",
+    "description": "test 1.0.8",
+    "isActive": true,
+    "langCode": "eng",
+    "name": "GST updated"
+  },
+  "requesttime": "2021-12-15T09:42:32.102Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devicetypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:42:32.654Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.code: Should not be blank or size must be between 1 and 36</td>
+    <td>request.code: Should not be blank or size must be between 1 and 36</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@760487aa</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDeviceType_InputParameter_Code_Empty()'><b>MasterData_UpdateDeviceType_InputParameter_Code_Empty</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDeviceType_InputParameter_Description_AboveMaxLen128)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDeviceType_InputParameter_Code_Empty, endPoint=/v1/masterdata/devicetypes, role=admin, templateFields=[description, name], input={ "code": "", "description": "test 1.0.8", "isActive": true, "langCode": "eng", "name": "GST updated", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.code: Should not be blank or size must be between 1 and 36" } ] }, inputTemplate=masterdata/DeviceType/deviceType, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-1046723947" onClick='toggleBox("Output-1046723947", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1046723947" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1046723947">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "",
+    "description": "test 1.0.8",
+    "isActive": true,
+    "langCode": "eng",
+    "name": "GST updated"
+  },
+  "requesttime": "2021-12-15T09:42:31.432Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devicetypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:42:32.093Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.code: Should not be blank or size must be between 1 and 36</td>
+    <td>request.code: Should not be blank or size must be between 1 and 36</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@760487aa</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDeviceType_InputParameter_Code_Missing()'><b>MasterData_UpdateDeviceType_InputParameter_Code_Missing</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDeviceType_InputParameter_Description_AboveMaxLen128)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDeviceType_InputParameter_Code_Missing, endPoint=/v1/masterdata/devicetypes, role=admin, templateFields=[description, name], input={ "code": "$REMOVE$", "description": "test 1.0.8", "isActive": true, "langCode": "eng", "name": "GST updated", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.code: must not be null" } ] }, inputTemplate=masterdata/DeviceType/deviceType, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-1573507674" onClick='toggleBox("Output-1573507674", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1573507674" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1573507674">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "langCode": "eng",
+    "name": "GST updated",
+    "description": "test 1.0.8",
+    "isActive": true
+  },
+  "metadata": {},
+  "requesttime": "2021-12-15T09:42:30.837Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devicetypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:42:31.428Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: must not be null"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.code: must not be null</td>
+    <td>request.code: must not be null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@760487aa</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDeviceType_InputParameter_Description_AboveMaxLen128()'><b>MasterData_UpdateDeviceType_InputParameter_Description_AboveMaxLen128</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDeviceType_InputParameter_Description_AboveMaxLen128)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDeviceType_InputParameter_Description_AboveMaxLen128, endPoint=/v1/masterdata/devicetypes, role=admin, templateFields=[name], input={ "code": "GST3", "description": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy", "isActive": false, "langCode": "eng", "name": "GST", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.description: size must be between 0 and 128" } ] }, inputTemplate=masterdata/DeviceType/deviceType, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-1073352504" onClick='toggleBox("Output-1073352504", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1073352504" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1073352504">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "GST3",
+    "description": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy",
+    "isActive": false,
+    "langCode": "eng",
+    "name": "GST"
+  },
+  "requesttime": "2021-12-15T09:42:34.722Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devicetypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:42:35.567Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.description: size must be between 0 and 128"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.description: size must be between 0 and 128</td>
+    <td>request.description: size must be between 0 and 128</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@760487aa</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDeviceType_InputParameter_Name_AboveMaxLen64()'><b>MasterData_UpdateDeviceType_InputParameter_Name_AboveMaxLen64</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDeviceType_InputParameter_Description_AboveMaxLen128)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDeviceType_InputParameter_Name_AboveMaxLen64, endPoint=/v1/masterdata/devicetypes, role=admin, templateFields=[description], input={ "code": "GST3", "description": "test 1.0.8", "isActive": false, "langCode": "eng", "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.name: Should not be blank or size must be between 1 and 64" } ] }, inputTemplate=masterdata/DeviceType/deviceType, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-1513204713" onClick='toggleBox("Output-1513204713", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1513204713" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1513204713">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "GST3",
+    "description": "test 1.0.8",
+    "isActive": false,
+    "langCode": "eng",
+    "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm"
+  },
+  "requesttime": "2021-12-15T09:42:33.926Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devicetypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:42:34.719Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@760487aa</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDeviceType_InputParameter_Name_Empty()'><b>MasterData_UpdateDeviceType_InputParameter_Name_Empty</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDeviceType_InputParameter_Description_AboveMaxLen128)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDeviceType_InputParameter_Name_Empty, endPoint=/v1/masterdata/devicetypes, role=admin, templateFields=[description], input={ "code": "GST3", "description": "test 1.0.8", "isActive": false, "langCode": "eng", "name": "", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.name: Should not be blank or size must be between 1 and 64" } ] }, inputTemplate=masterdata/DeviceType/deviceType, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-1549563980" onClick='toggleBox("Output-1549563980", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1549563980" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1549563980">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "GST3",
+    "description": "test 1.0.8",
+    "isActive": false,
+    "langCode": "eng",
+    "name": ""
+  },
+  "requesttime": "2021-12-15T09:42:33.286Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devicetypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:42:33.928Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@760487aa</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDeviceType_InputParameter_Name_Missing()'><b>MasterData_UpdateDeviceType_InputParameter_Name_Missing</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDeviceType_InputParameter_Description_AboveMaxLen128)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDeviceType_InputParameter_Name_Missing, endPoint=/v1/masterdata/devicetypes, role=admin, templateFields=[description], input={ "code": "GST3", "description": "test 1.0.8", "isActive": false, "langCode": "eng", "name": "$REMOVE$", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.name: must not be null" } ] }, inputTemplate=masterdata/DeviceType/deviceType, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-1943587031" onClick='toggleBox("Output-1943587031", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1943587031" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1943587031">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "code": "GST3",
+    "langCode": "eng",
+    "description": "test 1.0.8",
+    "isActive": false
+  },
+  "metadata": {},
+  "requesttime": "2021-12-15T09:42:32.654Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devicetypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:42:33.283Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: must not be null"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.name: must not be null</td>
+    <td>request.name: must not be null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@760487aa</td></tr>
+</table><p>
+</body>
+</html>

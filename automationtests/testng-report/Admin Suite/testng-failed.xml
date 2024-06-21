@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Admin Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="io.mosip.report.CustomTestNGReporter"/>
+    <listener class-name="io.mosip.authentication.e2e.E2EReport"/>
+  </listeners>
+  <test name="CreateMachine(failed)">
+    <parameter name="ymlFile" value="masterdata/Machine/CreateMachine.yml"/>
+    <parameter name="idKeyName" value="id"/>
+    <classes>
+      <class name="io.mosip.testscripts.SimplePostForAutoGenId">
+        <methods>
+          <include name="test" invocation-numbers="1"/>
+          <include name="testTearDown"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.SimplePostForAutoGenId -->
+    </classes>
+  </test> <!-- CreateMachine(failed) -->
+  <test name="UpdateMachineStatus(failed)">
+    <parameter name="ymlFile" value="masterdata/UpdateMachineStatus/UpdateMachineStatus.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.PatchWithQueryParam">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="test" invocation-numbers="1"/>
+          <include name="testTearDown"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.PatchWithQueryParam -->
+    </classes>
+  </test> <!-- UpdateMachineStatus(failed) -->
+  <test name="FetchMachine(failed)">
+    <parameter name="ymlFile" value="masterdata/FetchMachine/FetchMachine.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.GetWithParam">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="2"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.GetWithParam -->
+    </classes>
+  </test> <!-- FetchMachine(failed) -->
+  <test name="DecommisionMachine(failed)">
+    <parameter name="ymlFile" value="masterdata/DecommisionMachine/DecommisionMachine.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.PutWithPathParam">
+        <methods>
+          <include name="test" invocation-numbers="0"/>
+          <include name="testTearDown"/>
+          <include name="setResultTestName"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.PutWithPathParam -->
+    </classes>
+  </test> <!-- DecommisionMachine(failed) -->
+  <test name="CreateRegistrationCenter(failed)">
+    <parameter name="ymlFile" value="masterdata/RegistrationCenter/CreateRegistrationCenter.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.SimplePost">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0 3"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.SimplePost -->
+    </classes>
+  </test> <!-- CreateRegistrationCenter(failed) -->
+  <test name="UpdateRegistrationCenter(failed)">
+    <parameter name="ymlFile" value="masterdata/RegistrationCenter/UpdateRegistrationCenter.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.SimplePut">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0 3"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.SimplePut -->
+    </classes>
+  </test> <!-- UpdateRegistrationCenter(failed) -->
+  <test name="FetchTemplateType(failed)">
+    <parameter name="ymlFile" value="masterdata/FetchTemplateType/FetchTemplateType.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.GetWithParam">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.GetWithParam -->
+    </classes>
+  </test> <!-- FetchTemplateType(failed) -->
+  <test name="DeleteZoneUser(failed)">
+    <parameter name="ymlFile" value="masterdata/DeleteZoneUser/DeleteZoneUser.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.DeleteWithParam">
+        <methods>
+          <include name="test" invocation-numbers="0"/>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.DeleteWithParam -->
+    </classes>
+  </test> <!-- DeleteZoneUser(failed) -->
+  <test name="UpdateLanguage(failed)">
+    <parameter name="ymlFile" value="masterdata/Language/UpdateLanguage.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.SimplePut">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.SimplePut -->
+    </classes>
+  </test> <!-- UpdateLanguage(failed) -->
+  <test name="UpdateLanguageStatus(failed)">
+    <parameter name="ymlFile" value="masterdata/UpdateLanguage/UpdateLanguageStatus.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.PatchWithQueryParam">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="test" invocation-numbers="0"/>
+          <include name="testTearDown"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.PatchWithQueryParam -->
+    </classes>
+  </test> <!-- UpdateLanguageStatus(failed) -->
+  <test name="GetApplicationTypes(failed)">
+    <parameter name="ymlFile" value="masterdata/GetApplicationTypes/GetApplicationTypes.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.GetWithParam">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.GetWithParam -->
+    </classes>
+  </test> <!-- GetApplicationTypes(failed) -->
+  <test name="GetApplicationTypesByLangcode(failed)">
+    <parameter name="ymlFile" value="masterdata/GetApplicationTypesByLangcode/GetApplicationTypesByLangcode.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.GetWithParam">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.GetWithParam -->
+    </classes>
+  </test> <!-- GetApplicationTypesByLangcode(failed) -->
+  <test name="GetApplicationTypeByCodeAndLangcode(failed)">
+    <parameter name="ymlFile" value="masterdata/GetApplicationTypeByCodeAndLangcode/GetApplicationTypeByCodeAndLangcode.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.GetWithParam">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.GetWithParam -->
+    </classes>
+  </test> <!-- GetApplicationTypeByCodeAndLangcode(failed) -->
+</suite> <!-- Failed suite [Admin Suite] -->

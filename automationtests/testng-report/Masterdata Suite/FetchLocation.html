@@ -1,0 +1,1542 @@
+<html>
+<head>
+<title>TestNG:  FetchLocation</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>FetchLocation</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>13/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Sep 20 13:38:39 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>4 seconds (4524 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.MasterData_FetchLocation_details_Langcode_smoke()'><b>MasterData_FetchLocation_details_Langcode_smoke</b><br>Test class: io.mosip.testscripts.GetWithParam (MasterData_FetchLocation_immediatechildren)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FetchLocation_details_Langcode_smoke, endPoint=/v1/masterdata/locations/level/{langcode}, role=admin, templateFields=null, input={ "langcode": "eng", "locationname": "$REMOVE$", "locationcode": "$REMOVE$", "hierarchyname": "$REMOVE$" }, output={ "isActive": true }, inputTemplate=masterdata/FetchLocation/fetchLocation, outputTemplate=masterdata/FetchLocation/fetchLocationResult, restMethod=get)<br/>
+<a href="#Output-1013927772" onClick='toggleBox("Output-1013927772", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1013927772" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1013927772">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "eng"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/locations/level/{langcode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-09-20T08:08:42.624Z",
+  "response": {
+    "locations": [
+      {
+        "code": "KTA",
+        "langCode": "eng",
+        "name": "Kenitra"
+      },
+      {
+        "code": "RBT",
+        "langCode": "eng",
+        "name": "Rabat"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].code</td>
+    <td>NOT VERIFIED</td>
+    <td>KTA</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[1].code</td>
+    <td>NOT VERIFIED</td>
+    <td>RBT</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Kenitra</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[1].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Rabat</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[1].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@2c6d1120</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.MasterData_FetchLocation_details_by_Langcode_smoke()'><b>MasterData_FetchLocation_details_by_Langcode_smoke</b><br>Test class: io.mosip.testscripts.GetWithParam (MasterData_FetchLocation_immediatechildren)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FetchLocation_details_by_Langcode_smoke, endPoint=/v1/masterdata/locations/info/{locationcode}/{langcode}, role=admin, templateFields=null, input={ "langcode": "eng", "locationcode": "10036", "locationname": "$REMOVE$", "hierarchyname": "$REMOVE$" }, output={ "isActive": true }, inputTemplate=masterdata/FetchLocation/fetchLocation, outputTemplate=masterdata/FetchLocation/fetchLocationDetailsbyLangcodeResult, restMethod=get)<br/>
+<a href="#Output-393729003" onClick='toggleBox("Output-393729003", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-393729003" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-393729003">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "eng",
+  "locationcode": "10036"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/locations/info/{locationcode}/{langcode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-09-20T08:08:41.576Z",
+  "response": {
+    "isActive": true,
+    "createdBy": "postgres",
+    "createdDateTime": "2022-03-17T11:54:32.651Z",
+    "isDeleted": false,
+    "code": "10036",
+    "name": "10036",
+    "hierarchyLevel": 0,
+    "hierarchyName": "Postal Code",
+    "parentLocCode": "MDDR",
+    "langCode": "eng"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.deletedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.name</td>
+    <td>NOT VERIFIED</td>
+    <td>10036</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.updatedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.createdDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-17T11:54:32.651Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.code</td>
+    <td>NOT VERIFIED</td>
+    <td>10036</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.hierarchyName</td>
+    <td>NOT VERIFIED</td>
+    <td>Postal Code</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.createdBy</td>
+    <td>NOT VERIFIED</td>
+    <td>postgres</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.updatedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.parentLocCode</td>
+    <td>NOT VERIFIED</td>
+    <td>MDDR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-09-20T08:08:41.576Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@2c6d1120</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.MasterData_FetchLocation_details_by_invalid_LanGcode()'><b>MasterData_FetchLocation_details_by_invalid_LanGcode</b><br>Test class: io.mosip.testscripts.GetWithParam (MasterData_FetchLocation_immediatechildren)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FetchLocation_details_by_invalid_LanGcode, endPoint=/v1/masterdata/locations/info/{locationcode}/{langcode}, role=admin, templateFields=null, input={ "langcode": "endgysgshw66wg", "locationcode": "10036", "locationname": "$REMOVE$", "hierarchyname": "$REMOVE$" }, output={ "errors": [ { "errorCode": "KER-MSD-026", "message": "Location not found" } ] }, inputTemplate=masterdata/FetchLocation/fetchLocation, outputTemplate=masterdata/error, restMethod=get)<br/>
+<a href="#Output-1175156136" onClick='toggleBox("Output-1175156136", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1175156136" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1175156136">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "endgysgshw66wg",
+  "locationcode": "10036"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/locations/info/{locationcode}/{langcode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-09-20T08:08:41.930Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-026",
+      "message": "Location not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Location not found</td>
+    <td>Location not found</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-026</td>
+    <td>KER-MSD-026</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@2c6d1120</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.MasterData_FetchLocation_details_by_invalid_locationcode()'><b>MasterData_FetchLocation_details_by_invalid_locationcode</b><br>Test class: io.mosip.testscripts.GetWithParam (MasterData_FetchLocation_immediatechildren)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FetchLocation_details_by_invalid_locationcode, endPoint=/v1/masterdata/locations/info/{locationcode}/{langcode}, role=admin, templateFields=null, input={ "langcode": "eng", "locationname": "$REMOVE$", "locationcode": "100sw33223@!@#36", "hierarchyname": "$REMOVE$" }, output={ "errors": [ { "errorCode": "KER-MSD-026", "message": "Location not found" } ] }, inputTemplate=masterdata/FetchLocation/fetchLocation, outputTemplate=masterdata/error, restMethod=get)<br/>
+<a href="#Output-1701481613" onClick='toggleBox("Output-1701481613", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1701481613" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1701481613">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "eng",
+  "locationcode": "100sw33223@!@#36"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/locations/info/{locationcode}/{langcode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-09-20T08:08:42.290Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-026",
+      "message": "Location not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Location not found</td>
+    <td>Location not found</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-026</td>
+    <td>KER-MSD-026</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@2c6d1120</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.MasterData_FetchLocation_details_hierarchyname_smoke()'><b>MasterData_FetchLocation_details_hierarchyname_smoke</b><br>Test class: io.mosip.testscripts.GetWithParam (MasterData_FetchLocation_immediatechildren)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FetchLocation_details_hierarchyname_smoke, endPoint=/v1/masterdata/locations/locationhierarchy/{hierarchyname}, role=admin, templateFields=null, input={ "langcode": "$REMOVE$", "locationname": "$REMOVE$", "locationcode": "$REMOVE$", "hierarchyname": "City" }, output={ "locations": [{ "isActive": true }] }, inputTemplate=masterdata/FetchLocation/fetchLocation, outputTemplate=masterdata/FetchLocation/fetchLocationResult, restMethod=get)<br/>
+<a href="#Output-362569319" onClick='toggleBox("Output-362569319", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-362569319" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-362569319">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "hierarchyname": "City"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/locations/locationhierarchy/{hierarchyname}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-09-20T08:08:42.966Z",
+  "response": {
+    "locations": [
+      {
+        "code": "KNT",
+        "name": "Kenitra",
+        "hierarchyLevel": 3,
+        "hierarchyName": "City",
+        "parentLocCode": "KTA",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "RAB",
+        "name": "Rabat",
+        "hierarchyLevel": 3,
+        "hierarchyName": "City",
+        "parentLocCode": "RBT",
+        "langCode": "eng",
+        "isActive": true
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[1].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>3</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].parentLocCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KTA</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[1].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Rabat</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[1].hierarchyName</td>
+    <td>NOT VERIFIED</td>
+    <td>City</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].code</td>
+    <td>NOT VERIFIED</td>
+    <td>KNT</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>3</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[1].code</td>
+    <td>NOT VERIFIED</td>
+    <td>RAB</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[1].parentLocCode</td>
+    <td>NOT VERIFIED</td>
+    <td>RBT</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Kenitra</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-09-20T08:08:42.966Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[1].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].hierarchyName</td>
+    <td>NOT VERIFIED</td>
+    <td>City</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@2c6d1120</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.MasterData_FetchLocation_details_invalid_locationname()'><b>MasterData_FetchLocation_details_invalid_locationname</b><br>Test class: io.mosip.testscripts.GetWithParam (MasterData_FetchLocation_immediatechildren)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FetchLocation_details_invalid_locationname, endPoint=/v1/masterdata/locations/validate/{locationname}, role=admin, templateFields=null, input={ "langcode": "$REMOVE$", "locationname": "000", "locationcode": "$REMOVE$", "hierarchyname": "$REMOVE$" }, output={ "status": "Invalid" }, inputTemplate=masterdata/FetchLocation/fetchLocation, outputTemplate=masterdata/FetchLocation/fetchLocationValidationResult, restMethod=get)<br/>
+<a href="#Output-488847332" onClick='toggleBox("Output-488847332", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-488847332" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-488847332">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "locationname": "000"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/locations/validate/{locationname}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-09-20T08:08:43.662Z",
+  "response": {
+    "status": "Invalid"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.status</td>
+    <td>Invalid</td>
+    <td>Invalid</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@2c6d1120</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.MasterData_FetchLocation_details_validate_locationname()'><b>MasterData_FetchLocation_details_validate_locationname</b><br>Test class: io.mosip.testscripts.GetWithParam (MasterData_FetchLocation_immediatechildren)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FetchLocation_details_validate_locationname, endPoint=/v1/masterdata/locations/validate/{locationname}, role=admin, templateFields=null, input={ "langcode": "$REMOVE$", "locationname": "10000", "locationcode": "$REMOVE$", "hierarchyname": "$REMOVE$" }, output={ "status": "Valid" }, inputTemplate=masterdata/FetchLocation/fetchLocation, outputTemplate=masterdata/FetchLocation/fetchLocationValidationResult, restMethod=get)<br/>
+<a href="#Output-941716838" onClick='toggleBox("Output-941716838", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-941716838" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-941716838">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "locationname": "10000"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/locations/validate/{locationname}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-09-20T08:08:43.318Z",
+  "response": {
+    "status": "Valid"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.status</td>
+    <td>Valid</td>
+    <td>Valid</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@2c6d1120</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.MasterData_FetchLocation_immediatechildren()'><b>MasterData_FetchLocation_immediatechildren</b><br>Test class: io.mosip.testscripts.GetWithParam (MasterData_FetchLocation_immediatechildren)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FetchLocation_immediatechildren, endPoint=/v1/masterdata/locations/immediatechildren/{locationcode}/{langcode}, role=admin, templateFields=null, input={ "langcode": "eng", "locationname": "$REMOVE$", "locationcode": "MOR", "hierarchyname": "$REMOVE$" }, output={ "locations": [{ "langCode": "eng" }] }, inputTemplate=masterdata/FetchLocation/fetchLocation, outputTemplate=masterdata/FetchLocation/fetchLocationImmediatechildrenResult, restMethod=get)<br/>
+<a href="#Output-1637390132" onClick='toggleBox("Output-1637390132", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1637390132" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1637390132">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "eng",
+  "locationcode": "MOR"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/locations/immediatechildren/{locationcode}/{langcode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-09-20T08:08:43.999Z",
+  "response": {
+    "locations": [
+      {
+        "code": "RSK",
+        "name": "Rabat Sale Kenitra",
+        "hierarchyLevel": 1,
+        "hierarchyName": "Region",
+        "parentLocCode": "MOR",
+        "langCode": "eng",
+        "isActive": true
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].code</td>
+    <td>NOT VERIFIED</td>
+    <td>RSK</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-09-20T08:08:43.999Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Rabat Sale Kenitra</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].parentLocCode</td>
+    <td>NOT VERIFIED</td>
+    <td>MOR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].hierarchyName</td>
+    <td>NOT VERIFIED</td>
+    <td>Region</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@2c6d1120</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.MasterData_FetchLocation_invalid_langcode()'><b>MasterData_FetchLocation_invalid_langcode</b><br>Test class: io.mosip.testscripts.GetWithParam (MasterData_FetchLocation_immediatechildren)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FetchLocation_invalid_langcode, endPoint=/v1/masterdata/locations/{langcode}, role=admin, templateFields=null, input={ "langcode": "en@@ddddg", "locationname": "$REMOVE$", "locationcode": "$REMOVE$", "hierarchyname": "$REMOVE$" }, output={ "errors": [ { "errorCode": "KER-MSD-026", "message": "Location not found" } ] }, inputTemplate=masterdata/FetchLocation/fetchLocation, outputTemplate=masterdata/error, restMethod=get)<br/>
+<a href="#Output-1683874465" onClick='toggleBox("Output-1683874465", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1683874465" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1683874465">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "en@@ddddg"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/locations/{langcode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-09-20T08:08:40.177Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-026",
+      "message": "Location not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Location not found</td>
+    <td>Location not found</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-026</td>
+    <td>KER-MSD-026</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@2c6d1120</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.MasterData_FetchLocation_langcode_invalid_locationcode()'><b>MasterData_FetchLocation_langcode_invalid_locationcode</b><br>Test class: io.mosip.testscripts.GetWithParam (MasterData_FetchLocation_immediatechildren)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FetchLocation_langcode_invalid_locationcode, endPoint=/v1/masterdata/locations/{locationcode}/{langcode}, role=admin, templateFields=null, input={ "langcode": "eng", "locationcode": "10@@EDDD6", "locationname": "$REMOVE$", "hierarchyname": "$REMOVE$" }, output={ "errors": [ { "errorCode": "KER-MSD-026", "message": "Location not found" } ] }, inputTemplate=masterdata/FetchLocation/fetchLocation, outputTemplate=masterdata/error, restMethod=get)<br/>
+<a href="#Output-388023225" onClick='toggleBox("Output-388023225", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-388023225" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-388023225">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "eng",
+  "locationcode": "10@@EDDD6"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/locations/{locationcode}/{langcode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-09-20T08:08:40.898Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-026",
+      "message": "Location not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Location not found</td>
+    <td>Location not found</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-026</td>
+    <td>KER-MSD-026</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@2c6d1120</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.MasterData_FetchLocation_langcode_locationcode_smoke()'><b>MasterData_FetchLocation_langcode_locationcode_smoke</b><br>Test class: io.mosip.testscripts.GetWithParam (MasterData_FetchLocation_immediatechildren)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FetchLocation_langcode_locationcode_smoke, endPoint=/v1/masterdata/locations/{locationcode}/{langcode}, role=admin, templateFields=null, input={ "langcode": "eng", "locationcode": "10036", "locationname": "$REMOVE$", "hierarchyname": "$REMOVE$" }, output={ "locations": [{ "isActive": true }] }, inputTemplate=masterdata/FetchLocation/fetchLocation, outputTemplate=masterdata/FetchLocation/fetchLocationResult, restMethod=get)<br/>
+<a href="#Output-787272466" onClick='toggleBox("Output-787272466", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-787272466" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-787272466">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "eng",
+  "locationcode": "10036"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/locations/{locationcode}/{langcode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-09-20T08:08:40.544Z",
+  "response": {
+    "locations": [
+      {
+        "code": "10036",
+        "name": "10036",
+        "hierarchyLevel": 5,
+        "hierarchyName": "Postal Code",
+        "parentLocCode": "MDDR",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "MDDR",
+        "name": "Medina de Rabat",
+        "hierarchyLevel": 4,
+        "hierarchyName": "Zone",
+        "parentLocCode": "RAB",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "RAB",
+        "name": "Rabat",
+        "hierarchyLevel": 3,
+        "hierarchyName": "City",
+        "parentLocCode": "RBT",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "RBT",
+        "name": "Rabat",
+        "hierarchyLevel": 2,
+        "hierarchyName": "Province",
+        "parentLocCode": "RSK",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "RSK",
+        "name": "Rabat Sale Kenitra",
+        "hierarchyLevel": 1,
+        "hierarchyName": "Region",
+        "parentLocCode": "MOR",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "MOR",
+        "name": "MyCountry",
+        "hierarchyLevel": 0,
+        "hierarchyName": "Country",
+        "langCode": "eng",
+        "isActive": true
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[4].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[3].parentLocCode</td>
+    <td>NOT VERIFIED</td>
+    <td>RSK</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[4].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[4].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[1].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[1].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Medina de Rabat</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[2].code</td>
+    <td>NOT VERIFIED</td>
+    <td>RAB</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[1].hierarchyName</td>
+    <td>NOT VERIFIED</td>
+    <td>Zone</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[3].hierarchyName</td>
+    <td>NOT VERIFIED</td>
+    <td>Province</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].code</td>
+    <td>NOT VERIFIED</td>
+    <td>10036</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[3].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[5].code</td>
+    <td>NOT VERIFIED</td>
+    <td>MOR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[4].parentLocCode</td>
+    <td>NOT VERIFIED</td>
+    <td>MOR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-09-20T08:08:40.544Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[2].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>3</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[4].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Rabat Sale Kenitra</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[2].hierarchyName</td>
+    <td>NOT VERIFIED</td>
+    <td>City</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[1].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[5].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[3].code</td>
+    <td>NOT VERIFIED</td>
+    <td>RBT</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[4].hierarchyName</td>
+    <td>NOT VERIFIED</td>
+    <td>Region</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[2].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Rabat</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[5].parentLocCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[5].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[5].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].parentLocCode</td>
+    <td>NOT VERIFIED</td>
+    <td>MDDR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[5].hierarchyName</td>
+    <td>NOT VERIFIED</td>
+    <td>Country</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[5].name</td>
+    <td>NOT VERIFIED</td>
+    <td>MyCountry</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[2].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>5</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[3].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>2</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[2].parentLocCode</td>
+    <td>NOT VERIFIED</td>
+    <td>RBT</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[1].code</td>
+    <td>NOT VERIFIED</td>
+    <td>MDDR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[1].parentLocCode</td>
+    <td>NOT VERIFIED</td>
+    <td>RAB</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>10036</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[3].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Rabat</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[4].code</td>
+    <td>NOT VERIFIED</td>
+    <td>RSK</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].hierarchyName</td>
+    <td>NOT VERIFIED</td>
+    <td>Postal Code</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@2c6d1120</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.MasterData_FetchLocation_langcode_smoke()'><b>MasterData_FetchLocation_langcode_smoke</b><br>Test class: io.mosip.testscripts.GetWithParam (MasterData_FetchLocation_immediatechildren)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FetchLocation_langcode_smoke, endPoint=/v1/masterdata/locations/{langcode}, role=admin, templateFields=null, input={ "langcode": "eng", "locationname": "$REMOVE$", "locationcode": "$REMOVE$", "hierarchyname": "$REMOVE$" }, output={ "locations": [{ "isActive": true }] }, inputTemplate=masterdata/FetchLocation/fetchLocation, outputTemplate=masterdata/FetchLocation/fetchLocationResult, restMethod=get)<br/>
+<a href="#Output-1485969187" onClick='toggleBox("Output-1485969187", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1485969187" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1485969187">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "eng"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/locations/{langcode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-09-20T08:08:39.836Z",
+  "response": {
+    "locations": [
+      {
+        "locationHierarchylevel": 3,
+        "locationHierarchyName": "City",
+        "isActive": true
+      },
+      {
+        "locationHierarchylevel": 2,
+        "locationHierarchyName": "Province",
+        "isActive": true
+      },
+      {
+        "locationHierarchylevel": 4,
+        "locationHierarchyName": "Zone",
+        "isActive": true
+      },
+      {
+        "locationHierarchylevel": 5,
+        "locationHierarchyName": "Postal Code",
+        "isActive": true
+      },
+      {
+        "locationHierarchylevel": 1,
+        "locationHierarchyName": "Region",
+        "isActive": true
+      },
+      {
+        "locationHierarchylevel": 0,
+        "locationHierarchyName": "Country",
+        "isActive": true
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(locations)[4].locationHierarchyName</td>
+    <td>NOT VERIFIED</td>
+    <td>Region</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[4].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[3].locationHierarchyName</td>
+    <td>NOT VERIFIED</td>
+    <td>Postal Code</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[2].locationHierarchyName</td>
+    <td>NOT VERIFIED</td>
+    <td>Zone</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[5].locationHierarchyName</td>
+    <td>NOT VERIFIED</td>
+    <td>Country</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[1].locationHierarchyName</td>
+    <td>NOT VERIFIED</td>
+    <td>Province</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[5].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[4].locationHierarchylevel</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].locationHierarchyName</td>
+    <td>NOT VERIFIED</td>
+    <td>City</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].locationHierarchylevel</td>
+    <td>NOT VERIFIED</td>
+    <td>3</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[2].locationHierarchylevel</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-09-20T08:08:39.836Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[5].locationHierarchylevel</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[1].locationHierarchylevel</td>
+    <td>NOT VERIFIED</td>
+    <td>2</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locations)[3].locationHierarchylevel</td>
+    <td>NOT VERIFIED</td>
+    <td>5</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@2c6d1120</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.MasterData_FetchLocation_locationcode_invalid_langcode()'><b>MasterData_FetchLocation_locationcode_invalid_langcode</b><br>Test class: io.mosip.testscripts.GetWithParam (MasterData_FetchLocation_immediatechildren)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FetchLocation_locationcode_invalid_langcode, endPoint=/v1/masterdata/locations/{locationcode}/{langcode}, role=admin, templateFields=null, input={ "langcode": "en@@@#EDFF", "locationcode": "10036", "locationname": "$REMOVE$", "hierarchyname": "$REMOVE$" }, output={ "errors": [ { "errorCode": "KER-MSD-026", "message": "Location not found" } ] }, inputTemplate=masterdata/FetchLocation/fetchLocation, outputTemplate=masterdata/error, restMethod=get)<br/>
+<a href="#Output-549177636" onClick='toggleBox("Output-549177636", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-549177636" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-549177636">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "en@@@#EDFF",
+  "locationcode": "10036"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/locations/{locationcode}/{langcode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-09-20T08:08:41.237Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-026",
+      "message": "Location not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Location not found</td>
+    <td>Location not found</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-026</td>
+    <td>KER-MSD-026</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@2c6d1120</td></tr>
+</table><p>
+</body>
+</html>

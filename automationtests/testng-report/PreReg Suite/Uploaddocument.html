@@ -1,0 +1,3924 @@
+<html>
+<head>
+<title>TestNG:  Uploaddocument</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Uploaddocument</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>17/21/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 21:53:32 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>89 seconds (89190 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_All_Valid_Smoke_POB_BookByPRID_sid()'><b>Prereg_UploadDocument_All_Valid_Smoke_POB_BookByPRID_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_All_Valid_Smoke_POB_BookByPRID_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POB", "docTypCode" : "COB", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_BookByPRID_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POB.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POB.pdf", "docCatCode":"POB", "docTypCode":"COB", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-408553489" onClick='toggleBox("Output-408553489", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-408553489" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-408553489">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:23:57.528Z",
+  "request": {
+    "docCatCode": "POB",
+    "docTypCode": "COB",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "62184015087047",
+  "filePath": "preReg/uploadDocument/doc_POB.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:23:59.324Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_018",
+      "message": "Document Category code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  langCode eng"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Document Category code is invalid   {POA=[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE=[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI=[DOC001]}  langCode eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PRG_CORE_REQ_018</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>COB</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POB</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POB.pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace408553489", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace408553489'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_All_Valid_Smoke_POB_UpdateDocRefID_sid()'><b>Prereg_UploadDocument_All_Valid_Smoke_POB_UpdateDocRefID_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_All_Valid_Smoke_POB_UpdateDocRefID_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POB", "docTypCode" : "COB", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_UpdateDocRefID_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POB.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POB.pdf", "docCatCode":"POB", "docTypCode":"COB", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1476823872" onClick='toggleBox("Output-1476823872", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1476823872" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1476823872">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:23:45.343Z",
+  "request": {
+    "docCatCode": "POB",
+    "docTypCode": "COB",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "51930712647694",
+  "filePath": "preReg/uploadDocument/doc_POB.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:23:47.189Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_018",
+      "message": "Document Category code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  langCode eng"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Document Category code is invalid   {POA=[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE=[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI=[DOC001]}  langCode eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PRG_CORE_REQ_018</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>COB</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POB</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POB.pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1476823872", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1476823872'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_All_Valid_Smoke_POB_sid()'><b>Prereg_UploadDocument_All_Valid_Smoke_POB_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_All_Valid_Smoke_POB_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POB", "docTypCode" : "COB", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POB.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POB.pdf", "docCatCode":"POB", "docTypCode":"COB", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-574000604" onClick='toggleBox("Output-574000604", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-574000604" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-574000604">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:23:36.988Z",
+  "request": {
+    "docCatCode": "POB",
+    "docTypCode": "COB",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "51842975028036",
+  "filePath": "preReg/uploadDocument/doc_POB.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:23:38.707Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_018",
+      "message": "Document Category code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  langCode eng"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Document Category code is invalid   {POA=[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE=[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI=[DOC001]}  langCode eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PRG_CORE_REQ_018</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>COB</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POB</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POB.pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace574000604", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace574000604'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_All_Valid_Smoke_POI_BookByPRID_sid()'><b>Prereg_UploadDocument_All_Valid_Smoke_POI_BookByPRID_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_All_Valid_Smoke_POI_BookByPRID_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POI", "docTypCode" : "CIN", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_BookByPRID_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POI.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POI.pdf", "docCatCode":"POI", "docTypCode":"CIN", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1571834834" onClick='toggleBox("Output-1571834834", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1571834834" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1571834834">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:23:54.463Z",
+  "request": {
+    "docCatCode": "POI",
+    "docTypCode": "CIN",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "62184015087047",
+  "filePath": "preReg/uploadDocument/doc_POI.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:23:57.453Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_017",
+      "message": "Document type code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  catcode POI typeCode  "
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Document type code is invalid   {POA=[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE=[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI=[DOC001]}  catcode POI typeCode  </td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PRG_CORE_REQ_017</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>CIN</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POI</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POI.pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1571834834", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1571834834'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>3</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_All_Valid_Smoke_POI_UpdateDocRefID_sid()'><b>Prereg_UploadDocument_All_Valid_Smoke_POI_UpdateDocRefID_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_All_Valid_Smoke_POI_UpdateDocRefID_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POI", "docTypCode" : "CIN", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_UpdateDocRefID_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POI.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POI.pdf", "docCatCode":"POI", "docTypCode":"CIN", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-569302238" onClick='toggleBox("Output-569302238", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-569302238" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-569302238">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:23:43.418Z",
+  "request": {
+    "docCatCode": "POI",
+    "docTypCode": "CIN",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "51930712647694",
+  "filePath": "preReg/uploadDocument/doc_POI.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:23:45.260Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_017",
+      "message": "Document type code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  catcode POI typeCode  "
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Document type code is invalid   {POA=[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE=[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI=[DOC001]}  catcode POI typeCode  </td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PRG_CORE_REQ_017</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>CIN</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POI</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POI.pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace569302238", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace569302238'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_All_Valid_Smoke_POI_sid()'><b>Prereg_UploadDocument_All_Valid_Smoke_POI_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_All_Valid_Smoke_POI_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POI", "docTypCode" : "CIN", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POI.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POI.pdf", "docCatCode":"POI", "docTypCode":"CIN", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1522236047" onClick='toggleBox("Output-1522236047", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1522236047" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1522236047">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:23:34.961Z",
+  "request": {
+    "docCatCode": "POI",
+    "docTypCode": "CIN",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "51842975028036",
+  "filePath": "preReg/uploadDocument/doc_POI.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:23:36.903Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_017",
+      "message": "Document type code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  catcode POI typeCode  "
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Document type code is invalid   {POA=[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE=[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI=[DOC001]}  catcode POI typeCode  </td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PRG_CORE_REQ_017</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>CIN</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POI</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POI.pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1522236047", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1522236047'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>2</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_All_Valid_Smoke_POR_BookByPRID_sid()'><b>Prereg_UploadDocument_All_Valid_Smoke_POR_BookByPRID_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_All_Valid_Smoke_POR_BookByPRID_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POR", "docTypCode" : "CRN", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_BookByPRID_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POR.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POR.pdf", "docCatCode":"POR", "docTypCode":"CRN", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1972193961" onClick='toggleBox("Output-1972193961", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1972193961" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1972193961">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:23:59.398Z",
+  "request": {
+    "docCatCode": "POR",
+    "docTypCode": "CRN",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "62184015087047",
+  "filePath": "preReg/uploadDocument/doc_POR.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:24:01.179Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_018",
+      "message": "Document Category code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  langCode eng"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Document Category code is invalid   {POA=[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE=[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI=[DOC001]}  langCode eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PRG_CORE_REQ_018</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>CRN</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POR</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POR.pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1972193961", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1972193961'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_All_Valid_Smoke_POR_UpdateDocRefID_sid()'><b>Prereg_UploadDocument_All_Valid_Smoke_POR_UpdateDocRefID_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_All_Valid_Smoke_POR_UpdateDocRefID_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POR", "docTypCode" : "CRN", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_UpdateDocRefID_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POR.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POR.pdf", "docCatCode":"POR", "docTypCode":"CRN", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1124140751" onClick='toggleBox("Output-1124140751", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1124140751" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1124140751">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:23:47.276Z",
+  "request": {
+    "docCatCode": "POR",
+    "docTypCode": "CRN",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "51930712647694",
+  "filePath": "preReg/uploadDocument/doc_POR.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:23:50.355Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_018",
+      "message": "Document Category code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  langCode eng"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Document Category code is invalid   {POA=[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE=[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI=[DOC001]}  langCode eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PRG_CORE_REQ_018</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>CRN</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POR</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POR.pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1124140751", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1124140751'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>3</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_All_Valid_Smoke_POR_sid()'><b>Prereg_UploadDocument_All_Valid_Smoke_POR_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_All_Valid_Smoke_POR_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POR", "docTypCode" : "CRN", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POR.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POR.pdf", "docCatCode":"POR", "docTypCode":"CRN", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-600858818" onClick='toggleBox("Output-600858818", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-600858818" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-600858818">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:23:38.788Z",
+  "request": {
+    "docCatCode": "POR",
+    "docTypCode": "CRN",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "51842975028036",
+  "filePath": "preReg/uploadDocument/doc_POR.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:23:40.727Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_018",
+      "message": "Document Category code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  langCode eng"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Document Category code is invalid   {POA=[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE=[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI=[DOC001]}  langCode eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PRG_CORE_REQ_018</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>CRN</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POR</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POR.pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace600858818", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace600858818'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>2</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_Smoke_CancelApplicationsAppointment_POB_sid()'><b>Prereg_UploadDocument_Smoke_CancelApplicationsAppointment_POB_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_Smoke_CancelApplicationsAppointment_POB_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POB", "docTypCode" : "COB", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_Smoke_CancelApplicationsAppointment_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POB.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POB.pdf", "docCatCode":"POB", "docTypCode":"COB", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1820295244" onClick='toggleBox("Output-1820295244", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1820295244" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1820295244">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:24:34.169Z",
+  "request": {
+    "docCatCode": "POB",
+    "docTypCode": "COB",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "50458742782976",
+  "filePath": "preReg/uploadDocument/doc_POB.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:24:35.850Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_018",
+      "message": "Document Category code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  langCode eng"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Document Category code is invalid   {POA=[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE=[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI=[DOC001]}  langCode eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PRG_CORE_REQ_018</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>COB</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POB</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POB.pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1820295244", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1820295244'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at jdk.internal.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_Smoke_CancelApplicationsAppointment_POI_sid()'><b>Prereg_UploadDocument_Smoke_CancelApplicationsAppointment_POI_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_Smoke_CancelApplicationsAppointment_POI_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POI", "docTypCode" : "CIN", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_Smoke_CancelApplicationsAppointment_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POI.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POI.pdf", "docCatCode":"POI", "docTypCode":"CIN", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1206330799" onClick='toggleBox("Output-1206330799", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1206330799" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1206330799">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:24:32.133Z",
+  "request": {
+    "docCatCode": "POI",
+    "docTypCode": "CIN",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "50458742782976",
+  "filePath": "preReg/uploadDocument/doc_POI.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:24:34.081Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_017",
+      "message": "Document type code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  catcode POI typeCode  "
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Document type code is invalid   {POA=[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE=[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI=[DOC001]}  catcode POI typeCode  </td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PRG_CORE_REQ_017</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>CIN</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POI</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POI.pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1206330799", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1206330799'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at jdk.internal.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>2</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_Smoke_CancelApplicationsAppointment_POR_sid()'><b>Prereg_UploadDocument_Smoke_CancelApplicationsAppointment_POR_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_Smoke_CancelApplicationsAppointment_POR_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POR", "docTypCode" : "CRN", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_Smoke_CancelApplicationsAppointment_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POR.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POR.pdf", "docCatCode":"POR", "docTypCode":"CRN", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1284634047" onClick='toggleBox("Output-1284634047", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1284634047" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1284634047">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:24:35.926Z",
+  "request": {
+    "docCatCode": "POR",
+    "docTypCode": "CRN",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "50458742782976",
+  "filePath": "preReg/uploadDocument/doc_POR.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:24:37.578Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_018",
+      "message": "Document Category code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  langCode eng"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Document Category code is invalid   {POA=[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE=[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI=[DOC001]}  langCode eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PRG_CORE_REQ_018</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>CRN</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POR</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POR.pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1284634047", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1284634047'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at jdk.internal.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_Smoke_POB_alldel_sid()'><b>Prereg_UploadDocument_Smoke_POB_alldel_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_Smoke_POB_alldel_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POB", "docTypCode" : "COB", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_Smoke_alldel_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POB.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POB.pdf", "docCatCode":"POB", "docTypCode":"COB", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1095575585" onClick='toggleBox("Output-1095575585", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1095575585" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1095575585">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:24:17.286Z",
+  "request": {
+    "docCatCode": "POB",
+    "docTypCode": "COB",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "29860562146704",
+  "filePath": "preReg/uploadDocument/doc_POB.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:24:19.113Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_018",
+      "message": "Document Category code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  langCode eng"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Document Category code is invalid   {POA=[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE=[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI=[DOC001]}  langCode eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PRG_CORE_REQ_018</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>COB</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POB</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POB.pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1095575585", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1095575585'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at jdk.internal.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_Smoke_POI_alldel_sid()'><b>Prereg_UploadDocument_Smoke_POI_alldel_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_Smoke_POI_alldel_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POI", "docTypCode" : "CIN", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_Smoke_alldel_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POI.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POI.pdf", "docCatCode":"POI", "docTypCode":"CIN", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2089498536" onClick='toggleBox("Output-2089498536", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2089498536" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2089498536">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:24:14.360Z",
+  "request": {
+    "docCatCode": "POI",
+    "docTypCode": "CIN",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "29860562146704",
+  "filePath": "preReg/uploadDocument/doc_POI.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:24:17.205Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_017",
+      "message": "Document type code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  catcode POI typeCode  "
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Document type code is invalid   {POA=[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE=[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI=[DOC001]}  catcode POI typeCode  </td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PRG_CORE_REQ_017</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>CIN</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POI</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POI.pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2089498536", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2089498536'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at jdk.internal.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>2</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_Smoke_POR_alldel_sid()'><b>Prereg_UploadDocument_Smoke_POR_alldel_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_Smoke_POR_alldel_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POR", "docTypCode" : "CRN", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_Smoke_alldel_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POR.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POR.pdf", "docCatCode":"POR", "docTypCode":"CRN", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-743171167" onClick='toggleBox("Output-743171167", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-743171167" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-743171167">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:24:19.188Z",
+  "request": {
+    "docCatCode": "POR",
+    "docTypCode": "CRN",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "29860562146704",
+  "filePath": "preReg/uploadDocument/doc_POR.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:24:21.149Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_018",
+      "message": "Document Category code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  langCode eng"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Document Category code is invalid   {POA=[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE=[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI=[DOC001]}  langCode eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PRG_CORE_REQ_018</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>CRN</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POR</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POR.pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace743171167", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace743171167'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at jdk.internal.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>2</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_Smoke_cancellappointment_POB_sid()'><b>Prereg_UploadDocument_Smoke_cancellappointment_POB_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_Smoke_cancellappointment_POB_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POB", "docTypCode" : "COB", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_Smoke_CancellAppointment_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POB.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POB.pdf", "docCatCode":"POB", "docTypCode":"COB", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-703496564" onClick='toggleBox("Output-703496564", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-703496564" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-703496564">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:24:25.749Z",
+  "request": {
+    "docCatCode": "POB",
+    "docTypCode": "COB",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "26839109451645",
+  "filePath": "preReg/uploadDocument/doc_POB.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:24:27.657Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_018",
+      "message": "Document Category code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  langCode eng"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Document Category code is invalid   {POA=[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE=[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI=[DOC001]}  langCode eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PRG_CORE_REQ_018</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>COB</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POB</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POB.pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace703496564", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace703496564'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at jdk.internal.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_Smoke_cancellappointment_POI_sid()'><b>Prereg_UploadDocument_Smoke_cancellappointment_POI_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_Smoke_cancellappointment_POI_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POI", "docTypCode" : "CIN", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_Smoke_CancellAppointment_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POI.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POI.pdf", "docCatCode":"POI", "docTypCode":"CIN", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1620758550" onClick='toggleBox("Output-1620758550", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1620758550" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1620758550">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:24:23.676Z",
+  "request": {
+    "docCatCode": "POI",
+    "docTypCode": "CIN",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "26839109451645",
+  "filePath": "preReg/uploadDocument/doc_POI.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:24:25.674Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_017",
+      "message": "Document type code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  catcode POI typeCode  "
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Document type code is invalid   {POA=[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE=[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI=[DOC001]}  catcode POI typeCode  </td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PRG_CORE_REQ_017</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>CIN</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POI</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POI.pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1620758550", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1620758550'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at jdk.internal.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>2</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_Smoke_cancellappointment_POR_sid()'><b>Prereg_UploadDocument_Smoke_cancellappointment_POR_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_Smoke_cancellappointment_POR_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POR", "docTypCode" : "CRN", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_Smoke_CancellAppointment_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POR.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POR.pdf", "docCatCode":"POR", "docTypCode":"CRN", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1890190272" onClick='toggleBox("Output-1890190272", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1890190272" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1890190272">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:24:27.732Z",
+  "request": {
+    "docCatCode": "POR",
+    "docTypCode": "CRN",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "26839109451645",
+  "filePath": "preReg/uploadDocument/doc_POR.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:24:29.674Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_018",
+      "message": "Document Category code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  langCode eng"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Document Category code is invalid   {POA=[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE=[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI=[DOC001]}  langCode eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PRG_CORE_REQ_018</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>CRN</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POR</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POR.pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1890190272", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1890190272'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at jdk.internal.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>2</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_Valid_POB_Smoke_sid()'><b>Prereg_UploadDocument_Valid_POB_Smoke_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_Valid_POB_Smoke_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POB", "docTypCode" : "COB", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_Valid_Smoke_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POB.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POB.pdf", "docCatCode":"POB", "docTypCode":"COB", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-32102177" onClick='toggleBox("Output-32102177", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-32102177" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-32102177">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:24:05.828Z",
+  "request": {
+    "docCatCode": "POB",
+    "docTypCode": "COB",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "50927459024501",
+  "filePath": "preReg/uploadDocument/doc_POB.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:24:07.589Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_018",
+      "message": "Document Category code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  langCode eng"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Document Category code is invalid   {POA=[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE=[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI=[DOC001]}  langCode eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PRG_CORE_REQ_018</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>COB</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POB</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POB.pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace32102177", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace32102177'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_Valid_POR_Smoke_sid()'><b>Prereg_UploadDocument_Valid_POR_Smoke_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_Valid_POR_Smoke_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POR", "docTypCode" : "CRN", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_Valid_Smoke_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POR.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POR.pdf", "docCatCode":"POR", "docTypCode":"CRN", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-853045514" onClick='toggleBox("Output-853045514", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-853045514" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-853045514">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:24:07.665Z",
+  "request": {
+    "docCatCode": "POR",
+    "docTypCode": "CRN",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "50927459024501",
+  "filePath": "preReg/uploadDocument/doc_POR.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:24:09.481Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_018",
+      "message": "Document Category code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  langCode eng"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Document Category code is invalid   {POA=[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE=[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI=[DOC001]}  langCode eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PRG_CORE_REQ_018</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>CRN</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POR</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POR.pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace853045514", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace853045514'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_Valid_Smoke_POI_sid()'><b>Prereg_UploadDocument_Valid_Smoke_POI_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_Valid_Smoke_POI_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POI", "docTypCode" : "CIN", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_Valid_Smoke_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POI.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POI.pdf", "docCatCode":"POI", "docTypCode":"CIN", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-28100456" onClick='toggleBox("Output-28100456", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-28100456" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-28100456">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:24:03.934Z",
+  "request": {
+    "docCatCode": "POI",
+    "docTypCode": "CIN",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "50927459024501",
+  "filePath": "preReg/uploadDocument/doc_POI.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:24:05.753Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_017",
+      "message": "Document type code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  catcode POI typeCode  "
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Document type code is invalid   {POA=[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE=[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI=[DOC001]}  catcode POI typeCode  </td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PRG_CORE_REQ_017</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>CIN</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POI</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POI.pdf</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace28100456", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace28100456'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithFormPathParamAndFile.test(PostWithFormPathParamAndFile.java:94)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_All_Valid_Smoke_BookByPRID_sid()'><b>Prereg_UploadDocument_All_Valid_Smoke_BookByPRID_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_All_Valid_Smoke_BookByPRID_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POA", "docTypCode" : "RNC", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_BookByPRID_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POA.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POA.pdf", "docCatCode":"POA", "docTypCode":"RNC", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1568128654" onClick='toggleBox("Output-1568128654", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1568128654" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1568128654">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:23:50.456Z",
+  "request": {
+    "docCatCode": "POA",
+    "docTypCode": "RNC",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "62184015087047",
+  "filePath": "preReg/uploadDocument/doc_POA.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:23:54.361Z",
+  "response": {
+    "preRegistrationId": "62184015087047",
+    "docId": "d34ecc44-2262-11ee-806b-59b32ad112cc",
+    "docName": "doc_POA.pdf",
+    "docCatCode": "POA",
+    "docTypCode": "RNC",
+    "docFileFormat": "pdf"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.refNumber</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>pdf</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>RNC</td>
+    <td>RNC</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POA</td>
+    <td>POA</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POA.pdf</td>
+    <td>doc_POA.pdf</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_All_Valid_Smoke_UpdateDocRefID_sid()'><b>Prereg_UploadDocument_All_Valid_Smoke_UpdateDocRefID_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_All_Valid_Smoke_UpdateDocRefID_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POA", "docTypCode" : "RNC", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_UpdateDocRefID_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POA.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POA.pdf", "docCatCode":"POA", "docTypCode":"RNC", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-629598328" onClick='toggleBox("Output-629598328", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-629598328" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-629598328">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:23:40.815Z",
+  "request": {
+    "docCatCode": "POA",
+    "docTypCode": "RNC",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "51930712647694",
+  "filePath": "preReg/uploadDocument/doc_POA.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:23:43.318Z",
+  "response": {
+    "preRegistrationId": "51930712647694",
+    "docId": "ccb160a3-2262-11ee-806b-bf8327bb4381",
+    "docName": "doc_POA.pdf",
+    "docCatCode": "POA",
+    "docTypCode": "RNC",
+    "docFileFormat": "pdf"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.refNumber</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>pdf</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>RNC</td>
+    <td>RNC</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POA</td>
+    <td>POA</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POA.pdf</td>
+    <td>doc_POA.pdf</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_All_Valid_Smoke_sid()'><b>Prereg_UploadDocument_All_Valid_Smoke_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_All_Valid_Smoke_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POA", "docTypCode" : "RNC", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POA.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POA.pdf", "docCatCode":"POA", "docTypCode":"RNC", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-307230285" onClick='toggleBox("Output-307230285", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-307230285" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-307230285">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:23:32.638Z",
+  "request": {
+    "docCatCode": "POA",
+    "docTypCode": "RNC",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "51842975028036",
+  "filePath": "preReg/uploadDocument/doc_POA.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:23:34.864Z",
+  "response": {
+    "preRegistrationId": "51842975028036",
+    "docId": "c7b4acb2-2262-11ee-806b-35d0d9d52868",
+    "docName": "doc_POA.pdf",
+    "docCatCode": "POA",
+    "docTypCode": "RNC",
+    "docFileFormat": "pdf"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.refNumber</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>pdf</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>RNC</td>
+    <td>RNC</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POA</td>
+    <td>POA</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POA.pdf</td>
+    <td>doc_POA.pdf</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_Blank_id_sid()'><b>Prereg_UploadDocument_Blank_id_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_Blank_id_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "", "docCatCode" : "POA", "docTypCode" : "RNC", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POA.pdf", "fileKeyName": "file" }, output={ "errors": [ { "errorCode": "PRG_PAM_CORE_001", "message": "Request id is invalid" } ] }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2042575333" onClick='toggleBox("Output-2042575333", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2042575333" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2042575333">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:24:59.484Z",
+  "request": {
+    "docCatCode": "POA",
+    "docTypCode": "RNC",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "51842975028036",
+  "filePath": "preReg/uploadDocument/doc_POA.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:25:01.729Z",
+  "errors": [
+    {
+      "errorCode": "PRG_PAM_CORE_001",
+      "message": "Request id is invalid"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Request id is invalid</td>
+    <td>Request id is invalid</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_PAM_CORE_001</td>
+    <td>PRG_PAM_CORE_001</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_Invalid_doccatCode_sid()'><b>Prereg_UploadDocument_Invalid_doccatCode_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_Invalid_doccatCode_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "shsu434@3", "docTypCode" : "RNC", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POA.pdf", "fileKeyName": "file" }, output={ "errors": [ { "errorCode": "PRG_CORE_REQ_018", "message": "$IGNORE$" } ] }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-677726975" onClick='toggleBox("Output-677726975", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-677726975" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-677726975">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:24:49.612Z",
+  "request": {
+    "docCatCode": "shsu434@3",
+    "docTypCode": "RNC",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "51842975028036",
+  "filePath": "preReg/uploadDocument/doc_POA.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:24:51.956Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_018",
+      "message": "Document Category code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  langCode eng"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_CORE_REQ_018</td>
+    <td>PRG_CORE_REQ_018</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_Invalid_langCode_sid()'><b>Prereg_UploadDocument_Invalid_langCode_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_Invalid_langCode_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POA", "docTypCode" : "RNC", "langCode" : "fdjdikdjda", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POA.pdf", "fileKeyName": "file" }, output={ "errors": [ { "errorCode": "PRG_CORE_REQ_014", "message": "Lang code is invalid" } ] }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1264377095" onClick='toggleBox("Output-1264377095", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1264377095" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1264377095">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:24:52.032Z",
+  "request": {
+    "docCatCode": "POA",
+    "docTypCode": "RNC",
+    "langCode": "fdjdikdjda"
+  },
+  "preRegistrationId": "51842975028036",
+  "filePath": "preReg/uploadDocument/doc_POA.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:24:55.188Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_014",
+      "message": "Lang code is invalid"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Lang code is invalid</td>
+    <td>Lang code is invalid</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_CORE_REQ_014</td>
+    <td>PRG_CORE_REQ_014</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_Smoke_CancelApplicationsAppointment_sid()'><b>Prereg_UploadDocument_Smoke_CancelApplicationsAppointment_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_Smoke_CancelApplicationsAppointment_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POA", "docTypCode" : "RNC", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_Smoke_CancelApplicationsAppointment_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POA.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POA.pdf", "docCatCode":"POA", "docTypCode":"RNC", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-57665597" onClick='toggleBox("Output-57665597", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-57665597" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-57665597">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:24:29.749Z",
+  "request": {
+    "docCatCode": "POA",
+    "docTypCode": "RNC",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "50458742782976",
+  "filePath": "preReg/uploadDocument/doc_POA.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:24:32.027Z",
+  "response": {
+    "preRegistrationId": "50458742782976",
+    "docId": "e9c7aaa8-2262-11ee-806b-c5326bbe374a",
+    "docName": "doc_POA.pdf",
+    "docCatCode": "POA",
+    "docTypCode": "RNC",
+    "docFileFormat": "pdf"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.refNumber</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>pdf</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>RNC</td>
+    <td>RNC</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POA</td>
+    <td>POA</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POA.pdf</td>
+    <td>doc_POA.pdf</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_Smoke_alldel_sid()'><b>Prereg_UploadDocument_Smoke_alldel_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_Smoke_alldel_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POA", "docTypCode" : "RNC", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_Smoke_alldel_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POA.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POA.pdf", "docCatCode":"POA", "docTypCode":"RNC", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-300836639" onClick='toggleBox("Output-300836639", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-300836639" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-300836639">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:24:09.557Z",
+  "request": {
+    "docCatCode": "POA",
+    "docTypCode": "RNC",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "29860562146704",
+  "filePath": "preReg/uploadDocument/doc_POA.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:24:14.262Z",
+  "response": {
+    "preRegistrationId": "29860562146704",
+    "docId": "df2f1c96-2262-11ee-806b-dd38bd475866",
+    "docName": "doc_POA.pdf",
+    "docCatCode": "POA",
+    "docTypCode": "RNC",
+    "docFileFormat": "pdf"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.refNumber</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>pdf</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>RNC</td>
+    <td>RNC</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POA</td>
+    <td>POA</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POA.pdf</td>
+    <td>doc_POA.pdf</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_Smoke_cancellappointment_sid()'><b>Prereg_UploadDocument_Smoke_cancellappointment_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_Smoke_cancellappointment_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POA", "docTypCode" : "RNC", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_Smoke_CancellAppointment_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POA.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POA.pdf", "docCatCode":"POA", "docTypCode":"RNC", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1219145433" onClick='toggleBox("Output-1219145433", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1219145433" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1219145433">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:24:21.225Z",
+  "request": {
+    "docCatCode": "POA",
+    "docTypCode": "RNC",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "26839109451645",
+  "filePath": "preReg/uploadDocument/doc_POA.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:24:23.579Z",
+  "response": {
+    "preRegistrationId": "26839109451645",
+    "docId": "e4bf0fd7-2262-11ee-806b-7ba86fa05adc",
+    "docName": "doc_POA.pdf",
+    "docCatCode": "POA",
+    "docTypCode": "RNC",
+    "docFileFormat": "pdf"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.refNumber</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>pdf</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>RNC</td>
+    <td>RNC</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POA</td>
+    <td>POA</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POA.pdf</td>
+    <td>doc_POA.pdf</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_Valid_Smoke_sid()'><b>Prereg_UploadDocument_Valid_Smoke_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_Valid_Smoke_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POA", "docTypCode" : "RNC", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_Valid_Smoke_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POA.pdf", "fileKeyName": "file" }, output={ "id":"mosip.pre-registration.document.upload", "docName":"doc_POA.pdf", "docCatCode":"POA", "docTypCode":"RNC", "docFileFormat":"pdf" }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/uploadDocument/uploadDocumentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1811655452" onClick='toggleBox("Output-1811655452", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1811655452" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1811655452">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:24:01.258Z",
+  "request": {
+    "docCatCode": "POA",
+    "docTypCode": "RNC",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "50927459024501",
+  "filePath": "preReg/uploadDocument/doc_POA.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:24:03.835Z",
+  "response": {
+    "preRegistrationId": "50927459024501",
+    "docId": "d8f3a715-2262-11ee-806b-6b1cee2ece13",
+    "docName": "doc_POA.pdf",
+    "docCatCode": "POA",
+    "docTypCode": "RNC",
+    "docFileFormat": "pdf"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.refNumber</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.docFileFormat</td>
+    <td>pdf</td>
+    <td>pdf</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docTypCode</td>
+    <td>RNC</td>
+    <td>RNC</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docCatCode</td>
+    <td>POA</td>
+    <td>POA</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td>mosip.pre-registration.document.upload</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.docName</td>
+    <td>doc_POA.pdf</td>
+    <td>doc_POA.pdf</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_blank_docTypCode_sid()'><b>Prereg_UploadDocument_blank_docTypCode_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_blank_docTypCode_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POA", "docTypCode" : "", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POA.pdf", "fileKeyName": "file" }, output={ "errors": [ { "errorCode": "PRG_CORE_REQ_017", "message": "$IGNORE$" } ] }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-807661911" onClick='toggleBox("Output-807661911", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-807661911" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-807661911">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:24:39.944Z",
+  "request": {
+    "docCatCode": "POA",
+    "docTypCode": "",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "51842975028036",
+  "filePath": "preReg/uploadDocument/doc_POA.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:24:42.018Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_017",
+      "message": "Document type code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  catcode POA typeCode  "
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_CORE_REQ_017</td>
+    <td>PRG_CORE_REQ_017</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_blank_doccatCode_sid()'><b>Prereg_UploadDocument_blank_doccatCode_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_blank_doccatCode_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "", "docTypCode" : "RNC", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POA.pdf", "fileKeyName": "file" }, output={ "errors": [ { "errorCode": "PRG_CORE_REQ_018", "message": "$IGNORE$" } ] }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1717136460" onClick='toggleBox("Output-1717136460", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1717136460" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1717136460">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:24:44.303Z",
+  "request": {
+    "docCatCode": "",
+    "docTypCode": "RNC",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "51842975028036",
+  "filePath": "preReg/uploadDocument/doc_POA.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:24:47.259Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_018",
+      "message": "Document Category code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  langCode eng"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_CORE_REQ_018</td>
+    <td>PRG_CORE_REQ_018</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_inValid_docTypCode_sid()'><b>Prereg_UploadDocument_inValid_docTypCode_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_inValid_docTypCode_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POA", "docTypCode" : "address", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POA.pdf", "fileKeyName": "file" }, output={ "errors": [ { "errorCode": "PRG_CORE_REQ_017", "message": "$IGNORE$" } ] }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1309147872" onClick='toggleBox("Output-1309147872", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1309147872" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1309147872">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:24:37.654Z",
+  "request": {
+    "docCatCode": "POA",
+    "docTypCode": "address",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "51842975028036",
+  "filePath": "preReg/uploadDocument/doc_POA.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:24:39.870Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_017",
+      "message": "Document type code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  catcode POA typeCode  "
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_CORE_REQ_017</td>
+    <td>PRG_CORE_REQ_017</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_inValid_id_sid()'><b>Prereg_UploadDocument_inValid_id_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_inValid_id_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mossjsnam54ent.upload", "docCatCode" : "POA", "docTypCode" : "RNC", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POA.pdf", "fileKeyName": "file" }, output={ "errors": [ { "errorCode": "PRG_PAM_CORE_001", "message": "Request id is invalid" } ] }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1160338685" onClick='toggleBox("Output-1160338685", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1160338685" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1160338685">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mossjsnam54ent.upload",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:24:57.330Z",
+  "request": {
+    "docCatCode": "POA",
+    "docTypCode": "RNC",
+    "langCode": "eng"
+  },
+  "preRegistrationId": "51842975028036",
+  "filePath": "preReg/uploadDocument/doc_POA.pdf",
+  "fileKeyName": "file"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mossjsnam54ent.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:24:59.415Z",
+  "errors": [
+    {
+      "errorCode": "PRG_PAM_CORE_001",
+      "message": "Request id is invalid"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Request id is invalid</td>
+    <td>Request id is invalid</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_PAM_CORE_001</td>
+    <td>PRG_PAM_CORE_001</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_missing_docTypCode_sid()'><b>Prereg_UploadDocument_missing_docTypCode_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_missing_docTypCode_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POA", "docTypCode" : "$REMOVE$", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POA.pdf", "fileKeyName": "file" }, output={ "errors": [ { "errorCode": "PRG_CORE_REQ_017", "message": "$IGNORE$" } ] }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-17921215" onClick='toggleBox("Output-17921215", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-17921215" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-17921215">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "docCatCode": "POA",
+    "langCode": "eng"
+  },
+  "fileKeyName": "file",
+  "requesttime": "2023-07-14T16:24:42.093Z",
+  "filePath": "preReg/uploadDocument/doc_POA.pdf",
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "preRegistrationId": "51842975028036"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:24:44.219Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_017",
+      "message": "Document type code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  catcode POA typeCode  "
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_CORE_REQ_017</td>
+    <td>PRG_CORE_REQ_017</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_missing_doccatCode_sid()'><b>Prereg_UploadDocument_missing_doccatCode_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_missing_doccatCode_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "$REMOVE$", "docTypCode" : "RNC", "langCode" : "$1STLANG$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POA.pdf", "fileKeyName": "file" }, output={ "errors": [ { "errorCode": "PRG_CORE_REQ_018", "message": "$IGNORE$" } ] }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1722532645" onClick='toggleBox("Output-1722532645", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1722532645" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1722532645">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "docTypCode": "RNC",
+    "langCode": "eng"
+  },
+  "fileKeyName": "file",
+  "requesttime": "2023-07-14T16:24:47.337Z",
+  "filePath": "preReg/uploadDocument/doc_POA.pdf",
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "preRegistrationId": "51842975028036"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:24:49.537Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_018",
+      "message": "Document Category code is invalid   {POA\u003d[DOC008, DOC004, DOC002, DOC005, DOC003, COB, DOC015, COE, COR, CRN, DOC001, RNC, CIN], POE\u003d[DOC017, COE, DOC010, DOC028, DOC024, DOC004, RNC, COR, DOC001, CRN, CIN], POI\u003d[DOC001]}  langCode eng"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_CORE_REQ_018</td>
+    <td>PRG_CORE_REQ_018</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormPathParamAndFile.Prereg_UploadDocument_missing_langCode_sid()'><b>Prereg_UploadDocument_missing_langCode_sid</b><br>Test class: io.mosip.testscripts.PostWithFormPathParamAndFile (Prereg_UploadDocument_Blank_id_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_UploadDocument_missing_langCode_sid, endPoint=/preregistration/v1/documents/{preRegistrationId}, role=batch, templateFields=null, input={ "id": "mosip.pre-registration.document.upload", "docCatCode" : "POA", "docTypCode" : "RNC", "langCode" : "$REMOVE$", "requesttime" : "$TIMESTAMP$", "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "filePath": "preReg/uploadDocument/doc_POA.pdf", "fileKeyName": "file" }, output={ "errors": [ { "errorCode": "PRG_CORE_REQ_014", "message": "Lang code is invalid" } ] }, inputTemplate=preReg/uploadDocument/uploadDocument, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-370196540" onClick='toggleBox("Output-370196540", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-370196540" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-370196540">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "docCatCode": "POA",
+    "docTypCode": "RNC"
+  },
+  "fileKeyName": "file",
+  "requesttime": "2023-07-14T16:24:55.259Z",
+  "filePath": "preReg/uploadDocument/doc_POA.pdf",
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "preRegistrationId": "51842975028036"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/documents/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:24:57.252Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_014",
+      "message": "Lang code is invalid"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Lang code is invalid</td>
+    <td>Lang code is invalid</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_CORE_REQ_014</td>
+    <td>PRG_CORE_REQ_014</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testscripts.PostWithFormPathParamAndFile@74f280bd</td></tr>
+</table><p>
+</body>
+</html>

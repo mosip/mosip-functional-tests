@@ -1,0 +1,1274 @@
+<html>
+<head>
+<title>TestNG:  SendOtp</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>SendOtp</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>25/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Jan 18 17:15:44 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>10 seconds (10973 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.IDP_SendOtp_Diff_RequestTime_Neg()'><b>IDP_SendOtp_Diff_RequestTime_Neg</b><br>Test class: io.mosip.testscripts.SimplePost (IDP_SendOtp_Null_OtpChannel_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_SendOtp_Diff_RequestTime_Neg, endPoint=/v1/idp/authorization/send-otp, role=resident, templateFields=null, input={ "requestTime": "2022-11-07T06:51:30.195Z", "transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/SendOtp/SendOtp, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1659209382" onClick='toggleBox("Output-1659209382", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1659209382" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1659209382">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2022-11-07T06:51:30.195Z",
+  "request": {
+    "transactionId": "7psH_Lek6DPQgRMmhuLPQs2FUFn3GUvU4CEpkrPj1Ng",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:50.002Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6c6c2a73</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.IDP_SendOtp_Empty_OtpChannel_Neg()'><b>IDP_SendOtp_Empty_OtpChannel_Neg</b><br>Test class: io.mosip.testscripts.SimplePost (IDP_SendOtp_Null_OtpChannel_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_SendOtp_Empty_OtpChannel_Neg, endPoint=/v1/idp/authorization/send-otp, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": "" }, output={ "errors": [ { "errorCode": "unknown_error", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/SendOtp/SendOtpEmptyOtpChannel, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1892336170" onClick='toggleBox("Output-1892336170", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1892336170" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1892336170">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:55.144Z",
+  "request": {
+    "transactionId": "7psH_Lek6DPQgRMmhuLPQs2FUFn3GUvU4CEpkrPj1Ng",
+    "individualId": "3021364370",
+    "otpChannels": ""
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:55.415Z",
+  "errors": [
+    {
+      "errorCode": "unknown_error",
+      "errorMessage": "JSON parse error: Cannot coerce empty String (\"\") to element of `java.util.ArrayList\u003cjava.lang.String\u003e` (but could if coercion was enabled using `CoercionConfig`); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot coerce empty String (\"\") to element of `java.util.ArrayList\u003cjava.lang.String\u003e` (but could if coercion was enabled using `CoercionConfig`)\n at [Source: (PushbackInputStream); line: 6, column: 20] (through reference chain: io.mosip.idp.core.dto.RequestWrapper[\"request\"]-\u003eio.mosip.idp.core.dto.OtpRequest[\"otpChannels\"])"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>unknown_error</td>
+    <td>unknown_error</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6c6c2a73</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.IDP_SendOtp_Empty_OtpChannels_Neg()'><b>IDP_SendOtp_Empty_OtpChannels_Neg</b><br>Test class: io.mosip.testscripts.SimplePost (IDP_SendOtp_Null_OtpChannel_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_SendOtp_Empty_OtpChannels_Neg, endPoint=/v1/idp/authorization/send-otp, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: ""},{channel: ""}] }, output={ "errors": [ { "errorCode": "invalid_otp_channel", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/SendOtp/SendOtp, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1465511423" onClick='toggleBox("Output-1465511423", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1465511423" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1465511423">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:54.211Z",
+  "request": {
+    "transactionId": "7psH_Lek6DPQgRMmhuLPQs2FUFn3GUvU4CEpkrPj1Ng",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "",
+      ""
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:54.514Z",
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "request.otpChannels[1]: invalid_otp_channel"
+    },
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "request.otpChannels[0]: invalid_otp_channel"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[1].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>invalid_otp_channel</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[1].errorMessage</td>
+    <td>NOT VERIFIED</td>
+    <td>request.otpChannels[0]: invalid_otp_channel</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_otp_channel</td>
+    <td>invalid_otp_channel</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6c6c2a73</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.IDP_SendOtp_Empty_individualId_Neg()'><b>IDP_SendOtp_Empty_individualId_Neg</b><br>Test class: io.mosip.testscripts.SimplePost (IDP_SendOtp_Null_OtpChannel_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_SendOtp_Empty_individualId_Neg, endPoint=/v1/idp/authorization/send-otp, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$", "individualId": "", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "invalid_identifier", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/SendOtp/SendOtp, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1489199364" onClick='toggleBox("Output-1489199364", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1489199364" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1489199364">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:52.818Z",
+  "request": {
+    "transactionId": "7psH_Lek6DPQgRMmhuLPQs2FUFn3GUvU4CEpkrPj1Ng",
+    "individualId": "",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:53.074Z",
+  "errors": [
+    {
+      "errorCode": "invalid_identifier",
+      "errorMessage": "request.individualId: invalid_identifier"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_identifier</td>
+    <td>invalid_identifier</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6c6c2a73</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.IDP_SendOtp_Empty_transactionId_Neg()'><b>IDP_SendOtp_Empty_transactionId_Neg</b><br>Test class: io.mosip.testscripts.SimplePost (IDP_SendOtp_Null_OtpChannel_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_SendOtp_Empty_transactionId_Neg, endPoint=/v1/idp/authorization/send-otp, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "invalid_transaction_id", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/SendOtp/SendOtp, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1694213094" onClick='toggleBox("Output-1694213094", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1694213094" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1694213094">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:51.183Z",
+  "request": {
+    "transactionId": "",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:51.454Z",
+  "errors": [
+    {
+      "errorCode": "invalid_transaction_id",
+      "errorMessage": "request.transactionId: invalid_transaction_id"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_transaction_id</td>
+    <td>invalid_transaction_id</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6c6c2a73</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.IDP_SendOtp_Expired_transactionId_Neg()'><b>IDP_SendOtp_Expired_transactionId_Neg</b><br>Test class: io.mosip.testscripts.SimplePost (IDP_SendOtp_Null_OtpChannel_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_SendOtp_Expired_transactionId_Neg, endPoint=/v1/idp/authorization/send-otp, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "4eKDB4GPk6fP8XXEDY7rktwtQF6WiwrOCehT2CwyVT0", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "invalid_transaction", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/SendOtp/SendOtp, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-914718002" onClick='toggleBox("Output-914718002", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-914718002" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-914718002">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:50.639Z",
+  "request": {
+    "transactionId": "4eKDB4GPk6fP8XXEDY7rktwtQF6WiwrOCehT2CwyVT0",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:50.870Z",
+  "errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "invalid_transaction"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_transaction</td>
+    <td>invalid_transaction</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6c6c2a73</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.IDP_SendOtp_Future_RequestTime_Neg()'><b>IDP_SendOtp_Future_RequestTime_Neg</b><br>Test class: io.mosip.testscripts.SimplePost (IDP_SendOtp_Null_OtpChannel_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_SendOtp_Future_RequestTime_Neg, endPoint=/v1/idp/authorization/send-otp, role=resident, templateFields=null, input={ "requestTime": "2033-11-07T06:51:30.195Z", "transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/SendOtp/SendOtp, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1951250939" onClick='toggleBox("Output-1951250939", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1951250939" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1951250939">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2033-11-07T06:51:30.195Z",
+  "request": {
+    "transactionId": "7psH_Lek6DPQgRMmhuLPQs2FUFn3GUvU4CEpkrPj1Ng",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:50.367Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6c6c2a73</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.IDP_SendOtp_Invalid_OtpChannels_Neg()'><b>IDP_SendOtp_Invalid_OtpChannels_Neg</b><br>Test class: io.mosip.testscripts.SimplePost (IDP_SendOtp_Null_OtpChannel_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_SendOtp_Invalid_OtpChannels_Neg, endPoint=/v1/idp/authorization/send-otp, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "Random1"},{channel: "Random2"}] }, output={ "errors": [ { "errorCode": "invalid_otp_channel", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/SendOtp/SendOtp, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1588609461" onClick='toggleBox("Output-1588609461", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1588609461" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1588609461">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:53.728Z",
+  "request": {
+    "transactionId": "7psH_Lek6DPQgRMmhuLPQs2FUFn3GUvU4CEpkrPj1Ng",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "Random1",
+      "Random2"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:53.961Z",
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "request.otpChannels[0]: invalid_otp_channel"
+    },
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "request.otpChannels[1]: invalid_otp_channel"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[1].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>invalid_otp_channel</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[1].errorMessage</td>
+    <td>NOT VERIFIED</td>
+    <td>request.otpChannels[1]: invalid_otp_channel</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_otp_channel</td>
+    <td>invalid_otp_channel</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6c6c2a73</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.IDP_SendOtp_Invalid_RequestTime_Neg()'><b>IDP_SendOtp_Invalid_RequestTime_Neg</b><br>Test class: io.mosip.testscripts.SimplePost (IDP_SendOtp_Null_OtpChannel_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_SendOtp_Invalid_RequestTime_Neg, endPoint=/v1/idp/authorization/send-otp, role=resident, templateFields=null, input={ "requestTime": "2022-11-08T06:35:53", "transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/SendOtp/SendOtp, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-892981061" onClick='toggleBox("Output-892981061", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-892981061" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-892981061">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2022-11-08T06:35:53",
+  "request": {
+    "transactionId": "7psH_Lek6DPQgRMmhuLPQs2FUFn3GUvU4CEpkrPj1Ng",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:49.676Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6c6c2a73</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.IDP_SendOtp_Invalid_individualId_Neg()'><b>IDP_SendOtp_Invalid_individualId_Neg</b><br>Test class: io.mosip.testscripts.SimplePost (IDP_SendOtp_Null_OtpChannel_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_SendOtp_Invalid_individualId_Neg, endPoint=/v1/idp/authorization/send-otp, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "@@#$#VGH", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "IDA-MLC-009", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/SendOtp/SendOtp, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1429297664" onClick='toggleBox("Output-1429297664", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1429297664" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1429297664">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:51.735Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "@@#$#VGH",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:52.495Z",
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "IDA-MLC-009"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDA-MLC-009</td>
+    <td>IDA-MLC-009</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6c6c2a73</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.IDP_SendOtp_Invalid_transactionId_Neg()'><b>IDP_SendOtp_Invalid_transactionId_Neg</b><br>Test class: io.mosip.testscripts.SimplePost (IDP_SendOtp_Null_OtpChannel_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_SendOtp_Invalid_transactionId_Neg, endPoint=/v1/idp/authorization/send-otp, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "transactionId", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "invalid_transaction", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/SendOtp/SendOtp, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-84976327" onClick='toggleBox("Output-84976327", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-84976327" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-84976327">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:50.397Z",
+  "request": {
+    "transactionId": "transactionId",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:50.627Z",
+  "errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "invalid_transaction"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_transaction</td>
+    <td>invalid_transaction</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6c6c2a73</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.IDP_SendOtp_Missing_OtpChannel_Neg()'><b>IDP_SendOtp_Missing_OtpChannel_Neg</b><br>Test class: io.mosip.testscripts.SimplePost (IDP_SendOtp_Null_OtpChannel_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_SendOtp_Missing_OtpChannel_Neg, endPoint=/v1/idp/authorization/send-otp, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": "$REMOVE$" }, output={ "errors": [ { "errorCode": "invalid_otp_channel", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/SendOtp/SendOtpEmptyOtpChannel, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-263466012" onClick='toggleBox("Output-263466012", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-263466012" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-263466012">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:54.888Z",
+  "request": {
+    "individualId": "3021364370",
+    "transactionId": "7psH_Lek6DPQgRMmhuLPQs2FUFn3GUvU4CEpkrPj1Ng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:55.129Z",
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "request.otpChannels: invalid_otp_channel"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_otp_channel</td>
+    <td>invalid_otp_channel</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6c6c2a73</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.IDP_SendOtp_Missing_OtpChannels_Neg()'><b>IDP_SendOtp_Missing_OtpChannels_Neg</b><br>Test class: io.mosip.testscripts.SimplePost (IDP_SendOtp_Null_OtpChannel_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_SendOtp_Missing_OtpChannels_Neg, endPoint=/v1/idp/authorization/send-otp, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "$REMOVE$"},{channel: "$REMOVE$"}] }, output={ "errors": [ { "errorCode": "invalid_otp_channel", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/SendOtp/SendOtp, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1268904997" onClick='toggleBox("Output-1268904997", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1268904997" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1268904997">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:53.973Z",
+  "request": {
+    "otpChannels": [],
+    "individualId": "3021364370",
+    "transactionId": "7psH_Lek6DPQgRMmhuLPQs2FUFn3GUvU4CEpkrPj1Ng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:54.201Z",
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "request.otpChannels: invalid_otp_channel"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_otp_channel</td>
+    <td>invalid_otp_channel</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6c6c2a73</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.IDP_SendOtp_Missing_individualId_Neg()'><b>IDP_SendOtp_Missing_individualId_Neg</b><br>Test class: io.mosip.testscripts.SimplePost (IDP_SendOtp_Null_OtpChannel_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_SendOtp_Missing_individualId_Neg, endPoint=/v1/idp/authorization/send-otp, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$", "individualId": "$REMOVE$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "invalid_identifier", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/SendOtp/SendOtp, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1728766751" onClick='toggleBox("Output-1728766751", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1728766751" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1728766751">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:52.520Z",
+  "request": {
+    "otpChannels": [
+      "phone",
+      "email"
+    ],
+    "transactionId": "7psH_Lek6DPQgRMmhuLPQs2FUFn3GUvU4CEpkrPj1Ng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:52.796Z",
+  "errors": [
+    {
+      "errorCode": "invalid_identifier",
+      "errorMessage": "request.individualId: invalid_identifier"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_identifier</td>
+    <td>invalid_identifier</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6c6c2a73</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.IDP_SendOtp_Missing_transactionId_Neg()'><b>IDP_SendOtp_Missing_transactionId_Neg</b><br>Test class: io.mosip.testscripts.SimplePost (IDP_SendOtp_Null_OtpChannel_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_SendOtp_Missing_transactionId_Neg, endPoint=/v1/idp/authorization/send-otp, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$REMOVE$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "invalid_transaction_id", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/SendOtp/SendOtp, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-957717268" onClick='toggleBox("Output-957717268", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-957717268" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-957717268">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:50.882Z",
+  "request": {
+    "otpChannels": [
+      "phone",
+      "email"
+    ],
+    "individualId": "3021364370"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:51.160Z",
+  "errors": [
+    {
+      "errorCode": "invalid_transaction_id",
+      "errorMessage": "request.transactionId: invalid_transaction_id"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_transaction_id</td>
+    <td>invalid_transaction_id</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6c6c2a73</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.IDP_SendOtp_NR_Email_Uin_Neg()'><b>IDP_SendOtp_NR_Email_Uin_Neg</b><br>Test class: io.mosip.testscripts.SimplePost (IDP_SendOtp_Null_OtpChannel_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_SendOtp_NR_Email_Uin_Neg, endPoint=/v1/idp/authorization/send-otp, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Valid_Params_WOEmail_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "IDA-MLC-009", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/SendOtp/SendOtp, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-530861926" onClick='toggleBox("Output-530861926", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-530861926" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-530861926">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:45.898Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "5419817307",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:46.682Z",
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "IDA-MLC-009"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDA-MLC-009</td>
+    <td>IDA-MLC-009</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6c6c2a73</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.IDP_SendOtp_NR_Phone_Uin_Neg()'><b>IDP_SendOtp_NR_Phone_Uin_Neg</b><br>Test class: io.mosip.testscripts.SimplePost (IDP_SendOtp_Null_OtpChannel_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_SendOtp_NR_Phone_Uin_Neg, endPoint=/v1/idp/authorization/send-otp, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Valid_Params_WOPhone_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "IDA-MLC-009", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/SendOtp/SendOtp, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1424987800" onClick='toggleBox("Output-1424987800", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1424987800" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1424987800">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:46.693Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "2057160269",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:47.790Z",
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "IDA-MLC-009"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDA-MLC-009</td>
+    <td>IDA-MLC-009</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.SimplePost@6c6c2a73</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.IDP_SendOtp_Null_OtpChannel_Neg()'><b>IDP_SendOtp_Null_OtpChannel_Neg</b><br>Test class: io.mosip.testscripts.SimplePost (IDP_SendOtp_Null_OtpChannel_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_SendOtp_Null_OtpChannel_Neg, endPoint=/v1/idp/authorization/send-otp, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": "null" }, output={ "errors": [ { "errorCode": "unknown_error", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/SendOtp/SendOtpEmptyOtpChannel, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1577253667" onClick='toggleBox("Output-1577253667", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1577253667" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1577253667">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:55.438Z",
+  "request": {
+    "transactionId": "7psH_Lek6DPQgRMmhuLPQs2FUFn3GUvU4CEpkrPj1Ng",
+    "individualId": "3021364370",
+    "otpChannels": "null"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:55.671Z",
+  "errors": [
+    {
+      "errorCode": "unknown_error",
+      "errorMessage": "JSON parse error: Cannot construct instance of `java.util.ArrayList` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value (\u0027null\u0027); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `java.util.ArrayList` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value (\u0027null\u0027)\n at [Source: (PushbackInputStream); line: 6, column: 20] (through reference chain: io.mosip.idp.core.dto.RequestWrapper[\"request\"]-\u003eio.mosip.idp.core.dto.OtpRequest[\"otpChannels\"])"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>unknown_error</td>
+    <td>unknown_error</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6c6c2a73</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.IDP_SendOtp_Null_OtpChannels_Neg()'><b>IDP_SendOtp_Null_OtpChannels_Neg</b><br>Test class: io.mosip.testscripts.SimplePost (IDP_SendOtp_Null_OtpChannel_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_SendOtp_Null_OtpChannels_Neg, endPoint=/v1/idp/authorization/send-otp, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "null"},{channel: "null"}] }, output={ "errors": [ { "errorCode": "invalid_otp_channel", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/SendOtp/SendOtp, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1792516869" onClick='toggleBox("Output-1792516869", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1792516869" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1792516869">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:54.536Z",
+  "request": {
+    "transactionId": "7psH_Lek6DPQgRMmhuLPQs2FUFn3GUvU4CEpkrPj1Ng",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "null",
+      "null"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:54.855Z",
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "request.otpChannels[0]: invalid_otp_channel"
+    },
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "request.otpChannels[1]: invalid_otp_channel"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[1].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>invalid_otp_channel</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[1].errorMessage</td>
+    <td>NOT VERIFIED</td>
+    <td>request.otpChannels[1]: invalid_otp_channel</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_otp_channel</td>
+    <td>invalid_otp_channel</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6c6c2a73</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.IDP_SendOtp_Null_individualId_Neg()'><b>IDP_SendOtp_Null_individualId_Neg</b><br>Test class: io.mosip.testscripts.SimplePost (IDP_SendOtp_Null_OtpChannel_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_SendOtp_Null_individualId_Neg, endPoint=/v1/idp/authorization/send-otp, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$", "individualId": "null", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "IDA-MLC-009", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/SendOtp/SendOtp, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-588054843" onClick='toggleBox("Output-588054843", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-588054843" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-588054843">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:53.085Z",
+  "request": {
+    "transactionId": "LD_-GS7vcYNxE9LriUHh-Gia0bAlhuPZrcApebROgFw",
+    "individualId": "null",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:53.713Z",
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "IDA-MLC-009"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDA-MLC-009</td>
+    <td>IDA-MLC-009</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6c6c2a73</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.IDP_SendOtp_Null_transactionId_Neg()'><b>IDP_SendOtp_Null_transactionId_Neg</b><br>Test class: io.mosip.testscripts.SimplePost (IDP_SendOtp_Null_OtpChannel_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_SendOtp_Null_transactionId_Neg, endPoint=/v1/idp/authorization/send-otp, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "null", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "errors": [ { "errorCode": "invalid_transaction", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/SendOtp/SendOtp, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1466006133" onClick='toggleBox("Output-1466006133", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1466006133" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1466006133">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:51.480Z",
+  "request": {
+    "transactionId": "null",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:51.724Z",
+  "errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "invalid_transaction"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_transaction</td>
+    <td>invalid_transaction</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6c6c2a73</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.IDP_SendOtp_SpaceSeparated_otpChannels_Neg()'><b>IDP_SendOtp_SpaceSeparated_otpChannels_Neg</b><br>Test class: io.mosip.testscripts.SimplePost (IDP_SendOtp_Null_OtpChannel_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_SendOtp_SpaceSeparated_otpChannels_Neg, endPoint=/v1/idp/authorization/send-otp, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "s m s"}] }, output={ "errors": [ { "errorCode": "invalid_otp_channel", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/SendOtp/SendOtp, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-703262976" onClick='toggleBox("Output-703262976", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-703262976" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-703262976">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:48.788Z",
+  "request": {
+    "transactionId": "7psH_Lek6DPQgRMmhuLPQs2FUFn3GUvU4CEpkrPj1Ng",
+    "individualId": "3021364370",
+    "otpChannels": [
+      "email",
+      "s m s"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:49.093Z",
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "request.otpChannels[1]: invalid_otp_channel"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_otp_channel</td>
+    <td>invalid_otp_channel</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6c6c2a73</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.IDP_SendOtp_Vid_SpaceSeparated_otpChannels_Neg()'><b>IDP_SendOtp_Vid_SpaceSeparated_otpChannels_Neg</b><br>Test class: io.mosip.testscripts.SimplePost (IDP_SendOtp_Null_OtpChannel_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_SendOtp_Vid_SpaceSeparated_otpChannels_Neg, endPoint=/v1/idp/authorization/send-otp, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$", "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$", "otpChannels": [{channel: "email"},{channel: "s m s"}] }, output={ "errors": [ { "errorCode": "invalid_otp_channel", "errorMessage": "$IGNORE$" } ] }, inputTemplate=idp/SendOtp/SendOtp, outputTemplate=idp/error, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1261832834" onClick='toggleBox("Output-1261832834", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1261832834" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1261832834">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:49.114Z",
+  "request": {
+    "transactionId": "7psH_Lek6DPQgRMmhuLPQs2FUFn3GUvU4CEpkrPj1Ng",
+    "individualId": "3782986927453084",
+    "otpChannels": [
+      "email",
+      "s m s"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:49.371Z",
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "request.otpChannels[1]: invalid_otp_channel"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_otp_channel</td>
+    <td>invalid_otp_channel</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6c6c2a73</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.IDP_SendOtp_Vid_all_Valid_Smoke()'><b>IDP_SendOtp_Vid_all_Valid_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (IDP_SendOtp_Null_OtpChannel_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_SendOtp_Vid_all_Valid_Smoke, endPoint=/v1/idp/authorization/send-otp, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_SendOtp_Vid_Valid_Smoke_sid_transactionId$", "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com", "maskedMobile": "XXXXXX3210" }, inputTemplate=idp/SendOtp/SendOtp, outputTemplate=idp/SendOtp/SendOtpResult, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1761040949" onClick='toggleBox("Output-1761040949", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1761040949" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1761040949">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:47.809Z",
+  "request": {
+    "transactionId": "NbtYGG1tfYRXkbC5J1jQjxHe3WJtali4K29pFXkDfJc",
+    "individualId": "3782986927453084",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:48.106Z",
+  "response": {
+    "transactionId": "NbtYGG1tfYRXkbC5J1jQjxHe3WJtali4K29pFXkDfJc",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6c6c2a73</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.IDP_SendOtp_all_Valid_Smoke()'><b>IDP_SendOtp_all_Valid_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (IDP_SendOtp_Null_OtpChannel_Neg)<br>Parameters: TestCaseDTO(testCaseName=IDP_SendOtp_all_Valid_Smoke, endPoint=/v1/idp/authorization/send-otp, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$", "individualId": "$ID:AddIdentity_Valid_Parameters_smoke_Pos_UIN$", "otpChannels": [{channel: "email"},{channel: "phone"}] }, output={ "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com", "maskedMobile": "XXXXXX3210" }, inputTemplate=idp/SendOtp/SendOtp, outputTemplate=idp/SendOtp/SendOtpResult, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-535296534" onClick='toggleBox("Output-535296534", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-535296534" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-535296534">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-18T11:45:44.733Z",
+  "request": {
+    "transactionId": "7psH_Lek6DPQgRMmhuLPQs2FUFn3GUvU4CEpkrPj1Ng",
+    "individualId": "2069785021",
+    "otpChannels": [
+      "email",
+      "phone"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.qa-1201-b2.mosip.net/v1/idp/authorization/send-otp) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-01-18T11:45:45.035Z",
+  "response": {
+    "transactionId": "7psH_Lek6DPQgRMmhuLPQs2FUFn3GUvU4CEpkrPj1Ng",
+    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    "maskedMobile": "XXXXXX3210"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.maskedEmail</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td>XXsXXeXXaXXoXXtXXn@gmail.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.maskedMobile</td>
+    <td>XXXXXX3210</td>
+    <td>XXXXXX3210</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.SimplePost@6c6c2a73</td></tr>
+</table><p>
+</body>
+</html>

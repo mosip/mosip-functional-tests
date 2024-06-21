@@ -1,0 +1,1056 @@
+<html>
+<head>
+<title>TestNG:  GetLocations</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GetLocations</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Sep 20 13:39:33 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>0 seconds (360 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Admin_GetLocations_allValid_smoke()'><b>Admin_GetLocations_allValid_smoke</b><br>Test class: io.mosip.testscripts.GetWithParam (Admin_GetLocations_allValid_smoke)<br>Parameters: TestCaseDTO(testCaseName=Admin_GetLocations_allValid_smoke, endPoint=/v1/masterdata/locations/all, role=admin, templateFields=null, input={
+}, output={ "data": "$IGNORE$" }, inputTemplate=masterdata/GetLocations/getLocations, outputTemplate=masterdata/GetLocations/getLocationsResult, restMethod=get)<br/>
+<a href="#Output-1595507682" onClick='toggleBox("Output-1595507682", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1595507682" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1595507682">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/locations/all) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-09-20T08:09:33.938Z",
+  "response": {
+    "pageNo": 0,
+    "totalPages": 12,
+    "totalItems": 120,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "postgres",
+        "createdDateTime": "2022-03-17T11:54:32.651Z",
+        "isDeleted": false,
+        "code": "MOR",
+        "name": "MyCountry",
+        "hierarchyLevel": 0,
+        "hierarchyName": "Country",
+        "langCode": "eng"
+      },
+      {
+        "isActive": true,
+        "createdBy": "postgres",
+        "createdDateTime": "2022-03-17T11:54:32.651Z",
+        "isDeleted": false,
+        "code": "MOR",
+        "name": "مايكونتري",
+        "hierarchyLevel": 0,
+        "hierarchyName": "دولة",
+        "langCode": "ara"
+      },
+      {
+        "isActive": true,
+        "createdBy": "postgres",
+        "createdDateTime": "2022-03-17T11:54:32.651Z",
+        "isDeleted": false,
+        "code": "MOR",
+        "name": "Maroc",
+        "hierarchyLevel": 0,
+        "hierarchyName": "Pays",
+        "langCode": "fra"
+      },
+      {
+        "isActive": true,
+        "createdBy": "postgres",
+        "createdDateTime": "2022-03-17T11:54:32.651Z",
+        "isDeleted": false,
+        "code": "RSK",
+        "name": "Rabat Sale Kenitra",
+        "hierarchyLevel": 0,
+        "hierarchyName": "Region",
+        "parentLocCode": "MOR",
+        "langCode": "eng"
+      },
+      {
+        "isActive": true,
+        "createdBy": "postgres",
+        "createdDateTime": "2022-03-17T11:54:32.651Z",
+        "isDeleted": false,
+        "code": "RSK",
+        "name": "الرباط سلا القنيطرة",
+        "hierarchyLevel": 0,
+        "hierarchyName": "المناطق",
+        "parentLocCode": "MOR",
+        "langCode": "ara"
+      },
+      {
+        "isActive": true,
+        "createdBy": "postgres",
+        "createdDateTime": "2022-03-17T11:54:32.651Z",
+        "isDeleted": false,
+        "code": "RSK",
+        "name": "Rabat-Salé-Kénitra",
+        "hierarchyLevel": 0,
+        "hierarchyName": "Région",
+        "parentLocCode": "MOR",
+        "langCode": "fra"
+      },
+      {
+        "isActive": true,
+        "createdBy": "postgres",
+        "createdDateTime": "2022-03-17T11:54:32.651Z",
+        "isDeleted": false,
+        "code": "KTA",
+        "name": "Kenitra",
+        "hierarchyLevel": 0,
+        "hierarchyName": "Province",
+        "parentLocCode": "RSK",
+        "langCode": "eng"
+      },
+      {
+        "isActive": true,
+        "createdBy": "postgres",
+        "createdDateTime": "2022-03-17T11:54:32.651Z",
+        "isDeleted": false,
+        "code": "KTA",
+        "name": "القنيطرة",
+        "hierarchyLevel": 0,
+        "hierarchyName": "المحافظة",
+        "parentLocCode": "RSK",
+        "langCode": "ara"
+      },
+      {
+        "isActive": true,
+        "createdBy": "postgres",
+        "createdDateTime": "2022-03-17T11:54:32.651Z",
+        "isDeleted": false,
+        "code": "KTA",
+        "name": "Kénitra",
+        "hierarchyLevel": 0,
+        "hierarchyName": "Province",
+        "parentLocCode": "RSK",
+        "langCode": "fra"
+      },
+      {
+        "isActive": true,
+        "createdBy": "postgres",
+        "createdDateTime": "2022-03-17T11:54:32.651Z",
+        "isDeleted": false,
+        "code": "KNT",
+        "name": "Kenitra",
+        "hierarchyLevel": 0,
+        "hierarchyName": "City",
+        "parentLocCode": "KTA",
+        "langCode": "eng"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updatedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>fra</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].hierarchyName</td>
+    <td>NOT VERIFIED</td>
+    <td>Country</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].parentLocCode</td>
+    <td>NOT VERIFIED</td>
+    <td>RSK</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].createdDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-17T11:54:32.651Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].deletedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].createdDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-17T11:54:32.651Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updatedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].hierarchyName</td>
+    <td>NOT VERIFIED</td>
+    <td>المحافظة</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].updatedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].createdBy</td>
+    <td>NOT VERIFIED</td>
+    <td>postgres</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].hierarchyName</td>
+    <td>NOT VERIFIED</td>
+    <td>Province</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].name</td>
+    <td>NOT VERIFIED</td>
+    <td>القنيطرة</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].updatedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].parentLocCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KTA</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].deletedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].deletedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].code</td>
+    <td>NOT VERIFIED</td>
+    <td>MOR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].createdBy</td>
+    <td>NOT VERIFIED</td>
+    <td>postgres</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].updatedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].hierarchyName</td>
+    <td>NOT VERIFIED</td>
+    <td>City</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Kénitra</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].hierarchyName</td>
+    <td>NOT VERIFIED</td>
+    <td>المناطق</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].deletedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].parentLocCode</td>
+    <td>NOT VERIFIED</td>
+    <td>MOR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].code</td>
+    <td>NOT VERIFIED</td>
+    <td>KTA</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].updatedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>fra</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].createdBy</td>
+    <td>NOT VERIFIED</td>
+    <td>postgres</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].code</td>
+    <td>NOT VERIFIED</td>
+    <td>MOR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].createdBy</td>
+    <td>NOT VERIFIED</td>
+    <td>postgres</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-09-20T08:09:33.938Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].name</td>
+    <td>NOT VERIFIED</td>
+    <td>مايكونتري</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].updatedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].createdDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-17T11:54:32.651Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Maroc</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].parentLocCode</td>
+    <td>NOT VERIFIED</td>
+    <td>MOR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].createdBy</td>
+    <td>NOT VERIFIED</td>
+    <td>postgres</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>fra</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].deletedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].hierarchyName</td>
+    <td>NOT VERIFIED</td>
+    <td>Pays</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updatedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.totalItems</td>
+    <td>NOT VERIFIED</td>
+    <td>120</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updatedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].createdDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-17T11:54:32.651Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].createdBy</td>
+    <td>NOT VERIFIED</td>
+    <td>postgres</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].updatedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].code</td>
+    <td>NOT VERIFIED</td>
+    <td>KTA</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].createdBy</td>
+    <td>NOT VERIFIED</td>
+    <td>postgres</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deletedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Rabat Sale Kenitra</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].createdBy</td>
+    <td>NOT VERIFIED</td>
+    <td>postgres</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].createdBy</td>
+    <td>NOT VERIFIED</td>
+    <td>postgres</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].code</td>
+    <td>NOT VERIFIED</td>
+    <td>MOR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].createdDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-17T11:54:32.651Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].parentLocCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].deletedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].updatedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.totalPages</td>
+    <td>NOT VERIFIED</td>
+    <td>12</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].createdDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-17T11:54:32.651Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].hierarchyName</td>
+    <td>NOT VERIFIED</td>
+    <td>Province</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Kenitra</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].hierarchyName</td>
+    <td>NOT VERIFIED</td>
+    <td>Région</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].code</td>
+    <td>NOT VERIFIED</td>
+    <td>RSK</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updatedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].updatedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Kenitra</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].code</td>
+    <td>NOT VERIFIED</td>
+    <td>KTA</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].createdDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-17T11:54:32.651Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].parentLocCode</td>
+    <td>NOT VERIFIED</td>
+    <td>RSK</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].createdBy</td>
+    <td>NOT VERIFIED</td>
+    <td>postgres</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>MyCountry</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].parentLocCode</td>
+    <td>NOT VERIFIED</td>
+    <td>RSK</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].updatedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].createdDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-17T11:54:32.651Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].parentLocCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].code</td>
+    <td>NOT VERIFIED</td>
+    <td>RSK</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].updatedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].createdDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-17T11:54:32.651Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].parentLocCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].hierarchyName</td>
+    <td>NOT VERIFIED</td>
+    <td>دولة</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].deletedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].deletedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].name</td>
+    <td>NOT VERIFIED</td>
+    <td>الرباط سلا القنيطرة</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].updatedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].deletedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.pageNo</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updatedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].code</td>
+    <td>NOT VERIFIED</td>
+    <td>RSK</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].hierarchyName</td>
+    <td>NOT VERIFIED</td>
+    <td>Region</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].updatedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[8].updatedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Rabat-Salé-Kénitra</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].parentLocCode</td>
+    <td>NOT VERIFIED</td>
+    <td>MOR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[7].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].code</td>
+    <td>NOT VERIFIED</td>
+    <td>KNT</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[9].updatedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].createdDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-03-17T11:54:32.651Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@5bcdbb5a</td></tr>
+</table><p>
+</body>
+</html>

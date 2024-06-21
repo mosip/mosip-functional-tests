@@ -1,0 +1,208 @@
+<html>
+<head>
+<title>TestNG:  UpdatePolicy</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>UpdatePolicy</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Aug 04 12:03:53 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>1 seconds (1134 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.Esignet_UpdatePolicy__AfterPublished_Neg()'><b>Esignet_UpdatePolicy__AfterPublished_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (Esignet_UpdatePolicy__AfterPublished_Neg)<br>Parameters: TestCaseDTO(testCaseName=Esignet_UpdatePolicy__AfterPublished_Neg, endPoint=/v1/policymanager/policies/{policyId}, role=partner, templateFields=null, input={ "desc": "$POLICYDESC$", "name": "$POLICYNAME$", "policyGroupName": "$ID:DefinePolicyGroup_All_Valid_Smoke_sid_name$", "policyType": "Auth", "version": "1.0", "requesttime": "$TIMESTAMP$", "policyId": "$ID:DefinePolicy_All_Valid_Smoke_sid_id$" }, output= { "errors": [ { "errorCode": "PMS_POL_055", "message": "Published policy cannot be updated." } ] }, inputTemplate=esignet/PmsIntegration/UpdatePolicy/UpdatePolicy, outputTemplate=esignet/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1671933702" onClick='toggleBox("Output-1671933702", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1671933702" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1671933702">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "policyGroupName": "policyGroupNameForAutomationEsi56121",
+    "policyType": "Auth",
+    "name": "policyNameForAutomationEsi5066",
+    "policies": {
+      "authTokenType": "policy",
+      "allowedKycAttributes": [
+        {
+          "attributeName": "fullName"
+        },
+        {
+          "attributeName": "gender"
+        },
+        {
+          "attributeName": "phone"
+        },
+        {
+          "attributeName": "email"
+        },
+        {
+          "attributeName": "dateOfBirth"
+        },
+        {
+          "attributeName": "city"
+        },
+        {
+          "attributeName": "face"
+        },
+        {
+          "attributeName": "addressLine1"
+        }
+      ],
+      "allowedAuthTypes": [
+        {
+          "authSubType": "IRIS",
+          "authType": "bio",
+          "mandatory": false
+        },
+        {
+          "authSubType": "FINGER",
+          "authType": "bio",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "otp-request",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kyc",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "demo",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kycauth",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kycexchange",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "keybinding",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kbt",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "wla",
+          "mandatory": false
+        }
+      ]
+    },
+    "version": "1.0",
+    "desc": "policyDescForAutomationEsi81678"
+  },
+  "metadata": {},
+  "requesttime": "2023-08-04T06:33:53.682Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/policymanager/policies/{policyId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-08-04T06:33:54.751Z",
+  "errors": [
+    {
+      "errorCode": "PMS_POL_055",
+      "message": "Published policy cannot be updated."
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_POL_055</td>
+    <td>PMS_POL_055</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@7604198a</td></tr>
+</table><p>
+</body>
+</html>

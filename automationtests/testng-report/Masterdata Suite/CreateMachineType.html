@@ -1,0 +1,671 @@
+<html>
+<head>
+<title>TestNG:  CreateMachineType</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>CreateMachineType</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>7/1/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:49:51 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>5 seconds (5670 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_CreateMachineType_All_Valid_Smoke()'><b>Masterdata_CreateMachineType_All_Valid_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_CreateMachineType_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateMachineType_All_Valid_Smoke, endPoint=/v1/masterdata/machinetypes, role=admin, templateFields=[description, name], input={ "code": "Laptop2", "description": "Laptop2 info", "isActive": true, "langCode": "eng", "name": "Laptop2 test", "requesttime": "$TIMESTAMP$" }, output={ "code": "Laptop2", "langCode": "eng" }, inputTemplate=masterdata/MachineType/machineType, outputTemplate=masterdata/MachineType/machineTypeResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1027894185" onClick='toggleBox("Output-1027894185", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1027894185" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1027894185">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "Laptop2",
+    "description": "Laptop2 info",
+    "isActive": true,
+    "langCode": "ara",
+    "name": "Laptop2 test"
+  },
+  "requesttime": "2023-07-14T17:19:51.793Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machinetypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:19:52.497Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-061",
+      "message": "Error occurred while inserting Machine Type details ERROR: duplicate key value violates unique constraint \"pk_mtyp_code\"\n  Detail: Key (code)\u003d(Laptop2) already exists."
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Error occurred while inserting Machine Type details ERROR: duplicate key value violates unique constraint "pk_mtyp_code"
+  Detail: Key (code)=(Laptop2) already exists.</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-MSD-061</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.langCode</td>
+    <td>ara</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.code</td>
+    <td>Laptop2</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.SimplePost.test(SimplePost.java:102)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:103)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1027894185", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1027894185'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.SimplePost.test(SimplePost.java:102)
+	at jdk.internal.reflect.GeneratedMethodAccessor183.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:103)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@4ad113d6</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_CreateMachineType_InputParameter_Description_AboveMaxLen128()'><b>Masterdata_CreateMachineType_InputParameter_Description_AboveMaxLen128</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_CreateMachineType_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateMachineType_InputParameter_Description_AboveMaxLen128, endPoint=/v1/masterdata/machinetypes, role=admin, templateFields=[name], input={ "code": "Laptop2", "description": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy", "isActive": false, "langCode": "eng", "name": "Laptop3", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.description: size must be between 0 and 128" } ] }, inputTemplate=masterdata/MachineType/machineType, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1287332222" onClick='toggleBox("Output-1287332222", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1287332222" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1287332222">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "Laptop2",
+    "description": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy",
+    "isActive": false,
+    "langCode": "ara",
+    "name": "Laptop3"
+  },
+  "requesttime": "2023-07-14T17:19:56.025Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machinetypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:19:56.661Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.description: size must be between 0 and 128"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.description: size must be between 0 and 128</td>
+    <td>request.description: size must be between 0 and 128</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@4ad113d6</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_CreateMachineType_InputParameter_Name_AboveMaxLen64()'><b>Masterdata_CreateMachineType_InputParameter_Name_AboveMaxLen64</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_CreateMachineType_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateMachineType_InputParameter_Name_AboveMaxLen64, endPoint=/v1/masterdata/machinetypes, role=admin, templateFields=[description], input={ "code": "Laptop2", "description": "Laptop2 test", "isActive": false, "langCode": "eng", "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.name: Should not be blank or size must be between 1 and 64" } ] }, inputTemplate=masterdata/MachineType/machineType, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-251764225" onClick='toggleBox("Output-251764225", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-251764225" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-251764225">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "Laptop2",
+    "description": "Laptop2 test",
+    "isActive": false,
+    "langCode": "ara",
+    "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm"
+  },
+  "requesttime": "2023-07-14T17:19:55.345Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machinetypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:19:55.955Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@4ad113d6</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_CreateMachineType_InputParameter_Name_Empty()'><b>Masterdata_CreateMachineType_InputParameter_Name_Empty</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_CreateMachineType_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateMachineType_InputParameter_Name_Empty, endPoint=/v1/masterdata/machinetypes, role=admin, templateFields=[description], input={ "code": "Laptop2", "description": "Laptop2 test", "isActive": false, "langCode": "eng", "name": "", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.name: Should not be blank or size must be between 1 and 64" } ] }, inputTemplate=masterdata/MachineType/machineType, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-352926996" onClick='toggleBox("Output-352926996", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-352926996" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-352926996">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "Laptop2",
+    "description": "Laptop2 test",
+    "isActive": false,
+    "langCode": "ara",
+    "name": ""
+  },
+  "requesttime": "2023-07-14T17:19:54.640Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machinetypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:19:55.278Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@4ad113d6</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_CreateMachineType_InputParameter_Name_Missing()'><b>Masterdata_CreateMachineType_InputParameter_Name_Missing</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_CreateMachineType_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateMachineType_InputParameter_Name_Missing, endPoint=/v1/masterdata/machinetypes, role=admin, templateFields=[description], input={ "code": "Laptop2", "description": "Laptop2 test ", "isActive": false, "langCode": "eng", "name": "$REMOVE$", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.name: must not be null" } ] }, inputTemplate=masterdata/MachineType/machineType, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-491591201" onClick='toggleBox("Output-491591201", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-491591201" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-491591201">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "code": "Laptop2",
+    "langCode": "ara",
+    "description": "Laptop2 test ",
+    "isActive": false
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:19:53.965Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machinetypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:19:54.573Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: must not be null"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.name: must not be null</td>
+    <td>request.name: must not be null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@4ad113d6</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_CreateMachineType_InputParameter_isActive_Missing()'><b>Masterdata_CreateMachineType_InputParameter_isActive_Missing</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_CreateMachineType_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateMachineType_InputParameter_isActive_Missing, endPoint=/v1/masterdata/machinetypes, role=admin, templateFields=null, input={ "code": "Laptop2", "description": "Laptop2 test", "isActive": "$REMOVE$", "langCode": "eng", "name": "Laptop3 testname", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.isActive: must not be null" } ] }, inputTemplate=masterdata/MachineType/machineType, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-604589777" onClick='toggleBox("Output-604589777", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-604589777" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-604589777">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "code": "Laptop2",
+    "langCode": "eng",
+    "name": "Laptop3 testname",
+    "description": "Laptop2 test"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:19:56.731Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machinetypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:19:57.381Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.isActive: must not be null"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.isActive: must not be null</td>
+    <td>request.isActive: must not be null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@4ad113d6</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_CreateMachineType_Invalid_InputParameter_Code_Empty()'><b>Masterdata_CreateMachineType_Invalid_InputParameter_Code_Empty</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_CreateMachineType_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateMachineType_Invalid_InputParameter_Code_Empty, endPoint=/v1/masterdata/machinetypes, role=admin, templateFields=[description, name], input={ "code": "", "description": "Laptop2 test information", "isActive": false, "langCode": "eng", "name": "Laptop2 test", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.code: Should not be blank or size must be between 1 and 36" } ] }, inputTemplate=masterdata/MachineType/machineType, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-286492681" onClick='toggleBox("Output-286492681", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-286492681" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-286492681">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "",
+    "description": "Laptop2 test information",
+    "isActive": false,
+    "langCode": "ara",
+    "name": "Laptop2 test"
+  },
+  "requesttime": "2023-07-14T17:19:53.295Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machinetypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:19:53.895Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.code: Should not be blank or size must be between 1 and 36</td>
+    <td>request.code: Should not be blank or size must be between 1 and 36</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@4ad113d6</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_CreateMachineType_Invalid_InputParameter_Code_Missing()'><b>Masterdata_CreateMachineType_Invalid_InputParameter_Code_Missing</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_CreateMachineType_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateMachineType_Invalid_InputParameter_Code_Missing, endPoint=/v1/masterdata/machinetypes, role=admin, templateFields=[description, name], input={ "code": "$REMOVE$", "description": "Laptop2 test information", "isActive": false, "langCode": "eng", "name": "Laptop2 test", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.code: must not be null" } ] }, inputTemplate=masterdata/MachineType/machineType, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1508544283" onClick='toggleBox("Output-1508544283", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1508544283" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1508544283">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "langCode": "ara",
+    "name": "Laptop2 test",
+    "description": "Laptop2 test information",
+    "isActive": false
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:19:52.570Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machinetypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:19:53.224Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: must not be null"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.code: must not be null</td>
+    <td>request.code: must not be null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@4ad113d6</td></tr>
+</table><p>
+</body>
+</html>

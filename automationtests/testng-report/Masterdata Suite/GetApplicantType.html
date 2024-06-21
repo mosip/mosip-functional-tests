@@ -1,0 +1,1669 @@
+<html>
+<head>
+<title>TestNG:  GetApplicantType</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GetApplicantType</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>23/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Sep 20 13:40:33 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>9 seconds (9669 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GetApplicantType_DOB_lessThanAYear()'><b>Masterdata_GetApplicantType_DOB_lessThanAYear</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GetApplicantType_response_time)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetApplicantType_DOB_lessThanAYear, endPoint=/v1/masterdata/getApplicantType, role=admin, templateFields=null, input={ "attributes": [{ "attribute": "residenceStatus", "value": "FR" }, { "attribute": "dateOfBirth", "value": "2021/01/01" }, { "attribute": "gender", "value": "FLE" }, { "attribute": "biometricAvailable", "value": false } ], "requesttime": "$TIMESTAMP$" }, output={ "applicantTypeCode": "005" }, inputTemplate=masterdata/GetApplicantType/getApplicantType, outputTemplate=masterdata/GetApplicantType/getApplicantTypeResult, restMethod=post)<br/>
+<a href="#Output-1722815008" onClick='toggleBox("Output-1722815008", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1722815008" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1722815008">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "metadata": {},
+  "request": {
+    "attributes": [
+      {
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "2021/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "FLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": "false"
+      }
+    ]
+  },
+  "requesttime": "2022-09-20T08:10:41.946Z",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/getApplicantType) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "version": "1.0",
+  "responsetime": "2022-09-20T08:10:42.282Z",
+  "response": {
+    "applicantType": {
+      "applicantTypeCode": "005"
+    }
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.applicantType.applicantTypeCode</td>
+    <td>005</td>
+    <td>005</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2d17c0ab</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GetApplicantType_FLE_FR_ADL_False()'><b>Masterdata_GetApplicantType_FLE_FR_ADL_False</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GetApplicantType_response_time)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetApplicantType_FLE_FR_ADL_False, endPoint=/v1/masterdata/getApplicantType, role=admin, templateFields=null, input={ "attributes": [{ "attribute": "residenceStatus", "value": "FR" }, { "attribute": "dateOfBirth", "value": "1996/01/01" }, { "attribute": "gender", "value": "FLE" }, { "attribute": "biometricAvailable", "value": false } ], "requesttime": "$TIMESTAMP$" }, output={ "applicantTypeCode": "006" }, inputTemplate=masterdata/GetApplicantType/getApplicantType, outputTemplate=masterdata/GetApplicantType/getApplicantTypeResult, restMethod=post)<br/>
+<a href="#Output-111720670" onClick='toggleBox("Output-111720670", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-111720670" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-111720670">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "metadata": {},
+  "request": {
+    "attributes": [
+      {
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "FLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": "false"
+      }
+    ]
+  },
+  "requesttime": "2022-09-20T08:10:40.478Z",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/getApplicantType) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "version": "1.0",
+  "responsetime": "2022-09-20T08:10:41.841Z",
+  "response": {
+    "applicantType": {
+      "applicantTypeCode": "006"
+    }
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.applicantType.applicantTypeCode</td>
+    <td>006</td>
+    <td>006</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.SimplePost@2d17c0ab</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GetApplicantType_FLE_FR_ADL_true()'><b>Masterdata_GetApplicantType_FLE_FR_ADL_true</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GetApplicantType_response_time)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetApplicantType_FLE_FR_ADL_true, endPoint=/v1/masterdata/getApplicantType, role=admin, templateFields=null, input={ "attributes": [{ "attribute": "residenceStatus", "value": "FR" }, { "attribute": "dateOfBirth", "value": "1996/01/01" }, { "attribute": "gender", "value": "FLE" }, { "attribute": "biometricAvailable", "value": true } ], "requesttime": "$TIMESTAMP$" }, output={ "applicantTypeCode": "006" }, inputTemplate=masterdata/GetApplicantType/getApplicantType, outputTemplate=masterdata/GetApplicantType/getApplicantTypeResult, restMethod=post)<br/>
+<a href="#Output-173312518" onClick='toggleBox("Output-173312518", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-173312518" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-173312518">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "metadata": {},
+  "request": {
+    "attributes": [
+      {
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "FLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": "true"
+      }
+    ]
+  },
+  "requesttime": "2022-09-20T08:10:40.121Z",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/getApplicantType) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "version": "1.0",
+  "responsetime": "2022-09-20T08:10:40.442Z",
+  "response": {
+    "applicantType": {
+      "applicantTypeCode": "006"
+    }
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.applicantType.applicantTypeCode</td>
+    <td>006</td>
+    <td>006</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2d17c0ab</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GetApplicantType_FLE_FR_CHL_False()'><b>Masterdata_GetApplicantType_FLE_FR_CHL_False</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GetApplicantType_response_time)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetApplicantType_FLE_FR_CHL_False, endPoint=/v1/masterdata/getApplicantType, role=admin, templateFields=null, input={ "attributes": [{ "attribute": "residenceStatus", "value": "FR" }, { "attribute": "dateOfBirth", "value": "2018/01/01" }, { "attribute": "gender", "value": "FLE" }, { "attribute": "biometricAvailable", "value": false } ], "requesttime": "$TIMESTAMP$" }, output={ "applicantTypeCode": "005" }, inputTemplate=masterdata/GetApplicantType/getApplicantType, outputTemplate=masterdata/GetApplicantType/getApplicantTypeResult, restMethod=post)<br/>
+<a href="#Output-425476163" onClick='toggleBox("Output-425476163", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-425476163" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-425476163">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "metadata": {},
+  "request": {
+    "attributes": [
+      {
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "2018/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "FLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": "false"
+      }
+    ]
+  },
+  "requesttime": "2022-09-20T08:10:39.654Z",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/getApplicantType) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "version": "1.0",
+  "responsetime": "2022-09-20T08:10:40.084Z",
+  "response": {
+    "applicantType": {
+      "applicantTypeCode": "005"
+    }
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.applicantType.applicantTypeCode</td>
+    <td>005</td>
+    <td>005</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2d17c0ab</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GetApplicantType_FLE_FR_CHL_True()'><b>Masterdata_GetApplicantType_FLE_FR_CHL_True</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GetApplicantType_response_time)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetApplicantType_FLE_FR_CHL_True, endPoint=/v1/masterdata/getApplicantType, role=admin, templateFields=null, input={ "attributes": [{ "attribute": "residenceStatus", "value": "FR" }, { "attribute": "dateOfBirth", "value": "2018/01/01" }, { "attribute": "gender", "value": "FLE" }, { "attribute": "biometricAvailable", "value": true } ], "requesttime": "$TIMESTAMP$" }, output={ "applicantTypeCode": "005" }, inputTemplate=masterdata/GetApplicantType/getApplicantType, outputTemplate=masterdata/GetApplicantType/getApplicantTypeResult, restMethod=post)<br/>
+<a href="#Output-1383387422" onClick='toggleBox("Output-1383387422", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1383387422" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1383387422">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "metadata": {},
+  "request": {
+    "attributes": [
+      {
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "2018/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "FLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": "true"
+      }
+    ]
+  },
+  "requesttime": "2022-09-20T08:10:39.295Z",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/getApplicantType) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "version": "1.0",
+  "responsetime": "2022-09-20T08:10:39.616Z",
+  "response": {
+    "applicantType": {
+      "applicantTypeCode": "005"
+    }
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.applicantType.applicantTypeCode</td>
+    <td>005</td>
+    <td>005</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2d17c0ab</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GetApplicantType_FLE_NFR_ADL_False()'><b>Masterdata_GetApplicantType_FLE_NFR_ADL_False</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GetApplicantType_response_time)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetApplicantType_FLE_NFR_ADL_False, endPoint=/v1/masterdata/getApplicantType, role=admin, templateFields=null, input={ "attributes": [{ "attribute": "residenceStatus", "value": "NFR" }, { "attribute": "dateOfBirth", "value": "1996/01/01" }, { "attribute": "gender", "value": "FLE" }, { "attribute": "biometricAvailable", "value": false } ], "requesttime": "$TIMESTAMP$" }, output={ "applicantTypeCode": "008" }, inputTemplate=masterdata/GetApplicantType/getApplicantType, outputTemplate=masterdata/GetApplicantType/getApplicantTypeResult, restMethod=post)<br/>
+<a href="#Output-1380598432" onClick='toggleBox("Output-1380598432", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1380598432" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1380598432">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "metadata": {},
+  "request": {
+    "attributes": [
+      {
+        "attribute": "residenceStatus",
+        "value": "NFR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "FLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": "false"
+      }
+    ]
+  },
+  "requesttime": "2022-09-20T08:10:38.943Z",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/getApplicantType) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "version": "1.0",
+  "responsetime": "2022-09-20T08:10:39.258Z",
+  "response": {
+    "applicantType": {
+      "applicantTypeCode": "008"
+    }
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.applicantType.applicantTypeCode</td>
+    <td>008</td>
+    <td>008</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2d17c0ab</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GetApplicantType_FLE_NFR_ADL_true()'><b>Masterdata_GetApplicantType_FLE_NFR_ADL_true</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GetApplicantType_response_time)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetApplicantType_FLE_NFR_ADL_true, endPoint=/v1/masterdata/getApplicantType, role=admin, templateFields=null, input={ "attributes": [{ "attribute": "residenceStatus", "value": "NFR" }, { "attribute": "dateOfBirth", "value": "1996/01/01" }, { "attribute": "gender", "value": "FLE" }, { "attribute": "biometricAvailable", "value": true } ], "requesttime": "$TIMESTAMP$" }, output={ "applicantTypeCode": "008" }, inputTemplate=masterdata/GetApplicantType/getApplicantType, outputTemplate=masterdata/GetApplicantType/getApplicantTypeResult, restMethod=post)<br/>
+<a href="#Output-774324180" onClick='toggleBox("Output-774324180", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-774324180" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-774324180">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "metadata": {},
+  "request": {
+    "attributes": [
+      {
+        "attribute": "residenceStatus",
+        "value": "NFR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "FLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": "true"
+      }
+    ]
+  },
+  "requesttime": "2022-09-20T08:10:38.565Z",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/getApplicantType) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "version": "1.0",
+  "responsetime": "2022-09-20T08:10:38.899Z",
+  "response": {
+    "applicantType": {
+      "applicantTypeCode": "008"
+    }
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.applicantType.applicantTypeCode</td>
+    <td>008</td>
+    <td>008</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2d17c0ab</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GetApplicantType_FLE_NFR_CHL_False()'><b>Masterdata_GetApplicantType_FLE_NFR_CHL_False</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GetApplicantType_response_time)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetApplicantType_FLE_NFR_CHL_False, endPoint=/v1/masterdata/getApplicantType, role=admin, templateFields=null, input={ "attributes": [{ "attribute": "residenceStatus", "value": "NFR" }, { "attribute": "dateOfBirth", "value": "2018/01/01" }, { "attribute": "gender", "value": "FLE" }, { "attribute": "biometricAvailable", "value": false } ], "requesttime": "$TIMESTAMP$" }, output={ "applicantTypeCode": "007" }, inputTemplate=masterdata/GetApplicantType/getApplicantType, outputTemplate=masterdata/GetApplicantType/getApplicantTypeResult, restMethod=post)<br/>
+<a href="#Output-380296319" onClick='toggleBox("Output-380296319", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-380296319" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-380296319">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "metadata": {},
+  "request": {
+    "attributes": [
+      {
+        "attribute": "residenceStatus",
+        "value": "NFR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "2018/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "FLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": "false"
+      }
+    ]
+  },
+  "requesttime": "2022-09-20T08:10:38.109Z",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/getApplicantType) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "version": "1.0",
+  "responsetime": "2022-09-20T08:10:38.434Z",
+  "response": {
+    "applicantType": {
+      "applicantTypeCode": "007"
+    }
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.applicantType.applicantTypeCode</td>
+    <td>007</td>
+    <td>007</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2d17c0ab</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GetApplicantType_FLE_NFR_CHL_true()'><b>Masterdata_GetApplicantType_FLE_NFR_CHL_true</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GetApplicantType_response_time)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetApplicantType_FLE_NFR_CHL_true, endPoint=/v1/masterdata/getApplicantType, role=admin, templateFields=null, input={ "attributes": [{ "attribute": "residenceStatus", "value": "NFR" }, { "attribute": "dateOfBirth", "value": "2018/01/01" }, { "attribute": "gender", "value": "FLE" }, { "attribute": "biometricAvailable", "value": true } ], "requesttime": "$TIMESTAMP$" }, output={ "applicantTypeCode": "007" }, inputTemplate=masterdata/GetApplicantType/getApplicantType, outputTemplate=masterdata/GetApplicantType/getApplicantTypeResult, restMethod=post)<br/>
+<a href="#Output-1992109184" onClick='toggleBox("Output-1992109184", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1992109184" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1992109184">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "metadata": {},
+  "request": {
+    "attributes": [
+      {
+        "attribute": "residenceStatus",
+        "value": "NFR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "2018/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "FLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": "true"
+      }
+    ]
+  },
+  "requesttime": "2022-09-20T08:10:37.726Z",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/getApplicantType) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "version": "1.0",
+  "responsetime": "2022-09-20T08:10:38.077Z",
+  "response": {
+    "applicantType": {
+      "applicantTypeCode": "007"
+    }
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.applicantType.applicantTypeCode</td>
+    <td>007</td>
+    <td>007</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2d17c0ab</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GetApplicantType_Future_date_as_DOB()'><b>Masterdata_GetApplicantType_Future_date_as_DOB</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GetApplicantType_response_time)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetApplicantType_Future_date_as_DOB, endPoint=/v1/masterdata/getApplicantType, role=admin, templateFields=null, input={ "attributes": [{ "attribute": "residenceStatus", "value": "FR" }, { "attribute": "dateOfBirth", "value": "2029/01/01" }, { "attribute": "gender", "value": "MLE" }, { "attribute": "biometricAvailable", "value": true } ], "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-151", "message": "DOB cannot exceed current date" } ] }, inputTemplate=masterdata/GetApplicantType/getApplicantType, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-2094462801" onClick='toggleBox("Output-2094462801", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2094462801" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2094462801">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "metadata": {},
+  "request": {
+    "attributes": [
+      {
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "2029/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": "true"
+      }
+    ]
+  },
+  "requesttime": "2022-09-20T08:10:37.381Z",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/getApplicantType) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "version": "1.0",
+  "responsetime": "2022-09-20T08:10:37.709Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-151",
+      "message": "DOB cannot exceed current date"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>DOB cannot exceed current date</td>
+    <td>DOB cannot exceed current date</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-151</td>
+    <td>KER-MSD-151</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2d17c0ab</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GetApplicantType_MLE_FR_ADL_False()'><b>Masterdata_GetApplicantType_MLE_FR_ADL_False</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GetApplicantType_response_time)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetApplicantType_MLE_FR_ADL_False, endPoint=/v1/masterdata/getApplicantType, role=admin, templateFields=null, input={ "attributes": [{ "attribute": "residenceStatus", "value": "FR" }, { "attribute": "dateOfBirth", "value": "1996/01/01" }, { "attribute": "gender", "value": "MLE" }, { "attribute": "biometricAvailable", "value": false } ], "requesttime": "$TIMESTAMP$" }, output={ "applicantTypeCode": "002" }, inputTemplate=masterdata/GetApplicantType/getApplicantType, outputTemplate=masterdata/GetApplicantType/getApplicantTypeResult, restMethod=post)<br/>
+<a href="#Output-1334672208" onClick='toggleBox("Output-1334672208", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1334672208" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1334672208">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "metadata": {},
+  "request": {
+    "attributes": [
+      {
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": "false"
+      }
+    ]
+  },
+  "requesttime": "2022-09-20T08:10:35.562Z",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/getApplicantType) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "version": "1.0",
+  "responsetime": "2022-09-20T08:10:35.899Z",
+  "response": {
+    "applicantType": {
+      "applicantTypeCode": "002"
+    }
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.applicantType.applicantTypeCode</td>
+    <td>002</td>
+    <td>002</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2d17c0ab</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GetApplicantType_MLE_FR_ADL_True()'><b>Masterdata_GetApplicantType_MLE_FR_ADL_True</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GetApplicantType_response_time)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetApplicantType_MLE_FR_ADL_True, endPoint=/v1/masterdata/getApplicantType, role=admin, templateFields=null, input={ "attributes": [{ "attribute": "residenceStatus", "value": "FR" }, { "attribute": "dateOfBirth", "value": "1996/01/01" }, { "attribute": "gender", "value": "MLE" }, { "attribute": "biometricAvailable", "value": true } ], "requesttime": "$TIMESTAMP$" }, output={ "applicantTypeCode": "002" }, inputTemplate=masterdata/GetApplicantType/getApplicantType, outputTemplate=masterdata/GetApplicantType/getApplicantTypeResult, restMethod=post)<br/>
+<a href="#Output-1038232059" onClick='toggleBox("Output-1038232059", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1038232059" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1038232059">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "metadata": {},
+  "request": {
+    "attributes": [
+      {
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": "true"
+      }
+    ]
+  },
+  "requesttime": "2022-09-20T08:10:35.214Z",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/getApplicantType) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "version": "1.0",
+  "responsetime": "2022-09-20T08:10:35.528Z",
+  "response": {
+    "applicantType": {
+      "applicantTypeCode": "002"
+    }
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.applicantType.applicantTypeCode</td>
+    <td>002</td>
+    <td>002</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2d17c0ab</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GetApplicantType_MLE_FR_CHL_False()'><b>Masterdata_GetApplicantType_MLE_FR_CHL_False</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GetApplicantType_response_time)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetApplicantType_MLE_FR_CHL_False, endPoint=/v1/masterdata/getApplicantType, role=admin, templateFields=null, input={ "attributes": [{ "attribute": "residenceStatus", "value": "FR" }, { "attribute": "dateOfBirth", "value": "2018/01/01" }, { "attribute": "gender", "value": "MLE" }, { "attribute": "biometricAvailable", "value": false } ], "requesttime": "$TIMESTAMP$" }, output={ "applicantTypeCode": "001" }, inputTemplate=masterdata/GetApplicantType/getApplicantType, outputTemplate=masterdata/GetApplicantType/getApplicantTypeResult, restMethod=post)<br/>
+<a href="#Output-513404591" onClick='toggleBox("Output-513404591", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-513404591" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-513404591">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "metadata": {},
+  "request": {
+    "attributes": [
+      {
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "2018/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": "false"
+      }
+    ]
+  },
+  "requesttime": "2022-09-20T08:10:34.846Z",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/getApplicantType) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "version": "1.0",
+  "responsetime": "2022-09-20T08:10:35.176Z",
+  "response": {
+    "applicantType": {
+      "applicantTypeCode": "001"
+    }
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.applicantType.applicantTypeCode</td>
+    <td>001</td>
+    <td>001</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2d17c0ab</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GetApplicantType_MLE_NFR_ADL_False()'><b>Masterdata_GetApplicantType_MLE_NFR_ADL_False</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GetApplicantType_response_time)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetApplicantType_MLE_NFR_ADL_False, endPoint=/v1/masterdata/getApplicantType, role=admin, templateFields=null, input={ "attributes": [{ "attribute": "residenceStatus", "value": "NFR" }, { "attribute": "dateOfBirth", "value": "1996/01/01" }, { "attribute": "gender", "value": "MLE" }, { "attribute": "biometricAvailable", "value": false } ], "requesttime": "$TIMESTAMP$" }, output={ "applicantTypeCode": "004" }, inputTemplate=masterdata/GetApplicantType/getApplicantType, outputTemplate=masterdata/GetApplicantType/getApplicantTypeResult, restMethod=post)<br/>
+<a href="#Output-1910930075" onClick='toggleBox("Output-1910930075", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1910930075" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1910930075">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "metadata": {},
+  "request": {
+    "attributes": [
+      {
+        "attribute": "residenceStatus",
+        "value": "NFR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": "false"
+      }
+    ]
+  },
+  "requesttime": "2022-09-20T08:10:34.478Z",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/getApplicantType) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "version": "1.0",
+  "responsetime": "2022-09-20T08:10:34.812Z",
+  "response": {
+    "applicantType": {
+      "applicantTypeCode": "004"
+    }
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.applicantType.applicantTypeCode</td>
+    <td>004</td>
+    <td>004</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2d17c0ab</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GetApplicantType_MLE_NFR_ADL_True()'><b>Masterdata_GetApplicantType_MLE_NFR_ADL_True</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GetApplicantType_response_time)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetApplicantType_MLE_NFR_ADL_True, endPoint=/v1/masterdata/getApplicantType, role=admin, templateFields=null, input={ "attributes": [{ "attribute": "residenceStatus", "value": "NFR" }, { "attribute": "dateOfBirth", "value": "1996/01/01" }, { "attribute": "gender", "value": "MLE" }, { "attribute": "biometricAvailable", "value": true } ], "requesttime": "$TIMESTAMP$" }, output={ "applicantTypeCode": "004" }, inputTemplate=masterdata/GetApplicantType/getApplicantType, outputTemplate=masterdata/GetApplicantType/getApplicantTypeResult, restMethod=post)<br/>
+<a href="#Output-1418148516" onClick='toggleBox("Output-1418148516", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1418148516" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1418148516">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "metadata": {},
+  "request": {
+    "attributes": [
+      {
+        "attribute": "residenceStatus",
+        "value": "NFR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": "true"
+      }
+    ]
+  },
+  "requesttime": "2022-09-20T08:10:34.105Z",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/getApplicantType) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "version": "1.0",
+  "responsetime": "2022-09-20T08:10:34.440Z",
+  "response": {
+    "applicantType": {
+      "applicantTypeCode": "004"
+    }
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.applicantType.applicantTypeCode</td>
+    <td>004</td>
+    <td>004</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2d17c0ab</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GetApplicantType_MLE_NFR_CHL_False()'><b>Masterdata_GetApplicantType_MLE_NFR_CHL_False</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GetApplicantType_response_time)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetApplicantType_MLE_NFR_CHL_False, endPoint=/v1/masterdata/getApplicantType, role=admin, templateFields=null, input={ "attributes": [{ "attribute": "residenceStatus", "value": "NFR" }, { "attribute": "dateOfBirth", "value": "2018/01/01" }, { "attribute": "gender", "value": "MLE" }, { "attribute": "biometricAvailable", "value": false } ], "requesttime": "$TIMESTAMP$" }, output={ "applicantTypeCode": "003" }, inputTemplate=masterdata/GetApplicantType/getApplicantType, outputTemplate=masterdata/GetApplicantType/getApplicantTypeResult, restMethod=post)<br/>
+<a href="#Output-67732226" onClick='toggleBox("Output-67732226", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-67732226" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-67732226">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "metadata": {},
+  "request": {
+    "attributes": [
+      {
+        "attribute": "residenceStatus",
+        "value": "NFR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "2018/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": "false"
+      }
+    ]
+  },
+  "requesttime": "2022-09-20T08:10:33.741Z",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/getApplicantType) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "version": "1.0",
+  "responsetime": "2022-09-20T08:10:34.067Z",
+  "response": {
+    "applicantType": {
+      "applicantTypeCode": "003"
+    }
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.applicantType.applicantTypeCode</td>
+    <td>003</td>
+    <td>003</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2d17c0ab</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GetApplicantType_MLE_NFR_CHL_True()'><b>Masterdata_GetApplicantType_MLE_NFR_CHL_True</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GetApplicantType_response_time)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetApplicantType_MLE_NFR_CHL_True, endPoint=/v1/masterdata/getApplicantType, role=admin, templateFields=null, input={ "attributes": [{ "attribute": "residenceStatus", "value": "NFR" }, { "attribute": "dateOfBirth", "value": "2018/01/01" }, { "attribute": "gender", "value": "MLE" }, { "attribute": "biometricAvailable", "value": true } ], "requesttime": "$TIMESTAMP$" }, output={ "applicantTypeCode": "003" }, inputTemplate=masterdata/GetApplicantType/getApplicantType, outputTemplate=masterdata/GetApplicantType/getApplicantTypeResult, restMethod=post)<br/>
+<a href="#Output-1959646785" onClick='toggleBox("Output-1959646785", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1959646785" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1959646785">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "metadata": {},
+  "request": {
+    "attributes": [
+      {
+        "attribute": "residenceStatus",
+        "value": "NFR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "2018/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": "true"
+      }
+    ]
+  },
+  "requesttime": "2022-09-20T08:10:33.383Z",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/getApplicantType) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "version": "1.0",
+  "responsetime": "2022-09-20T08:10:33.700Z",
+  "response": {
+    "applicantType": {
+      "applicantTypeCode": "003"
+    }
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.applicantType.applicantTypeCode</td>
+    <td>003</td>
+    <td>003</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2d17c0ab</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GetApplicantType_invalid_biometricAvailable()'><b>Masterdata_GetApplicantType_invalid_biometricAvailable</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GetApplicantType_response_time)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetApplicantType_invalid_biometricAvailable, endPoint=/v1/masterdata/getApplicantType, role=admin, templateFields=null, input={ "attributes": [{ "attribute": "residenceStatus", "value": "FR" }, { "attribute": "dateOfBirth", "value": "1996/01/01" }, { "attribute": "gender", "value": "MLE" }, { "attribute": "biometricAvailable", "value": "fsadfdf" } ], "requesttime": "$TIMESTAMP$" }, output={ "applicantTypeCode": "002" }, inputTemplate=masterdata/GetApplicantType/getApplicantType, outputTemplate=masterdata/GetApplicantType/getApplicantTypeResult, restMethod=post)<br/>
+<a href="#Output-530760219" onClick='toggleBox("Output-530760219", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-530760219" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-530760219">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "metadata": {},
+  "request": {
+    "attributes": [
+      {
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": "fsadfdf"
+      }
+    ]
+  },
+  "requesttime": "2022-09-20T08:10:37.025Z",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/getApplicantType) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "version": "1.0",
+  "responsetime": "2022-09-20T08:10:37.345Z",
+  "response": {
+    "applicantType": {
+      "applicantTypeCode": "002"
+    }
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.applicantType.applicantTypeCode</td>
+    <td>002</td>
+    <td>002</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2d17c0ab</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GetApplicantType_invalid_dateOfBirth()'><b>Masterdata_GetApplicantType_invalid_dateOfBirth</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GetApplicantType_response_time)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetApplicantType_invalid_dateOfBirth, endPoint=/v1/masterdata/getApplicantType, role=admin, templateFields=null, input={ "attributes": [{ "attribute": "residenceStatus", "value": "FR" }, { "attribute": "dateOfBirth", "value": "2018-01-01 10:00:00.00Z" }, { "attribute": "gender", "value": "MLE" }, { "attribute": "biometricAvailable", "value": true } ], "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-147", "message": "Invalid query passed for applicant type" } ] }, inputTemplate=masterdata/GetApplicantType/getApplicantType, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-917975397" onClick='toggleBox("Output-917975397", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-917975397" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-917975397">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "metadata": {},
+  "request": {
+    "attributes": [
+      {
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "2018-01-01 10:00:00.00Z"
+      },
+      {
+        "attribute": "gender",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": "true"
+      }
+    ]
+  },
+  "requesttime": "2022-09-20T08:10:36.663Z",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/getApplicantType) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "version": "1.0",
+  "responsetime": "2022-09-20T08:10:37.006Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-147",
+      "message": "Invalid query passed for applicant type"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Invalid query passed for applicant type</td>
+    <td>Invalid query passed for applicant type</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-147</td>
+    <td>KER-MSD-147</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2d17c0ab</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GetApplicantType_invalid_gender()'><b>Masterdata_GetApplicantType_invalid_gender</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GetApplicantType_response_time)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetApplicantType_invalid_gender, endPoint=/v1/masterdata/getApplicantType, role=admin, templateFields=null, input={ "attributes": [{ "attribute": "residenceStatus", "value": "FR" }, { "attribute": "dateOfBirth", "value": "1996/01/01" }, { "attribute": "gender", "value": "35132" }, { "attribute": "biometricAvailable", "value": false } ], "requesttime": "$TIMESTAMP$" }, output={ "applicantTypeCode": "000" }, inputTemplate=masterdata/GetApplicantType/getApplicantType, outputTemplate=masterdata/GetApplicantType/getApplicantTypeResult, restMethod=post)<br/>
+<a href="#Output-2095865954" onClick='toggleBox("Output-2095865954", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2095865954" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2095865954">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "metadata": {},
+  "request": {
+    "attributes": [
+      {
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "35132"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": "false"
+      }
+    ]
+  },
+  "requesttime": "2022-09-20T08:10:36.304Z",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/getApplicantType) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "version": "1.0",
+  "responsetime": "2022-09-20T08:10:36.626Z",
+  "response": {
+    "applicantType": {
+      "applicantTypeCode": "000"
+    }
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.applicantType.applicantTypeCode</td>
+    <td>000</td>
+    <td>000</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2d17c0ab</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GetApplicantType_invalid_residenceStatus()'><b>Masterdata_GetApplicantType_invalid_residenceStatus</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GetApplicantType_response_time)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetApplicantType_invalid_residenceStatus, endPoint=/v1/masterdata/getApplicantType, role=admin, templateFields=null, input={ "attributes": [{ "attribute": "residenceStatus", "value": "4564" }, { "attribute": "dateOfBirth", "value": "1996/01/01" }, { "attribute": "gender", "value": "MLE" }, { "attribute": "biometricAvailable", "value": false } ], "requesttime": "$TIMESTAMP$" }, output={ "applicantTypeCode": "000" }, inputTemplate=masterdata/GetApplicantType/getApplicantType, outputTemplate=masterdata/GetApplicantType/getApplicantTypeResult, restMethod=post)<br/>
+<a href="#Output-1862644970" onClick='toggleBox("Output-1862644970", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1862644970" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1862644970">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "metadata": {},
+  "request": {
+    "attributes": [
+      {
+        "attribute": "residenceStatus",
+        "value": "4564"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": "false"
+      }
+    ]
+  },
+  "requesttime": "2022-09-20T08:10:35.943Z",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/getApplicantType) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "version": "1.0",
+  "responsetime": "2022-09-20T08:10:36.264Z",
+  "response": {
+    "applicantType": {
+      "applicantTypeCode": "000"
+    }
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.applicantType.applicantTypeCode</td>
+    <td>000</td>
+    <td>000</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2d17c0ab</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GetApplicantType_response_time()'><b>Masterdata_GetApplicantType_response_time</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GetApplicantType_response_time)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetApplicantType_response_time, endPoint=/v1/masterdata/getApplicantType, role=admin, templateFields=null, input={ "attributes": [{ "attribute": "residenceStatus", "value": "FR" }, { "attribute": "dateOfBirth", "value": "1996/01/01" }, { "attribute": "gender", "value": "MLE" }, { "attribute": "biometricAvailable", "value": true } ], "requesttime": "$TIMESTAMP$" }, output={ "applicantTypeCode": "002" }, inputTemplate=masterdata/GetApplicantType/getApplicantType, outputTemplate=masterdata/GetApplicantType/getApplicantTypeResult, restMethod=post)<br/>
+<a href="#Output-964264035" onClick='toggleBox("Output-964264035", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-964264035" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-964264035">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "metadata": {},
+  "request": {
+    "attributes": [
+      {
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": "true"
+      }
+    ]
+  },
+  "requesttime": "2022-09-20T08:10:42.320Z",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/getApplicantType) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "version": "1.0",
+  "responsetime": "2022-09-20T08:10:42.656Z",
+  "response": {
+    "applicantType": {
+      "applicantTypeCode": "002"
+    }
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.applicantType.applicantTypeCode</td>
+    <td>002</td>
+    <td>002</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2d17c0ab</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GetApplicantType_valid_smoke()'><b>Masterdata_GetApplicantType_valid_smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GetApplicantType_response_time)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetApplicantType_valid_smoke, endPoint=/v1/masterdata/getApplicantType, role=admin, templateFields=null, input={ "attributes": [{ "attribute": "residenceStatus", "value": "FR" }, { "attribute": "dateOfBirth", "value": "1996/01/01" }, { "attribute": "gender", "value": "MLE" }, { "attribute": "biometricAvailable", "value": true } ], "requesttime": "$TIMESTAMP$" }, output={ "applicantTypeCode": "002" }, inputTemplate=masterdata/GetApplicantType/getApplicantType, outputTemplate=masterdata/GetApplicantType/getApplicantTypeResult, restMethod=post)<br/>
+<a href="#Output-764100910" onClick='toggleBox("Output-764100910", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-764100910" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-764100910">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "metadata": {},
+  "request": {
+    "attributes": [
+      {
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": "true"
+      }
+    ]
+  },
+  "requesttime": "2022-09-20T08:10:33.028Z",
+  "version": "1.0"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/getApplicantType) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.applicanttype.fetch",
+  "version": "1.0",
+  "responsetime": "2022-09-20T08:10:33.346Z",
+  "response": {
+    "applicantType": {
+      "applicantTypeCode": "002"
+    }
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.applicantType.applicantTypeCode</td>
+    <td>002</td>
+    <td>002</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td>mosip.applicanttype.fetch</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@2d17c0ab</td></tr>
+</table><p>
+</body>
+</html>

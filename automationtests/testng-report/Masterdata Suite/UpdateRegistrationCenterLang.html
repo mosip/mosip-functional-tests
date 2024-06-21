@@ -1,0 +1,359 @@
+<html>
+<head>
+<title>TestNG:  UpdateRegistrationCenterLang</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>UpdateRegistrationCenterLang</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:52:36 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>0 seconds (794 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateRegistrationCenterLang_Smoke()'><b>MasterData_UpdateRegistrationCenterLang_Smoke</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateRegistrationCenterLang_Smoke)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateRegistrationCenterLang_Smoke, endPoint=/v1/masterdata/registrationcenters/language, role=globalAdmin, templateFields=[addressLine1, addressLine2, addressLine3, contactPerson, name], input={ "addressLine1": "National Road Test", "addressLine2": "Alla Tazi Test", "addressLine3": "MyCountry Test", "contactPerson": "Cliff Hanger Test", "id": "10008", "langCode": "eng", "name": "Center Sidi Allal Tazi Test", "requesttime": "$TIMESTAMP$" }, output={ "id": "10008", "name": "Center Sidi Allal Tazi Test", "addressLine1": "National Road Test", "addressLine2": "Alla Tazi Test", "addressLine3": "MyCountry Test", "langCode": "eng", "contactPerson": "Cliff Hanger Test" }, inputTemplate=masterdata/UpdateRegistrationCenterLang/updateRegistrationCenter, outputTemplate=masterdata/UpdateRegistrationCenterLang/updateRegistrationCenterResult, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-264502619" onClick='toggleBox("Output-264502619", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-264502619" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-264502619">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "addressLine1": "National Road Test",
+    "addressLine2": "Alla Tazi Test",
+    "addressLine3": "MyCountry Test",
+    "contactPerson": "Cliff Hanger Test",
+    "id": "10008",
+    "langCode": "ara",
+    "name": "Center Sidi Allal Tazi Test"
+  },
+  "requesttime": "2023-07-14T17:22:36.573Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/registrationcenters/language) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:22:37.233Z",
+  "response": {
+    "isActive": true,
+    "createdBy": "superadmin",
+    "createdDateTime": "2022-02-23T12:40:31.240Z",
+    "updatedBy": "masterdata-220005",
+    "updatedDateTime": "2023-07-14T17:22:37.250Z",
+    "isDeleted": false,
+    "id": "10008",
+    "name": "Center Sidi Allal Tazi Test",
+    "centerTypeCode": "REG",
+    "addressLine1": "National Road Test",
+    "addressLine2": "Alla Tazi Test",
+    "addressLine3": "MyCountry Test",
+    "latitude": "78.5478",
+    "longitude": "45.2456",
+    "locationCode": "14080",
+    "holidayLocationCode": "RBT",
+    "contactPhone": "9663089998",
+    "workingHours": "8:00:00",
+    "langCode": "ara",
+    "numberOfKiosks": 0,
+    "perKioskProcessTime": "00:15:00",
+    "centerStartTime": "09:00:00",
+    "centerEndTime": "17:00:00",
+    "timeZone": "Test Time zone",
+    "contactPerson": "Cliff Hanger Test",
+    "lunchStartTime": "00:00:00",
+    "lunchEndTime": "00:00:00",
+    "zoneCode": "CSB"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.addressLine1</td>
+    <td>NOT VERIFIED</td>
+    <td>National Road Test</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.addressLine2</td>
+    <td>NOT VERIFIED</td>
+    <td>Alla Tazi Test</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.updatedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>masterdata-220005</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.timeZone</td>
+    <td>NOT VERIFIED</td>
+    <td>Test Time zone</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.perKioskProcessTime</td>
+    <td>NOT VERIFIED</td>
+    <td>00:15:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.addressLine3</td>
+    <td>NOT VERIFIED</td>
+    <td>MyCountry Test</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.locationCode</td>
+    <td>NOT VERIFIED</td>
+    <td>14080</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.centerStartTime</td>
+    <td>NOT VERIFIED</td>
+    <td>09:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.centerEndTime</td>
+    <td>NOT VERIFIED</td>
+    <td>17:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.contactPerson</td>
+    <td>NOT VERIFIED</td>
+    <td>Cliff Hanger Test</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.lunchStartTime</td>
+    <td>NOT VERIFIED</td>
+    <td>00:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:22:37.233Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.centerTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>REG</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.workingNonWorkingDays</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.exceptionalHolidayPutPostDto</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.numberOfKiosks</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.deletedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.lunchEndTime</td>
+    <td>NOT VERIFIED</td>
+    <td>00:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.longitude</td>
+    <td>NOT VERIFIED</td>
+    <td>45.2456</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.name</td>
+    <td>NOT VERIFIED</td>
+    <td>Center Sidi Allal Tazi Test</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.latitude</td>
+    <td>NOT VERIFIED</td>
+    <td>78.5478</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.createdDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-02-23T12:40:31.240Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.workingHours</td>
+    <td>NOT VERIFIED</td>
+    <td>8:00:00</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.contactPhone</td>
+    <td>NOT VERIFIED</td>
+    <td>9663089998</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.createdBy</td>
+    <td>NOT VERIFIED</td>
+    <td>superadmin</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.holidayLocationCode</td>
+    <td>NOT VERIFIED</td>
+    <td>RBT</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.updatedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:22:37.250Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.zoneCode</td>
+    <td>NOT VERIFIED</td>
+    <td>CSB</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@1509dade</td></tr>
+</table><p>
+</body>
+</html>

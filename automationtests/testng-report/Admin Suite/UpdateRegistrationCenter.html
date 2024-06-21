@@ -1,0 +1,727 @@
+<html>
+<head>
+<title>TestNG:  UpdateRegistrationCenter</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>UpdateRegistrationCenter</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>2/2/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Dec 15 15:14:45 IST 2021</td>
+</tr>
+<tr><td>Total time:</td><td>2 seconds (2687 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_CreateRegCenter_Invalid_latitude_eng()'><b>MasterData_CreateRegCenter_Invalid_latitude_eng</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_CreateRegCenter_Invalid_latitude_eng)<br>Parameters: TestCaseDTO(testCaseName=MasterData_CreateRegCenter_Invalid_latitude_eng, endPoint=/v1/masterdata/registrationcenters, role=admin, templateFields=[name, addressLine1, addressLine2, addressLine3, timeZone], input={ "addressLine1": "WhiteField", "addressLine2": "whiteBoard", "addressLine3": "kormangla", "centerEndTime": "17:00:00", "centerStartTime": "09:00:00", "centerTypeCode": "REG", "contactPerson": "Venkat TestPerson", "contactPhone": "9663089998", "holidayLocationCode": "RBT", "isActive": true, "langCode": "eng", "latitude": "fbheafg", "locationCode": "14023", "longitude": "-6.815281", "lunchEndTime": "14:00:00", "lunchStartTime": "13:00:00", "name": "WhiteField Center updated", "perKioskProcessTime": "00:15:00", "timeZone": "Test Time zone", "workingHours": "8:00:00", "zoneCode":"STT", "id": "96874", "workingNonWorkingDays": { "fri": true, "mon": true, "sat": true, "sun": false, "thu": true, "tue": true, "wed": true }, "exceptionHolidayDate": "2020-11-16", "exceptionHolidayName": "TestHoliday", "exceptionHolidayReson": "CenterCreation", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-307", "message": "Latitude or Longitude must have minimum 4 digits after decimal" } ] }, inputTemplate=masterdata/RegistrationCenter/registrationCenter, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-1557571623" onClick='toggleBox("Output-1557571623", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1557571623" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1557571623">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "addressLine1": "WhiteField",
+    "addressLine2": "whiteBoard",
+    "addressLine3": "kormangla",
+    "centerEndTime": "17:00:00",
+    "centerStartTime": "09:00:00",
+    "centerTypeCode": "REG",
+    "contactPerson": "Venkat TestPerson",
+    "contactPhone": "9663089998",
+    "holidayLocationCode": "RBT",
+    "isActive": true,
+    "langCode": "eng",
+    "latitude": "fbheafg",
+    "locationCode": "14023",
+    "longitude": "-6.815281",
+    "lunchEndTime": "14:00:00",
+    "lunchStartTime": "13:00:00",
+    "name": "WhiteField Center updated",
+    "perKioskProcessTime": "00:15:00",
+    "timeZone": "Test Time zone",
+    "workingHours": "8:00:00",
+    "zoneCode": "STT",
+    "id": "96874",
+    "exceptionalHolidayPutPostDto": [
+      {
+        "exceptionHolidayDate": "2020-11-16",
+        "exceptionHolidayName": "TestHoliday",
+        "exceptionHolidayReson": "CenterCreation"
+      }
+    ],
+    "workingNonWorkingDays": {
+      "fri": true,
+      "mon": true,
+      "sat": true,
+      "sun": false,
+      "thu": true,
+      "tue": true,
+      "wed": true
+    }
+  },
+  "requesttime": "2021-12-15T09:44:47.501Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/registrationcenters) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:44:48.076Z",
+  "errors": [
+    {
+      "errorCode": "ADM-MSD-445",
+      "message": "location hierarchy is invalid"
+    },
+    {
+      "errorCode": "KER-MSD-307",
+      "message": "Latitude or Longitude must have maximum 2 digits before and minimum 4 digits after decimal"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[1].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-MSD-307</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[1].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Latitude or Longitude must have maximum 2 digits before and minimum 4 digits after decimal</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Latitude or Longitude must have minimum 4 digits after decimal</td>
+    <td>location hierarchy is invalid</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-307</td>
+    <td>ADM-MSD-445</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.SimplePut.test(SimplePut.java:88)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:81)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:39)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1557571623", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1557571623'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.SimplePut.test(SimplePut.java:88)
+	at jdk.internal.reflect.GeneratedMethodAccessor183.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:81)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:39)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@f25f48a</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_CreateRegCenter_allValid_smoke()'><b>MasterData_CreateRegCenter_allValid_smoke</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_CreateRegCenter_Invalid_latitude_eng)<br>Parameters: TestCaseDTO(testCaseName=MasterData_CreateRegCenter_allValid_smoke, endPoint=/v1/masterdata/registrationcenters, role=admin, templateFields=[name, addressLine1, addressLine2, addressLine3, timeZone], input={ "addressLine1": "HSR", "addressLine2": "Venkatapura", "addressLine3": "kormangla", "centerEndTime": "17:00:00", "centerStartTime": "09:00:00", "centerTypeCode": "REG", "contactPerson": "Venkat TestPerson", "contactPhone": "9663089998", "holidayLocationCode": "RBT", "isActive": true, "langCode": "eng", "latitude": "33.9956", "locationCode": "WOR", "longitude": "-6.8152", "lunchEndTime": "14:00:00", "lunchStartTime": "13:00:00", "name": "HSR Center updated", "perKioskProcessTime": "00:15:00", "timeZone": "Test Time zone", "workingHours": "8:00:00", "zoneCode":"NDR", "id": "96874", "workingNonWorkingDays": { "fri": true, "mon": true, "sat": true, "sun": false, "thu": true, "tue": true, "wed": true }, "exceptionHolidayDate": "2020-11-16", "exceptionHolidayName": "TestHoliday", "exceptionHolidayReson": "CenterCreation", "requesttime": "$TIMESTAMP$" }, output={ "langCode": "$IGNORE$" }, inputTemplate=masterdata/RegistrationCenter/registrationCenter, outputTemplate=masterdata/RegistrationCenter/registrationCenterResult, restMethod=put)<br/>
+<a href="#Output-61710314" onClick='toggleBox("Output-61710314", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-61710314" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-61710314">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "addressLine1": "HSR",
+    "addressLine2": "Venkatapura",
+    "addressLine3": "kormangla",
+    "centerEndTime": "17:00:00",
+    "centerStartTime": "09:00:00",
+    "centerTypeCode": "REG",
+    "contactPerson": "Venkat TestPerson",
+    "contactPhone": "9663089998",
+    "holidayLocationCode": "RBT",
+    "isActive": true,
+    "langCode": "eng",
+    "latitude": "33.9956",
+    "locationCode": "WOR",
+    "longitude": "-6.8152",
+    "lunchEndTime": "14:00:00",
+    "lunchStartTime": "13:00:00",
+    "name": "HSR Center updated",
+    "perKioskProcessTime": "00:15:00",
+    "timeZone": "Test Time zone",
+    "workingHours": "8:00:00",
+    "zoneCode": "NDR",
+    "id": "96874",
+    "exceptionalHolidayPutPostDto": [
+      {
+        "exceptionHolidayDate": "2020-11-16",
+        "exceptionHolidayName": "TestHoliday",
+        "exceptionHolidayReson": "CenterCreation"
+      }
+    ],
+    "workingNonWorkingDays": {
+      "fri": true,
+      "mon": true,
+      "sat": true,
+      "sun": false,
+      "thu": true,
+      "tue": true,
+      "wed": true
+    }
+  },
+  "requesttime": "2021-12-15T09:44:45.399Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/registrationcenters) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:44:46.118Z",
+  "errors": [
+    {
+      "errorCode": "ADM-MSD-445",
+      "message": "location hierarchy is invalid"
+    },
+    {
+      "errorCode": "KER-MSD-346",
+      "message": "Received Zone Code is not a leaf Zone "
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>location hierarchy is invalid</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>ADM-MSD-445</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[1].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-MSD-346</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[1].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Received Zone Code is not a leaf Zone </td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.addressLine1</td>
+    <td></td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.addressLine2</td>
+    <td></td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.perKioskProcessTime</td>
+    <td></td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.addressLine3</td>
+    <td></td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.locationCode</td>
+    <td></td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.centerStartTime</td>
+    <td></td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.isActive</td>
+    <td></td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.centerEndTime</td>
+    <td></td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.contactPerson</td>
+    <td></td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.lunchStartTime</td>
+    <td></td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.centerTypeCode</td>
+    <td></td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.(exceptionalHolidayPutPostDto)[0].exceptionHolidayDate</td>
+    <td></td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.numberOfKiosks</td>
+    <td></td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.lunchEndTime</td>
+    <td></td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.longitude</td>
+    <td></td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.name</td>
+    <td></td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.latitude</td>
+    <td></td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.langCode</td>
+    <td>eng</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.(exceptionalHolidayPutPostDto)[0].exceptionHolidayReson</td>
+    <td></td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.workingHours</td>
+    <td></td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.contactPhone</td>
+    <td></td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.holidayLocationCode</td>
+    <td></td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.(exceptionalHolidayPutPostDto)[0].exceptionHolidayName</td>
+    <td></td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.zoneCode</td>
+    <td></td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.SimplePut.test(SimplePut.java:88)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:81)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:39)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace61710314", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace61710314'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.SimplePut.test(SimplePut.java:88)
+	at jdk.internal.reflect.GeneratedMethodAccessor183.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:81)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:39)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@f25f48a</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_CreateRegCenter_Invalid_HolidayLocationCode_blank_eng()'><b>MasterData_CreateRegCenter_Invalid_HolidayLocationCode_blank_eng</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_CreateRegCenter_Invalid_latitude_eng)<br>Parameters: TestCaseDTO(testCaseName=MasterData_CreateRegCenter_Invalid_HolidayLocationCode_blank_eng, endPoint=/v1/masterdata/registrationcenters, role=admin, templateFields=[name, addressLine1, addressLine2, addressLine3, timeZone], input={ "addressLine1": "HSR", "addressLine2": "Venkatapura", "addressLine3": "kormangla", "centerEndTime": "17:00:00", "centerStartTime": "09:00:00", "centerTypeCode": "REG", "contactPerson": "Venkat TestPerson", "contactPhone": "9663089998", "holidayLocationCode": "", "isActive": true, "langCode": "eng", "latitude": "33.995612", "locationCode": "TST", "longitude": "-6.815281", "lunchEndTime": "14:00:00", "lunchStartTime": "13:00:00", "name": "BTM Center updated", "perKioskProcessTime": "00:15:00", "timeZone": "Test Time zone", "workingHours": "8:00:00", "zoneCode":"STT", "id": "96874", "workingNonWorkingDays": { "fri": true, "mon": true, "sat": true, "sun": false, "thu": true, "tue": true, "wed": true }, "exceptionHolidayDate": "2020-11-16", "exceptionHolidayName": "TestHoliday", "exceptionHolidayReson": "CenterCreation", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.holidayLocationCode: must not be blank" } ] }, inputTemplate=masterdata/RegistrationCenter/registrationCenter, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-1356246919" onClick='toggleBox("Output-1356246919", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1356246919" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1356246919">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "addressLine1": "HSR",
+    "addressLine2": "Venkatapura",
+    "addressLine3": "kormangla",
+    "centerEndTime": "17:00:00",
+    "centerStartTime": "09:00:00",
+    "centerTypeCode": "REG",
+    "contactPerson": "Venkat TestPerson",
+    "contactPhone": "9663089998",
+    "holidayLocationCode": "",
+    "isActive": true,
+    "langCode": "eng",
+    "latitude": "33.995612",
+    "locationCode": "TST",
+    "longitude": "-6.815281",
+    "lunchEndTime": "14:00:00",
+    "lunchStartTime": "13:00:00",
+    "name": "BTM Center updated",
+    "perKioskProcessTime": "00:15:00",
+    "timeZone": "Test Time zone",
+    "workingHours": "8:00:00",
+    "zoneCode": "STT",
+    "id": "96874",
+    "exceptionalHolidayPutPostDto": [
+      {
+        "exceptionHolidayDate": "2020-11-16",
+        "exceptionHolidayName": "TestHoliday",
+        "exceptionHolidayReson": "CenterCreation"
+      }
+    ],
+    "workingNonWorkingDays": {
+      "fri": true,
+      "mon": true,
+      "sat": true,
+      "sun": false,
+      "thu": true,
+      "tue": true,
+      "wed": true
+    }
+  },
+  "requesttime": "2021-12-15T09:44:46.145Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/registrationcenters) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:44:46.804Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.holidayLocationCode: must not be blank"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.holidayLocationCode: must not be blank</td>
+    <td>request.holidayLocationCode: must not be blank</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@f25f48a</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_CreateRegCenter_Invalid_latitude_blank_eng()'><b>MasterData_CreateRegCenter_Invalid_latitude_blank_eng</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_CreateRegCenter_Invalid_latitude_eng)<br>Parameters: TestCaseDTO(testCaseName=MasterData_CreateRegCenter_Invalid_latitude_blank_eng, endPoint=/v1/masterdata/registrationcenters, role=admin, templateFields=[name, addressLine1, addressLine2, addressLine3, timeZone], input={ "addressLine1": "WhiteField", "addressLine2": "whiteBoard", "addressLine3": "kormangla", "centerEndTime": "17:00:00", "centerStartTime": "09:00:00", "centerTypeCode": "REG", "contactPerson": "Venkat TestPerson", "contactPhone": "9663089998", "holidayLocationCode": "RBT", "isActive": true, "langCode": "eng", "latitude": "", "locationCode": "TST", "longitude": "-6.815281", "lunchEndTime": "14:00:00", "lunchStartTime": "13:00:00", "name": "WhiteField Center updated", "perKioskProcessTime": "00:15:00", "timeZone": "Test Time zone", "workingHours": "8:00:00", "zoneCode":"STT", "id": "96874", "workingNonWorkingDays": { "fri": true, "mon": true, "sat": true, "sun": false, "thu": true, "tue": true, "wed": true }, "exceptionHolidayDate": "2020-11-16", "exceptionHolidayName": "TestHoliday", "exceptionHolidayReson": "CenterCreation", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.latitude: Should not be blank or size must be between 1 and 32" } ] }, inputTemplate=masterdata/RegistrationCenter/registrationCenter, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-33570527" onClick='toggleBox("Output-33570527", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-33570527" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-33570527">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "addressLine1": "WhiteField",
+    "addressLine2": "whiteBoard",
+    "addressLine3": "kormangla",
+    "centerEndTime": "17:00:00",
+    "centerStartTime": "09:00:00",
+    "centerTypeCode": "REG",
+    "contactPerson": "Venkat TestPerson",
+    "contactPhone": "9663089998",
+    "holidayLocationCode": "RBT",
+    "isActive": true,
+    "langCode": "eng",
+    "latitude": "",
+    "locationCode": "TST",
+    "longitude": "-6.815281",
+    "lunchEndTime": "14:00:00",
+    "lunchStartTime": "13:00:00",
+    "name": "WhiteField Center updated",
+    "perKioskProcessTime": "00:15:00",
+    "timeZone": "Test Time zone",
+    "workingHours": "8:00:00",
+    "zoneCode": "STT",
+    "id": "96874",
+    "exceptionalHolidayPutPostDto": [
+      {
+        "exceptionHolidayDate": "2020-11-16",
+        "exceptionHolidayName": "TestHoliday",
+        "exceptionHolidayReson": "CenterCreation"
+      }
+    ],
+    "workingNonWorkingDays": {
+      "fri": true,
+      "mon": true,
+      "sat": true,
+      "sun": false,
+      "thu": true,
+      "tue": true,
+      "wed": true
+    }
+  },
+  "requesttime": "2021-12-15T09:44:46.827Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/registrationcenters) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:44:47.492Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.latitude: Should not be blank or size must be between 1 and 32"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.latitude: Should not be blank or size must be between 1 and 32</td>
+    <td>request.latitude: Should not be blank or size must be between 1 and 32</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@f25f48a</td></tr>
+</table><p>
+</body>
+</html>

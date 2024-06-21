@@ -1,0 +1,176 @@
+<html>
+<head>
+<title>TestNG:  DeleteDocumentCategory</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>DeleteDocumentCategory</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>2/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Dec 15 15:11:07 IST 2021</td>
+</tr>
+<tr><td>Total time:</td><td>1 seconds (1481 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.DeleteWithParam.MasterData_DeleteDocumentCategory_All_Valid_Smoke_sid()'><b>MasterData_DeleteDocumentCategory_All_Valid_Smoke_sid</b><br>Test class: io.mosip.testscripts.DeleteWithParam (MasterData_DeleteDocumentCategory_Invalid_ID)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeleteDocumentCategory_All_Valid_Smoke_sid, endPoint=/v1/masterdata/documentcategories/{code}, role=admin, templateFields=null, input={ "code": "DocTestCode123" }, output={ "code": "DocTestCode123" }, inputTemplate=masterdata/DeleteDocumentCategory/deleteDocumentCategory, outputTemplate=masterdata/DeleteDocumentCategory/deleteDocumentCategoryResult, restMethod=delete)<br/>
+<a href="#Output-182224515" onClick='toggleBox("Output-182224515", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-182224515" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-182224515">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "code": "DocTestCode123"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories/{code}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2021-12-15T09:41:08.059Z",
+  "response": {
+    "code": "DocTestCode123"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.code</td>
+    <td>DocTestCode123</td>
+    <td>DocTestCode123</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.DeleteWithParam@1280682</td></tr>
+<tr>
+<td title='io.mosip.testscripts.DeleteWithParam.MasterData_DeleteDocumentCategory_Invalid_ID()'><b>MasterData_DeleteDocumentCategory_Invalid_ID</b><br>Test class: io.mosip.testscripts.DeleteWithParam (MasterData_DeleteDocumentCategory_Invalid_ID)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeleteDocumentCategory_Invalid_ID, endPoint=/v1/masterdata/documentcategories/{code}, role=admin, templateFields=null, input={ "code": "DocTestCode123" }, output={ "errors": [ { "errorCode": "KER-MSD-014", "message": "Document Category not found" } ] }, inputTemplate=masterdata/DeleteDocumentCategory/deleteDocumentCategory, outputTemplate=masterdata/error, restMethod=delete)<br/>
+<a href="#Output-28478719" onClick='toggleBox("Output-28478719", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-28478719" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-28478719">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "code": "DocTestCode123"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories/{code}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2021-12-15T09:41:08.887Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-014",
+      "message": "Document Category not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Document Category not found</td>
+    <td>Document Category not found</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-014</td>
+    <td>KER-MSD-014</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.DeleteWithParam@1280682</td></tr>
+</table><p>
+</body>
+</html>

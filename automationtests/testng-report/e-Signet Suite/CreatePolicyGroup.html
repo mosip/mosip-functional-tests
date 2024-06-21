@@ -1,0 +1,279 @@
+<html>
+<head>
+<title>TestNG:  CreatePolicyGroup</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>CreatePolicyGroup</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>4/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Aug 04 12:00:55 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>5 seconds (5906 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.Esignet_DefinePolicyGroup_All_Valid_Smoke_sid()'><b>Esignet_DefinePolicyGroup_All_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (Esignet_DefinePolicyGroup_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=Esignet_DefinePolicyGroup_All_Valid_Smoke_sid, endPoint=/v1/policymanager/policies/group/new, role=partner, templateFields=null, input={ "desc": "$POLICYGROUPDESC$", "name": "$POLICYGROUPNAME$", "requesttime": "$TIMESTAMP$" }, output= { "id": "$IGNORE$", "name": "$IGNORE$", "desc": "$IGNORE$", "is_Active": true }, inputTemplate=esignet/PmsIntegration/DefinePolicyGroup/definePolicyGroup, outputTemplate=esignet/PmsIntegration/DefinePolicyGroup/definePolicyGroupResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1310342490" onClick='toggleBox("Output-1310342490", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1310342490" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1310342490">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "desc": "policyGroupForAutomationEsi858350",
+    "name": "policyGroupNameForAutomationEsi56121"
+  },
+  "requesttime": "2023-08-04T06:30:55.229Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/policymanager/policies/group/new) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-08-04T06:30:56.762Z",
+  "response": {
+    "id": "29495",
+    "name": "policyGroupNameForAutomationEsi56121",
+    "desc": "policyGroupForAutomationEsi858350",
+    "is_Active": true,
+    "cr_by": "esignet-111997",
+    "cr_dtimes": "2023-08-04T06:30:56.556896"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.is_Active</td>
+    <td>true</td>
+    <td>true</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@5873f3f0</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.Esignet_DefinePolicyGroup_Misp_Valid_Smoke_sid()'><b>Esignet_DefinePolicyGroup_Misp_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (Esignet_DefinePolicyGroup_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=Esignet_DefinePolicyGroup_Misp_Valid_Smoke_sid, endPoint=/v1/policymanager/policies/group/new, role=partner, templateFields=null, input={ "desc": "$MISPPOLICYGROUPDESC$", "name": "$MISPPOLICYGROUPNAME$", "requesttime": "$TIMESTAMP$" }, output= { "id": "$IGNORE$", "name": "$IGNORE$", "desc": "$IGNORE$", "is_Active": true }, inputTemplate=esignet/PmsIntegration/DefinePolicyGroup/definePolicyGroup, outputTemplate=esignet/PmsIntegration/DefinePolicyGroup/definePolicyGroupResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-635236790" onClick='toggleBox("Output-635236790", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-635236790" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-635236790">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "desc": "policyGroupForMispEsi952567710",
+    "name": "policyGroupNameForMispEsi548801088"
+  },
+  "requesttime": "2023-08-04T06:30:56.855Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/policymanager/policies/group/new) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-08-04T06:30:58.053Z",
+  "response": {
+    "id": "58880",
+    "name": "policyGroupNameForMispEsi548801088",
+    "desc": "policyGroupForMispEsi952567710",
+    "is_Active": true,
+    "cr_by": "esignet-111997",
+    "cr_dtimes": "2023-08-04T06:30:57.96285"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.is_Active</td>
+    <td>true</td>
+    <td>true</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@5873f3f0</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.Esignet_DefinePolicyGroup_Valid_Smoke_sid()'><b>Esignet_DefinePolicyGroup_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (Esignet_DefinePolicyGroup_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=Esignet_DefinePolicyGroup_Valid_Smoke_sid, endPoint=/v1/policymanager/policies/group/new, role=partner, templateFields=null, input={ "desc": "$RIDDEL$", "name": "$RIDDEL$", "requesttime": "$TIMESTAMP$" }, output= { "id": "$IGNORE$", "name": "$IGNORE$", "desc": "$IGNORE$", "is_Active": true }, inputTemplate=esignet/PmsIntegration/DefinePolicyGroup/definePolicyGroup, outputTemplate=esignet/PmsIntegration/DefinePolicyGroup/definePolicyGroupResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1282393063" onClick='toggleBox("Output-1282393063", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1282393063" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1282393063">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "desc": "27857822264723",
+    "name": "27857822264723"
+  },
+  "requesttime": "2023-08-04T06:30:59.311Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/policymanager/policies/group/new) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-08-04T06:31:00.918Z",
+  "response": {
+    "id": "37070",
+    "name": "27857822264723",
+    "desc": "27857822264723",
+    "is_Active": true,
+    "cr_by": "esignet-111997",
+    "cr_dtimes": "2023-08-04T06:31:00.789464"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.is_Active</td>
+    <td>true</td>
+    <td>true</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@5873f3f0</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.Esignet_DefinePolicyGroup_in_Valid_Smoke_sid()'><b>Esignet_DefinePolicyGroup_in_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (Esignet_DefinePolicyGroup_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=Esignet_DefinePolicyGroup_in_Valid_Smoke_sid, endPoint=/v1/policymanager/policies/group/new, role=partner, templateFields=null, input={ "desc": "$RID$", "name": "$RID$", "requesttime": "$TIMESTAMP$" }, output= { "id": "$IGNORE$", "name": "$IGNORE$", "desc": "$IGNORE$", "is_Active": true }, inputTemplate=esignet/PmsIntegration/DefinePolicyGroup/definePolicyGroup, outputTemplate=esignet/PmsIntegration/DefinePolicyGroup/definePolicyGroupResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-131168518" onClick='toggleBox("Output-131168518", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-131168518" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-131168518">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "desc": "278471372875342",
+    "name": "278471372875342"
+  },
+  "requesttime": "2023-08-04T06:30:58.187Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/policymanager/policies/group/new) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-08-04T06:30:59.111Z",
+  "response": {
+    "id": "40872",
+    "name": "278471372875342",
+    "desc": "278471372875342",
+    "is_Active": true,
+    "cr_by": "esignet-111997",
+    "cr_dtimes": "2023-08-04T06:30:59.031214"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.is_Active</td>
+    <td>true</td>
+    <td>true</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@5873f3f0</td></tr>
+</table><p>
+</body>
+</html>
