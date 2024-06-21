@@ -247,6 +247,8 @@ public class ConfigManager {
 	public static Properties propsKernel;
 	private static String reportExpirationInDays;
 
+	public static boolean getUsePreConfiguredOtp;
+
 	public static void setProperty(String key, String value) {
 		// Overwrite the value with only if the key exists
 		if (propsKernel.containsKey(key)) {
