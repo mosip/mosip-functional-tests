@@ -110,7 +110,7 @@ public class BaseTestCase {
 	public static Map<?, ?> residentQueries;
 	public static Map<?, ?> partnerQueries;
 	public static boolean insertDevicedata = false;
-	public static boolean proxy = true;
+	public static boolean proxy = false;
 
 	public static String ApplnURI;
 	public static String ApplnURIForKeyCloak;
