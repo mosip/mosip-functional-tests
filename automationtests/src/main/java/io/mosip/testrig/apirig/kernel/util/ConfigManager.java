@@ -75,6 +75,7 @@ public class ConfigManager {
 
 	private static String USEPRECONFIGOTP = "usePreConfiguredOtp";
 	private static String ESIGNET_BASE_URL = "eSignetbaseurl";
+	private static String ACTUATOR_PROPERTY_SECTION = "actuatorPropertySection";
 	
 	private static String SIGNUP_BASE_URL = "signupBaseUrl";
 
@@ -199,6 +200,7 @@ public class ConfigManager {
 	private static String usePreConfiguredOtp;
 	private static String preconfiguredOtp;
 	private static String eSignetbaseurl;
+	private static String actuatorPropertySection;
 	private static String signupBaseUrl;
 	private static String esignetMockBaseURL;
 
@@ -409,6 +411,14 @@ public class ConfigManager {
 			eSignetbaseurl = System.getProperty("env.endpoint").replace("-internal", "");
 		}
 		propsKernel.setProperty(ESIGNET_BASE_URL, eSignetbaseurl);
+		
+		
+		
+		actuatorPropertySection = System.getenv(ACTUATOR_PROPERTY_SECTION) == null
+		? propsKernel.getProperty(ACTUATOR_PROPERTY_SECTION)
+		: System.getenv(ACTUATOR_PROPERTY_SECTION);
+propsKernel.setProperty(ACTUATOR_PROPERTY_SECTION, actuatorPropertySection);
+		
 		
 		if (System.getenv(SIGNUP_BASE_URL) != null) {
 			signupBaseUrl = System.getenv(SIGNUP_BASE_URL);
