@@ -1,5 +1,9 @@
 package io.mosip.testrig.authentication.demo.service;
 
+import io.mosip.kernel.templatemanager.velocity.builder.TemplateManagerBuilderImpl;
+import io.mosip.kernel.websub.api.client.PublisherClientImpl;
+import io.mosip.kernel.websub.api.client.SubscriberClientImpl;
+import io.mosip.kernel.websub.api.config.publisher.RestTemplateHelper;
 import org.apache.velocity.app.VelocityEngine;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,7 +19,8 @@ import io.mosip.testrig.authentication.demo.service.config.SwaggerConfig;
  * @author Dinesh Karuppiah
  */
 @SpringBootApplication
-@Import(value = {  TemplateManagerImpl.class, VelocityEngine.class, SwaggerConfig.class, CryptoCore.class})
+@Import(value = {  TemplateManagerImpl.class, VelocityEngine.class, SwaggerConfig.class, CryptoCore.class, TemplateManagerBuilderImpl.class,
+		PublisherClientImpl.class, RestTemplateHelper.class, SubscriberClientImpl.class})
 public class PartnerDemoApplication {
 
 	/**
