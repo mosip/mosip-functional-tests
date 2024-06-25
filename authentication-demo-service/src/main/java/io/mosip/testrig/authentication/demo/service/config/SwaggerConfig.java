@@ -1,120 +1,57 @@
 package io.mosip.testrig.authentication.demo.service.config;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import  jakarta.annotation.PostConstruct;
-
-import org.springframework.beans.factory.annotation.Value;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import springfox.documentation.builders.ApiInfoBuilder;
-import springfox.documentation.builders.ParameterBuilder;
-import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.schema.ModelRef;
-import springfox.documentation.service.ApiInfo;
-import springfox.documentation.service.Parameter;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import io.swagger.v3.oas.models.Components;
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.info.License;
+import io.swagger.v3.oas.models.servers.Server;
 
-/**
- * To expose the documentation for entire API.
- *
- * @author Dinesh Karuppiah
- */
-
-@Configuration(value = "ida_swagger_config")
-@EnableSwagger2
+@Configuration
 public class SwaggerConfig {
 
-	private Boolean localEnv=true;
+	private static final Logger logger = LoggerFactory.getLogger(SwaggerConfig.class);
 
-	@Value("${swagger.base-url:#{null}}")
-	private String swaggerUrl;
+	@Autowired
+	private OpenApiProperties openApiProperties;
 
-	@Value("${server.port:8080}")
-	private int serverPort;
-
-	private String host;
-	private String proto = "http";
-	private int port = -1;
-
-	private String hostWithPort;
-
-	@PostConstruct
-	public void init() {
-		host = "localhost";
-		hostWithPort = "localhost:" + serverPort;
-	}
-
-	/**
-	 * Set the api info.
-	 *
-	 * @return the api info
-	 */
-	ApiInfo getApiInfo() {
-		return new ApiInfoBuilder().title("Id Authentication Service").description("Id Authentication Service").build();
-	}
-
-	/**
-	 * Docket bean provides more control over the API for Documentation Generation.
-	 *
-	 * @return the docket
-	 */
-
-	/**
-	 * Produce Docket bean
-	 * 
-	 * @return Docket bean
-	 */
 	@Bean
-	public Docket api() {
-		boolean targetSwagger = false;
-		if (!localEnv && swaggerUrl != null && !swaggerUrl.isEmpty()) {
-			try {
-				proto = new URL(swaggerUrl).getProtocol();
-				host = new URL(swaggerUrl).getHost();
-				port = new URL(swaggerUrl).getPort();
-				if (port == -1) {
-					hostWithPort = host;
-				} else {
-					hostWithPort = host + ":" + port;
-				}
-				targetSwagger = true;
-			} catch (MalformedURLException e) {
-				System.err.println("SwaggerUrlException: " + e);
+	public OpenAPI openApi() {
+		String msg = "Swagger open api, ";
+		OpenAPI api = new OpenAPI()
+				.components(new Components());
+		if (null != openApiProperties.getInfo()) {
+			api.info(new Info()
+					.title(openApiProperties.getInfo().getTitle())
+					.version(openApiProperties.getInfo().getVersion())
+					.description(openApiProperties.getInfo().getDescription()));
+			if (null != openApiProperties.getInfo().getLicense()) {
+				api.getInfo().license(new License()
+						.name(openApiProperties.getInfo().getLicense().getName())
+						.url(openApiProperties.getInfo().getLicense().getUrl()));
+				logger.info(msg + "info license property is added");
+			} else {
+				logger.error(msg + "info license property is empty");
 			}
-		}
-		ParameterBuilder aParameterBuilder = new ParameterBuilder();
-		aParameterBuilder.name("Authorization").modelRef(new ModelRef("string")).parameterType("header").build();
-		List<Parameter> aParameters = new ArrayList<>();
-		aParameters.add(aParameterBuilder.build());
-		Docket docket = new Docket(DocumentationType.SWAGGER_2).select().apis(RequestHandlerSelectors.any())
-				.paths(PathSelectors.regex("(?!/(error|actuator).*).*")).build().globalOperationParameters(aParameters);
-
-		if (targetSwagger) {
-			docket.protocols(protocols()).host(hostWithPort);
+			logger.info(msg + "info property is added");
+		} else {
+			logger.error(msg + "info property is empty");
 		}
 
-		return docket;
-	}
-
-	/**
-	 * Protocols
-	 * 
-	 * @return
-	 */
-	private Set<String> protocols() {
-		Set<String> protocols = new HashSet<>();
-		protocols.add(proto);
-		return protocols;
+		if (null != openApiProperties.getAuthDemoServiceServer().getServers()) {
+			openApiProperties.getAuthDemoServiceServer().getServers().forEach(server -> {
+				api.addServersItem(new Server().description(server.getDescription()).url(server.getUrl()));
+			});
+			logger.info(msg + "server property is added");
+		} else {
+			logger.error(msg + "server property is empty");
+		}
+		return api;
 	}
 
 }
