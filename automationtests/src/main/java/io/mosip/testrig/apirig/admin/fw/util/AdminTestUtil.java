@@ -5856,7 +5856,8 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String getWlaToken(String individualId, RSAKey jwkKey, String certData)
 			throws JoseException, JOSEException {
 		String tempUrl = propsKernel.getProperty("validateBindingEndpoint");
-		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(GlobalConstants.ESIGNET_DEFAULT_PROPERTIES,
+		//int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(GlobalConstants.ESIGNET_DEFAULT_PROPERTIES,
+		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(propsKernel.getProperty("actuatorPropertySection"),
 				GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
 		Instant instant = Instant.now();
 		long epochValue = instant.getEpochSecond();
@@ -6040,6 +6041,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static JSONArray esignetActuatorResponseArray = null;
 
 	public static String getValueFromEsignetActuator(String section, String key) {
+		
 		String url = ConfigManager.getEsignetBaseUrl() + propsKernel.getProperty("actuatorEsignetEndpoint");
 		String actuatorCacheKey = url + section + key;
 		String value = actuatorValueCache.get(actuatorCacheKey);
