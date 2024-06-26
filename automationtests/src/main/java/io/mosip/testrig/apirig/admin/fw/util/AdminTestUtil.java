@@ -5818,8 +5818,13 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String signJWKKey(String clientId, RSAKey jwkKey) {
 //		String tempUrl = getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES, "mosip.iam.token_endpoint");
 		String tempUrl = getValueFromEsignetWellKnownEndPoint("token_endpoint");
-		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(GlobalConstants.ESIGNET_DEFAULT_PROPERTIES,
+//		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(GlobalConstants.ESIGNET_DEFAULT_PROPERTIES,
+//				GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
+		
+		logger.info("actuatorPropertySection = " + ConfigManager.getActuatorPropertySection());
+		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(ConfigManager.getActuatorPropertySection(),
 				GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
+		logger.info("idTokenExpirySecs = " + idTokenExpirySecs);
 		JWSSigner signer;
 
 		try {
