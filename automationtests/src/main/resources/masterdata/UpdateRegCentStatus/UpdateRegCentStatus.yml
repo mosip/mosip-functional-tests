@@ -1,0 +1,15 @@
+UpdateRegCentStatus:
+   MasterData_UpdateRegCentStatus_All_Valid_Smoke_sid:  
+      endPoint: /v1/masterdata/registrationcenters?isActive={isActive}&id={id}
+      role: globalAdmin
+      restMethod: patch
+      inputTemplate: masterdata/UpdateRegCentStatus/updateRegCentStatus
+      outputTemplate: masterdata/UpdateRegCentStatus/updateRegCentStatusResult
+      input: '{
+  "id": "$ID:CreateRegCenter_allValid_smoke_sid_id$",
+  "isActive": "true"
+}'
+      output: '{
+    "status": "Status updated successfully for Registration Centers"
+}'
+   

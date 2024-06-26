@@ -1,0 +1,251 @@
+CreateHoliday:
+   MasterData_CreateHoliday_All_Valid_Smoke_sid:
+      endPoint: /v1/masterdata/holidays
+      role: admin
+      templateFields: ["holidayDesc","holidayName"]
+      restMethod: post
+      inputTemplate: masterdata/Holiday/holiday
+      outputTemplate: masterdata/Holiday/holidayResult
+      input: '{
+    "holidayDate": "2020-08-15",
+    "holidayDesc": "AutoTest user Holiday",
+    "holidayId": "$REMOVE$",
+    "holidayName": "AutoTest user Eng",
+    "isActive": true,
+    "langCode": "eng",
+    "locationCode": "$LOCATIONCODE$",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+     "locationCode": "$IGNORE$",
+     "holidayDate": "2020-08-15",
+     "holidayName": "AutoTest user Eng",
+     "langCode": "$IGNORE$"
+    }'
+   MasterData_CreateHoliday_Invalid_InputParameter_HolidayDate_Missing:
+      endPoint: /v1/masterdata/holidays
+      role: admin
+      templateFields: ["holidayDesc","holidayName"]
+      restMethod: post
+      inputTemplate: masterdata/Holiday/holiday
+      outputTemplate: masterdata/error
+      input: '{
+    "holidayDate": "$REMOVE$",
+    "holidayDesc": "AutoTest user Holiday",
+    "holidayId": $REMOVE$,
+    "holidayName": "AutoTest user",
+    "isActive": false,
+    "langCode": "eng",
+    "locationCode": "$LOCATIONCODE$",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "One or more input parameter(s) is missing"
+    }
+  ]
+}'
+   MasterData_CreateHoliday_Invalid_InputParameter_HolidayDate_Empty:
+      endPoint: /v1/masterdata/holidays
+      role: admin
+      templateFields: ["holidayDesc","holidayName"]
+      restMethod: post
+      inputTemplate: masterdata/Holiday/holiday
+      outputTemplate: masterdata/error
+      input: '{
+    "holidayDate": "",
+    "holidayDesc": "AutoTest user Holiday",
+    "holidayId": $REMOVE$,
+    "holidayName": "AutoTest user",
+    "isActive": false,
+    "langCode": "eng",
+    "locationCode": "$LOCATIONCODE$",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : holidayDate"
+    }
+  ]
+}'
+   MasterData_CreateHoliday_Invalid_HolidayDate_Format:
+      endPoint: /v1/masterdata/holidays
+      role: admin
+      templateFields: ["holidayDesc","holidayName"]
+      restMethod: post
+      inputTemplate: masterdata/Holiday/holiday
+      outputTemplate: masterdata/error
+      input: '{
+    "holidayDate": "16-08-2020",
+    "holidayDesc": "AutoTest user Holiday",
+    "holidayId": $REMOVE$,
+    "holidayName": "AutoTest user",
+    "isActive": false,
+    "langCode": "eng",
+    "locationCode": "$LOCATIONCODE$",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : holidayDate"
+    }
+  ]
+}'
+   MasterData_CreateHoliday_Invalid_InputParameter_HolidayName_Missing:
+      endPoint: /v1/masterdata/holidays
+      role: admin
+      templateFields: ["holidayDesc"]
+      restMethod: post
+      inputTemplate: masterdata/Holiday/holiday
+      outputTemplate: masterdata/error
+      input: '{
+    "holidayDate": "2020-08-15",
+    "holidayDesc": "AutoTest user Holiday",
+    "holidayId": $REMOVE$,
+    "holidayName": "$REMOVE$",
+    "isActive": false,
+    "langCode": "eng",
+    "locationCode": "$LOCATIONCODE$",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "One or more input parameter(s) is missing"
+    }
+  ]
+}'
+   MasterData_CreateHoliday_Invalid_InputParameter_HolidayName_AboveMaxLen64:
+      endPoint: /v1/masterdata/holidays
+      role: admin
+      templateFields: ["holidayDesc","holidayName"]
+      restMethod: post
+      inputTemplate: masterdata/Holiday/holiday
+      outputTemplate: masterdata/error
+      input: '{
+    "holidayDate": "2020-08-15",
+    "holidayDesc": "AutoTest user Holiday",
+    "holidayId": $REMOVE$,
+    "holidayName": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
+    "isActive": false,
+    "langCode": "eng",
+    "locationCode": "$LOCATIONCODE$",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "holiday_name size must be between 1 and 64"
+    }
+  ]
+}'
+   MasterData_CreateHoliday_Invalid_InputParameter_LocationCode_Missing:
+      endPoint: /v1/masterdata/holidays
+      role: admin
+      templateFields: ["holidayDesc","holidayName"]
+      restMethod: post
+      inputTemplate: masterdata/Holiday/holiday
+      outputTemplate: masterdata/error
+      input: '{
+    "holidayDate": "2020-08-15",
+    "holidayDesc": "AutoTest user Holiday",
+    "holidayId": $REMOVE$,
+    "holidayName": "AutoTest user",
+    "isActive": false,
+    "langCode": "eng",
+    "locationCode": "$REMOVE$",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "One or more input parameter(s) is missing"
+    }
+  ]
+}'
+   MasterData_CreateHoliday_Invalid_InputParameter_LocationCode_NotInDB:
+      endPoint: /v1/masterdata/holidays
+      role: admin
+      templateFields: ["holidayDesc","holidayName"]
+      restMethod: post
+      inputTemplate: masterdata/Holiday/holiday
+      outputTemplate: masterdata/error
+      input: '{
+    "holidayDate": "2020-08-15",
+    "holidayDesc": "AutoTest user Holiday",
+    "holidayId": $REMOVE$,
+    "holidayName": "AutoTest user",
+    "isActive": false,
+    "langCode": "eng",
+    "locationCode": "GST",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-730",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   MasterData_CreateHoliday_Invalid_InputParameter_LocationCode_AboveMaxLen128:
+      endPoint: /v1/masterdata/holidays
+      role: admin
+      templateFields: ["holidayDesc","holidayName"]
+      restMethod: post
+      inputTemplate: masterdata/Holiday/holiday
+      outputTemplate: masterdata/error
+      input: '{
+    "holidayDate": "2020-08-15",
+    "holidayDesc": "AutoTest user Holiday",
+    "holidayId": $REMOVE$,
+    "holidayName": "AutoTest user",
+    "isActive": false,
+    "langCode": "eng",
+    "locationCode": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "location_code size must be between 1 and 128"
+    }
+  ]
+}'
+   
+   
+   MasterData_CreateHoliday_Invalid_InputParameter_isActive_Missing:
+      endPoint: /v1/masterdata/holidays
+      role: admin
+      templateFields: ["holidayDesc","holidayName"]
+      restMethod: post
+      inputTemplate: masterdata/Holiday/holiday
+      outputTemplate: masterdata/error
+      input: '{
+    "holidayDate": "2020-08-15",
+    "holidayDesc": "AutoTest user Holiday",
+    "holidayId": $REMOVE$,
+    "holidayName": "AutoTest user",
+    "isActive": "$REMOVE$",
+    "langCode": "eng",
+    "locationCode": "$LOCATIONCODE$",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "One or more input parameter(s) is missing"
+    }
+  ]
+}'

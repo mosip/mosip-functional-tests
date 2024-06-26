@@ -1,0 +1,12 @@
+{
+  "response": {
+    "documenttypes": [
+      {{#each documenttypes}}  
+      {
+        "isActive": "{{isActive}}"
+      }
+       {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  }
+}

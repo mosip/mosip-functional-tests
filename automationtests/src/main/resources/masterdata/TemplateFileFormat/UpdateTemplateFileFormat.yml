@@ -1,0 +1,234 @@
+UpdateTemplateFileFormat:
+   Masterdata_UpdateTemplateFileFormat_All_Valid_Smoke:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      templateFields: ["langCode"]
+      restMethod: put
+      inputTemplate: masterdata/TemplateFileFormat/templateFileFormat
+      outputTemplate: masterdata/TemplateFileFormat/templateFileFormatResult
+      input: '{
+    "code": "$ID:CreateTemplateFileFormat_All_Valid_Smoke_sid_code$",
+    "description": "Doc Test updated",
+	"isActive": true,
+	"langCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+	"code": "Doc"
+}'
+   Masterdata_UpdateTemplateFileFormat_InputParameter_Description_AboveMaxLen256:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      templateFields: ["langCode"]
+      restMethod: put
+      inputTemplate: masterdata/TemplateFileFormat/templateFileFormat
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "Docx",
+    "description": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvW",
+	"isActive": false,
+	"langCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.description: Should not be blank or size must be between 1 and 256"
+    }
+  ]
+}'
+   Masterdata_UpdateTemplateFileFormat_InputParameter_Description_Missing:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      templateFields: ["langCode"]
+      restMethod: put
+      inputTemplate: masterdata/TemplateFileFormat/templateFileFormat
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "Docxx",
+    "description": "$REMOVE$",
+	"isActive": false,
+	"langCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.description: must not be null"
+    }
+  ]
+}'
+   Masterdata_UpdateTemplateFileFormat_InputParameter_Description_Empty:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      templateFields: ["langCode"]
+      restMethod: put
+      inputTemplate: masterdata/TemplateFileFormat/templateFileFormat
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "Docxx",
+    "description": "",
+	"isActive": false,
+	"langCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.description: Should not be blank or size must be between 1 and 256"
+    }
+  ]
+}'
+   Masterdata_UpdateTemplateFileFormat_InputParameter_Code_Missing:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      templateFields: ["langCode"]
+      restMethod: put
+      inputTemplate: masterdata/TemplateFileFormat/templateFileFormat
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "$REMOVE$",
+    "description": "Docxx Test",
+	"isActive": false,
+	"langCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: must not be null"
+    }
+  ]
+}'
+   Masterdata_UpdateTemplateFileFormat_InputParameter_Code_Empty:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      templateFields: ["langCode"]
+      restMethod: put
+      inputTemplate: masterdata/TemplateFileFormat/templateFileFormat
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "",
+    "description": "Docxx Test",
+	"isActive": false,
+	"langCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'
+   Masterdata_UpdateTemplateFileFormat_InputParameter_Code_AboveMaxLen36:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      templateFields: ["langCode"]
+      restMethod: put
+      inputTemplate: masterdata/TemplateFileFormat/templateFileFormat
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "abcdefghijklmnopqrstuvwxyzabcdefghijk",
+    "description": "Docxx Test",
+	"isActive": false,
+	"langCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'
+   Masterdata_UpdateTemplateFileFormat_InputParameter_LangCode_Missing:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: put
+      inputTemplate: masterdata/TemplateFileFormat/templateFileFormat
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "docx",
+    "description": "Docxx Test",
+	"isActive": false,
+	"langCode": "$REMOVE$",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
+   Masterdata_UpdateTemplateFileFormat_InputParameter_LangCode_Empty:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: put
+      inputTemplate: masterdata/TemplateFileFormat/templateFileFormat
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "docx",
+    "description": "Docxx Test",
+	"isActive": false,
+	"langCode": "",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
+   AMasterdata_UpdateTemplateFileFormat_InputParameter_LangCode_AboveMaxLen3:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: put
+      inputTemplate: masterdata/TemplateFileFormat/templateFileFormat
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "docx",
+    "description": "Docxx Test",
+	"isActive": false,
+	"langCode": "engr",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
+   Masterdata_UpdateTemplateFileFormat_InputParameter_Invalid_LangCode:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: put
+      inputTemplate: masterdata/TemplateFileFormat/templateFileFormat
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "docx",
+    "description": "Docxx Test",
+	"isActive": false,
+	"langCode": "GER",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'

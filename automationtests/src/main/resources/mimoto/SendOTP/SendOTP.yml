@@ -1,0 +1,52 @@
+SendOTP:
+   Resident_SendOTP_Valid_UIN_All_Smoke:
+      endPoint: /resident/v1/req/otp
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      inputTemplate: resident/SendOTP/createSendOTP
+      outputTemplate: resident/SendOTP/createSendOTPResult
+      input: '{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN"
+}'
+      output: '{
+        "maskedMobile": "$IGNORE$",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+}'
+
+   Resident_SendOTP_Invalid_UIN_Neg:
+      endPoint: /resident/v1/req/otp
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      inputTemplate: resident/SendOTP/createSendOTP
+      outputTemplate: resident/error
+      input: '{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "34hgf$",
+    "individualIdType": "UIN"
+}'
+      output: '{
+        "maskedMobile": "$IGNORE$",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+}'
+
+   Resident_SendOTP_Invalid_VID_Neg:
+      endPoint: /resident/v1/req/otp
+      role: resident
+      restMethod: post
+      inputTemplate: resident/SendOTP/createSendOTP
+      outputTemplate: resident/error
+      input: '{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$45hgv",
+    "individualIdType": "VID"
+}'
+      output: '{
+        
+}'

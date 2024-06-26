@@ -1,0 +1,49 @@
+UpdateDocType:
+   MasterData_UpdateDocType_All_Valid_Smoke_sid:  
+      endPoint: /v1/masterdata/documenttypes?isActive=true&code=TestDocType0020
+      role: admin
+      restMethod: patch
+      inputTemplate: masterdata/UpdateDocType/updateDocType
+      outputTemplate: masterdata/UpdateDocType/updateDocTypeResult
+      input: '{
+    
+}'
+      output: '{
+    "status": "Status updated successfully for Document Types"
+}'
+
+   MasterData_UpdateDocType_Invalid_status:  
+      endPoint: /v1/masterdata/documenttypes?isActive=false&code=CIN
+      role: admin
+      restMethod: patch
+      inputTemplate: masterdata/UpdateDocType/updateDocType
+      outputTemplate: masterdata/error
+      input: '{
+    
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-119",
+      "message": "Mapping exist before deactivating remove the mapping"
+    }
+  ]
+}'
+
+   MasterData_UpdateDocType_Invalid_code:  
+      endPoint: /v1/masterdata/documenttypes?isActive=true&code=ABC
+      role: admin
+      restMethod: patch
+      inputTemplate: masterdata/UpdateDocType/updateDocType
+      outputTemplate: masterdata/error
+      input: '{
+    
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-118",
+      "message": "Document Type not found"
+    }
+  ]
+}'

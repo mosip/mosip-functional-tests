@@ -1,0 +1,279 @@
+UpdateLocationData:
+   MasterData_UpdateLocationData_All_Valid_Smoke:
+      endPoint: /v1/masterdata/locations
+      role: admin
+      templateFields: ["hierarchyName"]
+      restMethod: put
+      inputTemplate: masterdata/LocationController/locationData
+      outputTemplate: masterdata/LocationController/locationDataResult
+      input: '{
+    "code": "TST12",
+    "name": "Test_Loc_A_updated",
+    "hierarchyLevel": "$HIERARCHYLEVEL$",
+    "hierarchyName": "$HIERARCHYNAME$",
+    "parentLocCode": "$PARENTLOCCODE$",
+    "langCode": "eng",
+    "isActive": true,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+"isActive": "$IGNORE$",
+"code": "TST12",
+"name": "Test_Loc_A_updated",
+"hierarchyLevel": "$IGNORE$",
+"hierarchyName": "$IGNORE$",
+"parentLocCode": "$IGNORE$",
+"langCode": "$IGNORE$"
+}'
+   MasterData_UpdateLocationData_Invalid_code_for_primaryLang_eng:
+      endPoint: /v1/masterdata/locations
+      role: admin
+      templateFields: ["langCode"]
+      restMethod: put
+      inputTemplate: masterdata/LocationController/locationData
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "anyString",
+    "name": "Test_Loc_B_2",
+    "hierarchyLevel": "0",
+    "hierarchyName": "$HIERARCHYNAME$",
+    "parentLocCode": "$PARENTLOCCODE$",    
+    "langCode": "eng",
+    "isActive": false,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-244",
+      "message": "Location hierarchy is invalid"
+    }
+  ]
+}'
+   MasterData_UpdateLocationData_Invalid_EmptyCode_PrimaryLang_eng:
+      endPoint: /v1/masterdata/locations
+      role: admin
+      templateFields: ["langCode"]
+      restMethod: put
+      inputTemplate: masterdata/LocationController/locationData
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "",
+    "name": "Test_Loc_1_A",
+    "hierarchyLevel": "0",
+    "hierarchyName": "$HIERARCHYNAME$",
+    "parentLocCode": "$PARENTLOCCODE$",    
+    "langCode": "eng",
+    "isActive": false,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'
+   MasterData_UpdateLocationData_Invalid_NameLength129:
+      endPoint: /v1/masterdata/locations
+      role: admin
+      templateFields: ["hierarchyName"]
+      restMethod: put
+      inputTemplate: masterdata/LocationController/locationData
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "NST",
+    "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy",
+    "hierarchyLevel": "0",
+    "hierarchyName": "$HIERARCHYNAME$",
+    "parentLocCode": "$PARENTLOCCODE$",    
+    "langCode": "eng",
+    "isActive": false,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 0 and 128"
+    }
+  ]
+}'
+   MasterData_UpdateLocationData_Invalid_EmptyName:
+      endPoint: /v1/masterdata/locations
+      role: admin
+      templateFields: ["hierarchyName"]
+      restMethod: put
+      inputTemplate: masterdata/LocationController/locationData
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "NST",
+    "name": "",
+    "hierarchyLevel": "0",
+    "hierarchyName": "$HIERARCHYNAME$",
+    "parentLocCode": "$PARENTLOCCODE$",    
+    "langCode": "eng",
+    "isActive": false,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 0 and 128"
+    }
+  ]
+}'
+   MasterData_UpdateLocationData_Invalid_HierarchyLevel_LongInt:
+      endPoint: /v1/masterdata/locations
+      role: admin
+      templateFields: ["hierarchyName"]
+      restMethod: put
+      inputTemplate: masterdata/LocationController/locationData
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "NST",
+    "name": "NDATA",
+    "hierarchyLevel":"2147483647",
+    "hierarchyName": "$HIERARCHYNAME$",
+    "parentLocCode": "$PARENTLOCCODE$",    
+    "langCode": "eng",
+    "isActive": false,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : hierarchyLevel"
+    }
+  ]
+}'
+   MasterData_UpdateLocationData_inValid_hierLevel_locHierCombo:
+      endPoint: /v1/masterdata/locations
+      role: admin
+      templateFields: ["hierarchyName"]
+      restMethod: put
+      inputTemplate: masterdata/LocationController/locationData
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "NST",
+    "name": "NDATA",
+    "hierarchyLevel": "0",
+    "hierarchyName": "$HIERARCHYNAME$",
+    "parentLocCode": "$PARENTLOCCODE$",    
+    "langCode": "eng",
+    "isActive": false,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-244",
+      "message": "Location hierarchy is invalid"
+    }
+  ]
+}'
+   MasterData_UpdateLocationData_inValid_HierarchyName65:
+      endPoint: /v1/masterdata/locations
+      role: admin
+      templateFields: ["hierarchyName"]
+      restMethod: put
+      inputTemplate: masterdata/LocationController/locationData
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "NST",
+    "name": "NDATA",
+    "hierarchyLevel": "0",
+    "hierarchyName":"abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
+    "parentLocCode": "$PARENTLOCCODE$",    
+    "langCode": "eng",
+    "isActive": false,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.hierarchyName: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}'
+   MasterData_UpdateLocationData_Invalid_EmptyHierarchyName:
+      endPoint: /v1/masterdata/locations
+      role: admin
+      templateFields: ["hierarchyName"]
+      restMethod: put
+      inputTemplate: masterdata/LocationController/locationData
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "NST",
+    "name": "NDATA",
+    "hierarchyLevel":"3",
+    "hierarchyName": "",
+    "parentLocCode": "$PARENTLOCCODE$",    
+    "langCode": "eng",
+    "isActive": false,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.hierarchyName: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}'
+   MasterData_UpdateLocationData_inValid_parentLocCode_nonExisting_inDB:
+      endPoint: /v1/masterdata/locations
+      role: admin
+      templateFields: ["hierarchyName"]
+      restMethod: put
+      inputTemplate: masterdata/LocationController/locationData
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "NST",
+    "name": "NDATA",
+    "hierarchyLevel":"4",
+    "hierarchyName": "$HIERARCHYNAME$",
+    "parentLocCode": "ENTLOCCOD",    
+    "langCode": "eng",
+    "isActive": false,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-027",
+      "message": "Parent Location fbheafg does not exist"
+    }
+  ]
+}'
+   
+   
+   MasterData_UpdateLocationData_Invalid_requestTime_format:
+      endPoint: /v1/masterdata/locations
+      role: admin
+      templateFields: ["hierarchyName"]
+      restMethod: put
+      inputTemplate: masterdata/LocationController/locationData
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "NST",
+    "name": "NDATA",
+    "hierarchyLevel":"0",
+    "hierarchyName": "$HIERARCHYNAME$",
+    "parentLocCode": "$PARENTLOCCODE$",    
+    "langCode": "eng",
+    "isActive": false,
+    "requesttime": "2019/12/20"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : requesttime"
+    }
+  ]
+}'

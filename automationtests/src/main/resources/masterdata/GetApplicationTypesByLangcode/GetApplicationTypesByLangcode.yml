@@ -1,0 +1,32 @@
+GetApplicationTypesByLangcode:
+   Masterdata_GetApplicationTypesByLangcode_allValid_smoke:
+      endPoint: /v1/masterdata/applicationtypes/{langcode}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      templateFields: ["langcode"]
+      restMethod: get
+      inputTemplate: masterdata/GetApplicationTypesByLangcode/getApplicationTypesByLangcode
+      outputTemplate: masterdata/GetApplicationTypesByLangcode/getApplicationTypesByLangcodeResult
+      input: '{
+   "langcode":"eng"
+}'
+      output: '{
+  
+}'
+   Masterdata_GetApplicationTypesByLangcode_InValid_langCode:
+      endPoint: /v1/masterdata/applicationtypes/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetApplicationTypesByLangcode/getApplicationTypesByLangcode
+      outputTemplate: masterdata/error
+      input: '{
+   "langcode":"asdgav"
+}'
+      output: '{
+   "errors": [
+        {
+            "errorCode": "KER-MSD-002",
+            "message": "Application not found"
+        }
+    ]
+}'

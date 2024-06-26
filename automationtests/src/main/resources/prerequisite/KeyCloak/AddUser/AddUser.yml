@@ -1,0 +1,29 @@
+AddUser:
+   Prerequisite_keycloak_AddUser_allValid_smoke:
+      endPoint: /auth/admin/realms/mosip/users
+      role: keycloak
+      restMethod: post
+      inputTemplate: prerequisite/KeyCloak/AddUser/addUser
+      outputTemplate: prerequisite/KeyCloak/AddUser/addUserResult
+      input: '{
+   "username":"$KEYCLOAKUSER1$",
+   "firstName":"firstName1",
+   "lastName":"lastName2",
+   "email":"lastName98761278383@gmails.com"
+}'
+      output: '{
+}'
+   Prerequisite_keycloak_AddUser2_allValid_smoke:
+      endPoint: /auth/admin/realms/mosip/users
+      role: keycloak
+      restMethod: post
+      inputTemplate: prerequisite/KeyCloak/AddUser/addUser
+      outputTemplate: prerequisite/KeyCloak/AddUser/addUserResult
+      input: '{
+   "username":"$KEYCLOAKUSER2$",
+   "firstName":"firstName2",
+   "lastName":"lastName3",
+   "email":"lastName98761283832@gmails.com"
+}'
+      output: '{
+}'

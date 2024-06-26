@@ -1,0 +1,34 @@
+UpdateDeviceTypeStatus:
+   MasterData_UpdateDeviceTypeStatus_All_Valid_Smoke_sid:  
+      endPoint: /v1/masterdata/devicetypes?isActive={isActive}&code={code}
+      role: admin
+      templateFields: []
+      restMethod: patch
+      inputTemplate: masterdata/UpdateDeviceTypeStatus/updateDeviceTypeStatus
+      outputTemplate: masterdata/UpdateDeviceTypeStatus/updateteDeviceTypeStatusResult
+      input: '{
+    "code": "GST4",
+    "isActive": "true"
+}'
+      output: '{
+    "status": "Status updated successfully for Device Types"
+}'
+
+   MasterData_UpdateDeviceTypeStatus_TO_Verify_Deactivation:  
+      endPoint: /v1/masterdata/devicetypes?isActive={isActive}&code={code}
+      role: admin
+      templateFields: []
+      restMethod: patch
+      inputTemplate: masterdata/UpdateDeviceTypeStatus/updateDeviceTypeStatus
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "FRS",
+    "isActive": "false"
+}'
+      output: '{
+     "errors": [
+    {
+      "errorCode": "KER-MSD-055"
+    }
+  ]
+}'

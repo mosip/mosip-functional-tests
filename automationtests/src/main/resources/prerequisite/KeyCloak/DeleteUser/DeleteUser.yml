@@ -1,0 +1,12 @@
+DeleteUser:
+   Prerequisite_keycloak_DeleteUser_allValid_smoke:
+      endPoint: /auth/admin/realms/mosip/users/$ID:GetUserDetails_allValid_smoke_get_sid_KeyCloakuserDetails_id$
+      role: keycloak
+      restMethod: delete
+      inputTemplate: prerequisite/KeyCloak/DeleteUser/deleteUser
+      outputTemplate: prerequisite/KeyCloak/DeleteUser/deleteUserResult
+      input: '{
+   "id": "$ID:GetUserDetails_allValid_smoke_get_sid_KeyCloakuserDetails_id$"
+}'
+      output: '{
+}'

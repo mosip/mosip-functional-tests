@@ -1,0 +1,13 @@
+FetchAllDeviceSpec:
+   MasterData_FetchAllDeviceSpec_AllValid_smoke:
+      endPoint: /v1/masterdata/devicespecifications/all
+      role: admin
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: masterdata/FetchAllDeviceSpec/fetchAllDeviceSpec
+      outputTemplate: masterdata/FetchAllDeviceSpec/fetchAllDeviceSpecResult
+      input: '{
+  
+}'
+      output: '{
+}'

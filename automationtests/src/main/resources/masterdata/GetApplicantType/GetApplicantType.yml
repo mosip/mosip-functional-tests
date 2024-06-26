@@ -1,0 +1,679 @@
+GetApplicantType:
+   Masterdata_GetApplicantType_valid_smoke:
+      endPoint: /v1/masterdata/getApplicantType
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/GetApplicantType/getApplicantType
+      outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
+      input: '{
+    "attributes": [{
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": true
+      }
+    ],
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+      "applicantTypeCode": "002"
+}'
+   Masterdata_GetApplicantType_MLE_NFR_CHL_True:
+      endPoint: /v1/masterdata/getApplicantType
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/GetApplicantType/getApplicantType
+      outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
+      input: '{
+    "attributes": [{
+        "attribute": "residenceStatus",
+        "value": "NFR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "2018/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": true
+      }
+    ],
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+      "applicantTypeCode": "003"
+}'
+   Masterdata_GetApplicantType_MLE_NFR_CHL_False:
+      endPoint: /v1/masterdata/getApplicantType
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/GetApplicantType/getApplicantType
+      outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
+      input: '{
+    "attributes": [{
+        "attribute": "residenceStatus",
+        "value": "NFR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "2018/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": false
+      }
+    ],
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+      "applicantTypeCode": "003"
+}'
+   Masterdata_GetApplicantType_MLE_NFR_ADL_True:
+      endPoint: /v1/masterdata/getApplicantType
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/GetApplicantType/getApplicantType
+      outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
+      input: '{
+    "attributes": [{
+        "attribute": "residenceStatus",
+        "value": "NFR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": true
+      }
+    ],
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+      "applicantTypeCode": "004"
+}'
+   Masterdata_GetApplicantType_MLE_NFR_ADL_False:
+      endPoint: /v1/masterdata/getApplicantType
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/GetApplicantType/getApplicantType
+      outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
+      input: '{
+    "attributes": [{
+        "attribute": "residenceStatus",
+        "value": "NFR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": false
+      }
+    ],
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+      "applicantTypeCode": "004"
+}'
+   Masterdata_GetApplicantType_MLE_FR_CHL_False:
+      endPoint: /v1/masterdata/getApplicantType
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/GetApplicantType/getApplicantType
+      outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
+      input: '{
+    "attributes": [{
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "2018/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": false
+      }
+    ],
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+      "applicantTypeCode": "001"
+}'
+   Masterdata_GetApplicantType_MLE_FR_ADL_True:
+      endPoint: /v1/masterdata/getApplicantType
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/GetApplicantType/getApplicantType
+      outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
+      input: '{
+    "attributes": [{
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": true
+      }
+    ],
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+      "applicantTypeCode": "002"
+}'
+   Masterdata_GetApplicantType_MLE_FR_ADL_False:
+      endPoint: /v1/masterdata/getApplicantType
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/GetApplicantType/getApplicantType
+      outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
+      input: '{
+    "attributes": [{
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": false
+      }
+    ],
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+      "applicantTypeCode": "002"
+}'
+   Masterdata_GetApplicantType_invalid_residenceStatus:
+      endPoint: /v1/masterdata/getApplicantType
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/GetApplicantType/getApplicantType
+      outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
+      input: '{
+    "attributes": [{
+        "attribute": "residenceStatus",
+        "value": "4564"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": false
+      }
+    ],
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+      "applicantTypeCode": "000"
+}'
+   Masterdata_GetApplicantType_invalid_gender:
+      endPoint: /v1/masterdata/getApplicantType
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/GetApplicantType/getApplicantType
+      outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
+      input: '{
+    "attributes": [{
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "35132"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": false
+      }
+    ],
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+      "applicantTypeCode": "000"
+}'
+   Masterdata_GetApplicantType_invalid_dateOfBirth:
+      endPoint: /v1/masterdata/getApplicantType
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/GetApplicantType/getApplicantType
+      outputTemplate: masterdata/error
+      input: '{
+    "attributes": [{
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "2018-01-01 10:00:00.00Z"
+      },
+      {
+        "attribute": "gender",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": true
+      }
+    ],
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-147",
+      "message": "Invalid query passed for applicant type"
+    }
+  ]
+}'
+   Masterdata_GetApplicantType_invalid_biometricAvailable:
+      endPoint: /v1/masterdata/getApplicantType
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/GetApplicantType/getApplicantType
+      outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
+      input: '{
+    "attributes": [{
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": "fsadfdf"
+      }
+    ],
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+      "applicantTypeCode": "002"
+}'
+
+   Masterdata_GetApplicantType_Future_date_as_DOB:
+      endPoint: /v1/masterdata/getApplicantType
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/GetApplicantType/getApplicantType
+      outputTemplate: masterdata/error
+      input: '{
+    "attributes": [{
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "2029/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": true
+      }
+    ],
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-151",
+      "message": "DOB cannot exceed current date"
+    }
+  ]
+}'
+   Masterdata_GetApplicantType_FLE_NFR_CHL_true:
+      endPoint: /v1/masterdata/getApplicantType
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/GetApplicantType/getApplicantType
+      outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
+      input: '{
+    "attributes": [{
+        "attribute": "residenceStatus",
+        "value": "NFR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "2018/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "FLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": true
+      }
+    ],
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+      "applicantTypeCode": "007"
+}'
+   Masterdata_GetApplicantType_FLE_NFR_CHL_False:
+      endPoint: /v1/masterdata/getApplicantType
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/GetApplicantType/getApplicantType
+      outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
+      input: '{
+    "attributes": [{
+        "attribute": "residenceStatus",
+        "value": "NFR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "2018/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "FLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": false
+      }
+    ],
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+      "applicantTypeCode": "007"
+}'
+   Masterdata_GetApplicantType_FLE_NFR_ADL_true:
+      endPoint: /v1/masterdata/getApplicantType
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/GetApplicantType/getApplicantType
+      outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
+      input: '{
+    "attributes": [{
+        "attribute": "residenceStatus",
+        "value": "NFR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "FLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": true
+      }
+    ],
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+      "applicantTypeCode": "008"
+}'
+   Masterdata_GetApplicantType_FLE_NFR_ADL_False:
+      endPoint: /v1/masterdata/getApplicantType
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/GetApplicantType/getApplicantType
+      outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
+      input: '{
+    "attributes": [{
+        "attribute": "residenceStatus",
+        "value": "NFR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "FLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": false
+      }
+    ],
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+      "applicantTypeCode": "008"
+}'
+   Masterdata_GetApplicantType_FLE_FR_CHL_True:
+      endPoint: /v1/masterdata/getApplicantType
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/GetApplicantType/getApplicantType
+      outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
+      input: '{
+    "attributes": [{
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "2018/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "FLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": true
+      }
+    ],
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+      "applicantTypeCode": "005"
+}'
+   Masterdata_GetApplicantType_FLE_FR_CHL_False:
+      endPoint: /v1/masterdata/getApplicantType
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/GetApplicantType/getApplicantType
+      outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
+      input: '{
+    "attributes": [{
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "2018/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "FLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": false
+      }
+    ],
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+      "applicantTypeCode": "005"
+}'
+   Masterdata_GetApplicantType_FLE_FR_ADL_true:
+      endPoint: /v1/masterdata/getApplicantType
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/GetApplicantType/getApplicantType
+      outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
+      input: '{
+    "attributes": [{
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "FLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": true
+      }
+    ],
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+      "applicantTypeCode": "006"
+}'
+   Masterdata_GetApplicantType_FLE_FR_ADL_False:
+      endPoint: /v1/masterdata/getApplicantType
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/GetApplicantType/getApplicantType
+      outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
+      input: '{
+    "attributes": [{
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "FLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": false
+      }
+    ],
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+      "applicantTypeCode": "006"
+}'
+   Masterdata_GetApplicantType_DOB_lessThanAYear:
+      endPoint: /v1/masterdata/getApplicantType
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/GetApplicantType/getApplicantType
+      outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
+      input: '{
+    "attributes": [{
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "2021/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "FLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": false
+      }
+    ],
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+      "applicantTypeCode": "005"
+}'
+   Masterdata_GetApplicantType_response_time:
+      endPoint: /v1/masterdata/getApplicantType
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/GetApplicantType/getApplicantType
+      outputTemplate: masterdata/GetApplicantType/getApplicantTypeResult
+      input: '{
+    "attributes": [{
+        "attribute": "residenceStatus",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateOfBirth",
+        "value": "1996/01/01"
+      },
+      {
+        "attribute": "gender",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": true
+      }
+    ],
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+      "applicantTypeCode": "002"
+}'

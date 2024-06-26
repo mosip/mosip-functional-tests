@@ -1,0 +1,17 @@
+FetchAllMachineType:
+   MasterData_FetchAllMachineType_valid_smoke_langcodeandCode:
+      endPoint: /v1/masterdata/machinetypes/all
+      role: admin
+      checkErrorsOnlyInResponse: true
+      templateFields: []
+      restMethod: get
+      inputTemplate: masterdata/FetchAllMachineType/fetchAllMachineType
+      outputTemplate: masterdata/FetchAllMachineType/fetchAllMachineTypeResult
+      input: '{
+  
+}'
+      output: '{
+"data": [{
+       
+      }]
+}'

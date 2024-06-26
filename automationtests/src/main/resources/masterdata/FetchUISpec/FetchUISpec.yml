@@ -1,0 +1,13 @@
+FetchUISpec:
+   MasterData_FetchUISpec_allValid_smoke_with_lang:
+      endPoint: /v1/masterdata/uispec/{domain}/latest
+      role: admin
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: masterdata/FetchUISpec/fetchUISpec
+      outputTemplate: masterdata/FetchUISpec/fetchUISpecResult
+      input: '{
+  "domain": "registration-client"
+}'
+      output: '{
+}'      

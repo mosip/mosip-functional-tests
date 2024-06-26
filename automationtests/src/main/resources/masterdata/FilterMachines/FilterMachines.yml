@@ -1,0 +1,120 @@
+FilterMachines:
+   Masterdata_FilterMachines_Valid_ColumnStatus:
+      endPoint: /v1/masterdata/machines/filtervalues
+      role: globalAdmin
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/FilterMachines/filterMachines
+      outputTemplate: masterdata/FilterMachines/filterMachinesResult
+      input: '{
+	"filters": [{
+		"columnName": "isActive",
+		"type": "all",
+		"text": ""
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "isActive",
+        "fieldValue": "true"
+      }
+    ]
+  }'
+   Masterdata_FilterMachines_Valid_ColumnMachineSpecId:
+      endPoint: /v1/masterdata/machines/filtervalues
+      role: globalAdmin
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/FilterMachines/filterMachines
+      outputTemplate: masterdata/FilterMachines/filterMachinesResult
+      input: '{
+	"filters": [{
+		"columnName": "machineSpecId",
+		"type": "All",
+		"text": "$ID:CreateMachineSpecification_All_Valid_Smoke_sid_id$"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "machineSpecId",
+        "fieldValue": "$IGNORE$"
+      }
+    ]
+  }'
+   Masterdata_FilterMachines_Invalid_EmptyColumnName:
+      endPoint: /v1/masterdata/machines/filtervalues
+      role: globalAdmin
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/FilterMachines/filterMachines
+      outputTemplate: masterdata/error
+      input: '{
+	"filters": [{
+		"columnName": "",
+		"type": "equals",
+		"text": "a2ml30846"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.filters[0].columnName: must not be blank"
+    }
+  ]
+}'
+   Masterdata_FilterMachines_Invalid_EmptyFilterType:
+      endPoint: /v1/masterdata/machines/filtervalues
+      role: globalAdmin
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/FilterMachines/filterMachines
+      outputTemplate: masterdata/error
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "",
+		"text": "a2ml30846"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-322",
+      "message": "Filter Type cannot be empty or null"
+    }
+  ]
+}'
+   Masterdata_FilterMachines_Invalid_ColumnName:
+      endPoint: /v1/masterdata/machines/filtervalues
+      role: globalAdmin
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/FilterMachines/filterMachines
+      outputTemplate: masterdata/error
+      input: '{
+	"filters": [{
+		"columnName": "dkfjdkfj",
+		"type": "equals",
+		"text": "a2ml30846"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-317"
+    }
+  ]
+}'

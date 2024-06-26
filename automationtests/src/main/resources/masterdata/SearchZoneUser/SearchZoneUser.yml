@@ -1,0 +1,147 @@
+SearchZoneUser:
+   MasterData_SearchZoneUser_Valid_Smoke:
+      endPoint: /v1/masterdata/zoneuser/search
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/SearchZoneUser/searchZoneUser
+      outputTemplate: masterdata/SearchZoneUser/searchZoneUserResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "zoneCode",
+        "type": "all",
+        "value": "CST",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "zoneCode",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "createdBy": "$IGNORE$",
+        "createdDateTime": "$IGNORE$",
+        "updatedBy": "$IGNORE$",
+        "updatedDateTime": "$IGNORE$",
+        "deletedDateTime": "$IGNORE$",
+        "zoneCode": "$IGNORE$",
+        "userId": "$IGNORE$",
+        "userName": "$IGNORE$",
+        "zoneName": "$IGNORE$" 
+      }'
+      
+   MasterData_SearchZoneUser_Empty_Value:
+      endPoint: /v1/masterdata/zoneuser/search
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/SearchZoneUser/searchZoneUser
+      outputTemplate: masterdata/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "zoneCode",
+        "type": "all",
+        "value": "",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "zoneCode",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-390",
+      "message": "Invalid filter value"
+    }
+  ]
+}'
+
+   MasterData_SearchZoneUser_Empty_ColumnName:
+      endPoint: /v1/masterdata/zoneuser/search
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/SearchZoneUser/searchZoneUser
+      outputTemplate: masterdata/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "",
+        "type": "all",
+        "value": "CST",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "zoneCode",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-311",
+      "message": "Column is missing in request"
+    }
+  ]
+}'
+
+   MasterData_SearchZoneUser_Invalid_Pagination:
+      endPoint: /v1/masterdata/zoneuser/search
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/SearchZoneUser/searchZoneUser
+      outputTemplate: masterdata/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "zoneCode",
+        "type": "all",
+        "value": "CST",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "zoneCode",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": -1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-313",
+      "message": "Invalid pagination value received pagestart:0 and pagefetch:-1"
+    }
+  ]
+}'

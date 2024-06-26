@@ -1,0 +1,16 @@
+UpdateTemplateStatus:
+   MasterData_UpdateTemplateStatus_All_Valid_Smoke_sid:  
+      endPoint: /v1/masterdata/templates
+      role: admin
+      templateFields: []
+      restMethod: patch
+      inputTemplate: masterdata/UpdateTemplateStatus/updateTemplateStatus
+      outputTemplate: masterdata/UpdateTemplateStatus/updateTemplateStatusResult
+      input: '{
+  "id": "$ID:CreateTemplate_All_Valid_Smoke_sid_id$",
+  "isActive": "true"
+}'
+      output: '{
+    "status": "Status updated successfully for Templates"
+}'
+   

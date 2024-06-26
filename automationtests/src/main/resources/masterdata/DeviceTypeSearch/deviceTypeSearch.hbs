@@ -1,0 +1,34 @@
+{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+    {{#each filters}}
+      {
+        "columnName": "{{columnName}}",
+        "type": "{{type}}",
+        "value": "{{value}}",
+        "fromValue": "{{fromValue}}",
+        "toValue": "{{toValue}}"
+      }
+       {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ],
+    "sort": [
+    	{{#each sort}}
+      {
+        "sortField": "{{sortField}}",
+        "sortType": "{{sortType}}"
+      }
+       {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ],
+    "pagination": {
+      "pageStart": {{pageStart}},
+      "pageFetch": {{pageFetch}}
+    },
+    "languageCode": "{{languageCode}}"
+  },
+  "requesttime": "{{requesttime}}",
+  "version": "string"
+}

@@ -1,0 +1,30 @@
+DeleteTemplateFileFormat:
+   MasterData_DeleteTemplateFileFormat_All_Valid_Smoke:  
+      endPoint: /v1/masterdata/templatefileformats/{code}
+      role: admin
+      restMethod: delete
+      inputTemplate: masterdata/DeleteTemplateFileFormat/deleteTemplateFileFormat
+      outputTemplate: masterdata/DeleteTemplateFileFormat/deleteTemplateFileFormatResult
+      input: '{
+    "code": "$ID:CreateTemplateFileFormat_All_Valid_Smoke_sid_code$"
+	}'
+      output: '{
+    "code": "Doc"
+}'
+   MasterData_DeleteTemplateFileFormat_Invalid_code: 
+      endPoint: /v1/masterdata/templatefileformats/{code}
+      role: admin
+      restMethod: delete
+      inputTemplate: masterdata/DeleteTemplateFileFormat/deleteTemplateFileFormat
+      outputTemplate: masterdata/error
+      input: '{
+      "code": "asdf"
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-046",
+      "message": "Template not found."
+    }
+  ]
+}'

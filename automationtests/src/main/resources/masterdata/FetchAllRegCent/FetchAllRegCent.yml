@@ -1,0 +1,13 @@
+FetchAllRegCent:
+   MasterData_FetchAllRegCent_valid_smoke:
+      endPoint: /v1/masterdata/registrationcenters/all
+      role: admin
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: masterdata/FetchAllRegCent/fetchAllRegCent
+      outputTemplate: masterdata/FetchAllRegCent/fetchAllRegCentResult
+      input: '{
+  
+}'
+      output: '{
+}'

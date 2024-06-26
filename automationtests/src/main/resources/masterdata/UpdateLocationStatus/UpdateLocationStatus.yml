@@ -1,0 +1,15 @@
+UpdateLocationStatus:
+   MasterData_UpdateLocationStatus_All_Valid_Smoke_sid:  
+      endPoint: /v1/masterdata/locations
+      role: admin
+      restMethod: patch
+      inputTemplate: masterdata/UpdateLocationStatus/updateLocationStatus
+      outputTemplate: masterdata/UpdateLocationStatus/updateLocationStatusResult
+      input: '{
+  "code": "TST12",
+  "isActive": "true"
+}'
+      output: '{
+    "status": "Status updated successfully for location"
+}'
+   

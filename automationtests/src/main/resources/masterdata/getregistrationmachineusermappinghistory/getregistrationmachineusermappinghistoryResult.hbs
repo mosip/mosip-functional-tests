@@ -1,0 +1,15 @@
+{
+  "response": {
+    "registrationCenters": [
+	
+    {{#each registrationCenters}}
+      {
+        "cntrId": "{{cntrId}}",
+        "machineId": "{{machineId}}",
+        "usrId": "{{usrId}}"
+      }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  }
+}

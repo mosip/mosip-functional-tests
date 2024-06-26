@@ -1,0 +1,15 @@
+UpdateZoneUserStatus:
+   Prerequisite_UpdateZoneUserStatus_All_Valid_Smoke_sid:  
+      endPoint: /v1/masterdata/zoneuser?isActive={isActive}&userId={userId}
+      role: admin
+      templateFields: []
+      restMethod: patch
+      inputTemplate: prerequisite/UpdateZoneUserStatus/updateZoneUserStatus
+      outputTemplate: prerequisite/UpdateZoneUserStatus/updateZoneUserStatusResult
+      input: '{
+    "userId": "110005",
+    "isActive": "true"
+}'
+      output: '{
+    "status": "Status updated successfully for Zone"
+}'

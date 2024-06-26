@@ -1,0 +1,199 @@
+UpdateDocumentCategory:
+   MasterData_UpdateDocumentCategory_Valid_Smoke:
+      endPoint: /v1/masterdata/documentcategories
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: put
+      inputTemplate: masterdata/DocumentCategory/documentCategory
+      outputTemplate: masterdata/DocumentCategory/documentCategoryResult
+      input: '{
+     "code": "DocTestCode123",
+    "description": "Testing positive Doc updated",
+    "isActive": true,
+    "langCode": "eng",
+    "name": "DocCat",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+	"code": "DocTestCode123"
+}'
+   MasterData_UpdateDocumentCategory_All_Valid_Mandatory_Fields:
+      endPoint: /v1/masterdata/documentcategories
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: put
+      inputTemplate: masterdata/DocumentCategory/documentCategory
+      outputTemplate: masterdata/DocumentCategory/documentCategoryResult
+      input: '{
+     "code": "DocTestCode321",
+    "description": "DocTestCode321 updated",
+    "isActive": true,
+    "langCode": "eng",
+    "name": "DocCat",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+	"code": "DocTestCode321"
+}'
+   
+   MasterData_UpdateDocumentCategory_Invalid_InputParameter_Code_Missing:
+      endPoint: /v1/masterdata/documentcategories
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: put
+      inputTemplate: masterdata/DocumentCategory/documentCategory
+      outputTemplate: masterdata/error
+      input: '{
+     "code": "$REMOVE$",
+    "description": "Testing positive Doc",
+    "isActive": false,
+    "langCode": "eng",
+    "name": "DocCat",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: must not be null"
+    }
+  ]
+}'
+   MasterData_UpdateDocumentCategory_Invalid_InputParameter_Code_Empty:
+      endPoint: /v1/masterdata/documentcategories
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: put
+      inputTemplate: masterdata/DocumentCategory/documentCategory
+      outputTemplate: masterdata/error
+      input: '{
+     "code": "",
+    "description": "Testing positive Doc",
+    "isActive": false,
+    "langCode": "eng",
+    "name": "DocCat",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'
+   MasterData_UpdateDocumentCategory_Invalid_InputParameter_Code_AboveMaxLen36:
+      endPoint: /v1/masterdata/documentcategories
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: put
+      inputTemplate: masterdata/DocumentCategory/documentCategory
+      outputTemplate: masterdata/error
+      input: '{
+     "code": "abcdefghijklmnopqrstuvwxyzabcdefghijk",
+    "description": "Testing positive Doc",
+    "isActive": false,
+    "langCode": "eng",
+    "name": "DocCat",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'
+   MasterData_UpdateDocumentCategory_Invalid_InputParameter_Description_AboveMaxLen128:
+      endPoint: /v1/masterdata/documentcategories
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: put
+      inputTemplate: masterdata/DocumentCategory/documentCategory
+      outputTemplate: masterdata/error
+      input: '{
+     "code": "DocTestCode01",
+    "description": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy",
+    "isActive": false,
+    "langCode": "eng",
+    "name": "DocCat",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.description: size must be between 0 and 128"
+    }
+  ]
+}'
+   MasterData_UpdateDocumentCategory_Invalid_InputParameter_Name_Missing:
+      endPoint: /v1/masterdata/documentcategories
+      role: admin
+      templateFields: ["description"]
+      restMethod: put
+      inputTemplate: masterdata/DocumentCategory/documentCategory
+      outputTemplate: masterdata/error
+      input: '{
+     "code": "DocTestCode01",
+    "description": "Testing positive Doc",
+    "isActive": false,
+    "langCode": "eng",
+    "name": "$REMOVE$",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: must not be null"
+    }
+  ]
+}'
+   MasterData_UpdateDocumentCategory_Invalid_InputParameter_Name_Empty:
+      endPoint: /v1/masterdata/documentcategories
+      role: admin
+      templateFields: ["description"]
+      restMethod: put
+      inputTemplate: masterdata/DocumentCategory/documentCategory
+      outputTemplate: masterdata/error
+      input: '{
+     "code": "DocTestCode01",
+    "description": "Testing positive Doc",
+    "isActive": false,
+    "langCode": "eng",
+    "name": "",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}'
+   MasterData_UpdateDocumentCategory_Invalid_InputParameter_Name_AboveMaxLen64:
+      endPoint: /v1/masterdata/documentcategories
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: put
+      inputTemplate: masterdata/DocumentCategory/documentCategory
+      outputTemplate: masterdata/error
+      input: '{
+     "code": "DocTestCode01",
+    "description": "Testing positive Doc",
+    "isActive": false,
+    "langCode": "eng",
+    "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}'

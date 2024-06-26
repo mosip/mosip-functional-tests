@@ -1,0 +1,12 @@
+{
+  "response": {
+  "weekdays": [
+    {{#each weekdays}}
+      {
+        "languageCode": "{{languageCode}}"
+      }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  }
+}

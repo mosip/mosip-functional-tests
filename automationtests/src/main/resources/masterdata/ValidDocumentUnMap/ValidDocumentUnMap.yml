@@ -1,0 +1,53 @@
+ValidDocumentUnMap:
+   MasterData_ValidDocumentUnMap_allValid_smoke:
+      endPoint: /v1/masterdata/validdocuments/unmap/{doccategorycode}/{doctypecode}
+      role: admin
+      restMethod: put
+      inputTemplate: masterdata/ValidDocumentUnMap/validDocumentUnMap
+      outputTemplate: masterdata/ValidDocumentUnMap/validDocumentUnMapResult
+      input: '{
+  "doccategorycode":"POA",
+  "doctypecode":"doc_auto_test"
+}'
+      output: '{
+      "status": "un-mapped",
+      "message": "Document Category POA - Document Type Mapping doc_auto_test is updated successfully"
+}'
+
+   MasterData_ValidDocumentUnMap_Invalid_InputParameter_docCategoryCode:
+      endPoint: /v1/masterdata/validdocuments/unmap/{doccategorycode}/{doctypecode}
+      role: admin
+      restMethod: put
+      inputTemplate: masterdata/ValidDocumentUnMap/validDocumentUnMap
+      outputTemplate: masterdata/error
+      input: '{
+  "doccategorycode":"abc",
+  "doctypecode":"doc_auto_test"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-361",
+      "message": "Document Category Code abc - Document Type doc_auto_test Mapping does not exist"
+    }
+  ]
+}'
+
+   MasterData_ValidDocumentUnMap_Invalid_InputParameter_doctypecode:
+      endPoint: /v1/masterdata/validdocuments/unmap/{doccategorycode}/{doctypecode}
+      role: admin
+      restMethod: put
+      inputTemplate: masterdata/ValidDocumentUnMap/validDocumentUnMap
+      outputTemplate: masterdata/error
+      input: '{
+  "doccategorycode":"POA",
+  "doctypecode":"abc"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-361",
+      "message": "Document Category Code POA - Document Type abc Mapping does not exist"
+    }
+  ]
+}'

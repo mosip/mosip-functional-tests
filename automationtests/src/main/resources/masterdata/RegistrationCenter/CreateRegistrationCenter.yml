@@ -1,0 +1,265 @@
+CreateRegistrationCenter:
+   MasterData_CreateRegCenter_allValid_smoke_sid:
+      endPoint: /v1/masterdata/registrationcenters
+      role: admin
+      templateFields: ["name","addressLine1","addressLine2","addressLine3","timeZone","langCode"]
+      restMethod: post
+      inputTemplate: masterdata/RegistrationCenter/registrationCenter
+      outputTemplate: masterdata/RegistrationCenter/registrationCenterResult
+      input: '{
+   "addressLine1":"sdfg",
+   "addressLine2":"",
+   "addressLine3":"",
+   "centerEndTime":"03:30:00",
+   "centerStartTime":"00:00:00",
+   "centerTypeCode":"REG",
+   "contactPerson":"rtestsd",
+   "contactPhone":"",
+   "holidayLocationCode":"$LOCATIONCODE$",
+   "langCode":"hin",
+   "latitude":"78.5478",
+   "locationCode":"$LOCATIONCODE$",
+   "longitude":"45.2456",
+   "lunchEndTime":"00:00:00",
+   "lunchStartTime":"00:00:00",
+   "name":"Test123",
+   "perKioskProcessTime":"00:30:00",
+   "timeZone":"(GTM+01:00) CENTRAL EUROPEAN TIME",
+   "workingHours":3.5,
+   "zoneCode":"$ZONE_CODE$",
+   "id":"",
+   "isActive":"false",
+   "numberOfKiosks":0,
+   "exceptionHolidayDate":"2021-11-12",
+   "exceptionHolidayName":"",
+   "exceptionHolidayReson":"",
+   "version":"1.0",
+   "requesttime":"$TIMESTAMP$"
+}'
+      output: '{
+   "name": "Test123"
+}'   
+   MasterData_CreateRegCenter_Invalid_HolidayLocationCode_blank_eng:
+      endPoint: /v1/masterdata/registrationcenters
+      role: admin
+      templateFields: ["name","addressLine1","addressLine2","addressLine3","timeZone"]
+      restMethod: post
+      inputTemplate: masterdata/RegistrationCenter/registrationCenter
+      outputTemplate: masterdata/error
+      input: '{
+    "addressLine1": "HSR",
+    "addressLine2": "Venkatapura",
+    "addressLine3": "kormangla",
+    "centerEndTime": "17:00:00",
+    "centerStartTime": "09:00:00",
+    "centerTypeCode": "ALT-3",
+    "contactPerson": "Venkat TestPerson",
+    "contactPhone": "9663089998",
+    "holidayLocationCode": "",
+    "isActive": true,
+    "langCode": "eng",
+    "latitude": "33.995612",
+    "locationCode": "$LOCATIONCODE$",
+    "longitude": "-6.815281",
+    "lunchEndTime": "14:00:00",
+    "lunchStartTime": "13:00:00",
+    "name": "BTM Center",
+    "perKioskProcessTime": "00:15:00",
+    "timeZone": "Test Time zone",
+    "workingHours": "8:00:00",
+    "zoneCode":"$ZONE_CODE$",
+    "id": "96874",
+    "exceptionHolidayDate": "2020-11-16",
+    "exceptionHolidayName": "TestHoliday",
+    "exceptionHolidayReson": "CenterCreation", 
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.holidayLocationCode: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'
+   
+   MasterData_CreateRegCenter_Invalid_latitude_blank_eng:
+      endPoint: /v1/masterdata/registrationcenters
+      role: admin
+      templateFields: ["name","addressLine1","addressLine2","addressLine3","timeZone"]
+      restMethod: post
+      inputTemplate: masterdata/RegistrationCenter/registrationCenter
+      outputTemplate: masterdata/error
+      input: '{
+    "addressLine1": "WhiteField",
+    "addressLine2": "whiteBoard",
+    "addressLine3": "kormangla",
+    "centerEndTime": "17:00:00",
+    "centerStartTime": "09:00:00",
+    "centerTypeCode": "ALT-3",
+    "contactPerson": "Venkat TestPerson",
+    "contactPhone": "9663089998",
+    "holidayLocationCode": "$LOCATIONCODE$",
+    "isActive": true,
+    "langCode": "eng",
+    "latitude": "",
+    "locationCode": "$LOCATIONCODE$",
+    "longitude": "-6.815281",
+    "lunchEndTime": "14:00:00",
+    "lunchStartTime": "13:00:00",
+    "name": "WhiteField Center",
+    "perKioskProcessTime": "00:15:00",
+    "timeZone": "Test Time zone",
+    "workingHours": "8:00:00",
+    "zoneCode":"$ZONE_CODE$",
+    "id": "96874",
+    "exceptionHolidayDate": "2020-11-16",
+    "exceptionHolidayName": "TestHoliday",
+    "exceptionHolidayReson": "CenterCreation", 
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.latitude: Should not be blank or size must be between 1 and 32"
+    }
+  ]
+}'
+   MasterData_CreateRegCenter_Invalid_latitude_eng:
+      endPoint: /v1/masterdata/registrationcenters
+      role: admin
+      templateFields: ["name","addressLine1","addressLine2","addressLine3","timeZone"]
+      restMethod: post
+      inputTemplate: masterdata/RegistrationCenter/registrationCenter
+      outputTemplate: masterdata/error
+      input: '{
+    "addressLine1": "WhiteField",
+    "addressLine2": "whiteBoard",
+    "addressLine3": "kormangla",
+    "centerEndTime": "17:00:00",
+    "centerStartTime": "09:00:00",
+    "centerTypeCode": "ALT-3",
+    "contactPerson": "Venkat TestPerson",
+    "contactPhone": "9663089998",
+    "holidayLocationCode": "$LOCATIONCODE$",
+    "isActive": true,
+    "langCode": "eng",
+    "latitude": "fbheafg",
+    "locationCode": "$LOCATIONCODE$",
+    "longitude": "-6.8152",
+    "lunchEndTime": "14:00:00",
+    "lunchStartTime": "13:00:00",
+    "name": "WhiteField Center",
+    "perKioskProcessTime": "00:15:00",
+    "timeZone": "Test Time zone",
+    "workingHours": "8:00:00",
+    "zoneCode":"$ZONE_CODE$",
+    "id": "96874",
+    "exceptionHolidayDate": "2020-11-16",
+    "exceptionHolidayName": "TestHoliday",
+    "exceptionHolidayReson": "CenterCreation", 
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-307",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   MasterData_CreateRegCenter_Blank_NumberOfKiosks_Neg:
+      endPoint: /v1/masterdata/registrationcenters
+      role: admin
+      templateFields: ["name","addressLine1","addressLine2","addressLine3","timeZone","langCode"]
+      restMethod: post
+      inputTemplate: masterdata/RegistrationCenter/registrationCenter
+      outputTemplate: masterdata/error
+      input: '{
+   "addressLine1":"sdfg",
+   "addressLine2":"",
+   "addressLine3":"",
+   "centerEndTime":"03:30:00",
+   "centerStartTime":"00:00:00",
+   "centerTypeCode":"REG",
+   "contactPerson":"rtestsd",
+   "contactPhone":"",
+   "holidayLocationCode":"$LOCATIONCODE$",
+   "langCode":"hin",
+   "latitude":"78.5478",
+   "locationCode":"$LOCATIONCODE$",
+   "longitude":"45.2456",
+   "lunchEndTime":"00:00:00",
+   "lunchStartTime":"00:00:00",
+   "name":"Test123",
+   "perKioskProcessTime":"00:30:00",
+   "timeZone":"(GTM+01:00) CENTRAL EUROPEAN TIME",
+   "workingHours":3.5,
+   "zoneCode":"$ZONE_CODE$",
+   "id":"",
+   "isActive":"false",
+   "numberOfKiosks":null,
+   "exceptionHolidayDate":"2021-11-12",
+   "exceptionHolidayName":"",
+   "exceptionHolidayReson":"",
+   "version":"1.0",
+   "requesttime":"$TIMESTAMP$"
+   
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "KER-MSD-307",
+      "message": "$IGNORE$"
+    }
+  ]
+}' 
+
+   MasterData_CreateRegCenter_Negavtive_NumberOfKiosks_Neg:
+      endPoint: /v1/masterdata/registrationcenters
+      role: admin
+      templateFields: ["name","addressLine1","addressLine2","addressLine3","timeZone","langCode"]
+      restMethod: post
+      inputTemplate: masterdata/RegistrationCenter/registrationCenter
+      outputTemplate: masterdata/error
+      input: '{
+   "addressLine1":"sdfg",
+   "addressLine2":"",
+   "addressLine3":"",
+   "centerEndTime":"03:30:00",
+   "centerStartTime":"00:00:00",
+   "centerTypeCode":"REG",
+   "contactPerson":"rtestsd",
+   "contactPhone":"",
+   "holidayLocationCode":"$LOCATIONCODE$",
+   "langCode":"hin",
+   "latitude":"78.5478",
+   "locationCode":"$LOCATIONCODE$",
+   "longitude":"45.2456",
+   "lunchEndTime":"00:00:00",
+   "lunchStartTime":"00:00:00",
+   "name":"Test123",
+   "perKioskProcessTime":"00:30:00",
+   "timeZone":"(GTM+01:00) CENTRAL EUROPEAN TIME",
+   "workingHours":3.5,
+   "zoneCode":"$ZONE_CODE$",
+   "id":"",
+   "isActive":"false",
+   "numberOfKiosks":-1,
+   "exceptionHolidayDate":"2021-11-12",
+   "exceptionHolidayName":"",
+   "exceptionHolidayReson":"",
+   "version":"1.0",
+   "requesttime":"$TIMESTAMP$"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "KER-MSD-307",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+

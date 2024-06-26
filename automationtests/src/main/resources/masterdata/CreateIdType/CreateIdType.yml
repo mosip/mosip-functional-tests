@@ -1,0 +1,39 @@
+CreateIdType:
+   MasterData_CreateIdType_allValid_smoke:
+      endPoint: /v1/masterdata/idtypes
+      role: admin
+      templateFields: ["langCode"]
+      restMethod: post
+      inputTemplate: masterdata/CreateIdType/createIdType
+      outputTemplate: masterdata/CreateIdType/createIdTypeResult
+      input: '{
+   "code": "NEW",
+   "descr": "test",
+   "name": "test",
+   "langCode": "eng",
+   "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "code": "NEW"
+}'
+   MasterData_CreateIdType_Invalid_langCode:
+      endPoint: /v1/masterdata/idtypes
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/CreateIdType/createIdType
+      outputTemplate: masterdata/error
+      input: '{
+   "code": "NEW",
+   "descr": "test",
+   "name": "test",
+   "langCode": "eng1",
+   "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+        {
+            "errorCode": "KER-MSD-999",
+            "message": "Language Code is Invalid"
+        }
+    ]
+}'

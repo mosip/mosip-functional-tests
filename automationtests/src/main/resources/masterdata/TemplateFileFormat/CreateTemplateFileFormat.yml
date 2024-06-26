@@ -1,0 +1,186 @@
+CreateTemplateFileFormat:
+   Masterdata_CreateTemplateFileFormat_All_Valid_Smoke_sid:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      templateFields: ["langCode"]
+      restMethod: post
+      inputTemplate: masterdata/TemplateFileFormat/templateFileFormat
+      outputTemplate: masterdata/TemplateFileFormat/templateFileFormatResult
+      input: '{
+    "code": "Doc",
+    "description": "Doc Test",
+	"isActive": false,
+	"langCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+	"code": "Doc"
+}'
+   Masterdata_CreateTemplateFileFormat_InputParameter_Description_AboveMaxLen256:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/TemplateFileFormat/templateFileFormat
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "Docx",
+    "description": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvW",
+	"isActive": false,
+	"langCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.description: Should not be blank or size must be between 1 and 256"
+    }
+  ]
+}'
+   Masterdata_CreateTemplateFileFormat_InputParameter_Description_Missing:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/TemplateFileFormat/templateFileFormat
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "Docxx",
+    "description": "$REMOVE$",
+	"isActive": false,
+	"langCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.description: must not be null"
+    }
+  ]
+}'
+   Masterdata_CreateTemplateFileFormat_InputParameter_Description_Empty:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/TemplateFileFormat/templateFileFormat
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "Docxx",
+    "description": "",
+	"isActive": false,
+	"langCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.description: Should not be blank or size must be between 1 and 256"
+    }
+  ]
+}'
+   Masterdata_CreateTemplateFileFormat_InputParameter_Code_Missing:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/TemplateFileFormat/templateFileFormat
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "$REMOVE$",
+    "description": "Docxx Test",
+	"isActive": false,
+	"langCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: must not be null"
+    }
+  ]
+}'
+   Masterdata_CreateTemplateFileFormat_InputParameter_Code_Empty:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/TemplateFileFormat/templateFileFormat
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "",
+    "description": "Docxx Test",
+	"isActive": false,
+	"langCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'
+   Masterdata_CreateTemplateFileFormat_InputParameter_Code_AboveMaxLen36:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/TemplateFileFormat/templateFileFormat
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "abcdefghijklmnopqrstuvwxyzabcdefghijk",
+    "description": "Docxx Test",
+	"isActive": false,
+	"langCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'
+   Masterdata_CreateTemplateFileFormat_InputParameter_LangCode_AboveMaxLen3:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/TemplateFileFormat/templateFileFormat
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "docx1",
+    "description": "Docxx Test",
+	"isActive": false,
+	"langCode": "engr",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   Masterdata_CreateTemplateFileFormat_InputParameter_isActive_Missing:
+      endPoint: /v1/masterdata/templatefileformats
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/TemplateFileFormat/templateFileFormat
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "docx1",
+    "description": "Docxx Test",
+	"isActive": "$REMOVE$",
+	"langCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.isActive: must not be null"
+    }
+  ]
+}'

@@ -1,0 +1,15 @@
+GetRoleIdForAllRoles:
+   Prerequisite_GetRoleIdForAllRoles_allValid_smoke_get_sid_KeyCloakroleDetails:
+      endPoint: /auth/admin/realms/mosip/roles/
+      role: keycloak
+      restMethod: get
+      inputTemplate: prerequisite/KeyCloak/GetRoleIdForAllRoles/getRoleIdForAllRoles
+      outputTemplate: prerequisite/KeyCloak/GetRoleIdForAllRoles/getRoleIdForAllRolesResult
+      input: '{
+}'
+      output: '{
+"genderType": [{
+      "langCode": "$IGNORE$",
+      "isActive": $IGNORE$
+    }]
+}'

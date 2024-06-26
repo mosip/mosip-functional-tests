@@ -1,0 +1,16 @@
+FetchAllDocumentCategories:
+   MasterData_FetchAllDocumentCategories_valid_smoke_langcodeandCode:
+      endPoint: /v1/masterdata/documentcategories/all
+      role: admin
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: masterdata/FetchAllDocumentCategories/fetchAllDocumentCategories
+      outputTemplate: masterdata/FetchAllDocumentCategories/fetchAllDocumentCategoriesResult
+      input: '{
+  
+}'
+      output: '{
+"data": [{
+       
+      }]
+}'

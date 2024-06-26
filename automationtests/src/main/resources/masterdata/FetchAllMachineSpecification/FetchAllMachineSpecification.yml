@@ -1,0 +1,15 @@
+FetchAllDeviceType:
+   MasterData_FetchAllDeviceTypes_valid_smoke:
+      endPoint: /v1/masterdata/devicetypes/all
+      role: admin
+      checkErrorsOnlyInResponse: true
+      templateFields: []
+      restMethod: get
+      inputTemplate: masterdata/FetchAllDeviceType/fetchAllDeviceTypes
+      outputTemplate: masterdata/FetchAllDeviceType/fetchAllDeviceTypesResult
+      input: '{
+  
+}'
+      output: '{
+
+}'

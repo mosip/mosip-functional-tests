@@ -1,0 +1,35 @@
+CreateMachine:
+   Prerequisite_CreateMachine_All_Valid_Smoke_sid:
+      endPoint: /v1/masterdata/machines
+      role: admin
+      templateFields: ["name"]
+      restMethod: post
+      inputTemplate: prerequisite/Machine/machine
+      outputTemplate: prerequisite/Machine/machineResult
+      input: '{
+    "id":"123",
+    "ipAddress":"192.168.0.424",
+    "isActive":true,
+    "langCode":"eng",
+    "macAddress":"61-D3-FD-12-C9-ED",
+    "machineSpecId":"1001",
+    "name":"Mach-Test",
+    "serialNum":"FB5962911687",
+    "validityDateTime":"2021-12-24T05:52:46.758Z",
+    "publicKey":"$PUBLICKEY$",
+    "signPublicKey":"$PUBLICKEY$",
+    "zoneCode":"CST",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+    "id": "$IGNORE$", 
+    "name": "Mach-Test",
+    "machineSpecId": "1001",
+  "serialNum": "FB5962911687",
+  "ipAddress": "192.168.0.424",
+  "isActive": "$IGNORE$",
+  "langCode": "eng",
+  "macAddress": "61-D3-FD-12-C9-ED",
+  "zoneCode": "CST",
+  "validityDateTime": "$IGNORE$"
+}'
