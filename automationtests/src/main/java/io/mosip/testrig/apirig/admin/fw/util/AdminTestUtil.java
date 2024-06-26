@@ -3773,8 +3773,13 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String signJWK(String clientId, String accessToken, RSAKey jwkKey, String testCaseName) {
 //		String tempUrl = getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES, "mosip.iam.base.url");
 		String tempUrl = getValueFromEsignetWellKnownEndPoint("issuer");
-		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(GlobalConstants.ESIGNET_DEFAULT_PROPERTIES,
+//		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(GlobalConstants.ESIGNET_DEFAULT_PROPERTIES,
+//				GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
+		
+		logger.info("actuatorPropertySection = " + ConfigManager.getActuatorPropertySection());
+		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(ConfigManager.getActuatorPropertySection(),
 				GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
+		logger.info("idTokenExpirySecs = " + idTokenExpirySecs);
 		JWSSigner signer;
 		String proofJWT = "";
 		String typ = "openid4vci-proof+jwt";
