@@ -96,6 +96,11 @@ public class SimplePostForAutoGenIdForUrlEncoded extends AdminTestUtil implement
 		if (ConfigManager.isInServiceNotDeployedList(GlobalConstants.ESIGNET)) {
 			throw new SkipException("esignet is not deployed hence skipping the testcase");
 		}
+
+		if (testCaseDTO.getEndPoint().startsWith("$ESIGNETMOCKBASEURL$") && testCaseName.contains("SunBirdRC")
+				&& ConfigManager.isInServiceNotDeployedList("sunbirdrc"))
+			throw new SkipException(GlobalConstants.SERVICE_NOT_DEPLOYED_MESSAGE);
+			
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);			
 		String[] templateFields = testCaseDTO.getTemplateFields();
 
