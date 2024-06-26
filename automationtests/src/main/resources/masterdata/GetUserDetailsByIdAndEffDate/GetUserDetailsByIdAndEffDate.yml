@@ -1,0 +1,69 @@
+GetUserDetailsByIdAndEffDate:
+   MasterData_GetUserDetailsByIdAndEffDate_allValid_smoke:
+      endPoint: /v1/masterdata/users/{id}/{effDate}
+      role: admin
+      templateFields: ["langCode"]
+      restMethod: get
+      inputTemplate: masterdata/GetUserDetailsByIdAndEffDate/getUserDetailsByIdAndEffDate
+      outputTemplate: masterdata/GetUserDetailsByIdAndEffDate/getUserDetailsByIdAndEffDateResult
+      input: '{
+  "id":"func_auto_test_user",
+  "effDate":"2023-12-10T08:43:46.614Z"
+}'
+      output: '{
+   "id": "func_auto_test_user"
+}'
+   MasterData_GetUserDetailsByIdAndEffDate_InValid_dateFormat:
+      endPoint: /v1/masterdata/users/{id}/{effDate}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetUserDetailsByIdAndEffDate/getUserDetailsByIdAndEffDate
+      outputTemplate: masterdata/error
+      input: '{
+  "id":"func_auto_test_user",
+  "effDate":"2021-12-10T08:43:46.614"
+}'
+      output: '{
+   "errors": [
+        {
+            "errorCode": "KER-USR-002",
+            "message": "Invalid Date Format"
+        }
+    ]
+}'
+   MasterData_GetUserDetailsByIsAndEffDate_InValid_effDate:
+      endPoint: /v1/masterdata/users/{id}/{effDate}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetUserDetailsByIdAndEffDate/getUserDetailsByIdAndEffDate
+      outputTemplate: masterdata/error
+      input: '{
+  "id":"func_auto_test_user",
+  "effDate":"2021-09-08T08:43:46.614Z"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-USR-003",
+      "message": "User History not found"
+    }
+  ]
+}'
+   MasterData_GetUserDetailsByIdAndEffDate_InValid_UserID:
+      endPoint: /v1/masterdata/users/{id}/{effDate}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetUserDetailsByIdAndEffDate/getUserDetailsByIdAndEffDate
+      outputTemplate: masterdata/error
+      input: '{
+  "id":"abc",
+  "effDate":"2021-12-10T08:43:46.614Z"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-USR-003",
+      "message": "User History not found"
+    }
+  ]
+}'

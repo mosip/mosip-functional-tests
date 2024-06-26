@@ -1,0 +1,17 @@
+UpdateLanguage:
+   Masterdata_UpdateLanguage_All_Valid_Smoke:
+      endPoint: /v1/masterdata/languages
+      role: admin
+      restMethod: put
+      inputTemplate: masterdata/Language/Updatelanguage
+      outputTemplate: masterdata/Language/languageResult
+      input: '{
+     "code": "alt",
+    "name": "hindi lang updated",
+    "family": "hindi",
+    "nativeName": "hindi",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+    "code": "$IGNORE$"
+}'

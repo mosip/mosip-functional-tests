@@ -1,0 +1,232 @@
+FetchLocation:
+   MasterData_FetchLocation_langcode_smoke:
+      endPoint: /v1/masterdata/locations/{langcode}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: masterdata/FetchLocation/fetchLocation
+      outputTemplate: masterdata/FetchLocation/fetchLocationResult
+      input: '{
+      "langcode": "eng",
+      "locationname": "$REMOVE$",
+      "locationcode": "$REMOVE$",
+      "hierarchyname": "$REMOVE$"
+      }'
+      output: '{
+"locations": [{
+        "isActive": true
+      }]
+}'
+   MasterData_FetchLocation_invalid_langcode:
+      endPoint: /v1/masterdata/locations/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchLocation/fetchLocation
+      outputTemplate: masterdata/error
+      input: '{
+      "langcode": "en@@ddddg",
+      "locationname": "$REMOVE$",
+      "locationcode": "$REMOVE$",
+      "hierarchyname": "$REMOVE$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-026",
+      "message": "Location not found"
+    }
+  ]
+}'
+   MasterData_FetchLocation_langcode_locationcode_smoke:
+      endPoint: /v1/masterdata/locations/{locationcode}/{langcode}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: masterdata/FetchLocation/fetchLocation
+      outputTemplate: masterdata/FetchLocation/fetchLocationResult
+      input: '{
+      "langcode": "eng",
+      "locationcode": "$LOCATIONCODE$",
+      "locationname": "$REMOVE$",
+      "hierarchyname": "$REMOVE$"
+      }'
+      output: '{
+"locations": [{
+        "isActive": true
+      }]
+}'
+   MasterData_FetchLocation_langcode_invalid_locationcode:
+      endPoint: /v1/masterdata/locations/{locationcode}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchLocation/fetchLocation
+      outputTemplate: masterdata/error
+      input: '{
+      "langcode": "eng",
+      "locationcode": "10@@EDDD6",
+      "locationname": "$REMOVE$",
+      "hierarchyname": "$REMOVE$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-026",
+      "message": "Location not found"
+    }
+  ]
+}'
+   MasterData_FetchLocation_locationcode_invalid_langcode:
+      endPoint: /v1/masterdata/locations/{locationcode}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchLocation/fetchLocation
+      outputTemplate: masterdata/error
+      input: '{
+      "langcode": "en@@@#EDFF",
+      "locationcode": "$LOCATIONCODE$",
+      "locationname": "$REMOVE$",
+      "hierarchyname": "$REMOVE$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-026",
+      "message": "Location not found"
+    }
+  ]
+}'
+   MasterData_FetchLocation_details_by_Langcode_smoke:
+      endPoint: /v1/masterdata/locations/info/{locationcode}/{langcode}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: masterdata/FetchLocation/fetchLocation
+      outputTemplate: masterdata/FetchLocation/fetchLocationDetailsbyLangcodeResult
+      input: '{
+      "langcode": "eng",
+      "locationcode": "$LOCATIONCODE$",
+      "locationname": "$REMOVE$",
+      "hierarchyname": "$REMOVE$"
+      }'
+      output: '{
+	"isActive": true
+}'
+   MasterData_FetchLocation_details_by_invalid_LanGcode:
+      endPoint: /v1/masterdata/locations/info/{locationcode}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchLocation/fetchLocation
+      outputTemplate: masterdata/error
+      input: '{
+      "langcode": "endgysgshw66wg",
+      "locationcode": "$LOCATIONCODE$",
+      "locationname": "$REMOVE$",
+      "hierarchyname": "$REMOVE$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-026",
+      "message": "Location not found"
+    }
+  ]
+}'
+   MasterData_FetchLocation_details_by_invalid_locationcode:
+      endPoint: /v1/masterdata/locations/info/{locationcode}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchLocation/fetchLocation
+      outputTemplate: masterdata/error
+      input: '{
+      "langcode": "eng",
+      "locationname": "$REMOVE$",
+      "locationcode": "100sw33223@!@#36",
+      "hierarchyname": "$REMOVE$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-026",
+      "message": "Location not found"
+    }
+  ]
+}'
+   MasterData_FetchLocation_details_Langcode_smoke:
+      endPoint: /v1/masterdata/locations/level/{langcode}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: masterdata/FetchLocation/fetchLocation
+      outputTemplate: masterdata/FetchLocation/fetchLocationResult
+      input: '{
+      "langcode": "eng",
+      "locationname": "$REMOVE$",
+      "locationcode": "$REMOVE$",
+      "hierarchyname": "$REMOVE$"
+      }'
+      output: '{
+	"isActive": true
+}'
+   MasterData_FetchLocation_details_hierarchyname_smoke:
+      endPoint: /v1/masterdata/locations/locationhierarchy/{hierarchyname}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: masterdata/FetchLocation/fetchLocation
+      outputTemplate: masterdata/FetchLocation/fetchLocationResult
+      input: '{
+      "langcode": "$REMOVE$",
+      "locationname": "$REMOVE$",
+      "locationcode": "$REMOVE$",
+      "hierarchyname": "City"
+      }'
+      output: '{
+"locations": [{
+        "isActive": true
+      }]
+}'
+   MasterData_FetchLocation_details_validate_locationname:
+      endPoint: /v1/masterdata/locations/validate/{locationname}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchLocation/fetchLocation
+      outputTemplate: masterdata/FetchLocation/fetchLocationValidationResult
+      input: '{
+      "langcode": "$REMOVE$",
+      "locationname": "10000",
+      "locationcode": "$REMOVE$",
+      "hierarchyname": "$REMOVE$"
+      }'
+      output: '{
+	"status": "Valid"
+}'
+   MasterData_FetchLocation_details_invalid_locationname:
+      endPoint: /v1/masterdata/locations/validate/{locationname}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchLocation/fetchLocation
+      outputTemplate: masterdata/FetchLocation/fetchLocationValidationResult
+      input: '{
+      "langcode": "$REMOVE$",
+      "locationname": "000",
+      "locationcode": "$REMOVE$",
+      "hierarchyname": "$REMOVE$"
+      }'
+      output: '{
+	"status": "Invalid"
+}'
+   MasterData_FetchLocation_immediatechildren:
+      endPoint: /v1/masterdata/locations/immediatechildren/{locationcode}/{langcode}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: masterdata/FetchLocation/fetchLocation
+      outputTemplate: masterdata/FetchLocation/fetchLocationImmediatechildrenResult
+      input: '{
+      "langcode": "eng",
+      "locationname": "$REMOVE$",
+      "locationcode": "$LOCATIONCODE$",
+      "hierarchyname": "$REMOVE$"
+      }'
+      output: '{
+}'

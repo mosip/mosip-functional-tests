@@ -1,0 +1,42 @@
+PacketRejectionReasonCategory:
+   MasterData_PacketRejectionReasonCategory_All_Valid_Smoke:
+      endPoint: /v1/masterdata/packetrejectionreasons/reasoncategory
+      role: admin
+      templateFields: ["langCode"]
+      restMethod: post
+      inputTemplate: masterdata/PacketRejectionReasonCategory/packetRejectionReasonCategory
+      outputTemplate: masterdata/PacketRejectionReasonCategory/packetRejectionReasonCategoryResult
+      input: '{
+    "code": "TEST_CAT_CODE",
+    "name": "TEST_CAT",
+    "description": "test reason category code",
+    "langCode": "eng",
+    "isActive": true,
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+       "code": "TEST_CAT_CODE"
+    }'
+
+   MasterData_PacketRejectionReasonCategory_Invalid_langCode:
+      endPoint: /v1/masterdata/packetrejectionreasons/reasoncategory
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/PacketRejectionReasonCategory/packetRejectionReasonCategory
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "TEST_CAT_CODE",
+    "name": "TEST_CAT",
+    "description": "test reason category code",
+    "langCode": "a@@12bc",
+    "isActive": true,
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.langCode: Language code not supported"
+    }
+  ]
+}'

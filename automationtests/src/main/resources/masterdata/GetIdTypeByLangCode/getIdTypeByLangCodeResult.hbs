@@ -1,0 +1,16 @@
+{
+  "response": {
+    "idtypes": [
+	
+    {{#each idtypes}}
+      {
+        "code": "{{code}}",
+        "descr": "{{descr}}",
+        "name": "{{name}}",
+        "isActive": {{isActive}}
+      }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  }
+}

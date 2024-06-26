@@ -1,0 +1,187 @@
+DeviceTypeFilter:
+   MasterData_DeviceTypeFilter_Valid_Smoke:
+      endPoint: /v1/masterdata/devicetypes/filtervalues
+      role: admin
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
+      outputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilterResult
+      input: '{
+	"filters": [{
+		"columnName": "code",
+		"type": "unique",
+		"text": "GST4"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "code",
+        "fieldValue": "GST4"
+      }
+    ]
+  }'  
+   MasterData_DeviceTypeFilter_All_Name_eng_smoke:
+      endPoint: /v1/masterdata/devicetypes/filtervalues
+      role: admin
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
+      outputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilterResult
+      input: '{
+	"filters": [{
+		"columnName": "code",
+		"type": "all",
+		"text": "GST4"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "code",
+        "fieldValue": "GST4"
+      }
+    ]
+  }'    
+   MasterData_DeviceTypeFilter_isActive_eng_smoke:
+      endPoint: /v1/masterdata/devicetypes/filtervalues
+      role: admin
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
+      outputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilterResult
+      input: '{
+	"filters": [{
+		"columnName": "isActive",
+		"type": "unique",
+		"text": "true"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "isActive",
+        "fieldValue": "true"
+      }
+    ]
+  }'  
+   MasterData_DeviceTypeFilter_Invalid_RequestTime_neg:
+      endPoint: /v1/masterdata/devicetypes/filtervalues
+      role: admin
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
+      outputTemplate: masterdata/error
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "unique",
+		"text": "Printer"
+	}],
+	"languageCode": "eng",
+	"requesttime": "2019-7-3T05:22:35.845"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : requesttime"
+    }
+  ]
+}'  
+   MasterData_DeviceTypeFilter_Invalid_Value_Name_neg:
+      endPoint: /v1/masterdata/devicetypes/filtervalues
+      role: admin
+      checkErrorsOnlyInResponse: true
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
+      outputTemplate: masterdata/NilFilterResult
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "unique",
+		"text": "Language"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "totalCount": "0"
+}'
+   MasterData_DeviceTypeFilter_Invalid_FilterType_neg:
+      endPoint: /v1/masterdata/devicetypes/filtervalues
+      role: admin
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
+      outputTemplate: masterdata/error
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "equal",
+		"text": "Printer"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-324"
+    }
+  ]
+}'   
+   MasterData_DeviceTypeFilter_inValid_blank_FilterType_neg:
+      endPoint: /v1/masterdata/devicetypes/filtervalues
+      role: admin
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
+      outputTemplate: masterdata/error
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "",
+		"text": "GST"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-322",
+      "message": "Filter Type cannot be empty or null"
+    }
+  ]
+}'    
+   MasterData_DeviceTypeFilter_inValid_columnName:
+      endPoint: /v1/masterdata/devicetypes/filtervalues
+      role: admin
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceTypeFilter/deviceTypeFilter
+      outputTemplate: masterdata/error
+      input: '{
+	"filters": [{
+		"columnName": "adfdfd",
+		"type": "unique",
+		"text": "Printer"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-317"
+    }
+  ]
+}'    

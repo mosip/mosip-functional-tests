@@ -1,0 +1,18 @@
+CreateZoneUser:
+   Prerequisite_CreateZoneUser_All_Valid_Smoke:
+      endPoint: /v1/masterdata/zoneuser
+      role: admin
+      restMethod: post
+      inputTemplate: prerequisite/ZoneUser/zoneUser
+      outputTemplate: prerequisite/ZoneUser/zoneUserResult
+      input: '{
+    "zoneCode": "CST",
+    "userId": "110005",
+    "isActive": true,
+    "langCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+        "zoneCode": "CST",
+        "userId": "110005"
+    }'

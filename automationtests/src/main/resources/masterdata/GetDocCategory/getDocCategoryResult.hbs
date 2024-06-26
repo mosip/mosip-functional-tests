@@ -1,0 +1,16 @@
+{
+  "response": {
+    "documentcategories": [
+	
+    {{#each documentcategories}}
+      {
+        "code": "{{code}}",
+        "name": "{{name}}",
+        "description": "{{description}}",
+        "isActive": {{isActive}}
+      }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  }
+}

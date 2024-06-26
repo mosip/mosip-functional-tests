@@ -1,0 +1,139 @@
+UpdateDocumentType:
+   MasterData_UpdateDocumentType_Valid_Smoke:
+      endPoint: /v1/masterdata/documenttypes
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: put
+      inputTemplate: masterdata/DocumentType/documentType
+      outputTemplate: masterdata/DocumentType/documentTypeResult
+      input: '{
+	"code": "TestDocType0010",
+	"description": "TestDocType0010 Card Holder updated",
+	"isActive": true,
+	"langCode": "eng",
+	"name": "TestDocType0010 Card",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+	"code": "TestDocType0010",
+	"description": "TestDocType0010 Card Holder updated",
+	"isActive": "$IGNORE$",
+	"name": "TestDocType0010 Card"
+}'
+   
+   MasterData_UpdateDocumentType_Invalid_Code_Char37:
+      endPoint: /v1/masterdata/documenttypes
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: put
+      inputTemplate: masterdata/DocumentType/documentType
+      outputTemplate: masterdata/error
+      input: '{
+	"code": "abcdefghijklmnopqrstuvwxyzabcdefghijk",
+	"description": "GSD Card Holder",
+	"isActive": false,
+	"langCode": "eng",
+	"name": "GSD Card",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'
+   MasterData_UpdateDocumentType_Invalid_Name_Char65:
+      endPoint: /v1/masterdata/documenttypes
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: put
+      inputTemplate: masterdata/DocumentType/documentType
+      outputTemplate: masterdata/error
+      input: '{
+	"code": "GSD",
+	"description": "GSD Card Holder",
+	"isActive": false,
+	"langCode": "eng",
+	"name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmf",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}'
+   MasterData_UpdateDocumentType_Invalid_Descr_Char129:
+      endPoint: /v1/masterdata/documenttypes
+      role: admin
+      restMethod: put
+      templateFields: ["name","description"]
+      inputTemplate: masterdata/DocumentType/documentType
+      outputTemplate: masterdata/error
+      input: '{
+	"code": "GSD",
+	"description": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy",
+	"isActive": false,
+	"langCode": "eng",
+	"name": "GSD",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.description: size must be between 0 and 128"
+    }
+  ]
+}'
+   
+   MasterData_UpdateDocumentType_Invalid_Name_Blank:
+      endPoint: /v1/masterdata/documenttypes
+      role: admin
+      templateFields: ["description"]
+      restMethod: put
+      inputTemplate: masterdata/DocumentType/documentType
+      outputTemplate: masterdata/error
+      input: '{
+	"code": "GSD",
+	"description": "GSD Holder card",
+	"isActive": false,
+	"langCode": "eng",
+	"name": "",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}'
+   MasterData_UpdateDocumentType_Invalid_Code_Blank:
+      endPoint: /v1/masterdata/documenttypes
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: put
+      inputTemplate: masterdata/DocumentType/documentType
+      outputTemplate: masterdata/error
+      input: '{
+	"code": "",
+	"description": "GSD Holder card",
+	"isActive": false,
+	"langCode": "eng",
+	"name": "GSD",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'

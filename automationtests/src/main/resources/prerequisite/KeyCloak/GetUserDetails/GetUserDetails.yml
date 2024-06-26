@@ -1,0 +1,23 @@
+GetUserDetails:
+   Prerequisite_GetUserDetails_allValid_smoke_get_sid_KeyCloakuserDetails:
+      endPoint: /auth/admin/realms/mosip/users?username=$KEYCLOAKUSER1$
+      role: keycloak
+      restMethod: get
+      inputTemplate: prerequisite/KeyCloak/GetUserDetails/getUserDetails
+      outputTemplate: prerequisite/KeyCloak/GetUserDetails/getUserDetailsResult
+      input: '{
+   "username": "$KEYCLOAKUSER1$"
+}'
+      output: '{
+}'
+   Prerequisite_GetUserDetails_allValid_smoke2_get_sid_KeyCloakuserDetails:
+      endPoint: /auth/admin/realms/mosip/users?username=$KEYCLOAKUSER2$
+      role: keycloak
+      restMethod: get
+      inputTemplate: prerequisite/KeyCloak/GetUserDetails/getUserDetails
+      outputTemplate: prerequisite/KeyCloak/GetUserDetails/getUserDetailsResult
+      input: '{
+   "username": "$KEYCLOAKUSER2$"
+}'
+      output: '{
+}'

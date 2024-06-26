@@ -1,0 +1,365 @@
+UpdateMachine:
+   Masterdata_UpdateMachine_All_Valid_Smoke:
+      endPoint: /v1/masterdata/machines
+      role: globalAdmin
+      templateFields: ["name"]
+      restMethod: put
+      inputTemplate: masterdata/Machine/machine
+      outputTemplate: masterdata/Machine/machineResult
+      input: '{
+    "id":"$ID:CreateMachine_All_Valid_Smoke_sid_id$",
+    "ipAddress":"192.168.0.424",
+    "isActive":true,
+    "langCode":"eng",
+    "macAddress":"61-D3-FD-12-C9-ED",
+    "machineSpecId":"$ID:CreateMachineSpecification_All_Valid_Smoke_sid_id$",
+    "name":"Mach-Test updated",
+    "serialNum":"FB5962911687",
+    "validityDateTime":"2021-12-24T05:52:46.758Z",
+    "publicKey":"$PUBLICKEY$",
+    "signPublicKey":"$PUBLICKEY$",
+    "zoneCode":"$ZONE_CODE$",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+    "id":"$IGNORE$", 
+    "name": "Mach-Test updated",
+	"machineSpecId": "$IGNORE$",
+	"serialNum":"FB5962911687",
+	"ipAddress": "192.168.0.424",
+	"isActive": "$IGNORE$",
+	"langCode": "$IGNORE$",
+	"macAddress": "61-D3-FD-12-C9-ED",
+	"zoneCode": "$IGNORE$",
+	"validityDateTime": "$IGNORE$"
+}'
+   Masterdata_UpdateMachine_Invalid_validitydate_Format:
+      endPoint: /v1/masterdata/machines
+      role: admin
+      templateFields: ["name"]
+      restMethod: put
+      inputTemplate: masterdata/Machine/machine
+      outputTemplate: masterdata/error
+      input: '{
+    "id":"123",
+    "ipAddress":"192.168.0.424",
+    "isActive":true,
+    "langCode":"eng",
+    "macAddress":"61-D3-FD-12-C9-ED",
+    "machineSpecId":"$ID:CreateMachineSpecification_All_Valid_Smoke_sid_id$",
+    "name":"Mach-Test1",
+    "serialNum":"FB5962911687",
+    "validityDateTime":"2018-12-24T05",
+    "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "zoneCode":"$ZONE_CODE$",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : validityDateTime"
+    }
+  ]
+}'
+   Masterdata_UpdateMachine_Invalid_Machine_Zone:
+      endPoint: /v1/masterdata/machines
+      role: admin
+      templateFields: ["name"]
+      restMethod: put
+      inputTemplate: masterdata/Machine/machine
+      outputTemplate: masterdata/error
+      input: '{
+    "id":"123",
+    "ipAddress":"192.168.0.424",
+    "isActive":true,
+    "langCode":"eng",
+    "macAddress":"61-D3-FD-12-C9-ED",
+    "machineSpecId":"$ID:CreateMachineSpecification_All_Valid_Smoke_sid_id$",
+    "name":"Mach-Test1",
+    "serialNum":"FB5962911687",
+    "validityDateTime":"2021-12-24T05:52:46.758Z",
+    "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "zoneCode":"BOM",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-255",
+      "message": "Admin not authorized to access this Machine for this Zone"
+    }
+  ]
+}'
+   Masterdata_UpdateMachine_Invalid_Machine_Name_Blank:
+      endPoint: /v1/masterdata/machines
+      role: admin
+      templateFields: ["name"]
+      restMethod: put
+      inputTemplate: masterdata/Machine/machine
+      outputTemplate: masterdata/error
+      input: '{
+    "id":"123",
+    "ipAddress":"192.168.0.424",
+    "isActive":true,
+    "langCode":"eng",
+    "macAddress":"61-D3-FD-12-C9-ED",
+    "machineSpecId":"$ID:CreateMachineSpecification_All_Valid_Smoke_sid_id$",
+    "name":"",
+    "serialNum":"FB5962911687",
+    "validityDateTime":"2021-12-24T05:52:46.758Z",
+    "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "zoneCode":"$ZONE_CODE$",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}'
+   Masterdata_UpdateMachine_Invalid_Zone_Code_Blank:
+      endPoint: /v1/masterdata/machines
+      role: admin
+      templateFields: ["name"]
+      restMethod: put
+      inputTemplate: masterdata/Machine/machine
+      outputTemplate: masterdata/error
+      input: '{
+    "id":"123",
+    "ipAddress":"192.168.0.424",
+    "isActive":true,
+    "langCode":"eng",
+    "macAddress":"61-D3-FD-12-C9-ED",
+    "machineSpecId":"$ID:CreateMachineSpecification_All_Valid_Smoke_sid_id$",
+    "name":"Mach-Test1",
+    "serialNum":"FB5962911687",
+    "validityDateTime":"2021-12-24T05:52:46.758Z",
+    "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "zoneCode":"",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.zoneCode: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'
+   Masterdata_UpdateMachine_Invalid_Zone_nonAccessable:
+      endPoint: /v1/masterdata/machines
+      role: admin
+      templateFields: ["name"]
+      restMethod: put
+      inputTemplate: masterdata/Machine/machine
+      outputTemplate: masterdata/error
+      input: '{
+    "id":"123",
+    "ipAddress":"192.168.0.424",
+    "isActive":true,
+    "langCode":"eng",
+    "macAddress":"61-D3-FD-12-C9-ED",
+    "machineSpecId":"$ID:CreateMachineSpecification_All_Valid_Smoke_sid_id$",
+    "name":"Mach-Test2",
+    "serialNum":"FB5962911687",
+    "validityDateTime":"2021-12-24T05:52:46.758Z",
+    "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "zoneCode":"STH",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-255",
+      "message": "Admin not authorized to access this Machine for this Zone"
+    }
+  ]
+}'
+   Masterdata_UpdateMachine_Invalid_MAC_Address_Blank:
+      endPoint: /v1/masterdata/machines
+      role: admin
+      templateFields: ["name"]
+      restMethod: put
+      inputTemplate: masterdata/Machine/machine
+      outputTemplate: masterdata/error
+      input: '{
+    "id":"123",
+    "ipAddress":"192.168.0.424",
+    "isActive":true,
+    "langCode":"eng",
+    "macAddress":"",
+    "machineSpecId":"1001",
+    "name":"HMT",
+    "serialNum":"FB5962911687",
+    "validityDateTime":"2021-12-24T05:52:46.758Z",
+    "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "zoneCode":"$ZONE_CODE$",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "KER-MSD-255",
+      "message": "Admin not authorized to access this Machine for this Zone"
+    }
+  ]
+}'
+   Masterdata_UpdateMachine_inValid_MachineName_AboveMaxLen64:
+      endPoint: /v1/masterdata/machines
+      role: admin
+      templateFields: ["name"]
+      restMethod: put
+      inputTemplate: masterdata/Machine/machine
+      outputTemplate: masterdata/error
+      input: '{
+    "id":"123",
+    "ipAddress":"192.168.0.424",
+    "isActive":true,
+    "langCode":"eng",
+    "macAddress":"61-D3-FD-12-C9-ED",
+    "machineSpecId":"1001",
+    "name":"abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
+    "serialNum":"FB5962911687",
+    "validityDateTime":"2021-12-24T05:52:46.758Z",
+    "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "zoneCode":"$ZONE_CODE$",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}'
+   Masterdata_UpdateMachine_inValid_MacAddress_AboveMaxLen64:
+      endPoint: /v1/masterdata/machines
+      role: admin
+      templateFields: ["name"]
+      restMethod: put
+      inputTemplate: masterdata/Machine/machine
+      outputTemplate: masterdata/error
+      input: '{
+    "id":"123",
+    "ipAddress":"192.168.0.424",
+    "isActive":true,
+    "langCode":"eng",
+    "macAddress":"abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
+    "machineSpecId":"1001",
+    "name":"Mach-Test2",
+    "serialNum":"FB5962911687",
+    "validityDateTime":"2021-12-24T05:52:46.758Z",
+    "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "zoneCode":"$ZONE_CODE$",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.macAddress: Should not be blank or size must be between 0 and 64"
+    }
+  ]
+}'
+   Masterdata_UpdateMachine_inValid_SerialNumber_AboveMaxLen64:
+      endPoint: /v1/masterdata/machines
+      role: admin
+      templateFields: ["name"]
+      restMethod: put
+      inputTemplate: masterdata/Machine/machine
+      outputTemplate: masterdata/error
+      input: '{
+    "id":"123",
+    "ipAddress":"192.168.0.424",
+    "isActive":true,
+    "langCode":"eng",
+    "macAddress":"61-D3-FD-12-C9-ED",
+    "machineSpecId":"1001",
+    "name":"Mach-Test2",
+    "serialNum":"abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
+    "validityDateTime":"2021-12-24T05:52:46.758Z",
+    "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "zoneCode":"$ZONE_CODE$",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.serialNum: size must be between 0 and 64"
+    }
+  ]
+}'
+   Masterdata_UpdateMachine_inValid_IPAddress_AboveMaxLen17:
+      endPoint: /v1/masterdata/machines
+      role: admin
+      templateFields: ["name"]
+      restMethod: put
+      inputTemplate: masterdata/Machine/machine
+      outputTemplate: masterdata/error
+      input: '{
+    "id":"123",
+    "ipAddress":"qwertyuiopasdfge18",
+    "isActive":true,
+    "langCode":"eng",
+    "macAddress":"61-D3-FD-12-C9-ED",
+    "machineSpecId":"1001",
+    "name":"Mach-Test2",
+    "serialNum":"FB5962911687",
+    "validityDateTime":"2021-12-24T05:52:46.758Z",
+    "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "zoneCode":"$ZONE_CODE$",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.ipAddress: size must be between 0 and 17"
+    }
+  ]
+}'
+   Masterdata_UpdateMachine_inValid_MSpecID_AboveMaxLen36:
+      endPoint: /v1/masterdata/machines
+      role: admin
+      templateFields: ["name"]
+      restMethod: put
+      inputTemplate: masterdata/Machine/machine
+      outputTemplate: masterdata/error
+      input: '{
+    "id":"123",
+    "ipAddress":"192.168.0.424",
+    "isActive":true,
+    "langCode":"eng",
+    "macAddress":"61-D3-FD-12-C9-ED",
+    "machineSpecId":"abcdefghijklmnopqrstuvwxyzabcdefghijk",
+    "name":"Mach-Test2",
+    "serialNum":"FB5962911687",
+    "validityDateTime":"2021-12-24T05:52:46.758Z",
+    "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "zoneCode":"$ZONE_CODE$",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.machineSpecId: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'

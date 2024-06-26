@@ -1,0 +1,198 @@
+UpdateDeviceType:
+   MasterData_UpdateDeviceType_All_Valid_Smoke:
+      endPoint: /v1/masterdata/devicetypes
+      role: admin
+      templateFields: ["description"]
+      restMethod: put
+      inputTemplate: masterdata/DeviceType/deviceType
+      outputTemplate: masterdata/DeviceType/deviceTypeResult
+      input: '{
+    "code": "GST3",
+    "description": "test 1.0.8",
+	"isActive": true,
+	"langCode": "eng",
+	"name": "GST updated",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+	"code": "GST3"
+}'
+   MasterData_UpdateDeviceType_All_Valid_Mandatory_Fields:
+      endPoint: /v1/masterdata/devicetypes
+      role: admin
+      templateFields: ["description"]
+      restMethod: put
+      inputTemplate: masterdata/DeviceType/deviceType
+      outputTemplate: masterdata/DeviceType/deviceTypeResult
+      input: '{
+    "code": "GST4",
+    "description": "$REMOVE$",
+	"isActive": true,
+	"langCode": "eng",
+	"name": "GST updated",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+	"code": "GST4"
+}'
+   MasterData_UpdateDeviceType_InputParameter_Code_Missing:
+      endPoint: /v1/masterdata/devicetypes
+      role: admin
+      templateFields: ["description"]
+      restMethod: put
+      inputTemplate: masterdata/DeviceType/deviceType
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "$REMOVE$",
+    "description": "test 1.0.8",
+	"isActive": true,
+	"langCode": "eng",
+	"name": "GST updated",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: must not be null"
+    }
+  ]
+}'
+   MasterData_UpdateDeviceType_InputParameter_Code_Empty:
+      endPoint: /v1/masterdata/devicetypes
+      role: admin
+      templateFields: ["description"]
+      restMethod: put
+      inputTemplate: masterdata/DeviceType/deviceType
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "",
+    "description": "test 1.0.8",
+	"isActive": true,
+	"langCode": "eng",
+	"name": "GST updated",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'
+   MasterData_UpdateDeviceType_InputParameter_Code_AboveMaxLen36:
+      endPoint: /v1/masterdata/devicetypes
+      role: admin
+      templateFields: ["description"]
+      restMethod: put
+      inputTemplate: masterdata/DeviceType/deviceType
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "abcdefghijklmnopqrstuvwxyzabcdefghijk",
+    "description": "test 1.0.8",
+	"isActive": true,
+	"langCode": "eng",
+	"name": "GST updated",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'
+   MasterData_UpdateDeviceType_InputParameter_Name_Missing:
+      endPoint: /v1/masterdata/devicetypes
+      role: admin
+      templateFields: ["description"]
+      restMethod: put
+      inputTemplate: masterdata/DeviceType/deviceType
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "GST3",
+    "description": "test 1.0.8",
+	"isActive": false,
+	"langCode": "eng",
+	"name": "$REMOVE$",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: must not be null"
+    }
+  ]
+}'
+   MasterData_UpdateDeviceType_InputParameter_Name_Empty:
+      endPoint: /v1/masterdata/devicetypes
+      role: admin
+      templateFields: ["description"]
+      restMethod: put
+      inputTemplate: masterdata/DeviceType/deviceType
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "GST3",
+    "description": "test 1.0.8",
+	"isActive": false,
+	"langCode": "eng",
+	"name": "",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}'
+   MasterData_UpdateDeviceType_InputParameter_Name_AboveMaxLen64:
+      endPoint: /v1/masterdata/devicetypes
+      role: admin
+      templateFields: ["description"]
+      restMethod: put
+      inputTemplate: masterdata/DeviceType/deviceType
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "GST3",
+    "description": "test 1.0.8",
+	"isActive": false,
+	"langCode": "eng",
+	"name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}'
+   MasterData_UpdateDeviceType_InputParameter_Description_AboveMaxLen128:
+      endPoint: /v1/masterdata/devicetypes
+      role: admin
+      templateFields: ["name"]
+      restMethod: put
+      inputTemplate: masterdata/DeviceType/deviceType
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "GST3",
+    "description": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy",
+	"isActive": false,
+	"langCode": "eng",
+	"name": "GST",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.description: size must be between 0 and 128"
+    }
+  ]
+}'

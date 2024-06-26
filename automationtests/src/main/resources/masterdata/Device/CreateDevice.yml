@@ -1,0 +1,371 @@
+CreateDevice:
+   MasterData_CreateDevice_All_Valid_Smoke_sid:
+      endPoint: /v1/masterdata/devices
+      role: globalAdmin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/Device/createDevice
+      outputTemplate: masterdata/Device/createDeviceResult
+      input: '{
+    "name": "testDevicedummy",
+    "description": "testDevicedummy",
+	"deviceSpecId": "743",
+	"ipAddress": "172.23.174.113",
+	"isActive": true,
+	"langCode": "eng",
+	"macAddress": "D4-3D-7E-C0-8C-4A",
+	"zoneCode": "$ZONE_CODE$",
+	"validityDateTime": "$TIMESTAMP$",
+	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+	"requesttime": "$TIMESTAMP$"
+	}'
+      output: '{
+    "name": "testDevicedummy",
+	"deviceSpecId": "743",
+	"ipAddress": "172.23.174.113",
+	"isActive": false,
+	"macAddress": "D4-3D-7E-C0-8C-4A",
+	"zoneCode": "$IGNORE$",
+	"validityDateTime": "$TIMESTAMP$",
+	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+	"requesttime": "$TIMESTAMP$"
+}'
+   MasterData_CreateDevice_Valid_Smoke_decommison_sid:
+      endPoint: /v1/masterdata/devices
+      role: globalAdmin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/Device/createDevice
+      outputTemplate: masterdata/Device/createDeviceResult
+      input: '{
+    "name": "testDevicedummy",
+    "description": "testDevicedummy",
+	"deviceSpecId": "736",
+	"ipAddress": "172.23.174.113",
+	"isActive": true,
+	"langCode": "eng",
+	"macAddress": "D4-3D-7E-C0-8C-4A",
+	"zoneCode": "$ZONE_CODE$",
+	"validityDateTime": "$TIMESTAMP$",
+	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+	"requesttime": "$TIMESTAMP$"
+	}'
+      output: '{
+    "name": "testDevicedummy",
+	"deviceSpecId": "736",
+	"ipAddress": "172.23.174.113",
+	"isActive": false,
+	"macAddress": "D4-3D-7E-C0-8C-4A",
+	"zoneCode": "$IGNORE$",
+	"validityDateTime": "$TIMESTAMP$",
+	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+	"requesttime": "$TIMESTAMP$"
+}'
+   MasterData_CreateDevice_Invalid_InputParameterInvalid_Format:
+      endPoint: /v1/masterdata/devices
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/Device/createDevice
+      outputTemplate: masterdata/error
+      input: '{
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
+    "name": "testDevicedummy_1",
+	"deviceSpecId": "736",
+	"ipAddress": "172.23.174.113",
+	"isActive": true,
+	"langCode": "ara",
+	"macAddress": "D4-3D-7E-C0-8C-4A",
+	"zoneCode": "$ZONE_CODE$",
+	"validityDateTime": "2018-12-24T05",
+	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+	"requesttime": "$TIMESTAMP$"
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : validityDateTime"
+    }
+  ]
+}'
+   MasterData_CreateDevice_Invalid_Device_Zone_notPresentInDB:
+      endPoint: /v1/masterdata/devices
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/Device/createDevice
+      outputTemplate: masterdata/error
+      input: '{
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
+    "name": "testDevicedummy_1",
+	"deviceSpecId": "736",
+	"ipAddress": "172.23.174.113",
+	"isActive": true,
+	"langCode": "ara",
+	"macAddress": "D4-3D-7E-C0-8C-4A",
+	"zoneCode": "BOM",
+	"validityDateTime": "$TIMESTAMP$",
+	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+	"requesttime": "$TIMESTAMP$"
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-439",
+      "message": "Admin not authorized to access this Device for this Zone"
+    }
+  ]
+}'
+   MasterData_CreateDevice_Invalid_Machine_Name_Blank:
+      endPoint: /v1/masterdata/devices
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/Device/createDevice
+      outputTemplate: masterdata/error
+      input: '{
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
+    "name": "",
+	"deviceSpecId": "736",
+	"ipAddress": "172.23.174.113",
+	"isActive": true,
+	"langCode": "eng",
+	"macAddress": "D4-3D-7E-C0-8C-4A",
+	"zoneCode": "$ZONE_CODE$",
+	"validityDateTime": "$TIMESTAMP$",
+	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+	"requesttime": "$TIMESTAMP$"
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}'
+   MasterData_CreateDevice_Invalid_DeviceName_AboveMaxLen64:
+      endPoint: /v1/masterdata/devices
+      role: admin
+      templateFields: ["description"]
+      restMethod: post
+      inputTemplate: masterdata/Device/createDevice
+      outputTemplate: masterdata/error
+      input: '{
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
+    "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
+	"deviceSpecId": "736",
+	"ipAddress": "172.23.174.113",
+	"isActive": true,
+	"langCode": "eng",
+	"macAddress": "D4-3D-7E-C0-8C-4A",
+	"zoneCode": "$ZONE_CODE$",
+	"validityDateTime": "$TIMESTAMP$",
+	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+	"requesttime": "$TIMESTAMP$"
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}'
+   MasterData_CreateDevice_Invalid_Zone_Code_Blank:
+      endPoint: /v1/masterdata/devices
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/Device/createDevice
+      outputTemplate: masterdata/error
+      input: '{
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
+    "name": "testDevicedummy_1",
+	"deviceSpecId": "736",
+	"ipAddress": "172.23.174.113",
+	"isActive": true,
+	"langCode": "eng",
+	"macAddress": "D4-3D-7E-C0-8C-4A",
+	"zoneCode": "",
+	"validityDateTime": "$TIMESTAMP$",
+	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+	"requesttime": "$TIMESTAMP$"
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.zoneCode: Should not be blank or size must be between 0 and 36"
+    }
+  ]
+}'
+   MasterData_CreateDevice_Invalid_MAC_Address_Blank:
+      endPoint: /v1/masterdata/devices
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/Device/createDevice
+      outputTemplate: masterdata/error
+      input: '{
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
+    "name": "testDevicedummy_1",
+	"deviceSpecId": "736",
+	"ipAddress": "172.23.174.113",
+	"isActive": true,
+	"langCode": "eng",
+	"macAddress": "",
+	"zoneCode": "$ZONE_CODE$",
+	"validityDateTime": "$TIMESTAMP$",
+	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+	"requesttime": "$TIMESTAMP$"
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.macAddress: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}'
+   MasterData_CreateDevice_Invalid_MacAddress_AboveMaxLen64:
+      endPoint: /v1/masterdata/devices
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/Device/createDevice
+      outputTemplate: masterdata/error
+      input: '{
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
+    "name": "testDevicedummy_1",
+	"deviceSpecId": "736",
+	"ipAddress": "172.23.174.113",
+	"isActive": true,
+	"langCode": "eng",
+	"macAddress": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
+	"zoneCode": "$ZONE_CODE$",
+	"validityDateTime": "$TIMESTAMP$",
+	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+	"requesttime": "$TIMESTAMP$"
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.macAddress: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}'
+   MasterData_CreateDevice_Invalid_Serial_Number_Blank:
+      endPoint: /v1/masterdata/devices
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/Device/createDevice
+      outputTemplate: masterdata/error
+      input: '{
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
+    "name": "testDevicedummy_1",
+	"deviceSpecId": "736",
+	"ipAddress": "172.23.174.113",
+	"isActive": true,
+	"langCode": "eng",
+	"macAddress": "D4-3D-7E-C0-8C-4A",
+	"zoneCode": "$ZONE_CODE$",
+	"validityDateTime": "$TIMESTAMP$",
+	"serialNum": "",
+	"requesttime": "$TIMESTAMP$"
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.serialNum: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}'
+   MasterData_CreateDevice_Invalid_SerialNumber_AboveMaxLen64:
+      endPoint: /v1/masterdata/devices
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/Device/createDevice
+      outputTemplate: masterdata/error
+      input: '{
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
+    "name": "testDevicedummy_1",
+	"deviceSpecId": "736",
+	"ipAddress": "172.23.174.113",
+	"isActive": true,
+	"langCode": "eng",
+	"macAddress": "D4-3D-7E-C0-8C-4A",
+	"zoneCode": "$ZONE_CODE$",
+	"validityDateTime": "$TIMESTAMP$",
+	"serialNum": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
+	"requesttime": "$TIMESTAMP$"
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.serialNum: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}'
+   MasterData_CreateDevice_Invalid_IPAddress_AboveMaxLen17:
+      endPoint: /v1/masterdata/devices
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/Device/createDevice
+      outputTemplate: masterdata/error
+      input: '{
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
+    "name": "testDevicedummy_1",
+	"deviceSpecId": "736",
+	"ipAddress": "qwertyuiopasdfge18",
+	"isActive": true,
+	"langCode": "eng",
+	"macAddress": "D4-3D-7E-C0-8C-4A",
+	"zoneCode": "$ZONE_CODE$",
+	"validityDateTime": "$TIMESTAMP$",
+	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+	"requesttime": "$TIMESTAMP$"
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.ipAddress: size must be between 0 and 17"
+    }
+  ]
+}'
+   MasterData_CreateDevice_Invalid_DSpecID_AboveMaxLen36:
+      endPoint: /v1/masterdata/devices
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/Device/createDevice
+      outputTemplate: masterdata/error
+      input: '{
+     "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$",
+    "name": "testDevicedummy_1",
+	"deviceSpecId": "abcdefghijklmnopqrstuvwxyzabcdefghijk",
+	"ipAddress": "172.23.174.113",
+	"isActive": true,
+	"langCode": "eng",
+	"macAddress": "D4-3D-7E-C0-8C-4A",
+	"zoneCode": "$ZONE_CODE$",
+	"validityDateTime": "$TIMESTAMP$",
+	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+	"requesttime": "$TIMESTAMP$"
+	}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.deviceSpecId: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'

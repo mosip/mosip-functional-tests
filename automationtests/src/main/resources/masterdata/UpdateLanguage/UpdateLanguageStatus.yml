@@ -1,0 +1,13 @@
+UpdateLanguageStatus:
+   MasterData_UpdateLanguageStatus_All_Valid_Smoke_sid:  
+      endPoint: /v1/masterdata/languages?code=alt&isActive=true
+      role: admin
+      restMethod: patch
+      inputTemplate: masterdata/UpdateLanguage/updateLanguage
+      outputTemplate: masterdata/UpdateLanguage/updateLanguageResult
+      input: '{
+    
+}'
+      output: '{
+    "status": "Status updated successfully for Languages"
+}'

@@ -1,0 +1,31 @@
+GetLeafsByLangCode:
+   MasterData_GetLeafsByLangCode_allValid_smoke:
+      endPoint: /v1/masterdata/zones/leafs/{langCode}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: masterdata/GetLeafsByLangCode/getLeafsByLangCode
+      outputTemplate: masterdata/GetLeafsByLangCode/getLeafsByLangCodeResult
+      input: '{
+  "langCode": "eng"
+}'
+      output: '{
+}'
+   MasterData_GetLeafsByLangCode_inValid_code:
+      endPoint: /v1/masterdata/zones/leafs/{langCode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetLeafsByLangCode/getLeafsByLangCode
+      outputTemplate: masterdata/error
+      input: '{
+  "langCode": "eng1"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
+   

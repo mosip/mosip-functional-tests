@@ -1,0 +1,13 @@
+FetchMissingLocation:
+   MasterData_FetchMissingLocation_valid_smoke:
+      endPoint: /v1/masterdata/locations/missingids/{langcode}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: masterdata/FetchMissingLocation/fetchMissingLocation
+      outputTemplate: masterdata/FetchMissingLocation/fetchMissingLocationResult
+      input: '{
+  "langcode": "eng"
+}'
+      output: '{
+}'

@@ -1,0 +1,56 @@
+GetPossiableValues:
+   Admin_GetPossiableValues_allValid_smoke:
+      endPoint: /v1/masterdata/possiblevalues/{fieldName}?langCode=eng
+      role: admin
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: masterdata/GetPossiableValues/getPossiableValues
+      outputTemplate: masterdata/GetPossiableValues/getPossiableValuesResult
+      input: '{
+  "fieldName":"bloodType"
+}'
+      output: '{
+"eng": [{
+			 "code": "$IGNORE$",
+       "value": "$IGNORE$",
+       "dataType": "$IGNORE$"
+		}]
+}'
+
+   Admin_GetPossiableValues_Invalid_Invalid_FieldName:
+      endPoint: /v1/masterdata/possiblevalues/{fieldName}?langCode=eng
+      role: admin
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: masterdata/GetPossiableValues/getPossiableValues
+      outputTemplate: masterdata/error
+      input: '{
+  "fieldName":"abc"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "$IGNORE$",
+      "message": "$IGNORE$"
+    }
+  ]
+}'  
+
+   Admin_GetPossiableValues_Invalid_Invalid_langCode:
+      endPoint: /v1/masterdata/possiblevalues/{fieldName}?langCode=abc
+      role: admin
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: masterdata/GetPossiableValues/getPossiableValues
+      outputTemplate: masterdata/error
+      input: '{
+  "fieldName":"bloodType"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "$IGNORE$",
+      "message": "$IGNORE$"
+    }
+  ]
+}'

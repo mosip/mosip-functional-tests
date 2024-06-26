@@ -1,0 +1,183 @@
+AuthLock:
+   Mimoto_AuthLock_Valid_UIN_All:
+      endPoint: /residentmobileapp/req/auth/lock
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      inputTemplate: mimoto/AuthLock/createAuthLock
+      outputTemplate: mimoto/AuthLock/createAuthLockResult
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "mimoto/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/residentmobileapp/req/otp"
+    }
+    }'
+      output: '{
+  "sendOtpResp":{
+        "sendOtpResTemplate":"mimoto/SendOTP/createSendOTPResult"
+    }
+}'
+   Mimoto_AuthLock_InValid_Otp_All:
+      endPoint: /residentmobileapp/req/auth/lock
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      inputTemplate: mimoto/AuthLock/createAuthLock
+      outputTemplate: mimoto/error
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
+        "otp": "111sss@@1",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "mimoto/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/residentmobileapp/req/otp"
+    }
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-422"
+    }
+  ],
+  "sendOtpResp":{
+        "sendOtpResTemplate":"mimoto/SendOTP/createSendOTPResult"
+    }
+}'
+   Mimoto_AuthLock_with_invalidUIN_Valid_Otp_sid:
+      endPoint: /residentmobileapp/req/auth/lock
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      inputTemplate: mimoto/AuthLock/createAuthLock
+      outputTemplate: mimoto/error
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "263738@@#FDCVvb",
+        "individualIdType": "UIN",
+        "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "mimoto/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/residentmobileapp/req/otp"
+    }
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410"
+    }
+  ],
+  "sendOtpResp":{
+        "sendOtpResTemplate":"mimoto/SendOTP/createSendOTPResult"
+    }
+}'
+   Mimoto_AuthLock_Valid_VID_All:
+      endPoint: /residentmobileapp/req/auth/lock
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      inputTemplate: mimoto/AuthLock/createAuthLock
+      outputTemplate: mimoto/AuthLock/createAuthLockResult
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
+        "individualIdType": "VID",
+        "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "mimoto/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/residentmobileapp/req/otp"
+    }
+    }'
+      output: '{
+  "sendOtpResp":{
+        "sendOtpResTemplate":"mimoto/SendOTP/createSendOTPResult"
+    }
+}'
+   Mimoto_AuthLock_with_invalidVID_Valid_Otp:
+      endPoint: /residentmobileapp/req/auth/lock
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      inputTemplate: mimoto/AuthLock/createAuthLock
+      outputTemplate: mimoto/error
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "26DBDB@73",
+        "individualIdType": "VID",
+        "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "mimoto/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/residentmobileapp/req/otp"
+    }
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410"
+    }
+  ],
+  "sendOtpResp":{
+        "sendOtpResTemplate":"mimoto/SendOTP/createSendOTPResult"
+    }
+}'
+   Mimoto_AuthLock_invalidVID_Valid_Otp:
+      endPoint: /residentmobileapp/req/auth/lock
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      inputTemplate: mimoto/AuthLock/createAuthLock
+      outputTemplate: mimoto/error
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "36363gvb",
+        "individualIdType": "VID",
+        "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "mimoto/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/residentmobileapp/req/otp"
+    }
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410"
+    }
+  ],
+  "sendOtpResp":{
+        "sendOtpResTemplate":"mimoto/SendOTP/createSendOTPResult"
+    }
+}'

@@ -1,0 +1,18 @@
+{
+  "response": {
+    "data": [
+     {{#each data}}
+      {
+        "isActive": "{{isActive}}",
+        "holidayId": "{{holidayId}}",
+        "name": "{{name}}",
+        "holidayDate": "{{holidayDate}}",
+        "holidayName": "{{holidayName}}",
+        "holidayDesc": "{{holidayDesc}}",
+        "langCode": "{{langCode}}"
+      }
+       {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  }
+}

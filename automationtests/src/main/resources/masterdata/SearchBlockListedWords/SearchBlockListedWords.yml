@@ -1,0 +1,329 @@
+SearchBlockListedWords:
+   Masterdata_SearchBlockListedWords_Valid_Request_Smoke:
+      endPoint: /v1/masterdata/blocklistedwords/search
+      role: admin
+      templateFields: ["value"]
+      restMethod: post
+      inputTemplate: masterdata/SearchBlockListedWords/searchBlockListedWords
+      outputTemplate: masterdata/SearchBlockListedWords/searchBlockListedWordsResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "word",
+        "type": "equals",
+        "value": "dumbooo",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "word",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "data": [
+     {
+        "isActive": "$IGNORE$",
+        "description": "$IGNORE$",
+        "word": "dumbooo"
+      }
+    ]
+}'
+   Masterdata_SearchBlockListedWords_Valid_FilterTypeContains:
+      endPoint: /v1/masterdata/blocklistedwords/search
+      role: admin
+      templateFields: ["value"]
+      restMethod: post
+      inputTemplate: masterdata/SearchBlockListedWords/searchBlockListedWords
+      outputTemplate: masterdata/SearchBlockListedWords/searchBlockListedWordsResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "word",
+        "type": "contains",
+        "value": "dumbooo",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "word",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "data": [
+     {
+        "isActive": "$IGNORE$",
+        "description": "$IGNORE$",
+        "word": "dumbooo"
+      }
+    ]
+}'
+   Masterdata_SearchBlockListedWords_Valid_FilterTypeStartsWith:
+      endPoint: /v1/masterdata/blocklistedwords/search
+      role: admin
+      templateFields: ["value"]
+      restMethod: post
+      inputTemplate: masterdata/SearchBlockListedWords/searchBlockListedWords
+      outputTemplate: masterdata/SearchBlockListedWords/searchBlockListedWordsResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "word",
+        "type": "startsWith",
+        "value": "dumbooo",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "word",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "data": [
+     {
+        "isActive": "$IGNORE$",
+        "description": "$IGNORE$",
+        "word": "dumbooo"
+      }
+    ]
+}'
+   Masterdata_SearchBlockListedWords_Invalid_ColumnName:
+      endPoint: /v1/masterdata/blocklistedwords/search
+      role: admin
+      templateFields: ["value"]
+      restMethod: post
+      inputTemplate: masterdata/SearchBlockListedWords/searchBlockListedWords
+      outputTemplate: masterdata/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "dumb upd",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "word",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-317",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   Masterdata_SearchBlockListedWords_Valid_SortFieldDESC:
+      endPoint: /v1/masterdata/blocklistedwords/search
+      role: admin
+      templateFields: ["value"]
+      restMethod: post
+      inputTemplate: masterdata/SearchBlockListedWords/searchBlockListedWords
+      outputTemplate: masterdata/SearchBlockListedWords/searchBlockListedWordsResult
+      input: '{
+    "filters": [
+      {
+        "columnName": "word",
+        "type": "equals",
+        "value": "dumbooo",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "word",
+        "sortType": "DESC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "data": [
+     {
+        "isActive": "$IGNORE$",
+        "description": "$IGNORE$",
+        "word": "dumbooo"
+      }
+    ]
+}'
+   Masterdata_SearchBlockListedWords_Invalid_SortField:
+      endPoint: /v1/masterdata/blocklistedwords/search
+      role: admin
+      templateFields: ["value"]
+      restMethod: post
+      inputTemplate: masterdata/SearchBlockListedWords/searchBlockListedWords
+      outputTemplate: masterdata/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "word",
+        "type": "equals",
+        "value": "dumb upd",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "sldjfkd",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-357",
+      "message": "Invalid sort field sldjfkd"
+    }
+  ]
+}'
+   Masterdata_SearchBlockListedWords_Invalid_EmptyFilterType:
+      endPoint: /v1/masterdata/blocklistedwords/search
+      role: admin
+      templateFields: ["value"]
+      restMethod: post
+      inputTemplate: masterdata/SearchBlockListedWords/searchBlockListedWords
+      outputTemplate: masterdata/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "",
+        "value": "dumb upd",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-312",
+      "message": "Filter type is missing"
+    }
+  ]
+}'
+   Masterdata_SearchBlockListedWords_Invalid_EmptyColumn:
+      endPoint: /v1/masterdata/blocklistedwords/search
+      role: admin
+      templateFields: ["value"]
+      restMethod: post
+      inputTemplate: masterdata/SearchBlockListedWords/searchBlockListedWords
+      outputTemplate: masterdata/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "",
+        "type": "equals",
+        "value": "dumb upd",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": 0,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-311",
+      "message": "Column is missing in request"
+    }
+  ]
+}'
+   Masterdata_SearchBlockListedWords_Invalid_PageStart:
+      endPoint: /v1/masterdata/blocklistedwords/search
+      role: admin
+      templateFields: ["value"]
+      restMethod: post
+      inputTemplate: masterdata/SearchBlockListedWords/searchBlockListedWords
+      outputTemplate: masterdata/error
+      input: '{
+    "filters": [
+      {
+        "columnName": "name",
+        "type": "equals",
+        "value": "dumb upd",
+        "fromValue": "$REMOVE$",
+        "toValue": "$REMOVE$"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "name",
+        "sortType": "ASC"
+      }
+    ],
+      "pageStart": abc,
+      "pageFetch": 1,
+    "languageCode": "eng",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : pagination,pageStart"
+    }
+  ]
+}'

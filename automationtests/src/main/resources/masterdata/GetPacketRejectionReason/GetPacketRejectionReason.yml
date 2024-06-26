@@ -1,0 +1,72 @@
+GetPacketRejectionReason:
+   Masterdata_GetPacketRejectionReason_allValid_smoke:
+      endPoint: /v1/masterdata/packetrejectionreasons/{reasoncategorycode}/{langcode}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      templateFields: ["langcode"]
+      restMethod: get
+      inputTemplate: masterdata/GetPacketRejectionReason/getPacketRejectionReason
+      outputTemplate: masterdata/GetPacketRejectionReason/getPacketRejectionReasonResult
+      input: '{
+  "reasoncategorycode":"MNA",
+  "langcode":"eng"
+}'
+      output: '{
+   "errors": null
+}'  
+   Masterdata_GetPacketRejectionReason_with_empty_data:
+      endPoint: /v1/masterdata/packetrejectionreasons/{reasoncategorycode}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetPacketRejectionReason/getPacketRejectionReason
+      outputTemplate: masterdata/error
+      input: '{
+  "reasoncategorycode":"$IGNORE$",
+  "langcode":"$IGNORE$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-036",
+      "message": "Reason not found"
+    }
+  ]
+}'
+   Masterdata_GetPacketRejectionReason_Invalid_reasoncategorycode:
+      endPoint: /v1/masterdata/packetrejectionreasons/{reasoncategorycode}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetPacketRejectionReason/getPacketRejectionReason
+      outputTemplate: masterdata/error
+      input: '{
+  "reasoncategorycode":"a@b@12c",
+  "langcode":"eng"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-036",
+      "message": "Reason not found"
+    }
+  ]
+}'
+
+   Masterdata_GetPacketRejectionReason_Invalid_langcode:
+      endPoint: /v1/masterdata/packetrejectionreasons/{reasoncategorycode}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetPacketRejectionReason/getPacketRejectionReason
+      outputTemplate: masterdata/error
+      input: '{
+  "reasoncategorycode":"MNA",
+  "langcode":"abc"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-036",
+      "message": "Reason not found"
+    }
+  ]
+}'
+   

@@ -1,0 +1,13 @@
+DeleteUserDetails:
+   MasterData_DeleteUserDetails_All_Valid_Smoke_sid:  
+      endPoint: /v1/masterdata/users/{id}
+      role: admin
+      restMethod: delete
+      inputTemplate: masterdata/DeleteUserDetails/deleteUserDetails
+      outputTemplate: masterdata/DeleteUserDetails/deleteUserDetailsResult
+      input: '{
+    "id": "110129"
+	}'
+      output: '{
+    "id": "110129"
+}'

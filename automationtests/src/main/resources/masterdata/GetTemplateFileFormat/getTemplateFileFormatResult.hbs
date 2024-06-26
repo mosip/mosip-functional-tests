@@ -1,0 +1,13 @@
+{
+  "response": {
+    "templateFileFormats": [
+    {{#each templateFileFormats}}
+      {
+        "code": "{{code}}",
+        "isActive": "{{isActive}}"
+      }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  }
+}

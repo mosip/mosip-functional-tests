@@ -1,0 +1,45 @@
+UpdateDynamicFieldStatus:
+   MasterData_UpdateDynamicFieldStatus_All_Valid_Smoke:  
+      endPoint: /v1/masterdata/dynamicfields?isActive={isActive}&id={id}
+      role: admin
+      restMethod: patch
+      inputTemplate: masterdata/UpdateDynamicFieldStatus/updateDynamicFieldStatus
+      outputTemplate: masterdata/UpdateDynamicFieldStatus/updateDynamicFieldStatusResult
+      input: '{
+    "id": "$ID:CreateDynamicField_All_Valid_Smoke_sid_id$",
+    "isActive": true
+}'
+      output: '{
+    "status": "Status updated successfully for Dynamic Fields"
+}'
+   MasterData_UpdateDynamicFieldStatus_Invalid_id:  
+      endPoint: /v1/masterdata/dynamicfields?isActive={isActive}&id={id}
+      role: admin
+      restMethod: patch
+      inputTemplate: masterdata/UpdateDynamicFieldStatus/updateDynamicFieldStatus
+      outputTemplate: masterdata/error
+      input: '{
+    "id": "notexist",
+    "isActive": true
+}'
+      output: '{
+    "errors": [
+        {
+            "errorCode": "KER-SCH-003",
+            "message": "Dynamic field not found"
+        }
+    ]
+}'
+   MasterData_UpdateDynamicFieldStatus_ByFieldName_All_Valid_Smoke:  
+      endPoint: /v1/masterdata/dynamicfields/all?isActive={isActive}&fieldName={id}
+      role: admin
+      restMethod: patch
+      inputTemplate: masterdata/UpdateDynamicFieldStatus/updateDynamicFieldStatus
+      outputTemplate: masterdata/UpdateDynamicFieldStatus/updateDynamicFieldStatusResult
+      input: '{
+    "id": "TestAPL",
+    "isActive": true
+}'
+      output: '{
+    "status": "Status updated successfully for Dynamic Fields"
+}'

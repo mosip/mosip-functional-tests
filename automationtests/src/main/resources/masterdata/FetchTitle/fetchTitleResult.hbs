@@ -1,0 +1,12 @@
+{
+  "response": {
+    "titleList": [
+    {{#each titleList}}
+      {
+        "isActive": {{isActive}}
+      }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  }
+}

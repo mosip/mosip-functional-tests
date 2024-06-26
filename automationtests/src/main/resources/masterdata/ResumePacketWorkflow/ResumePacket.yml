@@ -1,0 +1,39 @@
+ResumePacketWorkflow:
+   MasterData_ResumePacketWorkflow_inValid_workFlowId:
+      endPoint: /v1/masterdata/packet/resume
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/ResumePacketWorkflow/resumePacket
+      outputTemplate: masterdata/error
+      input: '{
+    "workflowId": "sfgbvafb",
+    "workflowAction": "RESUME",
+    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RPR-WAA-003",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   MasterData_ResumePacketWorkflow_inValid_requesttime:
+      endPoint: /v1/masterdata/packet/resume
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/ResumePacketWorkflow/resumePacket
+      outputTemplate: masterdata/error
+      input: '{
+    "workflowId": "sfgbvafb",
+    "workflowAction": "RESUME",
+    "requesttime": "afgbb"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : requesttime"
+    }
+  ]
+}'

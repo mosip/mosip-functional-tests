@@ -1,0 +1,155 @@
+UpdateBlockListedWords:
+   Masterdata_UpdateBlockListedWords_All_Valid_Smoke:
+      endPoint: /v1/masterdata/blocklistedwords
+      role: admin
+      templateFields: ["description","word","oldWord"]
+      restMethod: put
+      inputTemplate: masterdata/BlockListedWords/updateBlockListedWords
+      outputTemplate: masterdata/BlockListedWords/blockListedWordsResult
+      input: '{
+    "description": "wrong word updated",
+	"isActive": "true",
+	"langCode": "eng",
+	"oldWord": "dumboo",	
+	"word": "dumbooo",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+	"word": "dumbooo"
+}'
+   Masterdata_UpdateBlockListedWords_with_spaces:
+      endPoint: /v1/masterdata/blocklistedwords
+      role: admin
+      templateFields: ["description","word","oldWord"]
+      restMethod: put
+      inputTemplate: masterdata/BlockListedWords/updateBlockListedWords
+      outputTemplate: masterdata/error
+      input: '{
+    "description": "wrong word updated",
+	"isActive": "true",
+	"langCode": "eng",
+	"oldWord": "dumboo",	
+	"word": "dumbooo",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-008",
+      "message": "Blocklisted word not found"
+    }
+  ]
+}'
+   Masterdata_UpdateBlockListedWords_Valid_WordLength128:
+      endPoint: /v1/masterdata/blocklistedwords
+      role: admin
+      templateFields: ["description"]
+      restMethod: put
+      inputTemplate: masterdata/BlockListedWords/updateBlockListedWords
+      outputTemplate: masterdata/error
+      input: '{
+    "description": "dummydataupdated",
+	"isActive": "true",
+	"langCode": "eng",
+	"oldWord": "defdefghijklmnopqrstuvddwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx",	
+	"word": "defdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx upd",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999"
+    }
+  ]
+}'
+   Masterdata_UpdateBlockListedWords_Invalid_BlocklistedWordsLength129:
+      endPoint: /v1/masterdata/blocklistedwords
+      role: admin
+      templateFields: ["description"]
+      restMethod: put
+      inputTemplate: masterdata/BlockListedWords/updateBlockListedWords
+      outputTemplate: masterdata/error
+      input: '{
+    "description": "dummydata",
+	"isActive": "true",
+	"langCode": "eng",
+	"oldWord": "dumb",	
+	"word": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.word: Should not be blank or size must be between 1 and 128"
+    }
+  ]
+}'
+   Masterdata_UpdateBlockListedWords_inValid_descriptionBlank:
+      endPoint: /v1/masterdata/blocklistedwords
+      role: admin
+      templateFields: ["word"]
+      restMethod: put
+      inputTemplate: masterdata/BlockListedWords/updateBlockListedWords
+      outputTemplate: masterdata/error
+      input: '{
+    "description": "",
+	"isActive": "true",
+	"langCode": "eng",
+	"oldWord": "bullword",	
+	"word": "bullwordupd",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "KER-MSD-008"
+    }
+  ]
+}'
+   Masterdata_UpdateBlockListedWords_Invalid_DescriptionLength257:
+      endPoint: /v1/masterdata/blocklistedwords
+      role: admin
+      templateFields: ["word"]
+      restMethod: put
+      inputTemplate: masterdata/BlockListedWords/updateBlockListedWords
+      outputTemplate: masterdata/error
+      input: '{
+    "description": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvW",
+	"isActive": "true",
+	"langCode": "eng",
+	"oldWord": "bullword",	
+	"word": "bullword",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.description: size must be between 0 and 256"
+    }
+  ]
+}'
+   Masterdata_UpdateBlockListedWords_Invalid_EmptyWord:
+      endPoint: /v1/masterdata/blocklistedwords
+      role: admin
+      templateFields: ["description"]
+      restMethod: put
+      inputTemplate: masterdata/BlockListedWords/updateBlockListedWords
+      outputTemplate: masterdata/error
+      input: '{
+    "description": "badwords",
+	"isActive": "true",
+	"oldWord": "bull word",	
+	"langCode": "eng",
+	"word": "",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.word: Should not be blank or size must be between 1 and 128"
+    }
+  ]
+}'

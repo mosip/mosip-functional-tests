@@ -1,0 +1,45 @@
+CreateDynamicField:
+   MasterData_CreateDynamicField_All_Valid_Smoke_sid:
+      endPoint: /v1/masterdata/dynamicfields
+      role: admin
+      templateFields: ["langCode"]
+      restMethod: post
+      inputTemplate: masterdata/DynamicField/dynamicField
+      outputTemplate: masterdata/DynamicField/dynamicFieldResult
+      input: '{
+        "name": "TestAutomationField",
+        "description": "TestAutomationField",
+        "dataType": "string",
+        "value": "A",
+        "code": "500",
+        "langCode": "eng",
+         "requesttime": "$TIMESTAMP$"
+    }'
+      output: '{
+    "name": "TestAutomationField",
+    "description": "TestAutomationField",
+    "code": "500",
+    "value": "A"
+}'
+   MasterData_CreateDynamicField_ByfieldName_All_Valid_Smoke:
+      endPoint: /v1/masterdata/dynamicfields
+      role: admin
+      templateFields: ["langCode"]
+      restMethod: post
+      inputTemplate: masterdata/DynamicField/dynamicField
+      outputTemplate: masterdata/DynamicField/dynamicFieldResult
+      input: '{
+        "name": "TestAPL",
+        "description": "TestAPL",
+        "dataType": "string",
+        "value": "A",
+        "code": "500",
+        "langCode": "eng",
+         "requesttime": "$TIMESTAMP$"
+    }'
+      output: '{
+    "name": "TestAPL",
+    "description": "TestAPL",
+    "code": "500",
+    "value": "A"
+}'

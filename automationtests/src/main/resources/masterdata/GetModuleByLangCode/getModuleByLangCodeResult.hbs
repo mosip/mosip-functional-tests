@@ -1,0 +1,16 @@
+{
+  "response": {
+    "modules": [
+	
+    {{#each modules}}
+      {
+        "id": "{{id}}",
+        "name": "{{name}}",
+        "description": "{{description}}",
+        "isActive": "{{isActive}}"
+      }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  }
+}
