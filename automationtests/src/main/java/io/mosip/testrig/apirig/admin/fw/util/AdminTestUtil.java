@@ -5857,8 +5857,10 @@ public class AdminTestUtil extends BaseTestCase {
 			throws JoseException, JOSEException {
 		String tempUrl = propsKernel.getProperty("validateBindingEndpoint");
 		//int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(GlobalConstants.ESIGNET_DEFAULT_PROPERTIES,
-		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(propsKernel.getProperty("actuatorPropertySection"),
+		logger.info("actuatorPropertySection = " + ConfigManager.getActuatorPropertySection());
+		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(ConfigManager.getActuatorPropertySection(),
 				GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
+		logger.info("idTokenExpirySecs = " + idTokenExpirySecs);
 		Instant instant = Instant.now();
 		long epochValue = instant.getEpochSecond();
 
