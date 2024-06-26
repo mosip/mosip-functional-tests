@@ -417,7 +417,7 @@ public class ConfigManager {
 		actuatorPropertySection = System.getenv(ACTUATOR_PROPERTY_SECTION) == null
 		? propsKernel.getProperty(ACTUATOR_PROPERTY_SECTION)
 		: System.getenv(ACTUATOR_PROPERTY_SECTION);
-propsKernel.setProperty(ACTUATOR_PROPERTY_SECTION, actuatorPropertySection);
+		propsKernel.setProperty(ACTUATOR_PROPERTY_SECTION, actuatorPropertySection);
 		
 		
 		if (System.getenv(SIGNUP_BASE_URL) != null) {
@@ -570,7 +570,12 @@ propsKernel.setProperty(ACTUATOR_PROPERTY_SECTION, actuatorPropertySection);
 		return preconfiguredOtp;
 
 	}
+	
+	public static String getActuatorPropertySection() {
+		return actuatorPropertySection;
 
+	}
+	
 	public static String getThreadCount() {
 		return threadCount;
 
