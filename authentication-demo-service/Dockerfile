@@ -53,9 +53,9 @@ ARG container_user_gid=1001
 
 # install packages and create user
 RUN apk -q update \
-&& apk add -q unzip wget \
-&& addgroup -g ${container_user_gid} ${container_user_group} \
-&& adduser -s /bin/sh -u ${container_user_uid} -G ${container_user_group} -h /home/${container_user} --disabled-password ${container_user}
+    && apk add -q unzip wget \
+    && addgroup -g ${container_user_gid} ${container_user_group} \
+    && adduser -s /bin/sh -u ${container_user_uid} -G ${container_user_group} -h /home/${container_user} --disabled-password ${container_user}
 
 # set working directory for the user
 WORKDIR /home/${container_user}
@@ -75,14 +75,17 @@ ADD entrypoint.sh $work_dir/entrypoint.sh
 RUN chmod +x $work_dir/entrypoint.sh
 
 
-# Check if the path exists
+# Debugging step: Check if the file exists and display permissions
 
-RUN ls -l /usr/local/openjdk-21/lib/security/cacerts || echo "Path does not exist"
+RUN ls -l /usr/local/openjdk-21/lib/security/cacerts || echo "File does not exist" \
+    && ls -ld /usr/local/openjdk-21/lib/security
 
 # Separate the chown commands
 RUN chown -R ${container_user}:${container_user} /home/${container_user}
 
-RUN chmod 644 /usr/local/openjdk-21/lib/security/cacerts
+
+# Conditionally run chmod if the file exists
+RUN if [ -f /usr/local/openjdk-21/lib/security/cacerts ]; then chmod 644 /usr/local/openjdk-21/lib/security/cacerts; fi
 
 # select container user for all tasks
 USER ${container_user_uid}:${container_user_gid}
