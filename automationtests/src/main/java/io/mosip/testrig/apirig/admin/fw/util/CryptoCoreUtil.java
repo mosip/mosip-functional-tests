@@ -1,4 +1,4 @@
-package io.mosip.testrig.auth.util;
+package io.mosip.testrig.apirig.admin.fw.util;
 
 import io.mosip.kernel.core.crypto.exception.InvalidParamSpecException;
 import io.mosip.kernel.core.util.CryptoUtil;

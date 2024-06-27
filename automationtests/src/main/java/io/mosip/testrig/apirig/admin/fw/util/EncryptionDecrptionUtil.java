@@ -30,13 +30,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import groovy.json.StringEscapeUtils;
 import io.mosip.kernel.core.util.HMACUtils2;
+import io.mosip.testrig.apirig.authentication.fw.dto.EncryptionResponseDto;
 import io.mosip.testrig.apirig.authentication.fw.util.RestClient;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.global.utils.GlobalMethods;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
-import io.mosip.testrig.auth.dto.EncryptionResponseDto;
-import io.mosip.testrig.auth.util.CryptoUtil;
-import io.mosip.testrig.auth.util.Encrypt;
 import io.restassured.response.Response;
 
 /**

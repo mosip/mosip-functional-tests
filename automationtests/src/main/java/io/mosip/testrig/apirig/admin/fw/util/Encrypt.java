@@ -1,4 +1,4 @@
-package io.mosip.testrig.auth.util;
+package io.mosip.testrig.apirig.admin.fw.util;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -46,8 +46,8 @@ import io.mosip.authentication.core.constant.IdAuthConfigKeyConstants;
 import io.mosip.kernel.core.http.RequestWrapper;
 import io.mosip.kernel.core.util.DateUtils;
 import io.mosip.kernel.core.util.HMACUtils2;
-import io.mosip.testrig.auth.dto.EncryptionRequestDto;
-import io.mosip.testrig.auth.dto.EncryptionResponseDto;
+import io.mosip.testrig.apirig.authentication.fw.dto.EncryptionRequestDto;
+import io.mosip.testrig.apirig.authentication.fw.dto.EncryptionResponseDto;
 @Component
 public class Encrypt {
 

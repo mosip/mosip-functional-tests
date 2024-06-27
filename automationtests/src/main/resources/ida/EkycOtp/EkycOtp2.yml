@@ -72,7 +72,7 @@ EkycOtp:
       checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/EkycOtp/EkycOtp
-      outputTemplate: ida/EkycOtp/EkycOtpResult
+      outputTemplate: ida/EkycOtp/error
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_withValidParameters_Infant_smoke_Pos_UIN$",
@@ -350,7 +350,7 @@ EkycOtp:
         "requestTime": "2dhdh.809Z",
         "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
         "transactionId": "$TRANSACTIONID$",
-        "individualIdType": "VID",
+        "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
@@ -358,7 +358,7 @@ EkycOtp:
     "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
-    "individualIdType": "VID",
+    "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
     "sendOtpEndPoint": "/idauthentication/v1/otp/$ekycPartnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
@@ -458,7 +458,7 @@ EkycOtp:
         "requestTime": "$TIMESTAMP$",
         "individualId": "ddhdhdh_dy46746",
         "transactionId": "$TRANSACTIONID$",
-        "individualIdType": "VID",
+        "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
@@ -466,7 +466,7 @@ EkycOtp:
     "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
-    "individualIdType": "VID",
+    "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
     "sendOtpEndPoint": "/idauthentication/v1/otp/$ekycPartnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
@@ -538,7 +538,7 @@ EkycOtp:
         "requestTime": "$TIMESTAMP$",
         "individualId": "",
         "transactionId": "$TRANSACTIONID$",
-        "individualIdType": "VID",
+        "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
@@ -546,7 +546,7 @@ EkycOtp:
     "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
-    "individualIdType": "VID",
+    "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
     "sendOtpEndPoint": "/idauthentication/v1/otp/$ekycPartnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
@@ -556,8 +556,7 @@ EkycOtp:
       "kycStatus": "$IGNORE$",
    "errors": [
     {
-      "errorCode": "IDA-MLC-007",
-      "errorMessage": "Request could not be processed. Please try again"
+      "errorCode": "IDA-MLC-006"
     }
   ],
   "sendOtpResp":{
@@ -593,11 +592,10 @@ EkycOtp:
     }
     }'
       output: '{
-      "kycStatus": "$IGNORE$",
+      "kycStatus": "false",
    "errors": [
     {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - individualId"
+      "errorCode": "IDA-MLC-006"
     }
   ],
   "sendOtpResp":{
@@ -618,7 +616,7 @@ EkycOtp:
         "requestTime": "$TIMESTAMP$",
         "individualId": "$REMOVE$",
         "transactionId": "$TRANSACTIONID$",
-        "individualIdType": "VID",
+        "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
@@ -626,7 +624,7 @@ EkycOtp:
     "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
-    "individualIdType": "VID",
+    "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
     "sendOtpEndPoint": "/idauthentication/v1/otp/$ekycPartnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
@@ -698,7 +696,7 @@ EkycOtp:
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
         "transactionId": "374GFBFBCB@%%%%^@@@",
-        "individualIdType": "VID",
+        "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
@@ -706,7 +704,7 @@ EkycOtp:
     "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
-    "individualIdType": "VID",
+    "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
     "sendOtpEndPoint": "/idauthentication/v1/otp/$ekycPartnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
@@ -766,7 +764,7 @@ EkycOtp:
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
         "transactionId": "$TRANSACTIONID$",
-        "individualIdType": "VID",
+        "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
@@ -774,7 +772,7 @@ EkycOtp:
     "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
-    "individualIdType": "VID",
+    "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
     "sendOtpEndPoint": "/idauthentication/v1/otp/$ekycPartnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
@@ -857,7 +855,7 @@ EkycOtp:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_EkycOtp_With_Blank_individualIdType_VID_Pos:
+  auth_EkycOtp_With_Blank_individualIdType_VID_Neg:
       endPoint: /idauthentication/v1/kyc/$ekycPartnerKeyURL$
       role: resident
       checkErrorsOnlyInResponse: true
@@ -883,7 +881,7 @@ EkycOtp:
     }
     }'
       output: '{
-   "kycStatus": "true",
+   "kycStatus": "false",
   "sendOtpResp":{
         "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
@@ -936,7 +934,7 @@ EkycOtp:
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
         "transactionId": "0987654356",
-        "individualIdType": "VID",
+        "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
@@ -944,7 +942,7 @@ EkycOtp:
     "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
-    "individualIdType": "VID",
+    "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
     "sendOtpEndPoint": "/idauthentication/v1/otp/$ekycPartnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
@@ -970,7 +968,7 @@ EkycOtp:
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
         "transactionId": "$TRANSACTIONID$",
-        "individualIdType": "VID",
+        "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
@@ -978,7 +976,7 @@ EkycOtp:
     "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
-    "individualIdType": "VID",
+    "individualIdType": "UIN",
     "sendOtpReqTemplate": "ida/EkycOtp/sendOtp",
     "sendOtpEndPoint": "/idauthentication/v1/otp/$ekycPartnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"

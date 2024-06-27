@@ -142,8 +142,9 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		JSONObject sendOtpRespJson = new JSONObject(sendOtpResp);
 		sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
 		sendOtpRespJson.remove("sendOtpResTemplate");
-		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil
-				.doJsonOutputValidation(otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate));
+		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
+				otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate),
+				testCaseDTO, otpResponse.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 		OutputValidationUtil.publishOutputResult(ouputValidOtp);
 		//if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))

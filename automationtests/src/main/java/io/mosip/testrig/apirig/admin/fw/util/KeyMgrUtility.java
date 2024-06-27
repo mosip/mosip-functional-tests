@@ -1,4 +1,4 @@
-package io.mosip.testrig.auth.util;
+package io.mosip.testrig.apirig.admin.fw.util;
 
 
 import java.io.ByteArrayInputStream;
@@ -65,7 +65,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import io.mosip.authentication.core.util.CryptoUtil;
-import io.mosip.testrig.auth.dto.CertificateChainResponseDto;
 
 @Component
 public class KeyMgrUtility {
