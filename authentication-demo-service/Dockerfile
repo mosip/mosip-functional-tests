@@ -74,10 +74,13 @@ ADD entrypoint.sh $work_dir/entrypoint.sh
 
 RUN chmod +x $work_dir/entrypoint.sh
 
+
+# Check if the path exists
+
+RUN ls -l /usr/local/openjdk-21/lib/security/cacerts || echo "Path does not exist"
+
 # Separate the chown commands
 RUN chown -R ${container_user}:${container_user} /home/${container_user}
-
-RUN chown ${container_user}:${container_user} /usr/local/openjdk-21/lib/security/cacerts
 
 RUN chmod 644 /usr/local/openjdk-21/lib/security/cacerts
 
