@@ -84,8 +84,9 @@ RUN ls -l /usr/local/openjdk-21/lib/security/cacerts || echo "File does not exis
 RUN chown -R ${container_user}:${container_user} /home/${container_user}
 
 
-# Conditionally run chmod if the file exists
-RUN if [ -f /usr/local/openjdk-21/lib/security/cacerts ]; then chmod 644 /usr/local/openjdk-21/lib/security/cacerts; fi
+
+# Debugging step: Check if the directory exists and display permissions
+RUN ls -ld /usr/local/openjdk-21/lib/security || echo "Directory does not exist"
 
 # select container user for all tasks
 USER ${container_user_uid}:${container_user_gid}
