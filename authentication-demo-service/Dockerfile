@@ -83,7 +83,6 @@ RUN chown ${container_user}:${container_user} /usr/local/openjdk-21/lib/security
     && chmod 644 /usr/local/openjdk-21/lib/security/cacerts
 
 # Separate the chown commands for home directory
-
 RUN chown -R ${container_user}:${container_user} /home/${container_user}
 
 # select container user for all tasks
