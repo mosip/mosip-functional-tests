@@ -39,6 +39,7 @@
 	<properties>
 		<!-- kernel versions -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<kernel-websubclient-api.version>1.2.0.1-SNAPSHOT</kernel-websubclient-api.version>
 
 		<!-- maven -->
 		<maven.compiler.target>11</maven.compiler.target>
@@ -194,11 +195,6 @@
 		
 	</properties>
 	<dependencies>
-		<dependency>
-			<groupId>org.example</groupId>
-			<artifactId>AuthenticationUtil</artifactId>
-			<version>1.0-SNAPSHOT</version>
-		</dependency>
 		<dependency>
 			<groupId>com.opencsv</groupId>
 			<artifactId>opencsv</artifactId>
@@ -518,9 +514,86 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>${lombok.version}</version>
-			<scope>compile</scope>
+			<version>1.18.32</version>
+			<scope>provided</scope>
 		</dependency>
+	    <dependency>
+	      <groupId>org.bouncycastle</groupId>
+	      <artifactId>bcprov-jdk15on</artifactId>
+	      <version>1.66</version>
+	    </dependency>
+	    <dependency>
+	      <groupId>org.bouncycastle</groupId>
+	      <artifactId>bcpkix-jdk15on</artifactId>
+	      <version>1.66</version>
+	    </dependency>
+	    <dependency>
+	      <groupId>javax.xml.bind</groupId>
+	      <artifactId>jaxb-api</artifactId>
+	      <version>2.3.1</version>
+	    </dependency>
+	    <dependency>
+	      <groupId>io.mosip.authentication</groupId>
+	      <artifactId>authentication-core</artifactId>
+	      <version>1.2.0.1-B3</version>
+	      <exclusions>
+	        <exclusion>
+	          <groupId>commons-codec</groupId>
+	          <artifactId>commons-codec</artifactId>
+	        </exclusion>
+	      </exclusions>
+	    </dependency>
+	    
+    <dependency>
+      <groupId>io.mosip.kernel</groupId>
+      <artifactId>kernel-core</artifactId>
+      <version>1.2.0.1-SNAPSHOT</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>
+            spring-boot-starter-security
+          </artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>commons-codec</groupId>
+          <artifactId>commons-codec</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>io.mosip.kernel</groupId>
+      <artifactId>kernel-websubclient-api</artifactId>
+      <version>${kernel-websubclient-api.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>io.mosip.kernel</groupId>
+      <artifactId>kernel-templatemanager-velocity</artifactId>
+      <version>1.2.0.1-SNAPSHOT</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>io.mosip.kernel</groupId>
+      <artifactId>kernel-keymanager-service</artifactId>
+      <version>1.2.0.1-SNAPSHOT</version>
+      <classifier>lib</classifier>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>
+            spring-boot-starter-security
+          </artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.5.14</version>
+    </dependency>
+    
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -541,6 +614,14 @@
 	<build>
 		<pluginManagement>
 			<plugins>
+		      <plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-compiler-plugin</artifactId>
+		        <configuration>
+		          <source>11</source>
+		          <target>11</target>
+		        </configuration>
+		      </plugin>
 			</plugins>
 		</pluginManagement>
 		<plugins>

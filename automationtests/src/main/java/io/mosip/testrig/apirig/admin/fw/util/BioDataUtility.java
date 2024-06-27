@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 
 import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.HMACUtils;
+import io.mosip.testrig.apirig.admin.fw.util.Encrypt.SplittedEncryptedData;
 import io.mosip.testrig.apirig.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.testrig.apirig.authentication.fw.util.AuthTestsUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.BytesUtil;
@@ -24,10 +25,6 @@ import io.mosip.testrig.apirig.authentication.fw.util.FileUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.RestClient;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.service.BaseTestCase;
-import io.mosip.testrig.auth.util.AuthUtil;
-import io.mosip.testrig.auth.util.Encrypt;
-import io.mosip.testrig.auth.util.Encrypt.SplittedEncryptedData;
-import io.mosip.testrig.auth.util.PartnerTypes;
 
 /**
  * The class to perform or construct biometric identity data which involves

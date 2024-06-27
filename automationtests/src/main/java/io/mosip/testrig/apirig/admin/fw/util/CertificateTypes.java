@@ -1,4 +1,4 @@
-package io.mosip.testrig.auth.util;
+package io.mosip.testrig.apirig.admin.fw.util;
 
 public enum CertificateTypes {
 

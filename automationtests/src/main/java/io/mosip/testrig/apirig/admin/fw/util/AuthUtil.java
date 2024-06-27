@@ -1,4 +1,4 @@
-package io.mosip.testrig.auth.util;
+package io.mosip.testrig.apirig.admin.fw.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -12,9 +12,6 @@ import io.mosip.kernel.core.exception.ServiceError;
 import io.mosip.kernel.core.templatemanager.spi.TemplateManager;
 import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.DateUtils;
-import io.mosip.testrig.auth.dto.CertificateChainResponseDto;
-import io.mosip.testrig.auth.dto.EncryptionRequestDto;
-import io.mosip.testrig.auth.dto.EncryptionResponseDto;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.IOUtils;

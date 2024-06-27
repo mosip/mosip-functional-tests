@@ -1,4 +1,4 @@
-package io.mosip.testrig.auth.dto;
+package io.mosip.testrig.apirig.authentication.fw.dto;
 import lombok.Data;
 
 @Data
