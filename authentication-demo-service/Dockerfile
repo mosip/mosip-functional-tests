@@ -74,19 +74,18 @@ ADD entrypoint.sh $work_dir/entrypoint.sh
 
 RUN chmod +x $work_dir/entrypoint.sh
 
+# Ensure the directory exists and create a dummy file if it does not exist
 
-# Debugging step: Check if the file exists and display permissions
+RUN mkdir -p /usr/local/openjdk-21/lib/security \
+    && touch /usr/local/openjdk-21/lib/security/cacerts
 
-RUN ls -l /usr/local/openjdk-21/lib/security/cacerts || echo "File does not exist" \
-    && ls -ld /usr/local/openjdk-21/lib/security
+# Change ownership and permissions
+RUN chown ${container_user}:${container_user} /usr/local/openjdk-21/lib/security/cacerts \
+    && chmod 644 /usr/local/openjdk-21/lib/security/cacerts
 
-# Separate the chown commands
+# Separate the chown commands for home directory
+
 RUN chown -R ${container_user}:${container_user} /home/${container_user}
-
-
-
-# Debugging step: Check if the directory exists and display permissions
-RUN ls -ld /usr/local/openjdk-21/lib/security || echo "Directory does not exist"
 
 # select container user for all tasks
 USER ${container_user_uid}:${container_user_gid}
