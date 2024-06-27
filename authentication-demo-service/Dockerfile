@@ -75,7 +75,6 @@ ADD entrypoint.sh $work_dir/entrypoint.sh
 RUN chmod +x $work_dir/entrypoint.sh
 
 # Ensure the directory exists and create a dummy file if it does not exist
-
 RUN mkdir -p /usr/local/openjdk-21/lib/security \
     && touch /usr/local/openjdk-21/lib/security/cacerts
 
