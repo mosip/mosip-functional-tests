@@ -74,8 +74,10 @@ ADD entrypoint.sh $work_dir/entrypoint.sh
 
 RUN chmod +x $work_dir/entrypoint.sh
 
-# change permissions of file inside working dir
-RUN chown -R ${container_user}:${container_user} /home/${container_user} /usr/local/openjdk-21/lib/security/cacerts
+# Separate the chown commands
+RUN chown -R ${container_user}:${container_user} /home/${container_user}
+
+RUN chown ${container_user}:${container_user} /usr/local/openjdk-21/lib/security/cacerts
 
 RUN chmod 644 /usr/local/openjdk-21/lib/security/cacerts
 
