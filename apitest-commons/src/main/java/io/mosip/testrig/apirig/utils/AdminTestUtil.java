@@ -418,11 +418,11 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
-		/*if (BaseTestCase.currentModule.equals(GlobalConstants.PREREG) || BaseTestCase.currentModule.equals("auth") 
-						|| BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT) 
-						|| BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)) {*/		 
-				inputJson = smtpOtpHandler(inputJson, testCaseName);
-				/* } */
+		/*if (BaseTestCase.currentModule.equals(GlobalConstants.PREREG) || BaseTestCase.currentModule.equals("auth")
+				|| BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT)
+				|| BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)) {*/
+			inputJson = smtpOtpHandler(inputJson, testCaseName);
+			/* } */
 
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
