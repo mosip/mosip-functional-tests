@@ -21,7 +21,6 @@ on:
       - develop*
       - MOSIP*
       - release*
-      - inji-web-apis
 
 jobs:
   build-maven-apitest-commons:
