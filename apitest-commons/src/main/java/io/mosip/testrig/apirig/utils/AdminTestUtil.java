@@ -2274,89 +2274,30 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 	}
 
-	protected byte[] getWithPathParamAndBearerTokenForPdf(String url, String jsonInput, String cookieName, String role,
-			String testCaseName, boolean bothAccessAndIdToken, String pathParams) {
-//		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-//
-//		HashMap<String, String> map = null;
-//		try {
-//			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {
-//			}.getType());
-//		} catch (Exception e) {
-//			logger.error(
-//					GlobalConstants.ERROR_STRING_1 + jsonInput + GlobalConstants.EXCEPTION_STRING_1 + e.getMessage());
-//		}
-//
-//		byte[] pdf = null;
-//
-//		logger.info("******Get request to EndPointUrl: " + url);
-//		GlobalMethods.reportRequest(null, jsonInput, url);
-//		try {
-//			JSONObject request = new JSONObject(jsonInput);
-//			if (request.has(GlobalConstants.BEARER_TOKEN)) {
-//				token = request.get(GlobalConstants.BEARER_TOKEN).toString();
-//				map.remove(GlobalConstants.BEARER_TOKEN);
-//
-//				pdf = RestClient.getRequestWithPathParamAndBearerTokenAsCookieForPdf(url, map, cookieName, token);
-//			}
-//			return pdf;
-//		} catch (Exception e) {
-//			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
-//			return pdf;
-//		}
+	protected byte[] postWithFormDataBodyForPdf(String url, String jsonInput, String cookieName, String role,
+			String testCaseName) {
 		
-		
-		HashMap<String, String> pathParamsMap = new HashMap<>();
-		HashMap<String, String> headers = new HashMap<>();
-		
-		
+		HashMap<String, String> formDataMap = new HashMap<>();
 		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		logger.info("inputJson is::" + jsonInput);
 		
 		JSONObject req = new JSONObject(jsonInput);
 		logger.info(GlobalConstants.REQ_STR + req);
-		
-		
-		String[] params = pathParams.split(",");
-		for (String param : params) {
-			logger.info("param is::" + param);
-			if (req.has(param)) {
-				logger.info(GlobalConstants.REQ_STR + req);
-				pathParamsMap.put(param, req.get(param).toString());
-				req.remove(param);
-			} else
-				logger.error(GlobalConstants.ERROR_STRING_2 + param + GlobalConstants.IN_STRING + jsonInput);
-		}
-		
 		jsonInput = req.toString();
-		
-		headers.put(XSRF_HEADERNAME, properties.getProperty(GlobalConstants.XSRFTOKEN));
-		
 		
 		byte[] pdf = null;
 		
-		if (testCaseName.contains("_IdpAccessToken_")) {
-			JSONObject request = new JSONObject(jsonInput);
-			headers.put(cookieName, "Bearer " + request.get(GlobalConstants.IDP_ACCESS_TOKEN).toString());
-			token = request.get(GlobalConstants.IDP_ACCESS_TOKEN).toString();
-			request.remove(GlobalConstants.IDP_ACCESS_TOKEN);
-			if (request.has("client_id"))
-				request.remove("client_id");
-			jsonInput = request.toString();
+		try {
+			formDataMap = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {}.getType());
+		} catch (Exception e) {
+			logger.error(GlobalConstants.ERROR_STRING_1 + jsonInput + GlobalConstants.EXCEPTION_STRING_1 + e.getMessage());
 		}
-		//token = properties.getProperty(GlobalConstants.XSRFTOKEN);
 
 		logger.info("******Post request to EndPointUrl: " + url);
 		GlobalMethods.reportRequest(null, jsonInput, url);	
 		
 		try {	
-			
-//			pdf = RestClient.postRequestWithMultipleHeadersAndCookies(url, jsonInput,
-//					MediaType.APPLICATION_JSON, "application/pdf", cookieName, token, headers);
-			
-			pdf = RestClient.getRequestWithPathParamAndBearerTokenAsCookieForPdf(url, pathParamsMap, jsonInput, 
-					MediaType.APPLICATION_JSON, cookieName, token);
-			
+			pdf = RestClient.postRequestWithFormDataBodyForPdf(url, formDataMap);
 			return pdf;
 		} catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
@@ -3090,6 +3031,8 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		if (jsonString.contains("$CLAIMSFROMCONFIG$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$CLAIMSFROMCONFIG$", getValueFromConfigActuator());
+		if (jsonString.contains("$GETCLIENTIDFROMMIMOTOACTUATOR$"))
+			jsonString = replaceKeywordWithValue(jsonString, "$GETCLIENTIDFROMMIMOTOACTUATOR$", getValueFromMimotoActuator("configService:overrides", "mimoto.oidc.partner.clientid"));
 		if (jsonString.contains(GlobalConstants.TIMESTAMP))
 			jsonString = replaceKeywordWithValue(jsonString, GlobalConstants.TIMESTAMP, generateCurrentUTCTimeStamp());
 		if (jsonString.contains(GlobalConstants.TRANSACTION_ID))
@@ -3393,6 +3336,10 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$IDPREDIRECTURI$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$IDPREDIRECTURI$",
 					ApplnURI.replace(GlobalConstants.API_INTERNAL, "healthservices") + "/userprofile");
+		}
+		if (jsonString.contains("$INJIREDIRECTURI$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$INJIREDIRECTURI$",
+					ApplnURI.replace(GlobalConstants.API_INTERNAL, "inji") + "/redirect");
 		}
 		if (jsonString.contains("$BASE64URI$")) {
 			String redirectUri = ApplnURI.replace(GlobalConstants.API_INTERNAL, GlobalConstants.RESIDENT)
@@ -6100,6 +6047,44 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			for (int i = 0, size = residentActuatorResponseArray.length(); i < size; i++) {
 				JSONObject eachJson = residentActuatorResponseArray.getJSONObject(i);
+				if (eachJson.get("name").toString().contains(section)) {
+					value = eachJson.getJSONObject(GlobalConstants.PROPERTIES).getJSONObject(key)
+							.get(GlobalConstants.VALUE).toString();
+					if (ConfigManager.IsDebugEnabled())
+						logger.info("Actuator: " + url + " key: " + key + " value: " + value);
+					break;
+				}
+			}
+			actuatorValueCache.put(actuatorCacheKey, value);
+
+			return value;
+		} catch (Exception e) {
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+			return "";
+		}
+
+	}
+	
+	public static JSONArray mimotoActuatorResponseArray = null;
+	
+	public static String getValueFromMimotoActuator(String section, String key) {
+		String url = ApplnURI + propsKernel.getProperty("actuatorMimotoEndpoint");
+		String actuatorCacheKey = url + section + key;
+		String value = actuatorValueCache.get(actuatorCacheKey);
+		if (value != null && !value.isEmpty())
+			return value;
+
+		try {
+			if (mimotoActuatorResponseArray == null) {
+				Response response = null;
+				JSONObject responseJson = null;
+				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+
+				responseJson = new JSONObject(response.getBody().asString());
+				mimotoActuatorResponseArray = responseJson.getJSONArray("propertySources");
+			}
+			for (int i = 0, size = mimotoActuatorResponseArray.length(); i < size; i++) {
+				JSONObject eachJson = mimotoActuatorResponseArray.getJSONObject(i);
 				if (eachJson.get("name").toString().contains(section)) {
 					value = eachJson.getJSONObject(GlobalConstants.PROPERTIES).getJSONObject(key)
 							.get(GlobalConstants.VALUE).toString();

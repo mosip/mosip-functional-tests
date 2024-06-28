@@ -13,6 +13,7 @@ import org.apache.log4j.Logger;
 
 import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
 import io.restassured.RestAssured;
+import io.restassured.config.EncoderConfig;
 import io.restassured.config.HttpClientConfig;
 import io.restassured.config.RestAssuredConfig;
 import io.restassured.http.Cookie;
@@ -1689,31 +1690,18 @@ public class RestClient {
 		return postResponse;
 	}
 	
-	public static byte[] getRequestWithPathParamAndBearerTokenAsCookieForPdf(String url, Map<String, String> pathParams, String body, String contentHeader, String cookieName, String cookieValue) {
+	public static byte[] postRequestWithFormDataBodyForPdf(String url, Map<String, String> formData) {
 		byte[] pdf;
 
-//		if (ConfigManager.IsDebugEnabled()) {
-//			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
-//			
-//			pdf = given().config(config).relaxedHTTPSValidation().pathParams(pathParams).accept("*/*")
-//					.headers(cookieName, cookieValue).log().all().when().get(url).then()
-//					.extract().asByteArray();
-//		} else {
-//			pdf = given().config(config).relaxedHTTPSValidation().pathParams(pathParams).accept("*/*")
-//					.headers(cookieName, cookieValue).when().get(url).then().extract().asByteArray();
-//		}
-//
-//		return pdf;
+		EncoderConfig encoderConfig = new EncoderConfig().encodeContentTypeAs("application/x-www-form-urlencoded", io.restassured.http.ContentType.URLENC);
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request to " + url);
 		
 		if (ConfigManager.IsDebugEnabled()) {
-			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
-			
-			pdf = given().config(config).relaxedHTTPSValidation().pathParams(pathParams).body(body).contentType(contentHeader).accept("application/pdf")
-					.headers(cookieName, "Bearer " + cookieValue).log().all().when().post(url).then()
-					.extract().asByteArray();
+			pdf = given().config(config.encoderConfig(encoderConfig)).relaxedHTTPSValidation().formParams(formData).contentType("application/x-www-form-urlencoded")
+					.log().all().when().post(url).then().extract().asByteArray();
 		} else {
-			pdf = given().config(config).relaxedHTTPSValidation().pathParams(pathParams).body(body).contentType(contentHeader).accept("application/pdf")
-					.headers(cookieName, "Bearer " + cookieValue).when().post(url).then().extract().asByteArray();
+			pdf = given().config(config.encoderConfig(encoderConfig)).relaxedHTTPSValidation().formParams(formData).contentType("application/x-www-form-urlencoded")
+					.when().post(url).then().extract().asByteArray();
 		}
 
 		return pdf;
