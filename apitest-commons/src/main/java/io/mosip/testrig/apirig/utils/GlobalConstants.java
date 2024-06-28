@@ -35,7 +35,6 @@ public class GlobalConstants {
 	public static final String APP_NAME = "app_name";
 	public static final String MODULE_NAME = "module_name";
 	public static final String AUTHORIZATION = "Authorization";
-	public static final String BEARER = "Bearer";
 	public static final String STRING = "string";
 	public static final String METADATA = "metadata";
 	public static final String REQUESTTIME = "requesttime";

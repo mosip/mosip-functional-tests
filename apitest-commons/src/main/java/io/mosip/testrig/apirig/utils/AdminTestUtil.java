@@ -418,14 +418,11 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
-		/*
-		 * if (BaseTestCase.currentModule.equals(GlobalConstants.PREREG) ||
-		 * BaseTestCase.currentModule.equals("auth") ||
-		 * BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT) ||
-		 * BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)) {
-		 */
-		inputJson = smtpOtpHandler(inputJson, testCaseName);
-		/* } */
+		/*if (BaseTestCase.currentModule.equals(GlobalConstants.PREREG) || BaseTestCase.currentModule.equals("auth") 
+						|| BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT) 
+						|| BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)) {*/		 
+				inputJson = smtpOtpHandler(inputJson, testCaseName);
+				/* } */
 
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
@@ -2276,34 +2273,36 @@ public class AdminTestUtil extends BaseTestCase {
 
 	protected byte[] postWithFormDataBodyForPdf(String url, String jsonInput, String cookieName, String role,
 			String testCaseName) {
-		
+
 		HashMap<String, String> formDataMap = new HashMap<>();
 		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		logger.info("inputJson is::" + jsonInput);
-		
+
 		JSONObject req = new JSONObject(jsonInput);
 		logger.info(GlobalConstants.REQ_STR + req);
 		jsonInput = req.toString();
-		
+
 		byte[] pdf = null;
-		
+
 		try {
-			formDataMap = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {}.getType());
+			formDataMap = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {
+			}.getType());
 		} catch (Exception e) {
-			logger.error(GlobalConstants.ERROR_STRING_1 + jsonInput + GlobalConstants.EXCEPTION_STRING_1 + e.getMessage());
+			logger.error(
+					GlobalConstants.ERROR_STRING_1 + jsonInput + GlobalConstants.EXCEPTION_STRING_1 + e.getMessage());
 		}
 
 		logger.info("******Post request to EndPointUrl: " + url);
-		GlobalMethods.reportRequest(null, jsonInput, url);	
-		
-		try {	
+		GlobalMethods.reportRequest(null, jsonInput, url);
+
+		try {
 			pdf = RestClient.postRequestWithFormDataBodyForPdf(url, formDataMap);
 			return pdf;
 		} catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return pdf;
 		}
-		
+
 	}
 
 	protected byte[] getWithQueryParamAndCookieForPdf(String url, String jsonInput, String cookieName, String role,
@@ -3031,8 +3030,6 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		if (jsonString.contains("$CLAIMSFROMCONFIG$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$CLAIMSFROMCONFIG$", getValueFromConfigActuator());
-		if (jsonString.contains("$GETCLIENTIDFROMMIMOTOACTUATOR$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$GETCLIENTIDFROMMIMOTOACTUATOR$", getValueFromMimotoActuator("configService:overrides", "mimoto.oidc.partner.clientid"));
 		if (jsonString.contains(GlobalConstants.TIMESTAMP))
 			jsonString = replaceKeywordWithValue(jsonString, GlobalConstants.TIMESTAMP, generateCurrentUTCTimeStamp());
 		if (jsonString.contains(GlobalConstants.TRANSACTION_ID))
@@ -3332,6 +3329,10 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$OIDCCLIENT$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$OIDCCLIENT$",
 					getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES, "mosip.iam.module.clientID"));
+		}
+		if (jsonString.contains("$GETCLIENTIDFROMMIMOTOACTUATOR$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$GETCLIENTIDFROMMIMOTOACTUATOR$",
+					getValueFromMimotoActuator("configService:overrides", "mimoto.oidc.partner.clientid"));
 		}
 		if (jsonString.contains("$IDPREDIRECTURI$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$IDPREDIRECTURI$",
@@ -6066,7 +6067,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 	
 	public static JSONArray mimotoActuatorResponseArray = null;
-	
+
 	public static String getValueFromMimotoActuator(String section, String key) {
 		String url = ApplnURI + propsKernel.getProperty("actuatorMimotoEndpoint");
 		String actuatorCacheKey = url + section + key;
