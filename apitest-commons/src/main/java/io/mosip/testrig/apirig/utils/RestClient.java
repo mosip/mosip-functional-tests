@@ -13,6 +13,7 @@ import org.apache.log4j.Logger;
 
 import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
 import io.restassured.RestAssured;
+import io.restassured.config.EncoderConfig;
 import io.restassured.config.HttpClientConfig;
 import io.restassured.config.RestAssuredConfig;
 import io.restassured.http.Cookie;
@@ -1687,5 +1688,24 @@ public class RestClient {
 		}
 
 		return postResponse;
+	}
+	
+	public static byte[] postRequestWithFormDataBodyForPdf(String url, Map<String, String> formData) {
+		byte[] pdf;
+
+		EncoderConfig encoderConfig = new EncoderConfig().encodeContentTypeAs("application/x-www-form-urlencoded",
+				io.restassured.http.ContentType.URLENC);
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request to " + url);
+
+		if (ConfigManager.IsDebugEnabled()) {
+			pdf = given().config(config.encoderConfig(encoderConfig)).relaxedHTTPSValidation().formParams(formData)
+					.contentType("application/x-www-form-urlencoded").log().all().when().post(url).then().extract()
+					.asByteArray();
+		} else {
+			pdf = given().config(config.encoderConfig(encoderConfig)).relaxedHTTPSValidation().formParams(formData)
+					.contentType("application/x-www-form-urlencoded").when().post(url).then().extract().asByteArray();
+		}
+
+		return pdf;
 	}
 }
