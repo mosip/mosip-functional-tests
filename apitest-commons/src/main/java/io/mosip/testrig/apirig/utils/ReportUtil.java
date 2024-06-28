@@ -25,7 +25,7 @@ public class ReportUtil {
 		if (headers != null && !headers.isEmpty())
 			formattedHeader = headers;
 		StringBuilder sb = new StringBuilder();
-		sb.append("<div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>");
+		sb.append("<div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='2' cols='160' readonly='true'>");
 		sb.append(formattedHeader);
 		sb.append("</textarea> </div>");
 		return sb.toString();
@@ -38,7 +38,7 @@ public class ReportUtil {
 	 * @return html table
 	 */
 	public static String getOutputValidationReport(Map<String, List<OutputValidationDto>> outputresult) {
-		String htmlforReport = "<table width='90%' charset='UTF8'>\r\n" + "  <tr>\r\n" + "    <th>FieldName</th>\r\n"
+		String htmlforReport = "<table width='100%' charset='UTF8'>\r\n" + "  <tr style='background-color: #d3d3d3;'>\r\n" + "    <th>FieldName</th>\r\n"
 				+ "    <th>Expected Value</th> \r\n" + "    <th>Actual Value</th>\r\n" + "    <th>Status</th>\r\n"
 				+ "  </tr>\r\n";
 		boolean outputValidationDone = false;
@@ -70,7 +70,7 @@ public class ReportUtil {
 			}
 		}
 		if (!outputValidationDone) {
-			return "<b> Marking test case as passed. As Output validation not performed and no errors in the response </b>";
+		    return "<b style=\"background-color: #0A0;\">Marking test case as passed. As Output validation not performed and no errors in the response</b><br>\n";
 		}
 			
 		htmlforReport = temp + htmlforReport + "</table>";
@@ -86,7 +86,7 @@ public class ReportUtil {
 	 */
 	public static String getTextAreaJsonMsgHtml(String content) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("<div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>");
+		sb.append("<div> <textarea style='border:solid 1px black;' name='message' rows='6' cols='160' readonly='true'>");
 		try {
 			sb.append(JsonPrecondtion.toPrettyFormat(content));
 		} catch (Exception e) {
