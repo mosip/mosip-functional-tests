@@ -1767,6 +1767,7 @@ public class RestClient {
 
 	public static byte[] postRequestWithFormDataBodyForPdf(String url, Map<String, String> formData) {
 		byte[] pdf;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		EncoderConfig encoderConfig = new EncoderConfig().encodeContentTypeAs("application/x-www-form-urlencoded",
 				io.restassured.http.ContentType.URLENC);
