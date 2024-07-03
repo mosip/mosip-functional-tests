@@ -66,7 +66,7 @@ ADD entrypoint.sh $work_dir/entrypoint.sh
 
 # install packages and create user
 RUN apk -q update \
-    && apk add -q unzip wget \
+    && apk add -q unzip wget bash \
     && addgroup -g ${container_user_gid} ${container_user_group} \
     && adduser -s /bin/sh -u ${container_user_uid} -G ${container_user_group} -h /home/${container_user} --disabled-password ${container_user} \
     && mkdir -p ${loader_path} \
