@@ -34,6 +34,22 @@ public class DBManager {
 			}
 		}
 	}
+	
+	public static void clearPartnerRevampDbData() {
+		Session session = null;
+		try {
+			session = getDataBaseConnection(ConfigManager.getPMSDbUrl(), ConfigManager.getPMSDbUser(),
+					ConfigManager.getPMSDbPass(), ConfigManager.getPMSDbSchema());
+			executeQueries(session, MosipTestRunner.getGlobalResourcePath() + "/"	+ "config/partnerRevampDataDeleteQueries.txt");		
+		} catch (Exception e) {
+			logger.error("Error:: While executing PMS REVAMP DB Quiries." + e.getMessage());
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
+	
 	public static void clearKeyManagerDbData() {
 		Session session = null;
 		try {

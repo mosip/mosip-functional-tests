@@ -418,11 +418,13 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
-		/*if (BaseTestCase.currentModule.equals(GlobalConstants.PREREG) || BaseTestCase.currentModule.equals("auth")
+		if (BaseTestCase.currentModule.equals(GlobalConstants.PREREG) || BaseTestCase.currentModule.equals("auth")
 				|| BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT)
-				|| BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)) {*/
+				|| BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)
+						|| BaseTestCase.currentModule.equals(GlobalConstants.PREREG)
+						) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
-			/* } */
+			}
 
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
@@ -2725,9 +2727,6 @@ public class AdminTestUtil extends BaseTestCase {
 				File source = new File(RunConfigUtil.getGlobalResourcePath()
 						.replace("MosipTestResource/MosipTemporaryTestResource", "") + moduleName);
 				FileUtils.copyDirectoryToDirectory(source, destination);
-
-//				source = new File(RunConfigUtil.getGlobalResourcePath() + "/config");
-//				FileUtils.copyDirectoryToDirectory(source, destination);
 				logger.info("Copied the test resource successfully for " + moduleName);
 			} catch (Exception e) {
 				logger.error(
@@ -4380,6 +4379,10 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static void copyPartnerTestResource() {
 		copymoduleSpecificAndConfigFile(GlobalConstants.PARTNER);
+	}
+	
+	public static void copyPmsNewTestResource() {
+		copymoduleSpecificAndConfigFile(GlobalConstants.PARTNERNEW);
 	}
 
 	public static ArrayList<JSONObject> getInputTestCase(TestCaseDTO testCaseDTO) {
@@ -6426,6 +6429,19 @@ public class AdminTestUtil extends BaseTestCase {
 					logger.info(emailId);
 					otp = MockSMTPListener.getOtp(emailId);
 					request.put("otp", otp);
+					inputJson = request.toString();
+					return inputJson;
+				}
+			}
+		}
+		
+		if (BaseTestCase.currentModule.equals(GlobalConstants.PREREG)) {
+			if (request.has(GlobalConstants.REQUEST)) {
+				if (request.getJSONObject(GlobalConstants.REQUEST).has("otp")) {
+					emailId = request.getJSONObject(GlobalConstants.REQUEST).getString("userId");
+					logger.info(emailId);
+					otp = MockSMTPListener.getOtp(emailId);
+					request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
 					inputJson = request.toString();
 					return inputJson;
 				}

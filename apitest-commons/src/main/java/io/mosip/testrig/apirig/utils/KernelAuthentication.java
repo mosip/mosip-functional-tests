@@ -28,6 +28,7 @@ public class KernelAuthentication extends BaseTestCase {
 
 	private String partner_password = props.get("partner_user_password");
 	private String partner_userName = props.get("partner_userName");
+	private String partner_revamp_userName = props.get("partner_revamp_userName");
 	private String partner_userName_without_role = props.get("policytest_userName");
 	private String partner_userName_without_pm_role = props.get("policytest_without_pmrole_userName");
 
@@ -114,9 +115,13 @@ public class KernelAuthentication extends BaseTestCase {
 			if (!kernelCmnLib.isValidToken(zonalApproverCookie))
 				zonalApproverCookie = kernelAuthLib.getAuthForZonalApprover();
 			return zonalApproverCookie;
+		case "partnerrevamp":
+			if (!kernelCmnLib.isValidToken(partnerrevampCookie))
+				partnerrevampCookie = kernelAuthLib.getAuthForPartner();
+			return partnerrevampCookie;
 		case "partner":
 			if (!kernelCmnLib.isValidToken(partnerCookie))
-				partnerCookie = kernelAuthLib.getAuthForPartner();
+				partnerCookie = kernelAuthLib.getAuthForPartnerRevamp();
 			return partnerCookie;
 		case "partnernew":
 			if (!kernelCmnLib.isValidToken(partnerNewCookie))
@@ -268,6 +273,30 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
 		request.put(GlobalConstants.PASSWORD, partner_password);
 		request.put(GlobalConstants.USER_NAME, BaseTestCase.currentModule + "-" + partner_userName);
+		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
+		if (BaseTestCase.isTargetEnvLTS()) {
+			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
+		} else {
+			request.put(GlobalConstants.CLIENTID, ConfigManager.getPartnerClientId());
+			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPartnerClientSecret());
+		}
+		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+
+		actualInternalrequest.put(GlobalConstants.REQUEST, request);
+		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		String responseBody = reponse.getBody().asString();
+		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+	}
+	
+	@SuppressWarnings({ "unchecked" })
+	public String getAuthForPartnerRevamp() {
+
+		JSONObject request = new JSONObject();
+
+		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
+		request.put(GlobalConstants.PASSWORD, partner_password);
+		request.put(GlobalConstants.USER_NAME, BaseTestCase.currentModule + "-" + partner_revamp_userName);
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		if (BaseTestCase.isTargetEnvLTS()) {
 			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
@@ -513,6 +542,7 @@ public class KernelAuthentication extends BaseTestCase {
 		appl.postWithJson(preregSendOtp, actualRequest_generation);
 		String otp = null;
 		if (ConfigManager.getUsePreConfiguredOtp)
+			//TODO REMOVE THE HARDCODING
 			otp = "111111";
 		else {
 			otp = MockSMTPListener.getOtp(userId);
