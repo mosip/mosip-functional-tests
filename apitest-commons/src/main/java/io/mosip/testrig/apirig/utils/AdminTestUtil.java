@@ -436,7 +436,7 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 
 		}
-
+		
 		logger.info(GlobalConstants.POST_REQ_URL + url);
 		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
@@ -1117,8 +1117,7 @@ public class AdminTestUtil extends BaseTestCase {
 		if (BaseTestCase.currentModule.equals(GlobalConstants.MIMOTO) || BaseTestCase.currentModule.equals("auth")
 				|| BaseTestCase.currentModule.equals(GlobalConstants.ESIGNET)
 				|| BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT)
-				|| BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)
-				|| BaseTestCase.currentModule.equals(GlobalConstants.PREREG)) {
+				|| BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 		if (bothAccessAndIdToken) {
@@ -2036,14 +2035,14 @@ public class AdminTestUtil extends BaseTestCase {
 					GlobalConstants.ERROR_STRING_1 + jsonInput + GlobalConstants.EXCEPTION_STRING_1 + e.getMessage());
 		}
 
-		if (map.containsKey(GlobalConstants.HEADERTRANSACTIONID)) {
+		if (map != null && map.containsKey(GlobalConstants.HEADERTRANSACTIONID)) {
 			headerTransactionID = map.get(GlobalConstants.HEADERTRANSACTIONID).toString();
 			cookiesMap.put(GlobalConstants.TRANSACTION_ID_KEY, headerTransactionID);
 			cookiesMap.put(GlobalConstants.XSRF_TOKEN, token);
 			map.remove(GlobalConstants.HEADERTRANSACTIONID);
 		}
 
-		if (map.containsKey(GlobalConstants.VERIFIEDTRANSACTIONID)) {
+		if (map != null && map.containsKey(GlobalConstants.VERIFIEDTRANSACTIONID)) {
 			headerTransactionID = map.get(GlobalConstants.VERIFIEDTRANSACTIONID).toString();
 			cookiesMap.put(GlobalConstants.VERIFIED_TRANSACTION_ID_KEY, headerTransactionID);
 			cookiesMap.put(GlobalConstants.XSRF_TOKEN, token);
@@ -2270,40 +2269,6 @@ public class AdminTestUtil extends BaseTestCase {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return pdf;
 		}
-	}
-
-	protected byte[] postWithFormDataBodyForPdf(String url, String jsonInput, String cookieName, String role,
-			String testCaseName) {
-
-		HashMap<String, String> formDataMap = new HashMap<>();
-		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		logger.info("inputJson is::" + jsonInput);
-
-		JSONObject req = new JSONObject(jsonInput);
-		logger.info(GlobalConstants.REQ_STR + req);
-		jsonInput = req.toString();
-
-		byte[] pdf = null;
-
-		try {
-			formDataMap = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {
-			}.getType());
-		} catch (Exception e) {
-			logger.error(
-					GlobalConstants.ERROR_STRING_1 + jsonInput + GlobalConstants.EXCEPTION_STRING_1 + e.getMessage());
-		}
-
-		logger.info("******Post request to EndPointUrl: " + url);
-		GlobalMethods.reportRequest(null, jsonInput, url);
-
-		try {
-			pdf = RestClient.postRequestWithFormDataBodyForPdf(url, formDataMap);
-			return pdf;
-		} catch (Exception e) {
-			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
-			return pdf;
-		}
-
 	}
 
 	protected byte[] getWithQueryParamAndCookieForPdf(String url, String jsonInput, String cookieName, String role,
@@ -3175,6 +3140,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		// Need to handle int replacement
 		if (jsonString.contains("$HIERARCHYLEVEL$"))
+			getLocationData();
 			jsonString = replaceKeywordWithValue(jsonString, "$HIERARCHYLEVEL$", String.valueOf(hierarchyLevel));
 
 		if (jsonString.contains("$HIERARCHYNAME$"))
@@ -3346,17 +3312,9 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = replaceKeywordWithValue(jsonString, "$OIDCCLIENT$",
 					getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES, "mosip.iam.module.clientID"));
 		}
-		if (jsonString.contains("$GETCLIENTIDFROMMIMOTOACTUATOR$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$GETCLIENTIDFROMMIMOTOACTUATOR$",
-					getValueFromMimotoActuator("configService:overrides", "mimoto.oidc.partner.clientid"));
-		}
 		if (jsonString.contains("$IDPREDIRECTURI$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$IDPREDIRECTURI$",
 					ApplnURI.replace(GlobalConstants.API_INTERNAL, "healthservices") + "/userprofile");
-		}
-		if (jsonString.contains("$INJIREDIRECTURI$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$INJIREDIRECTURI$",
-					ApplnURI.replace(GlobalConstants.API_INTERNAL, "inji") + "/redirect");
 		}
 		if (jsonString.contains("$BASE64URI$")) {
 			String redirectUri = ApplnURI.replace(GlobalConstants.API_INTERNAL, GlobalConstants.RESIDENT)
@@ -6081,44 +6039,6 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 	}
-	
-	public static JSONArray mimotoActuatorResponseArray = null;
-
-	public static String getValueFromMimotoActuator(String section, String key) {
-		String url = ApplnURI + propsKernel.getProperty("actuatorMimotoEndpoint");
-		String actuatorCacheKey = url + section + key;
-		String value = actuatorValueCache.get(actuatorCacheKey);
-		if (value != null && !value.isEmpty())
-			return value;
-
-		try {
-			if (mimotoActuatorResponseArray == null) {
-				Response response = null;
-				JSONObject responseJson = null;
-				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-
-				responseJson = new JSONObject(response.getBody().asString());
-				mimotoActuatorResponseArray = responseJson.getJSONArray("propertySources");
-			}
-			for (int i = 0, size = mimotoActuatorResponseArray.length(); i < size; i++) {
-				JSONObject eachJson = mimotoActuatorResponseArray.getJSONObject(i);
-				if (eachJson.get("name").toString().contains(section)) {
-					value = eachJson.getJSONObject(GlobalConstants.PROPERTIES).getJSONObject(key)
-							.get(GlobalConstants.VALUE).toString();
-					if (ConfigManager.IsDebugEnabled())
-						logger.info("Actuator: " + url + " key: " + key + " value: " + value);
-					break;
-				}
-			}
-			actuatorValueCache.put(actuatorCacheKey, value);
-
-			return value;
-		} catch (Exception e) {
-			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
-			return "";
-		}
-
-	}
 
 	public static JSONArray regprocActuatorResponseArray = null;
 
@@ -6511,7 +6431,18 @@ public class AdminTestUtil extends BaseTestCase {
 				}
 			}
 		}
-		
+		if (BaseTestCase.currentModule.equals(GlobalConstants.PREREG)) {
+			if (request.has(GlobalConstants.REQUEST)) {
+				if (request.getJSONObject(GlobalConstants.REQUEST).has("otp")) {
+					emailId = request.getJSONObject(GlobalConstants.REQUEST).getString("userId");
+					logger.info(emailId);
+					otp = MockSMTPListener.getOtp(emailId);
+					request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
+					inputJson = request.toString();
+					return inputJson;
+				}
+			}
+		}
 
 		if (BaseTestCase.currentModule.equals("auth")) {
 			if (testCaseName.startsWith("auth_GenerateVID") || testCaseName.startsWith("auth_AuthLock")
@@ -6597,7 +6528,6 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 		if (BaseTestCase.currentModule.equals(GlobalConstants.ESIGNET)
-				|| BaseTestCase.currentModule.equals(GlobalConstants.MIMOTO)
 				|| testCaseName.startsWith("Mimoto_WalletBinding")) {
 			if (request.has(GlobalConstants.REQUEST)) {
 				if (request.getJSONObject(GlobalConstants.REQUEST).has("otp")) {
@@ -6674,8 +6604,7 @@ public class AdminTestUtil extends BaseTestCase {
 									.getString(GlobalConstants.CHALLENGE).endsWith(GlobalConstants.MOSIP_NET)
 									|| request.getJSONObject(GlobalConstants.REQUEST)
 											.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
-											.getString(GlobalConstants.CHALLENGE)
-											.endsWith(GlobalConstants.OTP_AS_PHONE)) {
+											.getString(GlobalConstants.CHALLENGE).endsWith(GlobalConstants.OTP_AS_PHONE)) {
 								emailId = request.getJSONObject(GlobalConstants.REQUEST)
 										.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 										.getString(GlobalConstants.CHALLENGE);

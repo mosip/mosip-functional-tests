@@ -1,6 +1,8 @@
 
 package io.mosip.testrig.apirig.utils;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 
 import org.apache.log4j.Logger;
@@ -19,28 +21,48 @@ public class Translator {
 
 	static String getLanguageID(String langIsoCode) {
 
-		String v = "Any-Any";
+		String value = "Any-Any";
+		
+		String filename = MosipTestRunner.getGlobalResourcePath() + "/"+"config/lang-isocode-transid.csv";
+		
+		try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] rec = line.split(",");
+                
+                // Processing each record
+                if (rec.length >= 3 && rec[0].toLowerCase().equals(langIsoCode.toLowerCase())) {
+                	value = rec[2].trim();
+                    if (!value.equals("")) {
+                        System.out.println("Value found for translation: " + value);
+                        break;
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-		try {
-			//String filename = "D:\\Mosip_Automation_Test\\Mosip_Functional_Test_Develop\\mosip-functional-tests\\automationtests\\src\\main\\resources\\config\\lang-isocode-transid.csv";
-			String filename = MosipTestRunner.getGlobalResourcePath() + "/"+"config/lang-isocode-transid.csv";
-			//CSVHelper csv = new CSVHelper(IDlookupFile);
-			CSVHelper csv = new CSVHelper(filename);
-			String[] rec;
-			csv.open();
-			while ((rec = csv.readRecord()) != null) {
-				if (rec[0].toLowerCase().equals(langIsoCode.toLowerCase())) {
-					String val = rec[2].trim();
-					if (val.equals(""))
-						v = val;
-					break;
-				}
-			}
-			csv.close();
-		} catch (IOException e) {
-			logger.error(e.getMessage());
-		}
-		return v;
+//		try {
+//			//String filename = "D:\\Mosip_Automation_Test\\Mosip_Functional_Test_Develop\\mosip-functional-tests\\automationtests\\src\\main\\resources\\config\\lang-isocode-transid.csv";
+//			String filename = MosipTestRunner.getGlobalResourcePath() + "/"+"config/lang-isocode-transid.csv";
+//			//CSVHelper csv = new CSVHelper(IDlookupFile);
+//			CSVHelper csv = new CSVHelper(filename);
+//			String[] rec;
+//			csv.open();
+//			while ((rec = csv.readRecord()) != null) {
+//				if (rec[0].toLowerCase().equals(langIsoCode.toLowerCase())) {
+//					String val = rec[2].trim();
+//					if (val.equals(""))
+//						v = val;
+//					break;
+//				}
+//			}
+//			csv.close();
+//		} catch (IOException e) {
+//			logger.error(e.getMessage());
+//		}
+		return value;
 	}
 
 	public static String translate(String toLanguageIsoCode, String text) {
