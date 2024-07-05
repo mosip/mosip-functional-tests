@@ -50,6 +50,21 @@ public class DBManager {
 		}
 	}
 	
+	public static void clearKeyManagerDbDataForPartnerRevamp() {
+		Session session = null;
+		try {
+			session = getDataBaseConnection(ConfigManager.getKMDbUrl(), ConfigManager.getKMDbUser(),
+					ConfigManager.getKMDbPass(), ConfigManager.getKMDbSchema());
+			executeQueries(session, MosipTestRunner.getGlobalResourcePath() + "/"	+ "config/partnerRevampDataDeleteQueriesForKeyMgr.txt");				
+			} catch (Exception e) {
+				logger.error("Error:: While executing PMS DB Quiries." + e.getMessage());
+			} finally {
+				if (session != null) {
+					session.close();
+				}
+			}
+		}
+	
 	public static void clearKeyManagerDbData() {
 		Session session = null;
 		try {

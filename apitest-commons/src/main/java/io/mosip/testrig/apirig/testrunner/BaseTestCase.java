@@ -311,6 +311,7 @@ public class BaseTestCase {
 		if (listOfModules.contains(GlobalConstants.PARTNERNEW)) {
 			BaseTestCase.currentModule = GlobalConstants.PARTNERNEW;
 			DBManager.clearPartnerRevampDbData();
+			DBManager.clearKeyManagerDbDataForPartnerRevamp();
 			//DBManager.clearKeyManagerDbData();
 			BaseTestCase.currentModule = GlobalConstants.PARTNERNEW;
 			setReportName(GlobalConstants.PARTNERNEW);
