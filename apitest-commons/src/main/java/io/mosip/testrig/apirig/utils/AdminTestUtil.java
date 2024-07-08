@@ -2036,14 +2036,14 @@ public class AdminTestUtil extends BaseTestCase {
 					GlobalConstants.ERROR_STRING_1 + jsonInput + GlobalConstants.EXCEPTION_STRING_1 + e.getMessage());
 		}
 
-		if (map.containsKey(GlobalConstants.HEADERTRANSACTIONID)) {
+		if (map != null && map.containsKey(GlobalConstants.HEADERTRANSACTIONID)) {
 			headerTransactionID = map.get(GlobalConstants.HEADERTRANSACTIONID).toString();
 			cookiesMap.put(GlobalConstants.TRANSACTION_ID_KEY, headerTransactionID);
 			cookiesMap.put(GlobalConstants.XSRF_TOKEN, token);
 			map.remove(GlobalConstants.HEADERTRANSACTIONID);
 		}
 
-		if (map.containsKey(GlobalConstants.VERIFIEDTRANSACTIONID)) {
+		if (map != null && map.containsKey(GlobalConstants.VERIFIEDTRANSACTIONID)) {
 			headerTransactionID = map.get(GlobalConstants.VERIFIEDTRANSACTIONID).toString();
 			cookiesMap.put(GlobalConstants.VERIFIED_TRANSACTION_ID_KEY, headerTransactionID);
 			cookiesMap.put(GlobalConstants.XSRF_TOKEN, token);
@@ -3175,6 +3175,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		// Need to handle int replacement
 		if (jsonString.contains("$HIERARCHYLEVEL$"))
+			getLocationData();
 			jsonString = replaceKeywordWithValue(jsonString, "$HIERARCHYLEVEL$", String.valueOf(hierarchyLevel));
 
 		if (jsonString.contains("$HIERARCHYNAME$"))
