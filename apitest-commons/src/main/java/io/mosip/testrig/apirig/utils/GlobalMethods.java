@@ -113,7 +113,6 @@ public class GlobalMethods {
         return modifiedString;
 	}
 	
-	
 	public static String getComponentDetails() {
 		// Define the regex pattern to extract the domain and the path after the domain
 		String regex_1 = "https://([^/]+)/(v[0-9]+)?/(partnermanager|masterdata|idgenerator|policymanager|idauthentication|idrepository|auditmanager)/([^,]+)";
@@ -166,62 +165,6 @@ public class GlobalMethods {
 		}
 		return stringBuilder.toString();
 	}
-	
-//	public static String getComponentDetails() {
-//		// Define the regex pattern to extract the domain and the path after the domain
-//        String regex = "https://([^/]+)/(v[0-9]+)?/(partnermanager|masterdata|idgenerator|policymanager|idauthentication|idrepository|auditmanager)/([^,]+)";
-//        // Compile the regex pattern
-//        Pattern pattern = Pattern.compile(regex);
-//        // Set to store unique results
-//        Set<String> uniqueResults = new HashSet<>();
-//        // Iterate over the set of URLs
-//        for (String url : serverEndpoints) {
-//            // Create a matcher for the current URL
-//            Matcher matcher = pattern.matcher(url);
-//            // Find matches
-//            
-//            while (matcher.find()) {
-//                String domain = matcher.group(1);
-//                String version = matcher.group(2) != null ? matcher.group(2) : ""; // Handle null for optional group
-//                String module = matcher.group(3);
-//				String endpoint = version + "/" + module + "/" + matcher.group(4);
-//				String result = "Domain: " + domain + " ---- Module: " + module + " ---- End Point: "
-//						+ removeNumerics(endpoint);
-//				uniqueResults.add(result);
-//            }
-//        }
-//        
-//        regex = "https://([^/]+)/(partnermanager|masterdata|idgenerator|policymanager|idauthentication|idrepository|auditmanager)/(v[0-9]+)/([^,]+)";
-//        // Compile the regex pattern
-//        pattern = Pattern.compile(regex);
-//        // Iterate over the set of URLs
-//        for (String url : serverEndpoints) {
-//            // Create a matcher for the current URL
-//            Matcher matcher = pattern.matcher(url);
-//            // Find matches
-//			while (matcher.find()) {
-//				String domain = matcher.group(1);
-//				String module = matcher.group(2) != null ? matcher.group(2) : ""; // Handle null for optional group
-//				String version = matcher.group(3);
-//				String endpoint = module + "/" + version + "/" + matcher.group(4);
-//				String result = "Domain: " + domain + " ---- Module: " + module + " ---- End Point: "
-//						+ removeNumerics(endpoint);
-//
-//				uniqueResults.add(result);
-//            }
-//        }
-//        
-//        
-//        
-//        // Convert the set to an ArrayList
-//        List<String> uniqueList = new ArrayList<>(uniqueResults);
-//        StringBuilder stringBuilder = new StringBuilder();
-//        // Print the unique results
-//        for (String result : uniqueList) {
-//        	stringBuilder.append("\n").append(result);
-//        }
-//        return stringBuilder.toString();
-//    }
 	
 	public static void reportServerError(Object code, Object errorMessage) {
 		serverFailuresMapS.put(code, errorMessage);

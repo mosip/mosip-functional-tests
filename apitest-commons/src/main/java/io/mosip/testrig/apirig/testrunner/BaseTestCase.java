@@ -77,6 +77,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public String zonalApproverCookie = null;
 	public String adminCookie = null;
 	public String partnerCookie = null;
+	public String partnerrevampCookie = null;
 	public String partnerNewCookie = null;
 	public String withoutpartnerCookie = null;
 	public String withoutpolicyCookie = null;
@@ -308,6 +309,16 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			BaseTestCase.currentModule = "partner";
 			setReportName("partner");
 			AdminTestUtil.copyPartnerTestResource();
+		}
+		
+		if (listOfModules.contains(GlobalConstants.PARTNERNEW)) {
+			BaseTestCase.currentModule = GlobalConstants.PARTNERNEW;
+			DBManager.clearPartnerRevampDbData();
+			DBManager.clearKeyManagerDbDataForPartnerRevamp();
+			//DBManager.clearKeyManagerDbData();
+			BaseTestCase.currentModule = GlobalConstants.PARTNERNEW;
+			setReportName(GlobalConstants.PARTNERNEW);
+			AdminTestUtil.copyPmsNewTestResource();
 		}
 		if (listOfModules.contains(GlobalConstants.PREREG)) {
 			BaseTestCase.currentModule = GlobalConstants.PREREG;

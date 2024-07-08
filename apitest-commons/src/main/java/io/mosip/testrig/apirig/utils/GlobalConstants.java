@@ -190,6 +190,7 @@ public class GlobalConstants {
 	public static final String HEALTHSERVICES = "healthservices";
 	public static final String REMOVE = "$REMOVE$";
 	public static final String PARTNER = "partner";
+	public static final String PARTNERNEW = "pms";
 	public static final String LANGNUMBER = "$LANGNUMBER$";
 	public static final String RESPONSE_CENTER_DETAILS = "response.centerDetails[";
 	public static final String TIMESLOTS_FROMTIME = "].timeSlots[0].fromTime";
@@ -216,4 +217,5 @@ public class GlobalConstants {
 	public static final String TARGET_ENV_HEALTH_CHECK_FAILED = "Target env health check failed ";
 	public static final String HOTLIST = "hotlist";
 	public static final String XSRF_TOKEN = "XSRF-TOKEN";
+	public static final String _AUTHENTICATEUSER = "_AuthenticateUser";
 }
