@@ -19,4 +19,5 @@ public class TestCaseDTO {
 	private boolean checkErrorsOnlyInResponse;
 	private String allowedErrorCodes;
 	private String[] kycFields;
+	private String description;
 }
