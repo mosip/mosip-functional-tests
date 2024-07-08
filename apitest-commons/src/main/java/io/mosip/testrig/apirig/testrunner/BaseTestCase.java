@@ -20,6 +20,8 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.json.JSONArray;
 import org.json.simple.JSONObject;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterSuite;
 
@@ -28,6 +30,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.nimbusds.jose.jwk.RSAKey;
 
+import io.mosip.testrig.apirig.admin.fw.config.BeanConfig;
 import io.mosip.testrig.apirig.dbaccess.DBManager;
 import io.mosip.testrig.apirig.utils.AdminTestUtil;
 import io.mosip.testrig.apirig.utils.AuthTestsUtil;
@@ -45,8 +48,8 @@ import io.restassured.response.Response;
  * All suite level before and after tests will be completed here.
  *
  */
-
-public class BaseTestCase {
+@ContextConfiguration(classes = {BeanConfig.class})
+public class BaseTestCase extends AbstractTestNGSpringContextTests {
 
 	protected static Logger logger = Logger.getLogger(BaseTestCase.class);
 	protected static MockSMTPListener mockSMTPListener = null;
@@ -91,7 +94,7 @@ public class BaseTestCase {
 	public String mobileAuthCookie = null;
 	public String autoTstUsrCkie = null;
 	public static String currentModule = GlobalConstants.MASTERDATA;
-	public static String certsForModule = "DSL-IDA";
+	public static String certsForModule = "DSL";
 	public static List<String> listOfModules = null;
 	public static List<String> languageList = new ArrayList<>();
 	public static String languageCode = null;
@@ -110,7 +113,7 @@ public class BaseTestCase {
 	public static Map<?, ?> residentQueries;
 	public static Map<?, ?> partnerQueries;
 	public static boolean insertDevicedata = false;
-	public static boolean proxy = false;
+	public static boolean proxy = true;
 
 	public static String ApplnURI;
 	public static String ApplnURIForKeyCloak;
@@ -253,8 +256,8 @@ public class BaseTestCase {
 			BaseTestCase.certsForModule = "IDA";
 			AuthTestsUtil.initiateAuthTest();
 			
-			mockSMTPListener = new MockSMTPListener();
-			mockSMTPListener.run();
+//			mockSMTPListener = new MockSMTPListener();
+//			mockSMTPListener.run();
 		}
 		if (listOfModules.contains("idrepo")) {
 			setReportName("idrepo");
