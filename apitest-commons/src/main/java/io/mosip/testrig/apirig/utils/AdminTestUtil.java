@@ -1,7 +1,8 @@
 package io.mosip.testrig.apirig.utils;
 
 import static io.restassured.RestAssured.given;
-
+import de.mkammerer.argon2.Argon2;
+import de.mkammerer.argon2.Argon2Factory;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -32,6 +33,8 @@ import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
+import java.security.interfaces.RSAPrivateKey;
+import java.security.interfaces.RSAPublicKey;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -52,8 +55,6 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.TimeZone;
 import java.util.UUID;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import javax.ws.rs.core.MediaType;
@@ -77,7 +78,9 @@ import org.testng.Reporter;
 import org.testng.SkipException;
 import org.yaml.snakeyaml.Yaml;
 
+import java.lang.Double;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.jknack.handlebars.Context;
 import com.github.jknack.handlebars.Handlebars;
@@ -114,6 +117,8 @@ import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author Ravi Kant
@@ -175,13 +180,13 @@ public class AdminTestUtil extends BaseTestCase {
 	public static final String AUTH_HEADER_VALUE = "Some String";
 	public static final String SIGNATURE_HEADERNAME = GlobalConstants.SIGNATURE;
 	public static String updatedPolicyId = "";
-	public static BioDataUtility bioDataUtil = new BioDataUtility();
+//	public static BioDataUtility bioDataUtil = new BioDataUtility();
+//
+//	public static BioDataUtility getBioDataUtil() {
+//		return bioDataUtil;
+//	}
 
-	public static BioDataUtility getBioDataUtil() {
-		return bioDataUtil;
-	}
-
-	public static EncryptionDecrptionUtil encryptDecryptUtil = null;
+//	public static EncryptionDecrptionUtil encryptDecryptUtil = null;
 	protected static String idField = null;
 	protected static String identityHbs = null;
 	protected static String draftHbs = null;
@@ -421,11 +426,9 @@ public class AdminTestUtil extends BaseTestCase {
 		url = uriKeyWordHandelerUri(url, testCaseName);
 		if (BaseTestCase.currentModule.equals(GlobalConstants.PREREG) || BaseTestCase.currentModule.equals("auth")
 				|| BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT)
-				|| BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)
-						|| BaseTestCase.currentModule.equals(GlobalConstants.PREREG)
-						) {
+				|| BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
-			}
+		}
 
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
@@ -439,7 +442,6 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 
 		}
-
 		logger.info(GlobalConstants.POST_REQ_URL + url);
 		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
@@ -4075,10 +4077,10 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public String updateTimestampOtp(String otpIdentyEnryptRequest) {
 		otpIdentyEnryptRequest = JsonPrecondtion.parseAndReturnJsonContent(otpIdentyEnryptRequest,
-				generateCurrentUTCTimeStamp(), "identityRequest.timestamp");
+				generateCurrentUTCTimeStamp(), "timestamp");
 		if (proxy)
 			otpIdentyEnryptRequest = JsonPrecondtion.parseAndReturnJsonContent(otpIdentyEnryptRequest,
-					properties.getProperty("proxyOTP"), "identityRequest.otp");
+					properties.getProperty("proxyOTP"), "otp");
 		else
 			return otpIdentyEnryptRequest;
 
@@ -4382,7 +4384,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String singResponse = null;
 		try {
 			singResponse = sign(request, false, true, false, null, getKeysDirPath(), partnerId);
-		} catch (NoSuchAlgorithmException | UnrecoverableEntryException | KeyStoreException | CertificateException
+			} catch (NoSuchAlgorithmException | UnrecoverableEntryException | KeyStoreException | CertificateException
 				| OperatorCreationException | JoseException | IOException e) {
 			logger.error(e.getMessage());
 		}
@@ -4558,10 +4560,18 @@ public class AdminTestUtil extends BaseTestCase {
 
 	}
 
-	public String getKeysDirPath() {
-		String path = System.getProperty("java.io.tmpdir") + "/" + "IDA-" + environment + ".mosip.net";
-		logger.info("certificate path is::" + path);
-		return new File(path).getAbsolutePath();
+	public static String getKeysDirPath() {
+//		String path = "/Users/kamalsingh/mosip/authcerts" + "/" + "IDA-" + environment + ".mosip.net";
+//		logger.info("certificate path is::" + path);
+//		return new File(path).getAbsolutePath();
+		
+		String certsTargetDir = System.getProperty("java.io.tmpdir") + File.separator + System.getProperty("parent.certs.folder.name", "AUTHCERTS");
+
+		if (System.getProperty("os.name").toLowerCase().contains("windows") == false) {
+      		certsTargetDir = "/home/mosip/authcerts";
+      	}
+
+		return certsTargetDir + File.separator + certsForModule + "-IDA-" + environment + ".mosip.net";
 	}
 
 	public static String buildIdentityRequest(String identityRequest) {

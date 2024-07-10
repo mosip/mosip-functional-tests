@@ -270,7 +270,7 @@ public class EmailableReport implements IReporter {
 			
 			// Left column: "Tested Component Details" with central alignment
 			writer.print("<th style=\"text-align: center; vertical-align: middle;\" colspan=\"2\"><span class=\"not-bold\"><pre>");
-			writer.print(Utils.escapeHtml("Tested Components & End Points"));
+			writer.print(Utils.escapeHtml("End Points used"));
 			writer.print("</span></th>");
 
 			// Right column: Details from AdminTestUtil.getServerComponentsDetails() without bold formatting

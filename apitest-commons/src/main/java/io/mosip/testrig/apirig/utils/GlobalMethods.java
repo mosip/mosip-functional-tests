@@ -26,12 +26,74 @@ public class GlobalMethods {
 	
 	public static Set<String> serverEndpoints = new HashSet<>();
 	
+	// Define the regex pattern to extract the domain and the path after the domain
+	private static final String	regex_1 = "https://([^/]+)/(v[0-9]+)?/(partnermanager|masterdata|idgenerator|policymanager|idauthentication|idrepository|auditmanager)/([^,]+)";
+	private static final String regex_2 = "https://([^/]+)/(partnermanager|masterdata|idgenerator|policymanager|idauthentication|idrepository|auditmanager)/(v[0-9]+)/([^,]+)";
+
+	// Compile the regex pattern
+	private static final Pattern pattern_1 = Pattern.compile(regex_1);
+	private static final Pattern pattern_2 = Pattern.compile(regex_2);
+	
 	public static void main(String[] arg) {
 		
 	}
 	
+	public static String getUpdatedEndPointURL(String url) {
+		// Create a matcher for the current URL
+		Matcher matcher = pattern_1.matcher(url);
+		// Check if the first pattern matches
+		if (matcher.find()) {
+			String domain = matcher.group(1);
+			String version = matcher.group(2) != null ? matcher.group(2) : ""; // Handle null for optional group
+			String module = matcher.group(3);
+			String endpoint = version + "/" + module + "/" + matcher.group(4);
+
+			logger.info(
+					"Domain: " + domain + " ---- Module: " + module + " ---- End Point: " + removeNumerics(endpoint));
+
+			// Replace BaseURL if provided from outside
+			String newBaseURL = ConfigManager.getComponentBaseURL(module);
+
+			if (newBaseURL != null && !newBaseURL.isEmpty()) {
+				// Replace the part in the URL
+				return url.replace(domain, newBaseURL);
+			} else {
+				return url;
+			}
+		}
+
+		// RegEX didn't match, try with other pattern...
+
+		// Create a matcher for the current URL
+		Matcher matcher2 = pattern_2.matcher(url);
+		// Check if the second pattern matches
+		if (matcher.find()) {
+			String domain = matcher2.group(1);
+			String module = matcher2.group(2) != null ? matcher2.group(2) : ""; // Handle null for optional group
+			String version = matcher2.group(3);
+			String endpoint = module + "/" + version + "/" + matcher2.group(4);
+			logger.info(
+					"Domain: " + domain + " ---- Module: " + module + " ---- End Point: " + removeNumerics(endpoint));
+
+			// Replace BaseURL if provided from outside
+			String newBaseURL = ConfigManager.getComponentBaseURL(module);
+
+			if (newBaseURL != null && !newBaseURL.isEmpty()) {
+				// Replace the part in the URL
+				return url.replace(domain, newBaseURL);
+			} else {
+				return url;
+			}
+		}
+
+		// Both RegEx didn't match.. Needs revisit..
+		logger.error("Needs RegEx revisit...");
+		return url;
+	}
+	
 	public static void addToServerEndPointMap(String url) {
-		serverEndpoints.add(url);
+		String updatedURL = getUpdatedEndPointURL(url);
+		serverEndpoints.add(updatedURL);
 	}
 	
 	public static String removeNumerics(String url) {
@@ -53,59 +115,56 @@ public class GlobalMethods {
 	
 	public static String getComponentDetails() {
 		// Define the regex pattern to extract the domain and the path after the domain
-        String regex = "https://([^/]+)/(v[0-9]+)?/(partnermanager|masterdata|idgenerator|policymanager|idauthentication|idrepository)/([^,]+)";
-        // Compile the regex pattern
-        Pattern pattern = Pattern.compile(regex);
-        // Set to store unique results
-        Set<String> uniqueResults = new HashSet<>();
-        // Iterate over the set of URLs
-        for (String url : serverEndpoints) {
-            // Create a matcher for the current URL
-            Matcher matcher = pattern.matcher(url);
-            // Find matches
-            
-            while (matcher.find()) {
-                String domain = matcher.group(1);
-                String version = matcher.group(2) != null ? matcher.group(2) : ""; // Handle null for optional group
-                String module = matcher.group(3);
-				String endpoint = version + "/" + module + "/" + matcher.group(4);
-				String result = "Domain: " + domain + " ---- Module: " + module + " ---- End Point: "
-						+ removeNumerics(endpoint);
-				uniqueResults.add(result);
-            }
-        }
-        
-        regex = "https://([^/]+)/(partnermanager|masterdata|idgenerator|policymanager|idauthentication|idrepository)/(v[0-9]+)/([^,]+)";
-        // Compile the regex pattern
-        pattern = Pattern.compile(regex);
-        // Iterate over the set of URLs
-        for (String url : serverEndpoints) {
-            // Create a matcher for the current URL
-            Matcher matcher = pattern.matcher(url);
-            // Find matches
-			while (matcher.find()) {
-				String domain = matcher.group(1);
-				String module = matcher.group(2) != null ? matcher.group(2) : ""; // Handle null for optional group
-				String version = matcher.group(3);
-				String endpoint = module + "/" + version + "/" + matcher.group(4);
-				String result = "Domain: " + domain + " ---- Module: " + module + " ---- End Point: "
-						+ removeNumerics(endpoint);
+		String regex_1 = "https://([^/]+)/(v[0-9]+)?/(partnermanager|masterdata|idgenerator|policymanager|idauthentication|idrepository|auditmanager)/([^,]+)";
+		// Compile the regex pattern
+		Pattern pattern_1 = Pattern.compile(regex_1);
 
+		String regex_2 = "https://([^/]+)/(partnermanager|masterdata|idgenerator|policymanager|idauthentication|idrepository|auditmanager)/(v[0-9]+)/([^,]+)";
+		// Compile the regex pattern
+		Pattern pattern_2 = Pattern.compile(regex_2);
+
+		// Set to store unique results
+		Set<String> uniqueResults = new HashSet<>();
+		// Iterate over the set of URLs
+		for (String url : serverEndpoints) {
+
+			// Create a matcher for the current URL
+			Matcher matcher_1 = pattern_1.matcher(url);
+			// Find matches
+			if (matcher_1.find()) {
+				String domain = matcher_1.group(1);
+				String version = matcher_1.group(2) != null ? matcher_1.group(2) : ""; // Handle null for optional group
+				String module = matcher_1.group(3);
+				String endpoint = version + "/" + module + "/" + matcher_1.group(4);
+				String result = "Domain: " + domain + " ---- Module: " + module + " ---- End Point: "
+						+ removeNumerics(endpoint);
 				uniqueResults.add(result);
-            }
-        }
-        
-        
-        
-        // Convert the set to an ArrayList
-        List<String> uniqueList = new ArrayList<>(uniqueResults);
-        StringBuilder stringBuilder = new StringBuilder();
-        // Print the unique results
-        for (String result : uniqueList) {
-        	stringBuilder.append("\n").append(result);
-        }
-        return stringBuilder.toString();
-    }
+			} else {
+				// Create a matcher for the current URL
+				Matcher matcher_2 = pattern_2.matcher(url);
+				// Find matches
+				if (matcher_2.find()) {
+					String domain = matcher_2.group(1);
+					String module = matcher_2.group(2) != null ? matcher_2.group(2) : ""; // Handle null for optional
+																							// group
+					String version = matcher_2.group(3);
+					String endpoint = module + "/" + version + "/" + matcher_2.group(4);
+					String result = "Domain: " + domain + " ---- Module: " + module + " ---- End Point: "
+							+ removeNumerics(endpoint);
+					uniqueResults.add(result);
+				}
+			}
+		}
+
+		// Convert the set to an ArrayList
+		List<String> uniqueList = new ArrayList<>(uniqueResults);
+		StringBuilder stringBuilder = new StringBuilder();
+		// Print the unique results
+		for (String result : uniqueList) {
+			stringBuilder.append("\n").append(result);
+		}
+		return stringBuilder.toString();
+	}
 	
 	public static void reportServerError(Object code, Object errorMessage) {
 		serverFailuresMapS.put(code, errorMessage);
