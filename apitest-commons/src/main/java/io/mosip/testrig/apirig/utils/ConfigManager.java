@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
@@ -135,6 +137,9 @@ public class ConfigManager {
 	private static String ADMIN_USER_NAME = "admin_userName";
 
 	private static String PARTNER_URL_SUFFIX = "partnerUrlSuffix";
+	
+	private static String MOSIP_COMPONENTS_BASE_URLS = "mosip_components_base_urls";
+	private static Map<String, String> mosip_components_base_urls = new HashMap<>();
 
 	private static String partnerUrlSuffix;
 
@@ -448,6 +453,26 @@ public class ConfigManager {
 		userAdminName = System.getenv(ADMIN_USER_NAME) == null ? propsKernel.getProperty(ADMIN_USER_NAME)
 				: System.getenv(ADMIN_USER_NAME);
 		propsKernel.setProperty(ADMIN_USER_NAME, userAdminName);
+		
+		String components_base_urls = System.getenv(MOSIP_COMPONENTS_BASE_URLS) == null
+				? propsKernel.getProperty(MOSIP_COMPONENTS_BASE_URLS)
+				: System.getenv(MOSIP_COMPONENTS_BASE_URLS);
+		loadComponentBaseURLs(components_base_urls);
+	}
+	
+	public static void loadComponentBaseURLs(String components_base_urls) {
+		if (components_base_urls != null && !components_base_urls.isEmpty()) {
+			// Split the input string by semicolons
+			String[] pairs = components_base_urls.split(";");
+
+			// Iterate over the pairs and split each by the equals sign to get key and value
+			for (String pair : pairs) {
+				String[] keyValue = pair.split("=");
+				if (keyValue.length == 2) {
+					mosip_components_base_urls.put(keyValue[0], keyValue[1]);
+				}
+			}
+		}
 	}
 
 	public static boolean isInServiceNotDeployedList(String stringToFind) {
@@ -499,6 +524,10 @@ public class ConfigManager {
 			}
 		}
 		return false;
+	}
+	
+	public static String getComponentBaseURL(String component) {
+		return mosip_components_base_urls.get(component);
 	}
 	
 	public static String getServerErrorsToMonitor() {
