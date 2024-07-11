@@ -64,6 +64,20 @@ public class DBManager {
 				}
 			}
 		}
+	public static void clearIDADbDataForPartnerRevamp() {
+		Session session = null;
+		try {
+			session = getDataBaseConnection(ConfigManager.getIdaDbUrl(), ConfigManager.getIdaDbUser(),
+					ConfigManager.getPMSDbPass(), ConfigManager.getIdaDbSchema());
+			executeQueries(session, MosipTestRunner.getGlobalResourcePath() + "/"	+ "config/partnerRevampDataDeleteQueriesForIDA.txt");				
+			} catch (Exception e) {
+				logger.error("Error:: While executing IDA DB Quiries." + e.getMessage());
+			} finally {
+				if (session != null) {
+					session.close();
+				}
+			}
+		}
 	
 	public static void clearKeyManagerDbData() {
 		Session session = null;

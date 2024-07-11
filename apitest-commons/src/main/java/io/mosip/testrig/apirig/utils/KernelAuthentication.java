@@ -117,11 +117,11 @@ public class KernelAuthentication extends BaseTestCase {
 			return zonalApproverCookie;
 		case "partnerrevamp":
 			if (!kernelCmnLib.isValidToken(partnerrevampCookie))
-				partnerrevampCookie = kernelAuthLib.getAuthForPartner();
+				partnerrevampCookie = kernelAuthLib.getAuthForPartnerRevamp();
 			return partnerrevampCookie;
 		case "partner":
 			if (!kernelCmnLib.isValidToken(partnerCookie))
-				partnerCookie = kernelAuthLib.getAuthForPartnerRevamp();
+				partnerCookie = kernelAuthLib.getAuthForPartner();
 			return partnerCookie;
 		case "partnernew":
 			if (!kernelCmnLib.isValidToken(partnerNewCookie))
@@ -296,7 +296,7 @@ public class KernelAuthentication extends BaseTestCase {
 
 		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
 		request.put(GlobalConstants.PASSWORD, partner_password);
-		request.put(GlobalConstants.USER_NAME, BaseTestCase.currentModule + "-" + partner_revamp_userName);
+		request.put(GlobalConstants.USER_NAME, partner_revamp_userName);
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		if (BaseTestCase.isTargetEnvLTS()) {
 			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
