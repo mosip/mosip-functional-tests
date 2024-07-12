@@ -34,6 +34,51 @@ public class DBManager {
 			}
 		}
 	}
+	
+	public static void clearPartnerRevampDbData() {
+		Session session = null;
+		try {
+			session = getDataBaseConnection(ConfigManager.getPMSDbUrl(), ConfigManager.getPMSDbUser(),
+					ConfigManager.getPMSDbPass(), ConfigManager.getPMSDbSchema());
+			executeQueries(session, MosipTestRunner.getGlobalResourcePath() + "/"	+ "config/partnerRevampDataDeleteQueries.txt");		
+		} catch (Exception e) {
+			logger.error("Error:: While executing PMS REVAMP DB Quiries." + e.getMessage());
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
+	
+	public static void clearKeyManagerDbDataForPartnerRevamp() {
+		Session session = null;
+		try {
+			session = getDataBaseConnection(ConfigManager.getKMDbUrl(), ConfigManager.getKMDbUser(),
+					ConfigManager.getKMDbPass(), ConfigManager.getKMDbSchema());
+			executeQueries(session, MosipTestRunner.getGlobalResourcePath() + "/"	+ "config/partnerRevampDataDeleteQueriesForKeyMgr.txt");				
+			} catch (Exception e) {
+				logger.error("Error:: While executing PMS DB Quiries." + e.getMessage());
+			} finally {
+				if (session != null) {
+					session.close();
+				}
+			}
+		}
+	public static void clearIDADbDataForPartnerRevamp() {
+		Session session = null;
+		try {
+			session = getDataBaseConnection(ConfigManager.getIdaDbUrl(), ConfigManager.getIdaDbUser(),
+					ConfigManager.getPMSDbPass(), ConfigManager.getIdaDbSchema());
+			executeQueries(session, MosipTestRunner.getGlobalResourcePath() + "/"	+ "config/partnerRevampDataDeleteQueriesForIDA.txt");				
+			} catch (Exception e) {
+				logger.error("Error:: While executing IDA DB Quiries." + e.getMessage());
+			} finally {
+				if (session != null) {
+					session.close();
+				}
+			}
+		}
+	
 	public static void clearKeyManagerDbData() {
 		Session session = null;
 		try {

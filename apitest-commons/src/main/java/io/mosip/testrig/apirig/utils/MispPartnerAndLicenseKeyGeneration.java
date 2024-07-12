@@ -1,5 +1,6 @@
 package io.mosip.testrig.apirig.utils;
 
+import java.io.File;
 import java.util.HashMap;
 
 import javax.ws.rs.core.MediaType;
@@ -8,6 +9,7 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
+import io.mosip.testrig.apirig.dto.CertificateChainResponseDto;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 import io.restassured.response.Response;
 
@@ -31,9 +33,9 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 	}
 	
 	public static String getAndUploadCertificatesAndGenerateMispLicKey() {
-		if (localHostUrl == null) {
-			localHostUrl = getLocalHostUrl();
-		}
+//		if (localHostUrl == null) {
+//			localHostUrl = getLocalHostUrl();
+//		}	
 		
 		mispPartnerGeneration();
 		JSONObject certificateValue = getCertificates(mispPartnerId, getPartnerType);
@@ -95,20 +97,50 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 	}
 	
 	public static JSONObject getCertificates(String partnerId, String partnerType) {
-		String url = localHostUrl + properties.getProperty("getPartnerCertURL");
 		
-		HashMap<String, String> map = new HashMap<>();
+		AuthUtil authUtil = new AuthUtil();
+		PartnerTypes partnerTypeEnum = null;
 		
-		map.put("partnerName", partnerId);
-		map.put(GlobalConstants.PARTNERTYPE, partnerType);
-		map.put("moduleName", BaseTestCase.certsForModule);
+		if (partnerType.equals("RELYING_PARTY")) {
+			partnerTypeEnum = PartnerTypes.RELYING_PARTY;           
+        } else if (partnerType.equals("DEVICE")) {
+        	partnerTypeEnum = PartnerTypes.DEVICE;
+        }else if (partnerType.equals("FTM")) {
+        	partnerTypeEnum = PartnerTypes.FTM;
+        }else if (partnerType.equals("EKYC")) {
+        	partnerTypeEnum = PartnerTypes.EKYC;
+        }else if (partnerType.equals("MISP")) {
+        	partnerTypeEnum = PartnerTypes.MISP;
+        }
+		boolean keyFileNameByPartnerName = false;
+		CertificateChainResponseDto certificateChainResponseDto = null;
 		
-		Response response = RestClient.getRequestWithQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-		lOGGER.info(response);
-		JSONObject responseJson = new JSONObject(response.asString());
-		lOGGER.info(responseJson);
-		
+		try {
+			certificateChainResponseDto = authUtil.generatePartnerKeys(partnerTypeEnum, partnerId, keyFileNameByPartnerName, null, BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
+		} catch (Exception  e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		JSONObject responseJson = new JSONObject();
+		responseJson.put("caCertificate", certificateChainResponseDto.getCaCertificate());
+		responseJson.put("interCertificate", certificateChainResponseDto.getInterCertificate());
+		responseJson.put("partnerCertificate", certificateChainResponseDto.getPartnerCertificate());
 		return responseJson;
+		
+//		String url = localHostUrl + properties.getProperty("getPartnerCertURL");
+//		
+//		HashMap<String, String> map = new HashMap<>();
+//		
+//		map.put("partnerName", partnerId);
+//		map.put(GlobalConstants.PARTNERTYPE, partnerType);
+//		map.put("moduleName", BaseTestCase.certsForModule);
+//		
+//		Response response = RestClient.getRequestWithQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+//		lOGGER.info(response);
+//		JSONObject responseJson = new JSONObject(response.asString());
+//		lOGGER.info(responseJson);
+//		
+//		return responseJson;
 	}
 	
 	public static void uploadCACertificate(String certValueCA, String partnerDomain) {
@@ -191,20 +223,49 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 	}
 	
 	public static void uploadSignedCertificate(String certValueSigned, String partnerType) {
-		String url = localHostUrl + properties.getProperty("uploadSignedCertificateUrl");
 		
+		PartnerTypes partnerTypeEnum = null;
+		if (partnerType.equals("RELYING_PARTY")) {
+			partnerTypeEnum = PartnerTypes.RELYING_PARTY;           
+        } else if (partnerType.equals("DEVICE")) {
+        	partnerTypeEnum = PartnerTypes.DEVICE;
+        }else if (partnerType.equals("FTM")) {
+        	partnerTypeEnum = PartnerTypes.FTM;
+        }else if (partnerType.equals("EKYC")) {
+        	partnerTypeEnum = PartnerTypes.EKYC;
+        }else if (partnerType.equals("MISP")) {
+        	partnerTypeEnum = PartnerTypes.MISP;
+        }
+		
+	
 		HashMap<String, String> requestBody = new HashMap<>();
-		
+
 		requestBody.put("certData", certValueSigned);
 		
-		HashMap<String, Object> queryParamMap = new HashMap<>();
+		AuthUtil authUtil = new AuthUtil();
+		try {
+			authUtil.updatePartnerCertificate(partnerTypeEnum, null, false, requestBody, null, BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		queryParamMap.put(GlobalConstants.PARTNERTYPE, partnerType);
-		queryParamMap.put("moduleName", BaseTestCase.certsForModule);
 		
-		Response response = RestClient.postRequestWithQueryParamsAndBody(url, requestBody, queryParamMap, MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
 		
-		lOGGER.info(response);
+//		String url = localHostUrl + properties.getProperty("uploadSignedCertificateUrl");
+//		
+//		HashMap<String, String> requestBody = new HashMap<>();
+//		
+//		requestBody.put("certData", certValueSigned);
+//		
+//		HashMap<String, Object> queryParamMap = new HashMap<>();
+//		
+//		queryParamMap.put(GlobalConstants.PARTNERTYPE, partnerType);
+//		queryParamMap.put("moduleName", BaseTestCase.certsForModule);
+//		
+//		Response response = RestClient.postRequestWithQueryParamsAndBody(url, requestBody, queryParamMap, MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
+//		
+//		lOGGER.info(response);
 	}
 	
 	public static String generateMispLicKey(String partnerId) {

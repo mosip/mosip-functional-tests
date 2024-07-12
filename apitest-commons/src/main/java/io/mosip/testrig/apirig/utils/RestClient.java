@@ -13,6 +13,7 @@ import org.apache.log4j.Logger;
 
 import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
 import io.restassured.RestAssured;
+import io.restassured.config.EncoderConfig;
 import io.restassured.config.HttpClientConfig;
 import io.restassured.config.RestAssuredConfig;
 import io.restassured.http.Cookie;
@@ -48,6 +49,7 @@ public class RestClient {
 	 */
 	public static Response postRequestWithAuthHeader(String url, Object body, String contentHeader, String acceptHeader,
 			String authHeaderName, String authHeaderValue) {
+		GlobalMethods.addToServerEndPointMap(url);
 		Response postResponse;
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
@@ -78,6 +80,7 @@ public class RestClient {
 	 */
 	public static Response postRequest(String url, Object body, String contentHeader, String acceptHeader) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
 			
@@ -98,6 +101,7 @@ public class RestClient {
 			Map<String, String> pathParams, File file, String fileKeyName, String contentHeader, String cookie) {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST:ASSURED:Sending post request with file to" + url);
 			RESTCLIENT_LOGGER.info("Name of the file is" + file.getName());
@@ -121,6 +125,7 @@ public class RestClient {
 			String fileKeyName, String contentHeader, String cookie) {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST:ASSURED:Sending post request with file to" + url);
 			RESTCLIENT_LOGGER.info("Name of the file is" + file.getName());
@@ -146,6 +151,7 @@ public class RestClient {
 		tokens.put(GlobalConstants.AUTHORIZATION, cookieValue);
 		tokens.put(idTokenName, idTokenValue);
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST:ASSURED:Sending post request with file to" + url);
 			RESTCLIENT_LOGGER.info("Name of the file is" + file.getName());
@@ -169,6 +175,7 @@ public class RestClient {
 			String contentHeader, String cookie) {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST:ASSURED:Sending post request with file to" + url);
 			
@@ -193,6 +200,7 @@ public class RestClient {
 
 	public static Response postWithMultipartFormDataAndFile(String url, Map<String, String> formParams,
 			String contentHeader, String cookie) {
+		GlobalMethods.addToServerEndPointMap(url);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 
 		RequestSpecification requestSpecification = given().cookie(builder.build()).relaxedHTTPSValidation()
@@ -217,6 +225,7 @@ public class RestClient {
 
 	public static Response postWithFormDataAndMultipleFile(String url, Map<String, String> formParams, File[] filePath,
 			String contentHeader, String cookie) {
+		GlobalMethods.addToServerEndPointMap(url);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 
 		RequestSpecification requestSpecification = given().cookie(builder.build()).relaxedHTTPSValidation()
@@ -256,6 +265,7 @@ public class RestClient {
 	 */
 	public static Response getRequest(String url, String contentHeader, String acceptHeader, String urls) {
 		Response getResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
 			
@@ -275,6 +285,7 @@ public class RestClient {
 	public static Response postRequestWithQueryParamAndBody(String url, Object body, Map<String, String> queryParams,
 			String contentHeader, String acceptHeader) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request with query param " + url);
 			
@@ -295,6 +306,7 @@ public class RestClient {
 	public static Response postRequestWithQueryParamsAndBody(String url, Object body, Map<String, Object> queryParams,
 			String contentHeader, String acceptHeader) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request with query param " + url);
 			
@@ -315,6 +327,7 @@ public class RestClient {
 	public static Response postRequestWithQueryParamsAndBodyForDecryption(String url, Object body,
 			Map<String, Object> queryParams, String contentHeader) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request with query param " + url);
 
@@ -335,6 +348,7 @@ public class RestClient {
 	public static Response putRequestWithQueryParamAndBody(String url, Object body, Map<String, String> queryParams,
 			String contentHeader, String acceptHeader) {
 		Response puttResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PUT request with query param " + url);
 			
@@ -363,6 +377,7 @@ public class RestClient {
 	 */
 	public static Response getRequest(String url, String contentHeader, String acceptHeader) {
 		Response getResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("RESSURED: Sending a GET request to " + url);
 			
@@ -389,6 +404,7 @@ public class RestClient {
 	 */
 	public static Response postRequest(String url, File file, String contentHeader, String acceptHeader) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
 			
@@ -416,6 +432,7 @@ public class RestClient {
 	 */
 	public static Response postRequest(String url, String content, String contentHeader, MediaType acceptHeader) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
 			
@@ -444,6 +461,7 @@ public class RestClient {
 	 */
 	public static Response patchRequest(String url, String body, String contentHeader, String acceptHeader) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PATCH request to " + url);
 			
@@ -463,6 +481,7 @@ public class RestClient {
 	public static String getCookie(String url, Object body, String contentHeader, String acceptHeader,
 			String cookieName) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
 			
@@ -482,6 +501,7 @@ public class RestClient {
 	public static Response postRequestWithCookie(String url, Object body, String contentHeader, String acceptHeader,
 			String cookieName, String cookieValue) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
 			
@@ -502,6 +522,7 @@ public class RestClient {
 	public static Response postRequestWithCookie(String url, Object body, String contentHeader, String acceptHeader,
 			String cookieName, String cookieValue, String idTokenName, String idTokenValue) {
 		Map<String, String> tokens = new HashMap<>();
+		GlobalMethods.addToServerEndPointMap(url);
 		tokens.put(cookieName, cookieValue);
 		tokens.put(idTokenName, idTokenValue);
 		Response postResponse;
@@ -524,6 +545,7 @@ public class RestClient {
 
 	public static Response deleteRequestWithCookie(String url, Object body, String contentHeader, String acceptHeader,
 			String cookieName, String cookieValue) {
+		GlobalMethods.addToServerEndPointMap(url);
 		Response deleteResponse;
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a DELETE request to " + url);
@@ -545,6 +567,7 @@ public class RestClient {
 
 	public static Response postRequestWithoutCookie(String url, Object body, String contentHeader,
 			String acceptHeader) {
+		GlobalMethods.addToServerEndPointMap(url);
 		Response postResponse;
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
@@ -565,6 +588,7 @@ public class RestClient {
 	public static Response postRequestWithBearerToken(String url, Object body, String contentHeader,
 			String acceptHeader, String cookieName, String cookieValue) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
 			
@@ -586,6 +610,7 @@ public class RestClient {
 	public static Response postRequestWithHeder(String url, Object body, String contentHeader, String acceptHeader,
 			String cookieName, String cookieValue) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
 			
@@ -606,6 +631,7 @@ public class RestClient {
 	public static Response postRequestWithMultipleHeaders(String url, Object body, String contentHeader,
 			String acceptHeader, String cookieName, String cookieValue, Map<String, String> headers) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
 			
@@ -627,6 +653,7 @@ public class RestClient {
 	public static Response postRequestWithMultipleHeadersAndCookies(String url, Object body, String contentHeader,
 			String acceptHeader, String cookieName, String cookieValue, Map<String, String> headers) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
 			
@@ -648,6 +675,7 @@ public class RestClient {
 	public static Response postRequestWithMultipleHeadersAndCookies(String url, Object body, String contentHeader,
 			String acceptHeader, Map<String, String> cookieValue, Map<String, String> headers) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		String key = GlobalConstants.TRANSACTION_ID_KEY;
 		if (cookieValue.containsKey(GlobalConstants.VERIFIED_TRANSACTION_ID_KEY))
 			key = GlobalConstants.VERIFIED_TRANSACTION_ID_KEY;
@@ -676,6 +704,7 @@ public class RestClient {
 	public static Response postRequestWithMultipleHeadersWithoutCookie(String url, Object body, String contentHeader,
 			String acceptHeader, Map<String, String> headers) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
 			
@@ -696,6 +725,7 @@ public class RestClient {
 	public static Response patchRequestWithMultipleHeaders(String url, Object body, String contentHeader,
 			String acceptHeader, String cookieName, String cookieValue, Map<String, String> headers) {
 		Response patchResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PATCH request to " + url);
 			
@@ -717,6 +747,7 @@ public class RestClient {
 	public static Response postRequestWithCookieAndHeader(String url, Object body, String contentHeader,
 			String acceptHeader, String cookieName, String cookieValue, String authHeaderName, String authHeaderValue) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
 			
@@ -738,6 +769,7 @@ public class RestClient {
 	public static Response postRequestWithCookieAndHeader(String url, Object body, String contentHeader,
 			String acceptHeader, String cookieName, String cookieValue, String authHeaderName, String authHeaderValue,
 			String idTokenName, String idTokenValue) {
+		GlobalMethods.addToServerEndPointMap(url);
 		Map<String, String> tokens = new HashMap<>();
 		tokens.put(cookieName, cookieValue);
 		tokens.put(idTokenName, idTokenValue);
@@ -763,6 +795,7 @@ public class RestClient {
 	public static Response patchRequestWithCookieAndHeader(String url, Object body, String contentHeader,
 			String acceptHeader, String cookieName, String cookieValue, String authHeaderName, String authHeaderValue) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PATCH request to " + url);
 			
@@ -784,6 +817,7 @@ public class RestClient {
 	public static Response getRequestWithCookie(String url, String contentHeader, String acceptHeader, String urls,
 			String cookieName, String cookieValue) {
 		Response getResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
 			
@@ -803,6 +837,7 @@ public class RestClient {
 	public static Response patchRequestWithCookie(String url, String body, String contentHeader, String acceptHeader,
 			String cookieName, String cookieValue) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PATCH request to " + url);
 			
@@ -823,6 +858,7 @@ public class RestClient {
 	public static Response patchRequestWithCookie(String url, String body, String contentHeader, String acceptHeader,
 			String cookieName, String cookieValue, String idTokenName, String idTokenValue) {
 		Map<String, String> tokens = new HashMap<>();
+		GlobalMethods.addToServerEndPointMap(url);
 		tokens.put(cookieName, cookieValue);
 		tokens.put(idTokenName, idTokenValue);
 		Response postResponse;
@@ -846,6 +882,7 @@ public class RestClient {
 	public static Response patchRequestWithCookie(String url, Object body, String contentHeader, String acceptHeader,
 			String cookieName, String cookieValue) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PATCH request to " + url);
 			
@@ -866,6 +903,7 @@ public class RestClient {
 	public static Response getRequestWithCookie(String url, String contentHeader, String acceptHeader,
 			String cookieName, String cookieValue) {
 		Response getResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
 			
@@ -885,6 +923,7 @@ public class RestClient {
 	public static Response getRequestWithMultipleCookie(String url, String contentHeader, String acceptHeader,
 			Map<String, String> cookieMap) {
 		Response getResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 		String key = GlobalConstants.TRANSACTION_ID_KEY;
 		if (cookieMap.containsKey(GlobalConstants.VERIFIED_TRANSACTION_ID_KEY))
 			key = GlobalConstants.VERIFIED_TRANSACTION_ID_KEY;
@@ -913,6 +952,7 @@ public class RestClient {
 		tokens.put(cookieName, cookieValue);
 		tokens.put(idTokenName, idTokenValue);
 		Response getResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
@@ -933,6 +973,7 @@ public class RestClient {
 	public static Response getRequestWithBearerToken(String url, String contentHeader, String acceptHeader,
 			String cookieName, String cookieValue) {
 		Response getResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
@@ -953,6 +994,7 @@ public class RestClient {
 	public static Response getRequestWithCookieForKeyCloak(String url, String contentHeader, String acceptHeader,
 			String cookieName, String cookieValue) {
 		Response getResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
@@ -974,6 +1016,7 @@ public class RestClient {
 	public static Response getRequestWithCookieForUin(String url, String contentHeader, String acceptHeader,
 			String cookieName, String cookieValue) {
 		Response getResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
@@ -995,6 +1038,7 @@ public class RestClient {
 	public static Response postRequestWithCookie(String url, String contentHeader, String acceptHeader,
 			String cookieName, String cookieValue) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
@@ -1016,6 +1060,7 @@ public class RestClient {
 	public static Response putRequestWithParm(String url, Map<String, String> body, String contentHeader,
 			String acceptHeader, String cookieName, String cookieValue) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PUT request to " + url);
@@ -1037,6 +1082,7 @@ public class RestClient {
 	public static Response patchRequestWithParm(String url, Map<String, String> body, String contentHeader,
 			String acceptHeader, String cookieName, String cookieValue) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PATCH request to " + url);
@@ -1058,6 +1104,7 @@ public class RestClient {
 	public static Response putWithPathParamsBodyAndCookie(String url, Map<String, String> pathParams, String body,
 			String contentHeader, String acceptHeader, String cookieName, String cookieValue) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PUT request to " + url);
@@ -1080,6 +1127,7 @@ public class RestClient {
 	public static Response putWithPathParamsBodyAndBearerToken(String url, Map<String, String> pathParams, String body,
 			String contentHeader, String acceptHeader, String cookieName, String cookieValue) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PUT request to " + url);
@@ -1102,6 +1150,7 @@ public class RestClient {
 	public static Response postWithPathParamsBodyAndCookie(String url, Map<String, String> pathParams, String body,
 			String contentHeader, String acceptHeader, String cookieName, String cookieValue) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
@@ -1125,6 +1174,7 @@ public class RestClient {
 			String body, String contentHeader, String acceptHeader, String cookieName, String cookieValue,
 			Map<String, String> headers) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
@@ -1147,6 +1197,7 @@ public class RestClient {
 	public static Response postWithQueryParamsBodyAndCookie(String url, Map<String, String> queryParams, String body,
 			String contentHeader, String acceptHeader, String cookieName, String cookieValue) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
@@ -1169,6 +1220,7 @@ public class RestClient {
 	public static Response postWithBodyAndCookie(String url, Object body, String contentHeader, String acceptHeader,
 			String cookieName, String cookieValue) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
@@ -1190,6 +1242,7 @@ public class RestClient {
 	public static Response patchWithPathParamsBodyAndCookie(String url, Map<String, String> pathParams, String body,
 			String contentHeader, String acceptHeader, String cookieName, String cookieValue) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PUT request to " + url);
@@ -1212,6 +1265,7 @@ public class RestClient {
 	public static Response postRequestWithQueryParm(String url, Map<String, String> body, String contentHeader,
 			String acceptHeader, String cookieName, String cookieValue) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
@@ -1233,6 +1287,7 @@ public class RestClient {
 	public static Response putRequestWithQueryParm(String url, Map<String, String> body, String contentHeader,
 			String acceptHeader, String cookieName, String cookieValue) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PUT request to " + url);
@@ -1254,6 +1309,7 @@ public class RestClient {
 	public static Response putRequestWithCookie(String url, Object body, String contentHeader, String acceptHeader,
 			String cookieName, String cookieValue) {
 		Response putResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PUT request to " + url);
@@ -1278,6 +1334,7 @@ public class RestClient {
 		tokens.put(cookieName, cookieValue);
 		tokens.put(idTokenName, idTokenValue);
 		Response putResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PUT request to " + url);
@@ -1299,6 +1356,7 @@ public class RestClient {
 	public static Response getRequestWithCookieAndPathParm(String url, Map<String, String> body, String contentHeader,
 			String acceptHeader, String cookieName, String cookieValue) {
 		Response getResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
@@ -1323,6 +1381,7 @@ public class RestClient {
 		tokens.put(cookieName, cookieValue);
 		tokens.put(idTokenName, idTokenValue);
 		Response getResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
@@ -1343,6 +1402,7 @@ public class RestClient {
 	public static Response getRequestWithCookieAndPathParmForKeyCloak(String url, Map<String, String> body,
 			String contentHeader, String acceptHeader, String cookieName, String cookieValue) {
 		Response getResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
@@ -1365,6 +1425,7 @@ public class RestClient {
 	public static byte[] getPdf(String url, Map<String, String> body, String contentHeader, String acceptHeader,
 			String cookieName, String cookieValue) {
 		byte[] pdf;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
@@ -1385,6 +1446,7 @@ public class RestClient {
 		tokens.put(cookieName, cookieValue);
 		tokens.put(idTokenName, idTokenValue);
 		byte[] pdf;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
@@ -1402,6 +1464,7 @@ public class RestClient {
 	public static byte[] postWithBodyForPdf(String url, String body, String contentHeader, String acceptHeader,
 			String cookieName, String cookieValue) {
 		byte[] pdf;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
@@ -1422,6 +1485,7 @@ public class RestClient {
 		tokens.put(cookieName, cookieValue);
 		tokens.put(idTokenName, idTokenValue);
 		byte[] pdf;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
@@ -1439,6 +1503,7 @@ public class RestClient {
 	public static byte[] getPdfWithQueryParm(String url, Map<String, String> body, String contentHeader,
 			String acceptHeader, String cookieName, String cookieValue) {
 		byte[] pdf;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
@@ -1460,6 +1525,7 @@ public class RestClient {
 		tokens.put(cookieName, cookieValue);
 		tokens.put(idTokenName, idTokenValue);
 		byte[] pdf;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
@@ -1477,6 +1543,7 @@ public class RestClient {
 	public static Response getRequestWithCookieAndQueryParm(String url, Map<String, String> body, String contentHeader,
 			String acceptHeader, String cookieName, String cookieValue) {
 		Response getResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
@@ -1498,6 +1565,7 @@ public class RestClient {
 	public static Response getRequestWithQueryParm(String url, Map<String, String> body, String contentHeader,
 			String acceptHeader) {
 		Response getResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
@@ -1518,6 +1586,7 @@ public class RestClient {
 	public static Response patchRequestWithCookieAndQueryParm(String url, Map<String, String> body,
 			String contentHeader, String acceptHeader, String cookieName, String cookieValue) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PATCH request to " + url);
@@ -1538,6 +1607,7 @@ public class RestClient {
 	public static Response deleteRequestWithCookieAndPathParm(String url, Map<String, String> body,
 			String contentHeader, String acceptHeader, String cookieName, String cookieValue) {
 		Response deleteResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a DELETE request to " + url);
@@ -1563,6 +1633,7 @@ public class RestClient {
 		tokens.put(cookieName, cookieValue);
 		tokens.put(idTokenName, idTokenValue);
 		Response deleteResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a DELETE request to " + url);
@@ -1582,6 +1653,7 @@ public class RestClient {
 
 	public static Response deleteRequest(String url, String contentHeader, String acceptHeader) {
 		Response deleteResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a DELETE request to " + url);
@@ -1602,6 +1674,7 @@ public class RestClient {
 	public static Response deleteRequestWithCookieAndPathParmForKeyCloak(String url, Map<String, String> body,
 			String contentHeader, String acceptHeader, String cookieName, String cookieValue) {
 		Response deleteResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a DELETE request to " + url);
@@ -1624,6 +1697,7 @@ public class RestClient {
 	public static Response postRequestWithCookieAndOnlyPathParm(String url, Map<String, String> body,
 			String contentHeader, String acceptHeader, String cookieName, String cookieValue) {
 		Response getResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
@@ -1649,6 +1723,7 @@ public class RestClient {
 		tokens.put(cookieName, cookieValue);
 		tokens.put(idTokenName, idTokenValue);
 		Response getResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
@@ -1670,6 +1745,7 @@ public class RestClient {
 			Map<String, String> queryParams, String contentHeader, String acceptHeader, String cookieName,
 			String cookieValue) {
 		Response postResponse;
+		GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request with query param " + url);
@@ -1687,5 +1763,25 @@ public class RestClient {
 		}
 
 		return postResponse;
+	}
+
+	public static byte[] postRequestWithFormDataBodyForPdf(String url, Map<String, String> formData) {
+		byte[] pdf;
+		GlobalMethods.addToServerEndPointMap(url);
+
+		EncoderConfig encoderConfig = new EncoderConfig().encodeContentTypeAs("application/x-www-form-urlencoded",
+				io.restassured.http.ContentType.URLENC);
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request to " + url);
+
+		if (ConfigManager.IsDebugEnabled()) {
+			pdf = given().config(config.encoderConfig(encoderConfig)).relaxedHTTPSValidation().formParams(formData)
+					.contentType("application/x-www-form-urlencoded").log().all().when().post(url).then().extract()
+					.asByteArray();
+		} else {
+			pdf = given().config(config.encoderConfig(encoderConfig)).relaxedHTTPSValidation().formParams(formData)
+					.contentType("application/x-www-form-urlencoded").when().post(url).then().extract().asByteArray();
+		}
+
+		return pdf;
 	}
 }
