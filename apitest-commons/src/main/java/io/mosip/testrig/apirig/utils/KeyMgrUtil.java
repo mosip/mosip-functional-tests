@@ -485,7 +485,7 @@ public class KeyMgrUtil {
 	
 	public X509Certificate getCertificate(String refId)
 			throws KeyStoreException, IOException, CertificateException {
-		String keysDirPath = getKeysDirPath();
+		String keysDirPath = AdminTestUtil.getKeysDirPath();
 		
 		String certFilePath = keysDirPath + '/' + "ida-partner.cer";
 //		String certFilePath = keysDirPath + '/' + "ida-" + "partner" + ".cer";
