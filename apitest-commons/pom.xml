@@ -19,8 +19,7 @@
 
 	<scm>
 		<connection>scm:git:git://github.com/mosip/mosip-functional-tests.git</connection>
-		<developerConnection>
-			scm:git:ssh://github.com:mosip/mosip-functional-tests.git</developerConnection>
+		<developerConnection>scm:git:ssh://github.com:mosip/mosip-functional-tests.git</developerConnection>
 		<url>https://github.com/mosip/mosip-functional-tests</url>
 		<tag>HEAD</tag>
 	</scm>
@@ -46,11 +45,13 @@
 		<maven.jar.plugin.version>3.0.2</maven.jar.plugin.version>
 		<maven.war.plugin.version>3.1.0</maven.war.plugin.version>
 		<maven.sonar.plugin.version>3.7.0.1746</maven.sonar.plugin.version>
+		
+		<!-- utilities -->
 		<commons-codec>1.15</commons-codec>
 		<commons.beanutils.version>1.9.2</commons.beanutils.version>
 		<velocity.version>1.7</velocity.version>
-		<hadoop-client>2.8.1</hadoop-client>
 		<icu4j.version>63.1</icu4j.version>
+		<hadoop-client>2.8.1</hadoop-client>
 		<aws.javasdk.version>1.11.368</aws.javasdk.version>
 
 		<!-- Hibernate version -->
@@ -103,8 +104,7 @@
 			<artifactId>javassist</artifactId>
 		</dependency>
 		<dependency>
-			<!-- keep the version of this 3 or below 3 else it will convert = to
-			&#x3D; 
+			<!-- keep the version of this 3 or below 3 else it will convert = to &#x3D; 
 				ref: https://github.com/handlebars-lang/handlebars.js/issues/1489 -->
 			<groupId>com.github.jknack</groupId>
 			<artifactId>handlebars</artifactId>
@@ -164,19 +164,19 @@
 			<artifactId>zt-zip</artifactId>
 			<version>${zt.zip.version}</version>
 		</dependency>
-		<!--https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
 		</dependency>
 
-		<!--https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 		</dependency>
 
-		<!--https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-annotations</artifactId>
@@ -355,7 +355,7 @@
 			<artifactId>checker-qual</artifactId>
 			<version>2.9.0</version>
 		</dependency>
-		<!--https://mvnrepository.com/artifact/org.apache.activemq/activemq-broker -->
+		<!-- https://mvnrepository.com/artifact/org.apache.activemq/activemq-broker -->
 		<dependency>
 			<groupId>org.apache.activemq</groupId>
 			<artifactId>activemq-broker</artifactId>
@@ -486,6 +486,7 @@
 				</configuration>
 			</plugin>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>${maven.compiler.version}</version>
 				<configuration>
@@ -660,8 +661,7 @@
 						</goals>
 						<configuration>
 							<target>
-								<!-- Create a shell script to run the JAR file
-								with executable permission -->
+								<!-- Create a shell script to run the JAR file with executable permission -->
 								<chmod file="${project.build.directory}/*.jar"
 									perm="ugo+rx" />
 							</target>
