@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,6 +40,8 @@ import io.mosip.testrig.apirig.utils.ConfigManager;
 import io.mosip.testrig.apirig.utils.GlobalConstants;
 import io.mosip.testrig.apirig.utils.GlobalMethods;
 import io.mosip.testrig.apirig.utils.KernelAuthentication;
+import io.mosip.testrig.apirig.utils.KeycloakUserManager;
+import io.mosip.testrig.apirig.utils.PartnerRegistration;
 import io.mosip.testrig.apirig.utils.RestClient;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -184,6 +187,15 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			MosipTestRunner.getGlobalResourcePath() + "/" + "config/Kernel.properties");
 	
 	public static String currentRunningLanguage = "";
+	
+	//Need to handle this
+	/*
+	 * static String timeStamp =
+	 * String.valueOf(Calendar.getInstance().getTimeInMillis()); static String
+	 * partnerId = "Tech-1245"; static String emailId = "mosip_1" + timeStamp +
+	 * "@gmail.com"; static String role = PartnerRegistration.partnerType;
+	 */
+	
 
 	public static String getOSType() {
 		String type = System.getProperty("os.name");
@@ -315,7 +327,11 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			BaseTestCase.currentModule = GlobalConstants.PARTNERNEW;
 			DBManager.clearPartnerRevampDbData();
 			DBManager.clearKeyManagerDbDataForPartnerRevamp();
-			//DBManager.clearKeyManagerDbData();
+			DBManager.clearIDADbDataForPartnerRevamp();
+			//KeycloakUserManager.createKeyCloakUsers(partnerId, emailId, role);
+			
+			
+			
 			BaseTestCase.currentModule = GlobalConstants.PARTNERNEW;
 			setReportName(GlobalConstants.PARTNERNEW);
 			AdminTestUtil.copyPmsNewTestResource();
