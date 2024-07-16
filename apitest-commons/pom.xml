@@ -551,8 +551,7 @@
 							<dateFormat>MM/dd/yyyy HH:mm:ss Z</dateFormat>
 							<abbrevLength>8</abbrevLength>
 							<generateGitPropertiesFile>true</generateGitPropertiesFile>
-							<generateGitPropertiesFilename>
-								${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
+							<generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
 						</configuration>
 					</execution>
 				</executions>
@@ -695,8 +694,7 @@
 						<configuration>
 							<target>
 								<!-- Create a shell script to run the JAR file with executable permission -->
-								<chmod file="${project.build.directory}/*.jar"
-									perm="ugo+rx" />
+								<chmod file="${project.build.directory}/*.jar" perm="ugo+rx" />
 							</target>
 						</configuration>
 					</execution>
