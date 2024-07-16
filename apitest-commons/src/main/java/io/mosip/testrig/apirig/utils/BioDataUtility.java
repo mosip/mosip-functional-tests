@@ -4,7 +4,6 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
-import java.util.HashMap;
 import java.util.regex.Pattern;
 
 import javax.ws.rs.core.MediaType;
@@ -13,12 +12,14 @@ import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.HMACUtils;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 import io.mosip.testrig.apirig.testrunner.JsonPrecondtion;
-import io.restassured.response.Response;
+import io.mosip.testrig.apirig.utils.Encrypt.SplittedEncryptedData;
 
 /**
  * The class to perform or construct biometric identity data which involves
@@ -28,10 +29,14 @@ import io.restassured.response.Response;
  * @author Ravi Kant
  *
  */
-
+@Component
 public class BioDataUtility extends AdminTestUtil {
 
 	private static final Logger logger = Logger.getLogger(BioDataUtility.class);
+	@Autowired
+	private EncryptionDecrptionUtil encryptDecryptUtil;
+	@Autowired
+	private Encrypt encrypt;
 
 
 	private String encryptIsoBioValue(String isoBiovalue, String timestamp, String bioValueEncryptionTemplateJson,
@@ -57,12 +62,42 @@ public class BioDataUtility extends AdminTestUtil {
 			
 		residentCookie = kernelAuthLib.getTokenByRole(GlobalConstants.RESIDENT);
 		
+		
+//		try {
+//			String json = encryptDecryptUtil.encrypt(jsonContent);
+//			logger.info("json is" + json);
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
 		String content = RestClient.postRequestWithCookie(cryptoEncryptUrl, jsonContent, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, COOKIENAME, residentCookie).asString();
 		String data = JsonPrecondtion.getValueFromJson(content, "response.data");
 		logger.info("data is" + data);
-		return EncryptionDecrptionUtil.splitEncryptedData(data);
+		
+		SplittedEncryptedData splittedEncryptedData = null;
+		JSONObject splittedEncryptedDataJson = new JSONObject();
+		
+		
+		try {
+			splittedEncryptedData = encrypt.splitEncryptedData(data);
+			logger.info("EncryptedSessionKey is " + splittedEncryptedData.getEncryptedSessionKey());
+			logger.info("EncryptedData is " + splittedEncryptedData.getEncryptedData());
+			logger.info("Thumbprint is " + splittedEncryptedData.getThumbprint());
+			splittedEncryptedDataJson.put("encryptedSessionKey", splittedEncryptedData.getEncryptedSessionKey());
+			splittedEncryptedDataJson.put("encryptedData", splittedEncryptedData.getEncryptedData());
+			splittedEncryptedDataJson.put("thumbprint", splittedEncryptedData.getThumbprint());			
+			
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		
+//		return EncryptionDecrptionUtil.splitEncryptedData(data);
+		return splittedEncryptedDataJson.toString();
 	}
+	
+	
 
 	private String getHash(String content) {
 		return HMACUtils.digestAsPlainText(HMACUtils.generateHash(content.getBytes()));
@@ -116,7 +151,7 @@ public class BioDataUtility extends AdminTestUtil {
 		byte [] previousDataByteArr =  "".getBytes(StandardCharsets.UTF_8);
 		previousBioDataHash = generateHash(previousDataByteArr);
 		for (int i = 0; i < count; i++) {
-			String biometricsMapper = "identityRequest.(biometrics)[" + i + "]";
+			String biometricsMapper = "(biometrics)[" + i + "]";
 			if (!isInternal) {
 				String digitalId = JsonPrecondtion.getJsonValueFromJson(identityRequest,
 						biometricsMapper + ".data.digitalId");
@@ -135,6 +170,15 @@ public class BioDataUtility extends AdminTestUtil {
 			String encryptedContent = encryptIsoBioValue(bioValue, timestamp, bioValueencryptionTemplateJson,
 					transactionId, isInternal);
 			String encryptedBioValue = JsonPrecondtion.getValueFromJson(encryptedContent, "encryptedData");
+			
+			
+			
+			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, BaseTestCase.ApplnURI,
+					biometricsMapper + ".data.domainUri");
+			
+			
+			
+			logger.info(identityRequest);
 			String encryptedSessionKey = JsonPrecondtion.getValueFromJson(encryptedContent, "encryptedSessionKey");
 			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, encryptedBioValue,
 					biometricsMapper + ".data.bioValue");
@@ -171,7 +215,7 @@ public class BioDataUtility extends AdminTestUtil {
 		}
 
 		identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest,
-				AdminTestUtil.generateCurrentUTCTimeStamp(), "identityRequest.timestamp");
+				AdminTestUtil.generateCurrentUTCTimeStamp(), "timestamp");
 
 		return identityRequest;
 	}
@@ -189,27 +233,52 @@ public class BioDataUtility extends AdminTestUtil {
 	
 	private String generateSignatureWithBioMetric(String identityDataBlock, String string, String key) {
 		
-		String singResponse = null;
-		String EncryptUtilBaseUrl = ConfigManager.getAuthDemoServiceUrl() + "/";
+		PartnerTypes partnerTypeEnum = null;
+		if (key.equals("RELYING_PARTY")) {
+			partnerTypeEnum = PartnerTypes.RELYING_PARTY;           
+        } else if (key.equals("DEVICE")) {
+        	partnerTypeEnum = PartnerTypes.DEVICE;
+        }else if (key.equals("FTM")) {
+        	partnerTypeEnum = PartnerTypes.FTM;
+        }else if (key.equals("EKYC")) {
+        	partnerTypeEnum = PartnerTypes.EKYC;
+        }else if (key.equals("MISP")) {
+        	partnerTypeEnum = PartnerTypes.MISP;
+        }
+		AuthUtil authUtil = new AuthUtil();
+		String response = null;
+		try {
+			response = authUtil.signRequest(partnerTypeEnum, null, false, identityDataBlock,"", BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
 		
-        residentCookie = kernelAuthLib.getTokenByRole(GlobalConstants.RESIDENT);
-        HashMap<String, String> pathParamsMap = new HashMap<>();
-        pathParamsMap.put("partnerType", key);
-        pathParamsMap.put("moduleName", BaseTestCase.certsForModule);
-        pathParamsMap.put("certsDir", ConfigManager.getauthCertsPath());
-		Response response = RestClient.postRequestWithQueryParamBodyAndCookie(
-				EncryptUtilBaseUrl + properties.get("signRequest"), identityDataBlock, pathParamsMap,
-				 MediaType.TEXT_PLAIN, MediaType.TEXT_PLAIN, GlobalConstants.AUTHORIZATION,
-				residentCookie);
-		
+//		String singResponse = null;
+//		String EncryptUtilBaseUrl = ConfigManager.getAuthDemoServiceUrl() + "/";
+//		
+//        residentCookie = kernelAuthLib.getTokenByRole(GlobalConstants.RESIDENT);
+//        HashMap<String, String> pathParamsMap = new HashMap<>();
+//        pathParamsMap.put("partnerType", key);
+//        pathParamsMap.put("moduleName", BaseTestCase.certsForModule);
+//        pathParamsMap.put("certsDir", ConfigManager.getauthCertsPath());
+//        
+//        
+//		Response response = RestClient.postRequestWithQueryParamBodyAndCookie(
+//				EncryptUtilBaseUrl + properties.get("signRequest"), identityDataBlock, pathParamsMap,
+//				 MediaType.TEXT_PLAIN, MediaType.TEXT_PLAIN, GlobalConstants.AUTHORIZATION,
+//				residentCookie);
+//		
 		byte[] bytePayload = identityDataBlock.getBytes();
 		String payloadData = Base64.getUrlEncoder().encodeToString(bytePayload);
 		payloadData= payloadData.replace("=", "");
-		String signNewResponse = response.asString().replace("..", "."+ payloadData +".");
+		
+		String signNewResponse = response.replace("..", "."+ payloadData +".");
 		logger.info(signNewResponse);
 		
         
-         singResponse = response.asString();
+         //singResponse = response.asString();
 		
 		return signNewResponse;
 	}

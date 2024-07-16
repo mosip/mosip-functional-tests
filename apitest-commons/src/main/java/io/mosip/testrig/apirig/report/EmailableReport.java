@@ -259,12 +259,23 @@ public class EmailableReport implements IReporter {
 			
 			// Left column: "Tested Component Details" with central alignment
 			writer.print("<th style=\"text-align: center; vertical-align: middle;\" colspan=\"2\"><span class=\"not-bold\"><pre>");
-			writer.print(Utils.escapeHtml("Tested Component Details"));
+			writer.print(Utils.escapeHtml("Server Component Details"));
 			writer.print("</span></th>");
 
 			// Right column: Details from AdminTestUtil.getServerComponentsDetails() without bold formatting
 			writer.print("<td colspan=\"5\"><pre>");
 			writer.print(Utils.escapeHtml(AdminTestUtil.getServerComponentsDetails()));
+			writer.print("</pre></td>");
+			writer.print(GlobalConstants.TRTR);
+			
+			// Left column: "Tested Component Details" with central alignment
+			writer.print("<th style=\"text-align: center; vertical-align: middle;\" colspan=\"2\"><span class=\"not-bold\"><pre>");
+			writer.print(Utils.escapeHtml("End Points used"));
+			writer.print("</span></th>");
+
+			// Right column: Details from AdminTestUtil.getServerComponentsDetails() without bold formatting
+			writer.print("<td colspan=\"5\"><pre>");
+			writer.print(Utils.escapeHtml(GlobalMethods.getComponentDetails()));
 			writer.print("</pre></td>");
 			writer.print(GlobalConstants.TRTR);
 			

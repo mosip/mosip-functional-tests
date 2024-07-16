@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +21,8 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.json.JSONArray;
 import org.json.simple.JSONObject;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterSuite;
 
@@ -28,6 +31,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.nimbusds.jose.jwk.RSAKey;
 
+import io.mosip.testrig.apirig.admin.fw.config.BeanConfig;
 import io.mosip.testrig.apirig.dbaccess.DBManager;
 import io.mosip.testrig.apirig.utils.AdminTestUtil;
 import io.mosip.testrig.apirig.utils.AuthTestsUtil;
@@ -36,6 +40,8 @@ import io.mosip.testrig.apirig.utils.ConfigManager;
 import io.mosip.testrig.apirig.utils.GlobalConstants;
 import io.mosip.testrig.apirig.utils.GlobalMethods;
 import io.mosip.testrig.apirig.utils.KernelAuthentication;
+import io.mosip.testrig.apirig.utils.KeycloakUserManager;
+import io.mosip.testrig.apirig.utils.PartnerRegistration;
 import io.mosip.testrig.apirig.utils.RestClient;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -45,8 +51,8 @@ import io.restassured.response.Response;
  * All suite level before and after tests will be completed here.
  *
  */
-
-public class BaseTestCase {
+@ContextConfiguration(classes = {BeanConfig.class})
+public class BaseTestCase extends AbstractTestNGSpringContextTests {
 
 	protected static Logger logger = Logger.getLogger(BaseTestCase.class);
 	protected static MockSMTPListener mockSMTPListener = null;
@@ -74,6 +80,7 @@ public class BaseTestCase {
 	public String zonalApproverCookie = null;
 	public String adminCookie = null;
 	public String partnerCookie = null;
+	public String partnerrevampCookie = null;
 	public String partnerNewCookie = null;
 	public String withoutpartnerCookie = null;
 	public String withoutpolicyCookie = null;
@@ -91,7 +98,7 @@ public class BaseTestCase {
 	public String mobileAuthCookie = null;
 	public String autoTstUsrCkie = null;
 	public static String currentModule = GlobalConstants.MASTERDATA;
-	public static String certsForModule = "DSL-IDA";
+	public static String certsForModule = "DSL";
 	public static List<String> listOfModules = null;
 	public static List<String> languageList = new ArrayList<>();
 	public static String languageCode = null;
@@ -180,6 +187,15 @@ public class BaseTestCase {
 			MosipTestRunner.getGlobalResourcePath() + "/" + "config/Kernel.properties");
 	
 	public static String currentRunningLanguage = "";
+	
+	//Need to handle this
+	/*
+	 * static String timeStamp =
+	 * String.valueOf(Calendar.getInstance().getTimeInMillis()); static String
+	 * partnerId = "Tech-1245"; static String emailId = "mosip_1" + timeStamp +
+	 * "@gmail.com"; static String role = PartnerRegistration.partnerType;
+	 */
+	
 
 	public static String getOSType() {
 		String type = System.getProperty("os.name");
@@ -253,8 +269,8 @@ public class BaseTestCase {
 			BaseTestCase.certsForModule = "IDA";
 			AuthTestsUtil.initiateAuthTest();
 			
-			mockSMTPListener = new MockSMTPListener();
-			mockSMTPListener.run();
+//			mockSMTPListener = new MockSMTPListener();
+//			mockSMTPListener.run();
 		}
 		if (listOfModules.contains("idrepo")) {
 			setReportName("idrepo");
@@ -305,6 +321,20 @@ public class BaseTestCase {
 			BaseTestCase.currentModule = "partner";
 			setReportName("partner");
 			AdminTestUtil.copyPartnerTestResource();
+		}
+		
+		if (listOfModules.contains(GlobalConstants.PARTNERNEW)) {
+			BaseTestCase.currentModule = GlobalConstants.PARTNERNEW;
+			DBManager.clearPartnerRevampDbData();
+			DBManager.clearKeyManagerDbDataForPartnerRevamp();
+			DBManager.clearIDADbDataForPartnerRevamp();
+			//KeycloakUserManager.createKeyCloakUsers(partnerId, emailId, role);
+			
+			
+			
+			BaseTestCase.currentModule = GlobalConstants.PARTNERNEW;
+			setReportName(GlobalConstants.PARTNERNEW);
+			AdminTestUtil.copyPmsNewTestResource();
 		}
 		if (listOfModules.contains(GlobalConstants.PREREG)) {
 			BaseTestCase.currentModule = GlobalConstants.PREREG;
