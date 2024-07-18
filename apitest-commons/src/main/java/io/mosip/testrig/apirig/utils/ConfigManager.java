@@ -117,8 +117,6 @@ public class ConfigManager {
 	private static String USE_EXTERNAL_SCENARIO_SHEET = "useExternalScenarioSheet";
 	private static String useExternalScenario_sheet;
 
-	private static String AUTH_DEMO_SERVICE_PORT = "authDemoServicePort";
-	private static String AUTH_DEMO_SERVICE_BASE_URL = "authDemoServiceBaseURL";
 	private static String MOUNT_PATH = "mountPath";
 	private static String AUTHCERTS_PATH = "authCertsPath";
 	private static String MOUNT_PATH_FOR_SCENARIO = "mountPathForScenario";
@@ -240,8 +238,6 @@ public class ConfigManager {
 	
 	private static String iamUsersToCreate;
 	private static String iamUsersPassword;
-	private static String authDemoServicePort;
-	private static String authDemoServiceBaseUrl;
 	
 	private static String serverErrorsToMonitor;
 
@@ -347,11 +343,6 @@ public class ConfigManager {
 				: System.getenv(MOSIP_ADMIN_CLIENT_SECRET);
 
 		propsKernel.setProperty(MOSIP_ADMIN_CLIENT_SECRET, admin_client_secret);
-
-		authDemoServicePort = System.getenv(AUTH_DEMO_SERVICE_PORT) == null
-				? propsKernel.getProperty(AUTH_DEMO_SERVICE_PORT)
-				: System.getenv(AUTH_DEMO_SERVICE_PORT);
-		propsKernel.setProperty(AUTH_DEMO_SERVICE_PORT, authDemoServicePort);
 		
 		serverErrorsToMonitor = System.getenv(SERVER_ERRORS_TO_MONITOR) == null
 				? propsKernel.getProperty(SERVER_ERRORS_TO_MONITOR)
@@ -362,11 +353,6 @@ public class ConfigManager {
 				? propsKernel.getProperty(REPORT_EXPIRATION_IN_DAYS)
 				: System.getenv(REPORT_EXPIRATION_IN_DAYS);
 		propsKernel.setProperty(REPORT_EXPIRATION_IN_DAYS, reportExpirationInDays);
-
-		authDemoServiceBaseUrl = System.getenv(AUTH_DEMO_SERVICE_BASE_URL) == null
-				? propsKernel.getProperty(AUTH_DEMO_SERVICE_BASE_URL)
-				: System.getenv(AUTH_DEMO_SERVICE_BASE_URL);
-		propsKernel.setProperty(AUTH_DEMO_SERVICE_BASE_URL, authDemoServiceBaseUrl);
 
 		mountPath = System.getenv(MOUNT_PATH) == null ? propsKernel.getProperty(MOUNT_PATH) : System.getenv(MOUNT_PATH);
 		propsKernel.setProperty(MOUNT_PATH, mountPath);
@@ -555,17 +541,8 @@ public class ConfigManager {
 		return reportIgnoredTestCases.equalsIgnoreCase("yes");
 	}
 
-	public static String getAuthDemoServicePort() {
-		return authDemoServicePort;
-	}
-
 	public static String getReportExpirationInDays() {
 		return reportExpirationInDays;
-	}
-
-	public static String getAuthDemoServiceBaseUrl() {
-		return authDemoServiceBaseUrl;
-
 	}
 
 	public static int getLangselect() {
@@ -924,9 +901,5 @@ public class ConfigManager {
 			AdminTestUtil.closeInputStream(inputStream);
 		}
 		return prop;
-	}
-
-	public static String getAuthDemoServiceUrl() {
-		return ConfigManager.getAuthDemoServiceBaseUrl() + ":" + ConfigManager.getAuthDemoServicePort();
 	}
 }
