@@ -95,7 +95,8 @@ public class MosipTestRunner {
 					|| BaseTestCase.listOfModules.contains(GlobalConstants.ESIGNET) 
 					|| BaseTestCase.listOfModules.contains(GlobalConstants.MIMOTO)
 					|| BaseTestCase.listOfModules.contains("resident")
-					|| BaseTestCase.listOfModules.contains("idrepo")) {
+					|| BaseTestCase.listOfModules.contains("idrepo"))
+			{
 				PartnerRegistration.deleteCertificates();
 				CertificateGenerationUtil.getThumbprints();
 				AdminTestUtil.createAndPublishPolicy();
