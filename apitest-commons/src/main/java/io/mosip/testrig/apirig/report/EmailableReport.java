@@ -280,7 +280,12 @@ public class EmailableReport implements IReporter {
 			writer.print("</pre></td>");
 			writer.print(GlobalConstants.TRTR);
 			
-			writer.print("<tr><th colspan=\"7\"><span class=\"not-bold\"><pre>");
+			if (GlobalMethods.getServerErrors().equals("No server errors")) {
+				writer.print("<tr><th colspan=\"7\"><span class=\"not-bold\"><pre>");
+			} else {
+				writer.print(
+						"<tr style=\"background-color: red;\"><th colspan=\"7\"><span class=\"not-bold\"><pre>");
+			}
 			writer.print(Utils.escapeHtml("Server Errors " + "\n" + GlobalMethods.getServerErrors()));
 			writer.print("</pre></span>");
 			writer.print(GlobalConstants.TRTR);
