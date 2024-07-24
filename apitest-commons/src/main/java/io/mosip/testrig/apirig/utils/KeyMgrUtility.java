@@ -118,7 +118,7 @@ public class KeyMgrUtility {
         String certsTargetDir = System.getProperty("java.io.tmpdir") + File.separator + System.getProperty("parent.certs.folder.name", "AUTHCERTS");
 
         if (System.getProperty("os.name").toLowerCase().contains("windows") == false) {
-            certsTargetDir = "/Users/kamalsingh/mosip/authcerts";
+            certsTargetDir = "/home/mosip/authcerts";
         }
 
         String certsModuleName = "IDA";
