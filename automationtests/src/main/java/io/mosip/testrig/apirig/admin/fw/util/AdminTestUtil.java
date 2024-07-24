@@ -3727,8 +3727,11 @@ public class AdminTestUtil extends BaseTestCase {
 		if (tempUrl.contains("esignet.")) {
 			tempUrl = tempUrl.replace("esignet.", propsKernel.getProperty("esignetMockBaseURL"));
 		}
-		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(GlobalConstants.ESIGNET_DEFAULT_PROPERTIES,
+		
+		logger.info("actuatorPropertySection = " + ConfigManager.getActuatorPropertySection());
+		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(ConfigManager.getActuatorPropertySection(),
 				GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
+		logger.info("idTokenExpirySecs = " + idTokenExpirySecs);
 		JWSSigner signer;
 		String proofJWT = "";
 		String typ = "openid4vci-proof+jwt";
@@ -5785,8 +5788,11 @@ public class AdminTestUtil extends BaseTestCase {
 		if (tempUrl.contains("esignet.")) {
 			tempUrl = tempUrl.replace("esignet.", propsKernel.getProperty("esignetMockBaseURL"));
 		}
-		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(GlobalConstants.ESIGNET_DEFAULT_PROPERTIES,
+		
+		logger.info("actuatorPropertySection = " + ConfigManager.getActuatorPropertySection());
+		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(ConfigManager.getActuatorPropertySection(),
 				GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
+		logger.info("idTokenExpirySecs = " + idTokenExpirySecs);
 		JWSSigner signer;
 
 		try {
