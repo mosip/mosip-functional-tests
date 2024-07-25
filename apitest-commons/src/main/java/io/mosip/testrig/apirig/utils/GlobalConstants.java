@@ -91,6 +91,7 @@ public class GlobalConstants {
 	public static final String KYCAUTHENDPOINT = "kycAuthEndPoint";
 	public static final String IDP_ACCESS_TOKEN = "idpAccessToken";
 	public static final String RESIDENT_DEFAULT_PROPERTIES = "resident-default.properties";
+//	public static final String MOSIP_DATE_OF_BIRTH_PATTERN = "mosip.date-of-birth.pattern";
 	public static final String ESIGNET_DEFAULT_PROPERTIES = "esignet-default.properties";
 	public static final String MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS = "mosip.esignet.id-token-expire-seconds";
 	public static final String MOSIP_ESIGNET_ACCESS_TOKEN_EXPIRE_SECONDS = "mosip.esignet.access-token-expire-seconds";

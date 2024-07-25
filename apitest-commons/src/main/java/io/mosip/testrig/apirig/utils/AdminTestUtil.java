@@ -3412,6 +3412,11 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = replaceKeywordWithValue(jsonString, "$OIDCCLIENT$",
 					getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES, "mosip.iam.module.clientID"));
 		}
+			
+			if (jsonString.contains("$DOB$")) {
+				jsonString = replaceKeywordWithValue(jsonString, "$DOB$",
+						getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES, "mosip.date-of-birth.pattern"));
+		}
 		if (jsonString.contains("$GETCLIENTIDFROMMIMOTOACTUATOR$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$GETCLIENTIDFROMMIMOTOACTUATOR$",
 					getValueFromMimotoActuator("configService:overrides", "mimoto.oidc.partner.clientid"));
@@ -4894,6 +4899,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String schemaRequiredField = "";
 	String phoneNumber = "";
 	public static String phoneSchemaRegex = "";
+	public static String dateOfBirthSchemaRegex = "";
 	public static Double idSchemaVersion;
 
 	public static String modifySchemaGenerateHbs() {
@@ -4934,6 +4940,9 @@ public class AdminTestUtil extends BaseTestCase {
 
 			String phone = getValueFromAuthActuator("json-property", "phone_number");
 			String result = phone.replaceAll("\\[\"|\"\\]", "");
+			
+			String dateOfBirth = getValueFromAuthActuator("json-property", "birthdate");
+			String dateOfBirthResult = dateOfBirth.replaceAll("\\[\"|\"\\]", "");
 
 			if (!isElementPresent(requiredPropsArray, result)) {
 				requiredPropsArray.put(result);
@@ -4941,6 +4950,11 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			if (identityPropsJson.has(result)) {
 				phoneSchemaRegex = identityPropsJson.getJSONObject(result).getJSONArray("validators").getJSONObject(0)
+						.getString("validator");
+			}
+			
+			if (identityPropsJson.has(dateOfBirthResult)) {
+				dateOfBirthSchemaRegex = identityPropsJson.getJSONObject(dateOfBirthResult).getJSONArray("validators").getJSONObject(0)
 						.getString("validator");
 			}
 
