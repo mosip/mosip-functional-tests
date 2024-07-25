@@ -77,6 +77,7 @@ public class ConfigManager {
 	private static String ESIGNET_BASE_URL = "eSignetbaseurl";
 
 	private static String ESIGNET_MOCK_BASE_URL = "esignetMockBaseURL";
+	private static String SUNBIRD_BASE_URL = "sunBirdBaseURL";
 
 	private static String PRECONFIGOTP = "preconfiguredOtp";
 	private static String DB_PORT = "db-port";
@@ -203,6 +204,7 @@ public class ConfigManager {
 	private static String preconfiguredOtp;
 	private static String eSignetbaseurl;
 	private static String esignetMockBaseURL;
+	private static String sunBirdBaseURL;
 
 	private static String dbPort;
 	private static String dbDomain;
@@ -416,6 +418,11 @@ public class ConfigManager {
 				? propsKernel.getProperty(ESIGNET_MOCK_BASE_URL)
 				: System.getenv(ESIGNET_MOCK_BASE_URL);
 		propsKernel.setProperty(ESIGNET_MOCK_BASE_URL, esignetMockBaseURL);
+		
+		sunBirdBaseURL = System.getenv(SUNBIRD_BASE_URL) == null
+				? propsKernel.getProperty(SUNBIRD_BASE_URL)
+				: System.getenv(SUNBIRD_BASE_URL);
+		propsKernel.setProperty(SUNBIRD_BASE_URL, sunBirdBaseURL);
 
 		serviceNotDeployedList = System.getenv(SERVICES_NOT_DEPLOYED) == null
 				? propsKernel.getProperty(SERVICES_NOT_DEPLOYED)
@@ -557,6 +564,11 @@ public class ConfigManager {
 
 	public static String getEsignetMockBaseURL() {
 		return esignetMockBaseURL;
+
+	}
+	
+	public static String getSunBirdBaseURL() {
+		return sunBirdBaseURL;
 
 	}
 

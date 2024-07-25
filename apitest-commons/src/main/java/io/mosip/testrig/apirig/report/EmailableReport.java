@@ -31,6 +31,7 @@ import org.testng.internal.Utils;
 import org.testng.log4testng.Logger;
 import org.testng.xml.XmlSuite;
 
+import io.mosip.testrig.apirig.dto.TestCaseDTO;
 import io.mosip.testrig.apirig.utils.AdminTestUtil;
 import io.mosip.testrig.apirig.utils.ConfigManager;
 import io.mosip.testrig.apirig.utils.GlobalConstants;
@@ -279,7 +280,12 @@ public class EmailableReport implements IReporter {
 			writer.print("</pre></td>");
 			writer.print(GlobalConstants.TRTR);
 			
-			writer.print("<tr><th colspan=\"7\"><span class=\"not-bold\"><pre>");
+			if (GlobalMethods.getServerErrors().equals("No server errors")) {
+				writer.print("<tr><th colspan=\"7\"><span class=\"not-bold\"><pre>");
+			} else {
+				writer.print(
+						"<tr style=\"background-color: red;\"><th colspan=\"7\"><span class=\"not-bold\"><pre>");
+			}
 			writer.print(Utils.escapeHtml("Server Errors " + "\n" + GlobalMethods.getServerErrors()));
 			writer.print("</pre></span>");
 			writer.print(GlobalConstants.TRTR);
@@ -293,7 +299,7 @@ public class EmailableReport implements IReporter {
 			if (ConfigManager.reportIgnoredTestCases()) {
 				writer.print("<th># Ignored</th>");
 			}
-			writer.print("<th>Time (ms)</th>");
+			writer.print("<th>Execution Time (ms)</th>");
 //			writer.print("<th>Included Groups</th>");
 //			writer.print("<th>Excluded Groups</th>");
 			writer.print(GlobalConstants.TR);
@@ -427,10 +433,9 @@ public class EmailableReport implements IReporter {
 		writer.print("<table id='summary'>");
 		writer.print("<thead>");
 		writer.print("<tr>");
-//		writer.print("<th>Class</th>");
-		writer.print("<th>Method</th>");
-//		writer.print("<th>Start</th>");
-		writer.print("<th>Time (ms)</th>");
+		writer.print("<th>Test Case</th>");
+		writer.print("<th>Test Case Description</th>");
+		writer.print("<th>Execution Time (ms)</th>");
 		writer.print(GlobalConstants.TR);
 		writer.print("</thead>");
 
@@ -477,6 +482,20 @@ public class EmailableReport implements IReporter {
 
 		writer.print(GlobalConstants.TABLE);
 	}
+	
+	private String getTestCaseDescription(ITestResult result) {
+		Object[] parameters = result.getParameters();
+		if (parameters != null && parameters.length > 0 && parameters[0] instanceof TestCaseDTO) {
+			TestCaseDTO testCase = (TestCaseDTO) parameters[0];
+			System.out.println("Test Case Name: " + testCase.getDescription());
+			if (testCase.getDescription() == null)
+				return "";
+			else
+				return testCase.getDescription();
+		}
+
+		return "";
+	}
 
 	/**
 	 * Writes the scenario summary for the results of a given state for a single
@@ -505,6 +524,7 @@ public class EmailableReport implements IReporter {
 					assert resultsCount > 0;
 
 					ITestResult firstResult = results.iterator().next();
+					String testCaseDescription = getTestCaseDescription(firstResult);
 					String methodName = Utils.escapeHtml(firstResult.getMethod().getMethodName());
 					long start = firstResult.getStartMillis();
 					long duration = firstResult.getEndMillis() - start;
@@ -514,18 +534,19 @@ public class EmailableReport implements IReporter {
 
 					}
 					buffer.append("<td style=\"text-align:center;\"><a href=\"#m").append(scenarioIndex).append("\">")
-					.append(methodName).append("</a></td>")
-					.append("<td style=\"text-align:center;\" rowspan=\"").append(resultsCount).append("\">")
-					.append(duration).append("</td></tr>");
+							.append(methodName).append("</a></td>").append("<td style=\"text-align:center;\">")
+							.append(testCaseDescription).append("</td>")
+							.append("<td style=\"text-align:center;\" rowspan=\"").append(resultsCount).append("\">")
+							.append(duration).append("</td></tr>");
 
-			scenarioIndex++;
-			
-			for (int i = 1; i < resultsCount; i++) {
-				buffer.append("<tr class=\"").append(cssClass).append("\">")
-						.append("<td style=\"text-align:center;\"><a href=\"#m").append(scenarioIndex)
-						.append("\">").append(methodName).append("</a></td></tr>");
-				scenarioIndex++;
-			}
+					scenarioIndex++;
+
+					for (int i = 1; i < resultsCount; i++) {
+						buffer.append("<tr class=\"").append(cssClass).append("\">")
+								.append("<td style=\"text-align:center;\"><a href=\"#m").append(scenarioIndex)
+								.append("\">").append(methodName).append("</a></td></tr>");
+						scenarioIndex++;
+					}
 
 					scenariosPerClass += resultsCount;
 					methodIndex++;
