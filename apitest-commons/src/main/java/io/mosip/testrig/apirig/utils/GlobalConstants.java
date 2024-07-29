@@ -218,4 +218,7 @@ public class GlobalConstants {
 	public static final String HOTLIST = "hotlist";
 	public static final String XSRF_TOKEN = "XSRF-TOKEN";
 	public static final String _AUTHENTICATEUSER = "_AuthenticateUser";
+	public static final String DOB = "dob";
+	public static final String RESULT = "result";
+	public static final String INSURANCE = "Insurance";
 }
