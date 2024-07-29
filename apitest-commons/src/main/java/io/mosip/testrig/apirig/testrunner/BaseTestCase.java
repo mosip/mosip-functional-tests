@@ -275,6 +275,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 		if (listOfModules.contains("idrepo")) {
 			setReportName("idrepo");
 			BaseTestCase.currentModule = "idrepo";
+			BaseTestCase.certsForModule = "idrepo";
 			AdminTestUtil.copyIdrepoTestResource();
 		}
 
@@ -287,6 +288,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 
 		if (listOfModules.contains(GlobalConstants.MIMOTO)) {
 			BaseTestCase.currentModule = GlobalConstants.MIMOTO;
+			BaseTestCase.certsForModule = GlobalConstants.MIMOTO;
 			setReportName(GlobalConstants.MIMOTO);
 			AdminTestUtil.initiateMimotoTest();
 			mockSMTPListener = new MockSMTPListener();
@@ -309,6 +311,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 		}
 		if (listOfModules.contains(GlobalConstants.RESIDENT)) {
 			BaseTestCase.currentModule = GlobalConstants.RESIDENT;
+			BaseTestCase.certsForModule = GlobalConstants.RESIDENT;
 			setReportName(GlobalConstants.RESIDENT);
 			AdminTestUtil.copyResidentTestResource();
 		    mockSMTPListener = new MockSMTPListener();

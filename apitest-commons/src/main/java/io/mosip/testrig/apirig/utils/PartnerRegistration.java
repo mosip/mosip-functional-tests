@@ -124,9 +124,6 @@ public class PartnerRegistration extends AdminTestUtil {
 	}
 
 	public static void getAndUploadCertificates() {
-		if (localHostUrl == null) {
-			localHostUrl = getLocalHostUrl();
-		}
 
 		partnerGeneration();
 		JSONObject certificateValue = getCertificates(partnerId, getPartnerType);
@@ -149,9 +146,6 @@ public class PartnerRegistration extends AdminTestUtil {
 	}
 	
 	public static void getAndUploadEkycCertificates() {
-		if (localHostUrl == null) {
-			localHostUrl = getLocalHostUrl();
-		}
 
 		partnerKycGeneration();
 		JSONObject certificateValue = getCertificates(ekycPartnerId, getEkycPartnerTypeForCert);
@@ -171,10 +165,6 @@ public class PartnerRegistration extends AdminTestUtil {
 		lOGGER.info(certValueSigned);
 		uploadSignedCertificate(certValueSigned, getEkycPartnerTypeForCert, ekycPartnerId, true);
 
-	}
-
-	private static String getLocalHostUrl() {
-		return ConfigManager.getAuthDemoServiceUrl() + "/";
 	}
 
 	public static void partnerGeneration() {

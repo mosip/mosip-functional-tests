@@ -60,9 +60,6 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	private Encrypt encrypt;
 	
 	static {
-		if(EncryptUtilBaseUrl==null)			
-			EncryptUtilBaseUrl = getEncryptUtilBaseUrl();
-		lOGGER.info("EncryptUtilBaseUrl " + EncryptUtilBaseUrl);
 		getThumbprints();
 	}
 	public static void getThumbprints() {
@@ -74,10 +71,6 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		} catch (Exception e) {
 			lOGGER.error(e.getMessage());
 		}
-	}
-	
-	public static String getEncryptUtilBaseUrl() {
-		return ConfigManager.getAuthDemoServiceUrl() + "/";
 	}
 	
 	/**
