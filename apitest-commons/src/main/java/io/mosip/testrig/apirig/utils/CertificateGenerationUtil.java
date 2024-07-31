@@ -22,7 +22,6 @@ public class CertificateGenerationUtil extends AdminTestUtil {
 			lOGGER.setLevel(Level.ALL);
 		else
 			lOGGER.setLevel(Level.ERROR);
-		lOGGER.info("EncryptUtilBaseUrl " + ConfigManager.getAuthDemoServiceUrl());
 		getThumbprints();
 	}
 

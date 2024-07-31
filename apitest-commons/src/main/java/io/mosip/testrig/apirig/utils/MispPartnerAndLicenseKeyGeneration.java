@@ -60,10 +60,6 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		
 		return mispLicKey;
 	}
-	
-	private static String getLocalHostUrl() {
-			return ConfigManager.getAuthDemoServiceUrl() + "/";
-	}
 
 	public static void mispPartnerGeneration() { 
 		String url = ApplnURI + "/v1/partnermanager/partners";
