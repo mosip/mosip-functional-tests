@@ -267,15 +267,18 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			setReportName("auth");
 			BaseTestCase.currentModule = "auth";
 			BaseTestCase.certsForModule = "IDA";
+			DBManager.clearKeyManagerDbCertData();
+			DBManager.clearIDADbCertData();
+			DBManager.clearMasterDbCertData();
 			AuthTestsUtil.initiateAuthTest();
-			
-//			mockSMTPListener = new MockSMTPListener();
-//			mockSMTPListener.run();
 		}
 		if (listOfModules.contains("idrepo")) {
 			setReportName("idrepo");
 			BaseTestCase.currentModule = "idrepo";
 			BaseTestCase.certsForModule = "idrepo";
+			DBManager.clearKeyManagerDbCertData();
+			DBManager.clearIDADbCertData();
+			DBManager.clearMasterDbCertData();
 			AdminTestUtil.copyIdrepoTestResource();
 		}
 
@@ -289,33 +292,31 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 		if (listOfModules.contains(GlobalConstants.MIMOTO)) {
 			BaseTestCase.currentModule = GlobalConstants.MIMOTO;
 			BaseTestCase.certsForModule = GlobalConstants.MIMOTO;
+			DBManager.clearKeyManagerDbCertData();
+			DBManager.clearIDADbCertData();
+			DBManager.clearMasterDbCertData();
 			setReportName(GlobalConstants.MIMOTO);
 			AdminTestUtil.initiateMimotoTest();
-			mockSMTPListener = new MockSMTPListener();
-			mockSMTPListener.run();
-
 		}
 
 		if (listOfModules.contains(GlobalConstants.ESIGNET)) {
 
 			BaseTestCase.currentModule = GlobalConstants.ESIGNET;
 			BaseTestCase.certsForModule = GlobalConstants.ESIGNET;
-			DBManager.clearKeyManagerDbDataForEsignet();
-			DBManager.clearIDADbDataForEsignet();
-			DBManager.clearMasterDbDataForEsignet();
+			DBManager.clearKeyManagerDbCertData();
+			DBManager.clearIDADbCertData();
+			DBManager.clearMasterDbCertData();
 			setReportName(GlobalConstants.ESIGNET);
 			AdminTestUtil.initiateesignetTest();
-			mockSMTPListener = new MockSMTPListener();
-			mockSMTPListener.run();
-
 		}
 		if (listOfModules.contains(GlobalConstants.RESIDENT)) {
 			BaseTestCase.currentModule = GlobalConstants.RESIDENT;
 			BaseTestCase.certsForModule = GlobalConstants.RESIDENT;
+			DBManager.clearKeyManagerDbCertData();
+			DBManager.clearIDADbCertData();
+			DBManager.clearMasterDbCertData();
 			setReportName(GlobalConstants.RESIDENT);
 			AdminTestUtil.copyResidentTestResource();
-		    mockSMTPListener = new MockSMTPListener();
-			mockSMTPListener.run();
 		}
 		if (listOfModules.contains("partner")) {
 			BaseTestCase.currentModule = "partner";
@@ -333,8 +334,6 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			DBManager.clearIDADbDataForPartnerRevamp();
 			//KeycloakUserManager.createKeyCloakUsers(partnerId, emailId, role);
 			
-			
-			
 			BaseTestCase.currentModule = GlobalConstants.PARTNERNEW;
 			setReportName(GlobalConstants.PARTNERNEW);
 			AdminTestUtil.copyPmsNewTestResource();
@@ -343,10 +342,9 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			BaseTestCase.currentModule = GlobalConstants.PREREG;
 			setReportName(GlobalConstants.PREREG);
 			AdminTestUtil.copyPreregTestResource();
-			mockSMTPListener = new MockSMTPListener();
-			mockSMTPListener.run();
-
 		}
+		mockSMTPListener = new MockSMTPListener();
+		mockSMTPListener.run();
 	}
 
 	public static void setReportName(String moduleName) {
