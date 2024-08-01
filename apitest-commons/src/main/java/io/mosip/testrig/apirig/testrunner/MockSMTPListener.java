@@ -121,8 +121,7 @@ public class MockSMTPListener {
 		String otp = "";
 		
 		
-		if (AdminTestUtil.getValueFromAuthActuator(
-				"mosip/mosip-config/application-default.properties", "mosip.kernel.auth.proxy-otp").equalsIgnoreCase(GlobalConstants.TRUE_STRING)) {
+		if (ConfigManager.getUsePreConfiguredOtp().equalsIgnoreCase(GlobalConstants.TRUE_STRING)) {
 			return ConfigManager.getPreConfiguredOtp();
 		}
 		while (counter < otpCheckLoopCount) {

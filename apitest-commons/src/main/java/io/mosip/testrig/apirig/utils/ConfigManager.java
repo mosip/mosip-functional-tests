@@ -200,7 +200,7 @@ public class ConfigManager {
 	private static String reportIgnoredTestCases;
 	private static String threadCount;
 	private static String langselect;
-	//private static String usePreConfiguredOtp;
+	private static String usePreConfiguredOtp;
 	private static String preconfiguredOtp;
 	private static String eSignetbaseurl;
 	private static String esignetMockBaseURL;
@@ -394,11 +394,9 @@ public class ConfigManager {
 				: System.getenv(LANG_SELECT);
 		propsKernel.setProperty(LANG_SELECT, langselect);
 
-		/*
-		 * usePreConfiguredOtp = System.getenv(USEPRECONFIGOTP) == null ?
-		 * propsKernel.getProperty(USEPRECONFIGOTP) : System.getenv(USEPRECONFIGOTP);
-		 * propsKernel.setProperty(USEPRECONFIGOTP, usePreConfiguredOtp);
-		 */
+		usePreConfiguredOtp = System.getenv(USEPRECONFIGOTP) == null ? propsKernel.getProperty(USEPRECONFIGOTP)
+				: System.getenv(USEPRECONFIGOTP);
+		propsKernel.setProperty(USEPRECONFIGOTP, usePreConfiguredOtp);
 
 		preconfiguredOtp = System.getenv(PRECONFIGOTP) == null ? propsKernel.getProperty(PRECONFIGOTP)
 				: System.getenv(PRECONFIGOTP);
@@ -574,11 +572,10 @@ public class ConfigManager {
 
 	}
 
-	/*
-	 * public static String getUsePreConfiguredOtp() { return usePreConfiguredOtp;
-	 * 
-	 * }
-	 */
+	public static String getUsePreConfiguredOtp() {
+		return usePreConfiguredOtp;
+
+	}
 
 	public static String getPreConfiguredOtp() {
 		return preconfiguredOtp;
