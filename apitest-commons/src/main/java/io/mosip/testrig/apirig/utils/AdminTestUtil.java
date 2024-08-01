@@ -932,6 +932,7 @@ public class AdminTestUtil extends BaseTestCase {
 		headers.put(AUTHORIZATHION_HEADERNAME, AUTH_HEADER_VALUE);
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		headers.put(SIGNATURE_HEADERNAME, generateSignatureWithRequest(inputJson, partnerId));
+		
 		if (testCaseName.contains("NOAUTH")) {
 			token = "";
 		} else {
@@ -4170,15 +4171,19 @@ public class AdminTestUtil extends BaseTestCase {
 		return props.getProperty(keyForIdProperty);
 	}
 
-	public String updateTimestampOtp(String otpIdentyEnryptRequest) {
+	public String updateTimestampOtp(String otpIdentyEnryptRequest, String otpChannel, String testCaseName) {
 		otpIdentyEnryptRequest = JsonPrecondtion.parseAndReturnJsonContent(otpIdentyEnryptRequest,
 				generateCurrentUTCTimeStamp(), "timestamp");
-		if (proxy)
-			otpIdentyEnryptRequest = JsonPrecondtion.parseAndReturnJsonContent(otpIdentyEnryptRequest,
-					properties.getProperty("proxyOTP"), "otp");
-		else
-			return otpIdentyEnryptRequest;
-
+		String otp = null;
+	
+		otp = MockSMTPListener.getOtp(otpChannel);
+		
+		if(otp!=null && !otp.isBlank()){
+			otpIdentyEnryptRequest = JsonPrecondtion.parseAndReturnJsonContent(otpIdentyEnryptRequest, otp, "otp");
+		}
+		else {
+			logger.error("Not Able To Fetch OTP From SMTP");
+		}
 		return otpIdentyEnryptRequest;
 	}
 

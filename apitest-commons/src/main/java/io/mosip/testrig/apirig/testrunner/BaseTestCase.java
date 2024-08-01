@@ -1,6 +1,5 @@
 package io.mosip.testrig.apirig.testrunner;
 
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -51,7 +50,7 @@ import io.restassured.response.Response;
  * All suite level before and after tests will be completed here.
  *
  */
-@ContextConfiguration(classes = {BeanConfig.class})
+@ContextConfiguration(classes = { BeanConfig.class })
 public class BaseTestCase extends AbstractTestNGSpringContextTests {
 
 	protected static Logger logger = Logger.getLogger(BaseTestCase.class);
@@ -111,7 +110,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public static String expiredPreId = null;
 	public String batchJobToken = null;
 	public String invalidBatchJobToken = null;
-	
+
 	public static List<String> expiredPreRegIds = null;
 	public static List<String> consumedPreRegIds = null;
 	public static Map<?, ?> residentQueries;
@@ -132,21 +131,18 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public static List<String> t = new ArrayList<>();
 	private static final char[] alphaNumericAllowed = "abcdefghijklmnopqrstuvwxyzABCDEFGJKLMNPRSTUVWXYZ0123456789"
 			.toCharArray();
-	private static final char[] alphabetsAllowed = "abcdefghijklmnopqrstuvwxyzABCDEFGJKLMNPRSTUVWXYZ"
-			.toCharArray();
+	private static final char[] alphabetsAllowed = "abcdefghijklmnopqrstuvwxyzABCDEFGJKLMNPRSTUVWXYZ".toCharArray();
 	private static final char[] nNumericAllowed = "0123456789".toCharArray();
 	public static SecureRandom secureRandom = new SecureRandom();
-	
+
 	public static String hierarchyName = "";
 	public static int hierarchyLevel = 0;
 	public static String parentLocCode = "";
-	
+
 	public static String locationCode = "";
 	public static String ZonelocationCode = "";
 	public static String hierarchyZoneCode = "";
-	
-	
-	
+
 	public static String genRid = "27847" + generateRandomNumberString(10);
 
 	public static String genPolicyNumber = "9" + generateRandomNumberString(5);
@@ -172,11 +168,11 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public static String genPartnerEmail = "automationpartneresi" + generateRandomNumberString(7)
 			+ "@automationMosip.com";
 	public String genPartnerEmailForDsl = "automationpartnerdsl" + generateRandomNumberString(10)
-	+ "@automationMosip.com";
+			+ "@automationMosip.com";
 	public String genPartnerEmailNonAuth = "automationesignet" + generateRandomNumberString(10)
-	+ "@automationMosip.com";
-	public String genMispPartnerEmail = "misppartner" + generateRandomNumberString(4)
-			+ generateRandomNumberString(4) + "@automationMosip.com";
+			+ "@automationMosip.com";
+	public String genMispPartnerEmail = "misppartner" + generateRandomNumberString(4) + generateRandomNumberString(4)
+			+ "@automationMosip.com";
 	public static String publickey;
 	public static RSAKey rsaJWK;
 	public static String clientAssertionToken;
@@ -185,17 +181,16 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			MosipTestRunner.getGlobalResourcePath() + "/" + "config/application.properties");
 	public static Properties propsKernel = getproperty(
 			MosipTestRunner.getGlobalResourcePath() + "/" + "config/Kernel.properties");
-	
+
 	public static String currentRunningLanguage = "";
-	
-	//Need to handle this
+
+	// Need to handle this
 	/*
 	 * static String timeStamp =
 	 * String.valueOf(Calendar.getInstance().getTimeInMillis()); static String
 	 * partnerId = "Tech-1245"; static String emailId = "mosip_1" + timeStamp +
 	 * "@gmail.com"; static String role = PartnerRegistration.partnerType;
 	 */
-	
 
 	public static String getOSType() {
 		String type = System.getProperty("os.name");
@@ -237,9 +232,6 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 		logger.info("Configs from properties file are set.");
 
 	}
-	
-	
-
 
 	public static void suiteSetup() {
 		if (ConfigManager.IsDebugEnabled())
@@ -281,14 +273,12 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			DBManager.clearMasterDbCertData();
 			AdminTestUtil.copyIdrepoTestResource();
 		}
-
 		if (listOfModules.contains(GlobalConstants.MASTERDATA)) {
 			DBManager.clearMasterDbData();
 			BaseTestCase.currentModule = GlobalConstants.MASTERDATA;
 			setReportName(GlobalConstants.MASTERDATA);
 			AdminTestUtil.initiateMasterDataTest();
 		}
-
 		if (listOfModules.contains(GlobalConstants.MIMOTO)) {
 			BaseTestCase.currentModule = GlobalConstants.MIMOTO;
 			BaseTestCase.certsForModule = GlobalConstants.MIMOTO;
@@ -298,9 +288,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			setReportName(GlobalConstants.MIMOTO);
 			AdminTestUtil.initiateMimotoTest();
 		}
-
 		if (listOfModules.contains(GlobalConstants.ESIGNET)) {
-
 			BaseTestCase.currentModule = GlobalConstants.ESIGNET;
 			BaseTestCase.certsForModule = GlobalConstants.ESIGNET;
 			DBManager.clearKeyManagerDbCertData();
@@ -326,14 +314,11 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			setReportName("partner");
 			AdminTestUtil.copyPartnerTestResource();
 		}
-		
 		if (listOfModules.contains(GlobalConstants.PARTNERNEW)) {
 			BaseTestCase.currentModule = GlobalConstants.PARTNERNEW;
 			DBManager.clearPartnerRevampDbData();
 			DBManager.clearKeyManagerDbDataForPartnerRevamp();
 			DBManager.clearIDADbDataForPartnerRevamp();
-			//KeycloakUserManager.createKeyCloakUsers(partnerId, emailId, role);
-			
 			BaseTestCase.currentModule = GlobalConstants.PARTNERNEW;
 			setReportName(GlobalConstants.PARTNERNEW);
 			AdminTestUtil.copyPmsNewTestResource();
@@ -362,7 +347,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 		logger.info("\n\n");
 		logger.info("Rest Assured framework has been reset because all tests have been executed.");
 		logger.info("TESTING COMPLETE: SHUTTING DOWN FRAMEWORK!!");
-	} 
+	}
 
 	public static Properties getproperty(String path) {
 		Properties prop = new Properties();
@@ -373,7 +358,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			prop.load(inputStream);
 		} catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
-		}finally {
+		} finally {
 			AdminTestUtil.closeInputStream(inputStream);
 		}
 		return prop;
@@ -441,7 +426,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 
 	}
 
-	//below method is used by dsl.
+	// below method is used by dsl.
 	@SuppressWarnings("unchecked")
 	public static void mapUserToZone(String user, String zone) {
 
@@ -449,7 +434,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 		String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
 		org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
 		JSONObject request = new JSONObject();
-		request.put("zoneCode", zone); 
+		request.put("zoneCode", zone);
 		request.put("userId", user);
 		request.put("langCode", BaseTestCase.getLanguageList().get(0));
 		request.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
@@ -550,9 +535,9 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		logger.info(response);
 	}
-	
+
 	public static JSONArray idaActuatorResponseArray = null;
-	
+
 	public static String getValueFromActuators(String endPoint, String section, String key) {
 
 		String url = ApplnURI + endPoint;
@@ -567,14 +552,14 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 				responseJson = new org.json.JSONObject(response.getBody().asString());
 				idaActuatorResponseArray = responseJson.getJSONArray("propertySources");
 			}
-			logger.info("idaActuatorResponseArray="+idaActuatorResponseArray);
+			logger.info("idaActuatorResponseArray=" + idaActuatorResponseArray);
 
 			for (int i = 0, size = idaActuatorResponseArray.length(); i < size; i++) {
 				org.json.JSONObject eachJson = idaActuatorResponseArray.getJSONObject(i);
 				if (eachJson.get("name").toString().contains(section)) {
 					value = eachJson.getJSONObject(GlobalConstants.PROPERTIES).getJSONObject(key)
 							.get(GlobalConstants.VALUE).toString();
-					logger.info("value="+value);
+					logger.info("value=" + value);
 					break;
 				}
 			}
@@ -622,9 +607,9 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 		return languageList;
 
 	}
-	
+
 	private static String targetEnvVersion = "";
-	
+
 	public static boolean isTargetEnvLTS() {
 
 		if (targetEnvVersion.isEmpty()) {
@@ -697,6 +682,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 		return kernelCmnLib.readJsonData(filepath, true);
 
 	}
+
 	public static String generateRandomAlphaNumericString(int length) {
 		StringBuilder alphaNumericString = new StringBuilder();
 		for (int i = 0; i < length; i++) {
@@ -704,7 +690,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 		}
 		return alphaNumericString.toString();
 	}
-	
+
 	public static String generateRandomAlphabeticString(int length) {
 		StringBuilder alphaNumericString = new StringBuilder();
 		for (int i = 0; i < length; i++) {
