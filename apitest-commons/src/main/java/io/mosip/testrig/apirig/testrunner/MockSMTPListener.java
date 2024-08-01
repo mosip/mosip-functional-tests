@@ -119,6 +119,8 @@ public class MockSMTPListener {
 		int counter = 0;
 
 		String otp = "";
+		
+		
 		if (ConfigManager.getUsePreConfiguredOtp().equalsIgnoreCase(GlobalConstants.TRUE_STRING)) {
 			return ConfigManager.getPreConfiguredOtp();
 		}
