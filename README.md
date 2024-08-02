@@ -40,8 +40,8 @@ Ensure the following software is installed on the machine from where the automat
    git clone https://github.com/mosip/mosip-functional-tests
 
 ## Build Test Automation Code
-cd ../apitest-commons
-mvn clean install -Dgpg.skip=true -Dmaven.gitcommitid.skip=true
+1. cd ../apitest-commons
+2. `mvn clean install -Dgpg.skip=true -Dmaven.gitcommitid.skip=true`
 
 ## License
 This project is licensed under the terms of [Mozilla Public License 2.0](https://github.com/mosip/mosip-platform/blob/master/LICENSE)
