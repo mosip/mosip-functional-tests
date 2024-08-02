@@ -34,10 +34,10 @@ public class PartnerRegistration extends AdminTestUtil {
 	static String emailId2 = "mosip_2" + timeStamp + "@gmail.com";
 	static String emailId3 = "mosip_3" + timeStamp + "@gmail.com";
 	static String emailIdForKyc = "mosip_4" + timeStamp + "@gmail.com";
-	public static String organizationName = "mosip_partnerorg" + timeStamp;
-	public static String ekycOrganizationName = "mosip_ekyc_partner" + timeStamp;
-	public static String deviceOrganizationName = "mosip_deviceorg" + timeStamp;
-	public static String ftmOrganizationName = "mosip_ftmorg" + timeStamp;
+	public static String organizationName = BaseTestCase.currentModule + "_pid" + timeStamp;
+	public static String ekycOrganizationName = BaseTestCase.currentModule + "_ekyc_pid" + timeStamp;
+	public static String deviceOrganizationName = BaseTestCase.currentModule + "_device_pid" + timeStamp;
+	public static String ftmOrganizationName = BaseTestCase.currentModule + "_ftm_pid" + timeStamp;
 	public static String partnerId = organizationName;
 	public static String ekycPartnerId = ekycOrganizationName;
 	public static String partnerType = "AUTH_PARTNER";

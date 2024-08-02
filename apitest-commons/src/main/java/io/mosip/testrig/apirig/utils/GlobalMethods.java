@@ -27,8 +27,8 @@ public class GlobalMethods {
 	public static Set<String> serverEndpoints = new HashSet<>();
 	
 	// Define the regex pattern to extract the domain and the path after the domain
-	private static final String	regex_1 = "https://([^/]+)/(v[0-9]+)?/(partnermanager|masterdata|idgenerator|policymanager|idauthentication|idrepository|auditmanager)/([^,]+)";
-	private static final String regex_2 = "https://([^/]+)/(partnermanager|masterdata|idgenerator|policymanager|idauthentication|idrepository|auditmanager)/(v[0-9]+)/([^,]+)";
+	private static final String	regex_1 = "https://([^/]+)/(v[0-9]+)?/(partnermanager|resident|residentmobileapp|masterdata|esignet|idgenerator|policymanager|idauthentication|idrepository|auditmanager)/([^,]+)";
+	private static final String regex_2 = "https://([^/]+)/(partnermanager|masterdata|resident|residentmobileapp|esignet|idgenerator|policymanager|idauthentication|idrepository|auditmanager)/(v[0-9]+)/([^,]+)";
 
 	// Compile the regex pattern
 	private static final Pattern pattern_1 = Pattern.compile(regex_1);
@@ -48,9 +48,6 @@ public class GlobalMethods {
 			String module = matcher.group(3);
 			String endpoint = version + "/" + module + "/" + matcher.group(4);
 
-			logger.info(
-					"Domain: " + domain + " ---- Module: " + module + " ---- End Point: " + removeNumerics(endpoint));
-
 			// Replace BaseURL if provided from outside
 			String newBaseURL = ConfigManager.getComponentBaseURL(module);
 
@@ -67,13 +64,11 @@ public class GlobalMethods {
 		// Create a matcher for the current URL
 		Matcher matcher2 = pattern_2.matcher(url);
 		// Check if the second pattern matches
-		if (matcher.find()) {
+		if (matcher2.find()) {
 			String domain = matcher2.group(1);
 			String module = matcher2.group(2) != null ? matcher2.group(2) : ""; // Handle null for optional group
 			String version = matcher2.group(3);
 			String endpoint = module + "/" + version + "/" + matcher2.group(4);
-			logger.info(
-					"Domain: " + domain + " ---- Module: " + module + " ---- End Point: " + removeNumerics(endpoint));
 
 			// Replace BaseURL if provided from outside
 			String newBaseURL = ConfigManager.getComponentBaseURL(module);
@@ -87,7 +82,7 @@ public class GlobalMethods {
 		}
 
 		// Both RegEx didn't match.. Needs revisit..
-		logger.error("Needs RegEx revisit...");
+		logger.error("Needs RegEx revisit..."+ "url is:" +url);
 		return url;
 	}
 	
@@ -115,11 +110,11 @@ public class GlobalMethods {
 	
 	public static String getComponentDetails() {
 		// Define the regex pattern to extract the domain and the path after the domain
-		String regex_1 = "https://([^/]+)/(v[0-9]+)?/(partnermanager|masterdata|idgenerator|policymanager|idauthentication|idrepository|auditmanager)/([^,]+)";
+		String regex_1 = "https://([^/]+)/(v[0-9]+)?/(partnermanager|residentmobileapp|esignet|masterdata|resident|idgenerator|policymanager|idauthentication|idrepository|auditmanager)/([^,]+)";
 		// Compile the regex pattern
 		Pattern pattern_1 = Pattern.compile(regex_1);
 
-		String regex_2 = "https://([^/]+)/(partnermanager|masterdata|idgenerator|policymanager|idauthentication|idrepository|auditmanager)/(v[0-9]+)/([^,]+)";
+		String regex_2 = "https://([^/]+)/(partnermanager|masterdata|residentmobileapp|esignet|idgenerator|resident|policymanager|idauthentication|idrepository|auditmanager)/(v[0-9]+)/([^,]+)";
 		// Compile the regex pattern
 		Pattern pattern_2 = Pattern.compile(regex_2);
 
