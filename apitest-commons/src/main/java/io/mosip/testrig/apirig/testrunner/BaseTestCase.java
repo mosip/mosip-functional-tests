@@ -259,12 +259,18 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			setReportName("auth");
 			BaseTestCase.currentModule = "auth";
 			BaseTestCase.certsForModule = "IDA";
+			DBManager.clearKeyManagerDbCertData();
+			DBManager.clearIDADbCertData();
+			DBManager.clearMasterDbCertData();
 			AuthTestsUtil.initiateAuthTest();
 		}
 		if (listOfModules.contains("idrepo")) {
 			setReportName("idrepo");
 			BaseTestCase.currentModule = "idrepo";
 			BaseTestCase.certsForModule = "idrepo";
+			DBManager.clearKeyManagerDbCertData();
+			DBManager.clearIDADbCertData();
+			DBManager.clearMasterDbCertData();
 			AdminTestUtil.copyIdrepoTestResource();
 		}
 		if (listOfModules.contains(GlobalConstants.MASTERDATA)) {
@@ -276,21 +282,27 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 		if (listOfModules.contains(GlobalConstants.MIMOTO)) {
 			BaseTestCase.currentModule = GlobalConstants.MIMOTO;
 			BaseTestCase.certsForModule = GlobalConstants.MIMOTO;
+			DBManager.clearKeyManagerDbCertData();
+			DBManager.clearIDADbCertData();
+			DBManager.clearMasterDbCertData();
 			setReportName(GlobalConstants.MIMOTO);
 			AdminTestUtil.initiateMimotoTest();
 		}
 		if (listOfModules.contains(GlobalConstants.ESIGNET)) {
 			BaseTestCase.currentModule = GlobalConstants.ESIGNET;
 			BaseTestCase.certsForModule = GlobalConstants.ESIGNET;
-			DBManager.clearKeyManagerDbDataForEsignet();
-			DBManager.clearIDADbDataForEsignet();
-			DBManager.clearMasterDbDataForEsignet();
+			DBManager.clearKeyManagerDbCertData();
+			DBManager.clearIDADbCertData();
+			DBManager.clearMasterDbCertData();
 			setReportName(GlobalConstants.ESIGNET);
 			AdminTestUtil.initiateesignetTest();
 		}
 		if (listOfModules.contains(GlobalConstants.RESIDENT)) {
 			BaseTestCase.currentModule = GlobalConstants.RESIDENT;
 			BaseTestCase.certsForModule = GlobalConstants.RESIDENT;
+			DBManager.clearKeyManagerDbCertData();
+			DBManager.clearIDADbCertData();
+			DBManager.clearMasterDbCertData();
 			setReportName(GlobalConstants.RESIDENT);
 			AdminTestUtil.copyResidentTestResource();
 		}

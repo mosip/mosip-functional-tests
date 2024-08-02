@@ -48,9 +48,6 @@ public class GlobalMethods {
 			String module = matcher.group(3);
 			String endpoint = version + "/" + module + "/" + matcher.group(4);
 
-			logger.info(
-					"Domain: " + domain + " ---- Module: " + module + " ---- End Point: " + removeNumerics(endpoint));
-
 			// Replace BaseURL if provided from outside
 			String newBaseURL = ConfigManager.getComponentBaseURL(module);
 
@@ -72,8 +69,6 @@ public class GlobalMethods {
 			String module = matcher2.group(2) != null ? matcher2.group(2) : ""; // Handle null for optional group
 			String version = matcher2.group(3);
 			String endpoint = module + "/" + version + "/" + matcher2.group(4);
-			logger.info(
-					"Domain: " + domain + " ---- Module: " + module + " ---- End Point: " + removeNumerics(endpoint));
 
 			// Replace BaseURL if provided from outside
 			String newBaseURL = ConfigManager.getComponentBaseURL(module);

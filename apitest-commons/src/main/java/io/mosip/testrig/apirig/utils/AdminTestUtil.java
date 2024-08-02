@@ -6806,7 +6806,10 @@ public class AdminTestUtil extends BaseTestCase {
 						if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
 							emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
 						logger.info(emailId);
-						otp = MockSMTPListener.getOtp(emailId);
+						if(testCaseName.contains("_EmptyChannel_Invalid_Neg"))
+							otp = "";
+						else
+							otp = MockSMTPListener.getOtp(emailId);
 						request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
 						inputJson = request.toString();
 					}

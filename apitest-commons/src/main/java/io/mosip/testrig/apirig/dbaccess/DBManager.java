@@ -94,12 +94,13 @@ public class DBManager {
 			}
 		}
 	
-	public static void clearKeyManagerDbDataForEsignet() {
-		Session session = null;
-		try {
-			session = getDataBaseConnection(ConfigManager.getKMDbUrl(), ConfigManager.getKMDbUser(),
-					ConfigManager.getKMDbPass(), ConfigManager.getKMDbSchema());
-			executeQueries(session, MosipTestRunner.getGlobalResourcePath() + "/"	+ "config/keyManagerDataDeleteQueriesForEsignet.txt");				
+		public static void clearKeyManagerDbCertData() {
+			Session session = null;
+			try {
+				session = getDataBaseConnection(ConfigManager.getKMDbUrl(), ConfigManager.getKMDbUser(),
+						ConfigManager.getKMDbPass(), ConfigManager.getKMDbSchema());
+				executeQueries(session, MosipTestRunner.getGlobalResourcePath() + "/"
+						+ "config/keyManagerCertDataDeleteQueries.txt");
 			} catch (Exception e) {
 				logger.error("Error:: While executing PMS DB Quiries." + e.getMessage());
 			} finally {
@@ -124,12 +125,13 @@ public class DBManager {
 			}
 		}
 	
-	public static void clearMasterDbDataForEsignet() {
-		Session session = null;
-		try {
-			session = getDataBaseConnection(ConfigManager.getMASTERDbUrl(), ConfigManager.getMasterDbUser(),
-					ConfigManager.getMasterDbPass(), ConfigManager.getMasterDbSchema());
-			executeQueries(session,  MosipTestRunner.getGlobalResourcePath() + "/"	+ "config/masterDataDeleteQueriesForEsignet.txt");
+		public static void clearMasterDbCertData() {
+			Session session = null;
+			try {
+				session = getDataBaseConnection(ConfigManager.getMASTERDbUrl(), ConfigManager.getMasterDbUser(),
+						ConfigManager.getMasterDbPass(), ConfigManager.getMasterDbSchema());
+				executeQueries(session,
+						MosipTestRunner.getGlobalResourcePath() + "/" + "config/masterDataCertDataDeleteQueries.txt");
 			} catch (Exception e) {
 				logger.error("Error:: While executing MASTER DB Quiries." + e.getMessage());
 			} finally {
@@ -139,12 +141,13 @@ public class DBManager {
 			}
 		}
 	
-	public static void clearIDADbDataForEsignet() {
-		Session session = null;
-		try {
-			session = getDataBaseConnection(ConfigManager.getIdaDbUrl(), ConfigManager.getIdaDbUser(),
-					ConfigManager.getPMSDbPass(), ConfigManager.getIdaDbSchema());
-			executeQueries(session,  MosipTestRunner.getGlobalResourcePath() + "/"	+ "config/idaDeleteQueriesForEsignet.txt");
+		public static void clearIDADbCertData() {
+			Session session = null;
+			try {
+				session = getDataBaseConnection(ConfigManager.getIdaDbUrl(), ConfigManager.getIdaDbUser(),
+						ConfigManager.getPMSDbPass(), ConfigManager.getIdaDbSchema());
+				executeQueries(session,
+						MosipTestRunner.getGlobalResourcePath() + "/" + "config/idaCertDataDeleteQueries.txt");
 			} catch (Exception e) {
 				logger.error("Error:: While executing MASTER DB Quiries." + e.getMessage());
 			} finally {
