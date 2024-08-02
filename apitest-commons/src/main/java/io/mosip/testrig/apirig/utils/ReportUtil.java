@@ -25,9 +25,9 @@ public class ReportUtil {
 		if (headers != null && !headers.isEmpty())
 			formattedHeader = headers;
 		StringBuilder sb = new StringBuilder();
-		sb.append("<div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='2' cols='160' readonly='true'>");
+		sb.append("<div style='padding: 0; margin: 0;'><textarea style='border: solid 1px gray; background-color: lightgray; width: 100%; padding: 0; margin: 0;' name='headers' rows='2' readonly='true'>");
 		sb.append(formattedHeader);
-		sb.append("</textarea> </div>");
+		sb.append("</textarea></div>");
 		return sb.toString();
 	}
 	
