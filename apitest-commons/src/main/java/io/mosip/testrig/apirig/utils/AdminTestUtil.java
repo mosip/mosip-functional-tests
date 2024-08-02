@@ -932,6 +932,7 @@ public class AdminTestUtil extends BaseTestCase {
 		headers.put(AUTHORIZATHION_HEADERNAME, AUTH_HEADER_VALUE);
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		headers.put(SIGNATURE_HEADERNAME, generateSignatureWithRequest(inputJson, partnerId));
+		
 		if (testCaseName.contains("NOAUTH")) {
 			token = "";
 		} else {
@@ -3444,6 +3445,11 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = replaceKeywordWithValue(jsonString, "$OIDCCLIENT$",
 					getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES, "mosip.iam.module.clientID"));
 		}
+			
+			if (jsonString.contains("$DOB$")) {
+				jsonString = replaceKeywordWithValue(jsonString, "$DOB$",
+						getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES, "mosip.date-of-birth.pattern"));
+		}
 		if (jsonString.contains("$GETCLIENTIDFROMMIMOTOACTUATOR$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$GETCLIENTIDFROMMIMOTOACTUATOR$",
 					getValueFromMimotoActuator("configService:overrides", "mimoto.oidc.partner.clientid"));
@@ -4170,15 +4176,19 @@ public class AdminTestUtil extends BaseTestCase {
 		return props.getProperty(keyForIdProperty);
 	}
 
-	public String updateTimestampOtp(String otpIdentyEnryptRequest) {
+	public String updateTimestampOtp(String otpIdentyEnryptRequest, String otpChannel, String testCaseName) {
 		otpIdentyEnryptRequest = JsonPrecondtion.parseAndReturnJsonContent(otpIdentyEnryptRequest,
 				generateCurrentUTCTimeStamp(), "timestamp");
-		if (proxy)
-			otpIdentyEnryptRequest = JsonPrecondtion.parseAndReturnJsonContent(otpIdentyEnryptRequest,
-					properties.getProperty("proxyOTP"), "otp");
-		else
-			return otpIdentyEnryptRequest;
-
+		String otp = null;
+	
+		otp = MockSMTPListener.getOtp(otpChannel);
+		
+		if(otp!=null && !otp.isBlank()){
+			otpIdentyEnryptRequest = JsonPrecondtion.parseAndReturnJsonContent(otpIdentyEnryptRequest, otp, "otp");
+		}
+		else {
+			logger.error("Not Able To Fetch OTP From SMTP");
+		}
 		return otpIdentyEnryptRequest;
 	}
 
@@ -4926,6 +4936,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String schemaRequiredField = "";
 	String phoneNumber = "";
 	public static String phoneSchemaRegex = "";
+	public static String dateOfBirthSchemaRegex = "";
 	public static Double idSchemaVersion;
 
 	public static String modifySchemaGenerateHbs() {
@@ -4966,6 +4977,9 @@ public class AdminTestUtil extends BaseTestCase {
 
 			String phone = getValueFromAuthActuator("json-property", "phone_number");
 			String result = phone.replaceAll("\\[\"|\"\\]", "");
+			
+			String dateOfBirth = getValueFromAuthActuator("json-property", "birthdate");
+			String dateOfBirthResult = dateOfBirth.replaceAll("\\[\"|\"\\]", "");
 
 			if (!isElementPresent(requiredPropsArray, result)) {
 				requiredPropsArray.put(result);
@@ -4973,6 +4987,11 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			if (identityPropsJson.has(result)) {
 				phoneSchemaRegex = identityPropsJson.getJSONObject(result).getJSONArray("validators").getJSONObject(0)
+						.getString("validator");
+			}
+			
+			if (identityPropsJson.has(dateOfBirthResult)) {
+				dateOfBirthSchemaRegex = identityPropsJson.getJSONObject(dateOfBirthResult).getJSONArray("validators").getJSONObject(0)
 						.getString("validator");
 			}
 
@@ -6787,7 +6806,10 @@ public class AdminTestUtil extends BaseTestCase {
 						if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
 							emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
 						logger.info(emailId);
-						otp = MockSMTPListener.getOtp(emailId);
+						if(testCaseName.contains("_EmptyChannel_Invalid_Neg"))
+							otp = "";
+						else
+							otp = MockSMTPListener.getOtp(emailId);
 						request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
 						inputJson = request.toString();
 					}

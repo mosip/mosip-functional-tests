@@ -92,7 +92,11 @@ public class MosipTestRunner {
 			String ekycPartnerKeyURL = "";
 
 			if (BaseTestCase.listOfModules.contains("auth")
-					|| BaseTestCase.listOfModules.contains(GlobalConstants.ESIGNET)) {
+					|| BaseTestCase.listOfModules.contains(GlobalConstants.ESIGNET) 
+					|| BaseTestCase.listOfModules.contains(GlobalConstants.MIMOTO)
+					|| BaseTestCase.listOfModules.contains("resident")
+					|| BaseTestCase.listOfModules.contains("idrepo"))
+			{
 				PartnerRegistration.deleteCertificates();
 				CertificateGenerationUtil.getThumbprints();
 				AdminTestUtil.createAndPublishPolicy();

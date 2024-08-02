@@ -487,7 +487,6 @@ public class EmailableReport implements IReporter {
 		Object[] parameters = result.getParameters();
 		if (parameters != null && parameters.length > 0 && parameters[0] instanceof TestCaseDTO) {
 			TestCaseDTO testCase = (TestCaseDTO) parameters[0];
-			System.out.println("Test Case Name: " + testCase.getDescription());
 			if (testCase.getDescription() == null)
 				return "";
 			else

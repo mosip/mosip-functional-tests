@@ -83,17 +83,31 @@ public class MockSMTPListener {
 			}
 			try {
 				ObjectMapper om = new ObjectMapper();
+				String message = "";
+				String address = "";
 
 				root = om.readValue(data.toString(), Root.class);
-				if (!parseOtp(root.html).isEmpty() || !parseAdditionalReqId(root.html).isEmpty()) {
-					emailNotificationMapS.put(root.to.value.get(0).address, root.html);
-					logger.info(" After adding to emailNotificationMap key = " + root.to.value.get(0).address + " data "
-							+ data + " root " + root);
+				if (root.type.equals("SMS")) {
+					message = root.subject;
+					address = root.to.text;
+
+				} else if (root.type.equals("MAIL")) {
+					message = root.html;
+					address = root.to.value.get(0).address;
+				}
+				else {
+					logger.error("Unsupported notification type. type="+ root.type);
+				}
+
+				if (!parseOtp(message).isEmpty() || !parseAdditionalReqId(message).isEmpty()) {
+					emailNotificationMapS.put(address, message);
+					logger.info(" After adding to emailNotificationMap key = " + address + " data " + data + " root "
+							+ root);
 				}
 
 				else {
-					logger.info(" Skip adding to emailNotificationMap key = " + root.to.value.get(0).address + " data "
-							+ data + " root " + root);
+					logger.info(" Skip adding to emailNotificationMap key = " + address + " data " + data + " root "
+							+ root);
 				}
 			} catch (Exception e) {
 
@@ -119,6 +133,8 @@ public class MockSMTPListener {
 		int counter = 0;
 
 		String otp = "";
+		
+		
 		if (ConfigManager.getUsePreConfiguredOtp().equalsIgnoreCase(GlobalConstants.TRUE_STRING)) {
 			return ConfigManager.getPreConfiguredOtp();
 		}
