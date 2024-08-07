@@ -135,7 +135,7 @@ public class BiometricDataProvider {
 	public static Boolean generateBiometricTestData(String mdsMode) throws Exception {
 		ResidentModel resident = new ResidentModel();
 		String cbeff = null;
-		MDSRCaptureModel capture = BiometricDataProvider.regenBiometricViaMDS(resident, mdsMode, "70");
+		MDSRCaptureModel capture = BiometricDataProvider.regenBiometricViaMDS(resident, mdsMode, 70);
 		if (capture == null) {
 			logger.error("Failed to generate biometric via mds");
 			return false;
@@ -306,7 +306,7 @@ public class BiometricDataProvider {
 		return lst;
 	}
 	
-	public static void setMDSscore(long port, String type, String qualityScore) {
+	public static void setMDSscore(long port, String type, int qualityScore) {
 
 		try {
 			String requestBody = "{\"type\":\"" + type + "\",\"qualityScore\":\"" + qualityScore
@@ -345,7 +345,7 @@ public class BiometricDataProvider {
   		return certsTargetDir + File.separator + certsModuleName + "-IDA-" + System.getProperty("env.user")+ ".mosip.net";
   }
 
-	public static MDSRCaptureModel regenBiometricViaMDS(ResidentModel resident, String mdsMode, String qualityScore)
+	public static MDSRCaptureModel regenBiometricViaMDS(ResidentModel resident, String mdsMode, int qualityScore)
 			throws Exception {
 		BiometricDataModel biodata = null;
 		MDSRCaptureModel capture = null;
