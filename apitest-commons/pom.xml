@@ -39,7 +39,7 @@
 	<properties>
 		<!-- kernel versions -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<kernel-websubclient-api.version>1.2.0.1-SNAPSHOT</kernel-websubclient-api.version>
+		<kernel-websubclient-api.version>1.2.0.1</kernel-websubclient-api.version>
 
 		<!-- maven -->
 		<maven.compiler.target>11</maven.compiler.target>
@@ -567,7 +567,7 @@
 	    <dependency>
 	      <groupId>io.mosip.authentication</groupId>
 	      <artifactId>authentication-core</artifactId>
-	      <version>1.2.0.1-B3</version>
+	      <version>1.2.1.0</version>
 	      <exclusions>
 	        <exclusion>
 	          <groupId>commons-codec</groupId>
@@ -579,7 +579,7 @@
     <dependency>
       <groupId>io.mosip.kernel</groupId>
       <artifactId>kernel-core</artifactId>
-      <version>1.2.0.1-SNAPSHOT</version>
+      <version>1.2.0.1</version>
       <exclusions>
         <exclusion>
           <groupId>org.springframework.boot</groupId>
@@ -602,13 +602,13 @@
     <dependency>
       <groupId>io.mosip.kernel</groupId>
       <artifactId>kernel-templatemanager-velocity</artifactId>
-      <version>1.2.0.1-SNAPSHOT</version>
+      <version>1.2.0.1</version>
     </dependency>
     
     <dependency>
       <groupId>io.mosip.kernel</groupId>
       <artifactId>kernel-keymanager-service</artifactId>
-      <version>1.2.0.1-SNAPSHOT</version>
+      <version>1.2.0.1</version>
       <classifier>lib</classifier>
       <exclusions>
         <exclusion>
