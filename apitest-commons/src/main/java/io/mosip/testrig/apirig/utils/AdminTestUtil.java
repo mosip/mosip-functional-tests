@@ -3112,10 +3112,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		if (jsonString.contains("$1STLANG$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$1STLANG$", BaseTestCase.languageList.get(0));
-		if (jsonString.contains("$2NDLANG$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$2NDLANG$", BaseTestCase.languageList.get(1));
-		if (jsonString.contains("$3RDLANG$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$3RDLANG$", BaseTestCase.languageList.get(2));
+		
 
 		if (jsonString.contains(GlobalConstants.KEYCLOAK_USER_1))
 			jsonString = replaceKeywordWithValue(jsonString, GlobalConstants.KEYCLOAK_USER_1,
@@ -4878,6 +4875,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static String schemaRequiredField = "";
 	String phoneNumber = "";
+
 	public static String phoneSchemaRegex = "";
 	public static String dateOfBirthSchemaRegex = "";
 	public static Double idSchemaVersion;
@@ -4887,170 +4885,193 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static String modifySchemaGenerateHbs(boolean regenerateHbs) {
-		if (identityHbs != null && !regenerateHbs) {
-			return identityHbs;
-		}
-		JSONObject requestJson = new JSONObject();
-		kernelAuthLib = new KernelAuthentication();
-		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
-		String url = ApplnURI + properties.getProperty(GlobalConstants.MASTER_SCHEMA_URL);
+	    if (identityHbs != null && !regenerateHbs) {
+	    	
+	        return identityHbs;
+	    }
+	    JSONObject requestJson = new JSONObject();
+	    kernelAuthLib = new KernelAuthentication();
+	    String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
+	    String url = ApplnURI + properties.getProperty(GlobalConstants.MASTER_SCHEMA_URL);
 
-		Response response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
-				GlobalConstants.AUTHORIZATION, token);
+	    Response response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
+	            GlobalConstants.AUTHORIZATION, token);
 
-		org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
-		org.json.JSONObject schemaData = (org.json.JSONObject) responseJson.get(GlobalConstants.RESPONSE);
+	    org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
+	    org.json.JSONObject schemaData = (org.json.JSONObject) responseJson.get(GlobalConstants.RESPONSE);
 
-		Double schemaVersion = (Double) schemaData.get(GlobalConstants.ID_VERSION);
-		idSchemaVersion = (Double) schemaData.get(GlobalConstants.ID_VERSION);
-		String schemaJsonData = schemaData.getString(GlobalConstants.SCHEMA_JSON);
+	    Double schemaVersion = (Double) schemaData.get(GlobalConstants.ID_VERSION);
+	    idSchemaVersion = (Double) schemaData.get(GlobalConstants.ID_VERSION);
+	    String schemaJsonData = schemaData.getString(GlobalConstants.SCHEMA_JSON);
 
-		String schemaFile = schemaJsonData;
+	    String schemaFile = schemaJsonData;
 
-		boolean emailFieldAdditionallyAdded = false;
-		boolean phoneFieldAdditionallyAdded = false;
-		try {
+	    boolean emailFieldAdditionallyAdded = false;
+	    boolean phoneFieldAdditionallyAdded = false;
+	    try {
+	        JSONObject schemaFileJson = new JSONObject(schemaFile);
+	        JSONObject schemaPropsJson = schemaFileJson.getJSONObject("properties");
+	        JSONObject schemaIdentityJson = schemaPropsJson.getJSONObject("identity");
+	        JSONObject identityPropsJson = schemaIdentityJson.getJSONObject("properties");
+	        JSONArray requiredPropsArray = schemaIdentityJson.getJSONArray("required");
 
-			JSONObject schemaFileJson = new JSONObject(schemaFile); // jObj
-			JSONObject schemaPropsJson = schemaFileJson.getJSONObject("properties"); // objIDJson4
-			JSONObject schemaIdentityJson = schemaPropsJson.getJSONObject("identity"); // objIDJson
-			JSONObject identityPropsJson = schemaIdentityJson.getJSONObject("properties"); // objIDJson2
-			JSONArray requiredPropsArray = schemaIdentityJson.getJSONArray("required"); // objIDJson1
-			schemaRequiredField = requiredPropsArray.toString();
+	        schemaRequiredField = requiredPropsArray.toString();
 
-			String phone = getValueFromAuthActuator("json-property", "phone_number");
-			String result = phone.replaceAll("\\[\"|\"\\]", "");
-			
-			String dateOfBirth = getValueFromAuthActuator("json-property", "birthdate");
-			String dateOfBirthResult = dateOfBirth.replaceAll("\\[\"|\"\\]", "");
+	        String phone = getValueFromAuthActuator("json-property", "phone_number");
+	        String result = phone.replaceAll("\\[\"|\"\\]", "");
 
-			if (!isElementPresent(requiredPropsArray, result)) {
-				requiredPropsArray.put(result);
-				phoneFieldAdditionallyAdded = true;
-			}
-			if (identityPropsJson.has(result)) {
-				phoneSchemaRegex = identityPropsJson.getJSONObject(result).getJSONArray("validators").getJSONObject(0)
-						.getString("validator");
-			}
-			
-			if (identityPropsJson.has(dateOfBirthResult)) {
-				dateOfBirthSchemaRegex = identityPropsJson.getJSONObject(dateOfBirthResult).getJSONArray("validators").getJSONObject(0)
-						.getString("validator");
-			}
+	        if (!isElementPresent(requiredPropsArray, result)) {
+	            requiredPropsArray.put(result);
+	            phoneFieldAdditionallyAdded = true;
+	        }
+	        if (identityPropsJson.has(result)) {
+	            phoneSchemaRegex = identityPropsJson.getJSONObject(result).getJSONArray("validators")
+	                    .getJSONObject(0).getString("validator");
+	        }
 
-			String email = getValueFromAuthActuator("json-property", "emailId");
-			String emailResult = email.replaceAll("\\[\"|\"\\]", "");
+	        String email = getValueFromAuthActuator("json-property", "emailId");
+	        String emailResult = email.replaceAll("\\[\"|\"\\]", "");
 
-			if (!isElementPresent(requiredPropsArray, emailResult)) {
-				requiredPropsArray.put(emailResult);
-				emailFieldAdditionallyAdded = true;
-			}
+	        if (!isElementPresent(requiredPropsArray, emailResult)) {
+	            requiredPropsArray.put(emailResult);
+	            emailFieldAdditionallyAdded = true;
+	        }
 
-			requestJson.put("id", "{{id}}");
-			requestJson.put("request", new HashMap<>());
-			requestJson.getJSONObject("request").put("registrationId", "{{registrationId}}");
-			JSONObject identityJson = new JSONObject();
-			identityJson.put("UIN", "{{UIN}}");
+	        requestJson.put("id", "{{id}}");
+	        requestJson.put("request", new HashMap<>());
+	        requestJson.getJSONObject("request").put("registrationId", "{{registrationId}}");
+	        JSONObject identityJson = new JSONObject();
+	        identityJson.put("UIN", "{{UIN}}");
 
-			for (int i = 0, size = requiredPropsArray.length(); i < size; i++) {
-				String eachRequiredProp = requiredPropsArray.getString(i); // objIDJson3
+	        //requiredPropsArray.put("functionalId");
+	        for (int i = 0, size = requiredPropsArray.length(); i < size; i++) {
+	            String eachRequiredProp = requiredPropsArray.getString(i);
 
-				if (!identityPropsJson.has(eachRequiredProp)) {
-					continue;
-				}
+	            if (!identityPropsJson.has(eachRequiredProp)) {
+	                continue;
+	            }
 
-				JSONObject eachPropDataJson = (JSONObject) identityPropsJson.get(eachRequiredProp); // rc1
+	            JSONObject eachPropDataJson = (JSONObject) identityPropsJson.get(eachRequiredProp);
+	            String randomValue = "";
+	            if(eachRequiredProp == emailResult) {
+	            	randomValue ="shshssh";
+	            }
+	            if(eachRequiredProp == result) {
+	            	randomValue =phoneSchemaRegex ;
+	            }
+	            
+	            
+	            // Processing for TaggedListType
+	            if (eachPropDataJson.has("$ref") && eachPropDataJson.get("$ref").toString().contains("TaggedListType")) {
+	                JSONArray eachPropDataArrayForHandles = new JSONArray();
+	                        JSONObject eachValueJsonForHandles = new JSONObject();
+	                        if (eachRequiredProp.equals(emailResult)) {
+	                            eachValueJsonForHandles.put("value", "$EMAILVALUE$");
+	                        } else if (eachRequiredProp.equals(result)) {
+	                            eachValueJsonForHandles.put("value", "$PHONENUMBERFORIDENTITY$");
+	                        } else {
+	                            eachValueJsonForHandles.put("value", "1726266");
+	                        }
+	                        eachPropDataArrayForHandles.put(eachValueJsonForHandles);
+	                identityJson.put(eachRequiredProp, eachPropDataArrayForHandles);
+	            }
 
-				if (eachPropDataJson.has("$ref") && eachPropDataJson.get("$ref").toString().contains("simpleType")) {
 
-					JSONArray eachPropDataArray = new JSONArray(); // jArray
+	            else if (eachPropDataJson.has("$ref") && eachPropDataJson.get("$ref").toString().contains("simpleType")) {
+	                JSONArray eachPropDataArray = new JSONArray();
 
-					for (int j = 0; j < BaseTestCase.getLanguageList().size(); j++) {
-						if (BaseTestCase.getLanguageList().get(j) != null
-								&& !BaseTestCase.getLanguageList().get(j).isEmpty()) {
-							JSONObject eachValueJson = new JSONObject(); // studentJSON
-							eachValueJson.put("language", BaseTestCase.getLanguageList().get(j));
-							if (eachRequiredProp.contains(GlobalConstants.FULLNAME) && regenerateHbs == true) {
-								eachValueJson.put(GlobalConstants.VALUE, propsMap.getProperty(eachRequiredProp + "1")); // fullName1
-							} else if (eachRequiredProp.contains(GlobalConstants.FIRST_NAME) && regenerateHbs == true) {
-								eachValueJson.put(GlobalConstants.VALUE, propsMap.getProperty(eachRequiredProp + 1)); // fullName1
-							} else if (eachRequiredProp.contains(GlobalConstants.GENDER)) {
-								eachValueJson.put(GlobalConstants.VALUE, propsMap.getProperty(eachRequiredProp));
-							} else {
-								eachValueJson.put(GlobalConstants.VALUE,
-										(propsMap.getProperty(eachRequiredProp) == null) ? "TEST_" + eachRequiredProp
-												: propsMap.getProperty(eachRequiredProp)
-														+ BaseTestCase.getLanguageList().get(j));
-							}
+	                for (int j = 0; j < BaseTestCase.getLanguageList().size(); j++) {
+	                    if (BaseTestCase.getLanguageList().get(j) != null
+	                            && !BaseTestCase.getLanguageList().get(j).isEmpty()) {
+	                        JSONObject eachValueJson = new JSONObject();
+	                        eachValueJson.put("language", BaseTestCase.getLanguageList().get(j));
+	                        if (eachRequiredProp.contains(GlobalConstants.FULLNAME) && regenerateHbs == true) {
+	                            eachValueJson.put(GlobalConstants.VALUE, propsMap.getProperty(eachRequiredProp + "1"));
+	                        } else if (eachRequiredProp.contains(GlobalConstants.FIRST_NAME) && regenerateHbs == true) {
+	                            eachValueJson.put(GlobalConstants.VALUE, propsMap.getProperty(eachRequiredProp + 1));
+	                        } else if (eachRequiredProp.contains(GlobalConstants.GENDER)) {
+	                            eachValueJson.put(GlobalConstants.VALUE, propsMap.getProperty(eachRequiredProp));
+	                        } else {
+	                            eachValueJson.put(GlobalConstants.VALUE,
+	                                    (propsMap.getProperty(eachRequiredProp) == null) ? "TEST_" + eachRequiredProp
+	                                            : propsMap.getProperty(eachRequiredProp) + BaseTestCase.getLanguageList().get(j));
+	                        }
+	                        eachPropDataArray.put(eachValueJson);
+	                    }
+	                }
+	                identityJson.put(eachRequiredProp, eachPropDataArray);
+	            } else {
+	                if (eachRequiredProp.equals("proofOfIdentity")) {
+	                    identityJson.put(eachRequiredProp, new HashMap<>());
+	                    identityJson.getJSONObject(eachRequiredProp).put("format", "txt");
+	                    identityJson.getJSONObject(eachRequiredProp).put("type", "DOC001");
+	                    identityJson.getJSONObject(eachRequiredProp).put("value", "fileReferenceID");
+	                } else if (eachRequiredProp.equals("proofOfAddress")) {
+	                    identityJson.put(eachRequiredProp, new HashMap<>());
+	                    identityJson.getJSONObject(eachRequiredProp).put("format", "txt");
+	                    identityJson.getJSONObject(eachRequiredProp).put("type", "DOC001");
+	                    identityJson.getJSONObject(eachRequiredProp).put("value", "fileReferenceID");
+	                } else if (eachRequiredProp.equals("preferredLang")) {
+	                    identityJson.put(eachRequiredProp, "$1STLANG$");
+	                } else if (eachRequiredProp.equals("registrationType")) {
+	                    identityJson.put(eachRequiredProp, genStringAsperRegex(
+	                            eachPropDataJson.getJSONArray("validators").getJSONObject(0).getString("validator")));
+	                } else if (eachRequiredProp.equals(result)) {
+	                    identityJson.put(eachRequiredProp, "$PHONENUMBERFORIDENTITY$");
+	                } else if (eachRequiredProp.equals("password")) {
+	                    identityJson.put(eachRequiredProp, new HashMap<>());
+	                    if (addIdentityPassword.isBlank() && addIdentitySalt.isBlank())
+	                        getPasswordSaltFromKeyManager(PASSWORD_FOR_ADDIDENTITY_AND_REGISTRATION);
+	                    identityJson.getJSONObject(eachRequiredProp).put("hash", addIdentityPassword);
+	                    identityJson.getJSONObject(eachRequiredProp).put("salt", addIdentitySalt);
+	                } else if (eachRequiredProp.equals("individualBiometrics")) {
+	                    identityJson.put(eachRequiredProp, new HashMap<>());
+	                    identityJson.getJSONObject(eachRequiredProp).put("format", "cbeff");
+	                    identityJson.getJSONObject(eachRequiredProp).put("version", 1);
+	                    identityJson.getJSONObject(eachRequiredProp).put("value", "fileReferenceID");
+	                } else if (eachRequiredProp.equals("IDSchemaVersion")) {
+	                    identityJson.put(eachRequiredProp, schemaVersion);
+	                } else {
+	                    identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
+	                }
+	            }
+	        }
 
-							eachPropDataArray.put(eachValueJson);
-						}
-					}
-					identityJson.put(eachRequiredProp, eachPropDataArray);
-				} else {
-					if (eachRequiredProp.equals("proofOfIdentity")) {
-						identityJson.put(eachRequiredProp, new HashMap<>());
-						identityJson.getJSONObject(eachRequiredProp).put("format", "txt");
-						identityJson.getJSONObject(eachRequiredProp).put("type", "DOC001");
-						identityJson.getJSONObject(eachRequiredProp).put("value", "fileReferenceID");
-					}
+	        // Constructing and adding functionalIds
+	        JSONArray functionalIdsArray = new JSONArray();
+	        for (String language : BaseTestCase.getLanguageList()) {
+	            if (language != null && !language.isEmpty()) {
+	                JSONObject functionalId = new JSONObject();
+	                functionalId.put("value", "TEST_CITY" + language);
+	                functionalIdsArray.put(functionalId);
+	            }
+	        }
+	        //identityJson.put("functionalIds", functionalIdsArray);
 
-					else if (eachRequiredProp.equals("proofOfAddress")) {
-						identityJson.put(eachRequiredProp, new HashMap<>());
-						identityJson.getJSONObject(eachRequiredProp).put("format", "txt");
-						identityJson.getJSONObject(eachRequiredProp).put("type", "DOC001");
-						identityJson.getJSONObject(eachRequiredProp).put("value", "fileReferenceID");
-					} else if (eachRequiredProp.equals("preferredLang")) {
-						identityJson.put(eachRequiredProp, "$1STLANG$");
-					} else if (eachRequiredProp.equals("registrationType")) {
-						identityJson.put(eachRequiredProp, genStringAsperRegex(
-								eachPropDataJson.getJSONArray("validators").getJSONObject(0).getString("validator")));
-					} else if (eachRequiredProp.equals(result)) {
-						identityJson.put(eachRequiredProp, "$PHONENUMBERFORIDENTITY$");
-					} else if (eachRequiredProp.equals("password")) {
-						identityJson.put(eachRequiredProp, new HashMap<>());
-						if (addIdentityPassword.isBlank() && addIdentitySalt.isBlank())
-							getPasswordSaltFromKeyManager(PASSWORD_FOR_ADDIDENTITY_AND_REGISTRATION);
-						identityJson.getJSONObject(eachRequiredProp).put("hash", addIdentityPassword);
-						identityJson.getJSONObject(eachRequiredProp).put("salt", addIdentitySalt);
-					} else if (eachRequiredProp.equals("individualBiometrics")) {
-						identityJson.put(eachRequiredProp, new HashMap<>());
-						identityJson.getJSONObject(eachRequiredProp).put("format", "cbeff");
-						identityJson.getJSONObject(eachRequiredProp).put("version", 1);
-						identityJson.getJSONObject(eachRequiredProp).put("value", "fileReferenceID");
-					}
+	        if (isElementPresent(requiredPropsArray, "individualBiometrics")) {
+	            JSONArray requestDocArray = new JSONArray();
+	            JSONObject docJson = new JSONObject();
+	            docJson.put("value", "{{value}}");
+	            docJson.put("category", "{{category}}");
+	            requestDocArray.put(docJson);
 
-					else if (eachRequiredProp.equals("IDSchemaVersion")) {
-						identityJson.put(eachRequiredProp, schemaVersion);
-					}
+	            requestJson.getJSONObject("request").put("documents", requestDocArray);
+	        }
+	        requestJson.getJSONObject("request").put("identity", identityJson);
+	        requestJson.put("requesttime", "{{requesttime}}");
+	        requestJson.put("version", "{{version}}");
 
-					else {
-						identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
-					}
-				}
-			}
-			if (isElementPresent(requiredPropsArray, "individualBiometrics")) {
-				JSONArray requestDocArray = new JSONArray();
-				JSONObject docJson = new JSONObject();
-				docJson.put("value", "{{value}}");
-				docJson.put("category", "{{category}}");
-				requestDocArray.put(docJson);
+	        System.out.println(requestJson);
 
-				requestJson.getJSONObject("request").put("documents", requestDocArray);
-			}
-			requestJson.getJSONObject("request").put("identity", identityJson);
-			requestJson.put("requesttime", "{{requesttime}}");
-			requestJson.put("version", "{{version}}");
+	    } catch (Exception e) {
+	        logger.error(e.getMessage());
+	    }
 
-			System.out.println(requestJson);
-
-		} catch (Exception e) {
-			logger.error(e.getMessage());
-		}
-
-		identityHbs = requestJson.toString();
-		return identityHbs;
+	    identityHbs = requestJson.toString();
+	    return identityHbs;
 	}
+
+
 
 	public static int generateLatestSchemaVersion() {
 
@@ -6599,7 +6620,14 @@ public class AdminTestUtil extends BaseTestCase {
 				if (request.getJSONObject(GlobalConstants.REQUEST).has("otp")) {
 					emailId = request.getJSONObject(GlobalConstants.REQUEST).getString("userId");
 					logger.info(emailId);
-					otp = MockSMTPListener.getOtp(emailId);
+					
+					if(testCaseName.contains("_INVALIDOTP")) {
+						otp = "26258976";
+					}
+					else {
+						otp = MockSMTPListener.getOtp(emailId);
+					}
+					
 					request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
 					inputJson = request.toString();
 					return inputJson;
