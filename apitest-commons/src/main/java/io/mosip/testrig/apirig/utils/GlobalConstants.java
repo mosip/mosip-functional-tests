@@ -52,6 +52,7 @@ public class GlobalConstants {
 	public static final String HEADERTRANSACTIONID = "headerTransactionID";
 	public static final String VERIFIEDTRANSACTIONID = "verifiedTransactionID";
 	public static final String MIMOTO = "mimoto";
+	public static final String INJICERTIFY = "injicertify";
 	public static final String ESIGNET = "esignet";
 	public static final String APIKEY = "apiKey";
 	public static final String PARTNER_APIKEY = "partnerApiKey";
@@ -192,7 +193,6 @@ public class GlobalConstants {
 	public static final String REMOVE = "$REMOVE$";
 	public static final String PARTNER = "partner";
 	public static final String PARTNERNEW = "pms";
-	public static final String INJICERTIFY = "injicertify";
 	public static final String LANGNUMBER = "$LANGNUMBER$";
 	public static final String RESPONSE_CENTER_DETAILS = "response.centerDetails[";
 	public static final String TIMESLOTS_FROMTIME = "].timeSlots[0].fromTime";

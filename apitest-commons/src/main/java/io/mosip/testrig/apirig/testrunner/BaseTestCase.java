@@ -328,6 +328,15 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			setReportName(GlobalConstants.PREREG);
 			AdminTestUtil.copyPreregTestResource();
 		}
+//		if (listOfModules.contains(GlobalConstants.INJICERTIFY)) {
+//			BaseTestCase.currentModule = GlobalConstants.INJICERTIFY;
+//			BaseTestCase.certsForModule = GlobalConstants.INJICERTIFY;
+//			DBManager.clearKeyManagerDbCertData();
+//			DBManager.clearIDADbCertData();
+//			DBManager.clearMasterDbCertData();
+//			setReportName(GlobalConstants.INJICERTIFY);
+//			AdminTestUtil.copymoduleSpecificAndConfigFile(GlobalConstants.INJICERTIFY);
+//		}
 		mockSMTPListener = new MockSMTPListener();
 		mockSMTPListener.run();
 	}
@@ -629,7 +638,32 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 				logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			}
 		}
-		return targetEnvVersion.contains("1.2");
+		
+		// Compare the version numbers, ignoring any suffix like "-SNAPSHOT"
+	    return isVersionGreaterOrEqual(targetEnvVersion, "1.2");
+	}
+	
+	private static boolean isVersionGreaterOrEqual(String version1, String version2) {
+	    // Remove any suffixes like "-SNAPSHOT" from the versions
+	    version1 = version1.split("-")[0];
+	    version2 = version2.split("-")[0];
+
+	    String[] v1 = version1.split("\\.");
+	    String[] v2 = version2.split("\\.");
+
+	    int length = Math.max(v1.length, v2.length);
+
+	    for (int i = 0; i < length; i++) {
+	        int v1Part = i < v1.length ? Integer.parseInt(v1[i]) : 0;
+	        int v2Part = i < v2.length ? Integer.parseInt(v2[i]) : 0;
+
+	        if (v1Part < v2Part) {
+	            return false;
+	        } else if (v1Part > v2Part) {
+	            return true;
+	        }
+	    }
+	    return true; // versions are equal
 	}
 
 	public static List<String> getSupportedIdTypesValueFromActuator() {
