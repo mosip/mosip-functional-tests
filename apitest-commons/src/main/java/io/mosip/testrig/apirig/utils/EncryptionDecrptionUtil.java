@@ -83,19 +83,12 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		Map<String, String> ecryptData = new HashMap<>();
 		EncryptionResponseDto encryptionResponseDto = new EncryptionResponseDto();
 		try {
-//			jsonString = StringEscapeUtils.unescapeJava(jsonString);
 			encryptionResponseDto = encrypt(jsonString);
-//			JSONObject jsonobj = new JSONObject(json);
 			Reporter.log("<b> <u>Encryption of identity request</u> </b>");
 			GlobalMethods.reportRequest(null, encryptionResponseDto.toString());
 			ecryptData.put("key", encryptionResponseDto.getEncryptedSessionKey());
 			ecryptData.put("data", encryptionResponseDto.getEncryptedIdentity());
 			ecryptData.put("hmac", encryptionResponseDto.getRequestHMAC());
-			
-			
-//			ecryptData.put("key", jsonobj.get(key).toString());
-//			ecryptData.put("data", jsonobj.get(data).toString());
-//			ecryptData.put("hmac", jsonobj.get(hmac).toString());
 			ecryptData.put("thumbprint", partnerThumbPrint);
 			return ecryptData;
 		} catch (Exception e) {
