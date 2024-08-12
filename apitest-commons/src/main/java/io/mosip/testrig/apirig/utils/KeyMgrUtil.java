@@ -52,6 +52,8 @@ import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.util.io.pem.PemObject;
 import org.bouncycastle.util.io.pem.PemReader;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
 import io.mosip.testrig.apirig.dto.CertificateChainResponseDto;
@@ -67,7 +69,8 @@ import io.mosip.testrig.apirig.testrunner.BaseTestCase;
  */
 @Component
 public class KeyMgrUtil {
-    
+	
+	private static final Logger logger = Logger.getLogger(KeyMgrUtil.class);
     /** The Constant DOMAIN_URL. */
     private static final String DOMAIN_URL = "mosip.base.url";
 
@@ -109,7 +112,7 @@ public class KeyMgrUtil {
     
     /** The Constant SIGN_ALGO. */
     private static final String SIGN_ALGO = "SHA256withRSA";
-
+    
 
     /**
      * Convert to certificate.
@@ -488,8 +491,7 @@ public class KeyMgrUtil {
 		String keysDirPath = AdminTestUtil.getKeysDirPath();
 		
 		String certFilePath = keysDirPath + '/' + "ida-partner.cer";
-//		String certFilePath = keysDirPath + '/' + "ida-" + "partner" + ".cer";
-//		String certFilePath = keysDirPath + '/' + "ida-internal.cer"; // bio auth
+		logger.info("Certificate path is: " + certFilePath );
 		ByteArrayInputStream bIS = null;
 		try {
 			Path path = Paths.get(certFilePath);
@@ -504,7 +506,8 @@ public class KeyMgrUtil {
 
 			}
 			return null;
-		} finally {
+		}
+		finally {
 			AdminTestUtil.closeByteArrayInputStream(bIS);
 		}
 	}
