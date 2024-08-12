@@ -52,6 +52,7 @@ public class GlobalConstants {
 	public static final String HEADERTRANSACTIONID = "headerTransactionID";
 	public static final String VERIFIEDTRANSACTIONID = "verifiedTransactionID";
 	public static final String MIMOTO = "mimoto";
+	public static final String INJICERTIFY = "injicertify";
 	public static final String ESIGNET = "esignet";
 	public static final String APIKEY = "apiKey";
 	public static final String PARTNER_APIKEY = "partnerApiKey";
