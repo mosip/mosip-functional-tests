@@ -38,6 +38,7 @@ import java.security.interfaces.RSAPublicKey;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
@@ -4757,8 +4758,9 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static List<String> getAppointmentDetailsforHoliday(Response fetchCenterResponse) {
 		int countCenterDetails = 0;
-
+		String regCenterID = fetchCenterResponse.jsonPath().get("response.regCenterId").toString();
 		List<String> appointmentDetails = new ArrayList<>();
+		boolean addAppointmentDetails = false;
 		try {
 			countCenterDetails = fetchCenterResponse.jsonPath().getList("response.centerDetails").size();
 		} catch (NullPointerException e) {
@@ -4778,8 +4780,31 @@ public class AdminTestUtil extends BaseTestCase {
 						.toString();
 				String dayOfWeek = LocalDate.parse(date).getDayOfWeek().toString();
 
-				if (dayOfWeek.equals("SATURDAY") || dayOfWeek.equals("SUNDAY")) {
-					appointmentDetails.add(fetchCenterResponse.jsonPath().get("response.regCenterId").toString());
+				if (dayOfWeek.equals("FRIDAY")) {
+
+					DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+					LocalDate localDate = LocalDate.parse(date, formatter);
+
+					// Add one day to the date
+					LocalDate nextDay = localDate.plusDays(1);
+
+					// Convert back to string
+					String nextDayString = nextDay.format(formatter);
+					System.out.println("Next day: " + nextDayString);
+
+					if (!fetchCenterResponse.asString().contains(nextDayString)) {
+						date = nextDayString;
+						addAppointmentDetails = true;
+					} else {
+						continue;
+					}
+				}
+				if (dayOfWeek.equals("SATURDAY")) {
+					addAppointmentDetails = true;
+				}
+
+				if (addAppointmentDetails) {
+					appointmentDetails.add(regCenterID);
 					appointmentDetails.add(date);
 					appointmentDetails.add(fetchCenterResponse.jsonPath()
 							.get(GlobalConstants.RESPONSE_CENTER_DETAILS + i + GlobalConstants.TIMESLOTS_FROMTIME)
