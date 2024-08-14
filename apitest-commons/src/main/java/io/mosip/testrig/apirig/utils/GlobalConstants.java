@@ -207,6 +207,7 @@ public class GlobalConstants {
 	public static final String AUTH_CLIENT_IDSECRET_KEYURL = "authclientidsecretkeyURL";
 	public static final String EXPECTED_VS_ACTUAL = "EXPECTED vs ACTUAL";
 	public static final String RID_GENERATOR = "ridgenerator";
+	public static final String OTP_FEATURE_NOT_SUPPORTED = "OTP feature not supported. Hence skipping the testcase";
 	public static final String VID_FEATURE_NOT_SUPPORTED = "VID feature not supported. Hence skipping the testcase";
 	public static final String UIN_FEATURE_NOT_SUPPORTED = "UIN feature not supported. Hence skipping the testcase";
 	public static final String FEATURE_NOT_SUPPORTED_MESSAGE = "feature not supported. Hence skipping the testcase";
@@ -223,4 +224,7 @@ public class GlobalConstants {
 	public static final String DOB = "dob";
 	public static final String RESULT = "result";
 	public static final String INSURANCE = "Insurance";
+	public static final String SEND_OTP_ENDPOINT = "mimoto/req/";
+	public static final String CREATE_VID_ENDPOINT = "/idrepository/v1/vid";
+	public static final String MIMOTO_CREDENTIAL_STATUS = "Mimoto_CredentialsStatus_";
 }

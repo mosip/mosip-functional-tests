@@ -20,24 +20,24 @@ import io.restassured.response.Response;
 public class GlobalMethods {
 
 	private static final Logger logger = Logger.getLogger(GlobalMethods.class);
-	
-	public static Map<Object, Object> serverFailuresMapS = Collections
-			.synchronizedMap(new HashMap<Object, Object>());
-	
+
+	public static Map<Object, Object> serverFailuresMapS = Collections.synchronizedMap(new HashMap<Object, Object>());
+
 	public static Set<String> serverEndpoints = new HashSet<>();
-	
+
 	// Define the regex pattern to extract the domain and the path after the domain
-	private static final String	regex_1 = "https://([^/]+)/(v[0-9]+)?/(partnermanager|preregistration|resident|residentmobileapp|masterdata|esignet|idgenerator|policymanager|idauthentication|idrepository|auditmanager)/([^,]+)";
-	private static final String regex_2 = "https://([^/]+)/(partnermanager|preregistration|masterdata|resident|residentmobileapp|esignet|idgenerator|policymanager|idauthentication|idrepository|auditmanager)/(v[0-9]+)/([^,]+)";
+	private static final String module_name = "(mimoto|partnermanager|preregistration|resident|residentmobileapp|masterdata|esignet|idgenerator|policymanager|idauthentication|idrepository|auditmanager)";
+	private static final String regex_1 = "https://([^/]+)/(v[0-9]+)?/" + module_name + "/([^,]+)";
+	private static final String regex_2 = "https://([^/]+)/" + module_name + "/(v[0-9]+)/([^,]+)";
 
 	// Compile the regex pattern
 	private static final Pattern pattern_1 = Pattern.compile(regex_1);
 	private static final Pattern pattern_2 = Pattern.compile(regex_2);
-	
+
 	public static void main(String[] arg) {
-		
+
 	}
-	
+
 	public static String getUpdatedEndPointURL(String url) {
 		// Create a matcher for the current URL
 		Matcher matcher = pattern_1.matcher(url);
@@ -82,39 +82,39 @@ public class GlobalMethods {
 		}
 
 		// Both RegEx didn't match.. Needs revisit..
-		logger.error("Needs RegEx revisit..."+ "url is:" +url);
+		logger.error("Needs RegEx revisit..." + "url is:" + url);
 		return url;
 	}
-	
+
 	public static void addToServerEndPointMap(String url) {
 		String updatedURL = getUpdatedEndPointURL(url);
 		serverEndpoints.add(updatedURL);
 	}
-	
+
 	public static String removeNumerics(String url) {
 		// Define the regex patterns
-        String regex1 = "/\\d+/";                   // Remove numeric characters between slashes
-        String regex2 = "/\\d+$";                   // Remove numeric characters after the last slash at the end of the string
-        String regex3 = "/mosip_[a-zA-Z0-9_]+/";     // Remove alphanumeric sequences starting with 'mosip_' between slashes
-        // Compile the regex patterns
-        Pattern pattern1 = Pattern.compile(regex1);
-        Pattern pattern2 = Pattern.compile(regex2);
-        Pattern pattern3 = Pattern.compile(regex3);
-        // Apply the regex replacements sequentially
-        String modifiedString = url;
-        modifiedString = pattern1.matcher(modifiedString).replaceAll("/");
-        modifiedString = pattern2.matcher(modifiedString).replaceAll("/");
-        modifiedString = pattern3.matcher(modifiedString).replaceAll("/");
-        return modifiedString;
+		String regex1 = "/\\d+/"; // Remove numeric characters between slashes
+		String regex2 = "/\\d+$"; // Remove numeric characters after the last slash at the end of the string
+		String regex3 = "/mosip_[a-zA-Z0-9_]+/"; // Remove alphanumeric sequences starting with 'mosip_' between slashes
+		// Compile the regex patterns
+		Pattern pattern1 = Pattern.compile(regex1);
+		Pattern pattern2 = Pattern.compile(regex2);
+		Pattern pattern3 = Pattern.compile(regex3);
+		// Apply the regex replacements sequentially
+		String modifiedString = url;
+		modifiedString = pattern1.matcher(modifiedString).replaceAll("/");
+		modifiedString = pattern2.matcher(modifiedString).replaceAll("/");
+		modifiedString = pattern3.matcher(modifiedString).replaceAll("/");
+		return modifiedString;
 	}
-	
+
 	public static String getComponentDetails() {
 		// Define the regex pattern to extract the domain and the path after the domain
-		String regex_1 = "https://([^/]+)/(v[0-9]+)?/(partnermanager|preregistration|residentmobileapp|esignet|masterdata|resident|idgenerator|policymanager|idauthentication|idrepository|auditmanager)/([^,]+)";
+		String regex_1 = "https://([^/]+)/(v[0-9]+)?/" + module_name + "/([^,]+)";
 		// Compile the regex pattern
 		Pattern pattern_1 = Pattern.compile(regex_1);
 
-		String regex_2 = "https://([^/]+)/(partnermanager|preregistration|masterdata|residentmobileapp|esignet|idgenerator|resident|policymanager|idauthentication|idrepository|auditmanager)/(v[0-9]+)/([^,]+)";
+		String regex_2 = "https://([^/]+)/" + module_name + "/(v[0-9]+)/([^,]+)";
 		// Compile the regex pattern
 		Pattern pattern_2 = Pattern.compile(regex_2);
 
@@ -160,11 +160,11 @@ public class GlobalMethods {
 		}
 		return stringBuilder.toString();
 	}
-	
+
 	public static void reportServerError(Object code, Object errorMessage) {
 		serverFailuresMapS.put(code, errorMessage);
 	}
-	
+
 	public static String getServerErrors() {
 		// Construct server errors using string builder
 //		StringBuilder stringBuilder = new StringBuilder();
@@ -175,37 +175,41 @@ public class GlobalMethods {
 		}
 
 	}
-	
-    public static  String maskOutSensitiveInfo(String strInput) {
-    	if (ConfigManager.IsDebugEnabled()) 
-    		return strInput;
-    	
-		Pattern INDIVIDUAL_BIOMETRICS_PATTERN = Pattern.compile("\"category\":\\s?\"individualBiometrics\",\\s?\"value\":\\s?\"(.*?)\"");
+
+	public static String maskOutSensitiveInfo(String strInput) {
+		if (ConfigManager.IsDebugEnabled())
+			return strInput;
+
+		Pattern INDIVIDUAL_BIOMETRICS_PATTERN = Pattern
+				.compile("\"category\":\\s?\"individualBiometrics\",\\s?\"value\":\\s?\"(.*?)\"");
 		Pattern UIN_PATTERN = Pattern.compile("\"UIN\":\\s?\"(\\d{10})\"");
-		
+
 		Matcher biometricsMatcher = INDIVIDUAL_BIOMETRICS_PATTERN.matcher(strInput);
-		String maskedInput = biometricsMatcher.replaceAll("\"category\": \"individualBiometrics\", \"value\": \"***** MASKED *****\"");
-		
+		String maskedInput = biometricsMatcher
+				.replaceAll("\"category\": \"individualBiometrics\", \"value\": \"***** MASKED *****\"");
+
 //        Matcher uinMatcher = UIN_PATTERN.matcher(maskedInput);
 //        maskedInput = uinMatcher.replaceAll("\"UIN\": \"***** MASKED *****\"");
-        
+
 		return maskedInput;
-    }
-	
-	public static void ReportRequestAndResponse(String reqHeader,String resHeader,String url, String requestBody, String response, boolean formatResponse ) {
-	reportRequest(reqHeader,requestBody, url);
-	reportResponse(resHeader,url, response, formatResponse);				
 	}
-	
-	public static void ReportRequestAndResponse(String reqHeader,String resHeader,String url, String requestBody, String response) {
-	reportRequest(reqHeader,requestBody, url);
-	reportResponse(resHeader,url, response);				
-	}	
-	
+
+	public static void ReportRequestAndResponse(String reqHeader, String resHeader, String url, String requestBody,
+			String response, boolean formatResponse) {
+		reportRequest(reqHeader, requestBody, url);
+		reportResponse(resHeader, url, response, formatResponse);
+	}
+
+	public static void ReportRequestAndResponse(String reqHeader, String resHeader, String url, String requestBody,
+			String response) {
+		reportRequest(reqHeader, requestBody, url);
+		reportResponse(resHeader, url, response);
+	}
+
 	public static void reportRequest(String requestHeader, String request) {
 		reportRequest(requestHeader, request, "");
 	}
-	
+
 	public static void reportRequest(String requestHeader, String request, String url) {
 
 		String formattedHeader = ReportUtil.getTextAreaForHeaders(requestHeader);
@@ -238,28 +242,28 @@ public class GlobalMethods {
 			Reporter.log(GlobalConstants.REPORT_RESPONSE_PREFIX + GlobalConstants.REPORT_RESPONSE_BODY + formattedHeader
 					+ ReportUtil.getTextAreaJsonMsgHtml(response) + GlobalConstants.REPORT_RESPONSE_SUFFIX);
 		else
-			Reporter.log(GlobalConstants.REPORT_RESPONSE_PREFIX + GlobalConstants.REPORT_RESPONSE_BODY + responseHeader + response
-					+ GlobalConstants.REPORT_RESPONSE_SUFFIX);
+			Reporter.log(GlobalConstants.REPORT_RESPONSE_PREFIX + GlobalConstants.REPORT_RESPONSE_BODY + responseHeader
+					+ response + GlobalConstants.REPORT_RESPONSE_SUFFIX);
 	}
-	
-    // Hashes a string using SHA-256
+
+	// Hashes a string using SHA-256
 	public static String sha256(String input) {
 		String returnString = "";
-        MessageDigest digest;
+		MessageDigest digest;
 		try {
-	        digest = MessageDigest.getInstance("SHA-256");
-	        byte[] hashBytes = digest.digest(input.getBytes());
+			digest = MessageDigest.getInstance("SHA-256");
+			byte[] hashBytes = digest.digest(input.getBytes());
 
-	        StringBuilder hexStringBuilder = new StringBuilder(2 * hashBytes.length);
-	        for (byte hashByte : hashBytes) {
-	            hexStringBuilder.append(String.format("%02x", hashByte));
-	        }
-	        returnString = hexStringBuilder.toString();
+			StringBuilder hexStringBuilder = new StringBuilder(2 * hashBytes.length);
+			for (byte hashByte : hashBytes) {
+				hexStringBuilder.append(String.format("%02x", hashByte));
+			}
+			returnString = hexStringBuilder.toString();
 		} catch (NoSuchAlgorithmException e) {
 			logger.error("Failed while hashing SHA256 for VCI code challenge " + e.getMessage());
 		}
 		return returnString;
 
-    }
+	}
 
 }
