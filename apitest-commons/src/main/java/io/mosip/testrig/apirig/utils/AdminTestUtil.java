@@ -2963,9 +2963,10 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 	
 	public static String getAuthTransactionId(String oidcTransactionId) {
-	    final String transactionId = oidcTransactionId.replaceAll("_|-", "");
-	    String lengthOfTransactionId =  AdminTestUtil.getValueFromEsignetActuator("/mosip/mosip-config/esignet-default.properties", "mosip.esignet.auth-txn-id-length");
-	   int authTransactionIdLength = lengthOfTransactionId != null ? Integer.parseInt(lengthOfTransactionId): 0;
+		final String transactionId = oidcTransactionId.replaceAll("_|-", "");
+		String lengthOfTransactionId = AdminTestUtil.getValueFromEsignetActuator(
+				ConfigManager.getEsignetActuatorPropertySection(), "mosip.esignet.auth-txn-id-length");
+		int authTransactionIdLength = lengthOfTransactionId != null ? Integer.parseInt(lengthOfTransactionId): 0;
 	    final byte[] oidcTransactionIdBytes = transactionId.getBytes();
 	    final byte[] authTransactionIdBytes = new byte[authTransactionIdLength];
 	    int i = oidcTransactionIdBytes.length - 1;
@@ -3617,8 +3618,9 @@ public class AdminTestUtil extends BaseTestCase {
 					"mosip.iam.module.clientID");
 			String esignetBaseURI = getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES,
 					"mosip.iam.token_endpoint");
-			int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(
-					GlobalConstants.ESIGNET_DEFAULT_PROPERTIES, GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
+			int idTokenExpirySecs = Integer
+					.parseInt(getValueFromEsignetActuator(ConfigManager.getEsignetActuatorPropertySection(),
+							GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
 
 			Instant instant = Instant.now();
 
@@ -3816,8 +3818,9 @@ public class AdminTestUtil extends BaseTestCase {
 		if (tempUrl.contains("esignet.")) {
 			tempUrl = tempUrl.replace("esignet.", propsKernel.getProperty("esignetMockBaseURL"));
 		}
-		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(GlobalConstants.ESIGNET_DEFAULT_PROPERTIES,
-				GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
+		int idTokenExpirySecs = Integer
+				.parseInt(getValueFromEsignetActuator(ConfigManager.getEsignetActuatorPropertySection(),
+						GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
 		JWSSigner signer;
 		String proofJWT = "";
 		String typ = "openid4vci-proof+jwt";
@@ -3860,10 +3863,10 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static String signJWK(String clientId, String accessToken, RSAKey jwkKey, String testCaseName) {
-//		String tempUrl = getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES, "mosip.iam.base.url");
 		String tempUrl = getValueFromEsignetWellKnownEndPoint("issuer");
-		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(GlobalConstants.ESIGNET_DEFAULT_PROPERTIES,
-				GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
+		int idTokenExpirySecs = Integer
+				.parseInt(getValueFromEsignetActuator(ConfigManager.getEsignetActuatorPropertySection(),
+						GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
 		JWSSigner signer;
 		String proofJWT = "";
 		String typ = "openid4vci-proof+jwt";
@@ -5951,13 +5954,13 @@ public class AdminTestUtil extends BaseTestCase {
 //	}
 
 	public static String signJWKKeyForMock(String clientId, RSAKey jwkKey) {
-//		String tempUrl = getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES, "mosip.iam.token_endpoint");
 		String tempUrl = getValueFromEsignetWellKnownEndPoint("token_endpoint");
 		if (tempUrl.contains("esignet.")) {
 			tempUrl = tempUrl.replace("esignet.", propsKernel.getProperty("esignetMockBaseURL"));
 		}
-		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(GlobalConstants.ESIGNET_DEFAULT_PROPERTIES,
-				GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
+		int idTokenExpirySecs = Integer
+				.parseInt(getValueFromEsignetActuator(ConfigManager.getEsignetActuatorPropertySection(),
+						GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
 		JWSSigner signer;
 
 		try {
@@ -5992,10 +5995,10 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static String signJWKKey(String clientId, RSAKey jwkKey) {
-//		String tempUrl = getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES, "mosip.iam.token_endpoint");
 		String tempUrl = getValueFromEsignetWellKnownEndPoint("token_endpoint");
-		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(GlobalConstants.ESIGNET_DEFAULT_PROPERTIES,
-				GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
+		int idTokenExpirySecs = Integer
+				.parseInt(getValueFromEsignetActuator(ConfigManager.getEsignetActuatorPropertySection(),
+						GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
 		JWSSigner signer;
 
 		try {
@@ -6032,8 +6035,9 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String getWlaToken(String individualId, RSAKey jwkKey, String certData)
 			throws JoseException, JOSEException {
 		String tempUrl = propsKernel.getProperty("validateBindingEndpoint");
-		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(GlobalConstants.ESIGNET_DEFAULT_PROPERTIES,
-				GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
+		int idTokenExpirySecs = Integer
+				.parseInt(getValueFromEsignetActuator(ConfigManager.getEsignetActuatorPropertySection(),
+						GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
 		Instant instant = Instant.now();
 		long epochValue = instant.getEpochSecond();
 

@@ -75,6 +75,7 @@ public class ConfigManager {
 
 	private static String USEPRECONFIGOTP = "usePreConfiguredOtp";
 	private static String ESIGNET_BASE_URL = "eSignetbaseurl";
+	private static String ESIGNET_ACTUATOR_PROPERTY_SECTION = "esignetActuatorPropertySection";
 
 	private static String ESIGNET_MOCK_BASE_URL = "esignetMockBaseURL";
 	private static String SUNBIRD_BASE_URL = "sunBirdBaseURL";
@@ -205,6 +206,7 @@ public class ConfigManager {
 	private static String eSignetbaseurl;
 	private static String esignetMockBaseURL;
 	private static String sunBirdBaseURL;
+	private static String esignetActuatorPropertySection;
 
 	private static String dbPort;
 	private static String dbDomain;
@@ -406,6 +408,11 @@ public class ConfigManager {
 				? propsKernel.getProperty(USE_EXTERNAL_SCENARIO_SHEET)
 				: System.getenv(USE_EXTERNAL_SCENARIO_SHEET);
 		propsKernel.setProperty(USE_EXTERNAL_SCENARIO_SHEET, useExternalScenario_sheet);
+		
+		esignetActuatorPropertySection = System.getenv(ESIGNET_ACTUATOR_PROPERTY_SECTION) == null
+		? propsKernel.getProperty(ESIGNET_ACTUATOR_PROPERTY_SECTION)
+		: System.getenv(ESIGNET_ACTUATOR_PROPERTY_SECTION);
+		propsKernel.setProperty(ESIGNET_ACTUATOR_PROPERTY_SECTION, esignetActuatorPropertySection);
 
 		if (System.getenv(ESIGNET_BASE_URL) != null) {
 			eSignetbaseurl = System.getenv(ESIGNET_BASE_URL);
@@ -517,6 +524,11 @@ public class ConfigManager {
 			}
 		}
 		return false;
+	}
+	
+	public static String getEsignetActuatorPropertySection() {
+		return esignetActuatorPropertySection;
+
 	}
 	
 	public static String getComponentBaseURL(String component) {
