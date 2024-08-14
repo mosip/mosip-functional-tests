@@ -2734,8 +2734,9 @@ public class AdminTestUtil extends BaseTestCase {
 			return null;
 		int indexof = testCaseName.indexOf("_");
 		String autogenIdKeyName = testCaseName.substring(indexof + 1);
-		if ((!BaseTestCase.isTargetEnvLTS()) && fieldName.equals("VID")
-				&& (BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals("esignet")))
+		if ((!BaseTestCase.isTargetEnvLTS() || isOTPEnabled().equals("false")) && fieldName.equals("VID")
+				&& (BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals("esignet")
+						|| BaseTestCase.currentModule.equals(GlobalConstants.MIMOTO)))
 			autogenIdKeyName = autogenIdKeyName + "_" + fieldName.toLowerCase();
 		else
 			autogenIdKeyName = autogenIdKeyName + "_" + fieldName;
@@ -6213,6 +6214,14 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 	
 	public static JSONArray mimotoActuatorResponseArray = null;
+	private static String otpEnabled = "true";
+
+	public static String isOTPEnabled() {
+		String value = getValueFromMimotoActuator("/mimoto-default.properties", "mosip.otp.download.enable");
+		if (value != null && !(value.isBlank()))
+			otpEnabled = value;
+		return otpEnabled;
+	}
 
 	public static String getValueFromMimotoActuator(String section, String key) {
 		String url = ApplnURI + propsKernel.getProperty("actuatorMimotoEndpoint");
@@ -6245,6 +6254,8 @@ public class AdminTestUtil extends BaseTestCase {
 			return value;
 		} catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+			logger.error("Unable to fetch the value from the actuator. URL = " + url + " section = " + section + " key "
+					+ key);
 			return "";
 		}
 
@@ -6504,6 +6515,16 @@ public class AdminTestUtil extends BaseTestCase {
 							|| testCaseName.contains("_SendBindingOtp_uin_Email_Valid_Smoke"))
 					&& (!isElementPresent(new JSONArray(schemaRequiredField), individualBiometrics))) {
 				throw new SkipException(GlobalConstants.FEATURE_NOT_SUPPORTED_MESSAGE);
+			}
+		} else if (BaseTestCase.currentModule.equalsIgnoreCase(GlobalConstants.MIMOTO)) {
+			if (isOTPEnabled().equals("false") && (testCaseDTO.getEndPoint().contains(GlobalConstants.SEND_OTP_ENDPOINT)
+					|| testCaseDTO.getInput().contains(GlobalConstants.SEND_OTP_ENDPOINT)
+					|| testCaseName.startsWith(GlobalConstants.MIMOTO_CREDENTIAL_STATUS))) {
+				throw new SkipException(GlobalConstants.OTP_FEATURE_NOT_SUPPORTED);
+			} else if (isOTPEnabled().equals("true")
+					&& testCaseDTO.getEndPoint().contains(GlobalConstants.CREATE_VID_ENDPOINT)) {
+				throw new SkipException(
+						GlobalConstants.VID_GENERATED_USING_RESIDENT_API_SO_FEATURE_NOT_SUPPORTED_OR_NEEDED_MESSAGE);
 			}
 		}
 
