@@ -251,7 +251,7 @@ public class EmailableReport implements IReporter {
 
 		int testIndex = 0;
 		for (SuiteResult suiteResult : suiteResults) {
-			writer.print("<tr><th colspan=\"7\">");
+			writer.print("<tr><th colspan=\"8\">");
 			writer.print(Utils.escapeHtml(suiteResult.getSuiteName() + " ---- " + "Report Date: " + formattedDate
 					+ " ---- " + "Tested Environment: "
 					+ System.getProperty("env.endpoint").replaceAll(".*?\\.([^\\.]+)\\..*", "$1") + " ---- "
@@ -264,7 +264,7 @@ public class EmailableReport implements IReporter {
 			writer.print("</span></th>");
 
 			// Right column: Details from AdminTestUtil.getServerComponentsDetails() without bold formatting
-			writer.print("<td colspan=\"5\"><pre>");
+			writer.print("<td colspan=\"6\"><pre>");
 			writer.print(Utils.escapeHtml(AdminTestUtil.getServerComponentsDetails()));
 			writer.print("</pre></td>");
 			writer.print(GlobalConstants.TRTR);
@@ -275,23 +275,24 @@ public class EmailableReport implements IReporter {
 			writer.print("</span></th>");
 
 			// Right column: Details from AdminTestUtil.getServerComponentsDetails() without bold formatting
-			writer.print("<td colspan=\"5\"><pre>");
+			writer.print("<td colspan=\"6\"><pre>");
 			writer.print(Utils.escapeHtml(GlobalMethods.getComponentDetails()));
 			writer.print("</pre></td>");
 			writer.print(GlobalConstants.TRTR);
 			
 			if (GlobalMethods.getServerErrors().equals("No server errors")) {
-				writer.print("<tr><th colspan=\"7\"><span class=\"not-bold\"><pre>");
+				writer.print("<tr><th colspan=\"8\"><span class=\"not-bold\"><pre>");
 			} else {
 				writer.print(
-						"<tr style=\"background-color: red;\"><th colspan=\"7\"><span class=\"not-bold\"><pre>");
+						"<tr style=\"background-color: red;\"><th colspan=\"8\"><span class=\"not-bold\"><pre>");
 			}
 			writer.print(Utils.escapeHtml("Server Errors " + "\n" + GlobalMethods.getServerErrors()));
 			writer.print("</pre></span>");
 			writer.print(GlobalConstants.TRTR);
 
 			writer.print("<tr>");
-			writer.print("<th>Test</th>");
+			writer.print("<th>Test Scenario</th>");
+			writer.print("<th>Prerequisite Step</th>");
 			writer.print("<th># Total</th>");
 			writer.print("<th># Passed</th>");
 			writer.print("<th># Skipped</th>");
@@ -331,8 +332,9 @@ public class EmailableReport implements IReporter {
 				writeTableData(buffer.append("<a href=\"#t").append(testIndex).append("\">")
 						.append(Utils.escapeHtml(testResult.getTestName())).append("</a>").toString(), "num");
 				
-				writeTableData(integerFormat.format(totalTests),
-							"num");
+				writeTableData(testResult.getPrerequisiteTest(), "num");
+				
+				writeTableData(integerFormat.format(totalTests), "num");
 				writeTableData(integerFormat.format(passedTests), (passedTests > 0 ? "num green-bg" : "num"));
 				writeTableData(integerFormat.format(skippedTests), (skippedTests > 0 ? "num orange-bg" : "num"));
 				writeTableData(integerFormat.format(failedTests), (failedTests > 0 ? GlobalConstants.NUMATTN : "num"));
@@ -359,6 +361,7 @@ public class EmailableReport implements IReporter {
 		if (testIndex > 1) {
 			writer.print("<tr>");
 			writer.print("<th>Total</th>");
+			writeTableHeader("", "num");
 			if (ConfigManager.reportIgnoredTestCases()) {
 				writeTableHeader(integerFormat
 						.format(totalPassedTests + totalSkippedTests + totalFailedTests + totalIgnoredTests), "num");
@@ -826,6 +829,7 @@ public class EmailableReport implements IReporter {
 		};
 
 		private final String testName;
+		private final String prerequisiteTest;
 		private final List<ClassResult> failedConfigurationResults;
 		private final List<ClassResult> failedTestResults;
 		private final List<ClassResult> skippedConfigurationResults;
@@ -842,6 +846,8 @@ public class EmailableReport implements IReporter {
 
 		public TestResult(ITestContext context) {
 			testName = context.getName();
+			prerequisiteTest = context.getCurrentXmlTest().getParameter("prerequisite") == null ? ""
+					: context.getCurrentXmlTest().getParameter("prerequisite");
 
 			Set<ITestResult> failedConfigurations = context.getFailedConfigurations().getAllResults();
 			Set<ITestResult> failedTests = context.getFailedTests().getAllResults();
@@ -925,6 +931,10 @@ public class EmailableReport implements IReporter {
 
 		public String getTestName() {
 			return testName;
+		}
+		
+		public String getPrerequisiteTest() {
+			return prerequisiteTest;
 		}
 
 		/**
