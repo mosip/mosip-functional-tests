@@ -224,4 +224,7 @@ public class GlobalConstants {
 	public static final String DOB = "dob";
 	public static final String RESULT = "result";
 	public static final String INSURANCE = "Insurance";
+	public static final String SEND_OTP_ENDPOINT = "mimoto/req/";
+	public static final String CREATE_VID_ENDPOINT = "/idrepository/v1/vid";
+	public static final String MIMOTO_CREDENTIAL_STATUS = "Mimoto_CredentialsStatus_";
 }
