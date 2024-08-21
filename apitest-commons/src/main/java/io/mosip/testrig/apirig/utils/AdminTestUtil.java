@@ -5003,6 +5003,7 @@ public class AdminTestUtil extends BaseTestCase {
 	        JSONObject identityJson = new JSONObject();
 	        identityJson.put("UIN", "{{UIN}}");
 
+	        List<String> selectedHandles = new ArrayList<>();
 	        //requiredPropsArray.put("functionalId");
 	        for (int i = 0, size = requiredPropsArray.length(); i < size; i++) {
 	            String eachRequiredProp = requiredPropsArray.getString(i);
@@ -5027,15 +5028,24 @@ public class AdminTestUtil extends BaseTestCase {
 	                        JSONObject eachValueJsonForHandles = new JSONObject();
 	                        if (eachRequiredProp.equals(emailResult)) {
 	                            eachValueJsonForHandles.put("value", "$EMAILVALUE$");
+	                            eachValueJsonForHandles.put("tags", ":[handle]");
+	                            selectedHandles.add(emailResult);
+	                            
 	                        } else if (eachRequiredProp.equals(result)) {
 	                            eachValueJsonForHandles.put("value", "$PHONENUMBERFORIDENTITY$");
+	                            eachValueJsonForHandles.put("tags", ":[handle]");
+	                            selectedHandles.add(result);
 	                        } else {
 	                            eachValueJsonForHandles.put("value", "1726266");
+	                            eachValueJsonForHandles.put("tags", ":[handle]");
+	                            selectedHandles.add(eachRequiredProp);
 	                        }
 	                        eachPropDataArrayForHandles.put(eachValueJsonForHandles);
-	                identityJson.put(eachRequiredProp, eachPropDataArrayForHandles);
+	                        identityJson.put(eachRequiredProp, eachPropDataArrayForHandles);
+	                    
 	            }
-
+	            
+	           
 
 	            else if (eachPropDataJson.has("$ref") && eachPropDataJson.get("$ref").toString().contains("simpleType")) {
 	                JSONArray eachPropDataArray = new JSONArray();
@@ -5060,6 +5070,7 @@ public class AdminTestUtil extends BaseTestCase {
 	                    }
 	                }
 	                identityJson.put(eachRequiredProp, eachPropDataArray);
+	                
 	            } else {
 	                if (eachRequiredProp.equals("proofOfIdentity")) {
 	                    identityJson.put(eachRequiredProp, new HashMap<>());
@@ -5096,6 +5107,7 @@ public class AdminTestUtil extends BaseTestCase {
 	                }
 	            }
 	        }
+	       identityJson.put("selectedHandles", selectedHandles);
 
 	        // Constructing and adding functionalIds
 	        JSONArray functionalIdsArray = new JSONArray();
