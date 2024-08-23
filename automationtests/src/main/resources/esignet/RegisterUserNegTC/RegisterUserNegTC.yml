@@ -477,10 +477,11 @@ RegisterUserNegTC:
     }
   ]
 }'
-   ESignet_RegisterUserNegTC_WITH_more_then_9digit_number:
+   ESignet_RegisterUserNegTC_WITH_more_than_9digit_number:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post
+      allowedErrorCodes: invalid_phone,invalid_phone_number
       inputTemplate: esignet/RegisterUser/RegisterUser
       outputTemplate: esignet/error
       input: '{
@@ -505,6 +506,7 @@ RegisterUserNegTC:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post
+      allowedErrorCodes: invalid_phone,invalid_phone_number
       inputTemplate: esignet/RegisterUser/RegisterUser
       outputTemplate: esignet/error
       input: '{
@@ -988,6 +990,7 @@ RegisterUserNegTC:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post
+      allowedErrorCodes: invalid_phone,invalid_phone_number
       inputTemplate: esignet/RegisterUser/RegisterUser
       outputTemplate: esignet/error
       input: '{
@@ -1028,7 +1031,7 @@ RegisterUserNegTC:
       output: '{
       	"errors": [
     {
-      "errorCode": "unsupported_language",
+      "errorCode": "invalid_preferredlang",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -1061,6 +1064,7 @@ RegisterUserNegTC:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post
+      allowedErrorCodes: invalid_phone,invalid_phone_number
       inputTemplate: esignet/RegisterUser/RegisterUser
       outputTemplate: esignet/error
       input: '{
@@ -1085,6 +1089,7 @@ RegisterUserNegTC:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post
+      allowedErrorCodes: invalid_phone_number,invalid_phone
       inputTemplate: esignet/RegisterUser/RegisterUser
       outputTemplate: esignet/error
       input: '{
@@ -1109,6 +1114,7 @@ RegisterUserNegTC:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post
+      allowedErrorCodes: invalid_phone,invalid_phone_number
       inputTemplate: esignet/RegisterUser/RegisterUser
       outputTemplate: esignet/error
       input: '{
@@ -1133,6 +1139,7 @@ RegisterUserNegTC:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post
+      allowedErrorCodes: invalid_phone,invalid_phone_number
       inputTemplate: esignet/RegisterUser/RegisterUser
       outputTemplate: esignet/error
       input: '{
@@ -1157,6 +1164,7 @@ RegisterUserNegTC:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post
+      allowedErrorCodes: invalid_phone,invalid_phone_number
       inputTemplate: esignet/RegisterUser/RegisterUser
       outputTemplate: esignet/error
       input: '{
@@ -1181,6 +1189,7 @@ RegisterUserNegTC:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post
+      allowedErrorCodes: invalid_phone,invalid_phone_number
       inputTemplate: esignet/RegisterUser/RegisterUser
       outputTemplate: esignet/error
       input: '{
@@ -1230,6 +1239,7 @@ RegisterUserNegTC:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post
+      allowedErrorCodes: invalid_phone,invalid_phone_number
       inputTemplate: esignet/RegisterUser/RegisterUser
       outputTemplate: esignet/error
       input: '{
@@ -1254,7 +1264,7 @@ RegisterUserNegTC:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post
-      allowedErrorCodes: invalid_value,invalid_phone_number
+      allowedErrorCodes: invalid_phone,invalid_phone_number
       inputTemplate: esignet/RegisterUser/RegisterUser
       outputTemplate: esignet/error
       input: '{
@@ -1279,7 +1289,7 @@ RegisterUserNegTC:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post
-      allowedErrorCodes: invalid_value,invalid_phone_number
+      allowedErrorCodes: invalid_phone,invalid_phone_number
       inputTemplate: esignet/RegisterUser/RegisterUser
       outputTemplate: esignet/error
       input: '{
@@ -1304,6 +1314,7 @@ RegisterUserNegTC:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post
+      allowedErrorCodes: invalid_phone,invalid_phone_number
       inputTemplate: esignet/RegisterUser/RegisterUser
       outputTemplate: esignet/error
       input: '{
@@ -1343,7 +1354,7 @@ RegisterUserNegTC:
       output: '{
       	"errors": [
     {
-      "errorCode": "unsupported_language",
+      "errorCode": "invalid_preferredlang",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -1367,7 +1378,7 @@ RegisterUserNegTC:
       output: '{
       	"errors": [
     {
-      "errorCode": "unsupported_language",
+      "errorCode": "invalid_preferredlang",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -1391,7 +1402,7 @@ RegisterUserNegTC:
       output: '{
       	"errors": [
     {
-      "errorCode": "unsupported_language",
+      "errorCode": "invalid_preferredlang",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -1415,7 +1426,7 @@ RegisterUserNegTC:
       output: '{
       	"errors": [
     {
-      "errorCode": "unsupported_language",
+      "errorCode": "invalid_preferredlang",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -1450,6 +1461,7 @@ RegisterUserNegTC:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post
+      allowedErrorCodes: invalid_fullname,invalid_value
       inputTemplate: esignet/RegisterUser/RegisterUser
       outputTemplate: esignet/error
       input: '{
@@ -1465,7 +1477,7 @@ RegisterUserNegTC:
       output: '{
       	"errors": [
     {
-      "errorCode": "unknown_error"
+      "errorCode": "invalid_language"
     }
   ]
 }'
@@ -1474,7 +1486,7 @@ RegisterUserNegTC:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post
-      allowedErrorCodes: invalid_fullname,unsupported_language
+      allowedErrorCodes: invalid_fullname,unsupported_language,invalid_firstname
       inputTemplate: esignet/RegisterUser/RegisterUser
       outputTemplate: esignet/error
       input: '{
@@ -1490,7 +1502,7 @@ RegisterUserNegTC:
       output: '{
       	"errors": [
     {
-      "errorCode": "unsupported_language"
+      "errorCode": "invalid_language"
     }
   ]
 }'
@@ -1499,7 +1511,7 @@ RegisterUserNegTC:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post
-      allowedErrorCodes: unsupported_language,invalid_fullname
+      allowedErrorCodes: unsupported_language,invalid_fullname,invalid_firstname
       inputTemplate: esignet/RegisterUser/RegisterUser
       outputTemplate: esignet/error
       input: '{
@@ -1515,7 +1527,7 @@ RegisterUserNegTC:
       output: '{
       	"errors": [
     {
-      "errorCode": "unsupported_language"
+      "errorCode": "invalid_language"
     }
   ]
 }'
@@ -1524,7 +1536,7 @@ RegisterUserNegTC:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post
-      allowedErrorCodes: invalid_value,invalid_fullname
+      allowedErrorCodes: invalid_value,invalid_fullname,invalid_firstname
       inputTemplate: esignet/RegisterUser/RegisterUser
       outputTemplate: esignet/error
       input: '{
@@ -1565,7 +1577,7 @@ RegisterUserNegTC:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_value"
+      "errorCode": "invalid_fullname"
     }
   ]
 }'
