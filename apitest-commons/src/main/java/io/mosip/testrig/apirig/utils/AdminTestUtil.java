@@ -4971,6 +4971,8 @@ public class AdminTestUtil extends BaseTestCase {
 	        requestJson.getJSONObject("request").put("registrationId", "{{registrationId}}");
 	        JSONObject identityJson = new JSONObject();
 	        identityJson.put("UIN", "{{UIN}}");
+	        JSONArray handleArray = new JSONArray();
+	        handleArray.put("handles");
 
 	        List<String> selectedHandles = new ArrayList<>();
 	        //requiredPropsArray.put("functionalId");
@@ -4997,16 +4999,17 @@ public class AdminTestUtil extends BaseTestCase {
 	                        JSONObject eachValueJsonForHandles = new JSONObject();
 	                        if (eachRequiredProp.equals(emailResult)) {
 	                            eachValueJsonForHandles.put("value", "$EMAILVALUE$");
-	                            eachValueJsonForHandles.put("tags", ":[handle]");
+	                            eachValueJsonForHandles.put("tags", handleArray);
 	                            selectedHandles.add(emailResult);
 	                            
 	                        } else if (eachRequiredProp.equals(result)) {
 	                            eachValueJsonForHandles.put("value", "$PHONENUMBERFORIDENTITY$");
-	                            eachValueJsonForHandles.put("tags", ":[handle]");
+	                            //"tags": ":["handle"]
+	                            eachValueJsonForHandles.put("tags", handleArray);
 	                            selectedHandles.add(result);
 	                        } else {
-	                            eachValueJsonForHandles.put("value", "1726266");
-	                            eachValueJsonForHandles.put("tags", ":[handle]");
+	                            eachValueJsonForHandles.put("value", RANDOM_ID);
+	                            eachValueJsonForHandles.put("tags", handleArray);
 	                            selectedHandles.add(eachRequiredProp);
 	                        }
 	                        eachPropDataArrayForHandles.put(eachValueJsonForHandles);
@@ -5076,7 +5079,10 @@ public class AdminTestUtil extends BaseTestCase {
 	                }
 	            }
 	        }
-	       identityJson.put("selectedHandles", selectedHandles);
+	        if (selectedHandles  != null) {
+	        	identityJson.put("selectedHandles", selectedHandles);
+	        }
+	       
 
 	        // Constructing and adding functionalIds
 	        JSONArray functionalIdsArray = new JSONArray();
@@ -7328,6 +7334,53 @@ public class AdminTestUtil extends BaseTestCase {
 		return false;
 	}
 	
+	public String replaceArrayHandleValues(String inputJson, String testCaseName) {
+	    JSONObject jsonObj = new JSONObject(inputJson);
+	    JSONObject request = jsonObj.getJSONObject("request");
+	    JSONObject identity = request.getJSONObject("identity");
+	    JSONArray selectedHandles = identity.getJSONArray("selectedHandles");
+
+	    for (int i = 0; i < selectedHandles.length(); i++) {
+	        String handle = selectedHandles.getString(i);
+	        if (identity.has(handle)) {
+	            JSONArray handleArray = identity.getJSONArray(handle);
+
+	            if (testCaseName.endsWith("_onlywithtags")) {
+	                for (int j = 0; j < handleArray.length(); j++) {
+	                    JSONObject handleObj = handleArray.getJSONObject(j);
+	                    handleObj.remove("value");
+	                }
+	            } else if (testCaseName.endsWith("_withoutvalues")) {
+	                for (int j = 0; j < handleArray.length(); j++) {
+	                    JSONObject handleObj = handleArray.getJSONObject(j);
+	                    handleObj.remove("tags");
+	                }
+	            } 
+	            else if (testCaseName.endsWith("_withtagwithoutselectedhandles")) {
+	                for (int j = 0; j < handleArray.length(); j++) {
+	                    JSONObject handleObj = handleArray.getJSONObject(j);
+	                    handleObj.remove("tags");
+	                }
+	            }
+	            
+	            else if (testCaseName.endsWith("_withoutselectedhandles")) {
+	                identity.remove("selectedHandles");
+	                break; 
+	            } else {
+	                for (int j = 0; j < handleArray.length(); j++) {
+	                    JSONObject handleObj = handleArray.getJSONObject(j);
+	                    handleObj.put("value", handleObj.getString("value") + "_modified");
+	                }
+	            }
+
+	            identity.put(handle, handleArray);
+	        }
+	    }
+
+	    return jsonObj.toString();
+	}
+
+	
 //	public static boolean checkIsCertTrusted(String certIssuer, JSONArray ArrayOfJsonObjects, int recursiveCount) {
 //		for (int i = 0; i < ArrayOfJsonObjects.length(); i++) {
 //			if (ArrayOfJsonObjects.getJSONObject(i).has("certSubject")
@@ -7368,4 +7421,5 @@ public class AdminTestUtil extends BaseTestCase {
 //		}
 //		return false;
 //	}
+	
 }

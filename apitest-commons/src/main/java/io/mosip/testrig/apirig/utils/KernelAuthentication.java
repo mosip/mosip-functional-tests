@@ -158,7 +158,7 @@ public class KernelAuthentication extends BaseTestCase {
 				batchJobToken = kernelAuthLib.getPreRegToken();
 			return batchJobToken;
 
-		case "invalidBatch":
+		case "invalidbatch":
 			if (!kernelCmnLib.isValidToken(invalidBatchJobToken))
 				invalidBatchJobToken = kernelAuthLib.getPreRegInvalidToken();
 			return invalidBatchJobToken;
