@@ -580,7 +580,8 @@ public class OutputValidationUtil extends AuthTestsUtil {
 	}
 	
 	public static void reportServerIssues(String responseString, TestCaseDTO testCaseDTO) throws AdminTestException {
-		if (responseString.startsWith("<!DOCTYPE html>"))
+		if (responseString.startsWith("<!DOCTYPE html>") || responseString.startsWith("<html")
+				|| responseString.startsWith("no healthy upstream"))
 			throw new AdminTestException("Not a JSON response. Hence marking the test case as failed");
 
 		try {
