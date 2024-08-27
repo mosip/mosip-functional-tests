@@ -3393,7 +3393,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		if (jsonString.contains("$GETCLIENTIDFROMMIMOTOACTUATOR$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$GETCLIENTIDFROMMIMOTOACTUATOR$",
-					getValueFromMimotoActuator("configService:overrides", "mimoto.oidc.partner.clientid"));
+					getValueFromMimotoActuator("overrides", "mimoto.oidc.partner.clientid"));
 		}
 		if (jsonString.contains("$IDPREDIRECTURI$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$IDPREDIRECTURI$",
@@ -3794,6 +3794,7 @@ public class AdminTestUtil extends BaseTestCase {
 			JSONObject request = new JSONObject(jsonString);
 			String clientId = "";
 			String accessToken = "";
+			String tempUrl = "";
 			if (request.has("client_id")) {
 				clientId = request.getString("client_id");
 				request.remove("client_id");
@@ -3802,8 +3803,21 @@ public class AdminTestUtil extends BaseTestCase {
 				accessToken = request.getString("idpAccessToken");
 			}
 			jsonString = request.toString();
+
+			if (BaseTestCase.currentModule.equals(GlobalConstants.INJICERTIFY)) {
+				String baseURL = ConfigManager.getInjiCertifyBaseUrl();
+				if (testCaseName.contains("_GetCredentialSunBirdC")) {
+					tempUrl = getValueFromInjiCertifyWellKnownEndPoint("credential_issuer",
+							baseURL.replace("injicertify.", "injicertify-insurance."));
+				}
+			} else {
+				tempUrl = getValueFromEsignetWellKnownEndPoint("issuer");
+				if (tempUrl.contains("esignet.")) {
+					tempUrl = tempUrl.replace("esignet.", propsKernel.getProperty("esignetMockBaseURL"));
+				}
+			}
 			jsonString = replaceKeywordWithValue(jsonString, "$PROOF_JWT_2$",
-					signJWKForMock(clientId, accessToken, oidcJWKKey4, testCaseName));
+					signJWKForMock(clientId, accessToken, oidcJWKKey4, testCaseName, tempUrl));
 		}
 
 		if (jsonString.contains(GlobalConstants.REMOVE))
@@ -3812,12 +3826,8 @@ public class AdminTestUtil extends BaseTestCase {
 		return jsonString;
 	}
 
-	public static String signJWKForMock(String clientId, String accessToken, RSAKey jwkKey, String testCaseName) {
-//		String tempUrl = getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES, "mosip.iam.base.url");
-		String tempUrl = getValueFromEsignetWellKnownEndPoint("issuer");
-		if (tempUrl.contains("esignet.")) {
-			tempUrl = tempUrl.replace("esignet.", propsKernel.getProperty("esignetMockBaseURL"));
-		}
+	public static String signJWKForMock(String clientId, String accessToken, RSAKey jwkKey, String testCaseName,
+			String tempUrl) {
 		int idTokenExpirySecs = Integer
 				.parseInt(getValueFromEsignetActuator(ConfigManager.getEsignetActuatorPropertySection(),
 						GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
@@ -4215,7 +4225,47 @@ public class AdminTestUtil extends BaseTestCase {
 		if (!jsonString.contains(idKey))
 			return jsonString;
 		String keyForIdProperty = StringUtils.substringBetween(jsonString, idKey, "$");
-		String keyToReplace = idKey + keyForIdProperty + "$";
+		String keyToReplace = "";
+		
+		// mock = email,phone; default
+		// mock = phone;
+		// mock = email;
+
+		// $ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$
+		
+		// $ID:AddIdentity_withValidParameters_smoke_Pos_PHONE$@phone
+		
+		
+
+		if (keyForIdProperty.endsWith("_EMAIL") && ConfigManager.getMockNotificationChannel().equalsIgnoreCase("phone")) {
+				String temp = idKey + keyForIdProperty + "$" ; //$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$
+				keyForIdProperty = keyForIdProperty.replace("_EMAIL", "_PHONE"); // AddIdentity_withValidParameters_smoke_Pos_PHONE
+				keyToReplace = temp; // $ID:AddIdentity_withValidParameters_smoke_Pos_PHONE$@phone
+				
+				jsonString = jsonString.replace(temp, temp + "@phone");
+				
+				
+		} else if (keyForIdProperty.endsWith("_PHONE") && ConfigManager.getMockNotificationChannel().equalsIgnoreCase("email")) {
+				String temp = idKey + keyForIdProperty + "$" ; //$ID:AddIdentity_withValidParameters_smoke_Pos_PHONE$
+				keyForIdProperty = keyForIdProperty.replace("_PHONE", "_EMAIL"); // AddIdentity_withValidParameters_smoke_Pos_EMAIL
+				keyToReplace = temp + "@phone";
+		} else {
+			keyToReplace = idKey + keyForIdProperty + "$"; //AddIdentity_withValidParameters_smoke_Pos_EMAIL
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		
+		
+		
 		Properties props = new Properties();
 
 		try (FileInputStream inputStream = new FileInputStream(getResourcePath() + autoGenIdFileName);) {
@@ -6141,6 +6191,29 @@ public class AdminTestUtil extends BaseTestCase {
 			} catch (Exception e) {
 				logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			}
+		}
+		return responseJson.getString(key);
+	}
+	
+	public static String getValueFromInjiCertifyWellKnownEndPoint(String key, String baseURL) {
+		String url = baseURL + propsKernel.getProperty("injiCertifyWellKnownEndPoint");
+
+		String actuatorCacheKey = url + key;
+		String value = actuatorValueCache.get(actuatorCacheKey);
+		if (value != null && !value.isEmpty())
+			return value;
+
+		Response response = null;
+		JSONObject responseJson = null;
+		try {
+			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+			responseJson = new org.json.JSONObject(response.getBody().asString());
+			if (responseJson.has(key)) {
+				actuatorValueCache.put(actuatorCacheKey, responseJson.getString(key));
+				return responseJson.getString(key);
+			}
+		} catch (Exception e) {
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
 		return responseJson.getString(key);
 	}
