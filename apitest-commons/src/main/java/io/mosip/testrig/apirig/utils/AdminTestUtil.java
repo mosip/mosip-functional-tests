@@ -185,6 +185,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static final String AUTH_HEADER_VALUE = "Some String";
 	public static final String SIGNATURE_HEADERNAME = GlobalConstants.SIGNATURE;
 	public static String updatedPolicyId = "";
+	public static String currentLanguage;
 //	public static BioDataUtility bioDataUtil = new BioDataUtility();
 //
 //	public static BioDataUtility getBioDataUtil() {
@@ -7038,6 +7039,7 @@ public class AdminTestUtil extends BaseTestCase {
 		JSONObject responseJson = null;
 		String url = ApplnURI + props.getProperty("fetchLocationData");
 		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
+		int recommendedHierarchyLevel = getRecommendedHierarchyLevel();
 		try {
 			response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
 					GlobalConstants.AUTHORIZATION, token);
@@ -7048,15 +7050,21 @@ public class AdminTestUtil extends BaseTestCase {
 				JSONObject responseObject = responseJson.getJSONObject("response");
 				JSONArray data = responseObject.getJSONArray("data");
 
+				if (!(languageList.size() > 1)) {
+					currentLanguage = BaseTestCase.languageList.get(0);
+				}
+				
 				for (int i = 0; i < data.length(); i++) {
 					JSONObject entry = data.getJSONObject(i);
 					String langCode = entry.getString("langCode");
-
-					if (BaseTestCase.languageList.get(0).equals(langCode)) {
-						hierarchyName = entry.getString("hierarchyName");
-						hierarchyLevel = entry.getInt("hierarchyLevel");
-						parentLocCode = entry.optString("parentLocCode", "");
-						break;
+					hierarchyLevel = entry.getInt("hierarchyLevel");
+					
+					if (hierarchyLevel == recommendedHierarchyLevel) {
+						if (currentLanguage.equals(langCode)) {
+							hierarchyName = entry.getString("hierarchyName");
+							parentLocCode = entry.optString("parentLocCode", "");
+							break;
+						}
 					}
 				}
 

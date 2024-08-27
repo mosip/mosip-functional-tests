@@ -740,4 +740,10 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 		}
 		return numericString.toString();
 	}
+	
+	public static int getRecommendedHierarchyLevel() {
+		String recommendedHierarchLevel = getValueFromActuators(propsKernel.getProperty("actuatorMasterDataEndpoint"),
+				"/mosip-config/application-default.properties", "mosip.recommended.centers.locCode");
+		return Integer.parseInt(recommendedHierarchLevel);
+	}
 }
