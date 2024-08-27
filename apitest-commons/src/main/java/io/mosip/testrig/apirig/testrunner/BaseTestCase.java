@@ -328,15 +328,15 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			setReportName(GlobalConstants.PREREG);
 			AdminTestUtil.copyPreregTestResource();
 		}
-//		if (listOfModules.contains(GlobalConstants.INJICERTIFY)) {
-//			BaseTestCase.currentModule = GlobalConstants.INJICERTIFY;
-//			BaseTestCase.certsForModule = GlobalConstants.INJICERTIFY;
-//			DBManager.clearKeyManagerDbCertData();
-//			DBManager.clearIDADbCertData();
-//			DBManager.clearMasterDbCertData();
-//			setReportName(GlobalConstants.INJICERTIFY);
-//			AdminTestUtil.copymoduleSpecificAndConfigFile(GlobalConstants.INJICERTIFY);
-//		}
+		if (listOfModules.contains(GlobalConstants.INJICERTIFY)) {
+			BaseTestCase.currentModule = GlobalConstants.INJICERTIFY;
+			BaseTestCase.certsForModule = GlobalConstants.INJICERTIFY;
+			DBManager.clearKeyManagerDbCertData();
+			DBManager.clearIDADbCertData();
+			DBManager.clearMasterDbCertData();
+			setReportName(GlobalConstants.INJICERTIFY);
+			AdminTestUtil.copymoduleSpecificAndConfigFile(GlobalConstants.INJICERTIFY);
+		}
 		mockSMTPListener = new MockSMTPListener();
 		mockSMTPListener.run();
 	}
@@ -739,5 +739,11 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			numericString.append(nNumericAllowed[secureRandom.nextInt(nNumericAllowed.length)]);
 		}
 		return numericString.toString();
+	}
+	
+	public static int getRecommendedHierarchyLevel() {
+		String recommendedHierarchLevel = getValueFromActuators(propsKernel.getProperty("actuatorMasterDataEndpoint"),
+				"/mosip-config/application-default.properties", "mosip.recommended.centers.locCode");
+		return Integer.parseInt(recommendedHierarchLevel);
 	}
 }
