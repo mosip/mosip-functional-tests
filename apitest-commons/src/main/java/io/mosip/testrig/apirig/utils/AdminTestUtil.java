@@ -141,6 +141,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String propsHealthCheckURL = MosipTestRunner.getGlobalResourcePath() + "/"
 			+ "config/healthCheckEndpoint.properties";
 	private static String serverComponentsCommitDetails;
+	private static boolean foundHandlesInIdSchema= false;
 
 	protected static String token = null;
 	String idToken = null;
@@ -5139,6 +5140,7 @@ public class AdminTestUtil extends BaseTestCase {
 	            }
 	        }
 	        if (selectedHandles  != null) {
+	        	setfoundHandlesInIdSchema(true);
 	        	identityJson.put("selectedHandles", selectedHandles);
 	        }
 	       
@@ -6579,6 +6581,12 @@ public class AdminTestUtil extends BaseTestCase {
 					&& (!isElementPresent(new JSONArray(schemaRequiredField), dob))) {
 				throw new SkipException(GlobalConstants.FEATURE_NOT_SUPPORTED_MESSAGE);
 			}
+			
+			if (testCaseName.startsWith("IdRepository_") && testCaseName.contains("_handle")) {
+				throw new SkipException(GlobalConstants.HANDLE_SCHEMA_NOT_DEPLOYED_MESSAGE);
+			}
+			
+			
 
 			else if (testCaseName.startsWith("IdRepository_") && testCaseName.contains("Email")
 					&& (!isElementPresent(new JSONArray(schemaRequiredField), email))) {
@@ -6636,6 +6644,8 @@ public class AdminTestUtil extends BaseTestCase {
 				&& BaseTestCase.currentModule.equalsIgnoreCase("resident") && testCaseName.contains("_SignJWT_")) {
 			throw new SkipException("esignet module is not deployed");
 		}
+		
+		
 
 		if ((ConfigManager.isInServiceNotDeployedList(GlobalConstants.ESIGNET))
 				&& BaseTestCase.currentModule.equalsIgnoreCase("resident")
@@ -7439,7 +7449,7 @@ public class AdminTestUtil extends BaseTestCase {
 	                    JSONObject handleObj = handleArray.getJSONObject(j);
 	                    handleObj.remove("value");
 	                }
-	            } else if (testCaseName.endsWith("_withoutvalues")) {
+	            } else if (testCaseName.endsWith("_withouttags")) {
 	                for (int j = 0; j < handleArray.length(); j++) {
 	                    JSONObject handleObj = handleArray.getJSONObject(j);
 	                    handleObj.remove("tags");
@@ -7448,14 +7458,143 @@ public class AdminTestUtil extends BaseTestCase {
 	            else if (testCaseName.endsWith("_withtagwithoutselectedhandles")) {
 	                for (int j = 0; j < handleArray.length(); j++) {
 	                    JSONObject handleObj = handleArray.getJSONObject(j);
+	                    handleObj.remove("selectedHandles");
+	                }
+	            }
+	            else if (testCaseName.endsWith("_withinvalidtag")) {
+	                for (int j = 0; j < handleArray.length(); j++) {
+	                    JSONObject handleObj = handleArray.getJSONObject(j);
+	                    JSONArray tags = handleObj.optJSONArray("tags");
+	                    if (tags != null) {
+	                        for (int k = 0; k < tags.length(); k++) {
+	                            String tag = tags.getString(k);
+	                            tags.put(k, tag + "_invalid"+ RANDOM_ID); 
+	                        }
+	                        handleObj.put("tags", tags);
+	                    }
+	                }
+	            }
+	            
+	            
+	            else if (testCaseName.endsWith("_withmultiplevalues")) {
+	                for (int j = 0; j < handleArray.length(); j++) {
+	                    JSONObject handleObj = handleArray.getJSONObject(j);
+	                    JSONArray valuesArray = new JSONArray();
+	                    valuesArray.put("mosip501724826584965_modified_1");
+	                    valuesArray.put("mosip501724826584965_modified_2");
+	                    valuesArray.put("mosip501724826584965_modified_3");
+	                    handleObj.put("values", valuesArray);
+	                    
+	                }
+	            }
+	            
+	            else if (testCaseName.endsWith("_withmultiplevaluesandwithouttags")) {
+	                for (int j = 0; j < handleArray.length(); j++) {
+	                    JSONObject handleObj = handleArray.getJSONObject(j);
+	                    JSONArray valuesArray = new JSONArray();
+	                    valuesArray.put("mosip501724826584965_modified_1");
+	                    valuesArray.put("mosip501724826584965_modified_2");
+	                    valuesArray.put("mosip501724826584965_modified_3");
+	                    handleObj.put("values", valuesArray);
 	                    handleObj.remove("tags");
 	                }
 	            }
 	            
+	            else if (testCaseName.endsWith("_withemptyselecthandles")) {
+	            	identity.put("selectedHandles", new JSONArray());
+	            }
+	            
+	            
+	            
 	            else if (testCaseName.endsWith("_withoutselectedhandles")) {
 	                identity.remove("selectedHandles");
 	                break; 
-	            } else {
+	            } 
+	            
+	            else if (testCaseName.endsWith("_withmultiplehandleswithoutvalue")) {
+	            	  String phone = getValueFromAuthActuator("json-property", "phone_number");
+	      	        String result = phone.replaceAll("\\[\"|\"\\]", "");
+	                boolean containsPhone = false;
+	                for (int j = 0; j < selectedHandles.length(); j++) {
+	                    if (result.equalsIgnoreCase(selectedHandles.getString(j))) {
+	                        containsPhone = true;
+	                        break;
+	                    }
+	                }
+	                if (!containsPhone) {
+	                    selectedHandles.put(result);
+	                        JSONObject phoneEntry = new JSONObject();
+	                        phoneEntry.put("value", "$PHONENUMBERFORIDENTITY$");
+	                        JSONArray phoneArray = new JSONArray();
+	                        phoneArray.put(phoneEntry);
+	                        identity.put(result, phoneArray);
+	                   
+	                }
+	                for (int j = 0; j < handleArray.length(); j++) {
+	                    JSONObject handleObj = handleArray.getJSONObject(j);
+	                    handleObj.remove("value");
+	                }
+	            }
+	            
+	            // Jayesh TCs
+	            
+	            else if (testCaseName.endsWith("_withfunctionalIds") && handle.equals("functionalId")) {
+	                for (int j = 0; j < handleArray.length(); j++) {
+	                    JSONObject handleObj = handleArray.getJSONObject(j);
+	                    handleObj.remove("tags");
+	                }
+	            } else if (testCaseName.endsWith("_withfunctionalIdsUsedFirstTwoValue") && handle.equals("functionalId")) {
+	                if (handleArray.length() < 3) {
+	                    JSONObject secondValue = new JSONObject();
+	                    secondValue.put("value", "RANDOM_ID_2" + 12);
+	                    secondValue.put("tags", new JSONArray().put("handle"));
+	                    JSONObject thirdValue = new JSONObject();
+	                    thirdValue.put("value", "RANDOM_ID_2" + 34);
+	                    handleArray.put(secondValue);
+	                    handleArray.put(thirdValue);
+	                }
+	            } else if (testCaseName.endsWith("_withfunctionalIdsandPhoneWithoutTags")) {
+	            	  String phone = getValueFromAuthActuator("json-property", "phone_number");
+	      	        String result = phone.replaceAll("\\[\"|\"\\]", "");
+	                boolean containsPhone = false;
+	                for (int j = 0; j < selectedHandles.length(); j++) {
+	                    if (result.equalsIgnoreCase(selectedHandles.getString(j))) {
+	                        containsPhone = true;
+	                        break;
+	                    }
+	                }
+	                if (!containsPhone) {
+	                    selectedHandles.put(result);
+	                        JSONObject phoneEntry = new JSONObject();
+	                        phoneEntry.put("value", "$PHONENUMBERFORIDENTITY$");
+	                        JSONArray phoneArray = new JSONArray();
+	                        phoneArray.put(phoneEntry);
+	                        identity.put(result, phoneArray);
+	                   
+	                }
+	                for (int j = 0; j < handleArray.length(); j++) {
+	                    JSONObject handleObj = handleArray.getJSONObject(j);
+	                    handleObj.remove("tags");
+	                }
+	            } else if (testCaseName.endsWith("_withfunctionalIdsUsedFirstTwoValueOutOfFive")) {
+	                String baseValue = "";
+	                if (handleArray.length() > 0) {
+	                    baseValue = handleArray.getJSONObject(0).getString("value");
+	                }
+	                for (int j = 0; j < 4; j++) {
+	                    JSONObject handleObj = new JSONObject();
+	                    if (j < 1) {
+	                        handleObj.put("value", baseValue  + j);
+	                        handleObj.put("tags", new JSONArray().put("handle"));
+	                    } else {
+	                        handleObj.put("value", baseValue  + j);
+	                    }
+	                    handleArray.put(handleObj);
+	                }
+	            }
+
+	            
+	            else {
 	                for (int j = 0; j < handleArray.length(); j++) {
 	                    JSONObject handleObj = handleArray.getJSONObject(j);
 	                    handleObj.put("value", handleObj.getString("value") + "_modified");
@@ -7467,6 +7606,16 @@ public class AdminTestUtil extends BaseTestCase {
 	    }
 
 	    return jsonObj.toString();
+	}
+	
+	public static void setfoundHandlesInIdSchema(boolean foundHandles) {
+		
+		foundHandlesInIdSchema=foundHandles;
+	}
+	
+   public static boolean isHandlesAvailableInIdSchema(boolean foundHandles) {
+		
+	   return foundHandlesInIdSchema;
 	}
 
 	
