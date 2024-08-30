@@ -1,0 +1,19 @@
+SignupAuthorizeCode:
+   ESignet_SignupAuthorizeCode_L2_uin_all_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: esignet/L2Flow/SignupAuthorizeCode/SignupAuthorizeCode
+      outputTemplate: esignet/L2Flow/SignupAuthorizeCode/SignupAuthorizeCodeResult
+      input: '{
+        "encodedHash": "$ID:SignupAuthorize_OAuthDetailsRequest_L2_uin_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"pathFragmentCookie": "$ID:PrepareSignupRedirect_L2_STransId_uin_Otp_Valid_Smoke_sid_pathFragmentCookie$",
+      	"pathFragmentCookieTransactionId": "$ID:OAuthDetailsRequest_V3_L2_uin_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:SignupAuthorize_OAuthDetailsRequest_L2_uin_all_Valid_Smoke_sid_transactionId$",
+	    "acceptedClaims": [{channel: "email"},{channel: "phone_number"}]
+}'
+      output: '{
+       
+}'

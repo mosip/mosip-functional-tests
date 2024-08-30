@@ -946,4 +946,57 @@
 			<class name="io.mosip.testrig.apirig.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test> -->
+	
+	<test name="OAuthDetailsRequestV3">
+		<parameter name="ymlFile"
+			value="esignet/L2Flow/OAuthDetailsRequestV3/OAuthDetailsRequest.yml" />
+		<parameter name="idKeyName"	value="transactionId,encodedResp" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="AuthenticateUserV3">
+		<parameter name="ymlFile"
+			value="esignet/L2Flow/AuthenticateUserV3/AuthenticateUser.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.PostWithAutogenIdWithOtpGenerate" />
+		</classes>
+	</test>
+	<test name="ClaimDetails">
+		<parameter name="ymlFile"
+			value="esignet/L2Flow/ClaimDetails/ClaimDetails.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="PrepareSignupRedirect">
+		<parameter name="ymlFile"
+			value="esignet/L2Flow/PrepareSignupRedirect/PrepareSignupRedirect.yml" />
+		<parameter name="idKeyName"	value="idToken" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="SignupAuthorize">
+		<parameter name="ymlFile"
+			value="esignet/L2Flow/SignupAuthorize/SignupAuthorize.yml" />
+		<parameter name="idKeyName"	value="transactionId,encodedResp" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="IDTAuthentication">
+		<parameter name="ymlFile"
+			value="esignet/L2Flow/IDTAuthentication/IDTAuthentication.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="SignupAuthorizeCode">
+		<parameter name="ymlFile"
+			value="esignet/L2Flow/SignupAuthorizeCode/SignupAuthorizeCode.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
 </suite>
