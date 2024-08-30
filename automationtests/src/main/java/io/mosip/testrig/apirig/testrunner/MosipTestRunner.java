@@ -94,19 +94,19 @@ public class MosipTestRunner {
 			String updatedPartnerKeyURL = "";
 			String ekycPartnerKeyURL = "";
 
-//			if (BaseTestCase.listOfModules.contains("auth")
-//					|| BaseTestCase.listOfModules.contains(GlobalConstants.ESIGNET)) {
-//				PartnerRegistration.deleteCertificates();
-//				CertificateGenerationUtil.getThumbprints();
-//				AdminTestUtil.createAndPublishPolicy();
-//				AdminTestUtil.createEditAndPublishPolicy();
-//				partnerKeyURL = PartnerRegistration.generateAndGetPartnerKeyUrl();
-//				updatedPartnerKeyURL = PartnerRegistration.generateAndGetUpdatedPartnerKeyUrl();
-//				
-//				AdminTestUtil.createAndPublishPolicyForKyc();
-//				ekycPartnerKeyURL = PartnerRegistration.generateAndGetEkycPartnerKeyUrl();
-//
-//			}
+			if (BaseTestCase.listOfModules.contains("auth")
+					|| BaseTestCase.listOfModules.contains(GlobalConstants.ESIGNET)) {
+				PartnerRegistration.deleteCertificates();
+				CertificateGenerationUtil.getThumbprints();
+				AdminTestUtil.createAndPublishPolicy();
+				AdminTestUtil.createEditAndPublishPolicy();
+				partnerKeyURL = PartnerRegistration.generateAndGetPartnerKeyUrl();
+				updatedPartnerKeyURL = PartnerRegistration.generateAndGetUpdatedPartnerKeyUrl();
+				
+				AdminTestUtil.createAndPublishPolicyForKyc();
+				ekycPartnerKeyURL = PartnerRegistration.generateAndGetEkycPartnerKeyUrl();
+
+			}
 
 			if (BaseTestCase.listOfModules.contains(GlobalConstants.MASTERDATA)) {
 				AdminTestUtil.getHierarchyZoneCode();
@@ -129,13 +129,13 @@ public class MosipTestRunner {
 
 				}
 
-//			} else if (BaseTestCase.listOfModules.contains("auth")
-//					|| BaseTestCase.listOfModules.contains(GlobalConstants.ESIGNET)) {
-//				if (partnerKeyURL.isEmpty())
-//				//	if (partnerKeyURL.isEmpty() || ekycPartnerKeyURL.isEmpty())
-//					LOGGER.error("partnerKeyURL is null");
-//				else
-//					startTestRunner();
+			} else if (BaseTestCase.listOfModules.contains("auth")
+					|| BaseTestCase.listOfModules.contains(GlobalConstants.ESIGNET)) {
+				if (partnerKeyURL.isEmpty())
+				//	if (partnerKeyURL.isEmpty() || ekycPartnerKeyURL.isEmpty())
+					LOGGER.error("partnerKeyURL is null");
+				else
+					startTestRunner();
 			} else {
 				startTestRunner();
 			}
