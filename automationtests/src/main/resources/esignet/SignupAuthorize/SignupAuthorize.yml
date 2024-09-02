@@ -14,10 +14,10 @@ SignupAuthorize:
       	"scope": "openid",
       	"responseType": "code",
       	"redirectUri": "$SIGNUPREDIRECTURI$",
-	    "acrValues": "mosip:idp:acr:id-token",
-	    "state": "urlInfo1724138417665",
-	    "uiLocales": "en",
-	    "idTokenHint": "$ID:PrepareSignupRedirect_AuthToken_Xsrf_STransId_uin_Otp_Valid_Smoke_sid_idToken$"
+      	"acrValues": "mosip:idp:acr:id-token",
+      	"state": "urlInfo1724138417665",
+      	"uiLocales": "en",
+      	"idTokenHint": "$ID:PrepareSignupRedirect_AuthToken_Xsrf_STransId_uin_Otp_Valid_Smoke_sid_idToken$"
 }'
       output: '{
        

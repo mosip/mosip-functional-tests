@@ -18,7 +18,7 @@ AuthenticateUserV3:
     "encodedHash": "$ID:OAuthDetailsRequest_V3_AuthToken_Xsrf_uin_all_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
     "transactionId": "$ID:OAuthDetailsRequest_V3_AuthToken_Xsrf_uin_all_Valid_Smoke_sid_transactionId$",
-	"individualId": "$ID:AddIdentity_L2_Valid_Parameters_smoke_Pos_UIN$",
+    "individualId": "$ID:AddIdentity_L2_Valid_Parameters_smoke_Pos_UIN$",
     "otpChannels": [{channel: "email"},{channel: "phone"}],
     "sendOtpReqTemplate": "esignet/SendOtp/SendOtp",
     "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"

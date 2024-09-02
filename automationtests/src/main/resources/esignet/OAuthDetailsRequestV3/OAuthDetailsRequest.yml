@@ -12,12 +12,12 @@ OAuthDetailsRequestV3:
       	"responseType": "code",
       	"redirectUri": "$IDPREDIRECTURI$",
       	"display": "popup",
-	    "prompt": "login",
-	    "acrValues": "mosip:idp:acr:generated-code",
-	    "nonce": "973eieljzng",
-	    "state": "urlInfo1724138417665",
-	    "claimsLocales": "en",
-	    "uiLocales": "en-US"
+      	"prompt": "login",
+      	"acrValues": "mosip:idp:acr:generated-code",
+      	"nonce": "973eieljzng",
+      	"state": "urlInfo1724138417665",
+      	"claimsLocales": "en",
+      	"uiLocales": "en-US"
 }'
       output: '{
        
