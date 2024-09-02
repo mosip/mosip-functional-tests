@@ -135,9 +135,15 @@ public class GetWithParam extends AdminTestUtil implements ITest {
 				if (testCaseDTO.getEndPoint().contains("/signup/"))
 					tempUrl = ConfigManager.getSignupBaseUrl();
 					
-				response = getWithPathParamAndCookie(tempUrl + testCaseDTO.getEndPoint(),
-						getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
-						testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+				if (testCaseName.contains("_AuthToken_Xsrf_")) {
+					response = getRequestWithCookieAuthHeaderAndXsrfToken(tempUrl + testCaseDTO.getEndPoint(),
+							getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
+							testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+				} else {
+					response = getWithPathParamAndCookie(tempUrl + testCaseDTO.getEndPoint(),
+							getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
+							testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+				}
 			} else {
 				response = getWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
 						getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), auditLogCheck,

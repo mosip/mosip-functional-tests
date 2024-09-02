@@ -217,4 +217,7 @@ public class GlobalConstants {
 	public static final String TARGET_ENV_HEALTH_CHECK_FAILED = "Target env health check failed ";
 	public static final String HOTLIST = "hotlist";
 	public static final String XSRF_TOKEN = "XSRF-TOKEN";
+	public static final String PATH_FRAGMENT_COOKIE = "pathFragmentCookie";
+	public static final String IDT_TOKEN = "idtToken";
+	public static final String PATH_FRAGMENT_COOKIE_TRANSACTIONID = "pathFragmentCookieTransactionId";
 }

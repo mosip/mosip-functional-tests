@@ -946,4 +946,59 @@
 			<class name="io.mosip.testrig.apirig.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test> -->
+	
+	<!-- Start of Sign up L2 phase test cases -->
+	<test name="OAuthDetailsRequestV3">
+		<parameter name="ymlFile"
+			value="esignet/OAuthDetailsRequestV3/OAuthDetailsRequest.yml" />
+		<parameter name="idKeyName"	value="transactionId,encodedResp" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="AuthenticateUserV3">
+		<parameter name="ymlFile"
+			value="esignet/AuthenticateUserV3/AuthenticateUser.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.PostWithAutogenIdWithOtpGenerate" />
+		</classes>
+	</test>
+	<test name="ClaimDetails">
+		<parameter name="ymlFile"
+			value="esignet/ClaimDetails/ClaimDetails.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="PrepareSignupRedirect">
+		<parameter name="ymlFile"
+			value="esignet/PrepareSignupRedirect/PrepareSignupRedirect.yml" />
+		<parameter name="idKeyName"	value="idToken" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="SignupAuthorize">
+		<parameter name="ymlFile"
+			value="esignet/SignupAuthorize/SignupAuthorize.yml" />
+		<parameter name="idKeyName"	value="transactionId,encodedResp" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="IDTAuthentication">
+		<parameter name="ymlFile"
+			value="esignet/IDTAuthentication/IDTAuthentication.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="SignupAuthorizeCode">
+		<parameter name="ymlFile"
+			value="esignet/SignupAuthorizeCode/SignupAuthorizeCode.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<!-- End of Sign up L2 phase test cases -->
 </suite>
