@@ -161,7 +161,7 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 						tempUrl = ApplnURI.replace("api-internal.", ConfigManager.getEsignetMockBaseURL());
 					testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$ESIGNETMOCKBASEURL$", ""));
 				}
-				if ((testCaseName.contains("_AuthorizationCode_")) || (testCaseName.contains("_L2_"))) {
+				if ((testCaseName.contains("_AuthorizationCode_")) || (testCaseName.contains("_AuthToken_Xsrf_"))) {
 					response = postRequestWithCookieAuthHeaderAndXsrfTokenForAutoGenId(
 							tempUrl + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getTestCaseName(),
 							idKeyName);

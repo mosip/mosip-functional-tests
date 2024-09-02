@@ -1,11 +1,10 @@
 OAuthDetailsRequestV3:
-   ESignet_OAuthDetailsRequest_V3_L2_uin_all_Valid_Smoke_sid:
+   ESignet_OAuthDetailsRequest_V3_AuthToken_Xsrf_uin_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/v3/oauth-details
       role: resident
       restMethod: post
       checkErrorsOnlyInResponse: true
-      inputTemplate: esignet/L2Flow/OAuthDetailsRequestV3/OAuthDetailsRequest
-      outputTemplate: esignet/L2Flow/OAuthDetailsRequestV3/OAuthDetailsRequestResult
+      inputTemplate: esignet/OAuthDetailsRequestV3/OAuthDetailsRequest
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"clientId": "0brnxh_duaXqCa-HW4kSeljeMp0qGOmqh4tm_zFKVgY",

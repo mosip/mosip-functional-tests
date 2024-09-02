@@ -947,9 +947,10 @@
 		</classes>
 	</test> -->
 	
+	<!-- Start of Sign up L2 phase test cases -->
 	<test name="OAuthDetailsRequestV3">
 		<parameter name="ymlFile"
-			value="esignet/L2Flow/OAuthDetailsRequestV3/OAuthDetailsRequest.yml" />
+			value="esignet/OAuthDetailsRequestV3/OAuthDetailsRequest.yml" />
 		<parameter name="idKeyName"	value="transactionId,encodedResp" />
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
@@ -957,21 +958,21 @@
 	</test>
 	<test name="AuthenticateUserV3">
 		<parameter name="ymlFile"
-			value="esignet/L2Flow/AuthenticateUserV3/AuthenticateUser.yml" />
+			value="esignet/AuthenticateUserV3/AuthenticateUser.yml" />
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
 	<test name="ClaimDetails">
 		<parameter name="ymlFile"
-			value="esignet/L2Flow/ClaimDetails/ClaimDetails.yml" />
+			value="esignet/ClaimDetails/ClaimDetails.yml" />
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
 		</classes>
 	</test>
 	<test name="PrepareSignupRedirect">
 		<parameter name="ymlFile"
-			value="esignet/L2Flow/PrepareSignupRedirect/PrepareSignupRedirect.yml" />
+			value="esignet/PrepareSignupRedirect/PrepareSignupRedirect.yml" />
 		<parameter name="idKeyName"	value="idToken" />
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
@@ -979,7 +980,7 @@
 	</test>
 	<test name="SignupAuthorize">
 		<parameter name="ymlFile"
-			value="esignet/L2Flow/SignupAuthorize/SignupAuthorize.yml" />
+			value="esignet/SignupAuthorize/SignupAuthorize.yml" />
 		<parameter name="idKeyName"	value="transactionId,encodedResp" />
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
@@ -987,16 +988,17 @@
 	</test>
 	<test name="IDTAuthentication">
 		<parameter name="ymlFile"
-			value="esignet/L2Flow/IDTAuthentication/IDTAuthentication.yml" />
+			value="esignet/IDTAuthentication/IDTAuthentication.yml" />
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
 	<test name="SignupAuthorizeCode">
 		<parameter name="ymlFile"
-			value="esignet/L2Flow/SignupAuthorizeCode/SignupAuthorizeCode.yml" />
+			value="esignet/SignupAuthorizeCode/SignupAuthorizeCode.yml" />
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
+	<!-- End of Sign up L2 phase test cases -->
 </suite>
