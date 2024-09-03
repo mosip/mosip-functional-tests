@@ -5128,8 +5128,14 @@ public class AdminTestUtil extends BaseTestCase {
 	                    identityJson.put(eachRequiredProp, genStringAsperRegex(
 	                            eachPropDataJson.getJSONArray("validators").getJSONObject(0).getString("validator")));
 	                } else if (eachRequiredProp.equals(result)) {
+	                	if(eachPropDataJson.has("handle")){
+		            		selectedHandles.add(eachRequiredProp);
+		            	}
 	                    identityJson.put(eachRequiredProp, "$PHONENUMBERFORIDENTITY$");
 	                }  else if (eachRequiredProp.equals(emailResult)) {
+	                	if(eachPropDataJson.has("handle")){
+		            		selectedHandles.add(eachRequiredProp);
+		            	}
 	                    identityJson.put(eachRequiredProp, "$EMAILVALUE$");
 	                }
 	                
@@ -5337,9 +5343,15 @@ public class AdminTestUtil extends BaseTestCase {
 		                    identityJson.remove("individualBiometrics");
 	                 }
 	                 else if (eachRequiredProp.equals(emailResult)) {
+	                	 if(eachPropDataJson.has("handle")){
+			            		selectedHandles.add(eachRequiredProp);
+			            	}
 		                    identityJson.put(eachRequiredProp, "$EMAILVALUE$");
 		                }
 	                 else if (eachRequiredProp.equals(result)) {
+	                	 if(eachPropDataJson.has("handle")){
+			            		selectedHandles.add(eachRequiredProp);
+			            	}
 		                    identityJson.put(eachRequiredProp, "$PHONENUMBERFORIDENTITY$");
 		                }
 	                 else if (eachRequiredProp.equals("proofOfIdentity")) {
@@ -7776,7 +7788,48 @@ public class AdminTestUtil extends BaseTestCase {
 	                        }
 	                        handleArray.put(obj);
 	                    }
-	                } else {
+	                }
+	                //43 in update identity
+	                else if (testCaseName.contains("_removeexceptfirsthandle")) {
+	                    if (identity.has("selectedHandles")) {
+
+	                        if (selectedHandles.length() > 0) {
+	                            String firstHandleToKeep = selectedHandles.getString(0);
+
+	                            for (int j = 1; j < selectedHandles.length(); j++) {
+	                                if (identity.has(handle)) {
+	                                    identity.remove(handle);
+	                                }
+	                            }
+	                            while (selectedHandles.length() > 1) {
+	                                selectedHandles.remove(1);
+	                            }
+	                        }
+	                    }
+	                }
+	              //44 in update identity
+	                else if (testCaseName.contains("_withinvaliddemofield_inupdate")) {
+	                    if (identity.has("selectedHandles")) {
+
+	                        if (selectedHandles.length() > 0) {
+	                            String firstHandleToKeep = selectedHandles.getString(0);
+
+	                            for (int j = 1; j < selectedHandles.length(); j++) {
+	                                if (identity.has(handle)) {
+	                                    identity.remove(handle);
+	                                }
+	                            }
+	                            while (selectedHandles.length() > 1) {
+	                                selectedHandles.remove(1);
+	                            }
+	                        }
+	                    }
+	                }
+	              
+
+	                
+	                
+	                else {
 	                    for (int j = 0; j < handleArray.length(); j++) {
 	                        JSONObject obj = handleArray.getJSONObject(j);
 	                        obj.put("value", obj.getString("value"));
@@ -7806,7 +7859,6 @@ public class AdminTestUtil extends BaseTestCase {
 	        if (identity.has(handle) && identity.get(handle) instanceof JSONArray) {
 	            JSONArray handleArray = identity.getJSONArray(handle);
 
-	            // Process based on testCaseName
 	            if (testCaseName.contains("_withupdatevalues")) {
 	                for (int j = 0; j < handleArray.length(); j++) {
 	                    JSONObject handleObj = handleArray.getJSONObject(j);
@@ -7959,6 +8011,45 @@ public class AdminTestUtil extends BaseTestCase {
 	                    identity.remove("selectedHandles");
 	                }
 	            }
+	            
+	            //44
+	            else if (testCaseName.contains("_withinvaliddemofield")) {
+	                if (identity.has("selectedHandles")) {
+	                    for (int j = 0; j < selectedHandles.length(); j++) {
+	                        if (identity.has(handle)) {
+	                            Object currentValue = identity.get(handle);
+	                            if (currentValue instanceof String) {
+	                                identity.put(handle, "invalid_" + currentValue);
+	                            } else if (currentValue instanceof JSONArray) {
+	                                JSONArray jsonArray = (JSONArray) currentValue;
+	                                for (int k = 0; k < jsonArray.length(); k++) {
+	                                    JSONObject obj = jsonArray.getJSONObject(k);
+	                                    if (obj.has("value")) {
+	                                        obj.put("value", "invalid_" + obj.getString("value"));
+	                                    }
+	                                }
+	                                identity.put(handle, jsonArray);
+	                            }
+	                        }
+	                        selectedHandles.put(i, "invalid_" + handle);
+	                    }
+	                    identity.put("selectedHandles", selectedHandles);
+	                }
+	            }
+	            //49
+	            else if (testCaseName.contains("_withoutselectedhandlesandattri")) {
+
+	                for (int j = 0; j < selectedHandles.length(); j++) {
+
+	                    if (identity.has(handle)) {
+	                        identity.remove(handle);
+	                    }
+	                }
+
+	                identity.remove("selectedHandles");
+	            }
+
+
 	            
 	            else if (testCaseName.contains("_witharandomnonhandleattr")) {
 	                if (identity.has("selectedHandles")) {
