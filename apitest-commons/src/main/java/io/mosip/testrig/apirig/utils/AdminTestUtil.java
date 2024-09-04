@@ -7825,6 +7825,24 @@ public class AdminTestUtil extends BaseTestCase {
 	                        }
 	                    }
 	                }
+	                //50
+	                if (testCaseName.contains("_withonedemofield")) {
+	                    if (identity.has("selectedHandles")) {
+	                        String firstHandle = selectedHandles.getString(0);
+	                        for (int j = 1; j < selectedHandles.length(); j++) {
+	                            if (identity.has(handle)) {
+	                                Object handleValue = identity.get(handle);
+	                                if (handleValue instanceof JSONArray) {
+	                                    identity.remove(handle);
+	                                }
+	                            }
+	                        }
+	                        JSONArray newSelectedHandles = new JSONArray();
+	                        newSelectedHandles.put(firstHandle);
+	                        identity.put("selectedHandles", newSelectedHandles);
+	                    }
+	                }
+
 	              
 
 	                
@@ -8048,6 +8066,23 @@ public class AdminTestUtil extends BaseTestCase {
 
 	                identity.remove("selectedHandles");
 	            }
+	            
+	            else if (testCaseName.contains("_withalldemofieldsremoved")) {
+
+	                    for (int j = 0; j < selectedHandles.length(); j++) {
+	                        if (identity.has(handle)) {
+	                            identity.remove(handle);
+	                        }
+	                    }
+	            }
+	            
+	            else if (testCaseName.contains("_withemptyselectedhandle")) {
+	                if (identity.has("selectedHandles")) {
+	                    identity.put("selectedHandles", new JSONArray());
+	                }
+	            }
+
+
 
 
 	            
@@ -8070,6 +8105,14 @@ public class AdminTestUtil extends BaseTestCase {
 	                    }
 	                }
 	            }
+	            
+	            else if (testCaseName.contains("_updateselectedhandleswithinvalid")) {
+	            	JSONArray updatedHandlesArray = new JSONArray();
+	                updatedHandlesArray.put("invalidscehema123");
+	                identity.put("selectedHandles", updatedHandlesArray);
+	            }
+
+
 
 
 
