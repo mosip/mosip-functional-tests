@@ -115,6 +115,7 @@ public class GlobalConstants {
 	public static final String CERTIFICATEDATA = "certificateData";
 	public static final String PARTNERDOMAIN = "partnerDomain";
 	public static final String DATA = ".data";
+	public static final String KEYWORD_DATA = "data";
 	public static final String AUTOMATION = "automation";
 	public static final String AUTOMATIONLABS = "@automationlabs.com";
 	public static final String REPSONSE = "Repsonse: %s %s%n";

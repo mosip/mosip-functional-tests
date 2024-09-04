@@ -4591,6 +4591,14 @@ public class AdminTestUtil extends BaseTestCase {
 						translatedValue = valueToConvert;
 						isFilterRequired = true;
 					}
+				} else if (jsonObject.has(GlobalConstants.KEYWORD_DATA)) {
+					String filterValueToConvert = jsonObject.getJSONArray(GlobalConstants.KEYWORD_DATA).get(0).toString();
+					JSONObject filtervalue = new JSONObject(filterValueToConvert);
+					if (filtervalue.has(fieldToConvert)) {
+						valueToConvert = filtervalue.getString(fieldToConvert);
+						translatedValue = valueToConvert;
+						isFilterRequired = false;
+					}
 				}
 
 				if (!language.equalsIgnoreCase("eng") && valueToConvert != null) {
