@@ -8,7 +8,7 @@
 	<name>apitest-commons</name>
 	<description>Parent project of MOSIP functional tests</description>
 	<url>https://github.com/mosip/mosip-functional-tests</url>
-	<version>1.2.1-SNAPSHOT</version>
+	<version>1.2.2-SNAPSHOT</version>
 
 	<licenses>
 		<license>
@@ -39,7 +39,7 @@
 	<properties>
 		<!-- kernel versions -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<kernel-websubclient-api.version>1.2.0.1-SNAPSHOT</kernel-websubclient-api.version>
+		<kernel-websubclient-api.version>1.2.0.1</kernel-websubclient-api.version>
 
 		<!-- maven -->
 		<maven.compiler.target>11</maven.compiler.target>
@@ -191,7 +191,7 @@
 		<rest.assured.version>3.0.7</rest.assured.version>
 		<testng.version>6.11</testng.version>
 		<zt.zip.version>1.13</zt.zip.version>
-		<fileName>apitest-commons-1.2.1-SNAPSHOT-jar-with-dependencies</fileName>
+		<fileName>apitest-commons-1.2.2-SNAPSHOT-jar-with-dependencies</fileName>
 		
 	</properties>
 	<dependencies>
@@ -579,7 +579,7 @@
     <dependency>
       <groupId>io.mosip.kernel</groupId>
       <artifactId>kernel-core</artifactId>
-      <version>1.2.0.1-SNAPSHOT</version>
+      <version>1.2.0.1</version>
       <exclusions>
         <exclusion>
           <groupId>org.springframework.boot</groupId>
@@ -602,13 +602,13 @@
     <dependency>
       <groupId>io.mosip.kernel</groupId>
       <artifactId>kernel-templatemanager-velocity</artifactId>
-      <version>1.2.0.1-SNAPSHOT</version>
+      <version>1.2.0.1</version>
     </dependency>
     
     <dependency>
       <groupId>io.mosip.kernel</groupId>
       <artifactId>kernel-keymanager-service</artifactId>
-      <version>1.2.0.1-SNAPSHOT</version>
+      <version>1.2.0.1</version>
       <classifier>lib</classifier>
       <exclusions>
         <exclusion>
