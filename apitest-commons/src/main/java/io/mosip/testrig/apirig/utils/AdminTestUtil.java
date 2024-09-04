@@ -3574,8 +3574,11 @@ public class AdminTestUtil extends BaseTestCase {
 			if (request.has("client_id")) {
 				clientId = request.get("client_id").toString();
 			}
+			
+			String tempUrl = getValueFromEsignetWellKnownEndPoint("token_endpoint", ConfigManager.getEsignetBaseUrl());
+			
 			jsonString = replaceKeywordWithValue(jsonString, "$CLIENT_ASSERTION_JWK$",
-					signJWKKey(clientId, oidcJWKKey1));
+					signJWKKey(clientId, oidcJWKKey1, tempUrl));
 		}
 
 		if (jsonString.contains("$CLIENT_ASSERTION_USER3_JWK$")) {
@@ -3592,8 +3595,10 @@ public class AdminTestUtil extends BaseTestCase {
 			if (request.has("client_id")) {
 				clientId = request.get("client_id").toString();
 			}
+			
+			String tempUrl = getValueFromEsignetWellKnownEndPoint("token_endpoint", ConfigManager.getEsignetBaseUrl());
 			jsonString = replaceKeywordWithValue(jsonString, "$CLIENT_ASSERTION_USER3_JWK$",
-					signJWKKey(clientId, oidcJWKKey3));
+					signJWKKey(clientId, oidcJWKKey3, tempUrl));
 		}
 
 		if (jsonString.contains("$CLIENT_ASSERTION_USER4_JWK$")) {
@@ -3812,7 +3817,7 @@ public class AdminTestUtil extends BaseTestCase {
 							baseURL.replace("injicertify.", "injicertify-insurance."));
 				}
 			} else {
-				tempUrl = getValueFromEsignetWellKnownEndPoint("issuer");
+				tempUrl = getValueFromEsignetWellKnownEndPoint("issuer", ConfigManager.getEsignetBaseUrl());
 				if (tempUrl.contains("esignet.")) {
 					tempUrl = tempUrl.replace("esignet.", propsKernel.getProperty("esignetMockBaseURL"));
 				}
@@ -3874,7 +3879,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static String signJWK(String clientId, String accessToken, RSAKey jwkKey, String testCaseName) {
-		String tempUrl = getValueFromEsignetWellKnownEndPoint("issuer");
+		String tempUrl = getValueFromEsignetWellKnownEndPoint("issuer", ConfigManager.getEsignetBaseUrl());
 		int idTokenExpirySecs = Integer
 				.parseInt(getValueFromEsignetActuator(ConfigManager.getEsignetActuatorPropertySection(),
 						GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
@@ -6005,7 +6010,7 @@ public class AdminTestUtil extends BaseTestCase {
 //	}
 
 	public static String signJWKKeyForMock(String clientId, RSAKey jwkKey) {
-		String tempUrl = getValueFromEsignetWellKnownEndPoint("token_endpoint");
+		String tempUrl = getValueFromEsignetWellKnownEndPoint("token_endpoint", ConfigManager.getEsignetBaseUrl());
 		if (tempUrl.contains("esignet.")) {
 			tempUrl = tempUrl.replace("esignet.", propsKernel.getProperty("esignetMockBaseURL"));
 		}
@@ -6045,8 +6050,7 @@ public class AdminTestUtil extends BaseTestCase {
 		return clientAssertionToken;
 	}
 
-	public static String signJWKKey(String clientId, RSAKey jwkKey) {
-		String tempUrl = getValueFromEsignetWellKnownEndPoint("token_endpoint");
+	public static String signJWKKey(String clientId, RSAKey jwkKey, String tempUrl) {
 		int idTokenExpirySecs = Integer
 				.parseInt(getValueFromEsignetActuator(ConfigManager.getEsignetActuatorPropertySection(),
 						GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
@@ -6180,8 +6184,8 @@ public class AdminTestUtil extends BaseTestCase {
 		return Integer.parseInt(otpExpTime);
 	}
 
-	public static String getValueFromEsignetWellKnownEndPoint(String key) {
-		String url = ConfigManager.getEsignetBaseUrl() + propsKernel.getProperty("esignetWellKnownEndPoint");
+	public static String getValueFromEsignetWellKnownEndPoint(String key, String baseURL) {
+		String url = baseURL + propsKernel.getProperty("esignetWellKnownEndPoint");
 		Response response = null;
 		JSONObject responseJson = null;
 		if (responseJson == null) {
@@ -6841,7 +6845,8 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 		}
 		if (BaseTestCase.currentModule.equals(GlobalConstants.ESIGNET)
-				|| testCaseName.startsWith("Mimoto_WalletBinding")) {
+				|| testCaseName.startsWith("Mimoto_WalletBinding")
+				|| testCaseName.startsWith("Mimoto_ESignet_AuthenticateUser")) {
 			if (request.has(GlobalConstants.REQUEST)) {
 				if (request.getJSONObject(GlobalConstants.REQUEST).has("otp")) {
 					if (request.getJSONObject(GlobalConstants.REQUEST).getString("otp")

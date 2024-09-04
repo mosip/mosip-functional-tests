@@ -426,7 +426,7 @@ public class ConfigManager {
 		if (System.getenv(ESIGNET_BASE_URL) != null) {
 			eSignetbaseurl = System.getenv(ESIGNET_BASE_URL);
 		} else {
-			eSignetbaseurl = System.getProperty("env.endpoint").replace("-internal", "");
+			eSignetbaseurl = System.getProperty("env.endpoint").replace("api-internal", "esignet");
 		}
 		propsKernel.setProperty(ESIGNET_BASE_URL, eSignetbaseurl);
 		
