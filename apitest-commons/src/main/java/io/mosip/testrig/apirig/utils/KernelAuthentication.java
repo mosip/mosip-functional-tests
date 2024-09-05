@@ -158,8 +158,8 @@ public class KernelAuthentication extends BaseTestCase {
 				batchJobToken = kernelAuthLib.getPreRegToken();
 			return batchJobToken;
 
-		case "invalidBatch":
-			if (!kernelCmnLib.isValidToken(batchJobToken))
+		case "invalidbatch":
+			if (!kernelCmnLib.isValidToken(invalidBatchJobToken))
 				invalidBatchJobToken = kernelAuthLib.getPreRegInvalidToken();
 			return invalidBatchJobToken;
 
@@ -556,22 +556,7 @@ public class KernelAuthentication extends BaseTestCase {
 
 	@SuppressWarnings("unchecked")
 	public String getPreRegInvalidToken() {
-		JSONObject actualRequest_generation = getRequestJson("config/prereg_SendOtp.json");
-		actualRequest_generation.put(GlobalConstants.REQUESTTIME, clib.getCurrentUTCTime());
-		((JSONObject) actualRequest_generation.get(GlobalConstants.REQUEST)).put("langCode",
-				BaseTestCase.getLanguageList().get(0));
-		((JSONObject) actualRequest_generation.get(GlobalConstants.REQUEST)).get("userId").toString();
-		JSONObject actualRequest_validation = getRequestJson("config/prereg_ValidateOtp.json");
-		appl.postWithJson(preregSendOtp, actualRequest_generation);
-		String otp = null;
-		if (proxy)
-			otp = "111222";
-		else {
-		}
-		((JSONObject) actualRequest_validation.get(GlobalConstants.REQUEST)).put("otp", otp);
-		actualRequest_validation.put(GlobalConstants.REQUESTTIME, clib.getCurrentUTCTime());
-		Response otpValidate = appl.postWithJson(preregValidateOtp, actualRequest_validation);
-		cookie = otpValidate.getCookie(GlobalConstants.AUTHORIZATION);
+		cookie = "ddhdh76478383hdgdgdgg@#$%$%%^^^^^$###$fgdhdhdjj";
 		return cookie;
 	}
 
