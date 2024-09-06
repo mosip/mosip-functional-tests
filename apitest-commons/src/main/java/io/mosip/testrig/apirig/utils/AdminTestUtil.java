@@ -7831,7 +7831,7 @@ public class AdminTestUtil extends BaseTestCase {
 	                    }
 	                }
 	                //50
-	                if (testCaseName.contains("_withonedemofield")) {
+	                else if (testCaseName.contains("_withonedemofield")) {
 	                    if (identity.has("selectedHandles")) {
 	                        String firstHandle = selectedHandles.getString(0);
 	                        for (int j = 1; j < selectedHandles.length(); j++) {
@@ -7845,6 +7845,15 @@ public class AdminTestUtil extends BaseTestCase {
 	                        JSONArray newSelectedHandles = new JSONArray();
 	                        newSelectedHandles.put(firstHandle);
 	                        identity.put("selectedHandles", newSelectedHandles);
+	                    }
+	                }
+	                
+	                //82
+	                
+	                else if (testCaseName.contains("_withcasesensitivehandles")) {
+	                    for (int j = 0; j < handleArray.length(); j++) {
+	                        JSONObject obj = handleArray.getJSONObject(j);
+	                        obj.put("value", "HANDLES");
 	                    }
 	                }
 
@@ -7873,6 +7882,10 @@ public class AdminTestUtil extends BaseTestCase {
 	    JSONObject request = jsonObj.getJSONObject("request");
 	    JSONObject identity = request.getJSONObject("identity");
 	    JSONArray selectedHandles = identity.getJSONArray("selectedHandles");
+	    String phone = getValueFromAuthActuator("json-property", "phone_number");
+        String result = phone.replaceAll("\\[\"|\"\\]", "");
+	    
+	   
 
 	    // Iterate over each handle in the selectedHandles array
 	    for (int i = 0; i < selectedHandles.length(); i++) {
@@ -7924,8 +7937,7 @@ public class AdminTestUtil extends BaseTestCase {
 	                }
 	            } else if (testCaseName.contains("_withmultipledemohandles")) {
 	                // Handle specific demo handles by checking and adding them to the selectedHandles
-	                String phone = getValueFromAuthActuator("json-property", "phone_number");
-	                String result = phone.replaceAll("\\[\"|\"\\]", "");
+	                
 	                boolean containsPhone = false;
 	                for (int j = 0; j < selectedHandles.length(); j++) {
 	                    if (result.equalsIgnoreCase(selectedHandles.getString(j))) {
@@ -8086,16 +8098,13 @@ public class AdminTestUtil extends BaseTestCase {
 	                    identity.put("selectedHandles", new JSONArray());
 	                }
 	            }
-
-
-
-
+	            
 	            
 	            else if (testCaseName.contains("_witharandomnonhandleattr")) {
 	                if (identity.has("selectedHandles")) {
 	                    List<String> existingHandles = new ArrayList<>();
-	                    for (int j = 0; i < selectedHandles.length(); i++) {
-	                        existingHandles.add(selectedHandles.getString(i));
+	                    for (int j = 0; j < selectedHandles.length(); j++) {
+	                        existingHandles.add(selectedHandles.getString(j));
 	                    }
 	                    Iterator<String> keys = identity.keys();
 	                    while (keys.hasNext()) {
@@ -8116,6 +8125,39 @@ public class AdminTestUtil extends BaseTestCase {
 	                updatedHandlesArray.put("invalidscehema123");
 	                identity.put("selectedHandles", updatedHandlesArray);
 	            }
+	            
+	            else if (testCaseName.contains("_withinvaliddhandle")) {
+	            	    selectedHandles.put("newFieldHandle");
+	            }
+	            
+	            else if (testCaseName.contains("_updateselectedhandleswithscehmaattrwhichisnothandle")) {
+	                Iterator<String> keys = identity.keys();
+	                while (keys.hasNext()) {
+	                    String key = keys.next();
+	                    if (!selectedHandles.toList().contains(key) && identity.optString(key) != null && identity.get(key) instanceof String) {
+	                        selectedHandles.put(key); 
+	                        break; 
+	                    }
+	                }
+	            }
+	            
+	            else if (testCaseName.contains("_removeselectedhandle_updatephone")) {
+	                if (identity.has("selectedHandles")) {
+	                    identity.remove("selectedHandles");
+	                }
+
+	                if (identity.has(result)) {
+	                    identity.put(result, generateRandomNumberString(10));
+	                }
+	            }
+	            
+	            else if (testCaseName.contains("_withupdatedhandlewhichisnotinschema")) {
+	            	JSONArray newSelectedHandles = new JSONArray();
+	                newSelectedHandles.put("invalid12@@");
+	                identity.put("selectedHandles", newSelectedHandles);
+	            }
+
+
 
 
 
