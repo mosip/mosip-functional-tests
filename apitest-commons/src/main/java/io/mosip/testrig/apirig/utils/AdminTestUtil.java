@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.StringReader;
 import java.lang.reflect.Type;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -5724,7 +5725,7 @@ public class AdminTestUtil extends BaseTestCase {
 		org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
 		org.json.JSONObject schemaData = (org.json.JSONObject) responseJson.get(GlobalConstants.RESPONSE);
 
-		Double schemaVersion = (Double) schemaData.get(GlobalConstants.ID_VERSION);
+		Double schemaVersion = ((BigDecimal) schemaData.get(GlobalConstants.ID_VERSION)).doubleValue();
 		logger.info(schemaVersion);
 		String schemaJsonData = schemaData.getString(GlobalConstants.SCHEMA_JSON);
 
