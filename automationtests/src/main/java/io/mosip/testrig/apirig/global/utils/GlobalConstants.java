@@ -220,4 +220,6 @@ public class GlobalConstants {
 	public static final String PATH_FRAGMENT_COOKIE = "pathFragmentCookie";
 	public static final String IDT_TOKEN = "idtToken";
 	public static final String PATH_FRAGMENT_COOKIE_TRANSACTIONID = "pathFragmentCookieTransactionId";
+	public static final String IDV_TRANSACTION_ID = "idvTransactionID";
+	public static final String IDV_TRANSACTION_ID_KEY = "IDV_TRANSACTION_ID";
 }

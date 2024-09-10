@@ -652,8 +652,11 @@ public class RestClient {
 			String acceptHeader, Map<String, String> cookieValue, Map<String, String> headers) {
 		Response postResponse;
 		String key = GlobalConstants.TRANSACTION_ID_KEY;
-		if (cookieValue.containsKey(GlobalConstants.VERIFIED_TRANSACTION_ID_KEY))
+		if (cookieValue.containsKey(GlobalConstants.VERIFIED_TRANSACTION_ID_KEY)) {
 			key = GlobalConstants.VERIFIED_TRANSACTION_ID_KEY;
+		} else if (cookieValue.containsKey(GlobalConstants.IDV_TRANSACTION_ID_KEY)) {
+			key = GlobalConstants.IDV_TRANSACTION_ID_KEY;
+		}
 		
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
@@ -889,8 +892,9 @@ public class RestClient {
 			Map<String, String> cookieMap) {
 		Response getResponse;
 		String key = GlobalConstants.TRANSACTION_ID_KEY;
-		if (cookieMap.containsKey(GlobalConstants.VERIFIED_TRANSACTION_ID_KEY))
+		if (cookieMap.containsKey(GlobalConstants.VERIFIED_TRANSACTION_ID_KEY)) 
 			key = GlobalConstants.VERIFIED_TRANSACTION_ID_KEY;
+		
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
 
@@ -903,6 +907,29 @@ public class RestClient {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		} else {
 			getResponse = given().config(config).relaxedHTTPSValidation()
+					.cookie(GlobalConstants.XSRF_TOKEN, cookieMap.get(GlobalConstants.XSRF_TOKEN))
+					.cookie(key, cookieMap.get(key)).when().get(url).then().extract().response();
+		}
+
+		return getResponse;
+	}
+	
+	public static Response getRequestWithMultipleCookieAndPathParam(String url, Map<String, String> body, String contentHeader, String acceptHeader,
+			Map<String, String> cookieMap) {
+		Response getResponse;
+		String key = GlobalConstants.IDV_TRANSACTION_ID_KEY;
+		if (ConfigManager.IsDebugEnabled()) {
+			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
+
+			getResponse = given().config(config).relaxedHTTPSValidation().pathParams(body)
+					.cookie(GlobalConstants.XSRF_TOKEN, cookieMap.get(GlobalConstants.XSRF_TOKEN))
+					.cookie(key, cookieMap.get(key)).log().all().when().get(url).then().log().all().extract()
+					.response();
+
+			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
+			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
+		} else {
+			getResponse = given().config(config).relaxedHTTPSValidation().pathParams(body)
 					.cookie(GlobalConstants.XSRF_TOKEN, cookieMap.get(GlobalConstants.XSRF_TOKEN))
 					.cookie(key, cookieMap.get(key)).when().get(url).then().extract().response();
 		}
