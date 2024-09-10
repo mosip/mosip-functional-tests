@@ -45,11 +45,11 @@ import io.mosip.testrig.apirig.dataprovider.util.CommonUtil;
 import io.mosip.testrig.apirig.dataprovider.util.DataProviderConstants;
 import io.mosip.testrig.apirig.dataprovider.util.FPClassDistribution;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
+import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
 import io.mosip.testrig.apirig.utils.RestClient;
 import io.restassured.response.Response;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -64,7 +64,8 @@ import io.mosip.mock.sbi.test.CentralizedMockSBI;
 public class BiometricDataProvider {
 
 	public static HashMap<String, Integer> portmap = new HashMap();
-	private static final Logger logger = LoggerFactory.getLogger(BiometricDataProvider.class);
+	//private static final Logger logger = LoggerFactory.getLogger(BiometricDataProvider.class);
+	private static final Logger logger = Logger.getLogger(BiometricDataProvider.class);
 
 	// String constants
 	private static final String XMLNS = "xmlns";
@@ -134,7 +135,7 @@ public class BiometricDataProvider {
 	public static Boolean generateBiometricTestData(String mdsMode) throws Exception {
 		ResidentModel resident = new ResidentModel();
 		String cbeff = null;
-		MDSRCaptureModel capture = BiometricDataProvider.regenBiometricViaMDS(resident, mdsMode, "70");
+		MDSRCaptureModel capture = BiometricDataProvider.regenBiometricViaMDS(resident, mdsMode, 70);
 		if (capture == null) {
 			logger.error("Failed to generate biometric via mds");
 			return false;
@@ -203,7 +204,7 @@ public class BiometricDataProvider {
 				.t("1").up().up().e(BIRINFO).e(INTEGRITY).t(FALSE).up().up().e(BDBINFO).e(FORMAT).e(ORGANIZATION)
 				.t(MOSIP).up().e("Type").t("9").up().up().e(CREATIONDATE).t(today).up().e("Type").t("Iris").up()
 				.e(SUBTYPE).t(irisName).up().e(LEVEL).t("Raw").up().e(PURPOSE).t(ENROLL).up().e(QUALITY).e(ALGORITHM)
-				.e(ORGANIZATION).t("HMAC").up().e("Type").t(SHA_256).up().up().e(SCORE).t(qualityScore).up().up().up()
+				.e(ORGANIZATION).t("HMAC").up().e("Type").t(SHA_256).up().up().e(SCORE).t((int) Math.round(Double.parseDouble(qualityScore)) + "").up().up().up()
 				.e("BDB").t(getBase64EncodedStringFromBase64URL(irisInfo)).up().up();
 		if (jtwSign != null && payload != null) {
 			jtwSign = Base64.getEncoder().encodeToString(jtwSign.getBytes());
@@ -235,7 +236,7 @@ public class BiometricDataProvider {
 				.up().up().e(BIRINFO).e(INTEGRITY).t(FALSE).up().up().e(BDBINFO).e(FORMAT).e(ORGANIZATION).t(MOSIP).up()
 				.e("Type").t("7").up().up().e(CREATIONDATE).t(today).up().e("Type").t("Finger").up().e(SUBTYPE)
 				.t(fingerName).up().e(LEVEL).t("Raw").up().e(PURPOSE).t(ENROLL).up().e(QUALITY).e(ALGORITHM)
-				.e(ORGANIZATION).t("HMAC").up().e("Type").t(SHA_256).up().up().e(SCORE).t(qualityScore).up().up().up()
+				.e(ORGANIZATION).t("HMAC").up().e("Type").t(SHA_256).up().up().e(SCORE).t((int) Math.round(Double.parseDouble(qualityScore)) + "").up().up().up()
 				.e(bdbKey).t(getBase64EncodedStringFromBase64URL(fingerInfo)).up().up();
 		if (jtwSign != null && payload != null) {
 			jtwSign = Base64.getEncoder().encodeToString(jtwSign.getBytes());
@@ -257,7 +258,7 @@ public class BiometricDataProvider {
 				.t("1").up().up().e(BIRINFO).e(INTEGRITY).t(FALSE).up().up().e(BDBINFO).e(FORMAT).e(ORGANIZATION)
 				.t(MOSIP).up().e("Type").t("8").up().up().e(CREATIONDATE).t(today).up().e("Type").t("Face").up()
 				.e(SUBTYPE).t("").up().e(LEVEL).t("Raw").up().e(PURPOSE).t(ENROLL).up().e(QUALITY).e(ALGORITHM)
-				.e(ORGANIZATION).t("HMAC").up().e("Type").t(SHA_256).up().up().e(SCORE).t(qualityScore).up().up().up()
+				.e(ORGANIZATION).t("HMAC").up().e("Type").t(SHA_256).up().up().e(SCORE).t((int) Math.round(Double.parseDouble(qualityScore)) + "").up().up().up()
 				.e("BDB").t(getBase64EncodedStringFromBase64URL(faceInfo)).up().up();
 		if (jtwSign != null && payload != null) {
 			jtwSign = Base64.getEncoder().encodeToString(jtwSign.getBytes());
@@ -280,7 +281,7 @@ public class BiometricDataProvider {
 				.t("1").up().up().e(BIRINFO).e(INTEGRITY).t(FALSE).up().up().e(BDBINFO).e(FORMAT).e(ORGANIZATION)
 				.t(MOSIP).up().e("Type").t("8").up().up().e(CREATIONDATE).t(today).up().e("Type").t("ExceptionPhoto")
 				.up().e(SUBTYPE).t("").up().e(LEVEL).t("Raw").up().e(PURPOSE).t(ENROLL).up().e(QUALITY).e(ALGORITHM)
-				.e(ORGANIZATION).t("HMAC").up().e("Type").t(SHA_256).up().up().e(SCORE).t(qualityScore).up().up().up()
+				.e(ORGANIZATION).t("HMAC").up().e("Type").t(SHA_256).up().up().e(SCORE).t((int) Math.round(Double.parseDouble(qualityScore)) + "").up().up().up()
 				.e("BDB").t(faceInfo).up().up();
 		if (jtwSign != null && payload != null) {
 			jtwSign = Base64.getEncoder().encodeToString(jtwSign.getBytes());
@@ -305,7 +306,7 @@ public class BiometricDataProvider {
 		return lst;
 	}
 	
-	public static void setMDSscore(long port, String type, String qualityScore) {
+	public static void setMDSscore(long port, String type, int qualityScore) {
 
 		try {
 			String requestBody = "{\"type\":\"" + type + "\",\"qualityScore\":\"" + qualityScore
@@ -344,7 +345,7 @@ public class BiometricDataProvider {
   		return certsTargetDir + File.separator + certsModuleName + "-IDA-" + System.getProperty("env.user")+ ".mosip.net";
   }
 
-	public static MDSRCaptureModel regenBiometricViaMDS(ResidentModel resident, String mdsMode, String qualityScore)
+	public static MDSRCaptureModel regenBiometricViaMDS(ResidentModel resident, String mdsMode, int qualityScore)
 			throws Exception {
 		BiometricDataModel biodata = null;
 		MDSRCaptureModel capture = null;
@@ -373,7 +374,7 @@ public class BiometricDataProvider {
 					logger.error("Exception occured during startSBI " + contextKey, e);
 				}
 				if (port != 0) {
-					logger.info(contextKey, "Found the port " + contextKey + " port number is: " + port);
+					logger.info(contextKey + ", Found the port " + contextKey + " port number is: " + port);
 					break;
 				}
 
@@ -394,7 +395,7 @@ public class BiometricDataProvider {
 
 			HashMap<String, Integer> portAsPerKey = BiometricDataProvider.portmap;
 			setMDSscore(portAsPerKey.get("port_"), "Biometric Device", qualityScore);
-			logger.info(contextKey, "mds score is changed to : " + qualityScore);
+			logger.info(contextKey + ", mds score is changed to : " + qualityScore);
 //			biodata = resident.getBiometric();
 			
 			// This condition will address those scenarios where we are not passing any biometrics
