@@ -256,6 +256,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static final String BINDINGCERTCONSENTEMPTYCLAIMFILE = "BINDINGCERTCONSENTEMPTYCLAIMFile";
 	public static final String BINDINGCERTCONSENTUSER2FILE = "BINDINGCERTCONSENTUSER2File";
 	public static final String BINDINGCERTVIDCONSENTUSER2FILE = "BINDINGCERTCONSENTVIDUSER2File";
+	private static String selectedHandlesValue=null;
 
 	private static final String UIN_CODE_VERIFIER_POS_1 = generateRandomAlphaNumericString(GlobalConstants.INTEGER_36);
 
@@ -7657,6 +7658,8 @@ public class AdminTestUtil extends BaseTestCase {
 	    JSONObject request = jsonObj.getJSONObject("request");
 	    JSONObject identity = request.getJSONObject("identity");
 	    JSONArray selectedHandles = identity.getJSONArray("selectedHandles");
+	    String email = getValueFromAuthActuator("json-property", "emailId");
+        String emailResult = email.replaceAll("\\[\"|\"\\]", "");
 
 	    for (int i = 0; i < selectedHandles.length(); i++) {
 	        String handle = selectedHandles.getString(i);
@@ -7856,9 +7859,69 @@ public class AdminTestUtil extends BaseTestCase {
 	                        obj.put("value", "HANDLES");
 	                    }
 	                }
-
+	                //77
+	                else if (testCaseName.contains("_replaceselectedhandles")) {
+	                	identity.put("selectedHandles", new JSONArray().put(emailResult));
+	                }
+	                //76
+	                else if (testCaseName.contains("_onlywithemail")) {
+	                	identity.put("selectedHandles", new JSONArray().put(emailResult));
+	                }
+	                
+	                //73
+	                else if (testCaseName.contains("_withoutselectedhandlesinidentity")) {
+	                	 identity.remove("selectedHandles");
+	                }
 	              
+	                else if (testCaseName.contains("_withdublicatevalue")) {
+	                    for (int j = 0; j < handleArray.length(); j++) {
+	                        JSONObject obj = handleArray.getJSONObject(j);
+	                        if (testCaseName.contains("_save_withdublicatevalue"))
+	                        selectedHandlesValue=obj.getString("value");
+	                        obj.put("value", selectedHandlesValue);
+	                    }
+	                }
+	                else if (testCaseName.contains("_withmultipledublicatevalue")) {
+		                        JSONObject secondValue = new JSONObject();
+		                        secondValue.put("value", selectedHandlesValue);
+		                        secondValue.put("tags", new JSONArray().put("handle"));
+		                        handleArray.put(secondValue);
+	                } 
+	                else if (testCaseName.contains("_removevalueaddexistingvalue")) {
+	                	 for (int j = 0; j < handleArray.length(); j++) {
+		                        JSONObject obj = handleArray.getJSONObject(j);
+		                        obj.remove("value");
+		                        obj.put("value", selectedHandlesValue);
+	                	 }
+            } 
+	                else if (testCaseName.contains("_withselectedhandlephone")) {
+	                    if (identity.has("selectedHandles")) {
+	                        // Remove "email" and "functionalId", keep only "phone"
+	                        JSONArray updatedHandles = new JSONArray();
+	                        boolean containsPhone = false;
 
+	                        for (int j = 0; j < selectedHandles.length(); j++) {
+	                             handle = selectedHandles.getString(j);
+	                            if (handle.equalsIgnoreCase("phone")) {
+	                                containsPhone = true;
+	                                updatedHandles.put("phone"); // Ensure "phone" is kept
+	                            }
+	                        }
+
+	                        // Add "phone" if not present
+	                        if (!containsPhone) {
+	                            updatedHandles.put("phone");
+	                        }
+
+	                        // Update the identity with the modified selectedHandles array
+	                        identity.put("selectedHandles", updatedHandles);
+	                    } else {
+	                        // If "selectedHandles" doesn't exist, create it with "phone"
+	                        JSONArray newSelectedHandles = new JSONArray();
+	                        newSelectedHandles.put("phone");
+	                        identity.put("selectedHandles", newSelectedHandles);
+	                    }
+	                }
 	                
 	                
 	                else {
@@ -7884,6 +7947,8 @@ public class AdminTestUtil extends BaseTestCase {
 	    JSONArray selectedHandles = identity.getJSONArray("selectedHandles");
 	    String phone = getValueFromAuthActuator("json-property", "phone_number");
         String result = phone.replaceAll("\\[\"|\"\\]", "");
+        String email = getValueFromAuthActuator("json-property", "emailId");
+        String emailResult = email.replaceAll("\\[\"|\"\\]", "");
 	    
 	   
 
@@ -8156,15 +8221,28 @@ public class AdminTestUtil extends BaseTestCase {
 	                newSelectedHandles.put("invalid12@@");
 	                identity.put("selectedHandles", newSelectedHandles);
 	            }
-
-
-
-
-
-
-
-
-
+	            
+	            else if (testCaseName.contains("_replaceselectedhandles")) {
+                	identity.put("selectedHandles", new JSONArray().put(result));
+                }
+	            
+	            else if (testCaseName.contains("_updatewithphoneemail")) {
+	                JSONArray updatedHandles = new JSONArray();
+	                updatedHandles.put(emailResult);
+	                updatedHandles.put(result);
+	                
+	                identity.put("selectedHandles", updatedHandles);
+	            }
+	            else if (testCaseName.contains("_withusedphone")) {
+	                if (identity.has(result)) {
+	                    identity.put(result, "$ID:AddIdentity_array_handle_value_smoke_Pos_withphonenumber_PHONE$" );
+	                }
+	            }
+	            else if (testCaseName.contains("_withphonevalue")) {
+	                if (identity.has(result)) {
+	                    identity.put(result, "$ID:AddIdentity_array_handle_value_smoke_Pos_withselectedhandlephone_PHONE$" );
+	                }
+	            }
 
 	            identity.put(handle, handleArray);
 	        }
