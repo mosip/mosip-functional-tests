@@ -5166,7 +5166,7 @@ public class AdminTestUtil extends BaseTestCase {
 	                }
 	            }
 	        }
-	        if (selectedHandles  != null) {
+	        if (selectedHandles  != null && selectedHandles.size()>=1) {
 	        	setfoundHandlesInIdSchema(true);
 	        	identityJson.put("selectedHandles", selectedHandles);
 	        }
