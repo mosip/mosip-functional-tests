@@ -5166,7 +5166,7 @@ public class AdminTestUtil extends BaseTestCase {
 	                }
 	            }
 	        }
-	        if (selectedHandles  != null && selectedHandles.size()>=1) {
+	        if (selectedHandles  != null) {
 	        	setfoundHandlesInIdSchema(true);
 	        	identityJson.put("selectedHandles", selectedHandles);
 	        }
@@ -7915,7 +7915,11 @@ public class AdminTestUtil extends BaseTestCase {
 
 	                        // Update the identity with the modified selectedHandles array
 	                        identity.put("selectedHandles", updatedHandles);
-	                    } else {
+	                    }else if (testCaseName.contains("_removealltagshandles")) {
+		                    removeTagsHandles(jsonObj);
+			                   
+			                   
+		                } else {
 	                        // If "selectedHandles" doesn't exist, create it with "phone"
 	                        JSONArray newSelectedHandles = new JSONArray();
 	                        newSelectedHandles.put("phone");
@@ -7938,7 +7942,29 @@ public class AdminTestUtil extends BaseTestCase {
 
 	    return jsonObj.toString();
 	}
-
+	private void removeTagsHandles(JSONObject jsonObj) {
+	    for (String key : jsonObj.keySet()) {
+	        Object value = jsonObj.get(key);
+	        if (value instanceof JSONObject) {
+	            JSONObject nestedObject = (JSONObject) value;
+	            if (nestedObject.has("tags")) {
+	                JSONArray tagsArray = nestedObject.getJSONArray("tags");
+	                if (tagsArray.length() == 1 && "handles".equals(tagsArray.getString(0))) {
+	                    nestedObject.remove("tags");
+	                }
+	            }
+	            removeTagsHandles(nestedObject);  // Recursively call for deeper levels
+	        } else if (value instanceof JSONArray) {
+	            JSONArray jsonArray = (JSONArray) value;
+	            for (int i = 0; i < jsonArray.length(); i++) {
+	                Object arrayElement = jsonArray.get(i);
+	                if (arrayElement instanceof JSONObject) {
+	                    removeTagsHandles((JSONObject) arrayElement);  // Recursively handle each element
+	                }
+	            }
+	        }
+	    }
+	}
 	
 	public String replaceArrayHandleValuesForUpdateIdentity(String inputJson, String testCaseName) {
 	    JSONObject jsonObj = new JSONObject(inputJson);
@@ -8243,6 +8269,14 @@ public class AdminTestUtil extends BaseTestCase {
 	                    identity.put(result, "$ID:AddIdentity_array_handle_value_smoke_Pos_withselectedhandlephone_PHONE$" );
 	                }
 	            }
+	            else if (testCaseName.contains("_removeselectedhandlesandupdateemail")) {
+	            	 if (identity.has("selectedHandles")) {
+		                    identity.remove("selectedHandles");
+		                }
+	            	if (identity.has(emailResult)) {
+	                    identity.put(emailResult, "$ID:AddIdentity_array_handle_value_update_smoke_Pos_withselectedhandlephone_EMAIL$" );
+	                }                 
+            }
 
 	            identity.put(handle, handleArray);
 	        }
