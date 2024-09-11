@@ -4989,7 +4989,7 @@ public class AdminTestUtil extends BaseTestCase {
 	    org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
 	    org.json.JSONObject schemaData = (org.json.JSONObject) responseJson.get(GlobalConstants.RESPONSE);
 
-	    Double schemaVersion = (Double) schemaData.get(GlobalConstants.ID_VERSION);
+	    Double schemaVersion = ((BigDecimal) schemaData.get(GlobalConstants.ID_VERSION)).doubleValue();
 	    idSchemaVersion = (Double) schemaData.get(GlobalConstants.ID_VERSION);
 	    String schemaJsonData = schemaData.getString(GlobalConstants.SCHEMA_JSON);
 
