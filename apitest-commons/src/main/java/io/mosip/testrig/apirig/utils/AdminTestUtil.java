@@ -1,8 +1,7 @@
 package io.mosip.testrig.apirig.utils;
 
 import static io.restassured.RestAssured.given;
-import de.mkammerer.argon2.Argon2;
-import de.mkammerer.argon2.Argon2Factory;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -34,8 +33,6 @@ import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
-import java.security.interfaces.RSAPrivateKey;
-import java.security.interfaces.RSAPublicKey;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -57,6 +54,8 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.TimeZone;
 import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import javax.ws.rs.core.MediaType;
@@ -80,9 +79,7 @@ import org.testng.Reporter;
 import org.testng.SkipException;
 import org.yaml.snakeyaml.Yaml;
 
-import java.lang.Double;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.jknack.handlebars.Context;
 import com.github.jknack.handlebars.Handlebars;
@@ -120,8 +117,6 @@ import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * @author Ravi Kant
@@ -2738,9 +2733,8 @@ public class AdminTestUtil extends BaseTestCase {
 			return null;
 		int indexof = testCaseName.indexOf("_");
 		String autogenIdKeyName = testCaseName.substring(indexof + 1);
-		if ((!BaseTestCase.isTargetEnvLTS() || isOTPEnabled().equals("false")) && fieldName.equals("VID")
-				&& (BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals("esignet")
-						|| BaseTestCase.currentModule.equals(GlobalConstants.MIMOTO)))
+		if ((!BaseTestCase.isTargetEnvLTS()) && fieldName.equals("VID")
+				&& (BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals("esignet")))
 			autogenIdKeyName = autogenIdKeyName + "_" + fieldName.toLowerCase();
 		else
 			autogenIdKeyName = autogenIdKeyName + "_" + fieldName;
@@ -3397,10 +3391,6 @@ public class AdminTestUtil extends BaseTestCase {
 			if (jsonString.contains("$DOB$")) {
 				jsonString = replaceKeywordWithValue(jsonString, "$DOB$",
 						getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES, "mosip.date-of-birth.pattern"));
-		}
-		if (jsonString.contains("$GETCLIENTIDFROMMIMOTOACTUATOR$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$GETCLIENTIDFROMMIMOTOACTUATOR$",
-					getValueFromMimotoActuator("overrides", "mimoto.oidc.partner.clientid"));
 		}
 		if (jsonString.contains("$IDPREDIRECTURI$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$IDPREDIRECTURI$",
@@ -5166,7 +5156,7 @@ public class AdminTestUtil extends BaseTestCase {
 	                }
 	            }
 	        }
-	        if (selectedHandles  != null) {
+	        if (selectedHandles  != null && selectedHandles.size()>=1) {
 	        	setfoundHandlesInIdSchema(true);
 	        	identityJson.put("selectedHandles", selectedHandles);
 	        }
@@ -6539,17 +6529,16 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 	
 	public static JSONArray mimotoActuatorResponseArray = null;
-	private static String otpEnabled = "true";
-
-	public static String isOTPEnabled() {
-		String value = getValueFromMimotoActuator("/mimoto-default.properties", "mosip.otp.download.enable");
-		if (value != null && !(value.isBlank()))
-			otpEnabled = value;
-		return otpEnabled;
-	}
 
 	public static String getValueFromMimotoActuator(String section, String key) {
 		String url = ApplnURI + propsKernel.getProperty("actuatorMimotoEndpoint");
+		if (!(System.getenv("useOldContextURL") == null)
+				&& !(System.getenv("useOldContextURL").isBlank())
+				&& System.getenv("useOldContextURL").equalsIgnoreCase("true")) {
+			if (url.contains("/v1/mimoto/")) {
+				url = url.replace("/v1/mimoto/", "/residentmobileapp/");
+			}
+		}
 		String actuatorCacheKey = url + section + key;
 		String value = actuatorValueCache.get(actuatorCacheKey);
 		if (value != null && !value.isEmpty())
@@ -6846,16 +6835,6 @@ public class AdminTestUtil extends BaseTestCase {
 							|| testCaseName.contains("_SendBindingOtp_uin_Email_Valid_Smoke"))
 					&& (!isElementPresent(new JSONArray(schemaRequiredField), individualBiometrics))) {
 				throw new SkipException(GlobalConstants.FEATURE_NOT_SUPPORTED_MESSAGE);
-			}
-		} else if (BaseTestCase.currentModule.equalsIgnoreCase(GlobalConstants.MIMOTO)) {
-			if (isOTPEnabled().equals("false") && (testCaseDTO.getEndPoint().contains(GlobalConstants.SEND_OTP_ENDPOINT)
-					|| testCaseDTO.getInput().contains(GlobalConstants.SEND_OTP_ENDPOINT)
-					|| testCaseName.startsWith(GlobalConstants.MIMOTO_CREDENTIAL_STATUS))) {
-				throw new SkipException(GlobalConstants.OTP_FEATURE_NOT_SUPPORTED);
-			} else if (isOTPEnabled().equals("true")
-					&& testCaseDTO.getEndPoint().contains(GlobalConstants.CREATE_VID_ENDPOINT)) {
-				throw new SkipException(
-						GlobalConstants.VID_GENERATED_USING_RESIDENT_API_SO_FEATURE_NOT_SUPPORTED_OR_NEEDED_MESSAGE);
 			}
 		}
 
