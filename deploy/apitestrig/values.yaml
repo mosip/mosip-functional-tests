@@ -1,0 +1,17 @@
+modules:
+  prereg:
+    enabled: true
+  masterdata:
+    enabled: true
+  idrepo:
+    enabled: true
+  partner:
+    enabled: true
+  resident:
+    enabled: true
+  auth:
+    enabled: true
+  esignet:
+    enabled: true
+  mimoto:
+    enabled: true
