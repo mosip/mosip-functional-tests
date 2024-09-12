@@ -4990,8 +4990,8 @@ public class AdminTestUtil extends BaseTestCase {
 	    org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
 	    org.json.JSONObject schemaData = (org.json.JSONObject) responseJson.get(GlobalConstants.RESPONSE);
 
-	    Double schemaVersion = (Double) schemaData.get(GlobalConstants.ID_VERSION);
-	    idSchemaVersion = (Double) schemaData.get(GlobalConstants.ID_VERSION);
+	    Double schemaVersion = ((BigDecimal) schemaData.get(GlobalConstants.ID_VERSION)).doubleValue();
+	    idSchemaVersion = ((BigDecimal) schemaData.get(GlobalConstants.ID_VERSION)).doubleValue();
 	    String schemaJsonData = schemaData.getString(GlobalConstants.SCHEMA_JSON);
 
 	    String schemaFile = schemaJsonData;
@@ -5214,8 +5214,8 @@ public class AdminTestUtil extends BaseTestCase {
 	    org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
 	    org.json.JSONObject schemaData = (org.json.JSONObject) responseJson.get(GlobalConstants.RESPONSE);
 
-	    Double schemaVersion = (Double) schemaData.get(GlobalConstants.ID_VERSION);
-	    idSchemaVersion = (Double) schemaData.get(GlobalConstants.ID_VERSION);
+	    Double schemaVersion = ((BigDecimal) schemaData.get(GlobalConstants.ID_VERSION)).doubleValue();
+	    idSchemaVersion = ((BigDecimal) schemaData.get(GlobalConstants.ID_VERSION)).doubleValue();
 	    String schemaJsonData = schemaData.getString(GlobalConstants.SCHEMA_JSON);
 
 	    String schemaFile = schemaJsonData;
@@ -5404,7 +5404,7 @@ public class AdminTestUtil extends BaseTestCase {
 		org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
 		org.json.JSONObject schemaData = (org.json.JSONObject) responseJson.get(GlobalConstants.RESPONSE);
 
-		Double schemaVersion = (Double) schemaData.get(GlobalConstants.ID_VERSION);
+		Double schemaVersion = ((BigDecimal) schemaData.get(GlobalConstants.ID_VERSION)).doubleValue();
 		int latestSchemaVersion = Double.valueOf(schemaVersion).intValue();
 		logger.info(latestSchemaVersion);
 		return latestSchemaVersion;
@@ -5427,7 +5427,7 @@ public class AdminTestUtil extends BaseTestCase {
 		org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
 		org.json.JSONObject schemaData = (org.json.JSONObject) responseJson.get(GlobalConstants.RESPONSE);
 
-		Double schemaVersion = (Double) schemaData.get(GlobalConstants.ID_VERSION);
+		Double schemaVersion = ((BigDecimal) schemaData.get(GlobalConstants.ID_VERSION)).doubleValue();
 		logger.info(schemaVersion);
 		String schemaJsonData = schemaData.getString(GlobalConstants.SCHEMA_JSON);
 
