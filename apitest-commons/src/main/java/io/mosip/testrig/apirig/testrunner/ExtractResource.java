@@ -21,6 +21,7 @@ public class ExtractResource {
 		getListOfFilesFromJarAndCopyToExternalResource("spring.properties");
 		getListOfFilesFromJarAndCopyToExternalResource("validations.properties");
 		getListOfFilesFromJarAndCopyToExternalResource("dbFiles/");
+		getListOfFilesFromJarAndCopyToExternalResource("testCaseSkippedList.txt");
 	}
 	
 	public static void copyCommonResources(){
@@ -31,6 +32,7 @@ public class ExtractResource {
 		copyCommonResources("spring.properties");
 		copyCommonResources("validations.properties");
 		copyCommonResources("dbFiles/");
+		copyCommonResources("testCaseSkippedList.txt");
 	}
 	
 	public static void copyCommonResources(String moduleName){
