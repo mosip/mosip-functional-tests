@@ -24,7 +24,7 @@ ApiTestRig will test the working of APIs of the MOSIP modules.
 
 #### Rancher UI
 * Run apitestrig manually via Rancher UI.
-  ![apitestrig-2.png](./images/apitestrig-2.png)
+  ![apitestrig-2.png](../../docs/_images/apitestrig-2.png)
 * There are two modes of apitestrig `smoke` & `smokeAndRegression`.
 * By default, apitestrig will execute with `smokeAndRegression`. <br>
   If you want to run apitestrig with only `smoke`. <br>
@@ -32,7 +32,7 @@ ApiTestRig will test the working of APIs of the MOSIP modules.
 
 #### CLI
 * Download Kubernetes cluster `kubeconfig` file from `rancher dashboard` to your local.
-  ![apitestrig-1.png](./images/apitestrig-1.png)
+  ![apitestrig-1.png](../../docs/_images/apitestrig-1.png)
 * Install `kubectl` package to your local machine.
 * Run apitestrig manually via CLI by creating a new job from an existing k8s cronjob.
   ```

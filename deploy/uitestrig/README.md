@@ -29,4 +29,14 @@ UITESTRIG will test end-to-end functional flows involving multiple UI modules.
   kubectl --kubeconfig=/home/xxx/Downloads/qa4.config -n UITESTRIG create job --from=cronjob/cronjob-uitestrig cronjob-uitestrig
   ```
 
-  
+## Run ui-testrig using rancher-ui
+
+#### Rancher UI
+* Run ui-testrig manually via Rancher UI.
+  ![ui-testrig.png](../../docs/_images/ui-testrig.png)
+* There are 3 cronjobs for ui-testrig:
+   - adminui
+   - pmp-ui
+   - residentui
+* select the cronjob which you want to initiate and select the `Run Now` button as shown in the above picture.
+* Once the job is completed the reports will be avaiable in `S3/minio`.
