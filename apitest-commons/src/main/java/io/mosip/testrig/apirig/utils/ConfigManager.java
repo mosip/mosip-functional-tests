@@ -70,6 +70,7 @@ public class ConfigManager {
 	private static String PUSH_TO_S3 = "push-reports-to-s3";
 	private static String ENABLE_DEBUG = "enableDebug";
 	private static String REPORT_IGNORED_TEST_CASES = "reportIgnoredTestCases";
+	private static String REPORT_KNOWN_ISSUE_TEST_CASES = "reportKnownIssueTestCases";
 	private static String THREAD_COUNT = "threadCount";
 	private static String LANG_SELECT = "langselect";
 
@@ -202,6 +203,7 @@ public class ConfigManager {
 	private static String push_reports_to_s3;
 	private static String enableDebug;
 	private static String reportIgnoredTestCases;
+	private static String reportKnownIssueTestCases;
 	private static String threadCount;
 	private static String langselect;
 	private static String usePreConfiguredOtp;
@@ -399,6 +401,11 @@ public class ConfigManager {
 				? propsKernel.getProperty(REPORT_IGNORED_TEST_CASES)
 				: System.getenv(REPORT_IGNORED_TEST_CASES);
 		propsKernel.setProperty(REPORT_IGNORED_TEST_CASES, reportIgnoredTestCases);
+		
+		reportKnownIssueTestCases = System.getenv(REPORT_KNOWN_ISSUE_TEST_CASES) == null
+				? propsKernel.getProperty(REPORT_KNOWN_ISSUE_TEST_CASES)
+				: System.getenv(REPORT_KNOWN_ISSUE_TEST_CASES);
+		propsKernel.setProperty(REPORT_KNOWN_ISSUE_TEST_CASES, reportKnownIssueTestCases);
 
 		threadCount = System.getenv(THREAD_COUNT) == null ? propsKernel.getProperty(THREAD_COUNT)
 				: System.getenv(THREAD_COUNT);
@@ -577,6 +584,10 @@ public class ConfigManager {
 
 	public static Boolean reportIgnoredTestCases() {
 		return reportIgnoredTestCases.equalsIgnoreCase("yes");
+	}
+	
+	public static Boolean reportKnownIssueTestCases() {
+		return reportKnownIssueTestCases.equalsIgnoreCase("yes");
 	}
 
 	public static String getReportExpirationInDays() {

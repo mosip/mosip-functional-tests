@@ -146,7 +146,6 @@ public class AuditDBManager extends AdminTestUtil {
 			config.setProperty("hibernate.show_sql", propsKernel.getProperty("show_sql"));
 			config.setProperty("hibernate.current_session_context_class",
 					propsKernel.getProperty("current_session_context_class"));
-			config.addFile(new File(MosipTestRunner.getGlobalResourcePath() + "/dbFiles/dbConfig.xml"));
 			factory = config.buildSessionFactory();		
 		} catch (HibernateException e) {
 			DBCONNECTION_LOGGER.error("Exception in Database Connection with following message: " + e.getMessage());

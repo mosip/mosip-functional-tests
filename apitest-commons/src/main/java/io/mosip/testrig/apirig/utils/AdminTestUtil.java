@@ -3117,6 +3117,8 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		if (jsonString.contains("$1STLANG$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$1STLANG$", BaseTestCase.languageList.get(0));
+		if (jsonString.contains("$2NDLANG$"))
+			jsonString = replaceKeywordWithValue(jsonString, "$2NDLANG$", BaseTestCase.languageList.get(1));
 		
 
 		if (jsonString.contains(GlobalConstants.KEYCLOAK_USER_1))
