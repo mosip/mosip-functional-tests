@@ -63,6 +63,7 @@ function installing_uitestrig() {
   echo Installing uitestrig
   helm -n $NS install uitestrig mosip/uitestrig \
   --set crontime="0 $time * * *" \
+  -f values.yaml  \
   --version $CHART_VERSION \
   --set uitestrig.configmaps.s3.s3-host='http://minio.minio:9000' \
   --set uitestrig.configmaps.s3.s3-user-key='admin' \
