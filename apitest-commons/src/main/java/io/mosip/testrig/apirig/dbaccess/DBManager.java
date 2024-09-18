@@ -156,6 +156,22 @@ public class DBManager {
 				}
 			}
 		}
+		
+		public static void clearIDREPODData() {
+			Session session = null;
+			try {
+				session = getDataBaseConnection(ConfigManager.getIdRepoDbUrl(), ConfigManager.getIdRepoDbUser(),
+						ConfigManager.getPMSDbPass(), "idrepo");
+				executeQueries(session,
+						MosipTestRunner.getGlobalResourcePath() + "/" + "config/idrepoCertDataDeleteQueries.txt");
+			} catch (Exception e) {
+				logger.error("Error:: While executing IDREPO DB Quiries." + e.getMessage());
+			} finally {
+				if (session != null) {
+					session.close();
+				}
+			}
+		}
 	
 	public static void executeQueries(Session session, String strQueriesFilePath) throws Exception {
 		if (session != null) {

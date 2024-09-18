@@ -271,6 +271,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			DBManager.clearKeyManagerDbCertData();
 			DBManager.clearIDADbCertData();
 			DBManager.clearMasterDbCertData();
+			DBManager.clearIDREPODData();
 			AdminTestUtil.copyIdrepoTestResource();
 		}
 		if (listOfModules.contains(GlobalConstants.MASTERDATA)) {
