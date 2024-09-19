@@ -3744,10 +3744,14 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 		if (jsonString.contains("$NAMEFORUPDATEUIN$")) {
-
 			String name = getValueFromAuthActuator("json-property", "name");
-			String nameResult = name.replaceAll("\\[\"|\"\\]", "");
-
+			String nameResult = "";
+			
+			if (new JSONArray(name).length() > 1) {
+				nameResult = new JSONArray(name).getString(0);
+			}else {
+				nameResult = name.replaceAll("\\[\"|\"\\]", "");
+			}
 			jsonString = replaceKeywordWithValue(jsonString, "$NAMEFORUPDATEUIN$", nameResult);
 		}
 
