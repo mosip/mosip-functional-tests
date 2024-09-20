@@ -112,7 +112,7 @@ import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 import io.mosip.testrig.apirig.testrunner.ExtractResource;
 import io.mosip.testrig.apirig.testrunner.JsonPrecondtion;
 import io.mosip.testrig.apirig.testrunner.MessagePrecondtion;
-import io.mosip.testrig.apirig.testrunner.MockSMTPListener;
+import io.mosip.testrig.apirig.testrunner.MockOTPListener;
 import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -4140,7 +4140,7 @@ public class AdminTestUtil extends BaseTestCase {
 				generateCurrentUTCTimeStamp(), "timestamp");
 		String otp = null;
 	
-		otp = MockSMTPListener.getOtp(otpChannel);
+		otp = MockOTPListener.getOtp(otpChannel);
 		
 		if(otp!=null && !otp.isBlank()){
 			otpIdentyEnryptRequest = JsonPrecondtion.parseAndReturnJsonContent(otpIdentyEnryptRequest, otp, "otp");
@@ -6968,7 +6968,7 @@ public class AdminTestUtil extends BaseTestCase {
 					if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
 						emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
 					logger.info(emailId);
-					otp = MockSMTPListener.getOtp(emailId);
+					otp = MockOTPListener.getOtp(emailId);
 					request.put("otp", otp);
 					inputJson = request.toString();
 					return inputJson;
@@ -6985,7 +6985,7 @@ public class AdminTestUtil extends BaseTestCase {
 						otp = "26258976";
 					}
 					else {
-						otp = MockSMTPListener.getOtp(emailId);
+						otp = MockOTPListener.getOtp(emailId);
 					}
 					
 					request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
@@ -7007,7 +7007,7 @@ public class AdminTestUtil extends BaseTestCase {
 							if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
 								emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
 							logger.info(emailId);
-							otp = MockSMTPListener.getOtp(emailId);
+							otp = MockOTPListener.getOtp(emailId);
 							request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
 							inputJson = request.toString();
 							return inputJson;
@@ -7032,7 +7032,7 @@ public class AdminTestUtil extends BaseTestCase {
 							if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
 								emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
 							logger.info(emailId);
-							otp = MockSMTPListener.getOtp(emailId);
+							otp = MockOTPListener.getOtp(emailId);
 							request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
 							inputJson = request.toString();
 							return inputJson;
@@ -7062,7 +7062,7 @@ public class AdminTestUtil extends BaseTestCase {
 										if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
 											emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
 										logger.info(emailId);
-										otp = MockSMTPListener.getOtp(emailId);
+										otp = MockOTPListener.getOtp(emailId);
 										request.getJSONObject(GlobalConstants.REQUEST)
 												.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 												.put(GlobalConstants.CHALLENGE, otp);
@@ -7089,7 +7089,7 @@ public class AdminTestUtil extends BaseTestCase {
 						if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
 							emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
 						logger.info(emailId);
-						otp = MockSMTPListener.getOtp(emailId);
+						otp = MockOTPListener.getOtp(emailId);
 						request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
 						inputJson = request.toString();
 						return inputJson;
@@ -7114,7 +7114,7 @@ public class AdminTestUtil extends BaseTestCase {
 									if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
 										emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
 									logger.info(emailId);
-									otp = MockSMTPListener.getOtp(emailId);
+									otp = MockOTPListener.getOtp(emailId);
 									request.getJSONObject(GlobalConstants.REQUEST)
 											.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 											.put(GlobalConstants.CHALLENGE, otp);
@@ -7141,7 +7141,7 @@ public class AdminTestUtil extends BaseTestCase {
 						if(testCaseName.contains("_EmptyChannel_Invalid_Neg"))
 							otp = "";
 						else
-							otp = MockSMTPListener.getOtp(emailId);
+							otp = MockOTPListener.getOtp(emailId);
 						request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
 						inputJson = request.toString();
 					}
@@ -7163,7 +7163,7 @@ public class AdminTestUtil extends BaseTestCase {
 								if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
 									emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
 								logger.info(emailId);
-								otp = MockSMTPListener.getOtp(emailId);
+								otp = MockOTPListener.getOtp(emailId);
 								request.getJSONObject(GlobalConstants.REQUEST)
 										.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 										.put(GlobalConstants.CHALLENGE, otp);

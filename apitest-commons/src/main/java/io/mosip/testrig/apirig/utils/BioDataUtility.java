@@ -62,15 +62,6 @@ public class BioDataUtility extends AdminTestUtil {
 			
 		residentCookie = kernelAuthLib.getTokenByRole(GlobalConstants.RESIDENT);
 		
-		
-//		try {
-//			String json = encryptDecryptUtil.encrypt(jsonContent);
-//			logger.info("json is" + json);
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		
 		String content = RestClient.postRequestWithCookie(cryptoEncryptUrl, jsonContent, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, COOKIENAME, residentCookie).asString();
 		String data = JsonPrecondtion.getValueFromJson(content, "response.data");
@@ -92,8 +83,6 @@ public class BioDataUtility extends AdminTestUtil {
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		}
-		
-//		return EncryptionDecrptionUtil.splitEncryptedData(data);
 		return splittedEncryptedDataJson.toString();
 	}
 	
@@ -253,33 +242,13 @@ public class BioDataUtility extends AdminTestUtil {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        
-		
-//		String singResponse = null;
-//		String EncryptUtilBaseUrl = ConfigManager.getAuthDemoServiceUrl() + "/";
-//		
-//        residentCookie = kernelAuthLib.getTokenByRole(GlobalConstants.RESIDENT);
-//        HashMap<String, String> pathParamsMap = new HashMap<>();
-//        pathParamsMap.put("partnerType", key);
-//        pathParamsMap.put("moduleName", BaseTestCase.certsForModule);
-//        pathParamsMap.put("certsDir", ConfigManager.getauthCertsPath());
-//        
-//        
-//		Response response = RestClient.postRequestWithQueryParamBodyAndCookie(
-//				EncryptUtilBaseUrl + properties.get("signRequest"), identityDataBlock, pathParamsMap,
-//				 MediaType.TEXT_PLAIN, MediaType.TEXT_PLAIN, GlobalConstants.AUTHORIZATION,
-//				residentCookie);
-//		
 		byte[] bytePayload = identityDataBlock.getBytes();
 		String payloadData = Base64.getUrlEncoder().encodeToString(bytePayload);
 		payloadData= payloadData.replace("=", "");
 		
 		String signNewResponse = response.replace("..", "."+ payloadData +".");
 		logger.info(signNewResponse);
-		
         
-         //singResponse = response.asString();
-		
 		return signNewResponse;
 	}
 

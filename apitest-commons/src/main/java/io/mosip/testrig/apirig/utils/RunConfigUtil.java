@@ -97,15 +97,6 @@ public class RunConfigUtil {
 	}
 	
 	public static RunConfig objRunConfig;
-
-	/**
-	 * The method get object of runtime module config
-	 * 
-	 * @param moduleObject
-	 */
-	public static void getRunConfigObject(String module) {
-			objRunConfig = new IdaRunConfig();
-	}
 	
 	/**
 	 * The method get environment

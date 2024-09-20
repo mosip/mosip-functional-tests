@@ -9,8 +9,6 @@ public abstract class MessagePrecondtion {
 	
 	public abstract String parseAndUpdateJson(String inputJson, Map<String, String> fieldvalue, String propFileName);
 
-	public abstract Map<String,String> retrieveMappingAndItsValueToPerformOutputValidation(String filePath);
-	
 	public static MessagePrecondtion getPrecondtionObject(String filePath) {
 		MessagePrecondtion msgPrecon = null;
 		if (filePath.endsWith(".json"))

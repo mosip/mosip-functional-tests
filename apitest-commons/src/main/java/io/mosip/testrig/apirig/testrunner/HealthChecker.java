@@ -65,9 +65,9 @@ public class HealthChecker implements Runnable {
 					if (parts[0].contains(currentRunningModule)) {
 						if (parts[1].contains(GlobalConstants.ESIGNET) && (ConfigManager.isInServiceNotDeployedList(GlobalConstants.ESIGNET)))
 							continue;
-						else if (parts[1].contains(GlobalConstants.RESIDENT) && (ConfigManager.isInServiceNotDeployedList(GlobalConstants.RESIDENT)))
+						if (parts[1].contains(GlobalConstants.RESIDENT) && (ConfigManager.isInServiceNotDeployedList(GlobalConstants.RESIDENT)))
 							continue;
-						else if (parts[1].contains(GlobalConstants.RID_GENERATOR) && (ConfigManager.isInServiceNotDeployedList(GlobalConstants.RID_GENERATOR)))
+						if (parts[1].contains(GlobalConstants.RID_GENERATOR) && (ConfigManager.isInServiceNotDeployedList(GlobalConstants.RID_GENERATOR)))
 							continue;
 						controllerPaths.add(BaseTestCase.ApplnURI + parts[1]);
 					}

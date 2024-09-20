@@ -1,4 +1,4 @@
-package io.mosip.testrig.apirig.smtp;
+package io.mosip.testrig.apirig.otp;
 
 import java.util.Date;
 import java.util.List;

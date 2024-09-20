@@ -171,13 +171,6 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
         //ToDO: Cache it
         X509Certificate x509Cert = keymgrUtil.getCertificate(refId);
         
-        //To get the certificate as per the reference id
-       // certificate = JWSSignAndVerifyController.trimBeginEnd(certificate);
-		//CertificateFactory cf = CertificateFactory.getInstance("X.509");
-		//X509Certificate x509cert = (X509Certificate) cf
-			//	.generateCertificate(new ByteArrayInputStream(java.util.Base64.getDecoder().decode(certificate)));
-		//return x509cert;
-        
         
         PublicKey publicKey = x509Cert.getPublicKey();
         

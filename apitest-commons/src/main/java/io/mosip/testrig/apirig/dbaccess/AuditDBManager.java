@@ -19,7 +19,6 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.jdbc.Work;
 import org.testng.Assert;
 
-import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
 import io.mosip.testrig.apirig.utils.AdminTestUtil;
 import io.mosip.testrig.apirig.utils.ConfigManager;
 

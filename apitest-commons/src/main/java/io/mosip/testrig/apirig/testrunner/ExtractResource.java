@@ -117,26 +117,6 @@ public class ExtractResource {
 		}
 	}
 	
-	
-	
-	
-//	private static boolean copyFilesFromJarToOutsideResource(String path) {
-//		try {
-//			File resourceFile = new File(MosipTestRunner.jarUrl).getParentFile();
-//			File destinationFile = new File(resourceFile.getAbsolutePath() + "/MosipTestResource/" + path);
-//			LOGGER.info("resourceFile " + MosipTestRunner.jarUrl);
-//			LOGGER.info("destinationFile " + resourceFile.getAbsolutePath() + "/MosipTestResource/" + path);
-//			org.apache.commons.io.FileUtils.copyInputStreamToFile(MosipTestRunner.class.getResourceAsStream("/" + path),
-//					destinationFile);
-//			return true;
-//		} catch (Exception e) {
-//			LOGGER.error(
-//					"Exception Occured in copying the resource from jar. Kindly build new jar to perform smooth test execution: "
-//							+ e.getMessage());
-//			return false;
-//		}
-//	}	
-	
 	/**
 	 * The method to remove old generated mosip test resource
 	 */

@@ -14,23 +14,6 @@ public class SkipTestCaseHandler {
 	private static final Logger logger = Logger.getLogger(SkipTestCaseHandler.class);
 	private static List<String> testcaseToBeSkippedList = new ArrayList<>();
 
-	public static void main(String[] args) {
-		String filePath = "C:\\Users\\sivan\\Downloads\\SynData\\testCaseSkippedList.txt"; // Replace with your file
-																							// path
-
-		loadTestcaseToBeSkippedList(filePath);
-
-		// Example usage of the checkStringInList method
-		String searchString = "IdRepository_UpdateIdentity_handle_value_value_withupdatevalues";
-		boolean exists = isTestCaseInSkippedList(searchString);
-		logger.info("Does the string exist? " + exists);
-
-		searchString = "IdRepository_UpdateIdentity_handle_value_value_withupdatevalues";
-		exists = isTestCaseInSkippedList(searchString);
-		logger.info("Does the string exist? " + exists);
-
-	}
-
 	// load test cases to be skipped in the execution in the list
 	public static void loadTestcaseToBeSkippedList(String fileName) {
 		try (BufferedReader br = new BufferedReader(

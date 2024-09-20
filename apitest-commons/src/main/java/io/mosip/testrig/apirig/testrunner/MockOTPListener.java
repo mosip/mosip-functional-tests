@@ -18,20 +18,20 @@ import org.apache.log4j.Logger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.mosip.testrig.apirig.smtp.Root;
+import io.mosip.testrig.apirig.otp.Root;
 import io.mosip.testrig.apirig.utils.AdminTestUtil;
 import io.mosip.testrig.apirig.utils.ConfigManager;
 import io.mosip.testrig.apirig.utils.GlobalConstants;
 
-public class MockSMTPListener {
-	private static Logger logger = Logger.getLogger(MockSMTPListener.class);
+public class MockOTPListener {
+	private static Logger logger = Logger.getLogger(MockOTPListener.class);
 
 	public static Map<Object, Object> emailNotificationMapS = Collections
 			.synchronizedMap(new HashMap<Object, Object>());
 
 	public static Boolean bTerminate = false;
 	
-	public MockSMTPListener() {
+	public MockOTPListener() {
 		if (ConfigManager.IsDebugEnabled())
 			logger.setLevel(Level.ALL);
 		else

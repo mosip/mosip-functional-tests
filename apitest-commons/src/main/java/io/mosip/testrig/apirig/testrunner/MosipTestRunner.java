@@ -144,7 +144,7 @@ public class MosipTestRunner {
 			LOGGER.error("Exception " + e.getMessage());
 		}
 
-		MockSMTPListener.bTerminate = true;
+		MockOTPListener.bTerminate = true;
 
 		if (BaseTestCase.isTargetEnvLTS())
 			HealthChecker.bTerminate = true;

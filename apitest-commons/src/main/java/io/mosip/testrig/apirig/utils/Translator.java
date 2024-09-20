@@ -42,26 +42,6 @@ public class Translator {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-//		try {
-//			//String filename = "D:\\Mosip_Automation_Test\\Mosip_Functional_Test_Develop\\mosip-functional-tests\\automationtests\\src\\main\\resources\\config\\lang-isocode-transid.csv";
-//			String filename = MosipTestRunner.getGlobalResourcePath() + "/"+"config/lang-isocode-transid.csv";
-//			//CSVHelper csv = new CSVHelper(IDlookupFile);
-//			CSVHelper csv = new CSVHelper(filename);
-//			String[] rec;
-//			csv.open();
-//			while ((rec = csv.readRecord()) != null) {
-//				if (rec[0].toLowerCase().equals(langIsoCode.toLowerCase())) {
-//					String val = rec[2].trim();
-//					if (val.equals(""))
-//						v = val;
-//					break;
-//				}
-//			}
-//			csv.close();
-//		} catch (IOException e) {
-//			logger.error(e.getMessage());
-//		}
 		return value;
 	}
 

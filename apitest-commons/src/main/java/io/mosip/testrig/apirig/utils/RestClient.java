@@ -39,10 +39,6 @@ public class RestClient {
 
 	private static final Logger RESTCLIENT_LOGGER = Logger.getLogger(RestClient.class);
 
-//	private static RestAssuredConfig config = RestAssured.config()
-//			.httpClient(HttpClientConfig.httpClientConfig().setParam("http.connection.timeout", 500000)
-//					.setParam("http.socket.timeout", 500000).setParam("http.connection-manager.timeout", 500000));
-
 	private static RestAssuredConfig config = RestAssured.config().httpClient(HttpClientConfig.httpClientConfig());
 	protected static final Properties properties = AdminTestUtil.getproperty(
 			MosipTestRunner.getGlobalResourcePath() + "/" + "config/application.properties");
@@ -79,12 +75,12 @@ public class RestClient {
 	
 	public static Response post(String url, String requestBody) throws Exception {
 		Response response = null;
-//		if (ConfigManager.IsDebugEnabled())
+		if (ConfigManager.IsDebugEnabled())
 			response = RestAssured.given().log().all().baseUri(url).contentType(MediaType.APPLICATION_JSON).and()
 					.body(requestBody).when().post().then().log().all().extract().response();
-//		else
-//			response = RestAssured.given().baseUri(url).contentType(MediaType.APPLICATION_JSON).and().body(requestBody).when()
-//					.post().then().extract().response();
+		else
+			response = RestAssured.given().baseUri(url).contentType(MediaType.APPLICATION_JSON).and().body(requestBody).when()
+					.post().then().extract().response();
 
 		return response;
 

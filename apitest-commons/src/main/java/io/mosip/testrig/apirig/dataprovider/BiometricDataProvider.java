@@ -37,15 +37,13 @@ import io.mosip.testrig.apirig.dataprovider.mds.MDSClientInterface;
 import io.mosip.testrig.apirig.dataprovider.models.BioModality;
 import io.mosip.testrig.apirig.dataprovider.models.BiometricDataModel;
 import io.mosip.testrig.apirig.dataprovider.models.IrisDataModel;
-import io.mosip.testrig.apirig.dataprovider.models.ResidentModel;
+import io.mosip.testrig.apirig.dataprovider.models.ResidentBiometricModel;
 import io.mosip.testrig.apirig.dataprovider.models.mds.MDSDevice;
 import io.mosip.testrig.apirig.dataprovider.models.mds.MDSDeviceCaptureModel;
 import io.mosip.testrig.apirig.dataprovider.models.mds.MDSRCaptureModel;
 import io.mosip.testrig.apirig.dataprovider.util.CommonUtil;
 import io.mosip.testrig.apirig.dataprovider.util.DataProviderConstants;
-import io.mosip.testrig.apirig.dataprovider.util.FPClassDistribution;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
-import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
 import io.mosip.testrig.apirig.utils.RestClient;
 import io.restassured.response.Response;
 
@@ -132,7 +130,7 @@ public class BiometricDataProvider {
     }
 	
 	public static Boolean generateBiometricTestData(String mdsMode) throws Exception {
-		ResidentModel resident = new ResidentModel();
+		ResidentBiometricModel resident = new ResidentBiometricModel();
 		String cbeff = null;
 		MDSRCaptureModel capture = BiometricDataProvider.regenBiometricViaMDS(resident, mdsMode, 70);
 		if (capture == null) {
@@ -344,7 +342,7 @@ public class BiometricDataProvider {
   		return certsTargetDir + File.separator + certsModuleName + "-IDA-" + System.getProperty("env.user")+ ".mosip.net";
   }
 
-	public static MDSRCaptureModel regenBiometricViaMDS(ResidentModel resident, String mdsMode, int qualityScore)
+	public static MDSRCaptureModel regenBiometricViaMDS(ResidentBiometricModel resident, String mdsMode, int qualityScore)
 			throws Exception {
 		BiometricDataModel biodata = null;
 		MDSRCaptureModel capture = null;
@@ -791,44 +789,6 @@ public class BiometricDataProvider {
 		}
 		retXml = builder.asString(null);
 		return retXml;
-	}
-
-
-	// generate using Anguli
-
-	static Hashtable<Integer, List<File>> generateFingerprint(String outDir, int nFingerPrints,
-			int nImpressionsPerPrints, int nThreads, FPClassDistribution classDist, String contextKey) {
-
-		Hashtable<Integer, List<File>> tblFiles = new Hashtable<Integer, List<File>>();
-
-		// C:\Mosip.io\gitrepos\biometric-data\anguli
-		String[] commands = { DataProviderConstants.ANGULI_PATH + "/Anguli.exe", "-outdir", outDir, "-numT",
-				String.format("%d", nThreads), "-num", String.format("%d", nFingerPrints), "-ni",
-				String.format("%d", nImpressionsPerPrints), "-cdist", classDist.name() };
-//		RestClient.logInfo(contextKey, "Anguli commands" + commands);
-		ProcessBuilder pb = new ProcessBuilder(commands);
-		pb.directory(new File(DataProviderConstants.ANGULI_PATH));
-
-		try {
-			Process proc = pb.start(); // rt.exec(commands);
-			BufferedReader stdError = new BufferedReader(new InputStreamReader(proc.getErrorStream()));
-			// Read any errors from the attempted command
-			// logger.info("Error:\n");
-			String s;
-
-			while ((s = stdError.readLine()) != null) {
-//				RestClient.logInfo(contextKey, s);
-			}
-			// read from outdir
-			for (int i = 1; i <= nImpressionsPerPrints; i++) {
-
-				List<File> lst = CommonUtil.listFiles(outDir + String.format("/Impression_%d/fp_1/", i));
-				tblFiles.put(i, lst);
-			}
-		} catch (IOException e) {
-			logger.error(e.getMessage());
-		}
-		return tblFiles;
 	}
 
 	public static IrisDataModel loadIris(String filePath, String subModality, IrisDataModel im) throws Exception {
