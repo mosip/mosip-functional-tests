@@ -335,29 +335,6 @@
 			<artifactId>javax.mail-api</artifactId>
 			<version>1.6.2</version>
 		</dependency>
-
-		<!-- Encryption Decryption Util Jar -->
-
-		<dependency>
-			<groupId>io.mosip.kernel</groupId>
-			<artifactId>kernel-registration-packet-manager</artifactId>
-			<version>1.1.5.3</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-expression</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.bouncycastle</groupId>
-					<artifactId>bcprov-jdk15on</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>io.mosip.kernel</groupId>
-			<artifactId>kernel-crypto-jce</artifactId>
-			<version>1.1.5.3</version>
-		</dependency>
 		<dependency>
 			<groupId>org.apache.wink</groupId>
 			<artifactId>wink-json4j-provider</artifactId>
