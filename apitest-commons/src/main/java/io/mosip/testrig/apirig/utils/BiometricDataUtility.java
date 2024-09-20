@@ -19,7 +19,7 @@ import org.apache.log4j.Logger;
 
 import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.HMACUtils;
-import io.mosip.kernel.crypto.jce.util.JWSValidation;
+import io.mosip.kernel.crypto.jce.core.CryptoCore;
 import io.mosip.testrig.apirig.testrunner.JsonPrecondtion;
  
 /**
@@ -123,8 +123,8 @@ public class BiometricDataUtility extends AuthTestsUtil {
 					.generateCertificate(bIS);
 			KeyFactory kf = KeyFactory.getInstance("RSA");
 			PrivateKey privateKey = kf.generatePrivate(new PKCS8EncodedKeySpec(Base64.getDecoder().decode(pKey)));
-			JWSValidation jws = new JWSValidation();
-			return jws.jwsSign(identityDataBlock, privateKey, certificate);
+			CryptoCore cryptoCore = new CryptoCore();
+			return cryptoCore.sign(identityDataBlock.getBytes(), privateKey, certificate);
 		} catch (Exception e) {
 			logger.error("Exception Occured in signing the bio data:" + e.getMessage());
 			return "Automation error occured: "+e.getMessage();
