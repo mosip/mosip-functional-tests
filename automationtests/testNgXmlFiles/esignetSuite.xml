@@ -1023,5 +1023,14 @@
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
 		</classes>
 	</test>
+	</test>
+    <test name="PrepareSignupRedirectNeg">
+	    <parameter name="ymlFile"
+			value="esignet/PrepareSignupRedirectNeg/PrepareSignupRedirectNeg.yml" />
+		<parameter name="idKeyName"	value="idToken" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
 	<!-- End of Sign up L2 phase test cases -->
 </suite>
