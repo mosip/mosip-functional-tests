@@ -1,4 +1,4 @@
-package io.mosip.testrig.apirig.encrypt.util;
+package io.mosip.testrig.apirig.utils;
 
 import java.math.BigInteger;
 import java.security.InvalidAlgorithmParameterException;
