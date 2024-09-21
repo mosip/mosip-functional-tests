@@ -33,8 +33,7 @@ import io.mosip.testrig.apirig.utils.Encrypt.SplittedEncryptedData;
 public class BioDataUtility extends AdminTestUtil {
 
 	private static final Logger logger = Logger.getLogger(BioDataUtility.class);
-	@Autowired
-	private EncryptionDecrptionUtil encryptDecryptUtil;
+	
 	@Autowired
 	private Encrypt encrypt;
 
