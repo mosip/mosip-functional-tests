@@ -16,10 +16,11 @@ import java.util.regex.Pattern;
 import javax.ws.rs.core.MediaType;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.HMACUtils;
-import io.mosip.kernel.crypto.jce.core.CryptoCore;
+import io.mosip.testrig.apirig.encrypt.util.CryptoCore;
 import io.mosip.testrig.apirig.testrunner.JsonPrecondtion;
  
 /**
@@ -31,6 +32,9 @@ import io.mosip.testrig.apirig.testrunner.JsonPrecondtion;
  */
 
 public class BiometricDataUtility extends AuthTestsUtil {
+	
+	@Autowired
+	private static CryptoCore cryptoCore;
 	
 	private static final Logger logger = Logger.getLogger(BiometricDataUtility.class);
 
@@ -123,7 +127,6 @@ public class BiometricDataUtility extends AuthTestsUtil {
 					.generateCertificate(bIS);
 			KeyFactory kf = KeyFactory.getInstance("RSA");
 			PrivateKey privateKey = kf.generatePrivate(new PKCS8EncodedKeySpec(Base64.getDecoder().decode(pKey)));
-			CryptoCore cryptoCore = new CryptoCore();
 			return cryptoCore.sign(identityDataBlock.getBytes(), privateKey, certificate);
 		} catch (Exception e) {
 			logger.error("Exception Occured in signing the bio data:" + e.getMessage());
