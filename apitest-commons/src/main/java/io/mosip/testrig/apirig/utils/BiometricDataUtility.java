@@ -20,7 +20,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.HMACUtils;
-import io.mosip.testrig.apirig.encrypt.util.CryptoCore;
 import io.mosip.testrig.apirig.testrunner.JsonPrecondtion;
  
 /**

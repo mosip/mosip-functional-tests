@@ -4,7 +4,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
-import io.mosip.testrig.apirig.encrypt.util.CryptoCore;
+import io.mosip.testrig.apirig.utils.CryptoCore;
 
 
 @Configuration
