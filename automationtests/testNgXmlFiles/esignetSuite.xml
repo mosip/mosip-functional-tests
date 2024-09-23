@@ -1023,7 +1023,6 @@
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
 		</classes>
 	</test>
-	</test>
     <test name="PrepareSignupRedirectNeg">
 	    <parameter name="ymlFile"
 			value="esignet/PrepareSignupRedirectNeg/PrepareSignupRedirectNeg.yml" />
