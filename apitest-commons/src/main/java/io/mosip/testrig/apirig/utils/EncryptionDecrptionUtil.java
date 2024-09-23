@@ -165,6 +165,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
         SecretKey secretKey = cryptoUtil.genSecKey();
         EncryptionResponseDto encryptionResponseDto = new EncryptionResponseDto();
         
+        lOGGER.info("Strated encrypting the Identity block");
         byte[] encryptedIdentityBlock = cryptoUtil.symmetricEncrypt(identityBlock.getBytes(StandardCharsets.UTF_8), secretKey);
         encryptionResponseDto.setEncryptedIdentity(Base64.getUrlEncoder().encodeToString(encryptedIdentityBlock));
         
