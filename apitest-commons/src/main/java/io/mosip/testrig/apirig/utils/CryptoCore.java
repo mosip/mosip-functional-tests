@@ -93,14 +93,11 @@ public class CryptoCore implements CryptoCoreSpec<byte[], byte[], SecretKey, Pub
 
 	private static final String AES = "AES";
 
-	@Value("${mosip.kernel.crypto.gcm-tag-length:128}")
-	private int tagLength;
+	private final int tagLength = 128;
 
-	@Value("${mosip.automation.crypto.symmetric-algorithm-name:AES/GCM/NoPadding}")
-	private String symmetricAlgorithm;
+	private final String symmetricAlgorithm = "AES/GCM/NoPadding";
 
-	@Value("${mosip.kernel.crypto.asymmetric-algorithm-name:RSA/ECB/OAEPWITHSHA-256ANDMGF1PADDING}")
-	private String asymmetricAlgorithm;
+	private final String asymmetricAlgorithm = "RSA/ECB/OAEPWITHSHA-256ANDMGF1PADDING";
 
 	@Value("${mosip.kernel.crypto.hash-algorithm-name:PBKDF2WithHmacSHA512}")
 	private String passwordAlgorithm;
@@ -117,12 +114,7 @@ public class CryptoCore implements CryptoCoreSpec<byte[], byte[], SecretKey, Pub
 	@Value("${mosip.kernel.keymanager.hsm.keystore-type:PKCS11}")
 	private String keystoreType;
 
-	private SecureRandom secureRandom;
-
-	@PostConstruct
-	public void init() {
-		secureRandom = new SecureRandom();
-	}
+	private SecureRandom secureRandom = new SecureRandom();
 
 	@Override
 	public byte[] symmetricEncrypt(SecretKey key, byte[] data, byte[] aad) {
