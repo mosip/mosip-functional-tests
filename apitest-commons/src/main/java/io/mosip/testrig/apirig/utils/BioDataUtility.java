@@ -12,7 +12,6 @@ import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import io.mosip.kernel.core.util.CryptoUtil;
@@ -33,10 +32,8 @@ import io.mosip.testrig.apirig.utils.Encrypt.SplittedEncryptedData;
 public class BioDataUtility extends AdminTestUtil {
 
 	private static final Logger logger = Logger.getLogger(BioDataUtility.class);
-	@Autowired
-	private EncryptionDecrptionUtil encryptDecryptUtil;
-	@Autowired
-	private Encrypt encrypt;
+	
+	private Encrypt encrypt = new Encrypt();
 
 
 	private String encryptIsoBioValue(String isoBiovalue, String timestamp, String bioValueEncryptionTemplateJson,

@@ -22,7 +22,6 @@ import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.testng.Reporter;
 
@@ -52,12 +51,8 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	public static String internalThumbPrint =null;
 	public static String idaFirThumbPrint =null;
 	private static ObjectMapper objMapper = new ObjectMapper();
-	@Autowired
-	private CryptoUtil cryptoUtil;
-	@Autowired
-	private KeyMgrUtil keymgrUtil;
-	@Autowired
-	private Encrypt encrypt;
+	private static CryptoUtil cryptoUtil = new CryptoUtil();
+	private static KeyMgrUtil keymgrUtil = new KeyMgrUtil();
 	
 	static {
 		getThumbprints();
@@ -130,7 +125,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	 */
 	
 	
-	public EncryptionResponseDto encrypt(String jsonString) throws Exception {
+	public static EncryptionResponseDto encrypt(String jsonString) throws Exception {
         
 		String refId= null;
 		boolean isInternal = false;
@@ -160,11 +155,12 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
         return refId;
     }
 	
-	private EncryptionResponseDto kernelEncrypt(String identityBlock, String refId) throws Exception {
+	private static EncryptionResponseDto kernelEncrypt(String identityBlock, String refId) throws Exception {
 //        String identityBlock = objMapper.writeValueAsString(jsonString);
         SecretKey secretKey = cryptoUtil.genSecKey();
         EncryptionResponseDto encryptionResponseDto = new EncryptionResponseDto();
         
+        lOGGER.info("Strated encrypting the Identity block");
         byte[] encryptedIdentityBlock = cryptoUtil.symmetricEncrypt(identityBlock.getBytes(StandardCharsets.UTF_8), secretKey);
         encryptionResponseDto.setEncryptedIdentity(Base64.getUrlEncoder().encodeToString(encryptedIdentityBlock));
         
