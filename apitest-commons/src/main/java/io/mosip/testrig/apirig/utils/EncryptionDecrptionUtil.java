@@ -22,7 +22,6 @@ import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.testng.Reporter;
 
@@ -52,12 +51,8 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	public static String internalThumbPrint =null;
 	public static String idaFirThumbPrint =null;
 	private static ObjectMapper objMapper = new ObjectMapper();
-	//@Autowired
 	private static CryptoUtil cryptoUtil = new CryptoUtil();
-	//@Autowired
 	private static KeyMgrUtil keymgrUtil = new KeyMgrUtil();
-//	@Autowired
-//	private Encrypt encrypt;
 	
 	static {
 		getThumbprints();
