@@ -3,7 +3,6 @@ package io.mosip.testrig.apirig.utils;
 import io.mosip.kernel.core.crypto.spi.CryptoCoreSpec;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.*;
@@ -35,8 +34,7 @@ public class CryptoUtil {
 	/**
 	 * {@link CryptoCoreSpec} instance for cryptographic functionalities.
 	 */
-	@Autowired
-	private CryptoCore cryptoCore;
+	private CryptoCore cryptoCore = new CryptoCore();
 	
 	
 
