@@ -3102,8 +3102,8 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = replaceKeywordWithValue(jsonString, "$RID$", genRid);
 
 		if (jsonString.contains("$SCHEMAVERSION$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$SCHEMAVERSION$",
-					String.valueOf(generateLatestSchemaVersion()));
+		    jsonString = replaceKeywordWithValue(jsonString, "$SCHEMAVERSION$", generateLatestSchemaVersion());
+
 
 		if (jsonString.contains("$PHONENUMBERFORIDENTITY$")) {
 			String phoneNumber = "";
@@ -5398,24 +5398,24 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 
-	public static int generateLatestSchemaVersion() {
+	
+	public static String generateLatestSchemaVersion() {
+	    kernelAuthLib = new KernelAuthentication();
+	    String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
+	    String url = ApplnURI + properties.getProperty(GlobalConstants.MASTER_SCHEMA_URL);
 
-		kernelAuthLib = new KernelAuthentication();
-		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
-		String url = ApplnURI + properties.getProperty(GlobalConstants.MASTER_SCHEMA_URL);
+	    Response response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
+	            GlobalConstants.AUTHORIZATION, token);
 
-		Response response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
-				GlobalConstants.AUTHORIZATION, token);
+	    org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
+	    org.json.JSONObject schemaData = (org.json.JSONObject) responseJson.get(GlobalConstants.RESPONSE);
 
-		org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
-		org.json.JSONObject schemaData = (org.json.JSONObject) responseJson.get(GlobalConstants.RESPONSE);
-
-		Double schemaVersion = ((BigDecimal) schemaData.get(GlobalConstants.ID_VERSION)).doubleValue();
-		int latestSchemaVersion = Double.valueOf(schemaVersion).intValue();
-		logger.info(latestSchemaVersion);
-		return latestSchemaVersion;
-
+	    BigDecimal schemaVersion = schemaData.getBigDecimal(GlobalConstants.ID_VERSION);
+	    String latestSchemaVersion = schemaVersion.toString(); 
+	    logger.info(latestSchemaVersion);
+	    return latestSchemaVersion; 
 	}
+
 
 	public static String generateHbsForUpdateDraft() {
 		if (draftHbs != null) {
