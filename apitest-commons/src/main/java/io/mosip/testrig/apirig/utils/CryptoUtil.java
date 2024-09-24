@@ -35,8 +35,8 @@ public class CryptoUtil {
 	/**
 	 * {@link CryptoCoreSpec} instance for cryptographic functionalities.
 	 */
-	@Autowired
-	private CryptoCore cryptoCore;
+	//@Autowired
+	private CryptoCore cryptoCore = new CryptoCore();
 	
 	
 

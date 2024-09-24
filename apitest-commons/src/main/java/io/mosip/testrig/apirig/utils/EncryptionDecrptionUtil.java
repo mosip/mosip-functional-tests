@@ -52,12 +52,12 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	public static String internalThumbPrint =null;
 	public static String idaFirThumbPrint =null;
 	private static ObjectMapper objMapper = new ObjectMapper();
-	@Autowired
-	private CryptoUtil cryptoUtil;
-	@Autowired
-	private KeyMgrUtil keymgrUtil;
-	@Autowired
-	private Encrypt encrypt;
+	//@Autowired
+	private static CryptoUtil cryptoUtil = new CryptoUtil();
+	//@Autowired
+	private static KeyMgrUtil keymgrUtil = new KeyMgrUtil();
+//	@Autowired
+//	private Encrypt encrypt;
 	
 	static {
 		getThumbprints();
@@ -130,7 +130,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	 */
 	
 	
-	public EncryptionResponseDto encrypt(String jsonString) throws Exception {
+	public static EncryptionResponseDto encrypt(String jsonString) throws Exception {
         
 		String refId= null;
 		boolean isInternal = false;
@@ -160,7 +160,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
         return refId;
     }
 	
-	private EncryptionResponseDto kernelEncrypt(String identityBlock, String refId) throws Exception {
+	private static EncryptionResponseDto kernelEncrypt(String identityBlock, String refId) throws Exception {
 //        String identityBlock = objMapper.writeValueAsString(jsonString);
         SecretKey secretKey = cryptoUtil.genSecKey();
         EncryptionResponseDto encryptionResponseDto = new EncryptionResponseDto();
