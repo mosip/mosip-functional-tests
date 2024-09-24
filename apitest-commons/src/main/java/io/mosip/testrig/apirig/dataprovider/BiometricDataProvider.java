@@ -64,7 +64,6 @@ import io.mosip.mock.sbi.test.CentralizedMockSBI;
 public class BiometricDataProvider {
 
 	public static HashMap<String, Integer> portmap = new HashMap();
-	//private static final Logger logger = LoggerFactory.getLogger(BiometricDataProvider.class);
 	private static final Logger logger = Logger.getLogger(BiometricDataProvider.class);
 
 	// String constants

@@ -115,6 +115,7 @@ public class GlobalConstants {
 	public static final String CERTIFICATEDATA = "certificateData";
 	public static final String PARTNERDOMAIN = "partnerDomain";
 	public static final String DATA = ".data";
+	public static final String KEYWORD_DATA = "data";
 	public static final String AUTOMATION = "automation";
 	public static final String AUTOMATIONLABS = "@automationlabs.com";
 	public static final String REPSONSE = "Repsonse: %s %s%n";
@@ -211,11 +212,15 @@ public class GlobalConstants {
 	public static final String VID_FEATURE_NOT_SUPPORTED = "VID feature not supported. Hence skipping the testcase";
 	public static final String UIN_FEATURE_NOT_SUPPORTED = "UIN feature not supported. Hence skipping the testcase";
 	public static final String FEATURE_NOT_SUPPORTED_MESSAGE = "feature not supported. Hence skipping the testcase";
+	public static final String HANDLE_SCHEMA_NOT_DEPLOYED_MESSAGE = "ARRAY HANDLE Related Schema is not there Hence skipping the testcase";
 	public static final String VID_GENERATED_USING_RESIDENT_API_SO_FEATURE_NOT_SUPPORTED_OR_NEEDED_MESSAGE = "Generating VID using Resident API. So, this feature not supported/needed. Hence skipping the testcase";
 	public static final String SERVICE_NOT_DEPLOYED_MESSAGE = "Service not deployed. Hence skipping the testcase";
 	public static final String FEATURE_NOT_SUPPORTED = "feature not supported";
 	public static final String SERVICE_NOT_DEPLOYED = "Service not deployed";
+	public static final String KNOWN_ISSUES_STRING = "known issue";
+	public static final String KNOWN_ISSUES = "known issue. Hence skipping the testcase";
 	public static final String IGNORED_SUBSET_STRING = "feature not supported;Service not deployed";
+	public static final String KNOWN_ISSUE_SUBSET_STRING = "known issue;";
 	public static final String SKIPPED = "Skipped";
 	public static final String TARGET_ENV_HEALTH_CHECK_FAILED = "Target env health check failed ";
 	public static final String HOTLIST = "hotlist";

@@ -70,11 +70,14 @@ public class ConfigManager {
 	private static String PUSH_TO_S3 = "push-reports-to-s3";
 	private static String ENABLE_DEBUG = "enableDebug";
 	private static String REPORT_IGNORED_TEST_CASES = "reportIgnoredTestCases";
+	private static String REPORT_KNOWN_ISSUE_TEST_CASES = "reportKnownIssueTestCases";
 	private static String THREAD_COUNT = "threadCount";
 	private static String LANG_SELECT = "langselect";
 
 	private static String USEPRECONFIGOTP = "usePreConfiguredOtp";
 	private static String ESIGNET_BASE_URL = "eSignetbaseurl";
+	private static String ESIGNET_ACTUATOR_PROPERTY_SECTION = "esignetActuatorPropertySection";
+	private static String INJI_CERTIFY_BASE_URL = "injiCertifyBaseURL";
 
 	private static String ESIGNET_MOCK_BASE_URL = "esignetMockBaseURL";
 	private static String SUNBIRD_BASE_URL = "sunBirdBaseURL";
@@ -121,6 +124,7 @@ public class ConfigManager {
 	private static String MOUNT_PATH = "mountPath";
 	private static String AUTHCERTS_PATH = "authCertsPath";
 	private static String MOUNT_PATH_FOR_SCENARIO = "mountPathForScenario";
+	private static String MOCK_NOTIFICATION_CHANNEL = "mockNotificationChannel";
 	
 	private static String SERVER_ERRORS_TO_MONITOR = "serverErrorsToMonitor";
 
@@ -198,6 +202,7 @@ public class ConfigManager {
 	private static String push_reports_to_s3;
 	private static String enableDebug;
 	private static String reportIgnoredTestCases;
+	private static String reportKnownIssueTestCases;
 	private static String threadCount;
 	private static String langselect;
 	private static String usePreConfiguredOtp;
@@ -205,6 +210,8 @@ public class ConfigManager {
 	private static String eSignetbaseurl;
 	private static String esignetMockBaseURL;
 	private static String sunBirdBaseURL;
+	private static String esignetActuatorPropertySection;
+	private static String injiCertifyBaseURL;
 
 	private static String dbPort;
 	private static String dbDomain;
@@ -245,6 +252,7 @@ public class ConfigManager {
 
 	private static String mountPath;
 	private static String authCertsPath;
+	private static String mockNotificationChannel;
 	private static String mountPathForScenario;
 	private static String packetUtilityBaseUrl;
 	public static Properties propsKernel;
@@ -359,6 +367,11 @@ public class ConfigManager {
 		mountPath = System.getenv(MOUNT_PATH) == null ? propsKernel.getProperty(MOUNT_PATH) : System.getenv(MOUNT_PATH);
 		propsKernel.setProperty(MOUNT_PATH, mountPath);
 
+		mockNotificationChannel = System.getenv(MOCK_NOTIFICATION_CHANNEL) == null
+				? propsKernel.getProperty(MOCK_NOTIFICATION_CHANNEL)
+				: System.getenv(MOCK_NOTIFICATION_CHANNEL);
+		propsKernel.setProperty(MOCK_NOTIFICATION_CHANNEL, mockNotificationChannel);
+
 		authCertsPath = System.getenv(AUTHCERTS_PATH) == null ? propsKernel.getProperty(AUTHCERTS_PATH)
 				: System.getenv(AUTHCERTS_PATH);
 		propsKernel.setProperty(AUTHCERTS_PATH, authCertsPath);
@@ -385,6 +398,11 @@ public class ConfigManager {
 				? propsKernel.getProperty(REPORT_IGNORED_TEST_CASES)
 				: System.getenv(REPORT_IGNORED_TEST_CASES);
 		propsKernel.setProperty(REPORT_IGNORED_TEST_CASES, reportIgnoredTestCases);
+		
+		reportKnownIssueTestCases = System.getenv(REPORT_KNOWN_ISSUE_TEST_CASES) == null
+				? propsKernel.getProperty(REPORT_KNOWN_ISSUE_TEST_CASES)
+				: System.getenv(REPORT_KNOWN_ISSUE_TEST_CASES);
+		propsKernel.setProperty(REPORT_KNOWN_ISSUE_TEST_CASES, reportKnownIssueTestCases);
 
 		threadCount = System.getenv(THREAD_COUNT) == null ? propsKernel.getProperty(THREAD_COUNT)
 				: System.getenv(THREAD_COUNT);
@@ -406,13 +424,25 @@ public class ConfigManager {
 				? propsKernel.getProperty(USE_EXTERNAL_SCENARIO_SHEET)
 				: System.getenv(USE_EXTERNAL_SCENARIO_SHEET);
 		propsKernel.setProperty(USE_EXTERNAL_SCENARIO_SHEET, useExternalScenario_sheet);
+		
+		esignetActuatorPropertySection = System.getenv(ESIGNET_ACTUATOR_PROPERTY_SECTION) == null
+		? propsKernel.getProperty(ESIGNET_ACTUATOR_PROPERTY_SECTION)
+		: System.getenv(ESIGNET_ACTUATOR_PROPERTY_SECTION);
+		propsKernel.setProperty(ESIGNET_ACTUATOR_PROPERTY_SECTION, esignetActuatorPropertySection);
 
 		if (System.getenv(ESIGNET_BASE_URL) != null) {
 			eSignetbaseurl = System.getenv(ESIGNET_BASE_URL);
 		} else {
-			eSignetbaseurl = System.getProperty("env.endpoint").replace("-internal", "");
+			eSignetbaseurl = System.getProperty("env.endpoint").replace("api-internal", "esignet");
 		}
 		propsKernel.setProperty(ESIGNET_BASE_URL, eSignetbaseurl);
+		
+		if (System.getenv(INJI_CERTIFY_BASE_URL) != null) {
+			injiCertifyBaseURL = System.getenv(INJI_CERTIFY_BASE_URL);
+		} else {
+			injiCertifyBaseURL = System.getProperty("env.endpoint").replace("api-internal", "injicertify");
+		}
+		propsKernel.setProperty(INJI_CERTIFY_BASE_URL, injiCertifyBaseURL);
 
 		esignetMockBaseURL = System.getenv(ESIGNET_MOCK_BASE_URL) == null
 				? propsKernel.getProperty(ESIGNET_MOCK_BASE_URL)
@@ -519,6 +549,11 @@ public class ConfigManager {
 		return false;
 	}
 	
+	public static String getEsignetActuatorPropertySection() {
+		return esignetActuatorPropertySection;
+
+	}
+	
 	public static String getComponentBaseURL(String component) {
 		return mosip_components_base_urls.get(component);
 	}
@@ -547,6 +582,10 @@ public class ConfigManager {
 	public static Boolean reportIgnoredTestCases() {
 		return reportIgnoredTestCases.equalsIgnoreCase("yes");
 	}
+	
+	public static Boolean reportKnownIssueTestCases() {
+		return reportKnownIssueTestCases.equalsIgnoreCase("yes");
+	}
 
 	public static String getReportExpirationInDays() {
 		return reportExpirationInDays;
@@ -559,6 +598,11 @@ public class ConfigManager {
 
 	public static String getEsignetBaseUrl() {
 		return eSignetbaseurl;
+
+	}
+	
+	public static String getInjiCertifyBaseUrl() {
+		return injiCertifyBaseURL;
 
 	}
 
@@ -602,6 +646,10 @@ public class ConfigManager {
 
 	public static String getpacketUtilityBaseUrl() {
 		return packetUtilityBaseUrl;
+	}
+	
+	public static String getMockNotificationChannel() {
+		return mockNotificationChannel;
 	}
 
 	public static String getauthCertsPath() {
