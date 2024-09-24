@@ -227,7 +227,7 @@ public class ConfigManager {
 	private static String auditDBSchema;
 
 	private static String idaDBUser;
-	private static String idrepoDBUser;
+	private static String idRepoDBUser;
 	private static String idaDBPass;
 	private static String idaDBSchema;
 
@@ -331,7 +331,7 @@ public class ConfigManager {
 		auditDBPass = getValueForKey(AUDIT_DB_PASS);
 		auditDBSchema = getValueForKey(AUDIT_DB_SCHEMA);
 		idaDBUser = getValueForKey(IDA_DB_USER);
-		idrepoDBUser = getValueForKey(IDREPO_DB_USER);
+		idRepoDBUser = getValueForKey(IDREPO_DB_USER);
 		idaDBPass = getValueForKey(IDA_DB_PASS);
 		idaDBSchema = getValueForKey(IDA_DB_SCHEMA);
 		pmsDBUser = getValueForKey(PMS_DB_USER);
@@ -871,7 +871,7 @@ public class ConfigManager {
 	}
 	
 	public static String getIdRepoDbUser() {
-		return idrepoDBUser;
+		return idRepoDBUser;
 	}
 
 	public static String getIdaDbPass() {
