@@ -34,8 +34,8 @@ public class BioDataUtility extends AdminTestUtil {
 
 	private static final Logger logger = Logger.getLogger(BioDataUtility.class);
 	
-	@Autowired
-	private Encrypt encrypt;
+	//@Autowired
+	private Encrypt encrypt = new Encrypt();
 
 
 	private String encryptIsoBioValue(String isoBiovalue, String timestamp, String bioValueEncryptionTemplateJson,
