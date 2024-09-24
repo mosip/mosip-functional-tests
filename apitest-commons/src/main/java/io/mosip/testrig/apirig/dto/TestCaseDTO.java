@@ -20,4 +20,5 @@ public class TestCaseDTO {
 	private String allowedErrorCodes;
 	private String[] kycFields;
 	private String description;
+	private String uniqueIdentifier;
 }
