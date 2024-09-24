@@ -157,7 +157,8 @@ public class DBManager {
 			}
 		}
 		
-		public static void clearIDREPODData() {
+		public static void clearIdRepoData()
+		{
 			Session session = null;
 			try {
 				session = getDataBaseConnection(ConfigManager.getIdRepoDbUrl(), ConfigManager.getIdRepoDbUser(),
