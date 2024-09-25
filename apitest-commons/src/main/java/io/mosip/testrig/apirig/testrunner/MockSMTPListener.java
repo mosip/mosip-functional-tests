@@ -55,8 +55,6 @@ public class MockSMTPListener {
 	}
 
 	private static class WebSocketClient implements WebSocket.Listener {
-		Long count = (long) 00;
-		Root root = new Root();
 
 		public WebSocketClient() {
 			return;
@@ -82,6 +80,7 @@ public class MockSMTPListener {
 				onClose(webSocket, 0, "After suite invoked closing");
 			}
 			try {
+				Root root = new Root();
 				ObjectMapper om = new ObjectMapper();
 				String message = "";
 				String address = "";
