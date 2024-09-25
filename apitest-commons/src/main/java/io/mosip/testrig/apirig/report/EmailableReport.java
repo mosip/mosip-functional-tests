@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -55,6 +58,7 @@ public class EmailableReport implements IReporter {
 	private final StringBuilder buffer = new StringBuilder();
 
 	private String fileName = "emailable-report.html";
+	private String mountPathForReport = ConfigManager.getMountPathForReport();
 
 	private static final String JVM_ARG = GlobalConstants.EMAILABLEREPORT2NAME;
 
@@ -151,6 +155,14 @@ public class EmailableReport implements IReporter {
 						LOG.info("Pushed file to S3");
 					} else {
 						LOG.info("Failed while pushing file to S3");
+					}
+				} else {
+					try {
+						Path mountFilePath = Path.of(mountPathForReport, newString);
+						Files.copy(newReportFile.toPath(), mountFilePath, StandardCopyOption.REPLACE_EXISTING);
+						LOG.info("Successfully copied report file to mount path: " + mountFilePath.toString());
+					} catch (Exception e) {
+						LOG.error("Error occurred while copying file to mount path: " + e.getLocalizedMessage());
 					}
 				}
 			} else {
