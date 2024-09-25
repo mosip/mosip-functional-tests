@@ -125,6 +125,7 @@ public class ConfigManager {
 	private static String AUTHCERTS_PATH = "authCertsPath";
 	private static String MOUNT_PATH_FOR_SCENARIO = "mountPathForScenario";
 	private static String MOCK_NOTIFICATION_CHANNEL = "mockNotificationChannel";
+	private static String MOUNT_PATH_FOR_REPORT = "mountPathForReport";
 	
 	private static String SERVER_ERRORS_TO_MONITOR = "serverErrorsToMonitor";
 
@@ -251,6 +252,7 @@ public class ConfigManager {
 	private static String serverErrorsToMonitor;
 
 	private static String mountPath;
+	private static String mountPathForReport;
 	private static String authCertsPath;
 	private static String mockNotificationChannel;
 	private static String mountPathForScenario;
@@ -366,6 +368,12 @@ public class ConfigManager {
 
 		mountPath = System.getenv(MOUNT_PATH) == null ? propsKernel.getProperty(MOUNT_PATH) : System.getenv(MOUNT_PATH);
 		propsKernel.setProperty(MOUNT_PATH, mountPath);
+		
+		mountPathForReport = System.getenv(MOUNT_PATH_FOR_REPORT) == null
+				? propsKernel.getProperty(MOUNT_PATH_FOR_REPORT)
+				: System.getenv(MOUNT_PATH_FOR_REPORT);
+		propsKernel.setProperty(MOUNT_PATH_FOR_REPORT, mountPathForReport);
+		
 
 		mockNotificationChannel = System.getenv(MOCK_NOTIFICATION_CHANNEL) == null
 				? propsKernel.getProperty(MOCK_NOTIFICATION_CHANNEL)
@@ -640,6 +648,10 @@ public class ConfigManager {
 		return mountPath;
 	}
 
+	public static String getMountPathForReport() {
+		return mountPathForReport;
+	}
+	
 	public static String getmountPathForScenario() {
 		return mountPathForScenario;
 	}
