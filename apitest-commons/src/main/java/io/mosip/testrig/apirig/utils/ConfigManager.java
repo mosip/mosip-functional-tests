@@ -96,6 +96,7 @@ public class ConfigManager {
 	private static String AUDIT_DB_SCHEMA = "audit_db_schema";
 
 	private static String IDA_DB_USER = DB_USER_KEY;
+	private static String IDREPO_DB_USER = DB_USER_KEY;
 	private static String IDA_DB_PASS = DB_PASSWORD_KEY;
 	private static String IDA_DB_SCHEMA = "ida_db_schema";
 
@@ -227,6 +228,7 @@ public class ConfigManager {
 	private static String auditDBSchema;
 
 	private static String idaDBUser;
+	private static String idRepoDBUser;
 	private static String idaDBPass;
 	private static String idaDBSchema;
 
@@ -331,6 +333,7 @@ public class ConfigManager {
 		auditDBPass = getValueForKey(AUDIT_DB_PASS);
 		auditDBSchema = getValueForKey(AUDIT_DB_SCHEMA);
 		idaDBUser = getValueForKey(IDA_DB_USER);
+		idRepoDBUser = getValueForKey(IDREPO_DB_USER);
 		idaDBPass = getValueForKey(IDA_DB_PASS);
 		idaDBSchema = getValueForKey(IDA_DB_SCHEMA);
 		pmsDBUser = getValueForKey(PMS_DB_USER);
@@ -833,6 +836,10 @@ public class ConfigManager {
 	public static String getIdaDbUrl() {
 		return "jdbc:postgresql://" + dbDomain + ":" + dbPort + "/mosip_ida";
 	}
+	
+	public static String getIdRepoDbUrl() {
+		return "jdbc:postgresql://" + dbDomain + ":" + dbPort + "/mosip_idrepo";
+	}
 
 	public static String getAuditDbUrl() {
 		return "jdbc:postgresql://" + dbDomain + ":" + dbPort + "/mosip_audit";
@@ -874,6 +881,10 @@ public class ConfigManager {
 	public static String getIdaDbUser() {
 		return idaDBUser;
 	}
+	
+	public static String getIdRepoDbUser() {
+		return idRepoDBUser;
+	}
 
 	public static String getIdaDbPass() {
 		return idaDBPass;
@@ -882,6 +893,8 @@ public class ConfigManager {
 	public static String getIdaDbSchema() {
 		return idaDBSchema;
 	}
+	
+	
 
 	public static String getPMSDbUrl() {
 		return "jdbc:postgresql://" + dbDomain + ":" + dbPort + "/mosip_pms";
