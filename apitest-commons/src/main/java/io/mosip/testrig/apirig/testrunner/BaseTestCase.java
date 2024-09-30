@@ -4,9 +4,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.SecureRandom;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,8 +40,6 @@ import io.mosip.testrig.apirig.utils.ConfigManager;
 import io.mosip.testrig.apirig.utils.GlobalConstants;
 import io.mosip.testrig.apirig.utils.GlobalMethods;
 import io.mosip.testrig.apirig.utils.KernelAuthentication;
-import io.mosip.testrig.apirig.utils.KeycloakUserManager;
-import io.mosip.testrig.apirig.utils.PartnerRegistration;
 import io.mosip.testrig.apirig.utils.RestClient;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -346,8 +345,18 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 
 	public static void setReportName(String moduleName) {
 		System.getProperties().setProperty("emailable.report2.name",
-				"mosip-" + environment + "-" + moduleName + "-" + System.currentTimeMillis() + "-report.html");
+				"mosip-" + environment + "-" + moduleName + "-" + getCurrentDateTime() + "-report.html");
 	}
+	
+	// Method to get the current date and time in the specified format
+    public static String getCurrentDateTime() {
+        // Get the current date and time
+        LocalDateTime now = LocalDateTime.now();
+        // Define the desired formatter with the pattern "yyyy-MM-dd_HH:mm:ss"
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm");
+        // Format the current date and time using the formatter
+        return now.format(formatter);
+    }
 
 	/**
 	 * After the entire test suite clean up rest assured
