@@ -132,8 +132,10 @@ public class AdminTestUtil extends BaseTestCase {
 			MosipTestRunner.getGlobalResourcePath() + "/" + "config/valueMapping.properties");
 	protected static final Properties propsBio = getproperty(
 			MosipTestRunner.getGlobalResourcePath() + "/" + "config/bioValue.properties");
-	protected static final Properties propsKernel = getproperty(
-			MosipTestRunner.getGlobalResourcePath() + "/" + "config/Kernel.properties");
+	/*
+	 * protected static final Properties propsKernel = getproperty(
+	 * MosipTestRunner.getGlobalResourcePath() + "/" + "config/Kernel.properties");
+	 */
 	public static String propsHealthCheckURL = MosipTestRunner.getGlobalResourcePath() + "/"
 			+ "config/healthCheckEndpoint.properties";
 	private static String serverComponentsCommitDetails;
@@ -1651,7 +1653,7 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = null;
 		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
 		org.json.simple.JSONObject actualRequestGeneration = BaseTestCase.getRequestJson("config/bulkUpload.json");
-		String url = ApplnURI + propsKernel.getProperty("bulkUploadUrl");
+		String url = ApplnURI + ConfigManager.getproperty("bulkUploadUrl");
 
 		JSONObject req = new JSONObject(actualRequestGeneration);
 
@@ -2928,7 +2930,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public List<String> getRolesByUser(String username) {
 
-		return List.of(propsKernel.getProperty("ROLES." + username.replaceAll(" ", "")).split(","));
+		return List.of(ConfigManager.getproperty("ROLES." + username.replaceAll(" ", "")).split(","));
 
 	}
 
@@ -2938,9 +2940,9 @@ public class AdminTestUtil extends BaseTestCase {
 			return uri;
 		}
 		if (uri.contains(GlobalConstants.KEYCLOAK_USER_1))
-			uri = uri.replace(GlobalConstants.KEYCLOAK_USER_1, propsKernel.getProperty("KEYCLOAKUSER1"));
+			uri = uri.replace(GlobalConstants.KEYCLOAK_USER_1, ConfigManager.getproperty("KEYCLOAKUSER1"));
 		if (uri.contains(GlobalConstants.KEYCLOAK_USER_2))
-			uri = uri.replace(GlobalConstants.KEYCLOAK_USER_2, propsKernel.getProperty("KEYCLOAKUSER2"));
+			uri = uri.replace(GlobalConstants.KEYCLOAK_USER_2, ConfigManager.getproperty("KEYCLOAKUSER2"));
 		if (uri.contains(GlobalConstants.MODULENAME)) {
 			uri = uri.replace(GlobalConstants.MODULENAME, BaseTestCase.certsForModule);
 		}
@@ -3123,10 +3125,10 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains(GlobalConstants.KEYCLOAK_USER_1))
 			jsonString = replaceKeywordWithValue(jsonString, GlobalConstants.KEYCLOAK_USER_1,
-					propsKernel.getProperty("KEYCLOAKUSER1"));
+					ConfigManager.getproperty("KEYCLOAKUSER1"));
 		if (jsonString.contains(GlobalConstants.KEYCLOAK_USER_2))
 			jsonString = replaceKeywordWithValue(jsonString, GlobalConstants.KEYCLOAK_USER_2,
-					propsKernel.getProperty("KEYCLOAKUSER2"));
+					ConfigManager.getproperty("KEYCLOAKUSER2"));
 		if (jsonString.contains("$RIDDEL$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$RIDDEL$", genRidDel);
 		if (jsonString.contains("$ID:")) {
@@ -3211,7 +3213,7 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = replaceKeywordWithValue(jsonString, "$ZONE_CODE$", ZonelocationCode);
 		if (jsonString.contains("$USERID$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$USERID$",
-					BaseTestCase.currentModule + propsKernel.getProperty("admin_userName"));
+					BaseTestCase.currentModule + ConfigManager.getproperty("admin_userName"));
 
 		if (jsonString.contains("$LOCATIONCODE$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$LOCATIONCODE$", locationCode);
@@ -3384,7 +3386,7 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = replaceKeywordWithValue(jsonString, "$BASEURI$", ApplnURI);
 		}
 		if (jsonString.contains("$IDPUSER$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$IDPUSER$", propsKernel.getProperty("idpClientId"));
+			jsonString = replaceKeywordWithValue(jsonString, "$IDPUSER$", ConfigManager.getproperty("idpClientId"));
 		}
 		if (jsonString.contains("$OIDCCLIENT$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$OIDCCLIENT$",
@@ -3405,7 +3407,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		if (jsonString.contains("$BASE64URI$")) {
 			String redirectUri = ApplnURI.replace(GlobalConstants.API_INTERNAL, GlobalConstants.RESIDENT)
-					+ propsKernel.getProperty("currentUserURI");
+					+ ConfigManager.getproperty("currentUserURI");
 			jsonString = replaceKeywordWithValue(jsonString, "$BASE64URI$", encodeBase64(redirectUri));
 		}
 		if (jsonString.contains("$JWKKEY$")) {
@@ -3822,7 +3824,7 @@ public class AdminTestUtil extends BaseTestCase {
 			} else {
 				tempUrl = getValueFromEsignetWellKnownEndPoint("issuer", ConfigManager.getEsignetBaseUrl());
 				if (tempUrl.contains("esignet.")) {
-					tempUrl = tempUrl.replace("esignet.", propsKernel.getProperty("esignetMockBaseURL"));
+					tempUrl = tempUrl.replace("esignet.", ConfigManager.getproperty("esignetMockBaseURL"));
 				}
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$PROOF_JWT_2$",
@@ -6252,7 +6254,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String signJWKKeyForMock(String clientId, RSAKey jwkKey) {
 		String tempUrl = getValueFromEsignetWellKnownEndPoint("token_endpoint", ConfigManager.getEsignetBaseUrl());
 		if (tempUrl.contains("esignet.")) {
-			tempUrl = tempUrl.replace("esignet.", propsKernel.getProperty("esignetMockBaseURL"));
+			tempUrl = tempUrl.replace("esignet.", ConfigManager.getproperty("esignetMockBaseURL"));
 		}
 		int idTokenExpirySecs = Integer
 				.parseInt(getValueFromEsignetActuator(ConfigManager.getEsignetActuatorPropertySection(),
@@ -6329,7 +6331,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static String getWlaToken(String individualId, RSAKey jwkKey, String certData)
 			throws JoseException, JOSEException {
-		String tempUrl = propsKernel.getProperty("validateBindingEndpoint");
+		String tempUrl = ConfigManager.getproperty("validateBindingEndpoint");
 		int idTokenExpirySecs = Integer
 				.parseInt(getValueFromEsignetActuator(ConfigManager.getEsignetActuatorPropertySection(),
 						GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
@@ -6397,7 +6399,7 @@ public class AdminTestUtil extends BaseTestCase {
 			Response response = null;
 			org.json.JSONObject responseJson = null;
 			JSONArray responseArray = null;
-			String url = ApplnURI + propsKernel.getProperty("actuatorIDAEndpoint");
+			String url = ApplnURI + ConfigManager.getproperty("actuatorIDAEndpoint");
 			try {
 				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
 
@@ -6425,7 +6427,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static String getValueFromEsignetWellKnownEndPoint(String key, String baseURL) {
-		String url = baseURL + propsKernel.getProperty("esignetWellKnownEndPoint");
+		String url = baseURL + ConfigManager.getproperty("esignetWellKnownEndPoint");
 		Response response = null;
 		JSONObject responseJson = null;
 		if (responseJson == null) {
@@ -6441,7 +6443,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 	
 	public static String getValueFromInjiCertifyWellKnownEndPoint(String key, String baseURL) {
-		String url = baseURL + propsKernel.getProperty("injiCertifyWellKnownEndPoint");
+		String url = baseURL + ConfigManager.getproperty("injiCertifyWellKnownEndPoint");
 
 		String actuatorCacheKey = url + key;
 		String value = actuatorValueCache.get(actuatorCacheKey);
@@ -6466,7 +6468,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static JSONObject signUpSettingsResponseJson = null;
 
 	public String getValueFromSignUpSettings(String key) {
-		String url = ApplnURI + propsKernel.getProperty("signupSettingsEndPoint");
+		String url = ApplnURI + ConfigManager.getproperty("signupSettingsEndPoint");
 		String actuatorCacheKey = url + key;
 		String value = actuatorValueCache.get(actuatorCacheKey);
 		if (value != null && !value.isEmpty())
@@ -6500,7 +6502,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static JSONArray residentActuatorResponseArray = null;
 
 	public static String getValueFromActuator(String section, String key) {
-		String url = ApplnURI + propsKernel.getProperty("actuatorEndpoint");
+		String url = ApplnURI + ConfigManager.getproperty("actuatorEndpoint");
 		String actuatorCacheKey = url + section + key;
 		String value = actuatorValueCache.get(actuatorCacheKey);
 		if (value != null && !value.isEmpty())
@@ -6538,7 +6540,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static JSONArray mimotoActuatorResponseArray = null;
 
 	public static String getValueFromMimotoActuator(String section, String key) {
-		String url = ApplnURI + propsKernel.getProperty("actuatorMimotoEndpoint");
+		String url = ApplnURI + ConfigManager.getproperty("actuatorMimotoEndpoint");
 		if (!(System.getenv("useOldContextURL") == null)
 				&& !(System.getenv("useOldContextURL").isBlank())
 				&& System.getenv("useOldContextURL").equalsIgnoreCase("true")) {
@@ -6585,7 +6587,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static JSONArray regprocActuatorResponseArray = null;
 
 	public static String getValueFromRegprocActuator(String section, String key) {
-		String url = ApplnURI + propsKernel.getProperty("regprocActuatorEndpoint");
+		String url = ApplnURI + ConfigManager.getproperty("regprocActuatorEndpoint");
 		String actuatorCacheKey = url + section + key;
 		String value = actuatorValueCache.get(actuatorCacheKey);
 		if (value != null && !value.isEmpty())
@@ -6623,7 +6625,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static JSONArray esignetActuatorResponseArray = null;
 
 	public static String getValueFromEsignetActuator(String section, String key) {
-		String url = ConfigManager.getEsignetBaseUrl() + propsKernel.getProperty("actuatorEsignetEndpoint");
+		String url = ConfigManager.getEsignetBaseUrl() + ConfigManager.getproperty("actuatorEsignetEndpoint");
 		String actuatorCacheKey = url + section + key;
 		String value = actuatorValueCache.get(actuatorCacheKey);
 		if (value != null && !value.isEmpty())
@@ -6661,7 +6663,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static JSONArray authActuatorResponseArray = null;
 
 	public static String getValueFromAuthActuator(String section, String key) {
-		String url = ApplnURI + propsKernel.getProperty("actuatorIDAEndpoint");
+		String url = ApplnURI + ConfigManager.getproperty("actuatorIDAEndpoint");
 		String actuatorCacheKey = url + section + key;
 		String value = actuatorValueCache.get(actuatorCacheKey);
 		if (value != null && !value.isEmpty())
@@ -6700,7 +6702,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static String getValueFromConfigActuator() {
 
-		String url = ApplnURI + propsKernel.getProperty("actuatorEndpoint");
+		String url = ApplnURI + ConfigManager.getproperty("actuatorEndpoint");
 
 		String actuatorCacheKey = url + "mosip.iam.module.login_flow.claims";
 
@@ -6744,7 +6746,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static JSONArray regProcActuatorResponseArray = null;
 
 	public static String getRegprocWaitFromActuator() {
-		String url = ApplnURI + propsKernel.getProperty("actuatorRegprocEndpoint");
+		String url = ApplnURI + ConfigManager.getproperty("actuatorRegprocEndpoint");
 
 		String actuatorCacheKey = url + "registration.processor.reprocess.minutes";
 		String waitInterval = actuatorValueCache.get(actuatorCacheKey);
@@ -7189,7 +7191,7 @@ public class AdminTestUtil extends BaseTestCase {
 				+ "' AND session_user_name = '" + dbChecker + "';";
 
 		Map<String, Object> response = AuditDBManager
-				.executeQueryAndGetRecord(propsKernel.getProperty("audit_default_schema"), sqlQuery);
+				.executeQueryAndGetRecord(ConfigManager.getproperty("audit_default_schema"), sqlQuery);
 
 		Map<String, List<OutputValidationDto>> objMap = new HashMap<>();
 		List<OutputValidationDto> objList = new ArrayList<>();

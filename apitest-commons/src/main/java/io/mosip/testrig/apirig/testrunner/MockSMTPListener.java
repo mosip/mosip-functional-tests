@@ -40,9 +40,9 @@ public class MockSMTPListener {
 
 	public void run() {
 		try {
-			Properties kernelprops = ConfigManager.propsKernel;
+//			Properties kernelprops = ConfigManager.propsKernel;
 			String a1 = "wss://smtp.";
-			String externalurl = kernelprops.getProperty("keycloak-external-url");
+			String externalurl = ConfigManager.getIAMUrl();
 			String a2 = externalurl.substring(externalurl.indexOf(".") + 1);
 			String a3 = "/mocksmtp/websocket";
 

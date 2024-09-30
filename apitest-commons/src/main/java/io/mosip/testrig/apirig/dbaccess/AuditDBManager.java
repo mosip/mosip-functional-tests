@@ -123,29 +123,29 @@ public class AuditDBManager extends AdminTestUtil {
 	
 	private static SessionFactory getDataBaseConnectionSessionFactory(String dbName) {
 		SessionFactory factory = null;
-		String dbschema = ConfigManager.getValueForKey("audit_db_schema");
+		String dbschema = ConfigManager.getAuditDbSchema();
 
 		if(dbName.equalsIgnoreCase("partner"))
-			dbschema=ConfigManager.getValueForKey("ida_db_schema");
+			dbschema=ConfigManager.getIdaDbSchema();
 		
 		if(dbName.equalsIgnoreCase("master"))
-			dbschema=ConfigManager.getValueForKey("master_db_schema");
+			dbschema=ConfigManager.getMasterDbSchema();
 
 		try {
 			Configuration config = new Configuration();
-			config.setProperty("hibernate.connection.driver_class", propsKernel.getProperty("driver_class"));
+			config.setProperty("hibernate.connection.driver_class", ConfigManager.getproperty("driver_class"));
 			config.setProperty("hibernate.connection.url",
-					"jdbc:" + propsKernel.getProperty("postgresqlUser") + "://"
-							+ ConfigManager.getValueForKey("db-server") + ":" + ConfigManager.getValueForKey("db-port")
+					"jdbc:" + ConfigManager.getproperty("postgresqlUser") + "://"
+							+ ConfigManager.getDbServer() + ":" + ConfigManager.getDbPort()
 							+ "/mosip_" + dbschema);
 			config.setProperty("hibernate.connection.username", ConfigManager.getAuditDbUser());
-			config.setProperty("hibernate.connection.password", ConfigManager.getValueForKey(ConfigManager.DB_PASSWORD_KEY));
-			config.setProperty("hibernate.default_schema", propsKernel.getProperty(dbName + "_default_schema"));
-			config.setProperty("hibernate.connection.pool_size", propsKernel.getProperty("pool_size"));
-			config.setProperty("hibernate.dialect", propsKernel.getProperty("dialect"));
-			config.setProperty("hibernate.show_sql", propsKernel.getProperty("show_sql"));
+			config.setProperty("hibernate.connection.password", ConfigManager.getAuditDbPass());
+			config.setProperty("hibernate.default_schema", ConfigManager.getproperty(dbName + "_default_schema"));
+			config.setProperty("hibernate.connection.pool_size", ConfigManager.getproperty("pool_size"));
+			config.setProperty("hibernate.dialect", ConfigManager.getproperty("dialect"));
+			config.setProperty("hibernate.show_sql", ConfigManager.getproperty("show_sql"));
 			config.setProperty("hibernate.current_session_context_class",
-					propsKernel.getProperty("current_session_context_class"));
+					ConfigManager.getproperty("current_session_context_class"));
 			factory = config.buildSessionFactory();		
 		} catch (HibernateException e) {
 			DBCONNECTION_LOGGER.error("Exception in Database Connection with following message: " + e.getMessage());
