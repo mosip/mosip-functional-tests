@@ -40,9 +40,9 @@ public class OTPListener {
 
 	public void run() {
 		try {
-			Properties kernelprops = ConfigManager.propsKernel;
+//			Properties kernelprops = ConfigManager.propsKernel;
 			String a1 = "wss://smtp.";
-			String externalurl = kernelprops.getProperty("keycloak-external-url");
+			String externalurl = ConfigManager.getIAMUrl();
 			String a2 = externalurl.substring(externalurl.indexOf(".") + 1);
 			String a3 = "/mocksmtp/websocket";
 
@@ -55,8 +55,6 @@ public class OTPListener {
 	}
 
 	private static class WebSocketClient implements WebSocket.Listener {
-		Long count = (long) 00;
-		Root root = new Root();
 
 		public WebSocketClient() {
 			return;
@@ -82,6 +80,7 @@ public class OTPListener {
 				onClose(webSocket, 0, "After suite invoked closing");
 			}
 			try {
+				Root root = new Root();
 				ObjectMapper om = new ObjectMapper();
 				String message = "";
 				String address = "";

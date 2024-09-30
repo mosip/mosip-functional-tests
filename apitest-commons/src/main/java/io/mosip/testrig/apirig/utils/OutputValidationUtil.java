@@ -445,6 +445,7 @@ public class OutputValidationUtil extends AuthTestsUtil {
 		JsonPrecondtion jsonPrecondtion = new JsonPrecondtion();
 		Map<String, String> actual = jsonPrecondtion
 				.retrieveMappingAndItsValueToPerformJsonOutputValidation(actualOutputJson);
+		expOutputJson = new AdminTestUtil().inputJsonKeyWordHandeler(expOutputJson, testCaseDTO.getTestCaseName());
 		Map<String, String> exp = jsonPrecondtion
 				.retrieveMappingAndItsValueToPerformJsonOutputValidation(expOutputJson);
 

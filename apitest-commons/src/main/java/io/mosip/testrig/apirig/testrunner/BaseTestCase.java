@@ -325,6 +325,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			DBManager.clearKeyManagerDbCertData();
 			DBManager.clearIDADbCertData();
 			DBManager.clearMasterDbCertData();
+			DBManager.clearIdRepoData();
 			AdminTestUtil.copyIdrepoTestResource();
 		}
 		if (listOfModules.contains(GlobalConstants.MASTERDATA)) {
@@ -473,7 +474,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public static void mapUserToZone() {
 
 		String token = kernelAuthLib.getTokenByRole("globalAdmin");
-		String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
+		String url = ApplnURI + ConfigManager.getproperty("zoneMappingUrl");
 		org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
 		JSONObject request = new JSONObject();
 		request.put("zoneCode", hierarchyZoneCode);
@@ -494,7 +495,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public static void mapUserToZone(String user, String zone) {
 
 		String token = kernelAuthLib.getTokenByRole("globalAdmin");
-		String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
+		String url = ApplnURI + ConfigManager.getproperty("zoneMappingUrl");
 		org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
 		JSONObject request = new JSONObject();
 		request.put("zoneCode", zone);
@@ -513,7 +514,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public static void mapZone() {
 
 		String token = kernelAuthLib.getTokenByRole("globalAdmin");
-		String url = ApplnURI + propsKernel.getProperty("zoneMappingActivateUrl");
+		String url = ApplnURI + ConfigManager.getproperty("zoneMappingActivateUrl");
 		HashMap<String, String> map = new HashMap<>();
 		map.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
 		map.put("userId", BaseTestCase.currentModule + "-" + ConfigManager.getUserAdminName());
@@ -525,7 +526,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public static void mapZone(String user) {
 
 		String token = kernelAuthLib.getTokenByRole("globalAdmin");
-		String url = ApplnURI + propsKernel.getProperty("zoneMappingActivateUrl");
+		String url = ApplnURI + ConfigManager.getproperty("zoneMappingActivateUrl");
 		HashMap<String, String> map = new HashMap<>();
 		map.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
 		map.put("userId", user);
@@ -537,7 +538,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public static boolean zoneName() {
 		boolean firstUser = true;
 		String token = kernelAuthLib.getTokenByRole("admin");
-		String url = ApplnURI + propsKernel.getProperty("zoneNameUrl");
+		String url = ApplnURI + ConfigManager.getproperty("zoneNameUrl");
 
 		HashMap<String, String> map = new HashMap<>();
 
@@ -559,7 +560,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public static void userCenterMapping() {
 
 		String token = kernelAuthLib.getTokenByRole("admin");
-		String url = ApplnURI + propsKernel.getProperty("userCenterMappingUrl");
+		String url = ApplnURI + ConfigManager.getproperty("userCenterMappingUrl");
 
 		HashMap<String, String> requestMap = new HashMap<>();
 
@@ -587,7 +588,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public static void userCenterMappingStatus() {
 
 		String token = kernelAuthLib.getTokenByRole("admin");
-		String url = ApplnURI + propsKernel.getProperty("userCenterMappingUrl");
+		String url = ApplnURI + ConfigManager.getproperty("userCenterMappingUrl");
 
 		HashMap<String, String> map = new HashMap<>();
 
@@ -649,12 +650,12 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			section = "/mosip-config/sandbox/admin-mz.properties";
 		try {
 
-			optionalLanguages = getValueFromActuators(propsKernel.getProperty("actuatorMasterDataEndpoint"), section,
+			optionalLanguages = getValueFromActuators(ConfigManager.getproperty("actuatorMasterDataEndpoint"), section,
 					"mosip.optional-languages");
 
 			logger.info("optionalLanguages from env:" + optionalLanguages);
 
-			mandatoryLanguages = getValueFromActuators(propsKernel.getProperty("actuatorMasterDataEndpoint"), section,
+			mandatoryLanguages = getValueFromActuators(ConfigManager.getproperty("actuatorMasterDataEndpoint"), section,
 					"mosip.mandatory-languages");
 
 			logger.info("mandatoryLanguages from env:" + mandatoryLanguages);
@@ -679,7 +680,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 
 			Response response = null;
 			org.json.JSONObject responseJson = null;
-			String url = ApplnURI + propsKernel.getProperty("auditActuatorEndpoint");
+			String url = ApplnURI + ConfigManager.getproperty("auditActuatorEndpoint");
 			try {
 				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
 
@@ -744,7 +745,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 
 		org.json.JSONObject responseJson = null;
 		JSONArray responseArray = null;
-		String url = ApplnURI + propsKernel.getProperty("actuatorIDAEndpoint");
+		String url = ApplnURI + ConfigManager.getproperty("actuatorIDAEndpoint");
 		try {
 			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
@@ -804,7 +805,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	}
 	
 	public static int getRecommendedHierarchyLevel() {
-		String recommendedHierarchLevel = getValueFromActuators(propsKernel.getProperty("actuatorMasterDataEndpoint"),
+		String recommendedHierarchLevel = getValueFromActuators(ConfigManager.getproperty("actuatorMasterDataEndpoint"),
 				"/mosip-config/application-default.properties", "mosip.recommended.centers.locCode");
 		return Integer.parseInt(recommendedHierarchLevel);
 	}
