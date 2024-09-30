@@ -4,18 +4,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
-
-import io.mosip.testrig.apirig.testrunner.BaseTestCase;
-
 public class ConfigManager {
 	private static final Logger LOGGER = Logger.getLogger(ConfigManager.class);
 	private static Map<String, String> mosip_components_base_urls = new HashMap<>();
@@ -86,12 +81,6 @@ public class ConfigManager {
 		}
 	}
 
-	public static String getRolesForUser(String userId) {
-		Properties props = getproperties(BaseTestCase.getGlobalResourcePath() + "/" + "config/Kernel.properties");
-		return props.getProperty("roles." + userId);
-	}
-
-
 	protected static Properties getproperties(String path) {
 		Properties prop = new Properties();
 		FileInputStream inputStream = null;
@@ -110,6 +99,11 @@ public class ConfigManager {
 
 	public static String getproperty(String key) {
 		return propertiesMap.get(key) == null ? "" : propertiesMap.get(key).toString();
+	}
+
+
+	public static String getRolesForUser(String userId) { 
+		return getproperty("roles." + userId);
 	}
 
 	public static String getServerErrorsToMonitor() { return getproperty("serverErrorsToMonitor");	}
