@@ -34,8 +34,7 @@ public class HealthChecker implements Runnable {
 	
 	private static final Logger logger = Logger.getLogger(HealthChecker.class);
 	public static boolean bTerminate = false;
-	public static String propsHealthCheckURL = MosipTestRunner.getGlobalResourcePath() + "/"
-			+ "config/healthCheckEndpoint.properties";
+	public static String propsHealthCheckURL = BaseTestCase.getGlobalResourcePath() + "/" + "config/healthCheckEndpoint.properties";
 	public static boolean signalTerminateExecution = false;
 	public static Map<Object, Object> healthCheckFailureMapS = Collections
 			.synchronizedMap(new HashMap<Object, Object>());
@@ -63,12 +62,19 @@ public class HealthChecker implements Runnable {
 				if (parts.length > 1) {
 					// only add health check required for the current running module
 					if (parts[0].contains(currentRunningModule)) {
-						if (parts[1].contains(GlobalConstants.ESIGNET) && (ConfigManager.isInServiceNotDeployedList(GlobalConstants.ESIGNET)))
+						if (parts[1].contains(GlobalConstants.ESIGNET)
+								&& (ConfigManager.isInServiceNotDeployedList(GlobalConstants.ESIGNET)))
 							continue;
-						if (parts[1].contains(GlobalConstants.RESIDENT) && (ConfigManager.isInServiceNotDeployedList(GlobalConstants.RESIDENT)))
+						if (parts[1].contains(GlobalConstants.RESIDENT)
+								&& (ConfigManager.isInServiceNotDeployedList(GlobalConstants.RESIDENT)))
 							continue;
-						if (parts[1].contains(GlobalConstants.RID_GENERATOR) && (ConfigManager.isInServiceNotDeployedList(GlobalConstants.RID_GENERATOR)))
+						if (parts[1].contains(GlobalConstants.RID_GENERATOR)
+								&& (ConfigManager.isInServiceNotDeployedList(GlobalConstants.RID_GENERATOR)))
 							continue;
+//						if (ConfigManager.isMosipIDIntegrated() == false
+//								&& parts[1].contains(GlobalConstants.ESIGNET) == false) {
+//							continue;
+//						}
 						controllerPaths.add(BaseTestCase.ApplnURI + parts[1]);
 					}
 				}

@@ -6,8 +6,6 @@ import java.util.Map;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
-import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
-
 public class JWKKeyUtil {
 	private static final Logger logger = Logger.getLogger(JWKKeyUtil.class);
 	private static final Map<String, String> jwkKeyCache = new HashMap<>();
@@ -22,7 +20,7 @@ public class JWKKeyUtil {
 	
 	
     public static String generateAndCacheJWKKey(String keyName) {
-        String jwkKey = MosipTestRunner.generateJWKPublicKey();
+        String jwkKey = AdminTestUtil.generateJWKPublicKey();
         jwkKeyCache.put(keyName, jwkKey);
         logger.info("keyName: " + keyName + " jwkKey: " + jwkKey );
         return jwkKey;

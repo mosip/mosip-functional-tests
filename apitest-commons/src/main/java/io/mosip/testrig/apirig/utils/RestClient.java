@@ -19,7 +19,7 @@ import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
 
 import io.mosip.testrig.apirig.dataprovider.mds.HttpRCapture;
-import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
+import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 import io.restassured.RestAssured;
 import io.restassured.config.EncoderConfig;
 import io.restassured.config.HttpClientConfig;
@@ -40,8 +40,10 @@ public class RestClient {
 	private static final Logger RESTCLIENT_LOGGER = Logger.getLogger(RestClient.class);
 
 	private static RestAssuredConfig config = RestAssured.config().httpClient(HttpClientConfig.httpClientConfig());
-	protected static final Properties properties = AdminTestUtil.getproperty(
-			MosipTestRunner.getGlobalResourcePath() + "/" + "config/application.properties");
+	protected static final Properties properties = AdminTestUtil
+			.getproperty(BaseTestCase.getGlobalResourcePath() + "/" + "config/application.properties");
+	
+	
 	/**
 	 * REST ASSURED POST request method
 	 * 

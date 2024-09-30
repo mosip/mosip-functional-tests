@@ -9,7 +9,7 @@ import org.apache.log4j.Logger;
 
 import com.ibm.icu.text.Transliterator;
 
-import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
+import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 
 public class Translator {
 	static String IDlookupFile = "src/main/resource/config/lang-isocode-transid.csv";
@@ -23,7 +23,7 @@ public class Translator {
 
 		String value = "Any-Any";
 		
-		String filename = MosipTestRunner.getGlobalResourcePath() + "/"+"config/lang-isocode-transid.csv";
+		String filename = BaseTestCase.getGlobalResourcePath() + "/"+"config/lang-isocode-transid.csv";
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String line;

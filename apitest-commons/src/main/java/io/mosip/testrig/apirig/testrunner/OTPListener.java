@@ -23,15 +23,15 @@ import io.mosip.testrig.apirig.utils.AdminTestUtil;
 import io.mosip.testrig.apirig.utils.ConfigManager;
 import io.mosip.testrig.apirig.utils.GlobalConstants;
 
-public class MockOTPListener {
-	private static Logger logger = Logger.getLogger(MockOTPListener.class);
+public class OTPListener {
+	private static Logger logger = Logger.getLogger(OTPListener.class);
 
 	public static Map<Object, Object> emailNotificationMapS = Collections
 			.synchronizedMap(new HashMap<Object, Object>());
 
 	public static Boolean bTerminate = false;
 	
-	public MockOTPListener() {
+	public OTPListener() {
 		if (ConfigManager.IsDebugEnabled())
 			logger.setLevel(Level.ALL);
 		else

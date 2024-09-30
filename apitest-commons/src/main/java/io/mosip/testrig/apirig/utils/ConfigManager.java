@@ -11,7 +11,7 @@ import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
-import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
+import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 
 public class ConfigManager {
 
@@ -78,6 +78,7 @@ public class ConfigManager {
 	private static String ESIGNET_BASE_URL = "eSignetbaseurl";
 	private static String ESIGNET_ACTUATOR_PROPERTY_SECTION = "esignetActuatorPropertySection";
 	private static String INJI_CERTIFY_BASE_URL = "injiCertifyBaseURL";
+	private static String SIGNUP_BASE_URL = "signupBaseUrl";
 
 	private static String ESIGNET_MOCK_BASE_URL = "esignetMockBaseURL";
 	private static String SUNBIRD_BASE_URL = "sunBirdBaseURL";
@@ -213,6 +214,8 @@ public class ConfigManager {
 	private static String esignetActuatorPropertySection;
 	private static String injiCertifyBaseURL;
 
+	private static String signupBaseUrl;
+
 	private static String dbPort;
 	private static String dbDomain;
 	private static String hibernateConnectionDriverClass;
@@ -275,7 +278,7 @@ public class ConfigManager {
 	}
 
 	public static void init() {
-		propsKernel = getproperty(MosipTestRunner.getGlobalResourcePath() + "/" + "config/Kernel.properties");
+		propsKernel = getproperty(BaseTestCase.getGlobalResourcePath() + "/" + "config/Kernel.properties");
 
 		pms_client_secret = getValueForKey(MOSIP_PMS_CLIENT_SECRET);
 		partner_client_secret = getValueForKey(MOSIP_PARTNER_CLIENT_SECRET);
@@ -426,16 +429,23 @@ public class ConfigManager {
 		propsKernel.setProperty(USE_EXTERNAL_SCENARIO_SHEET, useExternalScenario_sheet);
 		
 		esignetActuatorPropertySection = System.getenv(ESIGNET_ACTUATOR_PROPERTY_SECTION) == null
-		? propsKernel.getProperty(ESIGNET_ACTUATOR_PROPERTY_SECTION)
-		: System.getenv(ESIGNET_ACTUATOR_PROPERTY_SECTION);
+				? propsKernel.getProperty(ESIGNET_ACTUATOR_PROPERTY_SECTION)
+				: System.getenv(ESIGNET_ACTUATOR_PROPERTY_SECTION);
 		propsKernel.setProperty(ESIGNET_ACTUATOR_PROPERTY_SECTION, esignetActuatorPropertySection);
-
+		
 		if (System.getenv(ESIGNET_BASE_URL) != null) {
 			eSignetbaseurl = System.getenv(ESIGNET_BASE_URL);
 		} else {
 			eSignetbaseurl = System.getProperty("env.endpoint").replace("api-internal", "esignet");
 		}
 		propsKernel.setProperty(ESIGNET_BASE_URL, eSignetbaseurl);
+		
+		if (System.getenv(SIGNUP_BASE_URL) != null) {
+			signupBaseUrl = System.getenv(SIGNUP_BASE_URL);
+		} else {
+			signupBaseUrl = System.getProperty("env.endpoint").replace("api-internal", "signup");
+		}
+		propsKernel.setProperty(SIGNUP_BASE_URL, signupBaseUrl);
 		
 		if (System.getenv(INJI_CERTIFY_BASE_URL) != null) {
 			injiCertifyBaseURL = System.getenv(INJI_CERTIFY_BASE_URL);
@@ -549,6 +559,11 @@ public class ConfigManager {
 		return false;
 	}
 	
+	public static String getSignupBaseUrl() {
+		return signupBaseUrl;
+
+	}
+	
 	public static String getEsignetActuatorPropertySection() {
 		return esignetActuatorPropertySection;
 
@@ -657,7 +672,7 @@ public class ConfigManager {
 	}
 
 	public static Properties init(String abc) {
-		propsKernel = getproperty(MosipTestRunner.getGlobalResourcePath() + "/" + "config/Kernel.properties");
+		propsKernel = getproperty(BaseTestCase.getGlobalResourcePath() + "/" + "config/Kernel.properties");
 
 		return propsKernel;
 	}
@@ -944,7 +959,7 @@ public class ConfigManager {
 	}
 
 	public static String getRolesForUser(String userId) {
-		propsKernel = getproperty(MosipTestRunner.getGlobalResourcePath() + "/" + "config/Kernel.properties");
+		propsKernel = getproperty(BaseTestCase.getGlobalResourcePath() + "/" + "config/Kernel.properties");
 		return propsKernel.getProperty("roles." + userId);
 	}
 

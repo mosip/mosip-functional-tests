@@ -37,7 +37,6 @@ import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
 
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
-import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
 import io.restassured.http.Cookie;
 import io.restassured.response.Response;
 
@@ -118,11 +117,11 @@ public class CommonLibrary extends BaseTestCase {
 	}
 
 	public String getResourcePath() {
-		return MosipTestRunner.getGlobalResourcePath() + "/";
+		return getGlobalResourcePath() + "/";
 	}
 
 	public String getResourcePathForKernel() {
-		return MosipTestRunner.getGlobalResourcePath() + "/";
+		return getGlobalResourcePath() + "/";
 	}
 
 	public JSONObject readJsonData(String path, boolean isRelative) {

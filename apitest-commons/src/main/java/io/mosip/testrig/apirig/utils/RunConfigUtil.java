@@ -4,7 +4,7 @@ import java.io.File;
 
 import org.apache.log4j.Logger;
 
-import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
+import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 
 /**
  * The class perform picking up UIN,VID,TokenID,PartnerID,LicenseKey,StaticPin
@@ -122,7 +122,7 @@ public class RunConfigUtil {
 	}
 	
 	public static String getGlobalResourcePath() {
-		return MosipTestRunner.getGlobalResourcePath();
+		return BaseTestCase.getGlobalResourcePath();
 	}
 	
 	public static String getResourcePath() {

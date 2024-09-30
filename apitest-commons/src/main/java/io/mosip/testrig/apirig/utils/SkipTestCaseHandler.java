@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
+import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 
 public class SkipTestCaseHandler {
 	private static final Logger logger = Logger.getLogger(SkipTestCaseHandler.class);
@@ -17,7 +17,7 @@ public class SkipTestCaseHandler {
 	// load test cases to be skipped in the execution in the list
 	public static void loadTestcaseToBeSkippedList(String fileName) {
 		try (BufferedReader br = new BufferedReader(
-				new FileReader(MosipTestRunner.getGlobalResourcePath() + "/" + fileName))) {
+				new FileReader(BaseTestCase.getGlobalResourcePath() + "/" + fileName))) {
 			String line;
 			while ((line = br.readLine()) != null) {
 				// Ignore lines starting with # as it is commented line

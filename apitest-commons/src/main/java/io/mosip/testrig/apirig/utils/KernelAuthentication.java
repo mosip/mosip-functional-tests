@@ -7,7 +7,7 @@ import java.util.UUID;
 import org.json.simple.JSONObject;
 
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
-import io.mosip.testrig.apirig.testrunner.MockOTPListener;
+import io.mosip.testrig.apirig.testrunner.OTPListener;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
@@ -540,7 +540,7 @@ public class KernelAuthentication extends BaseTestCase {
 			//TODO REMOVE THE HARDCODING
 			otp = "111111";
 		else {
-			otp = MockOTPListener.getOtp(userId);
+			otp = OTPListener.getOtp(userId);
 		}
 		((JSONObject) actualRequest_validation.get(GlobalConstants.REQUEST)).put("otp", otp);
 		actualRequest_validation.put(GlobalConstants.REQUESTTIME, clib.getCurrentUTCTime());

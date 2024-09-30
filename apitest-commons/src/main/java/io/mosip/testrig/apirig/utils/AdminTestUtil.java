@@ -15,6 +15,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.StringReader;
+import java.io.StringWriter;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -23,16 +24,20 @@ import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
 import java.security.KeyStore.PrivateKeyEntry;
 import java.security.KeyStoreException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
+import java.security.PublicKey;
 import java.security.UnrecoverableEntryException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
+import java.security.interfaces.RSAPublicKey;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -64,6 +69,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.bouncycastle.openssl.jcajce.JcaPEMWriter;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.util.io.pem.PemObject;
 import org.bouncycastle.util.io.pem.PemReader;
@@ -96,6 +102,7 @@ import com.nimbusds.jose.JWSHeader;
 import com.nimbusds.jose.JWSSigner;
 import com.nimbusds.jose.crypto.RSASSASigner;
 import com.nimbusds.jose.jwk.JWK;
+import com.nimbusds.jose.jwk.KeyUse;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.util.StandardCharset;
 import com.nimbusds.jwt.JWTClaimsSet;
@@ -109,11 +116,9 @@ import io.mosip.testrig.apirig.dbaccess.AuditDBManager;
 import io.mosip.testrig.apirig.dto.OutputValidationDto;
 import io.mosip.testrig.apirig.dto.TestCaseDTO;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
-import io.mosip.testrig.apirig.testrunner.ExtractResource;
 import io.mosip.testrig.apirig.testrunner.JsonPrecondtion;
 import io.mosip.testrig.apirig.testrunner.MessagePrecondtion;
-import io.mosip.testrig.apirig.testrunner.MockOTPListener;
-import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
+import io.mosip.testrig.apirig.testrunner.OTPListener;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -127,14 +132,14 @@ public class AdminTestUtil extends BaseTestCase {
 
 	private static final Logger logger = Logger.getLogger(AdminTestUtil.class);
 	protected static final Properties properties = getproperty(
-			MosipTestRunner.getGlobalResourcePath() + "/" + "config/application.properties");
+			getGlobalResourcePath() + "/" + "config/application.properties");
 	protected static final Properties propsMap = getproperty(
-			MosipTestRunner.getGlobalResourcePath() + "/" + "config/valueMapping.properties");
+			getGlobalResourcePath() + "/" + "config/valueMapping.properties");
 	protected static final Properties propsBio = getproperty(
-			MosipTestRunner.getGlobalResourcePath() + "/" + "config/bioValue.properties");
+			getGlobalResourcePath() + "/" + "config/bioValue.properties");
 	protected static final Properties propsKernel = getproperty(
-			MosipTestRunner.getGlobalResourcePath() + "/" + "config/Kernel.properties");
-	public static String propsHealthCheckURL = MosipTestRunner.getGlobalResourcePath() + "/"
+			getGlobalResourcePath() + "/" + "config/Kernel.properties");
+	public static String propsHealthCheckURL = getGlobalResourcePath() + "/"
 			+ "config/healthCheckEndpoint.properties";
 	private static String serverComponentsCommitDetails;
 	private static boolean foundHandlesInIdSchema= false;
@@ -2744,11 +2749,11 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static String getGlobalResourcePath() {
-		return MosipTestRunner.getGlobalResourcePath();
+		return BaseTestCase.getGlobalResourcePath();
 	}
 
 	public static String getResourcePath() {
-		return MosipTestRunner.getGlobalResourcePath() + "/";
+		return BaseTestCase.getGlobalResourcePath() + "/";
 	}
 
 	public static void initiateAdminTest() {
@@ -2769,24 +2774,6 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static void initiateSyncDataTest() {
 		copySyncDataTestResource();
-	}
-
-	public static void copymoduleSpecificAndConfigFile(String moduleName) {
-		if (MosipTestRunner.checkRunType().equalsIgnoreCase("JAR")) {
-			ExtractResource.getListOfFilesFromJarAndCopyToExternalResource(moduleName + "/");
-		} else {
-			try {
-				File destination = new File(RunConfigUtil.getGlobalResourcePath());
-				File source = new File(RunConfigUtil.getGlobalResourcePath()
-						.replace("MosipTestResource/MosipTemporaryTestResource", "") + moduleName);
-				FileUtils.copyDirectoryToDirectory(source, destination);
-				logger.info("Copied the test resource successfully for " + moduleName);
-			} catch (Exception e) {
-				logger.error(
-						"Exception occured while copying the file for : " + moduleName + " Error : " + e.getMessage());
-			}
-		}
-
 	}
 
 	public static void copyAdminTestResource() {
@@ -3349,12 +3336,12 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 		if (jsonString.contains("$PUBLICKEY$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$PUBLICKEY$", MosipTestRunner.generatePulicKey());
+			jsonString = replaceKeywordWithValue(jsonString, "$PUBLICKEY$", generatePulicKey());
 			publickey = JsonPrecondtion.getJsonValueFromJson(jsonString, "request.publicKey");
 		}
 		if (jsonString.contains("$PUBLICKEYFORBINDING$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$PUBLICKEYFORBINDING$",
-					MosipTestRunner.generatePublicKeyForMimoto());
+					generatePublicKeyForMimoto());
 		}
 		if (jsonString.contains("$BLOCKEDPARTNERID$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$BLOCKEDPARTNERID$", getPartnerId());
@@ -3377,6 +3364,12 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMID$2", RANDOM_ID_2);
 			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMID$", RANDOM_ID);
 		}
+		
+		if (jsonString.contains("$RANDOMIDFOROIDCCLIENT$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMIDFOROIDCCLIENT$",
+					"mosip" + generateRandomNumberString(2) + Calendar.getInstance().getTimeInMillis());
+		}
+		
 		if (jsonString.contains("$RANDOMUUID$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMUUID$", UUID.randomUUID().toString());
 		}
@@ -3409,7 +3402,7 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = replaceKeywordWithValue(jsonString, "$BASE64URI$", encodeBase64(redirectUri));
 		}
 		if (jsonString.contains("$JWKKEY$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$JWKKEY$", MosipTestRunner.generateJWKPublicKey());
+			jsonString = replaceKeywordWithValue(jsonString, "$JWKKEY$", generateJWKPublicKey());
 		}
 
 		if (jsonString.contains("$BINDINGJWKKEY$")) {
@@ -3959,6 +3952,76 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		return proofJWT;
 	}
+	
+	public static String generatePulicKey() {
+		String publicKey = null;
+		try {
+			KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
+			keyGenerator.initialize(2048, BaseTestCase.secureRandom);
+			final KeyPair keypair = keyGenerator.generateKeyPair();
+			publicKey = java.util.Base64.getEncoder().encodeToString(keypair.getPublic().getEncoded());
+		} catch (NoSuchAlgorithmException e) {
+			logger.error(e.getMessage());
+		}
+		return publicKey;
+	}
+	
+	public static KeyPairGenerator keyPairGen = null;
+
+	public static KeyPairGenerator getKeyPairGeneratorInstance() {
+		if (keyPairGen != null)
+			return keyPairGen;
+		try {
+			keyPairGen = KeyPairGenerator.getInstance("RSA");
+			keyPairGen.initialize(2048);
+
+		} catch (NoSuchAlgorithmException e) {
+			logger.error(e.getMessage());
+		}
+
+		return keyPairGen;
+	}
+	
+	public static String generateJWKPublicKey() {
+		try {
+			KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
+			keyGenerator.initialize(2048, BaseTestCase.secureRandom);
+			final KeyPair keypair = keyGenerator.generateKeyPair();
+			RSAKey jwk = new RSAKey.Builder((RSAPublicKey) keypair.getPublic()).keyID("RSAKeyID")
+					.keyUse(KeyUse.SIGNATURE).privateKey(keypair.getPrivate()).build();
+
+			return jwk.toJSONString();
+		} catch (NoSuchAlgorithmException e) {
+			logger.error(e.getMessage());
+			return null;
+		}
+	}
+	
+	public static String generatePublicKeyForMimoto() {
+
+		String vcString = "";
+		try {
+			KeyPairGenerator keyPairGenerator = getKeyPairGeneratorInstance();
+			KeyPair keyPair = keyPairGenerator.generateKeyPair();
+			PublicKey publicKey = keyPair.getPublic();
+			StringWriter stringWriter = new StringWriter();
+			try (JcaPEMWriter pemWriter = new JcaPEMWriter(stringWriter)) {
+				pemWriter.writeObject(publicKey);
+				pemWriter.flush();
+				vcString = stringWriter.toString();
+				if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+					vcString = vcString.replaceAll("\r\n", "\\\\n");
+				} else {
+					vcString = vcString.replaceAll("\n", "\\\\n");
+				}
+			} catch (Exception e) {
+				throw e;
+			}
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		return vcString;
+	}
 
 	public static String generateWLAToken(String jsonString, String jwkKeyName, String certKeyName) {
 		RSAKey jwkKey = null;
@@ -4145,7 +4208,7 @@ public class AdminTestUtil extends BaseTestCase {
 				generateCurrentUTCTimeStamp(), "timestamp");
 		String otp = null;
 	
-		otp = MockOTPListener.getOtp(otpChannel);
+		otp = OTPListener.getOtp(otpChannel);
 		
 		if(otp!=null && !otp.isBlank()){
 			otpIdentyEnryptRequest = JsonPrecondtion.parseAndReturnJsonContent(otpIdentyEnryptRequest, otp, "otp");
@@ -6836,14 +6899,16 @@ public class AdminTestUtil extends BaseTestCase {
 					&& (ConfigManager.isInServiceNotDeployedList(GlobalConstants.HOTLIST))) {
 				throw new SkipException(GlobalConstants.SERVICE_NOT_DEPLOYED_MESSAGE);
 			}
-		} else if (BaseTestCase.currentModule.equalsIgnoreCase(GlobalConstants.ESIGNET)) {
-			if ((testCaseName.startsWith("Esignet_") || testCaseName.startsWith("ESignet_"))
-					&& (testCaseName.contains("_KycBioAuth_") || testCaseName.contains("_BioAuth_")
-							|| testCaseName.contains("_SendBindingOtp_uin_Email_Valid_Smoke"))
-					&& (!isElementPresent(new JSONArray(schemaRequiredField), individualBiometrics))) {
-				throw new SkipException(GlobalConstants.FEATURE_NOT_SUPPORTED_MESSAGE);
-			}
-		}
+		} 
+		
+//		else if (BaseTestCase.currentModule.equalsIgnoreCase(GlobalConstants.ESIGNET)) {
+//			if ((testCaseName.startsWith("Esignet_") || testCaseName.startsWith("ESignet_"))
+//					&& (testCaseName.contains("_KycBioAuth_") || testCaseName.contains("_BioAuth_")
+//							|| testCaseName.contains("_SendBindingOtp_uin_Email_Valid_Smoke"))
+//					&& (!isElementPresent(new JSONArray(schemaRequiredField), individualBiometrics))) {
+//				throw new SkipException(GlobalConstants.FEATURE_NOT_SUPPORTED_MESSAGE);
+//			}
+//		}
 
 		if ((ConfigManager.isInServiceNotDeployedList(GlobalConstants.ESIGNET))
 				&& BaseTestCase.currentModule.equalsIgnoreCase("resident") && testCaseName.contains("_SignJWT_")) {
@@ -6858,8 +6923,7 @@ public class AdminTestUtil extends BaseTestCase {
 						|| testCaseDTO.getRole().equalsIgnoreCase("residentNewVid")))) {
 			throw new SkipException("esignet module is not deployed");
 		}
-		if (BaseTestCase.currentModule.equalsIgnoreCase(GlobalConstants.RESIDENT)
-				|| BaseTestCase.currentModule.equalsIgnoreCase(GlobalConstants.ESIGNET)) {
+		if (BaseTestCase.currentModule.equalsIgnoreCase(GlobalConstants.RESIDENT)) {
 			if (testCaseDTO.getRole() != null && (testCaseDTO.getRole().equalsIgnoreCase(GlobalConstants.RESIDENTNEW)
 					|| testCaseDTO.isValidityCheckRequired())) {
 				if (testCaseName.contains("uin") || testCaseName.contains("UIN") || testCaseName.contains("Uin")) {
@@ -6973,7 +7037,7 @@ public class AdminTestUtil extends BaseTestCase {
 					if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
 						emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
 					logger.info(emailId);
-					otp = MockOTPListener.getOtp(emailId);
+					otp = OTPListener.getOtp(emailId);
 					request.put("otp", otp);
 					inputJson = request.toString();
 					return inputJson;
@@ -6990,7 +7054,7 @@ public class AdminTestUtil extends BaseTestCase {
 						otp = "26258976";
 					}
 					else {
-						otp = MockOTPListener.getOtp(emailId);
+						otp = OTPListener.getOtp(emailId);
 					}
 					
 					request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
@@ -7012,7 +7076,7 @@ public class AdminTestUtil extends BaseTestCase {
 							if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
 								emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
 							logger.info(emailId);
-							otp = MockOTPListener.getOtp(emailId);
+							otp = OTPListener.getOtp(emailId);
 							request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
 							inputJson = request.toString();
 							return inputJson;
@@ -7037,7 +7101,7 @@ public class AdminTestUtil extends BaseTestCase {
 							if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
 								emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
 							logger.info(emailId);
-							otp = MockOTPListener.getOtp(emailId);
+							otp = OTPListener.getOtp(emailId);
 							request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
 							inputJson = request.toString();
 							return inputJson;
@@ -7067,7 +7131,7 @@ public class AdminTestUtil extends BaseTestCase {
 										if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
 											emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
 										logger.info(emailId);
-										otp = MockOTPListener.getOtp(emailId);
+										otp = OTPListener.getOtp(emailId);
 										request.getJSONObject(GlobalConstants.REQUEST)
 												.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 												.put(GlobalConstants.CHALLENGE, otp);
@@ -7094,7 +7158,7 @@ public class AdminTestUtil extends BaseTestCase {
 						if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
 							emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
 						logger.info(emailId);
-						otp = MockOTPListener.getOtp(emailId);
+						otp = OTPListener.getOtp(emailId);
 						request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
 						inputJson = request.toString();
 						return inputJson;
@@ -7119,7 +7183,7 @@ public class AdminTestUtil extends BaseTestCase {
 									if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
 										emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
 									logger.info(emailId);
-									otp = MockOTPListener.getOtp(emailId);
+									otp = OTPListener.getOtp(emailId);
 									request.getJSONObject(GlobalConstants.REQUEST)
 											.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 											.put(GlobalConstants.CHALLENGE, otp);
@@ -7146,7 +7210,7 @@ public class AdminTestUtil extends BaseTestCase {
 						if(testCaseName.contains("_EmptyChannel_Invalid_Neg"))
 							otp = "";
 						else
-							otp = MockOTPListener.getOtp(emailId);
+							otp = OTPListener.getOtp(emailId);
 						request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
 						inputJson = request.toString();
 					}
@@ -7168,7 +7232,7 @@ public class AdminTestUtil extends BaseTestCase {
 								if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
 									emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
 								logger.info(emailId);
-								otp = MockOTPListener.getOtp(emailId);
+								otp = OTPListener.getOtp(emailId);
 								request.getJSONObject(GlobalConstants.REQUEST)
 										.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 										.put(GlobalConstants.CHALLENGE, otp);
