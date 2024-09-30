@@ -14,7 +14,6 @@ import java.nio.file.StandardCopyOption;
 import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -22,7 +21,6 @@ import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 
-import org.apache.commons.lang3.SerializationUtils;
 import org.testng.IReporter;
 import org.testng.ISuite;
 import org.testng.ISuiteResult;
@@ -187,6 +185,14 @@ public class EmailableReport implements IReporter {
 		}
 
 	}
+	
+	private static String convertMillisToTime(long milliseconds) {
+		long seconds = (milliseconds / 1000) % 60;
+		long minutes = (milliseconds / (1000 * 60)) % 60;
+		long hours = (milliseconds / (1000 * 60 * 60)) % 24;
+		// Format time into HH:MM:SS
+		return String.format("%02d:%02d:%02d", hours, minutes, seconds);
+	}
 
 	protected PrintWriter createWriter(String outdir) throws IOException {
 		new File(outdir).mkdirs();
@@ -253,7 +259,6 @@ public class EmailableReport implements IReporter {
 
 	protected void writeSuiteSummary() {
 		NumberFormat integerFormat = NumberFormat.getIntegerInstance();
-		NumberFormat decimalFormat = NumberFormat.getNumberInstance();
 		LocalDate currentDate = LocalDate.now();
 		String formattedDate =null;
 		 String branch = null;
@@ -335,7 +340,7 @@ public class EmailableReport implements IReporter {
 			if (reportKnownIssueTestCases) {
 				writer.print("<th># Known_Issues</th>");
 			}
-			writer.print("<th>Execution Time (ms)</th>");
+			writer.print("<th>Execution Time (HH:MM:SS)</th>");
 //			writer.print("<th>Included Groups</th>");
 //			writer.print("<th>Excluded Groups</th>");
 			writer.print(GlobalConstants.TR);
@@ -388,7 +393,7 @@ public class EmailableReport implements IReporter {
 				if (reportKnownIssueTestCases) {
 					writeTableData(integerFormat.format(knownIssueTests), (knownIssueTests > 0 ? "num thich-orange-bg" : "num"));
 				}
-				writeTableData(decimalFormat.format(duration), "num");
+				writeTableData(convertMillisToTime(duration), "num");
 //				writeTableData(testResult.getIncludedGroups());
 //				writeTableData(testResult.getExcludedGroups());
 
@@ -435,7 +440,7 @@ public class EmailableReport implements IReporter {
 				writeTableHeader(integerFormat.format(totalKnownIssueTests),
 						(totalKnownIssueTests > 0 ? "num thich-orange-bg" : "num"));
 			}
-			writeTableHeader(decimalFormat.format(totalDuration), "num");
+			writeTableHeader(convertMillisToTime(totalDuration), "num");
 			writer.print(GlobalConstants.TR);
 		}
 
@@ -505,7 +510,7 @@ public class EmailableReport implements IReporter {
 		writer.print("<th>Unique Identifier</th>");
 		writer.print("<th>Test Case</th>");
 		writer.print("<th>Test Case Description</th>");
-		writer.print("<th>Execution Time (ms)</th>");
+		writer.print("<th>Execution Time (HH:MM:SS)</th>");
 		writer.print(GlobalConstants.TR);
 		writer.print("</thead>");
 
@@ -636,7 +641,7 @@ public class EmailableReport implements IReporter {
 							.append(methodName).append("</a></td>").append("<td style=\"text-align:center;\">")
 							.append(testCaseDescription).append("</td>")
 							.append("<td style=\"text-align:center;\" rowspan=\"").append(resultsCount).append("\">")
-							.append(duration).append("</td></tr>");
+							.append(convertMillisToTime(duration)).append("</td></tr>");
 
 					scenarioIndex++;
 

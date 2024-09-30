@@ -1,6 +1,5 @@
 package io.mosip.testrig.apirig.dbaccess;
 
-import java.io.File;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -8,7 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
@@ -19,14 +17,11 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.jdbc.Work;
 import org.testng.Assert;
 
-import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
 import io.mosip.testrig.apirig.utils.AdminTestUtil;
 import io.mosip.testrig.apirig.utils.ConfigManager;
 
 public class AuditDBManager extends AdminTestUtil {
 	private static final Logger DBCONNECTION_LOGGER = Logger.getLogger(AuditDBManager.class);
-	private static Map<String, Object> records;
-	private static List<Map<String, Object>> allRecords;
 	public static String env = System.getProperty("env.user");
 	public static Map<String, SessionFactory> sessionFactoryMapS = Collections
 			.synchronizedMap(new HashMap<String, SessionFactory>());
@@ -104,13 +99,13 @@ public class AuditDBManager extends AdminTestUtil {
 		Session session = null;
 		SessionFactory sessionFactory = sessionFactoryMapS.get(dbName);
 		if (sessionFactory == null) {
-		try {
+			try {
 				sessionFactory = getDataBaseConnectionSessionFactory(dbName);
 				sessionFactoryMapS.put(dbName, sessionFactory);
 			} catch (HibernateException e) {
 				DBCONNECTION_LOGGER.error("Exception in Database Connection with following message: " + e.getMessage());
 			} catch (NullPointerException e) {
-				Assert.assertTrue(false, "Exception in getting the SessionFactory for DB Schema : " + dbName );
+				Assert.assertTrue(false, "Exception in getting the SessionFactory for DB Schema : " + dbName);
 			}
 		}
 		if (sessionFactory != null) {
@@ -118,43 +113,40 @@ public class AuditDBManager extends AdminTestUtil {
 			session.beginTransaction();
 			DBCONNECTION_LOGGER.info("Session begined with Schema : " + dbName);
 		}
-		return session;	
+		return session;
 	}
-	
+
 	private static SessionFactory getDataBaseConnectionSessionFactory(String dbName) {
 		SessionFactory factory = null;
-		String dbschema = ConfigManager.getValueForKey("audit_db_schema");
+		String dbschema = ConfigManager.getAuditDbSchema();
 
-		if(dbName.equalsIgnoreCase("partner"))
-			dbschema=ConfigManager.getValueForKey("ida_db_schema");
-		
-		if(dbName.equalsIgnoreCase("master"))
-			dbschema=ConfigManager.getValueForKey("master_db_schema");
+		if (dbName.equalsIgnoreCase("partner"))
+			dbschema = ConfigManager.getIdaDbSchema();
+
+		if (dbName.equalsIgnoreCase("master"))
+			dbschema = ConfigManager.getMasterDbSchema();
 
 		try {
 			Configuration config = new Configuration();
-			config.setProperty("hibernate.connection.driver_class", propsKernel.getProperty("driver_class"));
-			config.setProperty("hibernate.connection.url",
-					"jdbc:" + propsKernel.getProperty("postgresqlUser") + "://"
-							+ ConfigManager.getValueForKey("db-server") + ":" + ConfigManager.getValueForKey("db-port")
-							+ "/mosip_" + dbschema);
+			config.setProperty("hibernate.connection.driver_class", ConfigManager.getproperty("driver_class"));
+			config.setProperty("hibernate.connection.url", "jdbc:" + ConfigManager.getproperty("postgresqlUser") + "://"
+					+ ConfigManager.getDbServer() + ":" + ConfigManager.getDbPort() + "/mosip_" + dbschema);
 			config.setProperty("hibernate.connection.username", ConfigManager.getAuditDbUser());
-			config.setProperty("hibernate.connection.password", ConfigManager.getValueForKey(ConfigManager.DB_PASSWORD_KEY));
-			config.setProperty("hibernate.default_schema", propsKernel.getProperty(dbName + "_default_schema"));
-			config.setProperty("hibernate.connection.pool_size", propsKernel.getProperty("pool_size"));
-			config.setProperty("hibernate.dialect", propsKernel.getProperty("dialect"));
-			config.setProperty("hibernate.show_sql", propsKernel.getProperty("show_sql"));
+			config.setProperty("hibernate.connection.password", ConfigManager.getAuditDbPass());
+			config.setProperty("hibernate.default_schema", ConfigManager.getproperty(dbName + "_default_schema"));
+			config.setProperty("hibernate.connection.pool_size", ConfigManager.getproperty("pool_size"));
+			config.setProperty("hibernate.dialect", ConfigManager.getproperty("dialect"));
+			config.setProperty("hibernate.show_sql", ConfigManager.getproperty("show_sql"));
 			config.setProperty("hibernate.current_session_context_class",
-					propsKernel.getProperty("current_session_context_class"));
-			factory = config.buildSessionFactory();		
+					ConfigManager.getproperty("current_session_context_class"));
+			factory = config.buildSessionFactory();
 		} catch (HibernateException e) {
 			DBCONNECTION_LOGGER.error("Exception in Database Connection with following message: " + e.getMessage());
 		} catch (NullPointerException e) {
-			Assert.assertTrue(false, "Exception in getting the SessionFactory for DB Schema : " + dbschema );
+			Assert.assertTrue(false, "Exception in getting the SessionFactory for DB Schema : " + dbschema);
 		}
 		return factory;
 	}
-
 
 	public static void closeDataBaseConnection(Session session) {
 		if (session != null) {
@@ -162,5 +154,5 @@ public class AuditDBManager extends AdminTestUtil {
 			session.close();
 		}
 	}
-	
+
 }
