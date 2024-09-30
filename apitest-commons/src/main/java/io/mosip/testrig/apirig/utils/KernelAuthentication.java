@@ -541,7 +541,7 @@ public class KernelAuthentication extends BaseTestCase {
 		JSONObject actualRequest_validation = getRequestJson("config/prereg_ValidateOtp.json");
 		appl.postWithJson(preregSendOtp, actualRequest_generation);
 		String otp = null;
-		if (ConfigManager.getUsePreConfiguredOtp)
+		if (ConfigManager.getUsePreConfiguredOtp().equalsIgnoreCase("yes"))
 			//TODO REMOVE THE HARDCODING
 			otp = "111111";
 		else {
@@ -581,9 +581,9 @@ public class KernelAuthentication extends BaseTestCase {
 
 		JSONObject actualrequest = getRequestJson(authRequest);
 		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, ConfigManager.getRegprocessorAppId());
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getRegprocessorClientId());
-		request.put(GlobalConstants.SECRETKEY, ConfigManager.getRegprocessorClientSecret());
+		request.put(GlobalConstants.APPID, ConfigManager.getRegprocAppId());
+		request.put(GlobalConstants.CLIENTID, ConfigManager.getRegprocClientId());
+		request.put(GlobalConstants.SECRETKEY, ConfigManager.getRegprocClientSecret());
 		actualrequest.put(GlobalConstants.REQUEST, request);
 
 		Response reponse = appl.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);

@@ -69,7 +69,7 @@ public class MosipTestRunner {
 			} else {
 				ExtractResource.copyCommonResources();
 			}
-			ConfigManager.init();
+//			ConfigManager.init();
 			BaseTestCase.suiteSetup();
 			setLogLevels();
 
