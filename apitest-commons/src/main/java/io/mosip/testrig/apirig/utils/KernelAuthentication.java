@@ -7,7 +7,7 @@ import java.util.UUID;
 import org.json.simple.JSONObject;
 
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
-import io.mosip.testrig.apirig.testrunner.MockSMTPListener;
+import io.mosip.testrig.apirig.testrunner.OTPListener;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
@@ -62,11 +62,6 @@ public class KernelAuthentication extends BaseTestCase {
 
 	protected static final String ESIGNETUINCOOKIESRESPONSE = "ESignetUINCookiesResponse";
 	protected static final String ESIGNETVIDCOOKIESRESPONSE = "ESignetVIDCookiesResponse";
-
-//	private static File ESignetUINCookiesFile = new File(
-//			AdminTestUtil.getResourcePath() + "ESignetUINCookiesResponse.txt");
-//	private static File ESignetVIDCookiesFile = new File(
-//			AdminTestUtil.getResourcePath() + "ESignetVIDCookiesResponse.txt");
 
 	public String getTokenByRole(String role) {
 		return getTokenByRole(role, null);
@@ -545,7 +540,7 @@ public class KernelAuthentication extends BaseTestCase {
 			//TODO REMOVE THE HARDCODING
 			otp = "111111";
 		else {
-			otp = MockSMTPListener.getOtp(userId);
+			otp = OTPListener.getOtp(userId);
 		}
 		((JSONObject) actualRequest_validation.get(GlobalConstants.REQUEST)).put("otp", otp);
 		actualRequest_validation.put(GlobalConstants.REQUESTTIME, clib.getCurrentUTCTime());

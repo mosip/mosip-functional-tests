@@ -41,6 +41,7 @@ import io.mosip.testrig.apirig.utils.GlobalConstants;
 import io.mosip.testrig.apirig.utils.GlobalMethods;
 import io.mosip.testrig.apirig.utils.KernelAuthentication;
 import io.mosip.testrig.apirig.utils.RestClient;
+import io.mosip.testrig.apirig.utils.RunConfigUtil;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
@@ -53,7 +54,7 @@ import io.restassured.response.Response;
 public class BaseTestCase extends AbstractTestNGSpringContextTests {
 
 	protected static Logger logger = Logger.getLogger(BaseTestCase.class);
-	protected static MockSMTPListener mockSMTPListener = null;
+	protected static OTPListener otpListener = null;
 	public static List<String> preIds = new ArrayList<>();
 	public ExtentHtmlReporter htmlReporter;
 	public ExtentReports extent;
@@ -176,14 +177,22 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public static RSAKey rsaJWK;
 	public static String clientAssertionToken;
 	private static String zoneMappingRequest = "config/Authorization/zoneMappingRequest.json";
-	public static Properties props = getproperty(
-			MosipTestRunner.getGlobalResourcePath() + "/" + "config/application.properties");
-	/*
-	 * public static Properties propsKernel = getproperty(
-	 * MosipTestRunner.getGlobalResourcePath() + "/" + "config/Kernel.properties");
-	 */
+	public static Properties props = null;
+	public static Properties propsKernel = null;
 
 	public static String currentRunningLanguage = "";
+	
+	private static String cachedPath = null;
+	
+	private static String runTypeS = "";
+	protected static String jarURLS = "";
+	
+	public static void setRunContext(String runType, String jarURL) {
+		runTypeS = runType;
+		jarURLS = jarURL;
+		props = getproperty(getGlobalResourcePath() + "/" + "config/application.properties");
+		propsKernel = getproperty(getGlobalResourcePath() + "/" + "config/Kernel.properties");
+	}
 
 	// Need to handle this
 	/*
@@ -192,6 +201,49 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	 * partnerId = "Tech-1245"; static String emailId = "mosip_1" + timeStamp +
 	 * "@gmail.com"; static String role = PartnerRegistration.partnerType;
 	 */
+	
+	public static String getGlobalResourcePath() {
+		if (cachedPath != null) {
+			return cachedPath;
+		}
+
+		String path = null;
+		if (runTypeS.equalsIgnoreCase("JAR")) {
+			path = new File(jarURLS).getParentFile().getAbsolutePath() + "/MosipTestResource/MosipTemporaryTestResource";
+		} else if (runTypeS.equalsIgnoreCase("IDE")) {
+			path = new File(MosipTestRunner.class.getClassLoader().getResource("").getPath()).getAbsolutePath()
+					+ "/MosipTestResource/MosipTemporaryTestResource";
+			if (path.contains(GlobalConstants.TESTCLASSES))
+				path = path.replace(GlobalConstants.TESTCLASSES, "classes");
+		}
+
+		if (path != null) {
+			cachedPath = path;
+			return path;
+		} else {
+			return "Global Resource File Path Not Found";
+		}
+	}
+	
+	public static void copymoduleSpecificAndConfigFile(String moduleName) {
+		if (runTypeS.equalsIgnoreCase("JAR")) {
+			ExtractResource.getListOfFilesFromJarAndCopyToExternalResource(moduleName + "/");
+		} else {
+			try {
+				File destination = new File(RunConfigUtil.getGlobalResourcePath());
+				File source = new File(RunConfigUtil.getGlobalResourcePath()
+						.replace("MosipTestResource/MosipTemporaryTestResource", "") + moduleName);
+				FileUtils.copyDirectoryToDirectory(source, destination);
+				logger.info("Copied the test resource successfully for " + moduleName);
+			} catch (Exception e) {
+				logger.error(
+						"Exception occured while copying the file for : " + moduleName + " Error : " + e.getMessage());
+			}
+		}
+
+	}
+	
+	
 
 	public static String getOSType() {
 		String type = System.getProperty("os.name");
@@ -234,7 +286,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 
 	}
 
-	public static void suiteSetup() {
+	public static void suiteSetup( String runType) {
 		if (ConfigManager.IsDebugEnabled())
 			logger.setLevel(Level.ALL);
 		else
@@ -253,7 +305,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 
 		String[] modulesSpecified = System.getProperty("modules").split(",");
 		listOfModules = new ArrayList<String>(Arrays.asList(modulesSpecified));
-		if (!MosipTestRunner.checkRunType().equalsIgnoreCase("JAR")) {
+		if (!runType.equalsIgnoreCase("JAR")) {
 			AuthTestsUtil.removeOldMosipTempTestResource();
 		}
 		if (listOfModules.contains("auth")) {
@@ -339,8 +391,8 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			setReportName(GlobalConstants.INJICERTIFY);
 			AdminTestUtil.copymoduleSpecificAndConfigFile(GlobalConstants.INJICERTIFY);
 		}
-		mockSMTPListener = new MockSMTPListener();
-		mockSMTPListener.run();
+		otpListener = new OTPListener();
+		otpListener.run();
 	}
 
 	public static void setReportName(String moduleName) {
@@ -407,7 +459,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 
 		String os = System.getProperty("os.name");
 		String projDirPath = null;
-		if (MosipTestRunner.checkRunType().contains("IDE") || os.toLowerCase().contains("windows"))
+		if (runTypeS.contains("IDE") || os.toLowerCase().contains("windows"))
 			projDirPath = System.getProperty("user.dir");
 		else
 			projDirPath = new File(System.getProperty("user.dir")).getParent();
@@ -640,7 +692,6 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			String url = ApplnURI + ConfigManager.getproperty("auditActuatorEndpoint");
 			try {
 				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-				GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 				responseJson = new org.json.JSONObject(response.getBody().asString());
 
@@ -676,6 +727,15 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	        }
 	    }
 	    return true; // versions are equal
+	}
+	
+	public static void setSupportedIdTypes(List<String> supportedIdTypeList) {
+		if (supportedIdType.isEmpty())
+			supportedIdType.addAll(supportedIdTypeList);
+	}
+	
+	public static List<String> getSupportedIdTypesValue() {
+		return supportedIdType;
 	}
 
 	public static List<String> getSupportedIdTypesValueFromActuator() {

@@ -11,10 +11,8 @@ import java.util.Map;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
-
 public class ConfigManager {
 	private static final Logger LOGGER = Logger.getLogger(ConfigManager.class);
-
 	private static Map<String, String> mosip_components_base_urls = new HashMap<>();
 	protected static Map<String, Object> propertiesMap = new HashMap<>();
 	
@@ -39,8 +37,9 @@ public class ConfigManager {
 	public static void init(Map<String, Object> additionalPropertiesMap) {  
         //Load common properties
         init();
-        // Add all entries from dslpropertiesMap to propertiesMap
+        // Add all entries from module specific propertiesMap to propertiesMap
         propertiesMap.putAll(additionalPropertiesMap);
+        LOGGER.info("propertiesMap = " + propertiesMap);
     }
 	
 	public static void getValueForKeyAddToPropertiesMap(Properties props, String key) {
@@ -50,11 +49,19 @@ public class ConfigManager {
 			: props.getProperty("serverErrorsToMonitor") + "," + System.getenv("serverErrorsToMonitor");
 			propertiesMap.put(key, value);
 		} else if (key.equalsIgnoreCase("eSignetbaseurl")){
-			String value = "";
+			String value = null;
 			if (System.getenv("eSignetbaseurl") != null) {
 				value = System.getenv("eSignetbaseurl");
 			} else {
-				value = System.getProperty("env.endpoint").replace("-internal", "");
+				value = System.getProperty("env.endpoint").replace("api-internal", "esignet");
+			}
+			propertiesMap.put(key, value);
+		} else if (key.equalsIgnoreCase("signupBaseUrl")){
+			String value = null;
+			if (System.getenv("signupBaseUrl") != null) {
+				value = System.getenv("signupBaseUrl");
+			} else {
+				value = System.getProperty("env.endpoint").replace("api-internal", "signup");
 			}
 			propertiesMap.put(key, value);
 		} else if (key.equalsIgnoreCase("mosip_components_base_urls")){
@@ -67,7 +74,6 @@ public class ConfigManager {
 			propertiesMap.put(key, value);	
 		}
 	}
-
 	
 	public static void loadComponentBaseURLs(String components_base_urls) {
 		if (components_base_urls != null && !components_base_urls.isEmpty()) {
@@ -210,6 +216,8 @@ public class ConfigManager {
 	public static String getEsignetBaseUrl() { return getproperty("eSignetbaseurl");}
 	public static String getEsignetMockBaseURL() { return getproperty("esignetMockBaseURL");}
 	public static String getInjiCertifyBaseUrl() { return getproperty("injiCertifyBaseURL");}
+	public static String getSunBirdBaseURL() { return getproperty("sunBirdBaseURL");}
+	public static String getSignupBaseUrl() { return getproperty("signupBaseUrl");}
 	
 	public static synchronized boolean isInServiceNotDeployedList(String stringToFind) {
 		String serviceNotDeployedList = getproperty("servicesNotDeployed"); 

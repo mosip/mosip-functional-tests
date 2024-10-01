@@ -572,21 +572,6 @@ public class JsonPrecondtion extends MessagePrecondtion{
 		}
 		return object.toString();
 	}
-
-	@Override
-	public Map<String, String> retrieveMappingAndItsValueToPerformOutputValidation(String filePath) {
-		Map<String, String> mappingAndItsValue = null;
-		try {
-			JsonPrecondtion objJsonPrecondtion = new JsonPrecondtion(
-					new String(Files.readAllBytes(Paths.get(filePath))));
-			mappingAndItsValue = JsonPrecondtion.getJsonFieldValue(filePath, objJsonPrecondtion.getPathList(filePath));
-			return mappingAndItsValue;
-		} catch (Exception e) {
-			JSONPRECONDATION_LOGGER.error(
-					"Exception Occured in retrieve Mapping And Its Value To Perform OutputValidation" + e.getMessage());
-			return mappingAndItsValue;
-		}
-	}
 	@Override
 	public Map<String, String> retrieveMappingAndItsValueToPerformJsonOutputValidation(String json) {
 		Map<String, String> mappingAndItsValue = null;

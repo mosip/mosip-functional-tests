@@ -19,7 +19,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.mosip.testrig.apirig.dataprovider.models.IrisDataModel;
 import io.mosip.testrig.apirig.dataprovider.models.JWTTokenModel;
-import io.mosip.testrig.apirig.dataprovider.models.ResidentModel;
+import io.mosip.testrig.apirig.dataprovider.models.ResidentBiometricModel;
 import io.mosip.testrig.apirig.dataprovider.models.mds.MDSDevice;
 import io.mosip.testrig.apirig.dataprovider.models.mds.MDSDeviceCaptureModel;
 import io.mosip.testrig.apirig.dataprovider.models.mds.MDSRCaptureModel;

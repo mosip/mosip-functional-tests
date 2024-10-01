@@ -179,27 +179,6 @@ public class AuthUtil {
         return DigestUtils.sha256(cert.getEncoded());
     }
 
-//    private void idValuesMap(String id, boolean isKyc, boolean isInternal, Map<String, Object> reqValues,
-//                             String transactionId, String utcCurrentDateTimeString) {
-//        reqValues.put(ID, id);
-//        if (isInternal) {
-//            reqValues.put(AUTH_TYPE, "auth.internal");
-//        } else {
-//            if (isKyc) {
-//                reqValues.put(AUTH_TYPE, "kyc");
-//                reqValues.put(SECONDARY_LANG_CODE, PropertiesReader.readProperty("mosip.secondary-language"));
-//            } else {
-//                reqValues.put(AUTH_TYPE, "auth");
-//            }
-//        }
-//
-//        reqValues.put(TIMESTAMP, utcCurrentDateTimeString);
-//        reqValues.put(TXN, transactionId == null ? "1234567890" : transactionId);
-//        reqValues.put(VER, PropertiesReader.readProperty(IDA_API_VERSION));
-//        reqValues.put(DOMAIN_URI, PropertiesReader.readProperty(MOSIP_DOMAINURI));
-//        reqValues.put(ENV, MOSIP_ENV);
-//    }
-
     private void getAuthTypeMap(String reqAuth, Map<String, Object> reqValues, Map<String, Object> request) {
         String[] reqAuthArr;
         if (reqAuth == null) {

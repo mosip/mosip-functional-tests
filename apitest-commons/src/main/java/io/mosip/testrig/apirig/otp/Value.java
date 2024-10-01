@@ -1,4 +1,4 @@
-package io.mosip.testrig.apirig.smtp;
+package io.mosip.testrig.apirig.otp;
 
 public class Value{
 	 public String address;

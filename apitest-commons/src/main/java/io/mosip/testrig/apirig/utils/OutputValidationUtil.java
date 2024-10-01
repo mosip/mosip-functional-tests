@@ -45,31 +45,6 @@ public class OutputValidationUtil extends AuthTestsUtil {
 	}
 
 	/**
-	 * The method will perform output validation by comparing expected and actual
-	 * value
-	 * 
-	 * @param actualOutputFile
-	 * @param expOutputFile
-	 * @return map of ouptut validation report
-	 */
-//	public static Map<String, List<OutputValidationDto>> doOutputValidation(String actualOutputFile,
-//			String expOutputFile) {
-//		try {
-//			Map<String, String> actual = MessagePrecondtion.getPrecondtionObject(actualOutputFile)
-//					.retrieveMappingAndItsValueToPerformOutputValidation(actualOutputFile);
-//			Map<String, String> exp = MessagePrecondtion.getPrecondtionObject(expOutputFile)
-//					.retrieveMappingAndItsValueToPerformOutputValidation(expOutputFile);
-//			actualOutputFile = actualOutputFile.substring(actualOutputFile.lastIndexOf("/") + 1,
-//					actualOutputFile.length());
-//			expOutputFile = expOutputFile.substring(expOutputFile.lastIndexOf("/") + 1, expOutputFile.length());
-//			return compareActuExpValue(actual, exp, actualOutputFile + " vs " + expOutputFile);
-//		} catch (Exception e) {
-//			OUTPUTVALIDATION_LOGGER.error("Exceptione occured " + e.getMessage());
-//			return Collections.emptyMap();
-//		}
-//	}
-
-	/**
 	 * The method will compare expected and actual value
 	 * 
 	 * @param actual
@@ -454,42 +429,6 @@ public class OutputValidationUtil extends AuthTestsUtil {
 		}
 		return true;
 	}
-
-//	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(String actualOutputJson,
-//			String expOutputJson, boolean checkErrorsOnlyInResponse, String allowedErrorCode, int responseStatusCode)
-//			throws AdminTestException {
-//		return doJsonOutputValidation(actualOutputJson, expOutputJson, checkErrorsOnlyInResponse,
-//				GlobalConstants.EXPECTED_VS_ACTUAL, doesResponseHasErrors(actualOutputJson), allowedErrorCode,
-//				responseStatusCode);
-//	}
-
-//	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(String actualOutputJson,
-//			String expOutputJson, boolean checkErrorsOnlyInResponse, int responseStatusCode) throws AdminTestException {
-//		return doJsonOutputValidation(actualOutputJson, expOutputJson, checkErrorsOnlyInResponse,
-//				GlobalConstants.EXPECTED_VS_ACTUAL, doesResponseHasErrors(actualOutputJson), null, responseStatusCode);
-//	}
-
-//	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(String actualOutputJson,
-//			String expOutputJson, boolean checkErrorsOnlyInResponse, String context, boolean responseHasErrors,
-//			String allowedErrorCode, int responseStatusCode) throws AdminTestException {
-////		Checks output JSON contains server issues and log in report
-//		reportServerIssues(actualOutputJson);
-//		
-//		if (doesResponseHasErrorCode(actualOutputJson, allowedErrorCode))
-//			return Collections.emptyMap();
-//		else if (doesResponseHasErrorCode(actualOutputJson, 500))
-//			throw new AdminTestException("Internal Server Error. Hence marking the test case as failed");
-//		else if (doesResponseHasErrorCode(actualOutputJson, 404))
-//			throw new SkipException("API end point is not valid. Hence marking the test case as skipped");
-//		JsonPrecondtion jsonPrecondtion = new JsonPrecondtion();
-//		Map<String, String> actual = jsonPrecondtion
-//				.retrieveMappingAndItsValueToPerformJsonOutputValidation(actualOutputJson);
-//		Map<String, String> exp = jsonPrecondtion
-//				.retrieveMappingAndItsValueToPerformJsonOutputValidation(expOutputJson);
-//
-//		return doJsonOutputValidation(actual, exp, checkErrorsOnlyInResponse, context, responseHasErrors,
-//				allowedErrorCode, responseStatusCode);
-//	}
 	
 	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(String actualOutputJson,
 			String expOutputJson, TestCaseDTO testCaseDTO, int responseStatusCode)

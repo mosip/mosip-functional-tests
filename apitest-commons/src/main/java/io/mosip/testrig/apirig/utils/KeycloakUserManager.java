@@ -22,15 +22,13 @@ import org.keycloak.representations.idm.RoleRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
 
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
-import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
-
 
 
 public class KeycloakUserManager {
 	
 	private static final Logger logger = Logger.getLogger(KeycloakUserManager.class);
 
-	public static Properties propsKernel = getproperty(MosipTestRunner.getGlobalResourcePath() + "/"+"config/Kernel.properties");
+	public static Properties propsKernel = getproperty(BaseTestCase.getGlobalResourcePath() + "/"+"config/Kernel.properties");
 	public static Keycloak key = null;
 	
 	public static void closeKeycloakInstance() {

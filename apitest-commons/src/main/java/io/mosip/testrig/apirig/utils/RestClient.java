@@ -19,7 +19,7 @@ import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
 
 import io.mosip.testrig.apirig.dataprovider.mds.HttpRCapture;
-import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
+import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 import io.restassured.RestAssured;
 import io.restassured.config.EncoderConfig;
 import io.restassured.config.HttpClientConfig;
@@ -39,13 +39,11 @@ public class RestClient {
 
 	private static final Logger RESTCLIENT_LOGGER = Logger.getLogger(RestClient.class);
 
-//	private static RestAssuredConfig config = RestAssured.config()
-//			.httpClient(HttpClientConfig.httpClientConfig().setParam("http.connection.timeout", 500000)
-//					.setParam("http.socket.timeout", 500000).setParam("http.connection-manager.timeout", 500000));
-
 	private static RestAssuredConfig config = RestAssured.config().httpClient(HttpClientConfig.httpClientConfig());
-	protected static final Properties properties = AdminTestUtil.getproperty(
-			MosipTestRunner.getGlobalResourcePath() + "/" + "config/application.properties");
+	protected static final Properties properties = AdminTestUtil
+			.getproperty(BaseTestCase.getGlobalResourcePath() + "/" + "config/application.properties");
+	
+	
 	/**
 	 * REST ASSURED POST request method
 	 * 
@@ -79,12 +77,12 @@ public class RestClient {
 	
 	public static Response post(String url, String requestBody) throws Exception {
 		Response response = null;
-//		if (ConfigManager.IsDebugEnabled())
+		if (ConfigManager.IsDebugEnabled())
 			response = RestAssured.given().log().all().baseUri(url).contentType(MediaType.APPLICATION_JSON).and()
 					.body(requestBody).when().post().then().log().all().extract().response();
-//		else
-//			response = RestAssured.given().baseUri(url).contentType(MediaType.APPLICATION_JSON).and().body(requestBody).when()
-//					.post().then().extract().response();
+		else
+			response = RestAssured.given().baseUri(url).contentType(MediaType.APPLICATION_JSON).and().body(requestBody).when()
+					.post().then().extract().response();
 
 		return response;
 

@@ -46,7 +46,6 @@ import io.mosip.authentication.core.constant.IdAuthConfigKeyConstants;
 import io.mosip.kernel.core.http.RequestWrapper;
 import io.mosip.kernel.core.util.DateUtils;
 import io.mosip.kernel.core.util.HMACUtils2;
-import io.mosip.testrig.apirig.dto.EncryptionRequestDto;
 import io.mosip.testrig.apirig.dto.EncryptionResponseDto;
 @Component
 public class Encrypt {
@@ -59,88 +58,6 @@ public class Encrypt {
     
     @Autowired
     CryptoUtil cryptoUtil;
-
-//    public EncryptionResponseDto encrypt(EncryptionRequestDto encryptionRequestDto,
-//                                         String refId,
-//                                         boolean isInternal,
-//                                         boolean isBiometrics) throws Exception {
-//        if (refId == null) {
-//            refId = getRefId(isInternal, isBiometrics);
-//        }
-//        return kernelEncrypt(encryptionRequestDto, refId);
-//    }
-
-//    private EncryptionResponseDto kernelEncrypt(EncryptionRequestDto encryptionRequestDto, String refId)
-//            throws Exception {
-//        ObjectMapper objMapper = new ObjectMapper();
-//
-//        String identityBlock = objMapper.writeValueAsString(encryptionRequestDto.getIdentityRequest());
-//        SecretKey secretKey = cryptoUtil.genSecKey();
-//        EncryptionResponseDto encryptionResponseDto = new EncryptionResponseDto();
-//        byte[] encryptedIdentityBlock = cryptoUtil.symmetricEncrypt(identityBlock.getBytes(StandardCharsets.UTF_8),
-//                secretKey);
-//        encryptionResponseDto.setEncryptedIdentity(Base64.encodeBase64URLSafeString(encryptedIdentityBlock));
-//        X509Certificate x509Cert = getCertificate(refId);
-//        PublicKey publicKey = x509Cert.getPublicKey();
-//        byte[] encryptedSessionKeyByte = cryptoUtil.asymmetricEncrypt((secretKey.getEncoded()), publicKey);
-//        encryptionResponseDto.setEncryptedSessionKey(Base64.encodeBase64URLSafeString(encryptedSessionKeyByte));
-//        byte[] byteArr = cryptoUtil.symmetricEncrypt(Encrypt
-//                        .digestAsPlainText(HMACUtils2.generateHash(identityBlock.getBytes(StandardCharsets.UTF_8))).getBytes(),
-//                secretKey);
-//        encryptionResponseDto.setRequestHMAC(Base64.encodeBase64URLSafeString(byteArr));
-//        return encryptionResponseDto;
-//    }
-
-//    private String getRefId(boolean isInternal, boolean isBiometrics) {
-//        String refId;
-//        if (isBiometrics) {
-//            if (isInternal) {
-//                refId = PropertiesReader.readProperty(IdAuthConfigKeyConstants.INTERNAL_BIO_REFERENCE_ID);
-//            } else {
-//                refId = PropertiesReader.readProperty(IdAuthConfigKeyConstants.PARTNER_BIO_REFERENCE_ID);
-//            }
-//        } else {
-//            if (isInternal) {
-//                refId = PropertiesReader.readProperty(IdAuthConfigKeyConstants.INTERNAL_REFERENCE_ID);
-//            } else {
-//                refId = PropertiesReader.readProperty(IdAuthConfigKeyConstants.PARTNER_REFERENCE_ID);
-//            }
-//        }
-//        return refId;
-//    }
-
-//    @SuppressWarnings({"unchecked", "rawtypes"})
-//	public X509Certificate getCertificate(String refId) throws IOException, KeyManagementException,
-//            NoSuchAlgorithmException, JSONException, CertificateException {
-//        turnOffSslChecking();
-//        RestTemplate restTemplate = new RestTemplate();
-//        ClientHttpRequestInterceptor interceptor = new ClientHttpRequestInterceptor() {
-//
-//            @Override
-//            public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution)
-//                    throws IOException {
-//                String authToken = generateAuthToken();
-//                if (authToken != null && !authToken.isEmpty()) {
-//                    request.getHeaders().set("Cookie", "Authorization=" + authToken);
-//                }
-//                return execution.execute(request, body);
-//            }
-//        };
-//
-//        restTemplate.setInterceptors(Collections.singletonList(interceptor));
-//
-//        Map<String, String> uriParams = new HashMap<>();
-//        UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(publicKeyURL)
-//                .queryParam("applicationId", appID).queryParam("referenceId", refId);
-//        ResponseEntity<Map> response = restTemplate.exchange(builder.build(uriParams), HttpMethod.GET, null, Map.class);
-//        String certificate = (String) ((Map<String, Object>) response.getBody().get("response")).get("certificate");
-//
-//        certificate = JWSSignAndVerifyController.trimBeginEnd(certificate);
-//        CertificateFactory cf = CertificateFactory.getInstance("X.509");
-//        X509Certificate x509cert = (X509Certificate) cf
-//                .generateCertificate(new ByteArrayInputStream(java.util.Base64.getDecoder().decode(certificate)));
-//        return x509cert;
-//    }
 
     private static String digestAsPlainText(byte[] data) {
         return DatatypeConverter.printHexBinary(data).toUpperCase();
@@ -166,29 +83,6 @@ public class Encrypt {
                 throws CertificateException {
         }
     }};
-
-//    private String generateAuthToken() {
-//
-//        ObjectMapper objMapper = new ObjectMapper();
-//        ObjectNode requestBody = objMapper.createObjectNode();
-////		requestBody.put("clientId", env.getProperty("auth-token-generator.rest.clientId"));
-////		requestBody.put("secretKey", env.getProperty("auth-token-generator.rest.secretKey"));
-////		requestBody.put("appId", env.getProperty("auth-token-generator.rest.appId"));
-//        requestBody.put("clientId", "mosip-resident-client");
-//        requestBody.put("secretKey", "SnZQ6nnVwN9YWvdM");
-//        requestBody.put("appId", "resident");
-//        RequestWrapper<ObjectNode> request = new RequestWrapper<>();
-//        request.setRequesttime(DateUtils.getUTCCurrentDateTime());
-//        request.setRequest(requestBody);
-//        ClientResponse response = WebClient.create(PropertiesReader.readProperty("auth-token-generator.rest.uri")).post()
-//                .syncBody(request).exchange().block();
-//        List<ResponseCookie> list = response.cookies().get("Authorization");
-//        if (list != null && !list.isEmpty()) {
-//            ResponseCookie responseCookie = list.get(0);
-//            return responseCookie.getValue();
-//        }
-//        return "";
-//    }
 
     public SplittedEncryptedData splitEncryptedData(String data) throws Exception {
         //boolean encryptedDataHasVersion =  env.getProperty("encryptedDataHasVersion", boolean.class, false);

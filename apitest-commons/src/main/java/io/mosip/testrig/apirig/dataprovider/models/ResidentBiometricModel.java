@@ -15,26 +15,21 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 
 @Data
-public class ResidentModel  implements Serializable {
-	private static final Logger logger = LoggerFactory.getLogger(ResidentModel.class);
+public class ResidentBiometricModel  implements Serializable {
+	private static final Logger logger = LoggerFactory.getLogger(ResidentBiometricModel.class);
 	private static final long serialVersionUID = 1L;
 	private BiometricDataModel biometric;
-	
-	
 	private List<String> missAttributes;
 	private List<String> invalidAttributes;
 	private List<String> filteredBioAttribtures;
 	private List<BioModality> bioExceptions;
-	
 	private String path;
-	private Hashtable<String,Integer> docIndexes;
 	private Hashtable<String,String> addtionalAttributes;
-	
 	private Boolean skipFinger;
 	private Boolean skipFace;
 	private Boolean skipIris;
 	
-	public ResidentModel() {
+	public ResidentBiometricModel() {
 	
 	}
 

@@ -75,22 +75,6 @@ public class S3Adapter {
 		}
 		return connection;
 	}
-
-	/*
-	 * public boolean putObject(String account, final String container, String
-	 * source, String process, String objectName, File file) { String
-	 * finalObjectName = null; String bucketName = null;
-	 * logger.info("useAccountAsBucketname:: "+useAccountAsBucketname); if
-	 * (useAccountAsBucketname) { finalObjectName = getName(container, source,
-	 * process, objectName); bucketName = account; } else { finalObjectName =
-	 * getName(source, process, objectName); bucketName = container; }
-	 * logger.info("bucketName :: "+bucketName); AmazonS3 connection =
-	 * getConnection(bucketName); if (!doesBucketExists(bucketName)) {
-	 * connection.createBucket(bucketName); if (useAccountAsBucketname)
-	 * existingBuckets.add(bucketName); }
-	 * 
-	 * connection.putObject(bucketName, finalObjectName, file); return true; }
-	 */
 	
 	public boolean putObject(String account, final String container, String source, String process, String objectName, File file) {
 		String finalObjectName = null;
@@ -136,27 +120,6 @@ public class S3Adapter {
 		} else
 			return connection.doesBucketExistV2(bucketName);
 	}
-	
-	/*
-	 * public boolean reportRetentionPolicy(String bucketName) {
-	 * 
-	 * ObjectMetadata metadata = new ObjectMetadata(); logger.info("size:" +
-	 * bytes.length); metadata.setContentLength(bytes.length);
-	 * metadata.setContentType(contentType); Date expirationTime = new Date(2025, 5,
-	 * 10); metadata.setExpirationTime(DateTime.now().toDate());
-	 * metadata.setHeader("x-amz-object-lock-retain-until-date", closerDate +
-	 * "T00:00:00.000Z"); metadata.setHeader("x-amz-object-lock-mode",
-	 * "COMPLIANCE"); byte[] md5 = Md5Utils.computeMD5Hash(baInputStream); String
-	 * md5Base64 = BinaryUtils.toBase64(md5); metadata.setHeader("Content-MD5",
-	 * md5Base64); baInputStream.reset(); PutObjectRequest putRequest = new
-	 * PutObjectRequest(bucketName, finalObjectName, baInputStream, metadata);
-	 * s3client.putObject(putRequest);
-	 * 
-	 * 
-	 * return true;
-	 * 
-	 * }
-	 */
 
 	public static String getName(String container, String source, String process, String objectName) {
 		String finalObjectName = "";
