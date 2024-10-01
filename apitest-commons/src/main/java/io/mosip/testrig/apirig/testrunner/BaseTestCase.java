@@ -54,7 +54,7 @@ import io.restassured.response.Response;
 public class BaseTestCase extends AbstractTestNGSpringContextTests {
 
 	protected static Logger logger = Logger.getLogger(BaseTestCase.class);
-	protected static OTPListener mockSMTPListener = null;
+	protected static OTPListener otpListener = null;
 	public static List<String> preIds = new ArrayList<>();
 	public ExtentHtmlReporter htmlReporter;
 	public ExtentReports extent;
@@ -391,8 +391,8 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			setReportName(GlobalConstants.INJICERTIFY);
 			AdminTestUtil.copymoduleSpecificAndConfigFile(GlobalConstants.INJICERTIFY);
 		}
-		mockSMTPListener = new OTPListener();
-		mockSMTPListener.run();
+		otpListener = new OTPListener();
+		otpListener.run();
 	}
 
 	public static void setReportName(String moduleName) {
