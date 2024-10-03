@@ -296,6 +296,7 @@ public class CommonLibrary extends BaseTestCase {
 		
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response postResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			logger.info("REST:ASSURED:Sending post request to" + url);
@@ -315,6 +316,7 @@ public class CommonLibrary extends BaseTestCase {
 
 	public Response postWithJson(String url, Object body, String contentHeader, String acceptHeader) {
 		Response postResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			logger.info("REST:ASSURED:Sending post request to" + url);
@@ -336,6 +338,7 @@ public class CommonLibrary extends BaseTestCase {
 		
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response postResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			logger.info("REST:ASSURED:Sending post request to" + url);
@@ -359,6 +362,7 @@ public class CommonLibrary extends BaseTestCase {
 		
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response postResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			logger.info("REST:ASSURED:Sending post request to" + url);
@@ -383,6 +387,7 @@ public class CommonLibrary extends BaseTestCase {
 		
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response postResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			logger.info("REST:ASSURED:Sending post request to" + url);
@@ -406,6 +411,7 @@ public class CommonLibrary extends BaseTestCase {
 		
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response postResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			logger.info("REST:ASSURED:Sending post request to" + url);
@@ -428,6 +434,7 @@ public class CommonLibrary extends BaseTestCase {
 		
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response postResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			logger.info("REST:ASSURED:Sending post request to" + url);
@@ -453,6 +460,7 @@ public class CommonLibrary extends BaseTestCase {
 		logger.info("Name of the file is" + file.getName());
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response postResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			logger.info("REST:ASSURED:Sending post request to" + url);
@@ -476,6 +484,7 @@ public class CommonLibrary extends BaseTestCase {
 			Map<String, String> formParams, File file, String fileKeyName, String contentHeader, String cookie) {
 		logger.info("REST:ASSURED:Sending post request to" + url);
 		logger.info("Name of the file is" + file.getName());
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().pathParams(pathParams)
@@ -491,6 +500,7 @@ public class CommonLibrary extends BaseTestCase {
 		
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response postResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			logger.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
@@ -514,6 +524,7 @@ public class CommonLibrary extends BaseTestCase {
 			String contentHeader, String cookie) {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response postResponse;
+		endpoint = GlobalMethods.addToServerEndPointMap(endpoint);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			postResponse = given().cookie(builder.build()).headers(headers).relaxedHTTPSValidation()
@@ -561,6 +572,7 @@ public class CommonLibrary extends BaseTestCase {
 		
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response putResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			logger.info("REST-ASSURED: Sending a Patch request to " + url);
@@ -582,6 +594,7 @@ public class CommonLibrary extends BaseTestCase {
 		
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			logger.info("REST-ASSURED: Sending a Get request to " + url);
@@ -601,6 +614,7 @@ public class CommonLibrary extends BaseTestCase {
 	public Response getWithPathParam(String url, Map<String, String> patharams, String cookie) {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			logger.info("REST-ASSURED: Sending a GET request to " + url);
@@ -622,6 +636,7 @@ public class CommonLibrary extends BaseTestCase {
 	public Response getWithQueryParam(String url, Map<String, String> queryParams, String cookie) {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			logger.info("REST-ASSURED: Sending a GET request to " + url);
@@ -643,6 +658,7 @@ public class CommonLibrary extends BaseTestCase {
 	public Response getWithQueryParamList(String url, Map<String, List<String>> queryParams, String cookie) {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			logger.info("REST-ASSURED: Sending a GET request to " + url);
@@ -663,6 +679,7 @@ public class CommonLibrary extends BaseTestCase {
 			String cookie) {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			logger.info("REST-ASSURED: Sending a GET request to " + url);
@@ -684,6 +701,7 @@ public class CommonLibrary extends BaseTestCase {
 			Map<String, List<String>> queryParams, String cookie) {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			logger.info("REST-ASSURED: Sending a GET request to " + url);
@@ -704,6 +722,7 @@ public class CommonLibrary extends BaseTestCase {
 	public Response putWithoutData(String url, String contentHeader, String acceptHeader, String cookie) {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response putResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			logger.info("REST-ASSURED: Sending a PUT request to   " + url);
@@ -724,6 +743,7 @@ public class CommonLibrary extends BaseTestCase {
 	public Response putWithJson(String url, Object body, String contentHeader, String acceptHeader, String cookie) {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response putResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			logger.info("REST-ASSURED: Sending a PUT request to   " + url);
@@ -745,6 +765,7 @@ public class CommonLibrary extends BaseTestCase {
 			String acceptHeader, String cookie) {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response putResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			logger.info("REST-ASSURED: Sending a PUT request to   " + url);
@@ -767,6 +788,7 @@ public class CommonLibrary extends BaseTestCase {
 			String acceptHeader, String cookie) {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response putResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			logger.info("REST-ASSURED: Sending a PUT request to   " + url);
@@ -789,6 +811,7 @@ public class CommonLibrary extends BaseTestCase {
 			String acceptHeader, String cookie) {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response putResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			logger.info("REST-ASSURED: Sending a PUT request to   " + url);
@@ -810,6 +833,7 @@ public class CommonLibrary extends BaseTestCase {
 	public Response deleteWithPathParams(String url, Map<String, String> pathParams, String cookie) {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			logger.info("REST-ASSURED: Sending a DELETE request to   " + url);
@@ -829,6 +853,7 @@ public class CommonLibrary extends BaseTestCase {
 	public Response deleteWithQueryParams(String url, Map<String, String> queryParams, String cookie) {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			logger.info("REST-ASSURED: Sending a DELETE request to   " + url);
@@ -849,6 +874,7 @@ public class CommonLibrary extends BaseTestCase {
 			Map<String, String> queryParams, String cookie) {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			logger.info("REST-ASSURED: Sending a DELETE request to   " + url);
@@ -869,6 +895,7 @@ public class CommonLibrary extends BaseTestCase {
 
 	public Response getConfigProperties(String url) {
 		Response getResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			logger.info("REST-ASSURED: Sending a GET request to " + url);
@@ -887,6 +914,7 @@ public class CommonLibrary extends BaseTestCase {
 	public Response deleteWithoutParams(String url, String cookie) {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			logger.info("REST-ASSURED: Sending a DELETE request to   " + url);
@@ -905,6 +933,7 @@ public class CommonLibrary extends BaseTestCase {
 
 	public Response postJSONwithFile(Object body, File file, String url, String contentHeader, String cookie) {
 		Response getResponse = null;
+		url = GlobalMethods.addToServerEndPointMap(url);
 
 		String Document_request = readProperty("IDRepo").get("req.Documentrequest");
 
