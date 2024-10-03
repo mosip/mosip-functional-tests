@@ -73,7 +73,7 @@
 		<maven.jacoco.version>0.8.2</maven.jacoco.version>
 		<sonar.skip>true</sonar.skip>
 		
-		<kernel-websubclient-api.version>1.2.1-SNAPSHOT</kernel-websubclient-api.version>
+		<kernel-websubclient-api.version>1.3.0-beta.1</kernel-websubclient-api.version>
 		
 	</properties>
 
@@ -129,7 +129,7 @@
 		<dependency>
 			<groupId>io.mosip.kernel</groupId>
 			<artifactId>kernel-core</artifactId>
-			<version>1.2.1-SNAPSHOT</version>
+			<version>1.3.0-beta.1</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
@@ -210,7 +210,7 @@
 		<dependency>
 			<groupId>io.mosip.kernel</groupId>
 			<artifactId>kernel-templatemanager-velocity</artifactId>
-			<version>1.2.1-SNAPSHOT</version>
+			<version>1.3.0-beta.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -233,7 +233,7 @@
 		<dependency>
 			<groupId>io.mosip.kernel</groupId>
 			<artifactId>kernel-keymanager-service</artifactId>
-			<version>1.2.1-SNAPSHOT</version>
+			<version>1.3.0-beta.1</version>
 			<classifier>lib</classifier>
 			<exclusions>
 				<exclusion>
@@ -264,7 +264,7 @@
 			<dependency>
 				<groupId>io.mosip.kernel</groupId>
 				<artifactId>kernel-bom</artifactId>
-				<version>1.2.1-SNAPSHOT</version>
+				<version>1.3.0-beta.1</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
