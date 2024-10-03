@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -18,6 +19,10 @@ public class ConfigManager {
 	
 	private static void init() {
 		Properties kernelProps = new Properties();
+		URL resourceUrl = ConfigManager.class.getClassLoader().getResource("config/kernel.properties");
+		LOGGER.info(resourceUrl);
+		URL resourceUrl1 = Thread.currentThread().getContextClassLoader().getResource("config/kernel.properties");
+		LOGGER.info(resourceUrl1);
 		try (InputStream input = ConfigManager.class.getClassLoader().getResourceAsStream("config/kernel.properties")) {
 			if (input != null) {
 				// Load the properties from the input stream
