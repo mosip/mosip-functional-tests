@@ -72,7 +72,11 @@
 		<maven.swagger.version>2.9.2</maven.swagger.version>
 		<maven.jacoco.version>0.8.2</maven.jacoco.version>
 		
-		<kernel-websubclient-api.version>1.2.1-SNAPSHOT</kernel-websubclient-api.version>
+		<kernel-websubclient-api.version>1.3.0-beta.1</kernel-websubclient-api.version>
+		<kerne.core.version>1.3.0-beta.1</kerne.core.version>
+		<kernel.keymanager.version>1.3.0-beta.1</kernel.keymanager.version>
+		<kernel.bom.version>1.3.0-beta.1</kernel.bom.version>
+		<kerne.templatemanager-velocity.version>1.3.0-beta.1</kerne.templatemanager-velocity.version>
 		
 	</properties>
 
@@ -128,7 +132,7 @@
 		<dependency>
 			<groupId>io.mosip.kernel</groupId>
 			<artifactId>kernel-core</artifactId>
-			<version>1.2.1-SNAPSHOT</version>
+			<version>${kerne.core.version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
@@ -209,7 +213,7 @@
 		<dependency>
 			<groupId>io.mosip.kernel</groupId>
 			<artifactId>kernel-templatemanager-velocity</artifactId>
-			<version>1.2.1-SNAPSHOT</version>
+			<version>${kerne.templatemanager-velocity.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -232,7 +236,7 @@
 		<dependency>
 			<groupId>io.mosip.kernel</groupId>
 			<artifactId>kernel-keymanager-service</artifactId>
-			<version>1.2.1-SNAPSHOT</version>
+			<version>${kernel.keymanager.version}</version>
 			<classifier>lib</classifier>
 			<exclusions>
 				<exclusion>
@@ -263,7 +267,7 @@
 			<dependency>
 				<groupId>io.mosip.kernel</groupId>
 				<artifactId>kernel-bom</artifactId>
-				<version>1.2.1-SNAPSHOT</version>
+				<version>${kernel.bom.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
