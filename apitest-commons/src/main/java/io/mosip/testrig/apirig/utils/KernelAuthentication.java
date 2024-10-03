@@ -7,7 +7,7 @@ import java.util.UUID;
 import org.json.simple.JSONObject;
 
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
-import io.mosip.testrig.apirig.testrunner.MockSMTPListener;
+import io.mosip.testrig.apirig.testrunner.OTPListener;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
@@ -62,11 +62,6 @@ public class KernelAuthentication extends BaseTestCase {
 
 	protected static final String ESIGNETUINCOOKIESRESPONSE = "ESignetUINCookiesResponse";
 	protected static final String ESIGNETVIDCOOKIESRESPONSE = "ESignetVIDCookiesResponse";
-
-//	private static File ESignetUINCookiesFile = new File(
-//			AdminTestUtil.getResourcePath() + "ESignetUINCookiesResponse.txt");
-//	private static File ESignetVIDCookiesFile = new File(
-//			AdminTestUtil.getResourcePath() + "ESignetVIDCookiesResponse.txt");
 
 	public String getTokenByRole(String role) {
 		return getTokenByRole(role, null);
@@ -158,8 +153,8 @@ public class KernelAuthentication extends BaseTestCase {
 				batchJobToken = kernelAuthLib.getPreRegToken();
 			return batchJobToken;
 
-		case "invalidBatch":
-			if (!kernelCmnLib.isValidToken(batchJobToken))
+		case "invalidbatch":
+			if (!kernelCmnLib.isValidToken(invalidBatchJobToken))
 				invalidBatchJobToken = kernelAuthLib.getPreRegInvalidToken();
 			return invalidBatchJobToken;
 
@@ -541,11 +536,11 @@ public class KernelAuthentication extends BaseTestCase {
 		JSONObject actualRequest_validation = getRequestJson("config/prereg_ValidateOtp.json");
 		appl.postWithJson(preregSendOtp, actualRequest_generation);
 		String otp = null;
-		if (ConfigManager.getUsePreConfiguredOtp)
+		if (ConfigManager.getUsePreConfiguredOtp().equalsIgnoreCase("yes"))
 			//TODO REMOVE THE HARDCODING
 			otp = "111111";
 		else {
-			otp = MockSMTPListener.getOtp(userId);
+			otp = OTPListener.getOtp(userId);
 		}
 		((JSONObject) actualRequest_validation.get(GlobalConstants.REQUEST)).put("otp", otp);
 		actualRequest_validation.put(GlobalConstants.REQUESTTIME, clib.getCurrentUTCTime());
@@ -556,22 +551,7 @@ public class KernelAuthentication extends BaseTestCase {
 
 	@SuppressWarnings("unchecked")
 	public String getPreRegInvalidToken() {
-		JSONObject actualRequest_generation = getRequestJson("config/prereg_SendOtp.json");
-		actualRequest_generation.put(GlobalConstants.REQUESTTIME, clib.getCurrentUTCTime());
-		((JSONObject) actualRequest_generation.get(GlobalConstants.REQUEST)).put("langCode",
-				BaseTestCase.getLanguageList().get(0));
-		((JSONObject) actualRequest_generation.get(GlobalConstants.REQUEST)).get("userId").toString();
-		JSONObject actualRequest_validation = getRequestJson("config/prereg_ValidateOtp.json");
-		appl.postWithJson(preregSendOtp, actualRequest_generation);
-		String otp = null;
-		if (proxy)
-			otp = "111222";
-		else {
-		}
-		((JSONObject) actualRequest_validation.get(GlobalConstants.REQUEST)).put("otp", otp);
-		actualRequest_validation.put(GlobalConstants.REQUESTTIME, clib.getCurrentUTCTime());
-		Response otpValidate = appl.postWithJson(preregValidateOtp, actualRequest_validation);
-		cookie = otpValidate.getCookie(GlobalConstants.AUTHORIZATION);
+		cookie = "ddhdh76478383hdgdgdgg@#$%$%%^^^^^$###$fgdhdhdjj";
 		return cookie;
 	}
 
@@ -596,9 +576,9 @@ public class KernelAuthentication extends BaseTestCase {
 
 		JSONObject actualrequest = getRequestJson(authRequest);
 		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, ConfigManager.getRegprocessorAppId());
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getRegprocessorClientId());
-		request.put(GlobalConstants.SECRETKEY, ConfigManager.getRegprocessorClientSecret());
+		request.put(GlobalConstants.APPID, ConfigManager.getRegprocAppId());
+		request.put(GlobalConstants.CLIENTID, ConfigManager.getRegprocClientId());
+		request.put(GlobalConstants.SECRETKEY, ConfigManager.getRegprocClientSecret());
 		actualrequest.put(GlobalConstants.REQUEST, request);
 
 		Response reponse = appl.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);

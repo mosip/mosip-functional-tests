@@ -52,6 +52,7 @@ public class GlobalConstants {
 	public static final String HEADERTRANSACTIONID = "headerTransactionID";
 	public static final String VERIFIEDTRANSACTIONID = "verifiedTransactionID";
 	public static final String MIMOTO = "mimoto";
+	public static final String INJICERTIFY = "injicertify";
 	public static final String ESIGNET = "esignet";
 	public static final String APIKEY = "apiKey";
 	public static final String PARTNER_APIKEY = "partnerApiKey";
@@ -91,6 +92,7 @@ public class GlobalConstants {
 	public static final String KYCAUTHENDPOINT = "kycAuthEndPoint";
 	public static final String IDP_ACCESS_TOKEN = "idpAccessToken";
 	public static final String RESIDENT_DEFAULT_PROPERTIES = "resident-default.properties";
+//	public static final String MOSIP_DATE_OF_BIRTH_PATTERN = "mosip.date-of-birth.pattern";
 	public static final String ESIGNET_DEFAULT_PROPERTIES = "esignet-default.properties";
 	public static final String MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS = "mosip.esignet.id-token-expire-seconds";
 	public static final String MOSIP_ESIGNET_ACCESS_TOKEN_EXPIRE_SECONDS = "mosip.esignet.access-token-expire-seconds";
@@ -113,6 +115,7 @@ public class GlobalConstants {
 	public static final String CERTIFICATEDATA = "certificateData";
 	public static final String PARTNERDOMAIN = "partnerDomain";
 	public static final String DATA = ".data";
+	public static final String KEYWORD_DATA = "data";
 	public static final String AUTOMATION = "automation";
 	public static final String AUTOMATIONLABS = "@automationlabs.com";
 	public static final String REPSONSE = "Repsonse: %s %s%n";
@@ -205,14 +208,19 @@ public class GlobalConstants {
 	public static final String AUTH_CLIENT_IDSECRET_KEYURL = "authclientidsecretkeyURL";
 	public static final String EXPECTED_VS_ACTUAL = "EXPECTED vs ACTUAL";
 	public static final String RID_GENERATOR = "ridgenerator";
+	public static final String OTP_FEATURE_NOT_SUPPORTED = "OTP feature not supported. Hence skipping the testcase";
 	public static final String VID_FEATURE_NOT_SUPPORTED = "VID feature not supported. Hence skipping the testcase";
 	public static final String UIN_FEATURE_NOT_SUPPORTED = "UIN feature not supported. Hence skipping the testcase";
 	public static final String FEATURE_NOT_SUPPORTED_MESSAGE = "feature not supported. Hence skipping the testcase";
+	public static final String HANDLE_SCHEMA_NOT_DEPLOYED_MESSAGE = "ARRAY HANDLE Related Schema is not there Hence skipping the testcase";
 	public static final String VID_GENERATED_USING_RESIDENT_API_SO_FEATURE_NOT_SUPPORTED_OR_NEEDED_MESSAGE = "Generating VID using Resident API. So, this feature not supported/needed. Hence skipping the testcase";
 	public static final String SERVICE_NOT_DEPLOYED_MESSAGE = "Service not deployed. Hence skipping the testcase";
 	public static final String FEATURE_NOT_SUPPORTED = "feature not supported";
 	public static final String SERVICE_NOT_DEPLOYED = "Service not deployed";
+	public static final String KNOWN_ISSUES_STRING = "known issue";
+	public static final String KNOWN_ISSUES = "known issue. Hence skipping the testcase";
 	public static final String IGNORED_SUBSET_STRING = "feature not supported;Service not deployed";
+	public static final String KNOWN_ISSUE_SUBSET_STRING = "known issue;";
 	public static final String SKIPPED = "Skipped";
 	public static final String TARGET_ENV_HEALTH_CHECK_FAILED = "Target env health check failed ";
 	public static final String HOTLIST = "hotlist";
@@ -221,4 +229,7 @@ public class GlobalConstants {
 	public static final String DOB = "dob";
 	public static final String RESULT = "result";
 	public static final String INSURANCE = "Insurance";
+	public static final String SEND_OTP_ENDPOINT = "mimoto/req/";
+	public static final String CREATE_VID_ENDPOINT = "/idrepository/v1/vid";
+	public static final String MIMOTO_CREDENTIAL_STATUS = "Mimoto_CredentialsStatus_";
 }

@@ -1,13 +1,13 @@
 package io.mosip.testrig.apirig.testrunner;
 
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.SecureRandom;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,9 +40,8 @@ import io.mosip.testrig.apirig.utils.ConfigManager;
 import io.mosip.testrig.apirig.utils.GlobalConstants;
 import io.mosip.testrig.apirig.utils.GlobalMethods;
 import io.mosip.testrig.apirig.utils.KernelAuthentication;
-import io.mosip.testrig.apirig.utils.KeycloakUserManager;
-import io.mosip.testrig.apirig.utils.PartnerRegistration;
 import io.mosip.testrig.apirig.utils.RestClient;
+import io.mosip.testrig.apirig.utils.RunConfigUtil;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
@@ -51,11 +50,11 @@ import io.restassured.response.Response;
  * All suite level before and after tests will be completed here.
  *
  */
-@ContextConfiguration(classes = {BeanConfig.class})
+@ContextConfiguration(classes = { BeanConfig.class })
 public class BaseTestCase extends AbstractTestNGSpringContextTests {
 
 	protected static Logger logger = Logger.getLogger(BaseTestCase.class);
-	protected static MockSMTPListener mockSMTPListener = null;
+	protected static OTPListener otpListener = null;
 	public static List<String> preIds = new ArrayList<>();
 	public ExtentHtmlReporter htmlReporter;
 	public ExtentReports extent;
@@ -111,7 +110,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public static String expiredPreId = null;
 	public String batchJobToken = null;
 	public String invalidBatchJobToken = null;
-	
+
 	public static List<String> expiredPreRegIds = null;
 	public static List<String> consumedPreRegIds = null;
 	public static Map<?, ?> residentQueries;
@@ -132,21 +131,18 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public static List<String> t = new ArrayList<>();
 	private static final char[] alphaNumericAllowed = "abcdefghijklmnopqrstuvwxyzABCDEFGJKLMNPRSTUVWXYZ0123456789"
 			.toCharArray();
-	private static final char[] alphabetsAllowed = "abcdefghijklmnopqrstuvwxyzABCDEFGJKLMNPRSTUVWXYZ"
-			.toCharArray();
+	private static final char[] alphabetsAllowed = "abcdefghijklmnopqrstuvwxyzABCDEFGJKLMNPRSTUVWXYZ".toCharArray();
 	private static final char[] nNumericAllowed = "0123456789".toCharArray();
 	public static SecureRandom secureRandom = new SecureRandom();
-	
+
 	public static String hierarchyName = "";
 	public static int hierarchyLevel = 0;
 	public static String parentLocCode = "";
-	
+
 	public static String locationCode = "";
 	public static String ZonelocationCode = "";
 	public static String hierarchyZoneCode = "";
-	
-	
-	
+
 	public static String genRid = "27847" + generateRandomNumberString(10);
 
 	public static String genPolicyNumber = "9" + generateRandomNumberString(5);
@@ -172,29 +168,81 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public static String genPartnerEmail = "automationpartneresi" + generateRandomNumberString(7)
 			+ "@automationMosip.com";
 	public String genPartnerEmailForDsl = "automationpartnerdsl" + generateRandomNumberString(10)
-	+ "@automationMosip.com";
+			+ "@automationMosip.com";
 	public String genPartnerEmailNonAuth = "automationesignet" + generateRandomNumberString(10)
-	+ "@automationMosip.com";
-	public String genMispPartnerEmail = "misppartner" + generateRandomNumberString(4)
-			+ generateRandomNumberString(4) + "@automationMosip.com";
+			+ "@automationMosip.com";
+	public String genMispPartnerEmail = "misppartner" + generateRandomNumberString(4) + generateRandomNumberString(4)
+			+ "@automationMosip.com";
 	public static String publickey;
 	public static RSAKey rsaJWK;
 	public static String clientAssertionToken;
 	private static String zoneMappingRequest = "config/Authorization/zoneMappingRequest.json";
-	public static Properties props = getproperty(
-			MosipTestRunner.getGlobalResourcePath() + "/" + "config/application.properties");
-	public static Properties propsKernel = getproperty(
-			MosipTestRunner.getGlobalResourcePath() + "/" + "config/Kernel.properties");
-	
+	public static Properties props = null;
+	public static Properties propsKernel = null;
+
 	public static String currentRunningLanguage = "";
 	
-	//Need to handle this
+	private static String cachedPath = null;
+	
+	private static String runTypeS = "";
+	protected static String jarURLS = "";
+	
+	public static void setRunContext(String runType, String jarURL) {
+		runTypeS = runType;
+		jarURLS = jarURL;
+		props = getproperty(getGlobalResourcePath() + "/" + "config/application.properties");
+		propsKernel = getproperty(getGlobalResourcePath() + "/" + "config/Kernel.properties");
+	}
+
+	// Need to handle this
 	/*
 	 * static String timeStamp =
 	 * String.valueOf(Calendar.getInstance().getTimeInMillis()); static String
 	 * partnerId = "Tech-1245"; static String emailId = "mosip_1" + timeStamp +
 	 * "@gmail.com"; static String role = PartnerRegistration.partnerType;
 	 */
+	
+	public static String getGlobalResourcePath() {
+		if (cachedPath != null) {
+			return cachedPath;
+		}
+
+		String path = null;
+		if (runTypeS.equalsIgnoreCase("JAR")) {
+			path = new File(jarURLS).getParentFile().getAbsolutePath() + "/MosipTestResource/MosipTemporaryTestResource";
+		} else if (runTypeS.equalsIgnoreCase("IDE")) {
+			path = new File(MosipTestRunner.class.getClassLoader().getResource("").getPath()).getAbsolutePath()
+					+ "/MosipTestResource/MosipTemporaryTestResource";
+			if (path.contains(GlobalConstants.TESTCLASSES))
+				path = path.replace(GlobalConstants.TESTCLASSES, "classes");
+		}
+
+		if (path != null) {
+			cachedPath = path;
+			return path;
+		} else {
+			return "Global Resource File Path Not Found";
+		}
+	}
+	
+	public static void copymoduleSpecificAndConfigFile(String moduleName) {
+		if (runTypeS.equalsIgnoreCase("JAR")) {
+			ExtractResource.getListOfFilesFromJarAndCopyToExternalResource(moduleName + "/");
+		} else {
+			try {
+				File destination = new File(RunConfigUtil.getGlobalResourcePath());
+				File source = new File(RunConfigUtil.getGlobalResourcePath()
+						.replace("MosipTestResource/MosipTemporaryTestResource", "") + moduleName);
+				FileUtils.copyDirectoryToDirectory(source, destination);
+				logger.info("Copied the test resource successfully for " + moduleName);
+			} catch (Exception e) {
+				logger.error(
+						"Exception occured while copying the file for : " + moduleName + " Error : " + e.getMessage());
+			}
+		}
+
+	}
+	
 	
 
 	public static String getOSType() {
@@ -237,11 +285,8 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 		logger.info("Configs from properties file are set.");
 
 	}
-	
-	
 
-
-	public static void suiteSetup() {
+	public static void suiteSetup( String runType) {
 		if (ConfigManager.IsDebugEnabled())
 			logger.setLevel(Level.ALL);
 		else
@@ -260,62 +305,60 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 
 		String[] modulesSpecified = System.getProperty("modules").split(",");
 		listOfModules = new ArrayList<String>(Arrays.asList(modulesSpecified));
-		if (!MosipTestRunner.checkRunType().equalsIgnoreCase("JAR")) {
+		if (!runType.equalsIgnoreCase("JAR")) {
 			AuthTestsUtil.removeOldMosipTempTestResource();
 		}
 		if (listOfModules.contains("auth")) {
 			setReportName("auth");
 			BaseTestCase.currentModule = "auth";
 			BaseTestCase.certsForModule = "IDA";
+			DBManager.clearKeyManagerDbCertData();
+			DBManager.clearIDADbCertData();
+			DBManager.clearMasterDbCertData();
 			AuthTestsUtil.initiateAuthTest();
-			
-//			mockSMTPListener = new MockSMTPListener();
-//			mockSMTPListener.run();
 		}
 		if (listOfModules.contains("idrepo")) {
 			setReportName("idrepo");
 			BaseTestCase.currentModule = "idrepo";
 			BaseTestCase.certsForModule = "idrepo";
+			DBManager.clearKeyManagerDbCertData();
+			DBManager.clearIDADbCertData();
+			DBManager.clearMasterDbCertData();
+			DBManager.clearIdRepoData();
 			AdminTestUtil.copyIdrepoTestResource();
 		}
-
 		if (listOfModules.contains(GlobalConstants.MASTERDATA)) {
 			DBManager.clearMasterDbData();
 			BaseTestCase.currentModule = GlobalConstants.MASTERDATA;
 			setReportName(GlobalConstants.MASTERDATA);
 			AdminTestUtil.initiateMasterDataTest();
 		}
-
 		if (listOfModules.contains(GlobalConstants.MIMOTO)) {
 			BaseTestCase.currentModule = GlobalConstants.MIMOTO;
 			BaseTestCase.certsForModule = GlobalConstants.MIMOTO;
+			DBManager.clearKeyManagerDbCertData();
+			DBManager.clearIDADbCertData();
+			DBManager.clearMasterDbCertData();
 			setReportName(GlobalConstants.MIMOTO);
 			AdminTestUtil.initiateMimotoTest();
-			mockSMTPListener = new MockSMTPListener();
-			mockSMTPListener.run();
-
 		}
-
 		if (listOfModules.contains(GlobalConstants.ESIGNET)) {
-
 			BaseTestCase.currentModule = GlobalConstants.ESIGNET;
 			BaseTestCase.certsForModule = GlobalConstants.ESIGNET;
-			DBManager.clearKeyManagerDbDataForEsignet();
-			DBManager.clearIDADbDataForEsignet();
-			DBManager.clearMasterDbDataForEsignet();
+			DBManager.clearKeyManagerDbCertData();
+			DBManager.clearIDADbCertData();
+			DBManager.clearMasterDbCertData();
 			setReportName(GlobalConstants.ESIGNET);
 			AdminTestUtil.initiateesignetTest();
-			mockSMTPListener = new MockSMTPListener();
-			mockSMTPListener.run();
-
 		}
 		if (listOfModules.contains(GlobalConstants.RESIDENT)) {
 			BaseTestCase.currentModule = GlobalConstants.RESIDENT;
 			BaseTestCase.certsForModule = GlobalConstants.RESIDENT;
+			DBManager.clearKeyManagerDbCertData();
+			DBManager.clearIDADbCertData();
+			DBManager.clearMasterDbCertData();
 			setReportName(GlobalConstants.RESIDENT);
 			AdminTestUtil.copyResidentTestResource();
-		    mockSMTPListener = new MockSMTPListener();
-			mockSMTPListener.run();
 		}
 		if (listOfModules.contains("partner")) {
 			BaseTestCase.currentModule = "partner";
@@ -325,16 +368,11 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			setReportName("partner");
 			AdminTestUtil.copyPartnerTestResource();
 		}
-		
 		if (listOfModules.contains(GlobalConstants.PARTNERNEW)) {
 			BaseTestCase.currentModule = GlobalConstants.PARTNERNEW;
 			DBManager.clearPartnerRevampDbData();
 			DBManager.clearKeyManagerDbDataForPartnerRevamp();
 			DBManager.clearIDADbDataForPartnerRevamp();
-			//KeycloakUserManager.createKeyCloakUsers(partnerId, emailId, role);
-			
-			
-			
 			BaseTestCase.currentModule = GlobalConstants.PARTNERNEW;
 			setReportName(GlobalConstants.PARTNERNEW);
 			AdminTestUtil.copyPmsNewTestResource();
@@ -343,16 +381,34 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			BaseTestCase.currentModule = GlobalConstants.PREREG;
 			setReportName(GlobalConstants.PREREG);
 			AdminTestUtil.copyPreregTestResource();
-			mockSMTPListener = new MockSMTPListener();
-			mockSMTPListener.run();
-
 		}
+		if (listOfModules.contains(GlobalConstants.INJICERTIFY)) {
+			BaseTestCase.currentModule = GlobalConstants.INJICERTIFY;
+			BaseTestCase.certsForModule = GlobalConstants.INJICERTIFY;
+			DBManager.clearKeyManagerDbCertData();
+			DBManager.clearIDADbCertData();
+			DBManager.clearMasterDbCertData();
+			setReportName(GlobalConstants.INJICERTIFY);
+			AdminTestUtil.copymoduleSpecificAndConfigFile(GlobalConstants.INJICERTIFY);
+		}
+		otpListener = new OTPListener();
+		otpListener.run();
 	}
 
 	public static void setReportName(String moduleName) {
 		System.getProperties().setProperty("emailable.report2.name",
-				"mosip-" + environment + "-" + moduleName + "-" + System.currentTimeMillis() + "-report.html");
+				"mosip-" + environment + "-" + moduleName + "-" + getCurrentDateTime() + "-report.html");
 	}
+	
+	// Method to get the current date and time in the specified format
+    public static String getCurrentDateTime() {
+        // Get the current date and time
+        LocalDateTime now = LocalDateTime.now();
+        // Define the desired formatter with the pattern "yyyy-MM-dd_HH:mm:ss"
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm");
+        // Format the current date and time using the formatter
+        return now.format(formatter);
+    }
 
 	/**
 	 * After the entire test suite clean up rest assured
@@ -364,7 +420,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 		logger.info("\n\n");
 		logger.info("Rest Assured framework has been reset because all tests have been executed.");
 		logger.info("TESTING COMPLETE: SHUTTING DOWN FRAMEWORK!!");
-	} 
+	}
 
 	public static Properties getproperty(String path) {
 		Properties prop = new Properties();
@@ -375,7 +431,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			prop.load(inputStream);
 		} catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
-		}finally {
+		} finally {
 			AdminTestUtil.closeInputStream(inputStream);
 		}
 		return prop;
@@ -403,7 +459,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 
 		String os = System.getProperty("os.name");
 		String projDirPath = null;
-		if (MosipTestRunner.checkRunType().contains("IDE") || os.toLowerCase().contains("windows"))
+		if (runTypeS.contains("IDE") || os.toLowerCase().contains("windows"))
 			projDirPath = System.getProperty("user.dir");
 		else
 			projDirPath = new File(System.getProperty("user.dir")).getParent();
@@ -427,7 +483,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public static void mapUserToZone() {
 
 		String token = kernelAuthLib.getTokenByRole("globalAdmin");
-		String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
+		String url = ApplnURI + ConfigManager.getproperty("zoneMappingUrl");
 		org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
 		JSONObject request = new JSONObject();
 		request.put("zoneCode", hierarchyZoneCode);
@@ -443,15 +499,15 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 
 	}
 
-	//below method is used by dsl.
+	// below method is used by dsl.
 	@SuppressWarnings("unchecked")
 	public static void mapUserToZone(String user, String zone) {
 
 		String token = kernelAuthLib.getTokenByRole("globalAdmin");
-		String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
+		String url = ApplnURI + ConfigManager.getproperty("zoneMappingUrl");
 		org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
 		JSONObject request = new JSONObject();
-		request.put("zoneCode", zone); 
+		request.put("zoneCode", zone);
 		request.put("userId", user);
 		request.put("langCode", BaseTestCase.getLanguageList().get(0));
 		request.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
@@ -467,7 +523,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public static void mapZone() {
 
 		String token = kernelAuthLib.getTokenByRole("globalAdmin");
-		String url = ApplnURI + propsKernel.getProperty("zoneMappingActivateUrl");
+		String url = ApplnURI + ConfigManager.getproperty("zoneMappingActivateUrl");
 		HashMap<String, String> map = new HashMap<>();
 		map.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
 		map.put("userId", BaseTestCase.currentModule + "-" + ConfigManager.getUserAdminName());
@@ -479,7 +535,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public static void mapZone(String user) {
 
 		String token = kernelAuthLib.getTokenByRole("globalAdmin");
-		String url = ApplnURI + propsKernel.getProperty("zoneMappingActivateUrl");
+		String url = ApplnURI + ConfigManager.getproperty("zoneMappingActivateUrl");
 		HashMap<String, String> map = new HashMap<>();
 		map.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
 		map.put("userId", user);
@@ -491,7 +547,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public static boolean zoneName() {
 		boolean firstUser = true;
 		String token = kernelAuthLib.getTokenByRole("admin");
-		String url = ApplnURI + propsKernel.getProperty("zoneNameUrl");
+		String url = ApplnURI + ConfigManager.getproperty("zoneNameUrl");
 
 		HashMap<String, String> map = new HashMap<>();
 
@@ -513,7 +569,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public static void userCenterMapping() {
 
 		String token = kernelAuthLib.getTokenByRole("admin");
-		String url = ApplnURI + propsKernel.getProperty("userCenterMappingUrl");
+		String url = ApplnURI + ConfigManager.getproperty("userCenterMappingUrl");
 
 		HashMap<String, String> requestMap = new HashMap<>();
 
@@ -541,7 +597,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public static void userCenterMappingStatus() {
 
 		String token = kernelAuthLib.getTokenByRole("admin");
-		String url = ApplnURI + propsKernel.getProperty("userCenterMappingUrl");
+		String url = ApplnURI + ConfigManager.getproperty("userCenterMappingUrl");
 
 		HashMap<String, String> map = new HashMap<>();
 
@@ -552,9 +608,9 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		logger.info(response);
 	}
-	
+
 	public static JSONArray idaActuatorResponseArray = null;
-	
+
 	public static String getValueFromActuators(String endPoint, String section, String key) {
 
 		String url = ApplnURI + endPoint;
@@ -569,14 +625,14 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 				responseJson = new org.json.JSONObject(response.getBody().asString());
 				idaActuatorResponseArray = responseJson.getJSONArray("propertySources");
 			}
-			logger.info("idaActuatorResponseArray="+idaActuatorResponseArray);
+			logger.info("idaActuatorResponseArray=" + idaActuatorResponseArray);
 
 			for (int i = 0, size = idaActuatorResponseArray.length(); i < size; i++) {
 				org.json.JSONObject eachJson = idaActuatorResponseArray.getJSONObject(i);
 				if (eachJson.get("name").toString().contains(section)) {
 					value = eachJson.getJSONObject(GlobalConstants.PROPERTIES).getJSONObject(key)
 							.get(GlobalConstants.VALUE).toString();
-					logger.info("value="+value);
+					logger.info("value=" + value);
 					break;
 				}
 			}
@@ -603,12 +659,12 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			section = "/mosip-config/sandbox/admin-mz.properties";
 		try {
 
-			optionalLanguages = getValueFromActuators(propsKernel.getProperty("actuatorMasterDataEndpoint"), section,
+			optionalLanguages = getValueFromActuators(ConfigManager.getproperty("actuatorMasterDataEndpoint"), section,
 					"mosip.optional-languages");
 
 			logger.info("optionalLanguages from env:" + optionalLanguages);
 
-			mandatoryLanguages = getValueFromActuators(propsKernel.getProperty("actuatorMasterDataEndpoint"), section,
+			mandatoryLanguages = getValueFromActuators(ConfigManager.getproperty("actuatorMasterDataEndpoint"), section,
 					"mosip.mandatory-languages");
 
 			logger.info("mandatoryLanguages from env:" + mandatoryLanguages);
@@ -624,19 +680,18 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 		return languageList;
 
 	}
-	
+
 	private static String targetEnvVersion = "";
-	
+
 	public static boolean isTargetEnvLTS() {
 
 		if (targetEnvVersion.isEmpty()) {
 
 			Response response = null;
 			org.json.JSONObject responseJson = null;
-			String url = ApplnURI + propsKernel.getProperty("auditActuatorEndpoint");
+			String url = ApplnURI + ConfigManager.getproperty("auditActuatorEndpoint");
 			try {
 				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-				GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 				responseJson = new org.json.JSONObject(response.getBody().asString());
 
@@ -646,7 +701,41 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 				logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			}
 		}
-		return targetEnvVersion.contains("1.2");
+		
+		// Compare the version numbers, ignoring any suffix like "-SNAPSHOT"
+	    return isVersionGreaterOrEqual(targetEnvVersion, "1.2");
+	}
+	
+	private static boolean isVersionGreaterOrEqual(String version1, String version2) {
+	    // Remove any suffixes like "-SNAPSHOT" from the versions
+	    version1 = version1.split("-")[0];
+	    version2 = version2.split("-")[0];
+
+	    String[] v1 = version1.split("\\.");
+	    String[] v2 = version2.split("\\.");
+
+	    int length = Math.max(v1.length, v2.length);
+
+	    for (int i = 0; i < length; i++) {
+	        int v1Part = i < v1.length ? Integer.parseInt(v1[i]) : 0;
+	        int v2Part = i < v2.length ? Integer.parseInt(v2[i]) : 0;
+
+	        if (v1Part < v2Part) {
+	            return false;
+	        } else if (v1Part > v2Part) {
+	            return true;
+	        }
+	    }
+	    return true; // versions are equal
+	}
+	
+	public static void setSupportedIdTypes(List<String> supportedIdTypeList) {
+		if (supportedIdType.isEmpty())
+			supportedIdType.addAll(supportedIdTypeList);
+	}
+	
+	public static List<String> getSupportedIdTypesValue() {
+		return supportedIdType;
 	}
 
 	public static List<String> getSupportedIdTypesValueFromActuator() {
@@ -665,7 +754,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 
 		org.json.JSONObject responseJson = null;
 		JSONArray responseArray = null;
-		String url = ApplnURI + propsKernel.getProperty("actuatorIDAEndpoint");
+		String url = ApplnURI + ConfigManager.getproperty("actuatorIDAEndpoint");
 		try {
 			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
@@ -699,6 +788,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 		return kernelCmnLib.readJsonData(filepath, true);
 
 	}
+
 	public static String generateRandomAlphaNumericString(int length) {
 		StringBuilder alphaNumericString = new StringBuilder();
 		for (int i = 0; i < length; i++) {
@@ -706,7 +796,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 		}
 		return alphaNumericString.toString();
 	}
-	
+
 	public static String generateRandomAlphabeticString(int length) {
 		StringBuilder alphaNumericString = new StringBuilder();
 		for (int i = 0; i < length; i++) {
@@ -721,5 +811,11 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			numericString.append(nNumericAllowed[secureRandom.nextInt(nNumericAllowed.length)]);
 		}
 		return numericString.toString();
+	}
+	
+	public static int getRecommendedHierarchyLevel() {
+		String recommendedHierarchLevel = getValueFromActuators(ConfigManager.getproperty("actuatorMasterDataEndpoint"),
+				"/mosip-config/application-default.properties", "mosip.recommended.centers.locCode");
+		return Integer.parseInt(recommendedHierarchLevel);
 	}
 }

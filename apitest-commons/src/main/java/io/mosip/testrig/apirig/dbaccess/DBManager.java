@@ -15,17 +15,18 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.jdbc.Work;
 
-import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
+import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 import io.mosip.testrig.apirig.utils.ConfigManager;
 import io.mosip.testrig.apirig.utils.GlobalConstants;
 public class DBManager {
-	private static Logger logger = Logger.getLogger(DBManager.class);
+	private static Logger logger = Logger.getLogger(DBManager.class);	
+	
 	public static void clearPMSDbData() {
 		Session session = null;
 		try {
 			session = getDataBaseConnection(ConfigManager.getPMSDbUrl(), ConfigManager.getPMSDbUser(),
 					ConfigManager.getPMSDbPass(), ConfigManager.getPMSDbSchema());
-			executeQueries(session, MosipTestRunner.getGlobalResourcePath() + "/"	+ "config/pmsDataDeleteQueries.txt");		
+			executeQueries(session, BaseTestCase.getGlobalResourcePath() + "/"	+ "config/pmsDataDeleteQueries.txt");		
 		} catch (Exception e) {
 			logger.error("Error:: While executing PMS DB Quiries." + e.getMessage());
 		} finally {
@@ -40,7 +41,7 @@ public class DBManager {
 		try {
 			session = getDataBaseConnection(ConfigManager.getPMSDbUrl(), ConfigManager.getPMSDbUser(),
 					ConfigManager.getPMSDbPass(), ConfigManager.getPMSDbSchema());
-			executeQueries(session, MosipTestRunner.getGlobalResourcePath() + "/"	+ "config/partnerRevampDataDeleteQueries.txt");		
+			executeQueries(session, BaseTestCase.getGlobalResourcePath() + "/"	+ "config/partnerRevampDataDeleteQueries.txt");		
 		} catch (Exception e) {
 			logger.error("Error:: While executing PMS REVAMP DB Quiries." + e.getMessage());
 		} finally {
@@ -55,7 +56,7 @@ public class DBManager {
 		try {
 			session = getDataBaseConnection(ConfigManager.getKMDbUrl(), ConfigManager.getKMDbUser(),
 					ConfigManager.getKMDbPass(), ConfigManager.getKMDbSchema());
-			executeQueries(session, MosipTestRunner.getGlobalResourcePath() + "/"	+ "config/partnerRevampDataDeleteQueriesForKeyMgr.txt");				
+			executeQueries(session, BaseTestCase.getGlobalResourcePath() + "/"	+ "config/partnerRevampDataDeleteQueriesForKeyMgr.txt");				
 			} catch (Exception e) {
 				logger.error("Error:: While executing PMS DB Quiries." + e.getMessage());
 			} finally {
@@ -69,7 +70,7 @@ public class DBManager {
 		try {
 			session = getDataBaseConnection(ConfigManager.getIdaDbUrl(), ConfigManager.getIdaDbUser(),
 					ConfigManager.getPMSDbPass(), ConfigManager.getIdaDbSchema());
-			executeQueries(session, MosipTestRunner.getGlobalResourcePath() + "/"	+ "config/partnerRevampDataDeleteQueriesForIDA.txt");				
+			executeQueries(session, BaseTestCase.getGlobalResourcePath() + "/"	+ "config/partnerRevampDataDeleteQueriesForIDA.txt");				
 			} catch (Exception e) {
 				logger.error("Error:: While executing IDA DB Quiries." + e.getMessage());
 			} finally {
@@ -84,7 +85,7 @@ public class DBManager {
 		try {
 			session = getDataBaseConnection(ConfigManager.getKMDbUrl(), ConfigManager.getKMDbUser(),
 					ConfigManager.getKMDbPass(), ConfigManager.getKMDbSchema());
-			executeQueries(session, MosipTestRunner.getGlobalResourcePath() + "/"	+ "config/keyManagerDataDeleteQueries.txt");				
+			executeQueries(session, BaseTestCase.getGlobalResourcePath() + "/"	+ "config/keyManagerDataDeleteQueries.txt");				
 			} catch (Exception e) {
 				logger.error("Error:: While executing PMS DB Quiries." + e.getMessage());
 			} finally {
@@ -94,12 +95,13 @@ public class DBManager {
 			}
 		}
 	
-	public static void clearKeyManagerDbDataForEsignet() {
-		Session session = null;
-		try {
-			session = getDataBaseConnection(ConfigManager.getKMDbUrl(), ConfigManager.getKMDbUser(),
-					ConfigManager.getKMDbPass(), ConfigManager.getKMDbSchema());
-			executeQueries(session, MosipTestRunner.getGlobalResourcePath() + "/"	+ "config/keyManagerDataDeleteQueriesForEsignet.txt");				
+		public static void clearKeyManagerDbCertData() {
+			Session session = null;
+			try {
+				session = getDataBaseConnection(ConfigManager.getKMDbUrl(), ConfigManager.getKMDbUser(),
+						ConfigManager.getKMDbPass(), ConfigManager.getKMDbSchema());
+				executeQueries(session, BaseTestCase.getGlobalResourcePath() + "/"
+						+ "config/keyManagerCertDataDeleteQueries.txt");
 			} catch (Exception e) {
 				logger.error("Error:: While executing PMS DB Quiries." + e.getMessage());
 			} finally {
@@ -114,7 +116,7 @@ public class DBManager {
 		try {
 			session = getDataBaseConnection(ConfigManager.getMASTERDbUrl(), ConfigManager.getMasterDbUser(),
 					ConfigManager.getMasterDbPass(), ConfigManager.getMasterDbSchema());
-			executeQueries(session,  MosipTestRunner.getGlobalResourcePath() + "/"	+ "config/masterDataDeleteQueries.txt");
+			executeQueries(session,  BaseTestCase.getGlobalResourcePath() + "/"	+ "config/masterDataDeleteQueries.txt");
 			} catch (Exception e) {
 				logger.error("Error:: While executing MASTER DB Quiries." + e.getMessage());
 			} finally {
@@ -124,12 +126,13 @@ public class DBManager {
 			}
 		}
 	
-	public static void clearMasterDbDataForEsignet() {
-		Session session = null;
-		try {
-			session = getDataBaseConnection(ConfigManager.getMASTERDbUrl(), ConfigManager.getMasterDbUser(),
-					ConfigManager.getMasterDbPass(), ConfigManager.getMasterDbSchema());
-			executeQueries(session,  MosipTestRunner.getGlobalResourcePath() + "/"	+ "config/masterDataDeleteQueriesForEsignet.txt");
+		public static void clearMasterDbCertData() {
+			Session session = null;
+			try {
+				session = getDataBaseConnection(ConfigManager.getMASTERDbUrl(), ConfigManager.getMasterDbUser(),
+						ConfigManager.getMasterDbPass(), ConfigManager.getMasterDbSchema());
+				executeQueries(session,
+						BaseTestCase.getGlobalResourcePath() + "/" + "config/masterDataCertDataDeleteQueries.txt");
 			} catch (Exception e) {
 				logger.error("Error:: While executing MASTER DB Quiries." + e.getMessage());
 			} finally {
@@ -139,14 +142,32 @@ public class DBManager {
 			}
 		}
 	
-	public static void clearIDADbDataForEsignet() {
-		Session session = null;
-		try {
-			session = getDataBaseConnection(ConfigManager.getIdaDbUrl(), ConfigManager.getIdaDbUser(),
-					ConfigManager.getPMSDbPass(), ConfigManager.getIdaDbSchema());
-			executeQueries(session,  MosipTestRunner.getGlobalResourcePath() + "/"	+ "config/idaDeleteQueriesForEsignet.txt");
+		public static void clearIDADbCertData() {
+			Session session = null;
+			try {
+				session = getDataBaseConnection(ConfigManager.getIdaDbUrl(), ConfigManager.getIdaDbUser(),
+						ConfigManager.getPMSDbPass(), ConfigManager.getIdaDbSchema());
+				executeQueries(session,
+						BaseTestCase.getGlobalResourcePath() + "/" + "config/idaCertDataDeleteQueries.txt");
 			} catch (Exception e) {
 				logger.error("Error:: While executing MASTER DB Quiries." + e.getMessage());
+			} finally {
+				if (session != null) {
+					session.close();
+				}
+			}
+		}
+		
+		public static void clearIdRepoData()
+		{
+			Session session = null;
+			try {
+				session = getDataBaseConnection(ConfigManager.getIdRepoDbUrl(), ConfigManager.getIdRepoDbUser(),
+						ConfigManager.getPMSDbPass(), "idrepo");
+				executeQueries(session,
+						BaseTestCase.getGlobalResourcePath() + "/" + "config/idrepoCertDataDeleteQueries.txt");
+			} catch (Exception e) {
+				logger.error("Error:: While executing IDREPO DB Quiries." + e.getMessage());
 			} finally {
 				if (session != null) {
 					session.close();

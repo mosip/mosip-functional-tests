@@ -24,7 +24,6 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import io.mosip.testrig.apirig.mapping.XmlXpathGeneration;
 import io.mosip.testrig.apirig.utils.AuthTestsUtil;
 
 /**
@@ -251,11 +250,6 @@ public class XmlPrecondtion extends MessagePrecondtion {
 		} catch (Exception e) {
 			XMLPRECONDTION_LOGGER.error(e.getMessage());
 		}
-	}
-
-	@Override
-	public Map<String, String> retrieveMappingAndItsValueToPerformOutputValidation(String filePath) {
-		return getValueFromXmlFile(filePath, XmlXpathGeneration.generateXpath(filePath));
 	}
 
 	@Override

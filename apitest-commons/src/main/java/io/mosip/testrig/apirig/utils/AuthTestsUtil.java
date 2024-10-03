@@ -954,64 +954,6 @@ public class AuthTestsUtil extends BaseTestCase {
 	}
 
 	/**
-	 * The method will create bat or sh file to run demoApp jar in windows or linux
-	 * OS respectively
-	 */
-	public static void createBatOrShFileForDemoApp() {
-		FileOutputStream outputStream = null;
-		DataOutputStream dataOutputStream = null;
-		try {
-			String javaHome = System.getenv("JAVA_HOME");
-			String demoAppJarPath = null;
-			String content = null;
-			if (getOSType().equals("WINDOWS")) {
-				demoAppJarPath = new File("C:/Users/" + System.getProperty("user.name")
-						+ "/.m2/repository/io/mosip/authentication/authentication-partnerdemo-service/"
-						+ getDemoAppVersion() + "/authentication-partnerdemo-service-" + getDemoAppVersion() + ".jar")
-						.getAbsolutePath();
-				demoAppBatchFilePath = new File(RunConfigUtil.getResourcePath() + "/demoApp.bat");
-				content = '"' + javaHome + "/bin/java" + '"'
-						+ " -Dspring.cloud.config.label=QA_IDA -Dspring.profiles.active=test"
-						+ RunConfigUtil.getRunEvironment()
-						+ " -Dspring.cloud.config.uri=http://104.211.212.28:51000 -jar " + '"'
-						+ demoAppJarPath + '"';
-			} else if (getOSType().equals("OTHERS")) {
-				IDASCRIPT_LOGGER.info("Maven Path: " + RunConfigUtil.getLinuxMavenPath());
-				String mavenPath = RunConfigUtil.getLinuxMavenPath();
-				String settingXmlPath = mavenPath + "/conf/settings.xml";
-				String repoPath = XmlPrecondtion.getValueFromXmlFile(settingXmlPath, "//localRepository");
-				demoAppJarPath = new File(repoPath + "/io/mosip/authentication/authentication-partnerdemo-service/"
-						+ getDemoAppVersion() + "/authentication-partnerdemo-service-" + getDemoAppVersion() + ".jar")
-						.getAbsolutePath();
-				RunConfigUtil.getRunConfigObject("ida");
-				RunConfigUtil.objRunConfig.setUserDirectory();
-				demoAppBatchFilePath = new File(RunConfigUtil.getResourcePath() + "/demoApp.sh");
-				content = "nohup java -Dspring.cloud.config.label=QA_IDA -Dspring.cloud.config.uri=http://104.211.212.28:51000 -Dspring.profiles.active=test"
-						+ RunConfigUtil.getRunEvironment() + " -Djava.net.useSystemProxies=true -jar " + '"'
-						+ demoAppJarPath + '"' + " &";
-				fileDemoAppJarPath = new File(demoAppJarPath);
-				if (fileDemoAppJarPath.exists())
-					IDASCRIPT_LOGGER.info("DemoApp Jar FILE IS AVAILABLE");
-				else
-					IDASCRIPT_LOGGER.error("DemoApp Jar FILE IS NOT AVAILABLE");
-
-				Path path = Paths.get(fileDemoAppJarPath.getAbsolutePath());
-				changeFilePermissionInLinux(path);
-			}
-			IDASCRIPT_LOGGER.info("DemoApp Jar: " + demoAppJarPath);
-			IDASCRIPT_LOGGER.info("Cmd Path: " + content);
-			outputStream = new FileOutputStream(demoAppBatchFilePath);
-			dataOutputStream = new DataOutputStream(outputStream);
-			dataOutputStream.writeBytes(content);
-		} catch (Exception e) {
-			IDASCRIPT_LOGGER.error("Exception in creating the bat file for demoApp application " + e.getMessage());
-		} finally {
-			AdminTestUtil.closeOutputStream(outputStream);
-			AdminTestUtil.closeDataOutputStream(dataOutputStream);
-		}
-	}
-
-	/**
 	 * The method will change the file permission
 	 * 
 	 * @param path
@@ -1342,13 +1284,6 @@ public class AuthTestsUtil extends BaseTestCase {
 			IDASCRIPT_LOGGER.error("Exception: " + e);
 			return e.toString();
 		}
-	}
-
-	public String getUinHashWithSalt(String uin) {
-		Long uinModulo = (Long.parseLong(uin) % 1000);
-		String uinSaltQuery = "select salt from ida.uin_hash_salt where id='" + uinModulo.toString() + "'";
-		Map<String, String> uinSalt = DbConnection.getDataForQuery(uinSaltQuery, "IDA");
-		return HMACUtils.digestAsPlainTextWithSalt(uin.getBytes(), uinSalt.get("salt").getBytes());
 	}
 
 	// Added by Admin Test Team

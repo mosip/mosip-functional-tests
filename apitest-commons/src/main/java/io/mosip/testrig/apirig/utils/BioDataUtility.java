@@ -12,7 +12,6 @@ import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import io.mosip.kernel.core.util.CryptoUtil;
@@ -33,10 +32,8 @@ import io.mosip.testrig.apirig.utils.Encrypt.SplittedEncryptedData;
 public class BioDataUtility extends AdminTestUtil {
 
 	private static final Logger logger = Logger.getLogger(BioDataUtility.class);
-	@Autowired
-	private EncryptionDecrptionUtil encryptDecryptUtil;
-	@Autowired
-	private Encrypt encrypt;
+	
+	private Encrypt encrypt = new Encrypt();
 
 
 	private String encryptIsoBioValue(String isoBiovalue, String timestamp, String bioValueEncryptionTemplateJson,
@@ -62,15 +59,6 @@ public class BioDataUtility extends AdminTestUtil {
 			
 		residentCookie = kernelAuthLib.getTokenByRole(GlobalConstants.RESIDENT);
 		
-		
-//		try {
-//			String json = encryptDecryptUtil.encrypt(jsonContent);
-//			logger.info("json is" + json);
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		
 		String content = RestClient.postRequestWithCookie(cryptoEncryptUrl, jsonContent, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, COOKIENAME, residentCookie).asString();
 		String data = JsonPrecondtion.getValueFromJson(content, "response.data");
@@ -92,8 +80,6 @@ public class BioDataUtility extends AdminTestUtil {
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		}
-		
-//		return EncryptionDecrptionUtil.splitEncryptedData(data);
 		return splittedEncryptedDataJson.toString();
 	}
 	
@@ -253,33 +239,13 @@ public class BioDataUtility extends AdminTestUtil {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        
-		
-//		String singResponse = null;
-//		String EncryptUtilBaseUrl = ConfigManager.getAuthDemoServiceUrl() + "/";
-//		
-//        residentCookie = kernelAuthLib.getTokenByRole(GlobalConstants.RESIDENT);
-//        HashMap<String, String> pathParamsMap = new HashMap<>();
-//        pathParamsMap.put("partnerType", key);
-//        pathParamsMap.put("moduleName", BaseTestCase.certsForModule);
-//        pathParamsMap.put("certsDir", ConfigManager.getauthCertsPath());
-//        
-//        
-//		Response response = RestClient.postRequestWithQueryParamBodyAndCookie(
-//				EncryptUtilBaseUrl + properties.get("signRequest"), identityDataBlock, pathParamsMap,
-//				 MediaType.TEXT_PLAIN, MediaType.TEXT_PLAIN, GlobalConstants.AUTHORIZATION,
-//				residentCookie);
-//		
 		byte[] bytePayload = identityDataBlock.getBytes();
 		String payloadData = Base64.getUrlEncoder().encodeToString(bytePayload);
 		payloadData= payloadData.replace("=", "");
 		
 		String signNewResponse = response.replace("..", "."+ payloadData +".");
 		logger.info(signNewResponse);
-		
         
-         //singResponse = response.asString();
-		
 		return signNewResponse;
 	}
 

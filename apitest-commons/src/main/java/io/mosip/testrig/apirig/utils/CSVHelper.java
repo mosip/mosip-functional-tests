@@ -103,26 +103,4 @@ public class CSVHelper {
 	public static String toCaptialize(String text) {
 		return text.substring(0, 1).toUpperCase() + text.substring(1).toLowerCase();
 	}
-	
-	/*
-	 * public static void main(String [] args) {
-	 * 
-	 * try { CSVHelper helper = new
-	 * CSVHelper(DataProviderConstants.RESOURCE+"Names/en/surnames.csv");
-	 * logger.info(helper.getRecordCount()); helper.open(); List<String[]>
-	 * recs = helper.readRecords( new int[] {0,15,10,20, 12}); for(String[] r: recs)
-	 * {
-	 * 
-	 * logger.info( toCaptialize(r[0])); } helper.close();
-	 * 
-	 * 
-	 * helper = new
-	 * CSVHelper(DataProviderConstants.RESOURCE+"Names/ara/boy_names.csv");
-	 * logger.info(helper.getRecordCount()); helper.open(); recs =
-	 * helper.readRecords( new int[] {1,15,10,20, 12}); for(String[] r: recs) {
-	 * 
-	 * logger.info( r[1]); } helper.close(); } catch (IOException e) { //
-	 * 
-	 * }
-	 */
 }

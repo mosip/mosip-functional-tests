@@ -22,7 +22,6 @@ import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.testng.Reporter;
 
@@ -52,12 +51,8 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	public static String internalThumbPrint =null;
 	public static String idaFirThumbPrint =null;
 	private static ObjectMapper objMapper = new ObjectMapper();
-	@Autowired
-	private CryptoUtil cryptoUtil;
-	@Autowired
-	private KeyMgrUtil keymgrUtil;
-	@Autowired
-	private Encrypt encrypt;
+	private static CryptoUtil cryptoUtil = new CryptoUtil();
+	private static KeyMgrUtil keymgrUtil = new KeyMgrUtil();
 	
 	static {
 		getThumbprints();
@@ -83,19 +78,12 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		Map<String, String> ecryptData = new HashMap<>();
 		EncryptionResponseDto encryptionResponseDto = new EncryptionResponseDto();
 		try {
-//			jsonString = StringEscapeUtils.unescapeJava(jsonString);
 			encryptionResponseDto = encrypt(jsonString);
-//			JSONObject jsonobj = new JSONObject(json);
 			Reporter.log("<b> <u>Encryption of identity request</u> </b>");
 			GlobalMethods.reportRequest(null, encryptionResponseDto.toString());
 			ecryptData.put("key", encryptionResponseDto.getEncryptedSessionKey());
 			ecryptData.put("data", encryptionResponseDto.getEncryptedIdentity());
 			ecryptData.put("hmac", encryptionResponseDto.getRequestHMAC());
-			
-			
-//			ecryptData.put("key", jsonobj.get(key).toString());
-//			ecryptData.put("data", jsonobj.get(data).toString());
-//			ecryptData.put("hmac", jsonobj.get(hmac).toString());
 			ecryptData.put("thumbprint", partnerThumbPrint);
 			return ecryptData;
 		} catch (Exception e) {
@@ -137,7 +125,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	 */
 	
 	
-	public EncryptionResponseDto encrypt(String jsonString) throws Exception {
+	public static EncryptionResponseDto encrypt(String jsonString) throws Exception {
         
 		String refId= null;
 		boolean isInternal = false;
@@ -167,23 +155,17 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
         return refId;
     }
 	
-	private EncryptionResponseDto kernelEncrypt(String identityBlock, String refId) throws Exception {
+	private static EncryptionResponseDto kernelEncrypt(String identityBlock, String refId) throws Exception {
 //        String identityBlock = objMapper.writeValueAsString(jsonString);
         SecretKey secretKey = cryptoUtil.genSecKey();
         EncryptionResponseDto encryptionResponseDto = new EncryptionResponseDto();
         
+        lOGGER.info("Strated encrypting the Identity block");
         byte[] encryptedIdentityBlock = cryptoUtil.symmetricEncrypt(identityBlock.getBytes(StandardCharsets.UTF_8), secretKey);
         encryptionResponseDto.setEncryptedIdentity(Base64.getUrlEncoder().encodeToString(encryptedIdentityBlock));
         
         //ToDO: Cache it
         X509Certificate x509Cert = keymgrUtil.getCertificate(refId);
-        
-        //To get the certificate as per the reference id
-       // certificate = JWSSignAndVerifyController.trimBeginEnd(certificate);
-		//CertificateFactory cf = CertificateFactory.getInstance("X.509");
-		//X509Certificate x509cert = (X509Certificate) cf
-			//	.generateCertificate(new ByteArrayInputStream(java.util.Base64.getDecoder().decode(certificate)));
-		//return x509cert;
         
         
         PublicKey publicKey = x509Cert.getPublicKey();

@@ -49,18 +49,6 @@ public class CertificateGenerationUtil extends AdminTestUtil {
 		JSONObject responseJson = new JSONObject(response.asString());
 		JSONObject responseValue = (JSONObject) responseJson.get("response");
 		String idaCertValue = responseValue.getString("certificate");
-
-//		JSONObject request = new JSONObject();
-//		request.put("certData", idaCertValue);
-		// actualrequest.put(GlobalConstants.REQUEST, request);
-
-//		if (endPoint.contains("$MODULENAME$")) {
-//			endPoint = endPoint.replace("$MODULENAME$", BaseTestCase.certsForModule);
-//		}
-//
-//		if (endPoint.contains("$CERTSDIR$")) {
-//			endPoint = endPoint.replace("$CERTSDIR$", ConfigManager.getauthCertsPath());
-//		}
 		HashMap<String, String> requestBodyMap = new HashMap<>();
 		requestBodyMap.put("certData", idaCertValue);
 		
@@ -71,9 +59,6 @@ public class CertificateGenerationUtil extends AdminTestUtil {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-//		Response reponse = RestClient.postRequest(ConfigManager.getAuthDemoServiceUrl() + "/" + endPoint,
-//				request.toMap(), MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
 	}
 
 }

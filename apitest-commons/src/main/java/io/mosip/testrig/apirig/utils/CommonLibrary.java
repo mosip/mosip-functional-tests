@@ -5,6 +5,7 @@ import static io.restassured.RestAssured.given;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -37,7 +38,6 @@ import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
 
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
-import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
 import io.restassured.http.Cookie;
 import io.restassured.response.Response;
 
@@ -118,11 +118,11 @@ public class CommonLibrary extends BaseTestCase {
 	}
 
 	public String getResourcePath() {
-		return MosipTestRunner.getGlobalResourcePath() + "/";
+		return getGlobalResourcePath() + "/";
 	}
 
 	public String getResourcePathForKernel() {
-		return MosipTestRunner.getGlobalResourcePath() + "/";
+		return getGlobalResourcePath() + "/";
 	}
 
 	public JSONObject readJsonData(String path, boolean isRelative) {
@@ -150,18 +150,25 @@ public class CommonLibrary extends BaseTestCase {
 		FileInputStream inputStream = null;
 		Map<String, String> mapProp = null;
 		try {
-			logger.info("propertyFileName:  " + propertyFileName + "Path :" + getResourcePathForKernel() + "config/"
-					+ propertyFileName + ".properties");
-			logger.info("propertyFileName:  " + propertyFileName + "Path :" + getResourcePathForKernel() + "config/"
-					+ propertyFileName + ".properties");
-			File propertyFile = new File(getResourcePathForKernel() + "config/" + propertyFileName + ".properties");
-			inputStream = new FileInputStream(propertyFile);
-			prop.load(inputStream);
+//			File propertyFile = new File( CommonLibrary.class.getClassLoader().getResourceAsStream("config/Kernel.properties"));
+			
+			try (InputStream input = ConfigManager.class.getClassLoader().getResourceAsStream("config/Kernel.properties")) {
+				if (input != null) {
+					// Load the properties from the input stream
+					prop.load(input);
+				}
+				else {
+					logger.error("Couldn't find  Kernel.properties file");
+				}
+			} catch (Exception ex) {
+				logger.error(ex.getMessage());
+			}
+			
+			/*
+			 * inputStream = new FileInputStream(propertyFile); prop.load(inputStream);
+			 */
 			mapProp = prop.entrySet().stream()
 					.collect(Collectors.toMap(e -> (String) e.getKey(), e -> (String) e.getValue()));
-		} catch (IOException e) {
-			logger.info("Error occrued while reading propertyFileName " + propertyFileName + e.getMessage());
-			logger.info(e.getMessage());
 		} finally {
 			AdminTestUtil.closeInputStream(inputStream);
 		}

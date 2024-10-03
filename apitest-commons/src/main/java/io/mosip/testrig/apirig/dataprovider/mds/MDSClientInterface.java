@@ -2,7 +2,7 @@ package io.mosip.testrig.apirig.dataprovider.mds;
 
 import java.util.List;
 
-import io.mosip.testrig.apirig.dataprovider.models.ResidentModel;
+import io.mosip.testrig.apirig.dataprovider.models.ResidentBiometricModel;
 import io.mosip.testrig.apirig.dataprovider.models.mds.MDSDevice;
 import io.mosip.testrig.apirig.dataprovider.models.mds.MDSRCaptureModel;
 
