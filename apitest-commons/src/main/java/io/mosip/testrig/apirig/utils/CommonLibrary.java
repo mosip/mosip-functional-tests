@@ -150,8 +150,6 @@ public class CommonLibrary extends BaseTestCase {
 		FileInputStream inputStream = null;
 		Map<String, String> mapProp = null;
 		try {
-//			File propertyFile = new File( CommonLibrary.class.getClassLoader().getResourceAsStream("config/Kernel.properties"));
-			
 			try (InputStream input = ConfigManager.class.getClassLoader().getResourceAsStream("config/Kernel.properties")) {
 				if (input != null) {
 					// Load the properties from the input stream
