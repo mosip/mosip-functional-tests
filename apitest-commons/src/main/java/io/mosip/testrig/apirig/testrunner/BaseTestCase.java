@@ -54,7 +54,7 @@ import io.restassured.response.Response;
 public class BaseTestCase extends AbstractTestNGSpringContextTests {
 
 	protected static Logger logger = Logger.getLogger(BaseTestCase.class);
-	protected static OTPListener otpListener = null;
+	public static OTPListener otpListener = null;
 	public static List<String> preIds = new ArrayList<>();
 	public ExtentHtmlReporter htmlReporter;
 	public ExtentReports extent;
@@ -292,16 +292,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 		if (ConfigManager.IsDebugEnabled())
 			logger.setLevel(Level.ALL);
 		else
-			logger.setLevel(Level.ERROR);
-		File logFile = new File("./src/logs/mosip-api-test.log");
-		if (logFile.exists())
-			try {
-				FileUtils.forceDelete(logFile);
-			} catch (IOException e1) {
-				logger.error("Failed to delete old log file");
-			}
 		logger.info("Test Framework for Mosip api Initialized");
-		logger.info("Logging initialized: All logs are located at " + "src/logs/mosip-api-test.log");
 		initialize();
 		logger.info("Done with BeforeSuite and test case setup! su TEST EXECUTION!\n\n");
 
@@ -314,23 +305,42 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 			setReportName("auth");
 			BaseTestCase.currentModule = "auth";
 			BaseTestCase.certsForModule = "IDA";
-			DBManager.clearKeyManagerDbCertData();
-			DBManager.clearIDADbCertData();
-			DBManager.clearMasterDbCertData();
+			DBManager.executeDBQueries(ConfigManager.getKMDbUrl(), ConfigManager.getKMDbUser(),
+					ConfigManager.getKMDbPass(), ConfigManager.getKMDbSchema(),
+					getGlobalResourcePath() + "/" + "config/keyManagerDataDeleteQueriesForEsignet.txt");
+			DBManager.executeDBQueries(ConfigManager.getIdaDbUrl(), ConfigManager.getIdaDbUser(),
+					ConfigManager.getPMSDbPass(), ConfigManager.getIdaDbSchema(),
+					getGlobalResourcePath() + "/" + "config/idaDeleteQueriesForEsignet.txt");
+
+			DBManager.executeDBQueries(ConfigManager.getMASTERDbUrl(), ConfigManager.getMasterDbUser(),
+					ConfigManager.getMasterDbPass(), ConfigManager.getMasterDbSchema(),
+					getGlobalResourcePath() + "/" + "config/masterDataDeleteQueriesForEsignet.txt");
 			AuthTestsUtil.initiateAuthTest();
 		}
 		if (listOfModules.contains("idrepo")) {
 			setReportName("idrepo");
 			BaseTestCase.currentModule = "idrepo";
 			BaseTestCase.certsForModule = "idrepo";
-			DBManager.clearKeyManagerDbCertData();
-			DBManager.clearIDADbCertData();
-			DBManager.clearMasterDbCertData();
-			DBManager.clearIdRepoData();
+			DBManager.executeDBQueries(ConfigManager.getKMDbUrl(), ConfigManager.getKMDbUser(),
+					ConfigManager.getKMDbPass(), ConfigManager.getKMDbSchema(),
+					getGlobalResourcePath() + "/" + "config/keyManagerDataDeleteQueriesForEsignet.txt");
+			DBManager.executeDBQueries(ConfigManager.getIdaDbUrl(), ConfigManager.getIdaDbUser(),
+					ConfigManager.getPMSDbPass(), ConfigManager.getIdaDbSchema(),
+					getGlobalResourcePath() + "/" + "config/idaDeleteQueriesForEsignet.txt");
+			DBManager.executeDBQueries(ConfigManager.getMASTERDbUrl(), ConfigManager.getMasterDbUser(),
+					ConfigManager.getMasterDbPass(), ConfigManager.getMasterDbSchema(),
+					getGlobalResourcePath() + "/" + "config/masterDataDeleteQueriesForEsignet.txt");
+
+			DBManager.executeDBQueries(ConfigManager.getIdRepoDbUrl(), ConfigManager.getIdRepoDbUser(),
+					ConfigManager.getPMSDbPass(), "idrepo",
+					getGlobalResourcePath() + "/" + "config/idrepoCertDataDeleteQueries.txt");
+
 			AdminTestUtil.copyIdrepoTestResource();
 		}
 		if (listOfModules.contains(GlobalConstants.MASTERDATA)) {
-			DBManager.clearMasterDbData();
+			DBManager.executeDBQueries(ConfigManager.getMASTERDbUrl(), ConfigManager.getMasterDbUser(),
+					ConfigManager.getMasterDbPass(), ConfigManager.getMasterDbSchema(),
+					getGlobalResourcePath() + "/" + "config/masterDataDeleteQueries.txt");
 			BaseTestCase.currentModule = GlobalConstants.MASTERDATA;
 			setReportName(GlobalConstants.MASTERDATA);
 			AdminTestUtil.initiateMasterDataTest();
@@ -338,43 +348,76 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 		if (listOfModules.contains(GlobalConstants.MIMOTO)) {
 			BaseTestCase.currentModule = GlobalConstants.MIMOTO;
 			BaseTestCase.certsForModule = GlobalConstants.MIMOTO;
-			DBManager.clearKeyManagerDbCertData();
-			DBManager.clearIDADbCertData();
-			DBManager.clearMasterDbCertData();
+			DBManager.executeDBQueries(ConfigManager.getKMDbUrl(), ConfigManager.getKMDbUser(),
+					ConfigManager.getKMDbPass(), ConfigManager.getKMDbSchema(),
+					getGlobalResourcePath() + "/" + "config/keyManagerDataDeleteQueriesForEsignet.txt");
+			DBManager.executeDBQueries(ConfigManager.getIdaDbUrl(), ConfigManager.getIdaDbUser(),
+					ConfigManager.getPMSDbPass(), ConfigManager.getIdaDbSchema(),
+					getGlobalResourcePath() + "/" + "config/idaDeleteQueriesForEsignet.txt");
+			DBManager.executeDBQueries(ConfigManager.getMASTERDbUrl(), ConfigManager.getMasterDbUser(),
+					ConfigManager.getMasterDbPass(), ConfigManager.getMasterDbSchema(),
+					getGlobalResourcePath() + "/" + "config/masterDataDeleteQueriesForEsignet.txt");
 			setReportName(GlobalConstants.MIMOTO);
 			AdminTestUtil.initiateMimotoTest();
 		}
 		if (listOfModules.contains(GlobalConstants.ESIGNET)) {
 			BaseTestCase.currentModule = GlobalConstants.ESIGNET;
 			BaseTestCase.certsForModule = GlobalConstants.ESIGNET;
-			DBManager.clearKeyManagerDbCertData();
-			DBManager.clearIDADbCertData();
-			DBManager.clearMasterDbCertData();
+			DBManager.executeDBQueries(ConfigManager.getKMDbUrl(), ConfigManager.getKMDbUser(),
+					ConfigManager.getKMDbPass(), ConfigManager.getKMDbSchema(),
+					getGlobalResourcePath() + "/" + "config/keyManagerDataDeleteQueriesForEsignet.txt");
+			DBManager.executeDBQueries(ConfigManager.getIdaDbUrl(), ConfigManager.getIdaDbUser(),
+					ConfigManager.getPMSDbPass(), ConfigManager.getIdaDbSchema(),
+					getGlobalResourcePath() + "/" + "config/idaDeleteQueriesForEsignet.txt");
+			DBManager.executeDBQueries(ConfigManager.getMASTERDbUrl(), ConfigManager.getMasterDbUser(),
+					ConfigManager.getMasterDbPass(), ConfigManager.getMasterDbSchema(),
+					getGlobalResourcePath() + "/" + "config/masterDataDeleteQueriesForEsignet.txt");
 			setReportName(GlobalConstants.ESIGNET);
 			AdminTestUtil.initiateesignetTest();
 		}
 		if (listOfModules.contains(GlobalConstants.RESIDENT)) {
 			BaseTestCase.currentModule = GlobalConstants.RESIDENT;
 			BaseTestCase.certsForModule = GlobalConstants.RESIDENT;
-			DBManager.clearKeyManagerDbCertData();
-			DBManager.clearIDADbCertData();
-			DBManager.clearMasterDbCertData();
+			DBManager.executeDBQueries(ConfigManager.getKMDbUrl(), ConfigManager.getKMDbUser(),
+					ConfigManager.getKMDbPass(), ConfigManager.getKMDbSchema(),
+					getGlobalResourcePath() + "/" + "config/keyManagerDataDeleteQueriesForEsignet.txt");
+			DBManager.executeDBQueries(ConfigManager.getIdaDbUrl(), ConfigManager.getIdaDbUser(),
+					ConfigManager.getPMSDbPass(), ConfigManager.getIdaDbSchema(),
+					getGlobalResourcePath() + "/" + "config/idaDeleteQueriesForEsignet.txt");
+			DBManager.executeDBQueries(ConfigManager.getMASTERDbUrl(), ConfigManager.getMasterDbUser(),
+					ConfigManager.getMasterDbPass(), ConfigManager.getMasterDbSchema(),
+					getGlobalResourcePath() + "/" + "config/masterDataDeleteQueriesForEsignet.txt");
 			setReportName(GlobalConstants.RESIDENT);
 			AdminTestUtil.copyResidentTestResource();
 		}
 		if (listOfModules.contains("partner")) {
 			BaseTestCase.currentModule = "partner";
-			DBManager.clearPMSDbData();
-			DBManager.clearKeyManagerDbData();
+			DBManager.executeDBQueries(ConfigManager.getPMSDbUrl(), ConfigManager.getPMSDbUser(),
+					ConfigManager.getPMSDbPass(), ConfigManager.getPMSDbSchema(),
+					getGlobalResourcePath() + "/" + "config/pmsDataDeleteQueries.txt");
+
+			DBManager.executeDBQueries(ConfigManager.getKMDbUrl(), ConfigManager.getKMDbUser(),
+					ConfigManager.getKMDbPass(), ConfigManager.getKMDbSchema(),
+					getGlobalResourcePath() + "/" + "config/keyManagerDataDeleteQueries.txt");
+
 			BaseTestCase.currentModule = "partner";
 			setReportName("partner");
 			AdminTestUtil.copyPartnerTestResource();
 		}
 		if (listOfModules.contains(GlobalConstants.PARTNERNEW)) {
 			BaseTestCase.currentModule = GlobalConstants.PARTNERNEW;
-			DBManager.clearPartnerRevampDbData();
-			DBManager.clearKeyManagerDbDataForPartnerRevamp();
-			DBManager.clearIDADbDataForPartnerRevamp();
+			DBManager.executeDBQueries(ConfigManager.getPMSDbUrl(), ConfigManager.getPMSDbUser(),
+					ConfigManager.getPMSDbPass(), ConfigManager.getPMSDbSchema(),
+					getGlobalResourcePath() + "/" + "config/partnerRevampDataDeleteQueries.txt");
+
+			DBManager.executeDBQueries(ConfigManager.getKMDbUrl(), ConfigManager.getKMDbUser(),
+					ConfigManager.getKMDbPass(), ConfigManager.getKMDbSchema(),
+					getGlobalResourcePath() + "/" + "config/partnerRevampDataDeleteQueriesForKeyMgr.txt");
+
+			DBManager.executeDBQueries(ConfigManager.getIdaDbUrl(), ConfigManager.getIdaDbUser(),
+					ConfigManager.getPMSDbPass(), ConfigManager.getIdaDbSchema(),
+					getGlobalResourcePath() + "/" + "config/partnerRevampDataDeleteQueriesForIDA.txt");
+
 			BaseTestCase.currentModule = GlobalConstants.PARTNERNEW;
 			setReportName(GlobalConstants.PARTNERNEW);
 			AdminTestUtil.copyPmsNewTestResource();
@@ -387,9 +430,15 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 		if (listOfModules.contains(GlobalConstants.INJICERTIFY)) {
 			BaseTestCase.currentModule = GlobalConstants.INJICERTIFY;
 			BaseTestCase.certsForModule = GlobalConstants.INJICERTIFY;
-			DBManager.clearKeyManagerDbCertData();
-			DBManager.clearIDADbCertData();
-			DBManager.clearMasterDbCertData();
+			DBManager.executeDBQueries(ConfigManager.getKMDbUrl(), ConfigManager.getKMDbUser(),
+					ConfigManager.getKMDbPass(), ConfigManager.getKMDbSchema(),
+					getGlobalResourcePath() + "/" + "config/keyManagerDataDeleteQueriesForEsignet.txt");
+			DBManager.executeDBQueries(ConfigManager.getIdaDbUrl(), ConfigManager.getIdaDbUser(),
+					ConfigManager.getPMSDbPass(), ConfigManager.getIdaDbSchema(),
+					getGlobalResourcePath() + "/" + "config/idaDeleteQueriesForEsignet.txt");
+			DBManager.executeDBQueries(ConfigManager.getMASTERDbUrl(), ConfigManager.getMasterDbUser(),
+					ConfigManager.getMasterDbPass(), ConfigManager.getMasterDbSchema(),
+					getGlobalResourcePath() + "/" + "config/masterDataDeleteQueriesForEsignet.txt");
 			setReportName(GlobalConstants.INJICERTIFY);
 			AdminTestUtil.copymoduleSpecificAndConfigFile(GlobalConstants.INJICERTIFY);
 		}

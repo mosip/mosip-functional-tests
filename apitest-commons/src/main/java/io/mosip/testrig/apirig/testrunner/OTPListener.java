@@ -40,9 +40,12 @@ public class OTPListener {
 
 	public void run() {
 		try {
-//			Properties kernelprops = ConfigManager.propsKernel;
 			String a1 = "wss://smtp.";
 			String externalurl = ConfigManager.getIAMUrl();
+
+			if (externalurl.contains("/auth")) {
+				externalurl = externalurl.replace("/auth", "");
+			}
 			String a2 = externalurl.substring(externalurl.indexOf(".") + 1);
 			String a3 = "/mocksmtp/websocket";
 
