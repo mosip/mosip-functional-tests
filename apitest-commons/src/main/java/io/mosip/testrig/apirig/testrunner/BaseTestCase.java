@@ -176,7 +176,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public static String publickey;
 	public static RSAKey rsaJWK;
 	public static String clientAssertionToken;
-	private static String zoneMappingRequest = "config/Authorization/zoneMappingRequest.json";
+	private static String zoneMappingRequest = null;
 	public static Properties props = null;
 
 	public static String currentRunningLanguage = "";
@@ -189,7 +189,11 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public static void setRunContext(String runType, String jarURL) {
 		runTypeS = runType;
 		jarURLS = jarURL;
+	}
+	
+	public static void init() {
 		props = getproperty(getGlobalResourcePath() + "/" + "config/application.properties");
+		zoneMappingRequest = "config/Authorization/zoneMappingRequest.json";
 	}
 
 	// Need to handle this
