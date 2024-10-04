@@ -137,8 +137,6 @@ public class AdminTestUtil extends BaseTestCase {
 			getGlobalResourcePath() + "/" + "config/valueMapping.properties");
 	protected static final Properties propsBio = getproperty(
 			getGlobalResourcePath() + "/" + "config/bioValue.properties");
-	protected static final Properties propsKernel = getproperty(
-			getGlobalResourcePath() + "/" + "config/Kernel.properties");
 	public static String propsHealthCheckURL = getGlobalResourcePath() + "/"
 			+ "config/healthCheckEndpoint.properties";
 	private static String serverComponentsCommitDetails;
