@@ -131,14 +131,9 @@ import io.restassured.response.Response;
 public class AdminTestUtil extends BaseTestCase {
 
 	private static final Logger logger = Logger.getLogger(AdminTestUtil.class);
-	protected static final Properties properties = getproperty(
-			getGlobalResourcePath() + "/" + "config/application.properties");
-	protected static final Properties propsMap = getproperty(
-			getGlobalResourcePath() + "/" + "config/valueMapping.properties");
-	protected static final Properties propsBio = getproperty(
-			getGlobalResourcePath() + "/" + "config/bioValue.properties");
-	protected static final Properties propsKernel = getproperty(
-			getGlobalResourcePath() + "/" + "config/Kernel.properties");
+	protected static Properties properties = null;
+	protected static Properties propsMap = null;
+	protected static Properties propsBio = null;
 	public static String propsHealthCheckURL = getGlobalResourcePath() + "/"
 			+ "config/healthCheckEndpoint.properties";
 	private static String serverComponentsCommitDetails;
@@ -163,9 +158,8 @@ public class AdminTestUtil extends BaseTestCase {
 	String fullNameForSunBirdRC = properties.getProperty("fullNameForSunBirdRC");
 	String dobForSunBirdRC = properties.getProperty("dobForSunBirdRC");
 	
-	public static final String PASSWORD_FOR_ADDIDENTITY_AND_REGISTRATION = properties
-			.getProperty("passwordForAddIdentity");
-	public static final String PASSWORD_TO_RESET = properties.getProperty("passwordToReset");
+	public static String PASSWORD_FOR_ADDIDENTITY_AND_REGISTRATION = null;
+	public static String PASSWORD_TO_RESET = null;
 	public static final String RESOURCE_FOLDER_NAME = "MosipTemporaryTestResource";
 	protected static String genertedUIN = null;
 	protected static String generatedRid = null;
@@ -266,6 +260,24 @@ public class AdminTestUtil extends BaseTestCase {
 	public static final int OTP_CHECK_INTERVAL = 10000;
 
 	private static final Map<String, String> actuatorValueCache = new HashMap<>();
+	
+	
+	public static void init() {
+		properties = getproperty(
+				getGlobalResourcePath() + "/" + "config/application.properties");
+		propsMap = getproperty(
+				getGlobalResourcePath() + "/" + "config/valueMapping.properties");
+		propsBio = getproperty(
+				getGlobalResourcePath() + "/" + "config/bioValue.properties");
+		
+		PASSWORD_FOR_ADDIDENTITY_AND_REGISTRATION = properties
+				.getProperty("passwordForAddIdentity");
+		PASSWORD_TO_RESET = properties.getProperty("passwordToReset");
+		
+		BaseTestCase.init();
+	}
+	
+	
 
 	protected static boolean triggerESignetKeyGen1 = true;
 
