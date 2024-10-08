@@ -4655,6 +4655,7 @@ public class AdminTestUtil extends BaseTestCase {
 			JSONObject langjson = new JSONObject(template);
 			for (String fieldToConvert : list) {
 				boolean isFilterRequired = false;
+				boolean isDataRequired = false;
 				String valueToConvert = null;
 				String translatedValue = null;
 				if (jsonObject.has(fieldToConvert)) {
@@ -4675,7 +4676,7 @@ public class AdminTestUtil extends BaseTestCase {
 					if (filtervalue.has(fieldToConvert)) {
 						valueToConvert = filtervalue.getString(fieldToConvert);
 						translatedValue = valueToConvert;
-						isFilterRequired = false;
+						isDataRequired = true;
 					}
 				}
 
@@ -4691,6 +4692,16 @@ public class AdminTestUtil extends BaseTestCase {
 					filtertransvalue.put(filteredvalue);
 					langjson.remove(GlobalConstants.FILTERS);
 					langjson.put(GlobalConstants.FILTERS, filtertransvalue);
+
+				} else if (isDataRequired) {
+					String dataValueToConvert = jsonObject.getJSONArray(GlobalConstants.KEYWORD_DATA).get(0).toString();
+					JSONObject dataValue = new JSONObject(dataValueToConvert);
+					String dataValue1 = dataValue.toString().replace(valueToConvert, translatedValue);
+					JSONObject translatedDataValue = new JSONObject(dataValue1);
+					JSONArray dataTransValue = new JSONArray();
+					dataTransValue.put(translatedDataValue);
+					langjson.remove(GlobalConstants.KEYWORD_DATA);
+					langjson.put(GlobalConstants.KEYWORD_DATA, dataTransValue);
 
 				} else if (!isFilterRequired && !langjson.isNull(fieldToConvert) || translatedValue != null)
 					langjson.put(fieldToConvert, translatedValue);
