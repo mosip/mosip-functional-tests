@@ -1032,4 +1032,35 @@
 		</classes>
 	</test>
 	<!-- End of Sign up L2 phase test cases -->
+		    <test name="PrepareSignupRedirectNegTC">
+	    <parameter name="ymlFile"
+			value="esignet/PrepareSignupRedirectNegTC/PrepareSignupRedirectNegTC.yml" />
+		<parameter name="idKeyName"	value="idToken" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	 <test name="SignupAuthorizeNegTC">
+		<parameter name="ymlFile"
+			value="esignet/SignupAuthorizeNegTC/SignupAuthorizeNegTC.yml" />
+		<parameter name="idKeyName"	value="transactionId,encodedResp" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="IDTAuthenticationNegTC">
+		<parameter name="ymlFile"
+			value="esignet/IDTAuthenticationNegTC/IDTAuthenticationNegTC.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="SignupAuthorizeCodeNegTC">
+		<parameter name="ymlFile"
+			value="esignet/SignupAuthorizeCodeNegTC/SignupAuthorizeCodeNegTC.yml" />
+		<parameter name="idKeyName"	value="code" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
 </suite>
