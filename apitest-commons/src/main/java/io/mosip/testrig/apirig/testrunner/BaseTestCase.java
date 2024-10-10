@@ -80,6 +80,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public String adminCookie = null;
 	public String partnerCookie = null;
 	public String partnerrevampCookie = null;
+	public String partnerrevampdeviceCookie = null;
 	public String partnerNewCookie = null;
 	public String withoutpartnerCookie = null;
 	public String withoutpolicyCookie = null;
