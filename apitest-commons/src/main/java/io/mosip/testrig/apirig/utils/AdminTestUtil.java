@@ -530,7 +530,7 @@ public class AdminTestUtil extends BaseTestCase {
 	protected Response postWithBodyAndCookieWithoutBody(String url, String jsonInput, String cookieName, String role,
 			String testCaseName) {
 		Response response = null;
-		jsonInput = null;
+	
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
