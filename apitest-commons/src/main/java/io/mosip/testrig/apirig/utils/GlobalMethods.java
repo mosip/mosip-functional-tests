@@ -26,7 +26,7 @@ public class GlobalMethods {
 	public static Set<String> serverEndpoints = new HashSet<>();
 
 	// Define the regex pattern to extract the domain and the path after the domain
-	private static final String module_name = "(mimoto|partnermanager|preregistration|resident|residentmobileapp|masterdata|esignet|idgenerator|policymanager|idauthentication|idrepository|auditmanager)";
+	private static final String module_name = "(mimoto|partnermanager|preregistration|resident|residentmobileapp|masterdata|esignet|idgenerator|policymanager|idauthentication|idrepository|auditmanager|authmanager)";
 	private static final String regex_1 = "https://([^/]+)/(v[0-9]+)?/" + module_name + "/([^,]+)";
 	private static final String regex_2 = "https://([^/]+)/" + module_name + "/(v[0-9]+)/([^,]+)";
 
@@ -42,7 +42,8 @@ public class GlobalMethods {
 		// Create a matcher for the current URL
 		Matcher matcher = pattern_1.matcher(url);
 		// Check if the first pattern matches
-		if (matcher.find()) {
+		boolean matcherAvailable = matcher.find();
+		if (matcherAvailable) {
 			String domain = matcher.group(1);
 			String version = matcher.group(2) != null ? matcher.group(2) : ""; // Handle null for optional group
 			String module = matcher.group(3);
@@ -86,9 +87,10 @@ public class GlobalMethods {
 		return url;
 	}
 
-	public static void addToServerEndPointMap(String url) {
+	public static String addToServerEndPointMap(String url) {
 		String updatedURL = getUpdatedEndPointURL(url);
 		serverEndpoints.add(updatedURL);
+		return updatedURL;
 	}
 
 	public static String removeNumerics(String url) {

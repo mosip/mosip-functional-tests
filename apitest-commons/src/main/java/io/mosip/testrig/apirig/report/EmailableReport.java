@@ -509,7 +509,6 @@ public class EmailableReport implements IReporter {
 		writer.print("<tr>");
 		writer.print("<th>Unique Identifier</th>");
 		writer.print("<th>Test Case</th>");
-		writer.print("<th>Unique Identifier</th>");
 		writer.print("<th>Test Case Description</th>");
 		writer.print("<th>Execution Time (HH:MM:SS)</th>");
 		writer.print(GlobalConstants.TR);
@@ -640,7 +639,6 @@ public class EmailableReport implements IReporter {
 							.append(uniqueIdentifier).append("</td>")
 							.append("<td style=\"text-align:center;\"><a href=\"#m").append(scenarioIndex).append("\">")
 							.append(methodName).append("</a></td>").append("<td style=\"text-align:center;\">")
-							.append(uniqueIdentifier).append("</td>").append("<td style=\"text-align:center;\">")
 							.append(testCaseDescription).append("</td>")
 							.append("<td style=\"text-align:center;\" rowspan=\"").append(resultsCount).append("\">")
 							.append(convertMillisToTime(duration)).append("</td></tr>");
