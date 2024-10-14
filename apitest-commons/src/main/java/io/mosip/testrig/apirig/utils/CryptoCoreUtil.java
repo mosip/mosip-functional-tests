@@ -1,10 +1,32 @@
 package io.mosip.testrig.apirig.utils;
 
-import io.mosip.kernel.core.crypto.exception.InvalidParamSpecException;
-import io.mosip.kernel.core.util.CryptoUtil;
-import io.mosip.kernel.crypto.jce.constant.SecurityExceptionCodeConstant;
-import io.mosip.kernel.crypto.jce.util.CryptoUtils;
-import lombok.extern.slf4j.Slf4j;
+import static java.util.Arrays.copyOfRange;
+
+import java.math.BigInteger;
+import java.security.GeneralSecurityException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.KeyStore.PrivateKeyEntry;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.cert.Certificate;
+import java.security.interfaces.RSAPrivateKey;
+import java.security.spec.MGF1ParameterSpec;
+import java.util.Arrays;
+import java.util.Objects;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.GCMParameterSpec;
+import javax.crypto.spec.OAEPParameterSpec;
+import javax.crypto.spec.PSource.PSpecified;
+import javax.crypto.spec.SecretKeySpec;
+
 import org.apache.commons.codec.digest.DigestUtils;
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.digests.SHA256Digest;
@@ -12,26 +34,14 @@ import org.bouncycastle.crypto.encodings.OAEPEncoding;
 import org.bouncycastle.crypto.engines.RSAEngine;
 import org.bouncycastle.crypto.params.RSAKeyParameters;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
-import javax.crypto.*;
-import javax.crypto.spec.GCMParameterSpec;
-import javax.crypto.spec.OAEPParameterSpec;
-import javax.crypto.spec.PSource.PSpecified;
-import javax.crypto.spec.SecretKeySpec;
-import java.math.BigInteger;
-import java.security.*;
-import java.security.KeyStore.PrivateKeyEntry;
-import java.security.cert.Certificate;
-import java.security.interfaces.RSAPrivateKey;
-import java.security.spec.MGF1ParameterSpec;
-import java.util.Arrays;
-import java.util.Objects;
-
-import static java.util.Arrays.copyOfRange;
+import io.mosip.kernel.core.crypto.exception.InvalidParamSpecException;
+import io.mosip.kernel.core.util.CryptoUtil;
+import io.mosip.kernel.crypto.jce.constant.SecurityExceptionCodeConstant;
+import io.mosip.kernel.crypto.jce.util.CryptoUtils;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@Component
 public class CryptoCoreUtil {
 
 	private final static String RSA_ECB_OAEP_PADDING = "RSA/ECB/OAEPWITHSHA-256ANDMGF1PADDING";

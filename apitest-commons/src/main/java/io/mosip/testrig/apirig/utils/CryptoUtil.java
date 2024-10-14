@@ -1,12 +1,21 @@
 package io.mosip.testrig.apirig.utils;
 
-import io.mosip.kernel.core.crypto.spi.CryptoCoreSpec;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.SecureRandom;
+import java.security.Security;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.KeyGenerator;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.SecretKey;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.springframework.stereotype.Component;
 
-import javax.crypto.*;
-import java.security.*;
+import io.mosip.kernel.core.crypto.spi.CryptoCoreSpec;
 
 
 /**
@@ -15,7 +24,6 @@ import java.security.*;
  * @author Arun Bose S
  * The Class CryptoUtil.
  */
-@Component
 public class CryptoUtil {
 
 	/** The Constant SYM_ALGORITHM. */

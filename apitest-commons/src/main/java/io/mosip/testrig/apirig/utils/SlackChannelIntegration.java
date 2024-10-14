@@ -1,6 +1,8 @@
 package io.mosip.testrig.apirig.utils;
 import java.io.IOException;
 
+import org.apache.log4j.Logger;
+
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -9,7 +11,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import org.apache.log4j.Logger;
 public class SlackChannelIntegration extends BaseTestCase  {
 	private static final Logger LOGGER = Logger.getLogger(SlackChannelIntegration.class);
     private static final String SLACK_WEBHOOK_URL =ConfigManager.getSlackWebHookUrl();

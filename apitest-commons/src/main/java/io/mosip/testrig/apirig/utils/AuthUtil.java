@@ -1,49 +1,36 @@
 package io.mosip.testrig.apirig.utils;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import io.mosip.authentication.core.constant.IdAuthenticationErrorConstants;
-import io.mosip.authentication.core.exception.IdAuthenticationAppException;
-import io.mosip.authentication.core.exception.IdAuthenticationBusinessException;
-import io.mosip.authentication.core.indauth.dto.IdType;
-import io.mosip.authentication.core.spi.indauth.match.MatchType;
-import io.mosip.kernel.core.exception.ExceptionUtils;
-import io.mosip.kernel.core.exception.ServiceError;
-import io.mosip.kernel.core.templatemanager.spi.TemplateManager;
-import io.mosip.kernel.core.util.CryptoUtil;
-import io.mosip.kernel.core.util.DateUtils;
-import io.mosip.testrig.apirig.dto.CertificateChainResponseDto;
-
-import org.apache.commons.codec.digest.DigestUtils;
-import org.apache.commons.io.IOUtils;
-import org.bouncycastle.operator.OperatorCreationException;
-import org.jose4j.lang.JoseException;
-import org.json.JSONException;
-import org.springframework.lang.Nullable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-
-
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-import javax.xml.bind.DatatypeConverter;
-import java.io.*;
-import java.net.URI;
-import java.net.http.HttpResponse;
-import java.nio.charset.StandardCharsets;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.security.*;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.UnrecoverableEntryException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
-import java.security.spec.InvalidKeySpecException;
-import java.util.*;
+import java.util.Base64;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.function.BiFunction;
 import java.util.stream.Stream;
+
+import javax.xml.bind.DatatypeConverter;
+
+import org.apache.commons.codec.digest.DigestUtils;
+import org.bouncycastle.operator.OperatorCreationException;
+import org.jose4j.lang.JoseException;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import io.mosip.authentication.core.spi.indauth.match.MatchType;
+import io.mosip.testrig.apirig.dto.CertificateChainResponseDto;
 
 public class AuthUtil {
 

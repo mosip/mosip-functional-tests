@@ -22,7 +22,6 @@ import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
-import org.springframework.stereotype.Component;
 import org.testng.Reporter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -40,7 +39,6 @@ import io.restassured.response.Response;
  * @author Ravi Kant
  *
  */
-@Component
 public class EncryptionDecrptionUtil extends AdminTestUtil{
 	private static final Logger lOGGER = Logger.getLogger(EncryptionDecrptionUtil.class);
 	private static String key="encryptedSessionKey";

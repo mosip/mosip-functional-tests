@@ -33,6 +33,7 @@ import java.util.Base64;
 import java.util.Date;
 import java.util.Objects;
 
+import org.apache.log4j.Logger;
 import org.bouncycastle.asn1.x500.X500Name;
 import org.bouncycastle.asn1.x500.X500NameBuilder;
 import org.bouncycastle.asn1.x500.style.BCStyle;
@@ -52,9 +53,6 @@ import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.util.io.pem.PemObject;
 import org.bouncycastle.util.io.pem.PemReader;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-import org.springframework.stereotype.Component;
 
 import io.mosip.testrig.apirig.dto.CertificateChainResponseDto;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
@@ -67,7 +65,6 @@ import io.mosip.testrig.apirig.testrunner.BaseTestCase;
  * @author Md. Taheer
  * @author Loganathan Sekar
  */
-@Component
 public class KeyMgrUtil {
 	
 	private static final Logger logger = Logger.getLogger(KeyMgrUtil.class);
