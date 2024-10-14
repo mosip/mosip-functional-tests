@@ -2,7 +2,6 @@ package io.mosip.testrig.apirig.testrunner;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.security.SecureRandom;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -16,12 +15,10 @@ import java.util.Properties;
 import javax.ws.rs.core.MediaType;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.json.JSONArray;
 import org.json.simple.JSONObject;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterSuite;
@@ -31,10 +28,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.nimbusds.jose.jwk.RSAKey;
 
-import io.mosip.testrig.apirig.admin.fw.config.BeanConfig;
-import io.mosip.testrig.apirig.dbaccess.DBManager;
 import io.mosip.testrig.apirig.utils.AdminTestUtil;
-import io.mosip.testrig.apirig.utils.AuthTestsUtil;
 import io.mosip.testrig.apirig.utils.CommonLibrary;
 import io.mosip.testrig.apirig.utils.ConfigManager;
 import io.mosip.testrig.apirig.utils.GlobalConstants;
@@ -50,7 +44,6 @@ import io.restassured.response.Response;
  * All suite level before and after tests will be completed here.
  *
  */
-@ContextConfiguration(classes = { BeanConfig.class })
 public class BaseTestCase extends AbstractTestNGSpringContextTests {
 
 	protected static Logger logger = Logger.getLogger(BaseTestCase.class);

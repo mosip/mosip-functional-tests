@@ -1,11 +1,6 @@
 package io.mosip.testrig.apirig.utils;
 
-import java.io.File;
 import java.io.IOException;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.UnrecoverableEntryException;
-import java.security.cert.CertificateException;
 import java.util.Calendar;
 import java.util.HashMap;
 
@@ -13,7 +8,6 @@ import javax.ws.rs.core.MediaType;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.bouncycastle.operator.OperatorCreationException;
 import org.json.JSONObject;
 
 import io.mosip.testrig.apirig.dto.CertificateChainResponseDto;

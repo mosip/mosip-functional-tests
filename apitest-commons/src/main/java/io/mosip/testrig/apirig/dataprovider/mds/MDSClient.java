@@ -2,11 +2,8 @@ package io.mosip.testrig.apirig.dataprovider.mds;
 
 import static io.restassured.RestAssured.given;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.LinkedList;
 import java.util.List;
 
 import org.json.JSONArray;
@@ -17,14 +14,11 @@ import org.springframework.util.CollectionUtils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.mosip.testrig.apirig.dataprovider.models.IrisDataModel;
 import io.mosip.testrig.apirig.dataprovider.models.JWTTokenModel;
-import io.mosip.testrig.apirig.dataprovider.models.ResidentBiometricModel;
 import io.mosip.testrig.apirig.dataprovider.models.mds.MDSDevice;
 import io.mosip.testrig.apirig.dataprovider.models.mds.MDSDeviceCaptureModel;
 import io.mosip.testrig.apirig.dataprovider.models.mds.MDSRCaptureModel;
 import io.mosip.testrig.apirig.dataprovider.util.CommonUtil;
-import io.mosip.testrig.apirig.dataprovider.util.DataProviderConstants;
 import io.mosip.testrig.apirig.utils.RestClient;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;

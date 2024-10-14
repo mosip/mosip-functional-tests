@@ -1,9 +1,6 @@
 package io.mosip.testrig.apirig.dataprovider.models;
 
-import java.io.IOException;
 import java.io.Serializable;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Hashtable;
 import java.util.List;
 
@@ -12,6 +9,7 @@ import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import lombok.Data;
 
 @Data

@@ -62,16 +62,14 @@ import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.util.io.pem.PemObject;
 import org.bouncycastle.util.io.pem.PemReader;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import io.mosip.authentication.core.util.CryptoUtil;
 import io.mosip.testrig.apirig.dto.CertificateChainResponseDto;
 
-@Component
 public class KeyMgrUtility {
 	
 	
-@Autowired
+	@Autowired
     private CryptoCoreUtil cryptoCoreUtil;
 
     private static final String DOMAIN_URL = "mosip.base.url";
