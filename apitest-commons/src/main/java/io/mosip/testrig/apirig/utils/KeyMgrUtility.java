@@ -69,7 +69,7 @@ import io.mosip.testrig.apirig.dto.CertificateChainResponseDto;
 public class KeyMgrUtility {
 	
 	
-	@Autowired
+    @Autowired
     private CryptoCoreUtil cryptoCoreUtil;
 
     private static final String DOMAIN_URL = "mosip.base.url";
