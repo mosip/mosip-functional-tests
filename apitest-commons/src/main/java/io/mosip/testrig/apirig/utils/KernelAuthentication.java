@@ -636,9 +636,9 @@ public class KernelAuthentication extends BaseTestCase {
 		JSONObject actualrequest = getRequestJson(authRequest);
 
 		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, ConfigManager.getidRepoAppId());
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getidRepoClientId());
-		request.put(GlobalConstants.SECRETKEY, ConfigManager.getIdRepoClientSecret());
+		request.put(GlobalConstants.APPID, ConfigManager.getAdminAppId());
+		request.put(GlobalConstants.CLIENTID, ConfigManager.getAutomationClientId());
+		request.put(GlobalConstants.SECRETKEY, ConfigManager.getAutomationClientSecret());
 		actualrequest.put(GlobalConstants.REQUEST, request);
 
 		Response reponse = appl.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);

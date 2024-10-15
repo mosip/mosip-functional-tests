@@ -4398,43 +4398,73 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public String removeObject(JSONObject object) {
-		Iterator<String> keysItr = object.keys();
-		while (keysItr.hasNext()) {
-			String key = keysItr.next();
-			Object value = object.get(key);
-			if (value instanceof JSONArray) {
-				JSONArray array = (JSONArray) value;
-				String finalarrayContent = "";
-				if (array.length() != 0) {
-					for (int i = 0; i < array.length(); ++i) {
-						if (!array.toString().contains("{") && !array.toString().contains("}")) {
-							Set<String> arr = new HashSet<>();
-							for (int k = 0; k < array.length(); k++) {
-								arr.add(array.getString(k));
-							}
-							finalarrayContent = removObjectFromArray(arr);
-						} else {
-							String arrayContent = removeObject(new JSONObject(array.get(i).toString()),
-									finalarrayContent);
-							finalarrayContent = finalarrayContent + "," + arrayContent;
-						}
-					}
-					finalarrayContent = finalarrayContent.substring(1, finalarrayContent.length());
-					object.put(key, new JSONArray("[" + finalarrayContent + "]"));
-				} else
-					object.put(key, new JSONArray("[]"));
+	    List<String> keysToRemove = new ArrayList<>();
+	    Iterator<String> keysItr = object.keys();
 
-			} else if (value instanceof JSONObject) {
-				String objectContent = removeObject(new JSONObject(value.toString()));
-				object.put(key, new JSONObject(objectContent));
-			}
-			if (value.toString().equals(GlobalConstants.REMOVE)) {
-				object.remove(key);
-				keysItr = object.keys();
-			}
-		}
-		return object.toString();
+	    while (keysItr.hasNext()) {
+	        String key = keysItr.next();
+	        Object value = object.get(key);
+
+	        if (value instanceof JSONArray) {
+	            JSONArray array = (JSONArray) value;
+	            JSONArray updatedArray = new JSONArray();
+
+	            for (int i = 0; i < array.length(); i++) {
+	                Object arrayElement = array.get(i);
+
+	                // Check if array element is JSONObject
+	                if (arrayElement instanceof JSONObject) {
+	                    String updatedObject = removeObject((JSONObject) arrayElement);
+	                    updatedArray.put(new JSONObject(updatedObject));
+
+	                } else if (arrayElement instanceof String) {
+	                    if (!arrayElement.equals(GlobalConstants.REMOVE)) {
+	                        updatedArray.put(arrayElement);
+	                    }
+
+	                } else if (arrayElement instanceof JSONArray) {
+	                    updatedArray.put(new JSONArray(removeObject((JSONArray) arrayElement)));
+	                }
+	            }
+
+	            object.put(key, updatedArray);
+
+	        } else if (value instanceof JSONObject) {
+	            String objectContent = removeObject((JSONObject) value);
+	            object.put(key, new JSONObject(objectContent));
+
+	        } else if (value instanceof String && value.equals(GlobalConstants.REMOVE)) {
+	            keysToRemove.add(key);
+	        }
+	    }
+
+	    for (String keyToRemove : keysToRemove) {
+	        object.remove(keyToRemove);
+	    }
+
+	    return object.toString();
 	}
+
+	// Helper method to process JSONArray elements
+	private String removeObject(JSONArray array) {
+	    JSONArray updatedArray = new JSONArray();
+
+	    for (int i = 0; i < array.length(); i++) {
+	        Object arrayElement = array.get(i);
+
+	        if (arrayElement instanceof JSONObject) {
+	            updatedArray.put(new JSONObject(removeObject((JSONObject) arrayElement)));
+
+	        } else if (arrayElement instanceof String && !arrayElement.equals(GlobalConstants.REMOVE)) {
+	            updatedArray.put(arrayElement);
+	        } else if (arrayElement instanceof JSONArray) {
+	            updatedArray.put(new JSONArray(removeObject((JSONArray) arrayElement)));
+	        }
+	    }
+
+	    return updatedArray.toString();
+	}
+
 
 	private String removeObject(JSONObject object, String tempArrayContent) {
 		Iterator<String> keysItr = object.keys();
