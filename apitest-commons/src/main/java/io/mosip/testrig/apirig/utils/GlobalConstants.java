@@ -232,4 +232,7 @@ public class GlobalConstants {
 	public static final String SEND_OTP_ENDPOINT = "mimoto/req/";
 	public static final String CREATE_VID_ENDPOINT = "/idrepository/v1/vid";
 	public static final String MIMOTO_CREDENTIAL_STATUS = "Mimoto_CredentialsStatus_";
+	public static final String PATH_FRAGMENT_COOKIE = "pathFragmentCookie";
+	public static final String IDT_TOKEN = "idtToken";
+	public static final String PATH_FRAGMENT_COOKIE_TRANSACTIONID = "pathFragmentCookieTransactionId";
 }
