@@ -12,7 +12,6 @@ import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
-import org.springframework.stereotype.Component;
 
 import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.HMACUtils;
@@ -28,7 +27,6 @@ import io.mosip.testrig.apirig.utils.Encrypt.SplittedEncryptedData;
  * @author Ravi Kant
  *
  */
-@Component
 public class BioDataUtility extends AdminTestUtil {
 
 	private static final Logger logger = Logger.getLogger(BioDataUtility.class);

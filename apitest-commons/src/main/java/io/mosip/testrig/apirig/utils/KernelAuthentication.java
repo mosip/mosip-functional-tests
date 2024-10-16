@@ -443,7 +443,7 @@ public class KernelAuthentication extends BaseTestCase {
 		JSONObject request = new JSONObject();
 		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
 		request.put(GlobalConstants.PASSWORD, props.get("policytest_password"));
-		request.put(GlobalConstants.USER_NAME, BaseTestCase.currentModule + "-" + props.get("policytest_userName"));
+		request.put(GlobalConstants.USER_NAME, props.get("policytest_userName"));
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());

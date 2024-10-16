@@ -1,6 +1,5 @@
 package io.mosip.testrig.apirig.utils;
 
-import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -11,7 +10,6 @@ import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.nio.file.attribute.PosixFileAttributes;
 import java.nio.file.attribute.PosixFilePermission;
 import java.util.ArrayList;
@@ -35,11 +33,9 @@ import org.testng.Reporter;
 import com.google.common.base.Verify;
 import com.ibm.icu.text.Transliterator;
 
-import io.mosip.kernel.core.util.HMACUtils;
 import io.mosip.testrig.apirig.dto.OutputValidationDto;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 import io.mosip.testrig.apirig.testrunner.JsonPrecondtion;
-import io.mosip.testrig.apirig.testrunner.XmlPrecondtion;
 import io.restassured.response.Response;
 
 /**
