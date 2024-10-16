@@ -1,0 +1,22 @@
+modules:
+  - name: admin-ui
+    enabled: false
+    image:
+      registry: docker.io
+      repository: mosipqa/uitest-admin
+      tag: develop
+      pullPolicy: Always
+  - name: pmp-ui
+    enabled: false
+    image:
+      registry: docker.io
+      repository: mosipqa/uitest-pmp
+      tag: develop
+      pullPolicy: Always
+  - name: resident-ui
+    enabled: false
+    image:
+      registry: docker.io
+      repository: mosipqa/uitest-resident
+      tag: develop
+      pullPolicy: Always

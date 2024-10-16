@@ -16,8 +16,8 @@ import java.util.Map;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-import javax.servlet.ReadListener;
-import javax.servlet.ServletInputStream;
+import  jakarta.servlet.ReadListener;
+import  jakarta.servlet.ServletInputStream;
 
 import org.jose4j.lang.JoseException;
 import org.json.JSONException;
