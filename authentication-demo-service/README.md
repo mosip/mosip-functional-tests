@@ -24,12 +24,3 @@ The project requires JDK 1.21.
 [application-default.properties](https://github.com/mosip/mosip-config/blob/dev-integration/application-default.properties)
 
 defined here.
-
-### Add auth-adapter in a class-path to run a services
-   ```
-   <dependency>
-       <groupId>io.mosip.kernel</groupId>
-       <artifactId>kernel-auth-adapter</artifactId>
-       <version>${kernel.auth.adaptor.version}</version>
-   </dependency>
-   ```
