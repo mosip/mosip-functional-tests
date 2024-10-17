@@ -513,9 +513,9 @@ public class EmailableReport implements IReporter {
 		writer.print("<table id='summary'>");
 		writer.print("<thead>");
 		writer.print("<tr>");
-		writer.print("<th>Unique Identifier</th>");
-		writer.print("<th>Test Case</th>");
-		writer.print("<th>Test Case Description</th>");
+		writer.print("<th>TestCase Number</th>");
+		writer.print("<th>TestCase</th>");
+		writer.print("<th>TestCase Description</th>");
 		writer.print("<th>Execution Time (HH:MM:SS)</th>");
 		writer.print(GlobalConstants.TR);
 		writer.print("</thead>");
