@@ -107,6 +107,10 @@ public class KernelAuthentication extends BaseTestCase {
 			if (!kernelCmnLib.isValidToken(adminCookie))
 				adminCookie = kernelAuthLib.getAuthForAdmin();
 			return adminCookie;
+		case "testrig":
+			if (!kernelCmnLib.isValidToken(testrigCookie))
+				testrigCookie = kernelAuthLib.getAuthForTestRigClient();
+			return testrigCookie;
 		case "zonalapprover":
 			if (!kernelCmnLib.isValidToken(zonalApproverCookie))
 				zonalApproverCookie = kernelAuthLib.getAuthForZonalApprover();
@@ -633,6 +637,21 @@ public class KernelAuthentication extends BaseTestCase {
 
 	@SuppressWarnings("unchecked")
 	public String getAuthForIDREPO() {
+		JSONObject actualrequest = getRequestJson(authRequest);
+
+		JSONObject request = new JSONObject();
+		request.put(GlobalConstants.APPID, ConfigManager.getidRepoAppId());
+		request.put(GlobalConstants.CLIENTID, ConfigManager.getidRepoClientId());
+		request.put(GlobalConstants.SECRETKEY, ConfigManager.getIdRepoClientSecret());
+		actualrequest.put(GlobalConstants.REQUEST, request);
+
+		Response reponse = appl.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
+		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
+		return cookie;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public String getAuthForTestRigClient() {
 		JSONObject actualrequest = getRequestJson(authRequest);
 
 		JSONObject request = new JSONObject();

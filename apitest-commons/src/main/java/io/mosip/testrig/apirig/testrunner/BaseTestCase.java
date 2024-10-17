@@ -71,6 +71,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public String zonalAdminCookie = null;
 	public String zonalApproverCookie = null;
 	public String adminCookie = null;
+	public String testrigCookie = null;
 	public String partnerCookie = null;
 	public String partnerrevampCookie = null;
 	public String partnerrevampdeviceCookie = null;
