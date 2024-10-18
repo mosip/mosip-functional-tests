@@ -2147,7 +2147,7 @@ public class AdminTestUtil extends BaseTestCase {
 			map.remove(GlobalConstants.VERIFIEDTRANSACTIONID);
 		}
 		
-		if (map.containsKey(GlobalConstants.IDV_TRANSACTION_ID)) {
+		if (map != null && map.containsKey(GlobalConstants.IDV_TRANSACTION_ID)) {
 			headerTransactionID = map.get(GlobalConstants.IDV_TRANSACTION_ID).toString();
 			cookiesMap.put(GlobalConstants.IDV_TRANSACTION_ID_KEY, headerTransactionID);
 			cookiesMap.put(GlobalConstants.XSRF_TOKEN, token);
