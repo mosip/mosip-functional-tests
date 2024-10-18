@@ -1,29 +1,14 @@
 package io.mosip.testrig.apirig.utils;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.security.KeyManagementException;
+import java.security.KeyStore.PrivateKeyEntry;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.UnrecoverableEntryException;
-import java.security.KeyStore.PrivateKeyEntry;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
-import java.security.spec.InvalidKeySpecException;
-import java.util.Collections;
-import java.util.List;
 import java.util.Objects;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-
-import io.swagger.annotations.Api;
-import lombok.Data;
-
-
 
 import org.bouncycastle.operator.OperatorCreationException;
 import org.jose4j.jws.JsonWebSignature;

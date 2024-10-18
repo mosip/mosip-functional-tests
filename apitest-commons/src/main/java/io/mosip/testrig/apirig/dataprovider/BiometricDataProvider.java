@@ -1,13 +1,9 @@
 package io.mosip.testrig.apirig.dataprovider;
 
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-//import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 //import java.net.URL;
@@ -23,7 +19,6 @@ import java.util.Base64;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Hashtable;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,6 +27,17 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
 import org.apache.commons.codec.binary.Hex;
+import org.apache.log4j.Logger;
+import org.xml.sax.SAXException;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jamesmurty.utils.XMLBuilder;
+//import java.util.Date;
+
+import io.mosip.kernel.biometrics.commons.CbeffValidator;
+import io.mosip.kernel.biometrics.entities.BIR;
+import io.mosip.mock.sbi.test.CentralizedMockSBI;
 import io.mosip.testrig.apirig.dataprovider.mds.MDSClient;
 import io.mosip.testrig.apirig.dataprovider.mds.MDSClientInterface;
 import io.mosip.testrig.apirig.dataprovider.models.BioModality;
@@ -46,18 +52,6 @@ import io.mosip.testrig.apirig.dataprovider.util.DataProviderConstants;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 import io.mosip.testrig.apirig.utils.RestClient;
 import io.restassured.response.Response;
-
-import org.apache.log4j.Logger;
-import org.xml.sax.SAXException;
-
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jamesmurty.utils.XMLBuilder;
-//import java.util.Date;
-
-import io.mosip.kernel.biometrics.commons.CbeffValidator;
-import io.mosip.kernel.biometrics.entities.BIR;
-import io.mosip.mock.sbi.test.CentralizedMockSBI;
 
 public class BiometricDataProvider {
 

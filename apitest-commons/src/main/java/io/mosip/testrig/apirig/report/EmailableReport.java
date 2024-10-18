@@ -61,10 +61,10 @@ public class EmailableReport implements IReporter {
 	private static final String JVM_ARG = GlobalConstants.EMAILABLEREPORT2NAME;
 
 	private int totalPassedTests = 0;
-	private int totalSkippedTests = 0;
+	private static int totalSkippedTests = 0;
 	private int totalIgnoredTests = 0;
 	private int totalKnownIssueTests = 0;
-	private int totalFailedTests = 0;
+	private static int totalFailedTests = 0;
 	private long totalDuration = 0;
 
 	public void setFileName(String fileName) {
@@ -74,6 +74,16 @@ public class EmailableReport implements IReporter {
 	public String getFileName() {
 		return fileName;
 	}
+	
+	public static int getFailedCount() {
+		return totalFailedTests;
+	}
+	
+	public static int getSkippedCount() {
+		return totalSkippedTests;
+	}
+	
+	
 
 	@Override
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
@@ -328,7 +338,6 @@ public class EmailableReport implements IReporter {
 
 			writer.print("<tr>");
 			writer.print("<th>Test Scenario</th>");
-			writer.print("<th>Prerequisite Step</th>");
 			writer.print("<th># Total</th>");
 			writer.print("<th># Passed</th>");
 			writer.print("<th># Skipped</th>");
@@ -379,8 +388,6 @@ public class EmailableReport implements IReporter {
 				writeTableData(buffer.append("<a href=\"#t").append(testIndex).append("\">")
 						.append(Utils.escapeHtml(testResult.getTestName())).append("</a>").toString(), "num");
 				
-				writeTableData(testResult.getPrerequisiteTest(), "num");
-				
 				writeTableData(integerFormat.format(totalTests), "num");
 				writeTableData(integerFormat.format(passedTests), (passedTests > 0 ? "num green-bg" : "num"));
 				writeTableData(integerFormat.format(skippedTests), (skippedTests > 0 ? "num orange-bg" : "num"));
@@ -413,7 +420,6 @@ public class EmailableReport implements IReporter {
 		if (testIndex > 1) {
 			writer.print("<tr>");
 			writer.print("<th>Total</th>");
-			writeTableHeader("", "num");
 			
 			if (reportIgnoredTestCases && reportKnownIssueTestCases) {
 				writeTableHeader(integerFormat.format(totalPassedTests + totalSkippedTests + totalFailedTests
@@ -507,9 +513,9 @@ public class EmailableReport implements IReporter {
 		writer.print("<table id='summary'>");
 		writer.print("<thead>");
 		writer.print("<tr>");
-		writer.print("<th>Unique Identifier</th>");
-		writer.print("<th>Test Case</th>");
-		writer.print("<th>Test Case Description</th>");
+		writer.print("<th>TestCase Number</th>");
+		writer.print("<th>TestCase</th>");
+		writer.print("<th>TestCase Description</th>");
 		writer.print("<th>Execution Time (HH:MM:SS)</th>");
 		writer.print(GlobalConstants.TR);
 		writer.print("</thead>");
@@ -935,7 +941,6 @@ public class EmailableReport implements IReporter {
 		};
 
 		private final String testName;
-		private final String prerequisiteTest;
 		private final List<ClassResult> failedConfigurationResults;
 		private final List<ClassResult> failedTestResults;
 		private final List<ClassResult> skippedConfigurationResults;
@@ -954,8 +959,6 @@ public class EmailableReport implements IReporter {
 
 		public TestResult(ITestContext context) {
 			testName = context.getName();
-			prerequisiteTest = context.getCurrentXmlTest().getParameter("prerequisite") == null ? ""
-					: context.getCurrentXmlTest().getParameter("prerequisite");
 
 			Set<ITestResult> failedConfigurations = context.getFailedConfigurations().getAllResults();
 			Set<ITestResult> failedTests = context.getFailedTests().getAllResults();
@@ -1044,10 +1047,6 @@ public class EmailableReport implements IReporter {
 			return testName;
 		}
 		
-		public String getPrerequisiteTest() {
-			return prerequisiteTest;
-		}
-
 		/**
 		 * @return the results for failed configurations (possibly empty)
 		 */

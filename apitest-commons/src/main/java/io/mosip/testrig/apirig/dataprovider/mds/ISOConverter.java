@@ -3,13 +3,9 @@ package io.mosip.testrig.apirig.dataprovider.mds;
 
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.io.Files;
 
 import io.mosip.biometrics.util.CommonUtil;

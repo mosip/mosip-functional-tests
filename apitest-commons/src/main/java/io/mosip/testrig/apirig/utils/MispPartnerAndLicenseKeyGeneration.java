@@ -1,6 +1,5 @@
 package io.mosip.testrig.apirig.utils;
 
-import java.io.File;
 import java.util.HashMap;
 
 import javax.ws.rs.core.MediaType;

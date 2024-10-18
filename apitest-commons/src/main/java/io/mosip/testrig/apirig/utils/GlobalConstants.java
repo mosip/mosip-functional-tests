@@ -212,6 +212,7 @@ public class GlobalConstants {
 	public static final String VID_FEATURE_NOT_SUPPORTED = "VID feature not supported. Hence skipping the testcase";
 	public static final String UIN_FEATURE_NOT_SUPPORTED = "UIN feature not supported. Hence skipping the testcase";
 	public static final String FEATURE_NOT_SUPPORTED_MESSAGE = "feature not supported. Hence skipping the testcase";
+	public static final String PRE_REQUISITE_FAILED_MESSAGE = "pre requisite failed. Hence skipping the testcase";
 	public static final String HANDLE_SCHEMA_NOT_DEPLOYED_MESSAGE = "ARRAY HANDLE Related Schema is not there Hence skipping the testcase";
 	public static final String VID_GENERATED_USING_RESIDENT_API_SO_FEATURE_NOT_SUPPORTED_OR_NEEDED_MESSAGE = "Generating VID using Resident API. So, this feature not supported/needed. Hence skipping the testcase";
 	public static final String SERVICE_NOT_DEPLOYED_MESSAGE = "Service not deployed. Hence skipping the testcase";
@@ -232,4 +233,9 @@ public class GlobalConstants {
 	public static final String SEND_OTP_ENDPOINT = "mimoto/req/";
 	public static final String CREATE_VID_ENDPOINT = "/idrepository/v1/vid";
 	public static final String MIMOTO_CREDENTIAL_STATUS = "Mimoto_CredentialsStatus_";
+	public static final String PATH_FRAGMENT_COOKIE = "pathFragmentCookie";
+	public static final String IDT_TOKEN = "idtToken";
+	public static final String PATH_FRAGMENT_COOKIE_TRANSACTIONID = "pathFragmentCookieTransactionId";
+	public static final String IDV_TRANSACTION_ID = "idvTransactionID";
+	public static final String IDV_TRANSACTION_ID_KEY = "IDV_TRANSACTION_ID";
 }

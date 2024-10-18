@@ -29,6 +29,7 @@ public class KernelAuthentication extends BaseTestCase {
 	private String partner_password = props.get("partner_user_password");
 	private String partner_userName = props.get("partner_userName");
 	private String partner_revamp_userName = props.get("partner_revamp_userName");
+	private String partner_revamp_device_userName = props.get("partner_revamp_device_userName");
 	private String partner_userName_without_role = props.get("policytest_userName");
 	private String partner_userName_without_pm_role = props.get("policytest_without_pmrole_userName");
 
@@ -106,6 +107,10 @@ public class KernelAuthentication extends BaseTestCase {
 			if (!kernelCmnLib.isValidToken(adminCookie))
 				adminCookie = kernelAuthLib.getAuthForAdmin();
 			return adminCookie;
+		case "testrig":
+			if (!kernelCmnLib.isValidToken(testrigCookie))
+				testrigCookie = kernelAuthLib.getAuthForTestRigClient();
+			return testrigCookie;
 		case "zonalapprover":
 			if (!kernelCmnLib.isValidToken(zonalApproverCookie))
 				zonalApproverCookie = kernelAuthLib.getAuthForZonalApprover();
@@ -114,6 +119,10 @@ public class KernelAuthentication extends BaseTestCase {
 			if (!kernelCmnLib.isValidToken(partnerrevampCookie))
 				partnerrevampCookie = kernelAuthLib.getAuthForPartnerRevamp();
 			return partnerrevampCookie;
+		case "partnerrevampdevice":
+			if (!kernelCmnLib.isValidToken(partnerrevampdeviceCookie))
+				partnerrevampdeviceCookie = kernelAuthLib.getAuthForPartnerRevampDevice();
+			return partnerrevampdeviceCookie;
 		case "partner":
 			if (!kernelCmnLib.isValidToken(partnerCookie))
 				partnerCookie = kernelAuthLib.getAuthForPartner();
@@ -307,6 +316,30 @@ public class KernelAuthentication extends BaseTestCase {
 		String responseBody = reponse.getBody().asString();
 		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
+	
+	@SuppressWarnings({ "unchecked" })
+	public String getAuthForPartnerRevampDevice() {
+
+		JSONObject request = new JSONObject();
+
+		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
+		request.put(GlobalConstants.PASSWORD, partner_password);
+		request.put(GlobalConstants.USER_NAME,  partner_revamp_device_userName);
+		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
+		if (BaseTestCase.isTargetEnvLTS()) {
+			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
+		} else {
+			request.put(GlobalConstants.CLIENTID, ConfigManager.getPartnerClientId());
+			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPartnerClientSecret());
+		}
+		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+
+		actualInternalrequest.put(GlobalConstants.REQUEST, request);
+		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		String responseBody = reponse.getBody().asString();
+		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+	}
 
 	@SuppressWarnings({ "unchecked" })
 	public String getAuthForNewPartner() {
@@ -410,7 +443,7 @@ public class KernelAuthentication extends BaseTestCase {
 		JSONObject request = new JSONObject();
 		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
 		request.put(GlobalConstants.PASSWORD, props.get("policytest_password"));
-		request.put(GlobalConstants.USER_NAME, BaseTestCase.currentModule + "-" + props.get("policytest_userName"));
+		request.put(GlobalConstants.USER_NAME, props.get("policytest_userName"));
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
@@ -610,6 +643,21 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.APPID, ConfigManager.getidRepoAppId());
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getidRepoClientId());
 		request.put(GlobalConstants.SECRETKEY, ConfigManager.getIdRepoClientSecret());
+		actualrequest.put(GlobalConstants.REQUEST, request);
+
+		Response reponse = appl.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
+		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
+		return cookie;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public String getAuthForTestRigClient() {
+		JSONObject actualrequest = getRequestJson(authRequest);
+
+		JSONObject request = new JSONObject();
+		request.put(GlobalConstants.APPID, ConfigManager.getAdminAppId());
+		request.put(GlobalConstants.CLIENTID, ConfigManager.getAutomationClientId());
+		request.put(GlobalConstants.SECRETKEY, ConfigManager.getAutomationClientSecret());
 		actualrequest.put(GlobalConstants.REQUEST, request);
 
 		Response reponse = appl.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);

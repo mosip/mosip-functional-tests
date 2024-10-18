@@ -1,6 +1,5 @@
 package io.mosip.testrig.apirig.utils;
 
-import java.io.File;
 import java.io.IOException;
 import java.security.cert.CertificateException;
 import java.util.HashMap;

@@ -18,7 +18,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-import jakarta.annotation.PostConstruct;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
@@ -31,6 +30,7 @@ import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.PSource.PSpecified;
 import javax.crypto.spec.SecretKeySpec;
 import javax.xml.bind.DatatypeConverter;
+
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.digests.SHA256Digest;
 import org.bouncycastle.crypto.encodings.OAEPEncoding;
@@ -40,7 +40,6 @@ import org.jose4j.jws.JsonWebSignature;
 import org.jose4j.jwx.CompactSerializer;
 import org.jose4j.lang.JoseException;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
 import io.mosip.kernel.core.crypto.exception.InvalidDataException;
 import io.mosip.kernel.core.crypto.exception.InvalidKeyException;
@@ -72,7 +71,6 @@ import io.mosip.kernel.crypto.jce.util.CryptoUtils;
  * @see SecureRandom
  */
 //Code optimization remaining (Code Dupe)
-@Component
 public class CryptoCore implements CryptoCoreSpec<byte[], byte[], SecretKey, PublicKey, PrivateKey, String> {
 
 	private static final String PERIOD_SEPARATOR_REGEX = "\\.";
