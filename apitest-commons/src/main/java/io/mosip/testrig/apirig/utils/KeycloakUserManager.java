@@ -92,6 +92,9 @@ public class KeycloakUserManager {
 			else if(needsToBeCreatedUser.equals("111998")){
 				moduleSpecificUser = needsToBeCreatedUser;
 				
+			}			else if(needsToBeCreatedUser.equals("111888")){
+				moduleSpecificUser = needsToBeCreatedUser;
+				
 			}
 			
 			else {
