@@ -19,7 +19,6 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.json.JSONArray;
 import org.json.simple.JSONObject;
-import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterSuite;
 
@@ -44,7 +43,7 @@ import io.restassured.response.Response;
  * All suite level before and after tests will be completed here.
  *
  */
-public class BaseTestCase extends AbstractTestNGSpringContextTests {
+public class BaseTestCase {
 
 	protected static Logger logger = Logger.getLogger(BaseTestCase.class);
 	public static OTPListener otpListener = null;
@@ -209,7 +208,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 		if (runTypeS.equalsIgnoreCase("JAR")) {
 			path = new File(jarURLS).getParentFile().getAbsolutePath() + "/MosipTestResource/MosipTemporaryTestResource";
 		} else if (runTypeS.equalsIgnoreCase("IDE")) {
-			path = new File(MosipTestRunner.class.getClassLoader().getResource("").getPath()).getAbsolutePath()
+			path = new File(BaseTestCase.class.getClassLoader().getResource("").getPath()).getAbsolutePath()
 					+ "/MosipTestResource/MosipTemporaryTestResource";
 			if (path.contains(GlobalConstants.TESTCLASSES))
 				path = path.replace(GlobalConstants.TESTCLASSES, "classes");
