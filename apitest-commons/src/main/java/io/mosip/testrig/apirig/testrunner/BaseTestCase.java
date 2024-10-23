@@ -208,7 +208,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 		if (runTypeS.equalsIgnoreCase("JAR")) {
 			path = new File(jarURLS).getParentFile().getAbsolutePath() + "/MosipTestResource/MosipTemporaryTestResource";
 		} else if (runTypeS.equalsIgnoreCase("IDE")) {
-			path = new File(MosipTestRunner.class.getClassLoader().getResource("").getPath()).getAbsolutePath()
+			path = new File(BaseTestCase.class.getClassLoader().getResource("").getPath()).getAbsolutePath()
 					+ "/MosipTestResource/MosipTemporaryTestResource";
 			if (path.contains(GlobalConstants.TESTCLASSES))
 				path = path.replace(GlobalConstants.TESTCLASSES, "classes");
