@@ -19,7 +19,6 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.json.JSONArray;
 import org.json.simple.JSONObject;
-import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterSuite;
 
@@ -44,7 +43,7 @@ import io.restassured.response.Response;
  * All suite level before and after tests will be completed here.
  *
  */
-public class BaseTestCase extends AbstractTestNGSpringContextTests {
+public class BaseTestCase {
 
 	protected static Logger logger = Logger.getLogger(BaseTestCase.class);
 	public static OTPListener otpListener = null;
