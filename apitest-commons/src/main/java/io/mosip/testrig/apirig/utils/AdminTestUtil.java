@@ -3066,12 +3066,57 @@ public class AdminTestUtil extends BaseTestCase {
 	    }
 	    return new String(authTransactionIdBytes);
 	}
+	
+	
+    private static String removeSuffixUnderscores(String input, String[] suffixes) {
+        for (String suffix : suffixes) {
+            if (input.endsWith(suffix)) {
+                // Remove underscores from the suffix
+                String modifiedSuffix = suffix.replace("_", "");
+                // Replace the original suffix in the input string with the modified one
+                return input.substring(0, input.length() - suffix.length()) + modifiedSuffix;
+            }
+        }
+        return input; // Return the original input if no suffix matches
+    }
+	
+	
+	public static String getTestCaseIDFromKeyword(String keyword) {
+
+		String[] suffixes = { "time_slot_from$", "appointment_date$", "access_token$" };
+
+		keyword = removeSuffixUnderscores(keyword, suffixes);
+
+		// Find the index of the last underscore
+		int lastUnderscoreIndex = keyword.lastIndexOf("_");
+
+		// Extract substring before the last underscore
+		String result = keyword.substring(0, lastUnderscoreIndex);
+
+		result = result.replace("$ID:", "");
+
+		String tempString = getTestCaseUniqueIdentifier(result);
+
+		if (tempString == null || tempString.isBlank()) {
+			return result;
+		}
+
+		return tempString;
+	}
+	
 
 	public String replaceKeywordWithValue(String jsonString, String keyword, String value) {
 		if (value != null && !value.isEmpty())
 			return jsonString.replace(keyword, value);
-		else
-			throw new SkipException("Marking testcase as skipped as required fields are empty " + keyword);
+		else {
+			if (keyword.contains("$ID:"))
+				throw new SkipException("Marking testcase as skipped as required field is empty " + keyword
+						+ " please check the results of testcase: " + getTestCaseIDFromKeyword(keyword));
+			else
+				throw new SkipException("Marking testcase as skipped as required field is empty " + keyword);
+
+		}
+
 	}
 
 	public static String addIdentityPassword = "";
@@ -4431,8 +4476,6 @@ public class AdminTestUtil extends BaseTestCase {
 		// $ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$
 		
 		// $ID:AddIdentity_withValidParameters_smoke_Pos_PHONE$@phone
-		
-		
 
 		if (keyForIdProperty.endsWith("_EMAIL") && ConfigManager.getMockNotificationChannel().equalsIgnoreCase("phone")) {
 				String temp = idKey + keyForIdProperty + "$" ; //$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$
@@ -4449,19 +4492,6 @@ public class AdminTestUtil extends BaseTestCase {
 		} else {
 			keyToReplace = idKey + keyForIdProperty + "$"; //AddIdentity_withValidParameters_smoke_Pos_EMAIL
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-
-		
-		
 		
 		Properties props = new Properties();
 
@@ -7009,9 +7039,26 @@ public class AdminTestUtil extends BaseTestCase {
 			return waitInterval;
 		}
 	}
+	
+	private static Map<String, String> testcaseIDNameMap = new HashMap<>();
+	
+	public static void addTestCaseDetailsToMap(String testCaseName,String uniqueIdentifier) {
+		testcaseIDNameMap.put(testCaseName, uniqueIdentifier);
+	}
+	
+	public static String getTestCaseUniqueIdentifier(String testCaseName) {
+		return testcaseIDNameMap.get(testCaseName);
+	}
+	
 
 	public static String isTestCaseValidForExecution(TestCaseDTO testCaseDTO) {
 		String testCaseName = testCaseDTO.getTestCaseName();
+		
+		int indexof = testCaseName.indexOf("_");
+		String modifiedTestCaseName = testCaseName.substring(indexof + 1);
+		
+		addTestCaseDetailsToMap(modifiedTestCaseName, testCaseDTO.getUniqueIdentifier());
+		
 		JSONArray dobArray = new JSONArray(getValueFromAuthActuator("json-property", "dob"));
 		JSONArray emailArray = new JSONArray(getValueFromAuthActuator("json-property", "emailId"));
 		JSONArray individualBiometricsArray = new JSONArray(
