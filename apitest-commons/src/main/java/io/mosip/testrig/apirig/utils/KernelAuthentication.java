@@ -197,8 +197,8 @@ public class KernelAuthentication extends BaseTestCase {
 		case "hotlist":
 			if (BaseTestCase.isTargetEnvLTS()) {
 				if (!kernelCmnLib.isValidToken(hotlistCookie))
-					residentCookie = kernelAuthLib.getAuthForHotlist();
-				return residentCookie;
+					hotlistCookie = kernelAuthLib.getAuthForHotlist();
+				return hotlistCookie;
 			} else {
 				if (!kernelCmnLib.isValidToken(regProCookie))
 					regProCookie = kernelAuthLib.getAuthForRegProc();
