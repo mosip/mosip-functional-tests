@@ -3361,15 +3361,26 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = replaceKeywordWithValue(jsonString, "$LOCATIONCODE$", locationCode);
 
 		// Need to handle int replacement
-		if (jsonString.contains("$HIERARCHYLEVEL$"))
+		if (jsonString.contains("$HIERARCHYLEVEL$")) {
 			getLocationData();
 			jsonString = replaceKeywordWithValue(jsonString, "$HIERARCHYLEVEL$", String.valueOf(hierarchyLevel));
+		}
 
-		if (jsonString.contains("$HIERARCHYNAME$"))
+		if (jsonString.contains("$HIERARCHYNAME$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$HIERARCHYNAME$", hierarchyName);
+		}
 
-		if (jsonString.contains("$PARENTLOCCODE$"))
+		if (jsonString.contains("$PARENTLOCCODE$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$PARENTLOCCODE$", parentLocCode);
+		}
+		
+		if (jsonString.contains("$LOCATIONNAME$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$LOCATIONNAME$", locationName);
+		}
+		
+		if (jsonString.contains("$HIERARCHYLEVELWITHLOCATIONCODE$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$HIERARCHYLEVELWITHLOCATIONCODE$", String.valueOf(hierarchyLevelWithLocationCode));
+		}
 
 		if (jsonString.contains("$CACERT$")) {
 			JSONObject request = new JSONObject(jsonString);
@@ -7711,6 +7722,63 @@ public class AdminTestUtil extends BaseTestCase {
 				JSONObject responseObject = responseJson.getJSONObject("response");
 
 				ZonelocationCode = responseObject.getString("zoneCode");
+
+			} catch (Exception e) {
+				logger.error(e.getMessage());
+			}
+
+		} catch (Exception e) {
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+		}
+	}
+	
+	public static void getRegistrationCenterData() {
+
+		Response response = null;
+		JSONObject responseJson = null;
+		String url = ApplnURI + props.getProperty("fetchRegCent");
+		String token = kernelAuthLib.getTokenByRole("globalAdmin");
+
+		try {
+
+			response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
+					GlobalConstants.AUTHORIZATION, token);
+
+			responseJson = new JSONObject(response.getBody().asString());
+
+			try {
+				JSONObject responseObject = responseJson.getJSONObject("response").getJSONArray("registrationCenters").getJSONObject(0);
+
+				locationCode = responseObject.getString("locationCode");
+
+			} catch (Exception e) {
+				logger.error(e.getMessage());
+			}
+
+		} catch (Exception e) {
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+		}
+	}
+	
+	public static void getLocationDataWithLocationCode(String locationCode) {
+
+		Response response = null;
+		JSONObject responseJson = null;
+		String url = ApplnURI + props.getProperty("fetchLocationDataWithCode") + locationCode + "/" + BaseTestCase.getLanguageList().get(0);
+		String token = kernelAuthLib.getTokenByRole("globalAdmin");
+
+		try {
+
+			response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
+					GlobalConstants.AUTHORIZATION, token);
+
+			responseJson = new JSONObject(response.getBody().asString());
+
+			try {
+				JSONObject responseObject = responseJson.getJSONObject("response");
+
+				hierarchyLevelWithLocationCode = responseObject.getInt("hierarchyLevel");
+				locationName = responseObject.getString("name");
 
 			} catch (Exception e) {
 				logger.error(e.getMessage());
