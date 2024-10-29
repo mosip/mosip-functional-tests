@@ -133,6 +133,8 @@ public class BaseTestCase {
 	public static String hierarchyName = "";
 	public static int hierarchyLevel = 0;
 	public static String parentLocCode = "";
+	public static String locationName = "";
+	public static int hierarchyLevelWithLocationCode = 0;
 
 	public static String locationCode = "";
 	public static String ZonelocationCode = "";
