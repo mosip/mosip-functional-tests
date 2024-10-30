@@ -129,17 +129,16 @@ public class OTPListener {
 	}
 
 	public static String getOtp(String emailId) {
+		if (ConfigManager.getUsePreConfiguredOtp().equalsIgnoreCase(GlobalConstants.TRUE_STRING)) {
+			return ConfigManager.getPreConfiguredOtp();
+		}
 		int otpExpTime = AdminTestUtil.getOtpExpTimeFromActuator();
 		int otpCheckLoopCount = (otpExpTime * 1000) / AdminTestUtil.OTP_CHECK_INTERVAL;
 
 		int counter = 0;
 
 		String otp = "";
-		
-		
-		if (ConfigManager.getUsePreConfiguredOtp().equalsIgnoreCase(GlobalConstants.TRUE_STRING)) {
-			return ConfigManager.getPreConfiguredOtp();
-		}
+
 		while (counter < otpCheckLoopCount) {
 			if (emailNotificationMapS.get(emailId) != null) {
 				String html = (String) emailNotificationMapS.get(emailId);

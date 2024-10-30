@@ -7190,8 +7190,8 @@ public class AdminTestUtil extends BaseTestCase {
 		String fullNamePattern = getValueFromSignUpSettings("fullname.pattern").toString();
 		List<String> fullnames = Arrays.asList(" ឮᨪដ", "᧦", "ᨃ", "៻៥᧿", "ᩅᨎ", "ᩭឫ", "  ឃ  ំ ដ     ៹ម");
 		String randomFullName = getRandomElement(fullnames);
-		List<String> languageList = new ArrayList<>();
-		languageList = BaseTestCase.getLanguageList();
+		List<String> languageList = new ArrayList<>(BaseTestCase.getLanguageList());
+//		languageList = BaseTestCase.getLanguageList();
 
 		// For current sprint eng is removed.
 		if (languageList.contains("eng"))
