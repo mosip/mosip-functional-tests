@@ -573,10 +573,12 @@ public class BaseTestCase {
 	}
 
 	private static String targetEnvVersion = "";
+	
+	public static boolean isTargetEnvLatest = false;
 
 	public static boolean isTargetEnvLTS() {
 
-		if (targetEnvVersion.isEmpty()) {
+		if (targetEnvVersion.isEmpty() && isTargetEnvLatest == false) {
 
 			Response response = null;
 			org.json.JSONObject responseJson = null;
@@ -587,14 +589,16 @@ public class BaseTestCase {
 				responseJson = new org.json.JSONObject(response.getBody().asString());
 
 				targetEnvVersion = responseJson.getJSONObject("build").getString("version");
+				isTargetEnvLatest = isVersionGreaterOrEqual(targetEnvVersion, "1.2");
 
 			} catch (Exception e) {
 				logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			}
 		}
-		
+
 		// Compare the version numbers, ignoring any suffix like "-SNAPSHOT"
-	    return isVersionGreaterOrEqual(targetEnvVersion, "1.2");
+
+		return isTargetEnvLatest;
 	}
 	
 	private static boolean isVersionGreaterOrEqual(String version1, String version2) {
