@@ -168,6 +168,7 @@ public class ConfigManager {
 	public static String getKMDbUrl() { return "jdbc:postgresql://" + getproperty("db-server") + ":" +  getproperty("db-port") + "/mosip_keymgr"; }
 	public static String getMASTERDbUrl() { return "jdbc:postgresql://" + getproperty("db-server") + ":" +  getproperty("db-port") + "/mosip_master"; }
 	public static String getUserAdminName() { return getproperty("admin_userName"); }
+	public static String getUserAdminPassword() { return getproperty("admin_password"); }
 	public static String getPmsClientSecret() {	return getproperty("mosip_pms_client_secret"); }
 	public static String getPartnerClientSecret() {	return getproperty("mosip_partner_client_secret"); }
 	public static String getPartnerClientId() {	return getproperty("mosip_partner_client_id"); }
