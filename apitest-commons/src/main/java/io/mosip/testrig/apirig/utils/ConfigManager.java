@@ -119,6 +119,10 @@ public class ConfigManager {
 	public static String getRolesForUser(String userId) { 
 		return getproperty("roles." + userId);
 	}
+	
+	public static String getRolesForUser() { 
+		return getproperty("roles");
+	}
 
 	public static String getServerErrorsToMonitor() { return getproperty("serverErrorsToMonitor");	}
 	public static String getEnableDebug() {	return getproperty("enableDebug");	}
