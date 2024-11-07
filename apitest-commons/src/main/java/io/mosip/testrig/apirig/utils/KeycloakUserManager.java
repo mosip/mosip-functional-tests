@@ -303,7 +303,7 @@ public class KeycloakUserManager {
 
 				List<RoleRepresentation> allRoles = realmResource.roles().list();
 				List<RoleRepresentation> availableRoles = new ArrayList<>();
-				List<String> toBeAssignedRoles = List.of(propsKernel.getProperty(rolenum).split(","));
+				List<String> toBeAssignedRoles = List.of(ConfigManager.getRolesForUser().split(","));
 				for (String role : toBeAssignedRoles) {
 					if (allRoles.stream().anyMatch((r -> r.getName().equalsIgnoreCase(role)))) {
 						if (allRoles.stream().filter(r->r.getName().equals(role)).findFirst().isPresent())
