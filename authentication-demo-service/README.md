@@ -44,3 +44,12 @@ This is to maintain compatibility with existing ANT-style path patterns.
 
 ## Configuration
 [Configuration-Application](https://github.com/mosip/mosip-config/blob/develop/application-default.properties) defined here.
+
+## Deploy
+To deploy Commons services on Kubernetes cluster using Dockers refer to [Sandbox Deployment](https://docs.mosip.io/1.2.0/deployment/sandbox-deployment).
+
+## APIs
+API documentation is available [here](https://mosip.github.io/documentation/).
+
+## License
+This project is licensed under the terms of [Mozilla Public License 2.0](LICENSE).
