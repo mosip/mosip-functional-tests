@@ -7,7 +7,7 @@ Demo authentication service used by automation tests.
 Prerequisites:
 [Config Server](https://docs.mosip.io/1.2.0/modules/module-configuration#config-server)
 
-The project requires JDK 1.21.
+The project requires JDK 21.0.3
 and mvn version - 3.9.6
 
 ### Remove the version-specific suffix (PostgreSQL95Dialect) from the Hibernate dialect configuration
