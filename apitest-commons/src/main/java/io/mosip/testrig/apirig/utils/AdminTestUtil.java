@@ -7096,7 +7096,7 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			
 			if (testCaseName.startsWith("IdRepository_") && testCaseName.contains("_handle") && foundHandlesInIdSchema == false) {
-				throw new SkipException(GlobalConstants.HANDLE_SCHEMA_NOT_DEPLOYED_MESSAGE);
+				throw new SkipException(GlobalConstants.FEATURE_NOT_SUPPORTED_MESSAGE);
 			}
 			
 			
