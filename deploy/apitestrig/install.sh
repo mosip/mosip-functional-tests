@@ -20,7 +20,7 @@ function installing_apitestrig() {
   echo Copy Configmaps
   ./copy_cm.sh
 
-  echo echo Copy Secrtes
+  echo  Copy Secrtes
   ./copy_secrets.sh
 
   echo "Delete s3, db, & apitestrig configmap if exists"
