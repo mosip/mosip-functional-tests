@@ -58,7 +58,7 @@ public class ExtractResource {
 	public static void getListOfFilesFromJarAndCopyToExternalResource(String key) {
 		ZipInputStream zipInputStream = null;
 		try {
-			CodeSource src = MosipTestRunner.class.getProtectionDomain().getCodeSource();
+			CodeSource src = BaseTestCase.class.getProtectionDomain().getCodeSource();
 			if (src != null) {
 				URL jar = src.getLocation();
 				zipInputStream = new ZipInputStream(jar.openStream());
@@ -106,7 +106,7 @@ public class ExtractResource {
 			String resourceFileAbsolutePath =  resourceFileParentPath + "MosipTemporaryTestResource/" + resourceFileName;
 			File destinationFile = new File(resourceFileAbsolutePath);
 			LOGGER.info("resourceFile : " + BaseTestCase.jarURLS + "destinationFile : " + resourceFileAbsolutePath);
-			org.apache.commons.io.FileUtils.copyInputStreamToFile(MosipTestRunner.class.getResourceAsStream("/" + resourceFileName), destinationFile);
+			org.apache.commons.io.FileUtils.copyInputStreamToFile(BaseTestCase.class.getResourceAsStream("/" + resourceFileName), destinationFile);
 			return true;
 		} catch (Exception e) {
 			LOGGER.error(

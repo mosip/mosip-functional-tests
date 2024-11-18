@@ -54,6 +54,7 @@ public class GlobalConstants {
 	public static final String MIMOTO = "mimoto";
 	public static final String INJICERTIFY = "injicertify";
 	public static final String ESIGNET = "esignet";
+	public static final String SIGNUP = "signup";
 	public static final String APIKEY = "apiKey";
 	public static final String PARTNER_APIKEY = "partnerApiKey";
 	public static final String PARTNERID = "partnerId";
@@ -238,4 +239,6 @@ public class GlobalConstants {
 	public static final String PATH_FRAGMENT_COOKIE_TRANSACTIONID = "pathFragmentCookieTransactionId";
 	public static final String IDV_TRANSACTION_ID = "idvTransactionID";
 	public static final String IDV_TRANSACTION_ID_KEY = "IDV_TRANSACTION_ID";
+	public static final String IDV_SLOT_ALLOTED = "idvSlotAllotted";
+	public static final String IDV_SLOT_ALLOTED_KEY = "IDV_SLOT_ALLOTTED=";
 }

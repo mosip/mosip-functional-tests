@@ -19,7 +19,6 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.json.JSONArray;
 import org.json.simple.JSONObject;
-import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterSuite;
 
@@ -44,7 +43,7 @@ import io.restassured.response.Response;
  * All suite level before and after tests will be completed here.
  *
  */
-public class BaseTestCase extends AbstractTestNGSpringContextTests {
+public class BaseTestCase {
 
 	protected static Logger logger = Logger.getLogger(BaseTestCase.class);
 	public static OTPListener otpListener = null;
@@ -75,6 +74,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public String partnerCookie = null;
 	public String partnerrevampCookie = null;
 	public String partnerrevampdeviceCookie = null;
+	public String partnerrevampftmCookie = null;
 	public String partnerNewCookie = null;
 	public String withoutpartnerCookie = null;
 	public String withoutpolicyCookie = null;
@@ -133,6 +133,8 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	public static String hierarchyName = "";
 	public static int hierarchyLevel = 0;
 	public static String parentLocCode = "";
+	public static String locationName = "";
+	public static int hierarchyLevelWithLocationCode = 0;
 
 	public static String locationCode = "";
 	public static String ZonelocationCode = "";
@@ -208,7 +210,7 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 		if (runTypeS.equalsIgnoreCase("JAR")) {
 			path = new File(jarURLS).getParentFile().getAbsolutePath() + "/MosipTestResource/MosipTemporaryTestResource";
 		} else if (runTypeS.equalsIgnoreCase("IDE")) {
-			path = new File(MosipTestRunner.class.getClassLoader().getResource("").getPath()).getAbsolutePath()
+			path = new File(BaseTestCase.class.getClassLoader().getResource("").getPath()).getAbsolutePath()
 					+ "/MosipTestResource/MosipTemporaryTestResource";
 			if (path.contains(GlobalConstants.TESTCLASSES))
 				path = path.replace(GlobalConstants.TESTCLASSES, "classes");
@@ -571,10 +573,12 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 	}
 
 	private static String targetEnvVersion = "";
+	
+	public static boolean isTargetEnvLatest = false;
 
 	public static boolean isTargetEnvLTS() {
 
-		if (targetEnvVersion.isEmpty()) {
+		if (targetEnvVersion.isEmpty() && isTargetEnvLatest == false) {
 
 			Response response = null;
 			org.json.JSONObject responseJson = null;
@@ -585,14 +589,16 @@ public class BaseTestCase extends AbstractTestNGSpringContextTests {
 				responseJson = new org.json.JSONObject(response.getBody().asString());
 
 				targetEnvVersion = responseJson.getJSONObject("build").getString("version");
+				isTargetEnvLatest = isVersionGreaterOrEqual(targetEnvVersion, "1.2");
 
 			} catch (Exception e) {
 				logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			}
 		}
-		
+
 		// Compare the version numbers, ignoring any suffix like "-SNAPSHOT"
-	    return isVersionGreaterOrEqual(targetEnvVersion, "1.2");
+
+		return isTargetEnvLatest;
 	}
 	
 	private static boolean isVersionGreaterOrEqual(String version1, String version2) {
