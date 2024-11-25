@@ -69,6 +69,14 @@ public class ConfigManager {
 				value = System.getProperty("env.endpoint").replace("api-internal", "signup");
 			}
 			propertiesMap.put(key, value);
+		} else if (key.equalsIgnoreCase("injiCertifyBaseURL")){
+			String value = null;
+			if (System.getenv("injiCertifyBaseURL") != null) {
+				value = System.getenv("injiCertifyBaseURL");
+			} else {
+				value = System.getProperty("env.endpoint").replace("api-internal", "injicertify");
+			}
+			propertiesMap.put(key, value);
 		} else if (key.equalsIgnoreCase("mosip_components_base_urls")){
 			String components_base_urls = System.getenv("mosip_components_base_urls") == null
 			? props.getProperty("mosip_components_base_urls")
