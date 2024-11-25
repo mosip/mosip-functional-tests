@@ -69,6 +69,14 @@ public class ConfigManager {
 				value = System.getProperty("env.endpoint").replace("api-internal", "signup");
 			}
 			propertiesMap.put(key, value);
+		} else if (key.equalsIgnoreCase("injiCertifyBaseURL")){
+			String value = null;
+			if (System.getenv("injiCertifyBaseURL") != null) {
+				value = System.getenv("injiCertifyBaseURL");
+			} else {
+				value = System.getProperty("env.endpoint").replace("api-internal", "injicertify");
+			}
+			propertiesMap.put(key, value);
 		} else if (key.equalsIgnoreCase("mosip_components_base_urls")){
 			String components_base_urls = System.getenv("mosip_components_base_urls") == null
 			? props.getProperty("mosip_components_base_urls")
@@ -119,6 +127,10 @@ public class ConfigManager {
 	public static String getRolesForUser(String userId) { 
 		return getproperty("roles." + userId);
 	}
+	
+	public static String getRolesForUser() { 
+		return getproperty("roles");
+	}
 
 	public static String getServerErrorsToMonitor() { return getproperty("serverErrorsToMonitor");	}
 	public static String getEnableDebug() {	return getproperty("enableDebug");	}
@@ -168,6 +180,7 @@ public class ConfigManager {
 	public static String getKMDbUrl() { return "jdbc:postgresql://" + getproperty("db-server") + ":" +  getproperty("db-port") + "/mosip_keymgr"; }
 	public static String getMASTERDbUrl() { return "jdbc:postgresql://" + getproperty("db-server") + ":" +  getproperty("db-port") + "/mosip_master"; }
 	public static String getUserAdminName() { return getproperty("admin_userName"); }
+	public static String getUserAdminPassword() { return getproperty("admin_password"); }
 	public static String getPmsClientSecret() {	return getproperty("mosip_pms_client_secret"); }
 	public static String getPartnerClientSecret() {	return getproperty("mosip_partner_client_secret"); }
 	public static String getPartnerClientId() {	return getproperty("mosip_partner_client_id"); }
