@@ -17,8 +17,8 @@ This repository consists of:
 ## Prerequisites
 
 To use this repository, ensure you have:
-- **Java 21** or later installed ([download here](https://jdk.java.net/)).
-- **Maven** ([installation guide](https://maven.apache.org/install.html)).
+- **Java 21** ([download here](https://jdk.java.net/)).
+- **Maven 3.9.6** or higher ([installation guide](https://maven.apache.org/install.html)).
 - Access to necessary MOSIP services or mocked test environments.
 
 ---
@@ -32,7 +32,7 @@ To use this repository, ensure you have:
 - Add the following dependency in the POM of required project
     ```sh
     <dependency>
-      <groupId>org.mosip</groupId>
+      <groupId>io.mosip.testrig.apirig.apitest.commons</groupId>
       <artifactId>apitest-commons</artifactId>
       <version>1.3.0</version>
     </dependency>
