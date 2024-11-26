@@ -52,7 +52,7 @@ Ensure the following software is installed on the machine from where the automat
 
 ## Update the property file
 1. Navigate to the kernel.properties file located at:
-    ```sh
+    sh
     `mosip-functional-tests\apitest-commons\src\main\resources\config\kernel.properties`
 2. Open the file in your preferred editor
 3. Update the client secret values and other required credentials as per your environment
