@@ -52,15 +52,18 @@ Ensure the following software is installed on the machine from where the automat
 
 ## Update the property file
 1. Navigate to the kernel.properties file located at:
-    `sh mosip-functional-tests\apitest-commons\src\main\resources\config\kernel.properties`
+    ```sh
+    mosip-functional-tests\apitest-commons\src\main\resources\config\kernel.properties
 2. Open the file in your preferred editor
 3. Update the client secret values and other required credentials as per your environment
 
 ## Build Test Automation Code
 1. Navigate to the apitest-commons directory:
-2. `cd mosip-functional-tests/apitest-commons/`
-3. Run the following Maven command:
-4. `mvn clean install -Dgpg.skip=true -Dmaven.gitcommitid.skip=true`
+    ```sh
+    cd mosip-functional-tests/apitest-commons/
+2. Run the following Maven command:
+    ```sh
+    mvn clean install -Dgpg.skip=true -Dmaven.gitcommitid.skip=true
 
 ## License
 This project is licensed under the terms of [Mozilla Public License 2.0](https://github.com/mosip/mosip-platform/blob/master/LICENSE)
