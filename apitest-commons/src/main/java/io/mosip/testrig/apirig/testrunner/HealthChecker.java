@@ -119,6 +119,7 @@ public class HealthChecker implements Runnable {
 
 	public static String checkActuatorNoAuth(String actuatorURL) {
 		Response response = null;
+		actuatorURL = GlobalMethods.addToServerEndPointMap(actuatorURL);
 		response = given().contentType(ContentType.JSON).get(actuatorURL);
 		if (response != null && response.getStatusCode() == 200) {
 			logger.info(response.getBody().asString());
