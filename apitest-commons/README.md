@@ -52,10 +52,10 @@ Ensure the following software is installed on the machine from where the automat
 
 ## Update the property file
 1. Navigate to the kernel.properties file located at:
-```sh
-`mosip-functional-tests\apitest-commons\src\main\resources\config\kernel.properties`
-3. Open the file in your preferred editor
-4. Update the client secret values and other required credentials as per your environment
+    ```sh
+    `mosip-functional-tests\apitest-commons\src\main\resources\config\kernel.properties`
+2. Open the file in your preferred editor
+3. Update the client secret values and other required credentials as per your environment
 
 ## Build Test Automation Code
 1. Navigate to the apitest-commons directory:
