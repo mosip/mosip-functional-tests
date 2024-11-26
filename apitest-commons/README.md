@@ -24,6 +24,7 @@ Ensure the following software is installed on the machine from where the automat
 - **Java 21** ([download here](https://jdk.java.net/)).
 - **Maven 3.9.6** or higher ([installation guide](https://maven.apache.org/install.html)).
 - **Lombok** (Refer to [Lombok Project](https://projectlombok.org/))
+- **setting.xml** ([download here](https://github.com/mosip/mosip-functional-tests/blob/master/settings.xml))
 
 ---
 
