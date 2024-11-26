@@ -58,7 +58,7 @@ Ensure the following software is installed on the machine from where the automat
 3. Update the client secret values and other required credentials as per your environment
 
 ## Build Test Automation Code
-1. Navigate to the apitest-commons directory:
+1. From the already opened Git Bash, navigate to the apitest-commons directory:
     ```sh
     cd mosip-functional-tests/apitest-commons/
 2. Run the following Maven command:
