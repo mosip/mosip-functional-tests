@@ -1,47 +1,43 @@
 # MOSIP Functional Tests
 
-## Overview
+The **`mosip-functional-tests`** repository contains the reusable **`apitest-commons`** library, which simplifies API testing with pre-built utilities and helpers. The **`apitest-commons`** can be used as a dependency in POM files for MOSIP testrigs of all the modules and can consume the reusable codes.
 
-The API Test Rig Commons is a shared code base that is used for the execution of module-wise automation API tests. This uses Java REST Assured and TestNG frameworks to automate testing for different modules like Pre-registration, Masterdata, Partner Management, PMS, ID Repository, IDA, Resident, E-Signet, and Mimoto.
+---
 
-## Pre-requisites
+## Repository Structure
 
-Ensure the following software is installed on the machine from where the automation tests will be executed:
+This repository consists of:
+1. **`apitest-commons`**:
+   - A reusable library for API testing.
+   - Released independently to [Maven Central](https://search.maven.org/) under the artifact ID `apitest-commons`.
+   - Includes its own [README](apitest-commons/README.md) for detailed instructions on setup and usage.
 
-- Java 21
-- Maven 3.9.6 or higher
-- Lombok (Refer to [Lombok Project](https://projectlombok.org/))
+---
 
-### For Windows
+## Prerequisites
 
-- Git Bash 2.18.0 or higher
-- `settings.xml` needs to be present in the `.m2` folder.
+To use this repository, ensure you have:
+- **Java 21** ([download here](https://jdk.java.net/)).
+- **Maven 3.9.6** or higher ([installation guide](https://maven.apache.org/install.html)).
+- Access to necessary MOSIP services or mocked test environments.
 
-### For Linux
+---
 
-- `settings.xml` file needs to be present in two places:
-  - Regular Maven conf folder
-  - Copy the same `settings.xml` under `/usr/local/maven/conf`
+## Apitest Commons
 
-## Access Test Automation Code
+### Setting Up and Building the Project
+- Refer to the ReadMe file [README](apitest-commons/README.md)
 
-### From Browser
+### Using it as dependency in the Project
+- Add the following dependency in the POM of required project
+    ```sh
+    <dependency>
+      <groupId>io.mosip.testrig.apirig.apitest.commons</groupId>
+      <artifactId>apitest-commons</artifactId>
+      <version>1.3.0</version>
+    </dependency>
 
-1. Clone or download the repository as a zip file from [GitHub](https://github.com/mosip/mosip-functional-tests).
-2. Unzip the contents.
-3. Continue with the steps below from a terminal (Linux) or command prompt (Windows).
-
-### From Git Bash
-
-1. Copy the git link: `https://github.com/mosip/mosip-functional-tests`
-2. On your local system, open Git Bash at any location.
-3. Run the following command:
-   ```sh
-   git clone https://github.com/mosip/mosip-functional-tests
-
-## Build Test Automation Code
-1. cd ../apitest-commons
-2. `mvn clean install -Dgpg.skip=true -Dmaven.gitcommitid.skip=true`
+---
 
 ## License
 This project is licensed under the terms of [Mozilla Public License 2.0](https://github.com/mosip/mosip-platform/blob/master/LICENSE)
