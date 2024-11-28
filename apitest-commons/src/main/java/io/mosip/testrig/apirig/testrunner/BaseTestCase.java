@@ -98,7 +98,7 @@ public class BaseTestCase {
 	public static String languageCode = null;
 	public static List<String> supportedIdType = new ArrayList<>();
 	public static KernelAuthentication kernelAuthLib = null;
-	public static CommonLibrary kernelCmnLib = null;
+//	public static CommonLibrary kernelCmnLib = null;
 	public static Map<?, ?> queries;
 	public static HashMap<String, String> documentId = new HashMap<>();
 	public static HashMap<String, String> regCenterId = new HashMap<>();
@@ -259,10 +259,10 @@ public class BaseTestCase {
 	public static void initialize() {
 		PropertyConfigurator.configure(getLoggerPropertyConfig());
 		kernelAuthLib = new KernelAuthentication();
-		kernelCmnLib = new CommonLibrary();
-		queries = kernelCmnLib.readProperty("adminQueries");
-		partnerQueries = kernelCmnLib.readProperty("partnerQueries");
-		residentQueries = kernelCmnLib.readProperty("residentServicesQueries");
+//		kernelCmnLib = new CommonLibrary();
+		queries = AdminTestUtil.readProperty("adminQueries");
+		partnerQueries = AdminTestUtil.readProperty("partnerQueries");
+		residentQueries = AdminTestUtil.readProperty("residentServicesQueries");
 		/**
 		 * Make sure test-output is there
 		 */
@@ -342,7 +342,7 @@ public class BaseTestCase {
 	}
 
 	private void copyReportAndLog() {
-		String folderForReport = kernelCmnLib.readProperty("Kernel").get("reportLogPath");
+		String folderForReport = AdminTestUtil.readProperty("Kernel").get("reportLogPath");
 		String dirToReport = System.getProperty("user.home") + "/" + folderForReport;
 		File dest = new File(dirToReport);
 		if (!dest.exists())
@@ -680,7 +680,7 @@ public class BaseTestCase {
 	}
 
 	public static JSONObject getRequestJson(String filepath) {
-		return kernelCmnLib.readJsonData(filepath, true);
+		return AdminTestUtil.readJsonData(filepath, true);
 
 	}
 

@@ -14,6 +14,8 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -40,8 +42,10 @@ import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.security.interfaces.RSAPublicKey;
 import java.text.SimpleDateFormat;
+import java.time.Clock;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -87,6 +91,7 @@ import org.testng.SkipException;
 import org.yaml.snakeyaml.Yaml;
 
 import com.auth0.jwt.JWT;
+import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -8142,6 +8147,151 @@ public class AdminTestUtil extends BaseTestCase {
 		return globalRequiredFields;
 	    
    }
+   
+	public static Response postWithJson(String endpoint, Object body) {
+		return RestClient.postWithJson(BaseTestCase.ApplnURI + endpoint, body, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON);
+	}
+	
+	public static Response getWithoutParams(String endpoint, String cookie) {
+		return RestClient.getWithoutParams(ApplnURI + endpoint, cookie);
+	}
+	
+	public void checkResponseUTCTime(Response response) {
+		logger.info(response.asString());
+		org.json.simple.JSONObject responseJson = null;
+		String responseTime = null;
+		try {
+			responseJson = (org.json.simple.JSONObject) new JSONParser().parse(response.asString());
+		} catch (ParseException e1) {
+			logger.info(e1.getMessage());
+			return;
+		}
+		if (responseJson != null && responseJson.containsKey("responsetime"))
+			responseTime = response.jsonPath().get("responsetime").toString();
+		else
+			return;
+		String cuurentUTC = (String) getCurrentUTCTime();
+		SimpleDateFormat sdf = new SimpleDateFormat("mm");
+		try {
+			Date d1 = sdf.parse(responseTime.substring(14, 16));
+			Date d2 = sdf.parse(cuurentUTC.substring(14, 16));
+
+			long elapse = Math.abs(d1.getTime() - d2.getTime());
+			if (elapse > 300000) {
+				Assert.assertTrue(false, "Response time is not UTC, response time : " + responseTime);
+			}
+
+		} catch (java.text.ParseException e) {
+			logger.error(e.getMessage());
+		}
+
+	}
+	
+	public static Object getCurrentUTCTime() {
+		String DATEFORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern(DATEFORMAT);
+		LocalDateTime time = LocalDateTime.now(Clock.systemUTC());
+		String utcTime = time.format(dateFormat);
+		return utcTime;
+
+	}
+	
+	public Object getCurrentLocalTime() {
+		String DATEFORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern(DATEFORMAT);
+		LocalDateTime time = LocalDateTime.now();
+		String currentTime = time.format(dateFormat);
+		return currentTime;
+
+	}
+	
+	public List<String> getFoldersFilesNameList(String folderRelativePath, boolean isfolder) {
+		String configPath = folderRelativePath;
+		List<String> listFoldersFiles = new ArrayList<>();
+
+		final File file = new File(getResourcePath() + folderRelativePath);
+		logger.info("=====" + getResourcePath() + folderRelativePath);
+		logger.info("=======" + file.getAbsolutePath());
+		logger.info("=========" + file.getPath());
+		for (File f : file.listFiles()) {
+			if (f.isDirectory() == isfolder)
+				listFoldersFiles.add(configPath + "/" + f.getName());
+		}
+		return listFoldersFiles;
+	}
+	
+	public String getResourcePathForKernel() {
+		return getGlobalResourcePath() + "/";
+	}
+	
+	public static org.json.simple.JSONObject readJsonData(String path, boolean isRelative) {
+		logger.info("path : " + path);
+		if (isRelative)
+			path = getResourcePath() + path;
+		logger.info("Relativepath : " + path);
+		FileInputStream inputStream = null;
+		org.json.simple.JSONObject jsonData = null;
+		try {
+			File fileToRead = new File(path);
+			logger.info("fileToRead : " + fileToRead);
+			inputStream = new FileInputStream(fileToRead);
+			jsonData = (org.json.simple.JSONObject) new JSONParser().parse(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
+		} catch (IOException | ParseException | NullPointerException e) {
+			logger.error(e.getMessage());
+		} finally {
+			AdminTestUtil.closeInputStream(inputStream);
+		}
+		return jsonData;
+	}
+	
+	public static Map<String, String> readProperty(String propertyFileName) {
+		Properties prop = new Properties();
+		FileInputStream inputStream = null;
+		Map<String, String> mapProp = null;
+		try {
+			try (InputStream input = ConfigManager.class.getClassLoader().getResourceAsStream("config/Kernel.properties")) {
+				if (input != null) {
+					// Load the properties from the input stream
+					prop.load(input);
+				}
+				else {
+					logger.error("Couldn't find  Kernel.properties file");
+				}
+			} catch (Exception ex) {
+				logger.error(ex.getMessage());
+			}
+			
+			/*
+			 * inputStream = new FileInputStream(propertyFile); prop.load(inputStream);
+			 */
+			mapProp = prop.entrySet().stream()
+					.collect(Collectors.toMap(e -> (String) e.getKey(), e -> (String) e.getValue()));
+		} finally {
+			AdminTestUtil.closeInputStream(inputStream);
+		}
+
+		return mapProp;
+	}
+	
+	public static boolean isValidToken(String cookie) {
+		boolean bReturn = false;
+		if (cookie == null)
+			return bReturn;
+        try {
+            DecodedJWT decodedJWT = JWT.decode(cookie);
+            long expirationTime = decodedJWT.getExpiresAt().getTime();
+            if (expirationTime < System.currentTimeMillis()) {
+            	logger.info("The token is expired");
+            } else {
+            	bReturn = true;
+            	logger.info("The token is not expired");
+            }
+        } catch (JWTDecodeException e) {
+        	logger.error("The token is invalid");
+        }
+        return bReturn;
+    }
    
 }
 
