@@ -239,4 +239,6 @@ public class GlobalConstants {
 	public static final String PATH_FRAGMENT_COOKIE_TRANSACTIONID = "pathFragmentCookieTransactionId";
 	public static final String IDV_TRANSACTION_ID = "idvTransactionID";
 	public static final String IDV_TRANSACTION_ID_KEY = "IDV_TRANSACTION_ID";
+	public static final String IDV_SLOT_ALLOTED = "idvSlotAllotted";
+	public static final String IDV_SLOT_ALLOTED_KEY = "IDV_SLOT_ALLOTTED=";
 }
