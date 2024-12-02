@@ -1,15 +1,6 @@
 package io.mosip.testrig.apirig.utils;
 
-import java.io.File;
-import java.util.List;
-import java.util.Map;
-
-import javax.ws.rs.core.MediaType;
-
-import org.json.simple.JSONObject;
-
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
-import io.restassured.response.Response;
 /**
  * 
  * @author Arunakumar.Rati

@@ -51,7 +51,7 @@ public class CertificateGenerationUtil extends AdminTestUtil {
 		HashMap<String, String> requestBodyMap = new HashMap<>();
 		requestBodyMap.put("certData", idaCertValue);
 		
-		AuthUtil authUtil = new AuthUtil();
+		AuthTestsUtil authUtil = new AuthTestsUtil();
 		try {
 			authUtil.uploadIDACertificate(certificateType, requestBodyMap, null, BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
 		} catch (CertificateException | IOException e) {

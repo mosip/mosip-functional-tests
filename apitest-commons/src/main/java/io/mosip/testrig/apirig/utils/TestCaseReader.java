@@ -1,10 +1,5 @@
 package io.mosip.testrig.apirig.utils;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.json.simple.JSONObject;
-
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 
 /**
