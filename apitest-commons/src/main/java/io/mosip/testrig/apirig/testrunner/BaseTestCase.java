@@ -138,6 +138,7 @@ public class BaseTestCase {
 
 	public static String locationCode = "";
 	public static String ZonelocationCode = "";
+	public static String leafZoneCode = "";
 	public static String hierarchyZoneCode = "";
 
 	public static String genRid = "27847" + generateRandomNumberString(10);
