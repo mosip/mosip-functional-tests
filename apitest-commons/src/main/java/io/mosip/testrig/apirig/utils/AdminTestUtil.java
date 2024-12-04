@@ -3390,6 +3390,9 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$USERID$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$USERID$",
 					BaseTestCase.currentModule + ConfigManager.getproperty("admin_userName"));
+		
+		if (jsonString.contains("$LEAF_ZONE_CODE$"))
+			jsonString = replaceKeywordWithValue(jsonString, "$LEAF_ZONE_CODE$", leafZoneCode);
 
 		if (jsonString.contains("$LOCATIONCODE$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$LOCATIONCODE$", locationCode);
@@ -7823,6 +7826,34 @@ public class AdminTestUtil extends BaseTestCase {
 				JSONObject responseObject = responseJson.getJSONObject("response");
 
 				ZonelocationCode = responseObject.getString("zoneCode");
+
+			} catch (Exception e) {
+				logger.error(e.getMessage());
+			}
+
+		} catch (Exception e) {
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+		}
+	}
+	
+	public static void getLeafZone() {
+
+		Response response = null;
+		JSONObject responseJson = null;
+		String url = ApplnURI + props.getProperty("leafZoneUrl") + BaseTestCase.getLanguageList().get(0);
+		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
+
+		try {
+
+			response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
+					GlobalConstants.AUTHORIZATION, token);
+
+			responseJson = new JSONObject(response.getBody().asString());
+
+			try {
+				JSONObject responseObject = responseJson.getJSONArray("response").getJSONObject(0);
+
+				leafZoneCode = responseObject.getString("code");
 
 			} catch (Exception e) {
 				logger.error(e.getMessage());
