@@ -157,8 +157,8 @@ public class BioDataUtility extends AdminTestUtil {
 			
 			
 			
-			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, BaseTestCase.ApplnURI,
-					biometricsMapper + ".data.domainUri");
+//			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, BaseTestCase.ApplnURI,
+//					biometricsMapper + ".data.domainUri");
 			
 			
 			
