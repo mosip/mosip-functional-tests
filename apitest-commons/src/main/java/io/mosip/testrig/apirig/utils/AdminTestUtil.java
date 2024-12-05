@@ -4031,21 +4031,25 @@ public class AdminTestUtil extends BaseTestCase {
 					signJWKForMock(clientId, accessToken, oidcJWKKey4, testCaseName, tempUrl));
 		}
 		
-		if (jsonString.contains(GlobalConstants.IDT_TOKEN) && jsonString.contains("$IDTINDIVIUALID$") && jsonString.contains("$IDTCHALLENGE$")) {
+		if (jsonString.contains(GlobalConstants.IDT_TOKEN)) {
+
 			JSONObject request = new JSONObject(jsonString);
 			String idtToken = request.get(GlobalConstants.IDT_TOKEN).toString();
 			request.remove(GlobalConstants.IDT_TOKEN);
 			jsonString = request.toString();
-
 			Map<String, String> map = new HashMap<>();
 			map.put(GlobalConstants.TOKEN, idtToken);
 			JSONObject encodingToken = new JSONObject(map);
 
-			String challenge = encodeBase64(encodingToken.toString());
-			String individualId = getSubjectFromJwt(idtToken);
+			if (jsonString.contains("$IDTINDIVIUALID$")) {
+				String individualId = getSubjectFromJwt(idtToken);
+				jsonString = replaceKeywordWithValue(jsonString, "$IDTINDIVIUALID$", individualId);
+			}
 
-			jsonString = replaceKeywordWithValue(jsonString, "$IDTINDIVIUALID$", individualId);
-			jsonString = replaceKeywordWithValue(jsonString, "$IDTCHALLENGE$", challenge);
+			if (jsonString.contains("$IDTCHALLENGE$")) {
+				String challenge = encodeBase64(encodingToken.toString());
+				jsonString = replaceKeywordWithValue(jsonString, "$IDTCHALLENGE$", challenge);
+			}
 
 		}
 
@@ -8224,5 +8228,4 @@ public class AdminTestUtil extends BaseTestCase {
    }
    
 }
-
 
