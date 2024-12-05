@@ -60,6 +60,8 @@ spec:
                   value: {{ $.Values.additionalResources.javaOpts }}
                 - name: MODULES
                   value: {{ $modulename }}
+                - name: push-reports-to-s3
+                  value: {{ quote $.Values.apitestrig.variables.push_reports_to_s3 }}
               {{- if $.Values.extraEnvVars }}
               {{- include "common.tpvalues.render" (dict "value" $.Values.extraEnvVars "context" $) | nindent 12 }}
               {{- end }}
@@ -91,6 +93,10 @@ spec:
                   mountPath: {{ $volume_value.volumeMounts.mountPath }}
               {{- end }}
               {{- end }}
+              {{- if eq $.Values.apitestrig.variables.push_reports_to_s3 "no" }}
+                - name: {{ $.Values.apitestrig.volumes.reports.name }}
+                  mountPath: /home/mosip/testrig/report
+              {{- end }}
           volumes:
           {{- if $.Values.enable_insecure }}
           - name: cacerts
@@ -103,6 +109,11 @@ spec:
               defaultMode: {{ $volume_value.defaultMode }}
               name: {{ $volume_name }}
           {{- end }}
+          {{- end }}
+          {{- if eq $.Values.apitestrig.variables.push_reports_to_s3 "no" }}
+          - name: {{ $.Values.apitestrig.volumes.reports.name }}
+            persistentVolumeClaim:
+              claimName: {{ $.Values.apitestrig.volumes.reports.name }}-{{ $.Release.Namespace }}-{{ $modulename }}-pvc
           {{- end }}
 {{- end }}
 {{- end }}
