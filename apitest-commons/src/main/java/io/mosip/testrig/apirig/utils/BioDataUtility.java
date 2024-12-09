@@ -153,8 +153,7 @@ public class BioDataUtility extends AdminTestUtil {
 			String transactionId = JsonPrecondtion.getValueFromJson(data, GlobalConstants.TRANSACTIONID);
 			String encryptedContent = encryptIsoBioValue(bioValue, timestamp, bioValueencryptionTemplateJson,
 					transactionId, isInternal);
-			String encryptedBioValue = JsonPrecondtion.getValueFromJson(encryptedContent, "encryptedData");			
-			
+			String encryptedBioValue = JsonPrecondtion.getValueFromJson(encryptedContent, "encryptedData");						
 			logger.info(identityRequest);
 			String encryptedSessionKey = JsonPrecondtion.getValueFromJson(encryptedContent, "encryptedSessionKey");
 			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, encryptedBioValue,
