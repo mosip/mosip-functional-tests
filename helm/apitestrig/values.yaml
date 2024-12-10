@@ -555,5 +555,5 @@ apitestrig:
         path: "/srv/nfs/sandbox/onboarding"  # Dir within the nfs server where config repo is cloned/maintained locally.
         server: "nfs-server"  # Ip address of nfs server.
   variables:
-    push_reports_to_s3: "no"
+    push_reports_to_s3: "yes"
 enable_insecure: false

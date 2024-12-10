@@ -163,7 +163,7 @@ function installing_apitestrig() {
 
     echo Installed apitestrig.
     return 0
-  fi  
+  fi
 }
 
 # set commands for error handling.
