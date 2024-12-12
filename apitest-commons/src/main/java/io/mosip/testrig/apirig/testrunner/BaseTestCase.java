@@ -65,6 +65,7 @@ public class BaseTestCase {
 	public String regProcCookie = null;
 	public String regProCookie = null;
 	public String regAdminCookie = null;
+	public String invalidcookie = "anyRandomString";
 	public String registrationOfficerCookie = null;
 	public String regSupervisorCookie = null;
 	public String zonalAdminCookie = null;
