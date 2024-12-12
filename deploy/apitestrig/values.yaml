@@ -58,4 +58,6 @@ modules:
     image:
       repository: mosipqa/apitest-injicertify
       tag: develop
-      pullPolicy: Always      
+      pullPolicy: Always
+  variables:
+    push_reports_to_s3: "yes"
