@@ -99,6 +99,7 @@ public class GlobalConstants {
 	public static final String MOSIP_ESIGNET_ACCESS_TOKEN_EXPIRE_SECONDS = "mosip.esignet.access-token-expire-seconds";
 	public static final String ERROR_BOOK_APPOINTMENT = "Failed to fetch registration details while booking appointment";
 	public static final String MASTER_SCHEMA_URL = "masterSchemaURL";
+	public static final String SCHEMA_VERSION = "schemaVersion";
 	public static final String ID_VERSION = "idVersion";
 	public static final String SCHEMA_JSON = "schemaJson";
 	public static final String REQUIRED = "required";
