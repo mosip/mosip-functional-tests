@@ -239,7 +239,7 @@ public class PartnerRegistration extends AdminTestUtil {
         }else if (partnerType.equals("MISP")) {
         	partnerTypeEnum = PartnerTypes.MISP;
         }
-		AuthUtil authUtil = new AuthUtil();
+		AuthTestsUtil authUtil = new AuthTestsUtil();
 		boolean keyFileNameByPartnerName = true;
 		CertificateChainResponseDto certificateChainResponseDto = null;
 	
@@ -281,7 +281,7 @@ public class PartnerRegistration extends AdminTestUtil {
 	}
 
 	public static JSONObject getDeviceCertificates(String partnerId, String partnerType) {
-		AuthUtil authUtil = new AuthUtil();
+		AuthTestsUtil authUtil = new AuthTestsUtil();
 		PartnerTypes partnerTypeEnum = null;
 		
 		if (partnerType.equals("RELYING_PARTY")) {
@@ -441,7 +441,7 @@ public class PartnerRegistration extends AdminTestUtil {
 
 		requestBody.put("certData", certValueSigned);
 		
-		AuthUtil authUtil = new AuthUtil();
+		AuthTestsUtil authUtil = new AuthTestsUtil();
 		try {
 //			String url = ConfigManager.getAuthDemoServiceUrl() + properties.getProperty("uploadSignedCertificateUrl");
 //
@@ -583,7 +583,7 @@ public class PartnerRegistration extends AdminTestUtil {
 			// So use the predefined certificate folder and partnerkey
 			return ;
 		}
-		AuthUtil authUtil = new AuthUtil();
+		AuthTestsUtil authUtil = new AuthTestsUtil();
 		try {
 			authUtil.clearKeys(null, BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
 		} catch (IOException e) {

@@ -93,7 +93,7 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 	
 	public static JSONObject getCertificates(String partnerId, String partnerType) {
 		
-		AuthUtil authUtil = new AuthUtil();
+		AuthTestsUtil authUtil = new AuthTestsUtil();
 		PartnerTypes partnerTypeEnum = null;
 		
 		if (partnerType.equals("RELYING_PARTY")) {
@@ -237,7 +237,7 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 
 		requestBody.put("certData", certValueSigned);
 		
-		AuthUtil authUtil = new AuthUtil();
+		AuthTestsUtil authUtil = new AuthTestsUtil();
 		try {
 			authUtil.updatePartnerCertificate(partnerTypeEnum, null, false, requestBody, null, BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
 		} catch (Exception e) {

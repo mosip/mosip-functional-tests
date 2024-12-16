@@ -28,7 +28,6 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.nimbusds.jose.jwk.RSAKey;
 
 import io.mosip.testrig.apirig.utils.AdminTestUtil;
-import io.mosip.testrig.apirig.utils.CommonLibrary;
 import io.mosip.testrig.apirig.utils.ConfigManager;
 import io.mosip.testrig.apirig.utils.GlobalConstants;
 import io.mosip.testrig.apirig.utils.GlobalMethods;
