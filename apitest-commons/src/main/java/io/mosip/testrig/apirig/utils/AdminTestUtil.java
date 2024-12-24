@@ -5360,7 +5360,7 @@ public class AdminTestUtil extends BaseTestCase {
 	    JSONObject requestJson = new JSONObject();
 	    kernelAuthLib = new KernelAuthentication();
 	    String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
-	    String url = ApplnURI + properties.getProperty(GlobalConstants.MASTER_SCHEMA_URL);
+	    String url = getSchemaURL();
 
 	    Response response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
 	            GlobalConstants.AUTHORIZATION, token);
@@ -5592,6 +5592,18 @@ public class AdminTestUtil extends BaseTestCase {
 	    identityHbs = requestJson.toString();
 	    return identityHbs;
 	}
+	
+	
+	public static String getSchemaURL() {
+		String schemaURL = ApplnURI + properties.getProperty(GlobalConstants.MASTER_SCHEMA_URL);
+		String schemaVersion = ConfigManager.getproperty(GlobalConstants.SCHEMA_VERSION);
+				
+		if (schemaVersion != null && !schemaVersion.isEmpty()) {
+			schemaURL = schemaURL + "?schemaVersion=" + schemaVersion;
+		}
+		
+		return schemaURL;
+	}
 
 	
 	public static String updateIdentityHbs(boolean regenerateHbs) {
@@ -5602,7 +5614,7 @@ public class AdminTestUtil extends BaseTestCase {
 	    JSONObject requestJson = new JSONObject();
 	    kernelAuthLib = new KernelAuthentication();
 	    String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
-	    String url = ApplnURI + properties.getProperty(GlobalConstants.MASTER_SCHEMA_URL);
+	    String url = getSchemaURL();
 
 	    Response response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
 	            GlobalConstants.AUTHORIZATION, token);
@@ -5809,7 +5821,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String generateLatestSchemaVersion() {
 	    kernelAuthLib = new KernelAuthentication();
 	    String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
-	    String url = ApplnURI + properties.getProperty(GlobalConstants.MASTER_SCHEMA_URL);
+	    String url = getSchemaURL();
 
 	    Response response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
 	            GlobalConstants.AUTHORIZATION, token);
@@ -5832,7 +5844,7 @@ public class AdminTestUtil extends BaseTestCase {
 		JSONObject requestJson = new JSONObject();
 		kernelAuthLib = new KernelAuthentication();
 		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
-		String url = ApplnURI + properties.getProperty(GlobalConstants.MASTER_SCHEMA_URL);
+		String url = getSchemaURL();
 
 		Response response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
 				GlobalConstants.AUTHORIZATION, token);
@@ -6126,7 +6138,7 @@ public class AdminTestUtil extends BaseTestCase {
 		JSONObject requestJson = new JSONObject();
 		kernelAuthLib = new KernelAuthentication();
 		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
-		String url = ApplnURI + properties.getProperty(GlobalConstants.MASTER_SCHEMA_URL);
+		String url = getSchemaURL();
 
 		Response response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
 				GlobalConstants.AUTHORIZATION, token);
@@ -8254,7 +8266,7 @@ public class AdminTestUtil extends BaseTestCase {
 	    JSONObject requestJson = new JSONObject();
 	    kernelAuthLib = new KernelAuthentication();
 	    String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
-	    String url = ApplnURI + properties.getProperty(GlobalConstants.MASTER_SCHEMA_URL);
+	    String url = getSchemaURL();
 
 	    Response response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
 	            GlobalConstants.AUTHORIZATION, token);
