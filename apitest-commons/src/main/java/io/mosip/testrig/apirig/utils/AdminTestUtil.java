@@ -1508,7 +1508,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 	}
 
-	public static String encodeBase64(String value) {
+	public String encodeBase64(String value) {
 		String encodedStr;
 		try {
 			Encoder encoder = Base64.getEncoder();
