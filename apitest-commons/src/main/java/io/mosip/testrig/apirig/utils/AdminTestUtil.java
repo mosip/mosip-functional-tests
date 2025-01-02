@@ -1989,8 +1989,7 @@ public class AdminTestUtil extends BaseTestCase {
 			if (req.has(param)) {
 				pathParamsMap.put(param, req.get(param).toString());
 				req.remove(param);
-			} 
-			else
+			} else
 				logger.error(GlobalConstants.ERROR_STRING_2 + param + GlobalConstants.IN_STRING + inputJson);
 		}
 
