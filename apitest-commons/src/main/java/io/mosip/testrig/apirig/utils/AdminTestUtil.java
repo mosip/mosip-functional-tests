@@ -1983,16 +1983,12 @@ public class AdminTestUtil extends BaseTestCase {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
 		JSONObject req = new JSONObject(inputJson);
-		JSONObject requestObject = req.getJSONObject("request");
 		HashMap<String, String> pathParamsMap = new HashMap<>();
 		String[] params = pathParams.split(",");
 		for (String param : params) {
 			if (req.has(param)) {
 				pathParamsMap.put(param, req.get(param).toString());
 				req.remove(param);
-			} else if (req.has("request")) {
-				pathParamsMap.put(param, requestObject.get(param).toString());
-				requestObject.remove(param);
 			} 
 			else
 				logger.error(GlobalConstants.ERROR_STRING_2 + param + GlobalConstants.IN_STRING + inputJson);
@@ -2026,9 +2022,6 @@ public class AdminTestUtil extends BaseTestCase {
 			if (req.has(param)) {
 				pathParamsMap.put(param, req.get(param).toString());
 				req.remove(param);
-			} else if (req.has("request")) {
-				pathParamsMap.put(param, requestObject.get(param).toString());
-				requestObject.remove(param);
 			} 
 			else
 				logger.error(GlobalConstants.ERROR_STRING_2 + param + GlobalConstants.IN_STRING + inputJson);
