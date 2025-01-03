@@ -84,7 +84,7 @@
     </properties>
 
     <modules>
-        <module>authentication-demo-service</module>
+        <module>apitest-commons</module>
     </modules>
 
     <build>
