@@ -64,6 +64,7 @@ public class BaseTestCase {
 	public String regProcCookie = null;
 	public String regProCookie = null;
 	public String regAdminCookie = null;
+	public String invalidcookie = "anyRandomString";
 	public String registrationOfficerCookie = null;
 	public String regSupervisorCookie = null;
 	public String zonalAdminCookie = null;
@@ -137,6 +138,7 @@ public class BaseTestCase {
 
 	public static String locationCode = "";
 	public static String ZonelocationCode = "";
+	public static String leafZoneCode = "";
 	public static String hierarchyZoneCode = "";
 
 	public static String genRid = "27847" + generateRandomNumberString(10);

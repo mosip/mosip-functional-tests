@@ -2,7 +2,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>io.mosip.testrig.apirig.apitest.commons</groupId>
+	<groupId>io.mosip.testrig.apitest.commons</groupId>
 	<artifactId>apitest-commons</artifactId>
 	<packaging>jar</packaging>
 	<name>apitest-commons</name>
@@ -36,7 +36,7 @@
 	<properties>
 		<!-- kernel versions -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<kernel-websubclient-api.version>1.2.1-SNAPSHOT</kernel-websubclient-api.version>
+		<kernel-websubclient-api.version>1.3.0-beta.1</kernel-websubclient-api.version>
 
 		<!-- maven -->
 		<maven.compiler.target>21</maven.compiler.target>
@@ -59,7 +59,7 @@
 
 		<!-- automationtests version -->
 		<wink-json4j-provider.version>1.1.2-incubating</wink-json4j-provider.version>
-		<kernel.version>1.2.1-SNAPSHOT</kernel.version>
+		<kernel.version>1.3.0-beta.1</kernel.version>
 		<zjsonpatch.version>0.4.7</zjsonpatch.version>
 		<extentreports.aventstack.version>3.0.0</extentreports.aventstack.version>
 		<extentreports.relevantcodes.version>2.41.2</extentreports.relevantcodes.version>
@@ -67,7 +67,6 @@
 		<testng.version>6.11</testng.version>
 		<zt.zip.version>1.13</zt.zip.version>
 		<fileName>apitest-commons-1.2.2-cleanup-SNAPSHOT-jar-with-dependencies</fileName>
-		
 	</properties>
 	
 	<dependencies>
@@ -377,7 +376,7 @@
 		<dependency>
 			<groupId>io.mosip.mock.mds</groupId>
 			<artifactId>mock-mds</artifactId>
-			<version>1.2.1-SNAPSHOT</version>
+			<version>1.3.0-beta.1</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
@@ -437,13 +436,13 @@
 		<dependency>
 			<groupId>io.mosip.kernel</groupId>
 			<artifactId>kernel-templatemanager-velocity</artifactId>
-			<version>1.2.1-SNAPSHOT</version>
+			<version>1.3.0-beta.1</version>
 		</dependency>
 
 		<dependency>
 			<groupId>io.mosip.kernel</groupId>
 			<artifactId>kernel-keymanager-service</artifactId>
-			<version>1.2.1-SNAPSHOT</version>
+			<version>1.3.0-beta.1</version>
 			<classifier>lib</classifier>
 			<exclusions>
 				<exclusion>
@@ -482,7 +481,7 @@
 			<dependency>
 				<groupId>io.mosip.kernel</groupId>
 				<artifactId>kernel-bom</artifactId>
-				<version>1.2.1-SNAPSHOT</version>
+				<version>1.3.0-beta.1</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>

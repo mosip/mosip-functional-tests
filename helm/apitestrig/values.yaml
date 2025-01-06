@@ -514,7 +514,6 @@ apitestrig:
       authDemoServiceBaseURL: http://authdemo.authdemo
       authDemoServicePort: 80
       eSignetDeployed: yes or no
-      push-reports-to-s3: 'yes'
       authCertsPath: '/home/mosip/authcerts'
     scripts:
       fetch_docker_image_hash_ids.sh: |
@@ -534,6 +533,8 @@ apitestrig:
         cd /home/${container_user}/
         bash ./entrypoint.sh
   secrets:
+    s3:
+      s3-user-secret: 'password'
     apitestrig:
   volumes:
     configmaps:
@@ -541,5 +542,18 @@ apitestrig:
         defaultMode: 0777
         volumeMounts:
           mountPath: '/home/mosip/scripts/'
-
+    reports:
+      name: apitestrig-reports
+      storageClass: nfs-client
+      accessModes:
+        - ReadWriteMany
+      size: 10Mi
+      existingClaim:
+      # Dir where config and keys are written inside container
+      mountDir: /home/mosip/testrig/report
+      nfs:
+        path: "/srv/nfs/sandbox/onboarding"  # Dir within the nfs server where config repo is cloned/maintained locally.
+        server: "nfs-server"  # Ip address of nfs server.
+  variables:
+    push_reports_to_s3: "yes"
 enable_insecure: false

@@ -26,7 +26,7 @@ public class GlobalMethods {
 	public static Set<String> serverEndpoints = new HashSet<>();
 
 	// Define the regex pattern to extract the domain and the path after the domain
-	private static final String module_name = "(mimoto|partnermanager|preregistration|resident|residentmobileapp|masterdata|esignet|idgenerator|policymanager|idauthentication|idrepository|auditmanager|authmanager)";
+	private static final String module_name = "(mimoto|certify|signup|partnermanager|preregistration|resident|residentmobileapp|masterdata|esignet|idgenerator|policymanager|idauthentication|idrepository|auditmanager|authmanager|keymanager)";
 	private static final String regex_1 = "https://([^/]+)/(v[0-9]+)?/" + module_name + "/([^,]+)";
 	private static final String regex_2 = "https://([^/]+)/" + module_name + "/(v[0-9]+)/([^,]+)";
 

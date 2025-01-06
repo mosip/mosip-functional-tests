@@ -53,3 +53,11 @@ modules:
       repository: mosipqa/apitest-mimoto
       tag: develop
       pullPolicy: Always
+  injicertify:
+    enabled: false
+    image:
+      repository: mosipqa/apitest-injicertify
+      tag: develop
+      pullPolicy: Always
+  variables:
+    push_reports_to_s3: "yes"

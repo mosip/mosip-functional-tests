@@ -1,8 +1,15 @@
 package io.mosip.testrig.apirig.utils;
 
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import java.util.Base64.Encoder;
+import java.util.Date;
+
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.DecodedJWT;
 
 import org.json.simple.JSONObject;
 
@@ -16,6 +23,7 @@ public class KernelAuthentication extends BaseTestCase {
 	String folder = "kernel";
 	String cookie;
 	static String dataKey = "response";
+	static String encodeBase64 ="";
 	static String errorKey = "errors";
 	static Map<String, String> tokens = new HashMap<>();
 //	CommonLibrary clib = new CommonLibrary();
@@ -171,9 +179,10 @@ public class KernelAuthentication extends BaseTestCase {
 			if (!AdminTestUtil.isValidToken(invalidBatchJobToken))
 				invalidBatchJobToken = kernelAuthLib.getPreRegInvalidToken();
 			return invalidBatchJobToken;
-
 		case "invalid":
 			return "anyRandomString";
+		case "invalidtoken":
+			return	kernelAuthLib.encodeBase64("AnyRandomString-ToCreate-Jwt");
 		case "regAdmin":
 			if (!AdminTestUtil.isValidToken(regAdminCookie))
 				regAdminCookie = kernelAuthLib.getAuthForRegistrationAdmin();
@@ -781,5 +790,20 @@ public class KernelAuthentication extends BaseTestCase {
 		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
 		return cookie;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public String encodeBase64(String value) {
+		  String secret = value;
+	        // Create the token
+	        String token = JWT.create()
+	                .withSubject("user123")
+	                .withIssuer("example.com")
+	                .withClaim("role", "admin")
+	                .withIssuedAt(new Date())
+	                .withExpiresAt(new Date(System.currentTimeMillis() + 3600000))
+	                .sign(Algorithm.HMAC256(secret));
+	        System.out.println("Generated Token: " + token);
+			return token;
+		}
 
 }
