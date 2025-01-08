@@ -221,7 +221,7 @@ public class BioDataUtility extends AdminTestUtil {
         }else if (key.equals("MISP")) {
         	partnerTypeEnum = PartnerTypes.MISP;
         }
-		AuthUtil authUtil = new AuthUtil();
+		AuthTestsUtil authUtil = new AuthTestsUtil();
 		String response = null;
 		try {
 			response = authUtil.signRequest(partnerTypeEnum, null, false, identityDataBlock,"", BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));

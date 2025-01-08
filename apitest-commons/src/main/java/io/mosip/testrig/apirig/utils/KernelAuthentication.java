@@ -26,8 +26,8 @@ public class KernelAuthentication extends BaseTestCase {
 	static String encodeBase64 ="";
 	static String errorKey = "errors";
 	static Map<String, String> tokens = new HashMap<>();
-	CommonLibrary clib = new CommonLibrary();
-	public final Map<String, String> props = clib.readProperty("Kernel");
+//	CommonLibrary clib = new CommonLibrary();
+	public final Map<String, String> props = AdminTestUtil.readProperty("Kernel");
 
 	private String admin_password = ConfigManager.getUserAdminPassword();
 
@@ -64,7 +64,7 @@ public class KernelAuthentication extends BaseTestCase {
 	private String authenticationInternalEndpoint = props.get("authenticationInternal");
 	private String sendOtp = props.get(GlobalConstants.SENDOTP);
 	private String useridOTP = props.get("useridOTP");
-	private ApplicationLibrary appl = new ApplicationLibrary();
+//	private ApplicationLibrary appl = new ApplicationLibrary();
 	private String authRequest = "config/Authorization/request.json";
 	private String authInternalRequest = "config/Authorization/internalAuthRequest.json";
 	private String preregSendOtp = props.get("preregSendOtp");
@@ -87,96 +87,96 @@ public class KernelAuthentication extends BaseTestCase {
 		switch (insensitiveRole) {
 
 		case "individual":
-			if (!kernelCmnLib.isValidToken(individualCookie))
+			if (!AdminTestUtil.isValidToken(individualCookie))
 				individualCookie = kernelAuthLib.getAuthForIndividual();
 			return individualCookie;
 		case "ida":
-			if (!kernelCmnLib.isValidToken(idaCookie))
+			if (!AdminTestUtil.isValidToken(idaCookie))
 				idaCookie = kernelAuthLib.getAuthForIDA();
 			return idaCookie;
 		case "idrepo":
 			if (BaseTestCase.isTargetEnvLTS()) {
-				if (!kernelCmnLib.isValidToken(idrepoCookie))
+				if (!AdminTestUtil.isValidToken(idrepoCookie))
 					idrepoCookie = kernelAuthLib.getAuthForIDREPO();
 				return idrepoCookie;
 			} else {
-				if (!kernelCmnLib.isValidToken(regProCookie))
+				if (!AdminTestUtil.isValidToken(regProCookie))
 					regProCookie = kernelAuthLib.getAuthForRegProc();
 				return regProCookie;
 			}
 		case "regproc":
-			if (!kernelCmnLib.isValidToken(regProcCookie))
+			if (!AdminTestUtil.isValidToken(regProcCookie))
 				regProcCookie = kernelAuthLib.getAuthForRegistrationProcessor();
 			return regProcCookie;
 		case "regpro":
-			if (!kernelCmnLib.isValidToken(regProCookie))
+			if (!AdminTestUtil.isValidToken(regProCookie))
 				regProCookie = kernelAuthLib.getAuthForRegProc();
 			return regProCookie;
 		case "admin":
-			if (!kernelCmnLib.isValidToken(adminCookie))
+			if (!AdminTestUtil.isValidToken(adminCookie))
 				adminCookie = kernelAuthLib.getAuthForAdmin();
 			return adminCookie;
 		case "testrig":
-			if (!kernelCmnLib.isValidToken(testrigCookie))
+			if (!AdminTestUtil.isValidToken(testrigCookie))
 				testrigCookie = kernelAuthLib.getAuthForTestRigClient();
 			return testrigCookie;
 		case "zonalapprover":
-			if (!kernelCmnLib.isValidToken(zonalApproverCookie))
+			if (!AdminTestUtil.isValidToken(zonalApproverCookie))
 				zonalApproverCookie = kernelAuthLib.getAuthForZonalApprover();
 			return zonalApproverCookie;
 		case "partnerrevamp":
-			if (!kernelCmnLib.isValidToken(partnerrevampCookie))
+			if (!AdminTestUtil.isValidToken(partnerrevampCookie))
 				partnerrevampCookie = kernelAuthLib.getAuthForPartnerRevamp();
 			return partnerrevampCookie;
 		case "partnerrevampdevice":
-			if (!kernelCmnLib.isValidToken(partnerrevampdeviceCookie))
+			if (!AdminTestUtil.isValidToken(partnerrevampdeviceCookie))
 				partnerrevampdeviceCookie = kernelAuthLib.getAuthForPartnerRevampDevice();
 			return partnerrevampdeviceCookie;
 		case "partnerrevampftm":
-			if (!kernelCmnLib.isValidToken(partnerrevampftmCookie))
+			if (!AdminTestUtil.isValidToken(partnerrevampftmCookie))
 				partnerrevampftmCookie = kernelAuthLib.getAuthForPartnerRevampFtm();
 			return partnerrevampftmCookie;
 		case "partner":
-			if (!kernelCmnLib.isValidToken(partnerCookie))
+			if (!AdminTestUtil.isValidToken(partnerCookie))
 				partnerCookie = kernelAuthLib.getAuthForPartner();
 			return partnerCookie;
 		case "partnernew":
-			if (!kernelCmnLib.isValidToken(partnerNewCookie))
+			if (!AdminTestUtil.isValidToken(partnerNewCookie))
 				partnerNewCookie = kernelAuthLib.getAuthForNewPartner();
 			return partnerNewCookie;
 		case "withoutpartner":
-			if (!kernelCmnLib.isValidToken(withoutpartnerCookie))
+			if (!AdminTestUtil.isValidToken(withoutpartnerCookie))
 				withoutpartnerCookie = kernelAuthLib.getAuthForPartnerWithoutPAdminRole();
 			return withoutpartnerCookie;
 
 		case "withoutpolicymanager":
-			if (!kernelCmnLib.isValidToken(withoutpolicyCookie))
+			if (!AdminTestUtil.isValidToken(withoutpolicyCookie))
 				withoutpolicyCookie = kernelAuthLib.getAuthForPartnerWithoutPManagerRole();
 			return withoutpolicyCookie;
 
 		case "partnernewkyc":
-			if (!kernelCmnLib.isValidToken(partnerNewKycCookie))
+			if (!AdminTestUtil.isValidToken(partnerNewKycCookie))
 				partnerNewKycCookie = kernelAuthLib.getAuthForNewKycPartner();
 			return partnerNewKycCookie;
 		case "esignetpartner":
-			if (!kernelCmnLib.isValidToken(esignetPartnerCookie))
+			if (!AdminTestUtil.isValidToken(esignetPartnerCookie))
 				esignetPartnerCookie = kernelAuthLib.getAuthForNewPartnerEsignet();
 			return esignetPartnerCookie;
 		case "esignetpartnerkyc":
-			if (!kernelCmnLib.isValidToken(esignetPartnerKycCookie))
+			if (!AdminTestUtil.isValidToken(esignetPartnerKycCookie))
 				esignetPartnerKycCookie = kernelAuthLib.getAuthForNewPartnerEsignetKyc();
 			return esignetPartnerKycCookie;
 		case "policytest":
-			if (!kernelCmnLib.isValidToken(policytestCookie))
+			if (!AdminTestUtil.isValidToken(policytestCookie))
 				policytestCookie = kernelAuthLib.getAuthForPolicytest();
 			return policytestCookie;
 		case "batch":
-			if (!kernelCmnLib.isValidToken(batchJobToken))
+			if (!AdminTestUtil.isValidToken(batchJobToken))
 				batchJobToken = kernelAuthLib.getPreRegToken();
 			return batchJobToken;
 
 		case "invalidbatch":
-			if (!kernelCmnLib.isValidToken(invalidBatchJobToken))
+			if (!AdminTestUtil.isValidToken(invalidBatchJobToken))
 				invalidBatchJobToken = kernelAuthLib.getPreRegInvalidToken();
 			return invalidBatchJobToken;
 		case "invalid":
@@ -184,41 +184,41 @@ public class KernelAuthentication extends BaseTestCase {
 		case "invalidtoken":
 			return	kernelAuthLib.encodeBase64("AnyRandomString-ToCreate-Jwt");
 		case "regAdmin":
-			if (!kernelCmnLib.isValidToken(regAdminCookie))
+			if (!AdminTestUtil.isValidToken(regAdminCookie))
 				regAdminCookie = kernelAuthLib.getAuthForRegistrationAdmin();
 			return regAdminCookie;
 		case GlobalConstants.RESIDENT:
-			if (!kernelCmnLib.isValidToken(residentCookie))
+			if (!AdminTestUtil.isValidToken(residentCookie))
 				residentCookie = kernelAuthLib.getAuthForResident();
 			return residentCookie;
 		case "residentnew":
-			if (!kernelCmnLib.isValidToken(residentNewCookie.get(tokenType)))
+			if (!AdminTestUtil.isValidToken(residentNewCookie.get(tokenType)))
 				residentNewCookie = getAuthFromEsignet(ESIGNETUINCOOKIESRESPONSE);
 			return residentNewCookie.get(tokenType);
 		case "residentnewvid":
-			if (!kernelCmnLib.isValidToken(residentNewVidCookie.get(tokenType)))
+			if (!AdminTestUtil.isValidToken(residentNewVidCookie.get(tokenType)))
 				residentNewVidCookie = getAuthFromEsignet(ESIGNETVIDCOOKIESRESPONSE);
 			return residentNewVidCookie.get(tokenType);
 		case "residentnewKc":
-			if (!kernelCmnLib.isValidToken(residentNewCookieKc))
+			if (!AdminTestUtil.isValidToken(residentNewCookieKc))
 				residentNewCookieKc = kernelAuthLib.getAuthForNewResidentKc();
 			return residentNewCookieKc;
 		case "hotlist":
 			if (BaseTestCase.isTargetEnvLTS()) {
-				if (!kernelCmnLib.isValidToken(hotlistCookie))
+				if (!AdminTestUtil.isValidToken(hotlistCookie))
 					hotlistCookie = kernelAuthLib.getAuthForHotlist();
 				return hotlistCookie;
 			} else {
-				if (!kernelCmnLib.isValidToken(regProCookie))
+				if (!AdminTestUtil.isValidToken(regProCookie))
 					regProCookie = kernelAuthLib.getAuthForRegProc();
 				return regProCookie;
 			}
 		case "globaladmin":
-			if (!kernelCmnLib.isValidToken(zonemapCookie))
+			if (!AdminTestUtil.isValidToken(zonemapCookie))
 				zonemapCookie = kernelAuthLib.getAuthForzoneMap();
 			return zonemapCookie;
 		case "mobileauth":
-			if (!kernelCmnLib.isValidToken(mobileAuthCookie))
+			if (!AdminTestUtil.isValidToken(mobileAuthCookie))
 				mobileAuthCookie = kernelAuthLib.getAuthForMobile();
 			return mobileAuthCookie;
 		case "state":
@@ -227,7 +227,7 @@ public class KernelAuthentication extends BaseTestCase {
 			String uuidAsString = uuid.toString();
 			return uuidAsString;
 		default:
-			if (!kernelCmnLib.isValidToken(adminCookie))
+			if (!AdminTestUtil.isValidToken(adminCookie))
 				adminCookie = kernelAuthLib.getAuthForAdmin();
 			return adminCookie;
 		}
@@ -260,7 +260,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getAdminClientSecret());
 		actualrequest.put(GlobalConstants.REQUEST, request);
 
-		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualrequest);
+		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualrequest);
 		String responseBody = reponse.getBody().asString();
 		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
@@ -278,7 +278,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getAdminClientSecret());
 		actualrequest.put(GlobalConstants.REQUEST, request);
 
-		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualrequest);
+		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualrequest);
 		String responseBody = reponse.getBody().asString();
 		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
@@ -302,7 +302,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
 		String responseBody = reponse.getBody().asString();
 		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
@@ -326,7 +326,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
 		String responseBody = reponse.getBody().asString();
 		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
@@ -350,7 +350,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
 		String responseBody = reponse.getBody().asString();
 		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
@@ -374,7 +374,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
 		String responseBody = reponse.getBody().asString();
 		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
@@ -390,7 +390,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
 		String responseBody = reponse.getBody().asString();
 		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
@@ -406,7 +406,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
 		String responseBody = reponse.getBody().asString();
 		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
@@ -422,7 +422,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
 		String responseBody = reponse.getBody().asString();
 		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
@@ -438,7 +438,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
 		String responseBody = reponse.getBody().asString();
 		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
@@ -454,7 +454,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
 		String responseBody = reponse.getBody().asString();
 		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
@@ -470,7 +470,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
 		String responseBody = reponse.getBody().asString();
 		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
@@ -486,7 +486,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
 		String responseBody = reponse.getBody().asString();
 		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
@@ -504,7 +504,7 @@ public class KernelAuthentication extends BaseTestCase {
 		actualrequest.put(GlobalConstants.REQUEST, request);
 		logger.info(GlobalConstants.ACTU_AUTH_REQUESTFOR_RESIDENT + actualrequest);
 		logger.info(GlobalConstants.ACTU_AUTH_REQUESTFOR_RESIDENT + actualrequest);
-		Response reponse = appl.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
+		Response reponse = AdminTestUtil.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
 		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
 		return cookie;
 	}
@@ -522,7 +522,7 @@ public class KernelAuthentication extends BaseTestCase {
 		actualrequest.put(GlobalConstants.REQUEST, request);
 		logger.info(GlobalConstants.ACTU_AUTH_REQUESTFOR_RESIDENT + actualrequest);
 		logger.info(GlobalConstants.ACTU_AUTH_REQUESTFOR_RESIDENT + actualrequest);
-		Response reponse = appl.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
+		Response reponse = AdminTestUtil.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
 		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
 		return cookie;
 	}
@@ -540,7 +540,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getResidentClientSecret());
 		actualrequest.put(GlobalConstants.REQUEST, request);
 
-		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualrequest);
+		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualrequest);
 		String responseBody = reponse.getBody().asString();
 		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
@@ -574,7 +574,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.SECRETKEY, ConfigManager.getHotListClientSecret());
 		actualrequest.put(GlobalConstants.REQUEST, request);
 
-		Response reponse = appl.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
+		Response reponse = AdminTestUtil.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
 		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
 		return cookie;
 	}
@@ -584,14 +584,14 @@ public class KernelAuthentication extends BaseTestCase {
 		JSONObject actualRequest_generation = getRequestJson("kernel/Authorization/OtpGeneration/request.json");
 		((JSONObject) actualRequest_generation.get(GlobalConstants.REQUEST)).get("userId").toString();
 		JSONObject actualRequest_validation = getRequestJson("kernel/Authorization/OtpGeneration/request.json");
-		appl.postWithJson(sendOtp, actualRequest_generation);
+		AdminTestUtil.postWithJson(sendOtp, actualRequest_generation);
 		String otp = null;
 		if (proxy)
 			otp = "111111";
 		else {
 		}
 		((JSONObject) actualRequest_validation.get(GlobalConstants.REQUEST)).put("otp", otp);
-		Response otpValidate = appl.postWithJson(useridOTP, actualRequest_validation);
+		Response otpValidate = AdminTestUtil.postWithJson(useridOTP, actualRequest_validation);
 		cookie = otpValidate.getCookie(GlobalConstants.AUTHORIZATION);
 		return cookie;
 	}
@@ -599,13 +599,13 @@ public class KernelAuthentication extends BaseTestCase {
 	@SuppressWarnings("unchecked")
 	public String getPreRegToken() {
 		JSONObject actualRequest_generation = getRequestJson("config/prereg_SendOtp.json");
-		actualRequest_generation.put(GlobalConstants.REQUESTTIME, clib.getCurrentUTCTime());
+		actualRequest_generation.put(GlobalConstants.REQUESTTIME, AdminTestUtil.getCurrentUTCTime());
 		((JSONObject) actualRequest_generation.get(GlobalConstants.REQUEST)).put("langCode",
 				BaseTestCase.getLanguageList().get(0));
 		((JSONObject) actualRequest_generation.get(GlobalConstants.REQUEST)).get("userId").toString();
 		String userId = ((JSONObject) actualRequest_generation.get(GlobalConstants.REQUEST)).get("userId").toString();
 		JSONObject actualRequest_validation = getRequestJson("config/prereg_ValidateOtp.json");
-		appl.postWithJson(preregSendOtp, actualRequest_generation);
+		AdminTestUtil.postWithJson(preregSendOtp, actualRequest_generation);
 		String otp = null;
 		if (ConfigManager.getUsePreConfiguredOtp().equalsIgnoreCase("yes"))
 			//TODO REMOVE THE HARDCODING
@@ -614,8 +614,8 @@ public class KernelAuthentication extends BaseTestCase {
 			otp = OTPListener.getOtp(userId);
 		}
 		((JSONObject) actualRequest_validation.get(GlobalConstants.REQUEST)).put("otp", otp);
-		actualRequest_validation.put(GlobalConstants.REQUESTTIME, clib.getCurrentUTCTime());
-		Response otpValidate = appl.postWithJson(preregValidateOtp, actualRequest_validation);
+		actualRequest_validation.put(GlobalConstants.REQUESTTIME, AdminTestUtil.getCurrentUTCTime());
+		Response otpValidate = AdminTestUtil.postWithJson(preregValidateOtp, actualRequest_validation);
 		cookie = otpValidate.getCookie(GlobalConstants.AUTHORIZATION);
 		return cookie;
 	}
@@ -636,7 +636,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.SECRETKEY, ConfigManager.getRegprocClientSecret());
 		actualrequest.put(GlobalConstants.REQUEST, request);
 
-		Response reponse = appl.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
+		Response reponse = AdminTestUtil.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
 		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
 		logger.info("Regproc Cookie is:: " + cookie);
 		return cookie;
@@ -652,7 +652,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.SECRETKEY, ConfigManager.getRegprocClientSecret());
 		actualrequest.put(GlobalConstants.REQUEST, request);
 
-		Response reponse = appl.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
+		Response reponse = AdminTestUtil.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
 		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
 		logger.info("Regproc Cookie is:: " + cookie);
 		return cookie;
@@ -668,7 +668,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.SECRETKEY, ConfigManager.getResidentClientSecret());
 		actualrequest.put(GlobalConstants.REQUEST, request);
 
-		Response reponse = appl.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
+		Response reponse = AdminTestUtil.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
 		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
 		return cookie;
 	}
@@ -683,7 +683,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.SECRETKEY, ConfigManager.getIdRepoClientSecret());
 		actualrequest.put(GlobalConstants.REQUEST, request);
 
-		Response reponse = appl.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
+		Response reponse = AdminTestUtil.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
 		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
 		return cookie;
 	}
@@ -698,7 +698,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.SECRETKEY, ConfigManager.getAutomationClientSecret());
 		actualrequest.put(GlobalConstants.REQUEST, request);
 
-		Response reponse = appl.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
+		Response reponse = AdminTestUtil.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
 		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
 		return cookie;
 	}
@@ -713,7 +713,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.USER_NAME, registrationAdmin_userName);
 		actualrequest.put(GlobalConstants.REQUEST, request);
 
-		Response reponse = appl.postWithJson(authenticationEndpoint, actualrequest);
+		Response reponse = AdminTestUtil.postWithJson(authenticationEndpoint, actualrequest);
 		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
 		return cookie;
 	}
@@ -728,7 +728,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.USER_NAME, registrationOfficer_userName);
 		actualrequest.put(GlobalConstants.REQUEST, request);
 
-		Response reponse = appl.postWithJson(authenticationEndpoint, actualrequest);
+		Response reponse = AdminTestUtil.postWithJson(authenticationEndpoint, actualrequest);
 		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
 		return cookie;
 	}
@@ -743,7 +743,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.USER_NAME, registrationSupervisor_userName);
 		actualrequest.put(GlobalConstants.REQUEST, request);
 
-		Response reponse = appl.postWithJson(authenticationEndpoint, actualrequest);
+		Response reponse = AdminTestUtil.postWithJson(authenticationEndpoint, actualrequest);
 		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
 		return cookie;
 	}
@@ -758,7 +758,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.USER_NAME, zonalAdmin_userName);
 		actualrequest.put(GlobalConstants.REQUEST, request);
 
-		Response reponse = appl.postWithJson(authenticationEndpoint, actualrequest);
+		Response reponse = AdminTestUtil.postWithJson(authenticationEndpoint, actualrequest);
 		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
 		return cookie;
 	}
@@ -773,7 +773,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.USER_NAME, zonalApprover_userName);
 		actualrequest.put(GlobalConstants.REQUEST, request);
 
-		Response reponse = appl.postWithJson(authenticationEndpoint, actualrequest);
+		Response reponse = AdminTestUtil.postWithJson(authenticationEndpoint, actualrequest);
 		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
 		return cookie;
 	}
@@ -786,7 +786,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.PASSWORD, props.get("autoUsr_password"));
 		request.put(GlobalConstants.USER_NAME, props.get("autoUsr_user"));
 		actualrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = appl.postWithJson(authenticationEndpoint, actualrequest);
+		Response reponse = AdminTestUtil.postWithJson(authenticationEndpoint, actualrequest);
 		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
 		return cookie;
 	}
