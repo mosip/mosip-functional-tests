@@ -58,7 +58,8 @@ public class ConfigManager {
 			if (System.getenv("eSignetbaseurl") != null) {
 				value = System.getenv("eSignetbaseurl");
 			} else {
-				value = System.getProperty("env.endpoint").replace("api-internal", "esignet");
+//				value = System.getProperty("env.endpoint").replace("api-internal", "esignet");
+				value = "https://esignet-mock.released.mosip.net";
 			}
 			propertiesMap.put(key, value);
 		} else if (key.equalsIgnoreCase("signupBaseUrl")){
@@ -74,7 +75,8 @@ public class ConfigManager {
 			if (System.getenv("injiCertifyBaseURL") != null) {
 				value = System.getenv("injiCertifyBaseURL");
 			} else {
-				value = System.getProperty("env.endpoint").replace("api-internal", "injicertify");
+//				value = System.getProperty("env.endpoint").replace("api-internal", "injicertify");
+				value = "https://injicertify-mock.qa-inji1.mosip.net";
 			}
 			propertiesMap.put(key, value);
 		} else if (key.equalsIgnoreCase("mosip_components_base_urls")){
