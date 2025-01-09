@@ -129,6 +129,7 @@ public class RestClient {
 	
 	public static Response post(String url, String requestBody) throws Exception {
 		Response response = null;
+		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled())
 			response = RestAssured.given().log().all().baseUri(url).contentType(MediaType.APPLICATION_JSON).and()
 					.body(requestBody).when().post().then().log().all().extract().response();
