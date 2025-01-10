@@ -74,6 +74,7 @@ public class BaseTestCase {
 	public String testrigCookie = null;
 	public String partnerCookie = null;
 	public String partnerrevampCookie = null;
+	public String deviceproviderCookie = null;
 	public String partnerrevampdeviceCookie = null;
 	public String partnerrevampftmCookie = null;
 	public String partnerNewCookie = null;
