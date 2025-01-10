@@ -44,6 +44,58 @@ public class RestClient {
 			.getproperty(BaseTestCase.getGlobalResourcePath() + "/" + "config/application.properties");
 	
 	
+	public static Response getWithoutParams(String url, String cookie) {
+		
+		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
+		Response getResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
+
+		if (ConfigManager.IsDebugEnabled()) {
+			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a Get request to " + url);
+			
+			getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().log().all().when().get(url);
+			
+			responseLogger(getResponse);
+			RESTCLIENT_LOGGER.info("REST-ASSURED: the response Time is: " + getResponse.time());
+		} else {
+			getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().when().get(url);
+		}
+
+		
+		return getResponse;
+	}
+	
+	public static void responseLogger(Response response) {
+		int statusCode = response.statusCode();
+		if (statusCode < 200 || statusCode > 299) {
+			RESTCLIENT_LOGGER.info(response.asString());
+		} else
+			RESTCLIENT_LOGGER.info("status code: " + statusCode + "(success)");
+
+	}
+	
+	
+	public static Response postWithJson(String url, Object body, String contentHeader, String acceptHeader) {
+		Response postResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
+
+		if (ConfigManager.IsDebugEnabled()) {
+			RESTCLIENT_LOGGER.info("REST:ASSURED:Sending post request to" + url);
+
+			postResponse = given().relaxedHTTPSValidation().body(body).contentType(contentHeader).accept(acceptHeader)
+					.log().all().when().post(url).then().log().all().extract().response();
+
+			RESTCLIENT_LOGGER.info("REST-ASSURED: The response from request is: " + postResponse.asString()
+					+ GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
+		} else {
+			postResponse = given().relaxedHTTPSValidation().body(body).contentType(contentHeader).accept(acceptHeader)
+					.when().post(url).then().extract().response();
+		}
+
+		return postResponse;
+	}
+	
+	
 	/**
 	 * REST ASSURED POST request method
 	 * 
@@ -77,6 +129,7 @@ public class RestClient {
 	
 	public static Response post(String url, String requestBody) throws Exception {
 		Response response = null;
+		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled())
 			response = RestAssured.given().log().all().baseUri(url).contentType(MediaType.APPLICATION_JSON).and()
 					.body(requestBody).when().post().then().log().all().extract().response();
