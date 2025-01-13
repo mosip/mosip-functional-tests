@@ -105,9 +105,6 @@ public class KernelAuthentication extends BaseTestCase {
 				return regProCookie;
 			}
 		case "regproc":
-			if (!AdminTestUtil.isValidToken(regProcCookie))
-				regProcCookie = kernelAuthLib.getAuthForRegistrationProcessor();
-			return regProcCookie;
 		case "regpro":
 			if (!AdminTestUtil.isValidToken(regProCookie))
 				regProCookie = kernelAuthLib.getAuthForRegProc();
