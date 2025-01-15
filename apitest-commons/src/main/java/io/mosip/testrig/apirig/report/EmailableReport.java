@@ -167,7 +167,7 @@ public class EmailableReport implements IReporter {
 		}
 		
 		if (skipPassed == true) {
-			temp = temp.replaceAll("P-\\d+_", "");
+			temp = temp.replaceAll("P-\\d+_", ""); // Removes passed count (P-*_) from the report title.
 		}
 		
 		String newString = oldString.replace("-report", temp);
