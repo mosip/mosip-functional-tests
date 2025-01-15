@@ -91,8 +91,11 @@ public class EmailableReport implements IReporter {
 
 	@Override
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
-		generateReport(xmlSuites, suites,  outputDirectory, false); // Generate full report
-		generateReport(xmlSuites, suites,  outputDirectory, true); // Generate error report
+		generateReport(xmlSuites, suites, outputDirectory, false); // Generate full report
+		if (totalFailedTests > 0 || totalSkippedTests > 0) {
+			generateReport(xmlSuites, suites, outputDirectory, true); // Generate error report
+		}
+
 	}
 	
 	private SuiteResult createFilteredSuiteResult(ISuite suite) {
@@ -162,6 +165,11 @@ public class EmailableReport implements IReporter {
 			temp = "-" + reportContext + "report_T-" + totalTestCases + "_P-" + totalPassedTests + "_S-" + totalSkippedTests + "_F-"
 					+ totalFailedTests + "_KI-" + totalKnownIssueTests;
 		}
+		
+		if (skipPassed == true) {
+			temp = temp.replaceAll("P-\\d+_", "");
+		}
+		
 		String newString = oldString.replace("-report", temp);
 
 		File orignialReportFile = new File(
