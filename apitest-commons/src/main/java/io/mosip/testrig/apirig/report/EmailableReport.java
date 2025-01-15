@@ -91,6 +91,13 @@ public class EmailableReport implements IReporter {
 
 	@Override
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
+	    // Sort suites in descending order by suite name
+	    Collections.sort(suites, new Comparator<ISuite>() {
+	        @Override
+	        public int compare(ISuite suite1, ISuite suite2) {
+	            return suite2.getName().compareTo(suite1.getName()); // Reverse the order for descending sort
+	        }
+	    });
 		generateReport(xmlSuites, suites, outputDirectory, false); // Generate full report
 		if (totalFailedTests > 0 || totalSkippedTests > 0) {
 			generateReport(xmlSuites, suites, outputDirectory, true); // Generate error report
@@ -432,7 +439,7 @@ public class EmailableReport implements IReporter {
 				int failedTests = testResult.getFailedTestCount();
 				long duration = testResult.getDuration();
 				int totalTests = 0;
-				EverySuiteFailedTestCount = failedTests;
+				EverySuiteFailedTestCount = EverySuiteFailedTestCount + failedTests;
 				
 				totalTests = passedTests + skippedTests + failedTests;
 				
