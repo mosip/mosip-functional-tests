@@ -131,7 +131,7 @@ public class KernelAuthentication extends BaseTestCase {
 			return partnerrevampCookie;
 		
 		case "deviceprovider":
-			if (!kernelCmnLib.isValidToken(deviceproviderCookie))
+			if (!AdminTestUtil.isValidToken(deviceproviderCookie))
 				deviceproviderCookie = kernelAuthLib.getAuthForDeviceProvider();
 			return deviceproviderCookie;
 			
@@ -357,7 +357,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
 		String responseBody = reponse.getBody().asString();
 		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
