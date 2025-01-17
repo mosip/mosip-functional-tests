@@ -37,6 +37,7 @@ public class KernelAuthentication extends BaseTestCase {
 	private String partner_password = props.get("partner_user_password");
 	private String partner_userName = props.get("partner_userName");
 	private String partner_revamp_userName = props.get("partner_revamp_userName");
+	private String device_provider_userName = props.get("device_provider_userName");
 	private String partner_revamp_device_userName = props.get("partner_revamp_device_userName");
 	private String partner_revamp_ftm_userName = props.get("partner_revamp_ftm_userName");
 	private String partner_userName_without_role = props.get("policytest_userName");
@@ -125,6 +126,12 @@ public class KernelAuthentication extends BaseTestCase {
 			if (!AdminTestUtil.isValidToken(partnerrevampCookie))
 				partnerrevampCookie = kernelAuthLib.getAuthForPartnerRevamp();
 			return partnerrevampCookie;
+		
+		case "deviceprovider":
+			if (!AdminTestUtil.isValidToken(deviceproviderCookie))
+				deviceproviderCookie = kernelAuthLib.getAuthForDeviceProvider();
+			return deviceproviderCookie;
+			
 		case "partnerrevampdevice":
 			if (!AdminTestUtil.isValidToken(partnerrevampdeviceCookie))
 				partnerrevampdeviceCookie = kernelAuthLib.getAuthForPartnerRevampDevice();
@@ -327,6 +334,31 @@ public class KernelAuthentication extends BaseTestCase {
 		String responseBody = reponse.getBody().asString();
 		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
+	
+	@SuppressWarnings({ "unchecked" })
+	public String getAuthForDeviceProvider() {
+
+		JSONObject request = new JSONObject();
+
+		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
+		request.put(GlobalConstants.PASSWORD, partner_password);
+		request.put(GlobalConstants.USER_NAME, device_provider_userName);
+		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
+		if (BaseTestCase.isTargetEnvLTS()) {
+			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
+		} else {
+			request.put(GlobalConstants.CLIENTID, ConfigManager.getPartnerClientId());
+			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPartnerClientSecret());
+		}
+		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+
+		actualInternalrequest.put(GlobalConstants.REQUEST, request);
+		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		String responseBody = reponse.getBody().asString();
+		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+	}
+	
 	
 	@SuppressWarnings({ "unchecked" })
 	public String getAuthForPartnerRevampDevice() {
