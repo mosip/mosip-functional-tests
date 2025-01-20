@@ -387,7 +387,6 @@ public class BiometricDataProvider {
 			HashMap<String, Integer> portAsPerKey = BiometricDataProvider.portmap;
 			setMDSscore(portAsPerKey.get("port_"), "Biometric Device", qualityScore);
 			logger.info(contextKey + ", mds score is changed to : " + qualityScore);
-//			biodata = resident.getBiometric();
 			
 		} catch (Throwable t) {
 			logger.error(" Port issue " + contextKey, t);
