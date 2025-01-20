@@ -8,9 +8,6 @@ import org.slf4j.LoggerFactory;
 public class HttpRCapture extends HttpEntityEnclosingRequestBase{
 private static final Logger logger = LoggerFactory.getLogger(HttpRCapture.class);
 
-//HttpRequestBase 
-
-
 	    String METHOD_NAME ;
 
 	    public void setMethod(String method) {

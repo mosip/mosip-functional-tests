@@ -45,12 +45,7 @@ public class MDSClient implements MDSClientInterface {
 
 		try {
 			logger.info("Inside Setprofile");
-//			HttpRCapture capture = new HttpRCapture(url);
-//			capture.setMethod("POST");
-//			String response = RestClient.rawHttp(capture, body.toString());
 			Response response = RestClient.post(url, body.toString());
-//			JSONObject respObject = new JSONObject(response.as);
-
 		} catch (Exception ex) {
 			logger.error(ex.getMessage());
 		}
@@ -84,11 +79,6 @@ public class MDSClient implements MDSClientInterface {
 		}
 		return devices;
 	}
-
-	// capture = mds.captureFromRegDevice(exceptionDevice, capture,
-	// DataProviderConstants.MDS_DEVICE_TYPE_EXCEPTION_PHOTO,
-	// null, 60, exceptionDevice.getDeviceSubId().get(0),
-	// port,contextKey,bioexceptionlist);
 
 	public MDSRCaptureModel captureFromRegDevice(MDSDevice device, MDSRCaptureModel rCaptureModel, String type,
 			String bioSubType, int reqScore, String deviceSubId, int port, String contextKey,

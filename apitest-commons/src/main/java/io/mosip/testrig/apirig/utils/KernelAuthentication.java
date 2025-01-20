@@ -26,12 +26,10 @@ public class KernelAuthentication extends BaseTestCase {
 	static String encodeBase64 ="";
 	static String errorKey = "errors";
 	static Map<String, String> tokens = new HashMap<>();
-//	CommonLibrary clib = new CommonLibrary();
 	public final Map<String, String> props = AdminTestUtil.readProperty("Kernel");
 
 	private String admin_password = ConfigManager.getUserAdminPassword();
 
-//	private String admin_userName = props.get("admin_userName");
 	private String admin_userName = ConfigManager.getUserAdminName();
 
 	private String partner_password = props.get("partner_user_password");
@@ -65,7 +63,6 @@ public class KernelAuthentication extends BaseTestCase {
 	private String authenticationInternalEndpoint = props.get("authenticationInternal");
 	private String sendOtp = props.get(GlobalConstants.SENDOTP);
 	private String useridOTP = props.get("useridOTP");
-//	private ApplicationLibrary appl = new ApplicationLibrary();
 	private String authRequest = "config/Authorization/request.json";
 	private String authInternalRequest = "config/Authorization/internalAuthRequest.json";
 	private String preregSendOtp = props.get("preregSendOtp");
