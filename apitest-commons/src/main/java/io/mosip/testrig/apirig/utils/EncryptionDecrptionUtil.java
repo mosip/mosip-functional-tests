@@ -184,42 +184,6 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		return DatatypeConverter.printHexBinary(data).toUpperCase();
 	}
 	
-	
-	/*
-	 * class Encrypt { public static String digestAsPlainText(byte[] data) { return
-	 * DatatypeConverter.printHexBinary(data).toUpperCase(); } }
-	 */
-	/*
-	 * private String getEncryption(String jsonString) {
-	 * 
-	 * try { JSONObject objectData = new JSONObject(jsonString);
-	 * Reporter.log("<b><u> Identity request:</u></b>");
-	 * 
-	 * GlobalMethods.reportRequest(null, objectData.toString());
-	 * 
-	 * Map<String, Object> identityRequestMap = new HashMap<>();
-	 * identityRequestMap.put("identityRequest", objectData);
-	 * 
-	 * 
-	 * 
-	 * EncryptionRequestDto encryptionRequestDto = new EncryptionRequestDto();
-	 * encryptionRequestDto.setIdentityRequest(identityRequestMap);
-	 * 
-	 * Encrypt encruptObject = new Encrypt(); EncryptionResponseDto
-	 * encryptionResponseDto = encruptObject.encrypt(encryptionRequestDto, null,
-	 * false, false);
-	 * 
-	 * return
-	 * RestClient.postRequest(EncryptUtilBaseUrl+properties.get("encryptionPath"),
-	 * objectData.toString(), MediaType.APPLICATION_JSON,
-	 * MediaType.APPLICATION_JSON).asString(); } catch (Exception e) {
-	 * lOGGER.error(GlobalConstants.EXCEPTION+ e); return e.toString(); } }
-	 */
-	
-	
-	
-	
-	
 	/**
 	 * The method get encrypted json for identity request
 	 * 
@@ -238,139 +202,6 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 			return e.toString();
 		}
 	}
-
-	/**
-	 * The method will get encoded data from json content in file
-	 * 
-	 * @param filename
-	 * @return String, Encoded data
-	 */
-//	public String getEncode(String jsonString) {
-//		try {
-//			JSONObject objectData = new JSONObject(jsonString);
-//			return RestClient.postRequest(EncryptUtilBaseUrl+properties.get(GlobalConstants.ENCODEPATH), objectData.toString(), MediaType.TEXT_PLAIN,
-//					MediaType.TEXT_PLAIN).asString();
-//		} catch (Exception e) {
-//			lOGGER.error(GlobalConstants.EXCEPTION + e);
-//			return e.toString();
-//		}
-//	}
-	/**
-	 * The method will get encoded data from cbeff file
-	 * 
-	 * @param filename
-	 * @return String, Encoded data
-	 */
-//	public String getCbeffEncode(String filename) {
-//		try {
-//			String objectData = FileUtil.readInput(filename);
-//			objectData=objectData.replaceAll(" xmlns=\"\"", "");
-//			return RestClient.postRequest(EncryptUtilBaseUrl+properties.get(GlobalConstants.ENCODEPATH), objectData, MediaType.TEXT_PLAIN,
-//					MediaType.TEXT_PLAIN).asString();
-//		} catch (Exception e) {
-//			lOGGER.error(GlobalConstants.EXCEPTION + e);
-//			return e.toString();
-//		}
-//	}
-	/**
-	 * The method get decoded content in file
-	 * 
-	 * @param content, String to decode
-	 * @return String, decoded content
-	 */
-//	public String getDecodeFile(String content) {
-//		try {
-//			return RestClient.postRequest(EncryptUtilBaseUrl + properties.get("decodeFilePath"), content,
-//					MediaType.TEXT_PLAIN, MediaType.APPLICATION_OCTET_STREAM).asString();
-//		} catch (Exception e) {
-//			lOGGER.error(GlobalConstants.EXCEPTION + e);
-//			return e.toString();
-//		}
-//	}
-	
-	/**
-	 * The method get encoded data from file
-	 * 
-	 * @param file, file to be encoded
-	 * @return String, encoded data
-	 */
-//	public String getEncodeFile(File file) {
-//		try {
-//			return RestClient.postRequest(EncryptUtilBaseUrl + properties.get("encodeFilePath"), file,
-//					MediaType.MULTIPART_FORM_DATA, MediaType.TEXT_PLAIN).asString();
-//		} catch (Exception e) {
-//			lOGGER.error(GlobalConstants.EXCEPTION + e);
-//			return e.toString();
-//		}
-//	}
-	
-	/**
-	 * The method get decoded data from file
-	 * 
-	 * @param filename, file to to be decoded
-	 * @return String, decoded data
-	 */
-//	public String getDecodeFromFile(String filename) {
-//		try (FileReader fr = new FileReader(filename)) {
-//			JSONObject objectData = (JSONObject) new JSONParser().parse(fr);
-//			return RestClient.postRequest(EncryptUtilBaseUrl + properties.get("decodePath"), objectData.toString(),
-//					MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON).asString();
-//		} catch (Exception e) {
-//			lOGGER.error(GlobalConstants.EXCEPTION + e);
-//			return e.toString();
-//		}
-//	}
-	
-	/**
-	 * The method get decoded data from string
-	 * 
-	 * @param content, String to be decoded
-	 * @return String, decoded data
-	 */
-//	public String getDecodeFromStr(String content) {
-//		try {
-//			return RestClient.postRequest(EncryptUtilBaseUrl + properties.get("decodePath"), content,
-//					MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON).asString();
-//		} catch (Exception e) {
-//			lOGGER.error(GlobalConstants.EXCEPTION + e);
-//			return e.toString();
-//		}
-//	}
-	/**
-	 * The method get decrypt data from file
-	 * 
-	 * @param filename, file to to be decoded
-	 * @return String, decoded data
-	 */
-//	public String getDecryptFromFile(String filename) {
-//		try (FileReader fr = new FileReader(filename)) {
-//			JSONObject objectData = (JSONObject) new JSONParser().parse(fr);
-//			return RestClient.postRequest(EncryptUtilBaseUrl + properties.get(GlobalConstants.DECRYPTPATH),
-//					objectData.toString(), MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON).asString();
-//		} catch (Exception e) {
-//			lOGGER.error(GlobalConstants.EXCEPTION + e);
-//			return e.toString();
-//		}
-//	}
-	
-	/**
-	 * The method get decrypt data from string
-	 * 
-	 * @param content, String to be decoded
-	 * @return String, decoded data
-	 */
-//	public String getDecyptFromStr(String content, String referenceId, boolean isInternal) {
-//		try {
-//			HashMap<String, Object> queryParams = new HashMap<>();
-//			queryParams.put("refId", referenceId);
-//			queryParams.put("isInternal", isInternal);
-//			return RestClient.postRequestWithQueryParamsAndBody(EncryptUtilBaseUrl + properties.get(GlobalConstants.DECRYPTPATH), content, queryParams, 
-//					MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON).asString();
-//		} catch (Exception e) {
-//			lOGGER.error(GlobalConstants.EXCEPTION + e);
-//			return e.toString();
-//		}
-//	}
 	
 	/**
 	 * The method will get encoded data from json content in file
@@ -387,19 +218,6 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 			return e.toString();
 		}
 	}
-	
-//	public static String splitEncryptedData(String content)
-//	{
-//		try {
-//			return RestClient.postRequest(EncryptUtilBaseUrl+properties.get("splitEncryptedData"), content, MediaType.APPLICATION_JSON,
-//					MediaType.APPLICATION_JSON).asString();
-//			
-//		} catch (Exception e) {
-//			lOGGER.error(GlobalConstants.EXCEPTION + e);
-//			return e.toString();
-//		}
-//		
-//	}
 	
 	public static String getCertificateThumbprint(Certificate cert){
 		try {
@@ -493,48 +311,4 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		}
 		return expectedThumbPrint.equals(thumbPrint);
 	}
-	
-//	public boolean validateEkycResponseIdentity(String identity, String partnerId, boolean isInternal) {
-//		String decryptedKycIdentity = getDecyptFromStr(identity, partnerId, isInternal);
-//		boolean bReturn = true;
-//		Reporter.log(
-//				"<b><u>Decrypted Kyc Response: </u></b>(EndPointUrl: " + EncryptUtilBaseUrl + properties.get(GlobalConstants.DECRYPTPATH)
-//						+ ") <pre>" + ReportUtil.getTextAreaJsonMsgHtml(decryptedKycIdentity) + "</pre>");
-//		String[] keysToValidateInKYC = properties.getProperty("keysToValidateInKYC").split(",");
-//		JSONObject decryptedKycJson = new JSONObject(decryptedKycIdentity);
-//		if (decryptedKycJson.length() != 0) {
-//			for (String key : keysToValidateInKYC)
-//				if (!decryptedKycJson.has(key))
-//					bReturn = false;
-//		} else
-//			bReturn = false;
-//		return bReturn;
-//	}
-	
-
-//	public boolean validateThumbPrintAndIdentity(Response response, String ekycUri) throws AdminTestException {
-//		String thumbPrint = JsonPrecondtion.getValueFromJson(response.asString(), "response.thumbprint");
-//		String[] uriParts = ekycUri.split("/");
-//		String partnerId = uriParts[uriParts.length-2];
-//		boolean thumprintValid = validateThumbPrint(thumbPrint, partnerId);
-//			if(!thumprintValid)	throw new AdminTestException("Failed in Thumbprint validation");
-//			
-//		String identity = JsonPrecondtion.getValueFromJson(response.asString(), "response.identity");
-//		boolean ekycResponseValid = validateEkycResponseIdentity(identity, partnerId, false);
-//			if(!ekycResponseValid)	throw new AdminTestException("Failed in KYC Response validation");
-//		
-//		return thumprintValid&&ekycResponseValid;
-//	}
-	
-//	public boolean verifyResponseUsingDigitalSignature(String resonseContent, String digitalSignature) {
-//		HashMap<String, String> queryparams = new HashMap<>();
-//		queryparams.put("signature", digitalSignature);
-//		String signatureApiPath = EncryptUtilBaseUrl + properties.getProperty("validateSignatureUrl");
-//		Response response = RestClient.postRequestWithQueryParamAndBody(signatureApiPath, resonseContent,queryparams, MediaType.APPLICATION_JSON,
-//				MediaType.APPLICATION_JSON);
-//		if (response.asString().contains("success"))
-//			return true;
-//		else
-//			return false;
-//	}
 }

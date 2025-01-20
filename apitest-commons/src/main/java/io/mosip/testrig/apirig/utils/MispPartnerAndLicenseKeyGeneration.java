@@ -32,10 +32,6 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 	}
 	
 	public static String getAndUploadCertificatesAndGenerateMispLicKey() {
-//		if (localHostUrl == null) {
-//			localHostUrl = getLocalHostUrl();
-//		}	
-		
 		mispPartnerGeneration();
 		JSONObject certificateValue = getCertificates(mispPartnerId, getPartnerType);
 		String mispCACertValue = certificateValue.getString("caCertificate");
@@ -121,21 +117,6 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		responseJson.put("interCertificate", certificateChainResponseDto.getInterCertificate());
 		responseJson.put("partnerCertificate", certificateChainResponseDto.getPartnerCertificate());
 		return responseJson;
-		
-//		String url = localHostUrl + properties.getProperty("getPartnerCertURL");
-//		
-//		HashMap<String, String> map = new HashMap<>();
-//		
-//		map.put("partnerName", partnerId);
-//		map.put(GlobalConstants.PARTNERTYPE, partnerType);
-//		map.put("moduleName", BaseTestCase.certsForModule);
-//		
-//		Response response = RestClient.getRequestWithQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-//		lOGGER.info(response);
-//		JSONObject responseJson = new JSONObject(response.asString());
-//		lOGGER.info(responseJson);
-//		
-//		return responseJson;
 	}
 	
 	public static void uploadCACertificate(String certValueCA, String partnerDomain) {
@@ -244,23 +225,7 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
-//		String url = localHostUrl + properties.getProperty("uploadSignedCertificateUrl");
-//		
-//		HashMap<String, String> requestBody = new HashMap<>();
-//		
-//		requestBody.put("certData", certValueSigned);
-//		
-//		HashMap<String, Object> queryParamMap = new HashMap<>();
-//		
-//		queryParamMap.put(GlobalConstants.PARTNERTYPE, partnerType);
-//		queryParamMap.put("moduleName", BaseTestCase.certsForModule);
-//		
-//		Response response = RestClient.postRequestWithQueryParamsAndBody(url, requestBody, queryParamMap, MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
-//		
-//		lOGGER.info(response);
+
 	}
 	
 	public static String generateMispLicKey(String partnerId) {

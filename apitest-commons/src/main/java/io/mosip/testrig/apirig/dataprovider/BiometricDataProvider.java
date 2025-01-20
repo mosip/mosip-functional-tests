@@ -389,20 +389,11 @@ public class BiometricDataProvider {
 			logger.info(contextKey + ", mds score is changed to : " + qualityScore);
 //			biodata = resident.getBiometric();
 			
-			// This condition will address those scenarios where we are not passing any biometrics
-//			if (biodata.getFaceHash() == null && biodata.getFingerHash() == null && biodata.getIris() == null)
-//				return new MDSRCaptureModel();
 		} catch (Throwable t) {
 			logger.error(" Port issue " + contextKey, t);
 			t.getStackTrace();
 			return null;
 		}
-
-		// Get Exceptions modalities and add them to list of string
-//		if (bioExceptions != null && !bioExceptions.isEmpty()) {
-//			for (int modalityCount = 0; modalityCount < bioExceptions.size(); modalityCount++)
-//				bioexceptionlist.add(bioExceptions.get(modalityCount).getSubType().toString());
-//		}
 
 		// Step 1 : Face get capture
 		try {

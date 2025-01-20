@@ -71,10 +71,6 @@ public class HealthChecker implements Runnable {
 						if (parts[1].contains(GlobalConstants.RID_GENERATOR)
 								&& (ConfigManager.isInServiceNotDeployedList(GlobalConstants.RID_GENERATOR)))
 							continue;
-//						if (ConfigManager.isMosipIDIntegrated() == false
-//								&& parts[1].contains(GlobalConstants.ESIGNET) == false) {
-//							continue;
-//						}
 						controllerPaths.add(BaseTestCase.ApplnURI + parts[1]);
 					}
 				}

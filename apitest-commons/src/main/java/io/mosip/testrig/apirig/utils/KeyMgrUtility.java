@@ -111,8 +111,6 @@ public class KeyMgrUtility {
     }
 
     public String getKeysDirPath(String certsDir, String moduleName, String targetEnv) {
-        //String domain = environment.getProperty(DOMAIN_URL, "localhost").replace("https://", "").replace("http://", "").replace("/", "");
-        //String domain = "api-internal.camdgc-dev.mosip.net";
         String certsTargetDir = System.getProperty("java.io.tmpdir") + File.separator + System.getProperty("parent.certs.folder.name", "AUTHCERTS");
 
         if (System.getProperty("os.name").toLowerCase().contains("windows") == false) {

@@ -99,7 +99,6 @@ public class BaseTestCase {
 	public static String languageCode = null;
 	public static List<String> supportedIdType = new ArrayList<>();
 	public static KernelAuthentication kernelAuthLib = null;
-//	public static CommonLibrary kernelCmnLib = null;
 	public static Map<?, ?> queries;
 	public static HashMap<String, String> documentId = new HashMap<>();
 	public static HashMap<String, String> regCenterId = new HashMap<>();
@@ -261,7 +260,6 @@ public class BaseTestCase {
 	public static void initialize() {
 		PropertyConfigurator.configure(getLoggerPropertyConfig());
 		kernelAuthLib = new KernelAuthentication();
-//		kernelCmnLib = new CommonLibrary();
 		queries = AdminTestUtil.readProperty("adminQueries");
 		partnerQueries = AdminTestUtil.readProperty("partnerQueries");
 		residentQueries = AdminTestUtil.readProperty("residentServicesQueries");
@@ -640,9 +638,6 @@ public class BaseTestCase {
 		if (!supportedIdType.isEmpty()) {
 			return supportedIdType;
 		}
-//		supportedIdType.add("UIN");
-//		return supportedIdType;
-
 		String section = "/mosip-config/id-authentication-default.properties";
 		if (!BaseTestCase.isTargetEnvLTS())
 			section = "/mosip-config/sandbox/id-authentication-lts.properties";

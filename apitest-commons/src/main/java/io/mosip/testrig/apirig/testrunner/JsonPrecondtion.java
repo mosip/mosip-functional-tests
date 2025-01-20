@@ -66,7 +66,7 @@ public class JsonPrecondtion extends MessagePrecondtion{
 			
 			ObjectMapper mapper = new ObjectMapper();
 			Object jsonObj = mapper.readValue(inputJson, Object.class);
-				Properties props = 	AdminTestUtil.getproperty(propFileName);																// add
+				Properties props = 	AdminTestUtil.getproperty(propFileName);
 			for (Entry<String, String> map : fieldvalue.entrySet()) {
 				if (map.getValue().contains(GlobalConstants.LONG_STRING)) {
 					String value = map.getValue().replace(GlobalConstants.LONG_STRING, "");
