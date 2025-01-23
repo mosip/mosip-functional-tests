@@ -5444,7 +5444,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static JSONArray regprocActuatorResponseArray = null;
 
 	public static String getValueFromRegprocActuator(String section, String key) {
-		String url = ApplnURI + ConfigManager.getproperty("regprocActuatorEndpoint");
+		String url = ApplnURI + ConfigManager.getproperty("actuatorRegprocEndpoint");
 		String actuatorCacheKey = url + section + key;
 		String value = actuatorValueCache.get(actuatorCacheKey);
 		if (value != null && !value.isEmpty())
