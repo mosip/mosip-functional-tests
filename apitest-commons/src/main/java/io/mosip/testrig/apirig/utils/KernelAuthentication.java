@@ -34,10 +34,11 @@ public class KernelAuthentication extends BaseTestCase {
 
 	private String partner_password = props.get("partner_user_password");
 	private String partner_userName = props.get("partner_userName");
-	private String partner_revamp_userName = props.get("partner_revamp_userName");
+	private String partner_auth_userName = props.get("partner_auth_userName");
 	private String device_provider_userName = props.get("device_provider_userName");
-	private String partner_revamp_device_userName = props.get("partner_revamp_device_userName");
-	private String partner_revamp_ftm_userName = props.get("partner_revamp_ftm_userName");
+	private String partner_device_userName = props.get("partner_device_userName");
+	private String partner_ftm_userName = props.get("partner_ftm_userName");
+	private String partner_admin_userName = props.get("partner_admin_userName");
 	private String partner_userName_without_role = props.get("policytest_userName");
 	private String partner_userName_without_pm_role = props.get("policytest_without_pmrole_userName");
 
@@ -119,24 +120,29 @@ public class KernelAuthentication extends BaseTestCase {
 			if (!AdminTestUtil.isValidToken(zonalApproverCookie))
 				zonalApproverCookie = kernelAuthLib.getAuthForZonalApprover();
 			return zonalApproverCookie;
-		case "partnerrevamp":
-			if (!AdminTestUtil.isValidToken(partnerrevampCookie))
-				partnerrevampCookie = kernelAuthLib.getAuthForPartnerRevamp();
-			return partnerrevampCookie;
+		case "partnerauth":
+			if (!AdminTestUtil.isValidToken(partnerauthCookie))
+				partnerauthCookie = kernelAuthLib.getAuthForPartnerAuth();
+			return partnerauthCookie;
 		
 		case "deviceprovider":
 			if (!AdminTestUtil.isValidToken(deviceproviderCookie))
 				deviceproviderCookie = kernelAuthLib.getAuthForDeviceProvider();
 			return deviceproviderCookie;
 			
-		case "partnerrevampdevice":
-			if (!AdminTestUtil.isValidToken(partnerrevampdeviceCookie))
-				partnerrevampdeviceCookie = kernelAuthLib.getAuthForPartnerRevampDevice();
-			return partnerrevampdeviceCookie;
-		case "partnerrevampftm":
-			if (!AdminTestUtil.isValidToken(partnerrevampftmCookie))
-				partnerrevampftmCookie = kernelAuthLib.getAuthForPartnerRevampFtm();
-			return partnerrevampftmCookie;
+		case "partnerdevice":
+			if (!AdminTestUtil.isValidToken(partnerdeviceCookie))
+				partnerdeviceCookie = kernelAuthLib.getAuthForPartnerRevampDevice();
+			return partnerdeviceCookie;
+		case "partnerftm":
+			if (!AdminTestUtil.isValidToken(partnerftmCookie))
+				partnerftmCookie = kernelAuthLib.getAuthForPartnerRevampFtm();
+			return partnerftmCookie;
+			
+		case "partneradmin":
+			if (!AdminTestUtil.isValidToken(partneradminCookie))
+				partneradminCookie = kernelAuthLib.getAuthForPartnerRevampAdmin();
+			return partneradminCookie;
 		case "partner":
 			if (!AdminTestUtil.isValidToken(partnerCookie))
 				partnerCookie = kernelAuthLib.getAuthForPartner();
@@ -309,13 +315,13 @@ public class KernelAuthentication extends BaseTestCase {
 	}
 	
 	@SuppressWarnings({ "unchecked" })
-	public String getAuthForPartnerRevamp() {
+	public String getAuthForPartnerAuth() {
 
 		JSONObject request = new JSONObject();
 
 		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
 		request.put(GlobalConstants.PASSWORD, partner_password);
-		request.put(GlobalConstants.USER_NAME, partner_revamp_userName);
+		request.put(GlobalConstants.USER_NAME, partner_auth_userName);
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		if (BaseTestCase.isTargetEnvLTS()) {
 			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
@@ -364,7 +370,7 @@ public class KernelAuthentication extends BaseTestCase {
 
 		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
 		request.put(GlobalConstants.PASSWORD, partner_password);
-		request.put(GlobalConstants.USER_NAME,  partner_revamp_device_userName);
+		request.put(GlobalConstants.USER_NAME,  partner_device_userName);
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		if (BaseTestCase.isTargetEnvLTS()) {
 			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
@@ -388,7 +394,30 @@ public class KernelAuthentication extends BaseTestCase {
 
 		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
 		request.put(GlobalConstants.PASSWORD, partner_password);
-		request.put(GlobalConstants.USER_NAME,  partner_revamp_ftm_userName);
+		request.put(GlobalConstants.USER_NAME,  partner_ftm_userName);
+		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
+		if (BaseTestCase.isTargetEnvLTS()) {
+			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
+		} else {
+			request.put(GlobalConstants.CLIENTID, ConfigManager.getPartnerClientId());
+			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPartnerClientSecret());
+		}
+		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+
+		actualInternalrequest.put(GlobalConstants.REQUEST, request);
+		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		String responseBody = reponse.getBody().asString();
+		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+	}
+	
+	public String getAuthForPartnerRevampAdmin() {
+
+		JSONObject request = new JSONObject();
+
+		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
+		request.put(GlobalConstants.PASSWORD, partner_password);
+		request.put(GlobalConstants.USER_NAME,  partner_admin_userName);
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		if (BaseTestCase.isTargetEnvLTS()) {
 			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
