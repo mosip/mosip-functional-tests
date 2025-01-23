@@ -3344,9 +3344,9 @@ public class AdminTestUtil extends BaseTestCase {
 					properties.getProperty("vciContextURL"));
 		}
 		if (jsonString.contains("$IDPREDIRECTURI$")) {
-		jsonString = replaceKeywordWithValue(jsonString, "$IDPREDIRECTURI$",
-				ApplnURI.replace(GlobalConstants.API_INTERNAL, "healthservices") + "/userprofile");
-	}
+			jsonString = replaceKeywordWithValue(jsonString, "$IDPREDIRECTURI$",
+					ApplnURI.replace(GlobalConstants.API_INTERNAL, "healthservices") + "/userprofile");
+		}
 
 		if (jsonString.contains("$NAMEFORUPDATEUIN$")) {
 			String name = getValueFromAuthActuator("json-property", "name");
