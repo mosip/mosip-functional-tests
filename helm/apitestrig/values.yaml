@@ -443,14 +443,14 @@ modules:
   prereg:
     enabled: true
     image:
-      repository: mosipqa/apitest-prereg
-      tag: develop
+      repository: mosipid/apitest-prereg
+      tag: 1.3.0-beta.1
       pullPolicy: Always
   masterdata:
     enabled: true
     image:
-      repository: mosipqa/apitest-masterdata
-      tag: develop
+      repository: mosipid/apitest-masterdata
+      tag: 1.3.0-beta.1
       pullPolicy: Always
   idrepo:
     enabled: true
