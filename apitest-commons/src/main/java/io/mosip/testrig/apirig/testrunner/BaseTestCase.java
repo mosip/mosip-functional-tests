@@ -72,10 +72,11 @@ public class BaseTestCase {
 	public String adminCookie = null;
 	public String testrigCookie = null;
 	public String partnerCookie = null;
-	public String partnerrevampCookie = null;
+	public String partnerauthCookie = null;
 	public String deviceproviderCookie = null;
-	public String partnerrevampdeviceCookie = null;
-	public String partnerrevampftmCookie = null;
+	public String partnerdeviceCookie = null;
+	public String partnerftmCookie = null;
+	public String partneradminCookie = null;
 	public String partnerNewCookie = null;
 	public String withoutpartnerCookie = null;
 	public String withoutpolicyCookie = null;
