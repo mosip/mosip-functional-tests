@@ -3017,6 +3017,8 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = replaceKeywordWithValue(jsonString, "$TIMESTAMPL$", generateCurrentLocalTimeStamp());
 		if (jsonString.contains("$RID$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$RID$", genRid);
+		if (jsonString.contains("$RID1$"))
+			jsonString = replaceKeywordWithValue(jsonString, "$RID1$", genRid1);
 
 		if (jsonString.contains("$SCHEMAVERSION$"))
 		    jsonString = replaceKeywordWithValue(jsonString, "$SCHEMAVERSION$", generateLatestSchemaVersion());

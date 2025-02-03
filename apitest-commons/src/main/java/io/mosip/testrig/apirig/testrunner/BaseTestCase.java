@@ -142,6 +142,7 @@ public class BaseTestCase {
 	public static String hierarchyZoneCode = "";
 
 	public static String genRid = "27847" + generateRandomNumberString(10);
+	public static String genRid1 = "27847" + generateRandomNumberString(10);
 
 	public static String genPolicyNumber = "9" + generateRandomNumberString(5);
 	public static String genRidDel = "2785" + generateRandomNumberString(10);
