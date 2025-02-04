@@ -600,7 +600,6 @@ public class EmailableReport implements IReporter {
 		writer.print("<thead>");
 		writer.print("<tr>");
 		writer.print("<th>TestCase Number</th>");
-		writer.print("<th>TestCase</th>");
 		writer.print("<th>TestCase Description</th>");
 		writer.print("<th>Execution Time (HH:MM:SS)</th>");
 		writer.print(GlobalConstants.TR);
@@ -700,7 +699,7 @@ public class EmailableReport implements IReporter {
 			int startingScenarioIndex) {
 		int scenarioCount = 0;
 		if (!classResults.isEmpty()) {
-			writer.print("<tr><th colspan=\"4\">");
+			writer.print("<tr><th colspan=\"3\">");
 			writer.print(description);
 			writer.print(GlobalConstants.TRTR);
 
@@ -729,20 +728,22 @@ public class EmailableReport implements IReporter {
 						buffer.append(GlobalConstants.TRCLASS).append(cssClass).append("\">");
 
 					}
-					buffer.append("<td style=\"text-align:center;\">") // Unique Identifier column
-							.append(uniqueIdentifier).append("</td>")
-							.append("<td style=\"text-align:center;\"><a href=\"#m").append(scenarioIndex).append("\">")
-							.append(methodName).append("</a></td>").append("<td style=\"text-align:center;\">")
-							.append(testCaseDescription).append("</td>")
-							.append("<td style=\"text-align:center;\" rowspan=\"").append(resultsCount).append("\">")
-							.append(convertMillisToTime(duration)).append("</td></tr>");
-
+					
+					String temp = uniqueIdentifier.isEmpty() ? methodName : uniqueIdentifier;
+					
+					
+					buffer.append("<td style=\"text-align:left;\"><a href=\"#m").append(scenarioIndex).append("\">")
+					.append(temp).append("</a></td>").append("<td style=\"text-align:left;\">")
+					.append(testCaseDescription).append("</td>")
+					.append("<td style=\"text-align:left;\" rowspan=\"").append(resultsCount).append("\">")
+					.append(convertMillisToTime(duration)).append("</td></tr>");
+					
 					scenarioIndex++;
 
 					for (int i = 1; i < resultsCount; i++) {
 						buffer.append("<tr class=\"").append(cssClass).append("\">")
 								.append("<td style=\"text-align:center;\"><a href=\"#m").append(scenarioIndex)
-								.append("\">").append(methodName).append("</a></td></tr>");
+								.append("\">").append(temp).append("</a></td></tr>");
 						scenarioIndex++;
 					}
 
