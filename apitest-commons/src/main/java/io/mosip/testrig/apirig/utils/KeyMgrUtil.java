@@ -12,6 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.security.InvalidAlgorithmParameterException;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.KeyStore;
@@ -26,12 +27,24 @@ import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
+import java.security.spec.MGF1ParameterSpec;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.Date;
+import java.util.Map;
 import java.util.Objects;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.GCMParameterSpec;
+import javax.crypto.spec.OAEPParameterSpec;
+import javax.crypto.spec.PSource.PSpecified;
+import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.log4j.Logger;
 import org.bouncycastle.asn1.x500.X500Name;
@@ -53,10 +66,16 @@ import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.util.io.pem.PemObject;
 import org.bouncycastle.util.io.pem.PemReader;
+import org.json.JSONObject;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.mosip.testrig.apirig.dto.CertificateChainResponseDto;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
-
+import io.mosip.testrig.apirig.utils.Encrypt.SplittedEncryptedData;
+import io.mosip.kernel.core.crypto.exception.InvalidKeyException;
+import io.mosip.kernel.core.util.CryptoUtil;
 
 
 
@@ -66,6 +85,9 @@ import io.mosip.testrig.apirig.testrunner.BaseTestCase;
  * @author Loganathan Sekar
  */
 public class KeyMgrUtil {
+	
+	private static 	SplittedEncryptedData 	splittedEncryptedData = new 	SplittedEncryptedData();
+	private static final int TAG_LENGTH = 128;
 	
 	private static final Logger logger = Logger.getLogger(KeyMgrUtil.class);
     /** The Constant DOMAIN_URL. */
@@ -507,5 +529,57 @@ public class KeyMgrUtil {
 		finally {
 			AdminTestUtil.closeByteArrayInputStream(bIS);
 		}
+	}
+	public String ekycDataDecryption(JSONObject kycDataForDecryption, String partnerName) throws Exception {
+
+		ObjectMapper mapper = new ObjectMapper();
+		Map<String, String> map = null;
+		try {
+			map = mapper.readValue(kycDataForDecryption.toString(), Map.class);
+		} catch (JsonProcessingException e) {
+			logger.error(e.getMessage());
+		}
+		GlobalMethods.reportRequest(null, map.toString());
+		String identity = map.get("identity");
+		PrivateKeyEntry ekycKey;
+
+		ekycKey = getKeyEntry(getKeysDirPath(BaseTestCase.certsForModule), partnerName);
+		String sessionKey = map.get("sessionKey");
+
+		byte[] encSecKey;
+		byte[] encKycData;
+		if(sessionKey == null) {
+			encSecKey = CryptoUtil.decodeURLSafeBase64(splittedEncryptedData.getEncryptedSessionKey());
+			encKycData = CryptoUtil.decodeURLSafeBase64(splittedEncryptedData.getEncryptedData());
+		} else {
+			encSecKey = CryptoUtil.decodeURLSafeBase64(sessionKey);
+			encKycData = CryptoUtil.decodeURLSafeBase64(identity);
+		}
+
+		byte[] decryptedSecrectKey = decryptSecretKey(ekycKey.getPrivateKey(), encSecKey);
+
+		Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding"); //NoPadding
+		byte[] nonce = Arrays.copyOfRange(encKycData, encKycData.length - cipher.getBlockSize(), encKycData.length);
+		byte[] encryptedKycData = Arrays.copyOf(encKycData, encKycData.length - cipher.getBlockSize());
+
+		SecretKey secretKey =  new SecretKeySpec(decryptedSecrectKey, 0, decryptedSecrectKey.length, "AES");
+		GCMParameterSpec gcmParameterSpec = new GCMParameterSpec(TAG_LENGTH, nonce); 
+		cipher.init(Cipher.DECRYPT_MODE, secretKey, gcmParameterSpec);
+
+		return new String(cipher.doFinal(encryptedKycData), "UTF-8");
+	}
+
+	private static byte[] decryptSecretKey(PrivateKey privKey, byte[] encKey) throws NoSuchAlgorithmException, NoSuchPaddingException, 
+	InvalidKeyException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException, java.security.InvalidKeyException {
+		Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWITHSHA-256ANDMGF1PADDING"); 
+		OAEPParameterSpec oaepParams = new OAEPParameterSpec("SHA-256", "MGF1", MGF1ParameterSpec.SHA256,
+				PSpecified.DEFAULT);
+		cipher.init(Cipher.DECRYPT_MODE, privKey, oaepParams);
+		return cipher.doFinal(encKey, 0, encKey.length);
+	}
+	
+	public  String getKeysDirPath(String moduleName) {
+		String domain = System.getProperty("env.endpoint", "localhost").replace("https://", "").replace("http://", "").replace("/", "");
+		return System.getProperty("java.io.tmpdir") + "/" + "AUTHCERTS" + "/" + moduleName+"-IDA-" + domain;
 	}
 }
