@@ -3343,10 +3343,7 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = replaceKeywordWithValue(jsonString, "$VCICONTEXTURL$",
 					properties.getProperty("vciContextURL"));
 		}
-		if (jsonString.contains("$IDPREDIRECTURI$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$IDPREDIRECTURI$",
-					ApplnURI.replace(GlobalConstants.API_INTERNAL, "healthservices") + "/userprofile");
-		}
+
 
 		if (jsonString.contains("$NAMEFORUPDATEUIN$")) {
 			String name = getValueFromAuthActuator("json-property", "name");
@@ -5444,7 +5441,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static JSONArray regprocActuatorResponseArray = null;
 
 	public static String getValueFromRegprocActuator(String section, String key) {
-		String url = ApplnURI + ConfigManager.getproperty("regprocActuatorEndpoint");
+		String url = ApplnURI + ConfigManager.getproperty("actuatorRegprocEndpoint");
 		String actuatorCacheKey = url + section + key;
 		String value = actuatorValueCache.get(actuatorCacheKey);
 		if (value != null && !value.isEmpty())
