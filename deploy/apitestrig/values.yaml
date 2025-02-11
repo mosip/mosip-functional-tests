@@ -59,5 +59,11 @@ modules:
       repository: mosipqa/apitest-injicertify
       tag: develop
       pullPolicy: Always
+  esignet-signup:
+    enabled: true
+    image:
+      repository: mosipqa/apitest-esignet-signup
+      tag: develop
+      pullPolicy: Always      
   variables:
     push_reports_to_s3: "yes"
