@@ -1,63 +1,69 @@
 modules:
   prereg:
-    enabled: false
+    enabled: true
     image:
       repository: mosipqa/apitest-prereg
       tag: develop
       pullPolicy: Always
   masterdata:
-    enabled: false
+    enabled: true
     image:
       repository: mosipqa/apitest-masterdata
       tag: develop
       pullPolicy: Always
   idrepo:
-    enabled: false
+    enabled: true
     image:
       repository: mosipqa/apitest-idrepo
       tag: develop
       pullPolicy: Always
   partner:
-    enabled: false
+    enabled: true
     image:
       repository: mosipqa/apitest-pms
       tag: develop
       pullPolicy: Always
   pms:
-    enabled: false
+    enabled: true
     image:
       repository: mosipdev/apitest-pms
       tag: develop
       pullPolicy: Always
   resident:
-    enabled: false
+    enabled: true
     image:
       repository: mosipqa/apitest-resident
       tag: develop
       pullPolicy: Always
   auth:
-    enabled: false
+    enabled: true
     image:
       repository: mosipqa/apitest-auth
       tag: develop
       pullPolicy: Always
   esignet:
-    enabled: false
+    enabled: true
     image:
       repository: mosipqa/apitest-esignet
       tag: develop
       pullPolicy: Always
   mimoto:
-    enabled: false
+    enabled: true
     image:
       repository: mosipqa/apitest-mimoto
       tag: develop
       pullPolicy: Always
   injicertify:
-    enabled: false
+    enabled: true
     image:
       repository: mosipqa/apitest-injicertify
       tag: develop
       pullPolicy: Always
+  esignet-signup:
+    enabled: true
+    image:
+      repository: mosipqa/apitest-esignet-signup
+      tag: develop
+      pullPolicy: Always      
   variables:
     push_reports_to_s3: "yes"
