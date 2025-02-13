@@ -53,6 +53,7 @@ public class GlobalConstants {
 	public static final String VERIFIEDTRANSACTIONID = "verifiedTransactionID";
 	public static final String MIMOTO = "mimoto";
 	public static final String INJICERTIFY = "injicertify";
+	public static final String INJIVERIFY = "injiverify";
 	public static final String ESIGNET = "esignet";
 	public static final String SIGNUP = "signup";
 	public static final String APIKEY = "apiKey";
@@ -242,4 +243,5 @@ public class GlobalConstants {
 	public static final String IDV_TRANSACTION_ID_KEY = "IDV_TRANSACTION_ID";
 	public static final String IDV_SLOT_ALLOTED = "idvSlotAllotted";
 	public static final String IDV_SLOT_ALLOTED_KEY = "IDV_SLOT_ALLOTTED=";
+	public static final String RESPONSE_CODE = "responseCode";
 }

@@ -1939,4 +1939,23 @@ public class RestClient {
 
 		return pdf;
 	}
+	
+	public static Response postRequestWithFormDataBody(String url, Map<String, String> formData) {
+		Response postResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
+
+		EncoderConfig encoderConfig = new EncoderConfig().encodeContentTypeAs("application/x-www-form-urlencoded; charset=utf-8",
+				io.restassured.http.ContentType.URLENC);
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request to " + url);
+
+		if (ConfigManager.IsDebugEnabled()) {
+			postResponse = given().config(config.encoderConfig(encoderConfig)).relaxedHTTPSValidation().formParams(formData)
+					.contentType("application/x-www-form-urlencoded").log().all().when().post(url).then().extract().response();
+		} else {
+			postResponse = given().config(config.encoderConfig(encoderConfig)).relaxedHTTPSValidation().formParams(formData)
+					.contentType("application/x-www-form-urlencoded").when().post(url).then().extract().response();
+		}
+
+		return postResponse;
+	}
 }
