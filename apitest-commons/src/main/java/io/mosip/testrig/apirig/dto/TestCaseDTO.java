@@ -17,6 +17,7 @@ public class TestCaseDTO {
 	private boolean validityCheckRequired;
 	private boolean auditLogCheck;
 	private boolean checkErrorsOnlyInResponse;
+	private boolean checkOnlyStatusCodeInResponse;
 	private String allowedErrorCodes;
 	private String[] kycFields;
 	private String description;

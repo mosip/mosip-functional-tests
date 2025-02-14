@@ -190,6 +190,8 @@ public class KernelAuthentication extends BaseTestCase {
 			return "anyRandomString";
 		case "invalidtoken":
 			return	kernelAuthLib.encodeBase64("AnyRandomString-ToCreate-Jwt");
+		case "noauth":
+			return "";
 		case "regAdmin":
 			if (!AdminTestUtil.isValidToken(regAdminCookie))
 				regAdminCookie = kernelAuthLib.getAuthForRegistrationAdmin();
