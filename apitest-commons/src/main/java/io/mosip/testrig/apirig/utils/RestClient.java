@@ -782,7 +782,7 @@ public class RestClient {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
 			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
-					.contentType(contentHeader).cookie("XSRF-TOKEN", cookieValue.get("X-XSRF-TOKEN"))
+					.contentType(contentHeader).cookie(GlobalConstants.XSRF_TOKEN, cookieValue.get(GlobalConstants.XSRF_TOKEN))
 					.cookie(key, cookieValue.get(key)).accept(acceptHeader).when().post(url).then().log().all()
 					.extract().response();
 		}
