@@ -200,17 +200,24 @@ public class GlobalMethods {
 	public static String maskOutSensitiveInfo(String strInput) {
 		if (ConfigManager.IsDebugEnabled())
 			return strInput;
-
+		
+		Pattern secretKeyPattern = Pattern
+				.compile("\"secretKey\"\\s*:\\s*\"[^\"]*\"");
+		Matcher secretKeyMatcher = secretKeyPattern.matcher(strInput);
+		String maskedInput = secretKeyMatcher
+				.replaceAll("\"secretKey\": \"***** MASKED *****\"");
+		
+		Pattern clientSecretKeyPattern = Pattern
+				.compile("\"client_secret\"\\s*:\\s*\"[^\"]*\"");
+		Matcher clientSecretKeyMatcher = clientSecretKeyPattern.matcher(strInput);
+		maskedInput = clientSecretKeyMatcher
+				.replaceAll("\"client_secret\": \"***** MASKED *****\"");
+		
 		Pattern INDIVIDUAL_BIOMETRICS_PATTERN = Pattern
 				.compile("\"category\":\\s?\"individualBiometrics\",\\s?\"value\":\\s?\"(.*?)\"");
-		Pattern UIN_PATTERN = Pattern.compile("\"UIN\":\\s?\"(\\d{10})\"");
-
-		Matcher biometricsMatcher = INDIVIDUAL_BIOMETRICS_PATTERN.matcher(strInput);
-		String maskedInput = biometricsMatcher
+		Matcher biometricsMatcher = INDIVIDUAL_BIOMETRICS_PATTERN.matcher(maskedInput);
+		maskedInput = biometricsMatcher
 				.replaceAll("\"category\": \"individualBiometrics\", \"value\": \"***** MASKED *****\"");
-
-//        Matcher uinMatcher = UIN_PATTERN.matcher(maskedInput);
-//        maskedInput = uinMatcher.replaceAll("\"UIN\": \"***** MASKED *****\"");
 
 		return maskedInput;
 	}

@@ -15,6 +15,7 @@ import java.util.Properties;
 import javax.ws.rs.core.MediaType;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.json.JSONArray;
@@ -44,7 +45,7 @@ import io.restassured.response.Response;
  */
 public class BaseTestCase {
 
-	protected static Logger logger = Logger.getLogger(BaseTestCase.class);
+	private static Logger logger = Logger.getLogger(BaseTestCase.class);
 	public static OTPListener otpListener = null;
 	public static List<String> preIds = new ArrayList<>();
 	public ExtentHtmlReporter htmlReporter;
@@ -184,6 +185,13 @@ public class BaseTestCase {
 	
 	private static String runTypeS = "";
 	protected static String jarURLS = "";
+	
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
+	}
 	
 	public static void setRunContext(String runType, String jarURL) {
 		runTypeS = runType;
