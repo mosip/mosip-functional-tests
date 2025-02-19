@@ -5754,10 +5754,12 @@ public class AdminTestUtil extends BaseTestCase {
 							|| request.getJSONObject(GlobalConstants.REQUEST).getString("otp")
 									.endsWith(GlobalConstants.OTP_AS_PHONE)) {
 						emailId = request.getJSONObject(GlobalConstants.REQUEST).get("otp").toString();
-						if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
+						if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE)) {
 							emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
+							emailId = removeLeadingPlusSigns(emailId);
+						}
 						logger.info(emailId);
-						if(testCaseName.contains("_EmptyChannel_Invalid_Neg"))
+						if (testCaseName.contains("_EmptyChannel_Invalid_Neg"))
 							otp = "";
 						else
 							otp = OTPListener.getOtp(emailId);
@@ -5779,8 +5781,10 @@ public class AdminTestUtil extends BaseTestCase {
 								emailId = request.getJSONObject(GlobalConstants.REQUEST)
 										.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 										.getString(GlobalConstants.CHALLENGE);
-								if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
+								if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE)) {
 									emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
+									emailId = removeLeadingPlusSigns(emailId);
+								}
 								logger.info(emailId);
 								otp = OTPListener.getOtp(emailId);
 								request.getJSONObject(GlobalConstants.REQUEST)
@@ -5796,6 +5800,11 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		return inputJson;
 	}
+	
+	 public static String removeLeadingPlusSigns(String input) {
+	        // Remove leading '+' characters
+	        return input.replaceAll("^\\+*", "");
+	    }
 
 	public static void checkDbAndValidate(String timeStamp, String dbChecker) throws AdminTestException {
 
