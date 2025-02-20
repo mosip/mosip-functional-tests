@@ -11,6 +11,8 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
@@ -19,6 +21,8 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
 public class KernelAuthentication extends BaseTestCase {
+	
+	private static Logger logger = Logger.getLogger(KernelAuthentication.class);
 
 	String folder = "kernel";
 	String cookie;
@@ -71,6 +75,13 @@ public class KernelAuthentication extends BaseTestCase {
 
 	protected static final String ESIGNETUINCOOKIESRESPONSE = "ESignetUINCookiesResponse";
 	protected static final String ESIGNETVIDCOOKIESRESPONSE = "ESignetVIDCookiesResponse";
+	
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
+	}
 
 	public String getTokenByRole(String role) {
 		return getTokenByRole(role, null);
@@ -190,6 +201,8 @@ public class KernelAuthentication extends BaseTestCase {
 			return "anyRandomString";
 		case "invalidtoken":
 			return	kernelAuthLib.encodeBase64("AnyRandomString-ToCreate-Jwt");
+		case "noauth":
+			return "";
 		case "regAdmin":
 			if (!AdminTestUtil.isValidToken(regAdminCookie))
 				regAdminCookie = kernelAuthLib.getAuthForRegistrationAdmin();

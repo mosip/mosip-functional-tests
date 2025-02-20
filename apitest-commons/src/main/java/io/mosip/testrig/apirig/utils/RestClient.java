@@ -782,7 +782,7 @@ public class RestClient {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
 			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
-					.contentType(contentHeader).cookie("XSRF-TOKEN", cookieValue.get("X-XSRF-TOKEN"))
+					.contentType(contentHeader).cookie(GlobalConstants.XSRF_TOKEN, cookieValue.get(GlobalConstants.XSRF_TOKEN))
 					.cookie(key, cookieValue.get(key)).accept(acceptHeader).when().post(url).then().log().all()
 					.extract().response();
 		}
@@ -1938,5 +1938,24 @@ public class RestClient {
 		}
 
 		return pdf;
+	}
+	
+	public static Response postRequestWithFormDataBody(String url, Map<String, String> formData) {
+		Response postResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
+
+		EncoderConfig encoderConfig = new EncoderConfig().encodeContentTypeAs("application/x-www-form-urlencoded; charset=utf-8",
+				io.restassured.http.ContentType.URLENC);
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request to " + url);
+
+		if (ConfigManager.IsDebugEnabled()) {
+			postResponse = given().config(config.encoderConfig(encoderConfig)).relaxedHTTPSValidation().formParams(formData)
+					.contentType("application/x-www-form-urlencoded").log().all().when().post(url).then().extract().response();
+		} else {
+			postResponse = given().config(config.encoderConfig(encoderConfig)).relaxedHTTPSValidation().formParams(formData)
+					.contentType("application/x-www-form-urlencoded").when().post(url).then().extract().response();
+		}
+
+		return postResponse;
 	}
 }

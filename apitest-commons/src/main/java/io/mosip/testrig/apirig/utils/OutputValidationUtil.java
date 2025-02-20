@@ -36,6 +36,7 @@ import io.mosip.testrig.apirig.testrunner.JsonPrecondtion;
 public class OutputValidationUtil extends AuthTestsUtil {
 
 	private static final Logger OUTPUTVALIDATION_LOGGER = Logger.getLogger(OutputValidationUtil.class);
+	private static final AdminTestUtil adminTestUtil = new AdminTestUtil();
 
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -433,6 +434,15 @@ public class OutputValidationUtil extends AuthTestsUtil {
 	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(String actualOutputJson,
 			String expOutputJson, TestCaseDTO testCaseDTO, int responseStatusCode)
 			throws AdminTestException {
+		if (testCaseDTO.isCheckOnlyStatusCodeInResponse()) {
+			Map<String, List<OutputValidationDto>> objMap = new HashMap<>();
+			JSONObject expOutput = new JSONObject(expOutputJson);
+			OutputValidationDto customResponse = adminTestUtil.customStatusCodeResponse(String.valueOf(responseStatusCode),
+					expOutput.get(GlobalConstants.RESPONSE_CODE).toString());
+			objMap.put(GlobalConstants.EXPECTED_VS_ACTUAL, List.of(customResponse));
+			return objMap;
+		}
+		
 //		Checks output JSON contains server issues and log in report
 		reportServerIssues(actualOutputJson, testCaseDTO);
 		
