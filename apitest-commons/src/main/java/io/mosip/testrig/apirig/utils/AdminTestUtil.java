@@ -329,6 +329,8 @@ public class AdminTestUtil extends BaseTestCase {
 				response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token);
 			}
+			
+			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 			if (auditLogCheck) {
 				JSONObject jsonObject = new JSONObject(inputJson);
@@ -336,7 +338,6 @@ public class AdminTestUtil extends BaseTestCase {
 				String dbChecker = GlobalConstants.TEST_FULLNAME + BaseTestCase.getLanguageList().get(0);
 				checkDbAndValidate(timeStamp1, dbChecker);
 			}
-			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 		} catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
@@ -5584,8 +5585,10 @@ public class AdminTestUtil extends BaseTestCase {
 						|| request.getString("otp").endsWith(GlobalConstants.MOSIP_IO)
 						|| request.getString("otp").endsWith(GlobalConstants.OTP_AS_PHONE)) {
 					emailId = request.get("otp").toString();
-					if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
+					if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE)) {
 						emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
+						emailId = removeLeadingPlusSigns(emailId);
+					}
 					logger.info(emailId);
 					otp = OTPListener.getOtp(emailId);
 					request.put("otp", otp);
@@ -5623,8 +5626,10 @@ public class AdminTestUtil extends BaseTestCase {
 								|| request.getJSONObject(GlobalConstants.REQUEST).getString("otp")
 										.endsWith(GlobalConstants.OTP_AS_PHONE)) {
 							emailId = request.getJSONObject(GlobalConstants.REQUEST).get("otp").toString();
-							if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
+							if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE)) {
 								emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
+								emailId = removeLeadingPlusSigns(emailId);
+							}
 							logger.info(emailId);
 							otp = OTPListener.getOtp(emailId);
 							request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
@@ -5648,8 +5653,10 @@ public class AdminTestUtil extends BaseTestCase {
 								|| request.getJSONObject(GlobalConstants.REQUEST).getString("otp")
 										.endsWith(GlobalConstants.OTP_AS_PHONE)) {
 							emailId = request.getJSONObject(GlobalConstants.REQUEST).get("otp").toString();
-							if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
+							if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE)) {
 								emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
+								emailId = removeLeadingPlusSigns(emailId);
+							}
 							logger.info(emailId);
 							otp = OTPListener.getOtp(emailId);
 							request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
@@ -5678,8 +5685,10 @@ public class AdminTestUtil extends BaseTestCase {
 										emailId = request.getJSONObject(GlobalConstants.REQUEST)
 												.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 												.getString(GlobalConstants.CHALLENGE);
-										if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
+										if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE)) {
 											emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
+											emailId = removeLeadingPlusSigns(emailId);
+										}
 										logger.info(emailId);
 										otp = OTPListener.getOtp(emailId);
 										request.getJSONObject(GlobalConstants.REQUEST)
@@ -5705,8 +5714,10 @@ public class AdminTestUtil extends BaseTestCase {
 							|| request.getJSONObject(GlobalConstants.REQUEST).getString("otp")
 									.endsWith(GlobalConstants.OTP_AS_PHONE)) {
 						emailId = request.getJSONObject(GlobalConstants.REQUEST).get("otp").toString();
-						if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
+						if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE)) {
 							emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
+							emailId = removeLeadingPlusSigns(emailId);
+						}
 						logger.info(emailId);
 						otp = OTPListener.getOtp(emailId);
 						request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
@@ -5730,8 +5741,10 @@ public class AdminTestUtil extends BaseTestCase {
 									emailId = request.getJSONObject(GlobalConstants.REQUEST)
 											.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 											.getString(GlobalConstants.CHALLENGE);
-									if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
+									if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE)) {
 										emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
+										emailId = removeLeadingPlusSigns(emailId);
+									}
 									logger.info(emailId);
 									otp = OTPListener.getOtp(emailId);
 									request.getJSONObject(GlobalConstants.REQUEST)
