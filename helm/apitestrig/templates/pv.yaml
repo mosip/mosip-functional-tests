@@ -8,16 +8,27 @@ metadata:
   labels:
     name: {{ $.Values.apitestrig.volumes.reports.name }}
 spec:
-  storageClassName: {{ $.Values.apitestrig.volumes.reports.storageClass }}
   capacity:
     storage: {{ $.Values.apitestrig.volumes.reports.size }}
+  volumeMode: Filesystem
   accessModes:
     {{- range $.Values.apitestrig.volumes.reports.accessModes }}
       - {{ . }}
     {{- end }}
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: {{ $.Values.apitestrig.volumes.reports.storageClass }}
+  {{- if eq $.Values.apitestrig.volumes.reports.storageClass "nfs-csi" }}
+  csi:
+    driver: nfs.csi.k8s.io
+    volumeHandle: {{ $.Values.apitestrig.volumes.reports.name }}-{{ $.Release.Namespace }}-{{ $modulename }}-volume-id
+    volumeAttributes:
+      server: {{ $.Values.apitestrig.volumes.reports.nfs.server }}
+      share: {{ $.Values.apitestrig.volumes.reports.nfs.path }}
+  {{- else }}
   nfs:
     server: {{ $.Values.apitestrig.volumes.reports.nfs.server }}
     path: {{ $.Values.apitestrig.volumes.reports.nfs.path }}
+  {{- end }}
 {{- end }}
 {{- end }}
 {{- end }}
