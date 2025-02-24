@@ -556,7 +556,7 @@ apitestrig:
           mountPath: '/home/mosip/scripts/'
     reports:
       name: apitestrig-reports
-      storageClass: nfs-client
+      storageClass: nfs-client  # nfs-client or nfs-csi
       accessModes:
         - ReadWriteMany
       size: 10Mi
