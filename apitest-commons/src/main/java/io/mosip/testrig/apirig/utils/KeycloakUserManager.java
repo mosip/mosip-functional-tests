@@ -9,6 +9,7 @@ import java.util.Properties;
 
 import javax.ws.rs.core.Response;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.keycloak.OAuth2Constants;
 import org.keycloak.admin.client.CreatedResponseUtil;
@@ -30,6 +31,13 @@ public class KeycloakUserManager {
 
 	public static Properties propsKernel = getproperty(BaseTestCase.getGlobalResourcePath() + "/"+"config/Kernel.properties");
 	public static Keycloak key = null;
+	
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
+	}
 	
 	public static void closeKeycloakInstance() {
 		if (key != null) {

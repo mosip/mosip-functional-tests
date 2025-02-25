@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -19,6 +20,13 @@ import io.mosip.testrig.apirig.utils.ConfigManager;
 import io.mosip.testrig.apirig.utils.GlobalConstants;
 public class DBManager {
 	private static Logger logger = Logger.getLogger(DBManager.class);
+	
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
+	}
 	
 	public static void executeDBQueries(String dbURL, String dbUser, String dbPassword, String dbSchema, String dbQueryFile) {
 		Session session = null;
