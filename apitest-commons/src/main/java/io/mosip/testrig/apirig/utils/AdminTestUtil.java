@@ -108,6 +108,7 @@ import io.jsonwebtoken.JwtException;
 import io.mosip.kernel.core.util.HMACUtils2;
 import io.mosip.testrig.apirig.dataprovider.BiometricDataProvider;
 import io.mosip.testrig.apirig.dbaccess.AuditDBManager;
+import io.mosip.testrig.apirig.dbaccess.DBManager;
 import io.mosip.testrig.apirig.dto.OutputValidationDto;
 import io.mosip.testrig.apirig.dto.TestCaseDTO;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
@@ -2746,11 +2747,19 @@ public class AdminTestUtil extends BaseTestCase {
 			return null;
 		int indexof = testCaseName.indexOf("_");
 		String autogenIdKeyName = testCaseName.substring(indexof + 1);
-		if ((!BaseTestCase.isTargetEnvLTS()) && fieldName.equals("VID")
-				&& (BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals("esignet")))
+//		if ((!BaseTestCase.isTargetEnvLTS()) && fieldName.equals("VID")
+//				&& (BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals("esignet")))
+//			autogenIdKeyName = autogenIdKeyName + "_" + fieldName.toLowerCase();
+//		else
+//			autogenIdKeyName = autogenIdKeyName + "_" + fieldName;
+		
+		
+		if (fieldName.equals("VID")
+				&& (BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals("esignet"))) {
 			autogenIdKeyName = autogenIdKeyName + "_" + fieldName.toLowerCase();
-		else
+		} else {
 			autogenIdKeyName = autogenIdKeyName + "_" + fieldName;
+		}
 		logger.info("key for testCase: " + testCaseName + " : " + autogenIdKeyName);
 		return autogenIdKeyName;
 	}
@@ -5154,12 +5163,12 @@ public class AdminTestUtil extends BaseTestCase {
 
 	@SuppressWarnings("unchecked")
 	public static void createAndPublishPolicy() {
-		if (!BaseTestCase.isTargetEnvLTS()) {
-			// In case of 1.1.5 we don't have auto sync of certificates between Key manager
-			// cert store and IDA cert store
-			// So use the predefined certificate folder and partner key
-			return;
-		}
+//		if (!BaseTestCase.isTargetEnvLTS()) {
+//			// In case of 1.1.5 we don't have auto sync of certificates between Key manager
+//			// cert store and IDA cert store
+//			// So use the predefined certificate folder and partner key
+//			return;
+//		}
 
 		String token = kernelAuthLib.getTokenByRole(GlobalConstants.PARTNER);
 
@@ -5211,12 +5220,12 @@ public class AdminTestUtil extends BaseTestCase {
 
 	@SuppressWarnings("unchecked")
 	public static void createEditAndPublishPolicy() {
-		if (!BaseTestCase.isTargetEnvLTS()) {
-			// In case of 1.1.5 we don't have auto sync of certificates between Key manager
-			// cert store and IDA cert store
-			// So use the predefined certificate folder and partner key
-			return;
-		}
+//		if (!BaseTestCase.isTargetEnvLTS()) {
+//			// In case of 1.1.5 we don't have auto sync of certificates between Key manager
+//			// cert store and IDA cert store
+//			// So use the predefined certificate folder and partner key
+//			return;
+//		}
 
 		String token = kernelAuthLib.getTokenByRole(GlobalConstants.PARTNER);
 
@@ -5263,12 +5272,12 @@ public class AdminTestUtil extends BaseTestCase {
 
 	@SuppressWarnings("unchecked")
 	public static void createAndPublishPolicyForKyc() {
-		if (!BaseTestCase.isTargetEnvLTS()) {
-			// In case of 1.1.5 we don't have auto sync of certificates between Key manager
-			// cert store and IDA cert store
-			// So use the predefined certificate folder and partner key
-			return;
-		}
+//		if (!BaseTestCase.isTargetEnvLTS()) {
+//			// In case of 1.1.5 we don't have auto sync of certificates between Key manager
+//			// cert store and IDA cert store
+//			// So use the predefined certificate folder and partner key
+//			return;
+//		}
 
 		String token = kernelAuthLib.getTokenByRole(GlobalConstants.PARTNER);
 
@@ -5351,8 +5360,8 @@ public class AdminTestUtil extends BaseTestCase {
 	public static int getOtpExpTimeFromActuator() {
 		if (otpExpTime.isEmpty()) {
 			String section = "/mosip-config/application-default.properties";
-			if (!BaseTestCase.isTargetEnvLTS())
-				section = "/mosip-config/sandbox/application-lts.properties";
+//			if (!BaseTestCase.isTargetEnvLTS())
+//				section = "/mosip-config/sandbox/application-lts.properties";
 			Response response = null;
 			org.json.JSONObject responseJson = null;
 			JSONArray responseArray = null;
@@ -5850,7 +5859,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String sqlQuery = "SELECT * FROM audit.app_audit_log WHERE log_dtimes > '" + timeStamp
 				+ "' AND session_user_name = '" + dbChecker + "';";
 
-		Map<String, Object> response = AuditDBManager
+		Map<String, Object> response = DBManager
 				.executeQueryAndGetRecord(ConfigManager.getproperty("audit_default_schema"), sqlQuery);
 
 		Map<String, List<OutputValidationDto>> objMap = new HashMap<>();

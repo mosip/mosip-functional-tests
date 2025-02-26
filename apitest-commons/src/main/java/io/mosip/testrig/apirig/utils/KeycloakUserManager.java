@@ -49,15 +49,16 @@ public class KeycloakUserManager {
 	private static Keycloak getKeycloakInstance() {
 		if (key != null)
 			return key;
-			try {
-				String automationClientId = BaseTestCase.isTargetEnvLTS() ? ConfigManager.getAutomationClientId()
-						: ConfigManager.getPmsClientId();
-				key = KeycloakBuilder.builder().serverUrl(ConfigManager.getIAMUrl())
-						.realm(ConfigManager.getIAMRealmId()).grantType(OAuth2Constants.CLIENT_CREDENTIALS)
-						.clientId(automationClientId).clientSecret(ConfigManager.getAutomationClientSecret()).build();
-				logger.info(ConfigManager.getIAMUrl());
-				logger.info(key.toString() + key.realms());
-			} catch (Exception e) {
+		try {
+//				String automationClientId = BaseTestCase.isTargetEnvLTS() ? ConfigManager.getAutomationClientId()
+//						: ConfigManager.getPmsClientId();
+			String automationClientId = ConfigManager.getAutomationClientId();
+			key = KeycloakBuilder.builder().serverUrl(ConfigManager.getIAMUrl()).realm(ConfigManager.getIAMRealmId())
+					.grantType(OAuth2Constants.CLIENT_CREDENTIALS).clientId(automationClientId)
+					.clientSecret(ConfigManager.getAutomationClientSecret()).build();
+			logger.info(ConfigManager.getIAMUrl());
+			logger.info(key.toString() + key.realms());
+		} catch (Exception e) {
 				throw e;
 			}
 		return key;

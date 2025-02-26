@@ -553,10 +553,10 @@ public class BaseTestCase {
 		String section = "";
 		String optionalLanguages = null;
 		String mandatoryLanguages = null;
-		if (isTargetEnvLTS())
-			section = "/mosip-config/application-default.properties";
-		else
-			section = "/mosip-config/sandbox/admin-mz.properties";
+//		if (isTargetEnvLTS())
+		section = "/mosip-config/application-default.properties";
+//		else
+//			section = "/mosip-config/sandbox/admin-mz.properties";
 		try {
 
 			optionalLanguages = getValueFromActuators(ConfigManager.getproperty("actuatorMasterDataEndpoint"), section,
@@ -581,57 +581,57 @@ public class BaseTestCase {
 
 	}
 
-	private static String targetEnvVersion = "";
+//	private static String targetEnvVersion = "";
+//	
+//	public static boolean isTargetEnvLatest = false;
+//
+//	public static boolean isTargetEnvLTS() {
+//
+//		if (targetEnvVersion.isEmpty() && isTargetEnvLatest == false) {
+//
+//			Response response = null;
+//			org.json.JSONObject responseJson = null;
+//			String url = ApplnURI + ConfigManager.getproperty("auditActuatorEndpoint");
+//			try {
+//				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+//
+//				responseJson = new org.json.JSONObject(response.getBody().asString());
+//
+//				targetEnvVersion = responseJson.getJSONObject("build").getString("version");
+//				isTargetEnvLatest = isVersionGreaterOrEqual(targetEnvVersion, "1.2");
+//
+//			} catch (Exception e) {
+//				logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+//			}
+//		}
+//
+//		// Compare the version numbers, ignoring any suffix like "-SNAPSHOT"
+//
+//		return isTargetEnvLatest;
+//	}
 	
-	public static boolean isTargetEnvLatest = false;
-
-	public static boolean isTargetEnvLTS() {
-
-		if (targetEnvVersion.isEmpty() && isTargetEnvLatest == false) {
-
-			Response response = null;
-			org.json.JSONObject responseJson = null;
-			String url = ApplnURI + ConfigManager.getproperty("auditActuatorEndpoint");
-			try {
-				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-
-				responseJson = new org.json.JSONObject(response.getBody().asString());
-
-				targetEnvVersion = responseJson.getJSONObject("build").getString("version");
-				isTargetEnvLatest = isVersionGreaterOrEqual(targetEnvVersion, "1.2");
-
-			} catch (Exception e) {
-				logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
-			}
-		}
-
-		// Compare the version numbers, ignoring any suffix like "-SNAPSHOT"
-
-		return isTargetEnvLatest;
-	}
-	
-	private static boolean isVersionGreaterOrEqual(String version1, String version2) {
-	    // Remove any suffixes like "-SNAPSHOT" from the versions
-	    version1 = version1.split("-")[0];
-	    version2 = version2.split("-")[0];
-
-	    String[] v1 = version1.split("\\.");
-	    String[] v2 = version2.split("\\.");
-
-	    int length = Math.max(v1.length, v2.length);
-
-	    for (int i = 0; i < length; i++) {
-	        int v1Part = i < v1.length ? Integer.parseInt(v1[i]) : 0;
-	        int v2Part = i < v2.length ? Integer.parseInt(v2[i]) : 0;
-
-	        if (v1Part < v2Part) {
-	            return false;
-	        } else if (v1Part > v2Part) {
-	            return true;
-	        }
-	    }
-	    return true; // versions are equal
-	}
+//	private static boolean isVersionGreaterOrEqual(String version1, String version2) {
+//	    // Remove any suffixes like "-SNAPSHOT" from the versions
+//	    version1 = version1.split("-")[0];
+//	    version2 = version2.split("-")[0];
+//
+//	    String[] v1 = version1.split("\\.");
+//	    String[] v2 = version2.split("\\.");
+//
+//	    int length = Math.max(v1.length, v2.length);
+//
+//	    for (int i = 0; i < length; i++) {
+//	        int v1Part = i < v1.length ? Integer.parseInt(v1[i]) : 0;
+//	        int v2Part = i < v2.length ? Integer.parseInt(v2[i]) : 0;
+//
+//	        if (v1Part < v2Part) {
+//	            return false;
+//	        } else if (v1Part > v2Part) {
+//	            return true;
+//	        }
+//	    }
+//	    return true; // versions are equal
+//	}
 	
 	public static void setSupportedIdTypes(List<String> supportedIdTypeList) {
 		if (supportedIdType.isEmpty())
@@ -648,8 +648,8 @@ public class BaseTestCase {
 			return supportedIdType;
 		}
 		String section = "/mosip-config/id-authentication-default.properties";
-		if (!BaseTestCase.isTargetEnvLTS())
-			section = "/mosip-config/sandbox/id-authentication-lts.properties";
+//		if (!BaseTestCase.isTargetEnvLTS())
+//			section = "/mosip-config/sandbox/id-authentication-lts.properties";
 
 		Response response = null;
 
