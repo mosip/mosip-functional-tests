@@ -105,15 +105,18 @@ public class KernelAuthentication extends BaseTestCase {
 				idaCookie = kernelAuthLib.getAuthForIDA();
 			return idaCookie;
 		case "idrepo":
-			if (BaseTestCase.isTargetEnvLTS()) {
-				if (!AdminTestUtil.isValidToken(idrepoCookie))
-					idrepoCookie = kernelAuthLib.getAuthForIDREPO();
-				return idrepoCookie;
-			} else {
-				if (!AdminTestUtil.isValidToken(regProCookie))
-					regProCookie = kernelAuthLib.getAuthForRegProc();
-				return regProCookie;
-			}
+			if (!AdminTestUtil.isValidToken(idrepoCookie))
+				idrepoCookie = kernelAuthLib.getAuthForIDREPO();
+			return idrepoCookie;
+//			if (BaseTestCase.isTargetEnvLTS()) {
+//				if (!AdminTestUtil.isValidToken(idrepoCookie))
+//					idrepoCookie = kernelAuthLib.getAuthForIDREPO();
+//				return idrepoCookie;
+//			} else {
+//				if (!AdminTestUtil.isValidToken(regProCookie))
+//					regProCookie = kernelAuthLib.getAuthForRegProc();
+//				return regProCookie;
+//			}
 		case "regproc":
 		case "regpro":
 			if (!AdminTestUtil.isValidToken(regProCookie))
@@ -224,15 +227,18 @@ public class KernelAuthentication extends BaseTestCase {
 				residentNewCookieKc = kernelAuthLib.getAuthForNewResidentKc();
 			return residentNewCookieKc;
 		case "hotlist":
-			if (BaseTestCase.isTargetEnvLTS()) {
-				if (!AdminTestUtil.isValidToken(hotlistCookie))
-					hotlistCookie = kernelAuthLib.getAuthForHotlist();
-				return hotlistCookie;
-			} else {
-				if (!AdminTestUtil.isValidToken(regProCookie))
-					regProCookie = kernelAuthLib.getAuthForRegProc();
-				return regProCookie;
-			}
+			if (!AdminTestUtil.isValidToken(hotlistCookie))
+				hotlistCookie = kernelAuthLib.getAuthForHotlist();
+			return hotlistCookie;
+//			if (BaseTestCase.isTargetEnvLTS()) {
+//				if (!AdminTestUtil.isValidToken(hotlistCookie))
+//					hotlistCookie = kernelAuthLib.getAuthForHotlist();
+//				return hotlistCookie;
+//			} else {
+//				if (!AdminTestUtil.isValidToken(regProCookie))
+//					regProCookie = kernelAuthLib.getAuthForRegProc();
+//				return regProCookie;
+//			}
 		case "globaladmin":
 			if (!AdminTestUtil.isValidToken(zonemapCookie))
 				zonemapCookie = kernelAuthLib.getAuthForzoneMap();
@@ -312,13 +318,15 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.PASSWORD, partner_password);
 		request.put(GlobalConstants.USER_NAME, BaseTestCase.currentModule + "-" + partner_userName);
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
-		if (BaseTestCase.isTargetEnvLTS()) {
-			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-		} else {
-			request.put(GlobalConstants.CLIENTID, ConfigManager.getPartnerClientId());
-			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPartnerClientSecret());
-		}
+		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
+//		if (BaseTestCase.isTargetEnvLTS()) {
+//			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+//			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
+//		} else {
+//			request.put(GlobalConstants.CLIENTID, ConfigManager.getPartnerClientId());
+//			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPartnerClientSecret());
+//		}
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
@@ -336,13 +344,15 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.PASSWORD, partner_password);
 		request.put(GlobalConstants.USER_NAME, partner_auth_userName);
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
-		if (BaseTestCase.isTargetEnvLTS()) {
-			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-		} else {
-			request.put(GlobalConstants.CLIENTID, ConfigManager.getPartnerClientId());
-			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPartnerClientSecret());
-		}
+		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
+//		if (BaseTestCase.isTargetEnvLTS()) {
+//			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+//			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
+//		} else {
+//			request.put(GlobalConstants.CLIENTID, ConfigManager.getPartnerClientId());
+//			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPartnerClientSecret());
+//		}
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
@@ -360,13 +370,15 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.PASSWORD, partner_password);
 		request.put(GlobalConstants.USER_NAME, device_provider_userName);
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
-		if (BaseTestCase.isTargetEnvLTS()) {
-			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-		} else {
-			request.put(GlobalConstants.CLIENTID, ConfigManager.getPartnerClientId());
-			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPartnerClientSecret());
-		}
+		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
+//		if (BaseTestCase.isTargetEnvLTS()) {
+//			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+//			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
+//		} else {
+//			request.put(GlobalConstants.CLIENTID, ConfigManager.getPartnerClientId());
+//			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPartnerClientSecret());
+//		}
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
@@ -385,13 +397,15 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.PASSWORD, partner_password);
 		request.put(GlobalConstants.USER_NAME,  partner_device_userName);
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
-		if (BaseTestCase.isTargetEnvLTS()) {
-			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-		} else {
-			request.put(GlobalConstants.CLIENTID, ConfigManager.getPartnerClientId());
-			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPartnerClientSecret());
-		}
+		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
+//		if (BaseTestCase.isTargetEnvLTS()) {
+//			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+//			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
+//		} else {
+//			request.put(GlobalConstants.CLIENTID, ConfigManager.getPartnerClientId());
+//			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPartnerClientSecret());
+//		}
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
@@ -409,13 +423,15 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.PASSWORD, partner_password);
 		request.put(GlobalConstants.USER_NAME,  partner_ftm_userName);
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
-		if (BaseTestCase.isTargetEnvLTS()) {
-			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-		} else {
-			request.put(GlobalConstants.CLIENTID, ConfigManager.getPartnerClientId());
-			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPartnerClientSecret());
-		}
+		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
+//		if (BaseTestCase.isTargetEnvLTS()) {
+//			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+//			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
+//		} else {
+//			request.put(GlobalConstants.CLIENTID, ConfigManager.getPartnerClientId());
+//			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPartnerClientSecret());
+//		}
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
@@ -432,13 +448,16 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.PASSWORD, partner_password);
 		request.put(GlobalConstants.USER_NAME,  partner_admin_userName);
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
-		if (BaseTestCase.isTargetEnvLTS()) {
-			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-		} else {
-			request.put(GlobalConstants.CLIENTID, ConfigManager.getPartnerClientId());
-			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPartnerClientSecret());
-		}
+		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
+		
+//		if (BaseTestCase.isTargetEnvLTS()) {
+//			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+//			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
+//		} else {
+//			request.put(GlobalConstants.CLIENTID, ConfigManager.getPartnerClientId());
+//			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPartnerClientSecret());
+//		}
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);

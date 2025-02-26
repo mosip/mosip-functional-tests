@@ -27,6 +27,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
 import org.apache.commons.codec.binary.Hex;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 
@@ -50,6 +51,7 @@ import io.mosip.testrig.apirig.dataprovider.models.mds.MDSRCaptureModel;
 import io.mosip.testrig.apirig.dataprovider.util.CommonUtil;
 import io.mosip.testrig.apirig.dataprovider.util.DataProviderConstants;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
+import io.mosip.testrig.apirig.utils.ConfigManager;
 import io.mosip.testrig.apirig.utils.RestClient;
 import io.restassured.response.Response;
 
@@ -57,6 +59,13 @@ public class BiometricDataProvider {
 
 	public static HashMap<String, Integer> portmap = new HashMap();
 	private static final Logger logger = Logger.getLogger(BiometricDataProvider.class);
+	
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
+	}
 
 	// String constants
 	private static final String XMLNS = "xmlns";
