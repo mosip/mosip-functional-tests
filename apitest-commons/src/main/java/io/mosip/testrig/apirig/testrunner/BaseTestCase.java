@@ -59,7 +59,7 @@ public class BaseTestCase {
 	public final String IDTOKENCOOKIENAME = "id_token";
 	public final String ACCESSTOKENCOOKIENAME = "access_token";
 	public final String COOKIENAMESTATE = "state";
-	public String individualCookie = null;
+//	public String individualCookie = null;
 	public String idaCookie = null;
 	public String idrepoCookie = null;
 	public String regProcCookie = null;

@@ -88,14 +88,10 @@ public class KeycloakUserManager {
 			String moduleSpecificUser = null;
 			if (needsToBeCreatedUser.equals("globaladmin")) {
 				moduleSpecificUser = needsToBeCreatedUser;
-			}
-			else if(needsToBeCreatedUser.equals("masterdata-220005")){
+			} else if (needsToBeCreatedUser.equals("masterdata-220005")) { // for DSL - we don't need to append the current module.
 				moduleSpecificUser = needsToBeCreatedUser;
-				
-			}
-						
-			else {
-				moduleSpecificUser = BaseTestCase.currentModule +"-"+ needsToBeCreatedUser;
+			} else {
+				moduleSpecificUser = BaseTestCase.currentModule + "-" + needsToBeCreatedUser;
 			}
 			
 			logger.info(moduleSpecificUser);
