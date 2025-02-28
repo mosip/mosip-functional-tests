@@ -39,10 +39,6 @@ public class GlobalMethods {
 		return ConfigManager.getproperty("xssProtectionCheck").equalsIgnoreCase("yes") ? true : false;
 	}
 	
-	
-	
-	
-	
 	// Method to set the module name and recompile the regex patterns
 	public static void setModuleNameAndReCompilePattern(String value) {
 		if (value == null || value.trim().isEmpty()) {
