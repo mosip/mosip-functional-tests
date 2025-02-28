@@ -658,7 +658,10 @@ public class BaseTestCase {
 		String url = ApplnURI + ConfigManager.getproperty("actuatorIDAEndpoint");
 		try {
 			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
+			
+			if (ConfigManager.IsDebugEnabled()) {
+				GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
+			}
 
 			responseJson = new org.json.JSONObject(response.getBody().asString());
 			responseArray = responseJson.getJSONArray("propertySources");

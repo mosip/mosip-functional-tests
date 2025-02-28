@@ -34,6 +34,15 @@ public class GlobalMethods {
 	private static Pattern pattern_1 = Pattern.compile(regex_1);
 	private static Pattern pattern_2 = Pattern.compile(regex_2);
 	
+	
+	public static boolean isXSSProtectionCheckEnabled() {
+		return ConfigManager.getproperty("xssProtectionCheck").equalsIgnoreCase("yes") ? true : false;
+	}
+	
+	
+	
+	
+	
 	// Method to set the module name and recompile the regex patterns
 	public static void setModuleNameAndReCompilePattern(String value) {
 		if (value == null || value.trim().isEmpty()) {
