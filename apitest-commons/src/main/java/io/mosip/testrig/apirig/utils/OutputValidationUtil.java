@@ -437,15 +437,15 @@ public class OutputValidationUtil extends AuthTestsUtil {
 		if (testCaseDTO.isCheckOnlyStatusCodeInResponse()) {
 			Map<String, List<OutputValidationDto>> objMap = new HashMap<>();
 			JSONObject expOutput = new JSONObject(expOutputJson);
-			OutputValidationDto customResponse = adminTestUtil.customStatusCodeResponse(String.valueOf(responseStatusCode),
-					expOutput.get(GlobalConstants.RESPONSE_CODE).toString());
+			OutputValidationDto customResponse = adminTestUtil.customStatusCodeResponse(
+					String.valueOf(responseStatusCode), expOutput.get(GlobalConstants.RESPONSE_CODE).toString());
 			objMap.put(GlobalConstants.EXPECTED_VS_ACTUAL, List.of(customResponse));
 			return objMap;
 		}
-		
+
 //		Checks output JSON contains server issues and log in report
 		reportServerIssues(actualOutputJson, testCaseDTO);
-		
+
 		if (doesResponseHasErrorCode(actualOutputJson, testCaseDTO.getAllowedErrorCodes()))
 			return Collections.emptyMap();
 		else if (doesResponseHasErrorCode(actualOutputJson, 500))
@@ -459,7 +459,8 @@ public class OutputValidationUtil extends AuthTestsUtil {
 		Map<String, String> exp = jsonPrecondtion
 				.retrieveMappingAndItsValueToPerformJsonOutputValidation(expOutputJson);
 
-		return doJsonOutputValidation(actual, exp, testCaseDTO.isCheckErrorsOnlyInResponse(), GlobalConstants.EXPECTED_VS_ACTUAL, doesResponseHasErrors(actualOutputJson),
+		return doJsonOutputValidation(actual, exp, testCaseDTO.isCheckErrorsOnlyInResponse(),
+				GlobalConstants.EXPECTED_VS_ACTUAL, doesResponseHasErrors(actualOutputJson),
 				testCaseDTO.getAllowedErrorCodes(), responseStatusCode);
 	}
 
