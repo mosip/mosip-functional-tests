@@ -54,13 +54,13 @@ public class PartnerRegistration extends AdminTestUtil {
 	}
 
 	public static String generateAndGetPartnerKeyUrl() {
-		if (!BaseTestCase.isTargetEnvLTS()) {
-			// In case of 1.1.5 we don't have auto sync of certificates between Key manager cert store and IDA cert store
-			// So use the predefined certificate folder and partner key
-			partnerKeyUrl = ConfigManager.getPartnerUrlSuffix();
-			partnerId = getPartnerIdFromPartnerURL(partnerKeyUrl);
-			return ConfigManager.getPartnerUrlSuffix();
-		}
+//		if (!BaseTestCase.isTargetEnvLTS()) {
+//			// In case of 1.1.5 we don't have auto sync of certificates between Key manager cert store and IDA cert store
+//			// So use the predefined certificate folder and partner key
+//			partnerKeyUrl = ConfigManager.getPartnerUrlSuffix();
+//			partnerId = getPartnerIdFromPartnerURL(partnerKeyUrl);
+//			return ConfigManager.getPartnerUrlSuffix();
+//		}
 		getAndUploadCertificates();
 		ftmGeneration();
 		deviceGeneration();
@@ -90,13 +90,13 @@ public class PartnerRegistration extends AdminTestUtil {
 	}
 	
 	public static String generateAndGetEkycPartnerKeyUrl() {
-		if (!BaseTestCase.isTargetEnvLTS()) {
-			// In case of 1.1.5 we don't have auto sync of certificates between Key manager cert store and IDA cert store
-			// So use the predefined certificate folder and partner key
-			ekycPartnerKeyUrl = ConfigManager.getPartnerUrlSuffix();
-			ekycPartnerId = getPartnerIdFromPartnerURL(ekycPartnerKeyUrl);
-			return ConfigManager.getPartnerUrlSuffix();
-		}
+//		if (!BaseTestCase.isTargetEnvLTS()) {
+//			// In case of 1.1.5 we don't have auto sync of certificates between Key manager cert store and IDA cert store
+//			// So use the predefined certificate folder and partner key
+//			ekycPartnerKeyUrl = ConfigManager.getPartnerUrlSuffix();
+//			ekycPartnerId = getPartnerIdFromPartnerURL(ekycPartnerKeyUrl);
+//			return ConfigManager.getPartnerUrlSuffix();
+//		}
 		
 		/*
 		 * ftmGeneration(); deviceGeneration();
@@ -503,11 +503,11 @@ public class PartnerRegistration extends AdminTestUtil {
 	}
 
 	public static void deleteCertificates() {
-		if (!BaseTestCase.isTargetEnvLTS()) {
-			// In case of 1.1.5 we don't have auto sync of certificates between Keymanager cert store and IDA cert store
-			// So use the predefined certificate folder and partnerkey
-			return ;
-		}
+//		if (!BaseTestCase.isTargetEnvLTS()) {
+//			// In case of 1.1.5 we don't have auto sync of certificates between Keymanager cert store and IDA cert store
+//			// So use the predefined certificate folder and partnerkey
+//			return ;
+//		}
 		AuthTestsUtil authUtil = new AuthTestsUtil();
 		try {
 			authUtil.clearKeys(null, BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
