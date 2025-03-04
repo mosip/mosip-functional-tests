@@ -302,7 +302,7 @@ public class EmailableReport implements IReporter {
 	}
 
 	protected void writeBody(boolean skipPassed, int suiteSize) {
-		writer.print("<body>");
+		writer.print("<body style='font-family: Arial, sans-serif;'>");
 		writeSuiteSummary(skipPassed, suiteSize);
 		writeScenarioSummary(skipPassed);
 		writeScenarioDetails(skipPassed);
