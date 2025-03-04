@@ -91,7 +91,7 @@ public class OTPListener {
 				root = om.readValue(data.toString(), Root.class);
 				if (root.type.equals("SMS")) {
 					message = root.subject;
-					address = root.to.text;
+					address = root.to.text.trim();
 
 				} else if (root.type.equals("MAIL")) {
 					message = root.html;
@@ -140,6 +140,7 @@ public class OTPListener {
 		String otp = "";
 
 		while (counter < otpCheckLoopCount) {
+			logger.info("*******emailNotificationMapS value = " + emailNotificationMapS + " and emailId = " + emailId);
 			if (emailNotificationMapS.get(emailId) != null) {
 				String html = (String) emailNotificationMapS.get(emailId);
 				emailNotificationMapS.remove(emailId);
@@ -152,18 +153,18 @@ public class OTPListener {
 				}
 
 			}
-			logger.info("*******Checking the email for OTP...*******");
+			logger.info("*******Checking the OTP for " + emailId + "...*******");
 			counter++;
 			try {
-				logger.info("Not received Otp yet, waiting for 10 Sec");
+				logger.info("Not received Otp yet, waiting for 10 Sec for " + emailId);
 				Thread.sleep(AdminTestUtil.OTP_CHECK_INTERVAL);
 			} catch (InterruptedException e) {
-				logger.info(e.getMessage());
+				logger.error(e.getMessage());
 				Thread.currentThread().interrupt();
 			}
 
 		}
-		logger.info("OTP not found even after " + otpCheckLoopCount + " retries");
+		logger.info("OTP not found for " + emailId + " even after " + otpCheckLoopCount + " retries");
 		return otp;
 	}
 
