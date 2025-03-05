@@ -86,6 +86,12 @@
 			<artifactId>slack-api-client</artifactId>
 			<version>1.6.1-RC1</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.github.javafaker</groupId>
+			<artifactId>javafaker</artifactId>
+			<version>1.0.2</version>
+		</dependency>
 
 		<!-- for translation -->
 		<dependency>
