@@ -25,11 +25,6 @@ public class CertificateGenerationUtil extends AdminTestUtil {
 	}
 
 	public static void getThumbprints() {
-//		if (!BaseTestCase.isTargetEnvLTS()) {
-//			// In case of 1.1.5 we don't have auto sync of certificates between Keymanager cert store and IDA cert store
-//			// So use the predefined certificate folder and partnerkey
-//			return ;
-//		}
 		String appId = properties.getProperty("appIdForCertificate");
 		getAndUploadIdaCertificate(appId, properties.getProperty("partnerrefId"), CertificateTypes.PARTNER);
 		getAndUploadIdaCertificate(appId, properties.getProperty("internalrefId"), CertificateTypes.INTERNAL);

@@ -50,8 +50,6 @@ public class KeycloakUserManager {
 		if (key != null)
 			return key;
 		try {
-//				String automationClientId = BaseTestCase.isTargetEnvLTS() ? ConfigManager.getAutomationClientId()
-//						: ConfigManager.getPmsClientId();
 			String automationClientId = ConfigManager.getAutomationClientId();
 			key = KeycloakBuilder.builder().serverUrl(ConfigManager.getIAMUrl()).realm(ConfigManager.getIAMRealmId())
 					.grantType(OAuth2Constants.CLIENT_CREDENTIALS).clientId(automationClientId)

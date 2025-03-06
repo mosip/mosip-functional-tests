@@ -219,9 +219,6 @@ public class ConfigManager {
 	public static String getRegprocClientSecret() { return getproperty("mosip_regproc_client_secret"); }
 	public static String getRegprocClientId() { return getproperty("mosip_regproc_client_id"); }
 	public static String getRegprocAppId() { return getproperty("mosip_regprocclient_app_id"); }
-	//public static String getRegprocessorClientSecret() { return getproperty("mosip_regproc_client_secret"); }
-	//public static String getRegprocessorClientId() { return getproperty("mosip_regproc_client_id"); }
-	//public static String getRegprocessorAppId() { return getproperty("mosip_regprocclient_app_id"); }
 	public static String getIdaClientSecret() { return getproperty("mosip_ida_client_secret"); }
 	public static String getIdaClientId() { return getproperty("mosip_ida_client_id"); }
 	public static String getIdaAppId() { return getproperty("mosip_ida_app_id"); }
