@@ -66,8 +66,6 @@ public class KernelAuthentication extends BaseTestCase {
 
 	private String authenticationEndpoint = props.get("authentication");
 	private String authenticationInternalEndpoint = props.get("authenticationInternal");
-//	private String sendOtp = props.get(GlobalConstants.SENDOTP);
-//	private String useridOTP = props.get("useridOTP");
 	private String authRequest = "config/Authorization/request.json";
 	private String authInternalRequest = "config/Authorization/internalAuthRequest.json";
 	private String preregSendOtp = props.get("preregSendOtp");
@@ -237,31 +235,6 @@ public class KernelAuthentication extends BaseTestCase {
 			return adminCookie;
 		}
 		
-//		if (BaseTestCase.isTargetEnvLTS()) {
-//		if (!AdminTestUtil.isValidToken(idrepoCookie))
-//			idrepoCookie = kernelAuthLib.getAuthForIDREPO();
-//		return idrepoCookie;
-//	} else {
-//		if (!AdminTestUtil.isValidToken(regProCookie))
-//			regProCookie = kernelAuthLib.getAuthForRegProc();
-//		return regProCookie;
-//	}
-		
-//		if (BaseTestCase.isTargetEnvLTS()) {
-//		if (!AdminTestUtil.isValidToken(hotlistCookie))
-//			hotlistCookie = kernelAuthLib.getAuthForHotlist();
-//		return hotlistCookie;
-//	} else {
-//		if (!AdminTestUtil.isValidToken(regProCookie))
-//			regProCookie = kernelAuthLib.getAuthForRegProc();
-//		return regProCookie;
-//	}
-		
-//		case "individual":
-//		if (!AdminTestUtil.isValidToken(individualCookie))
-//			individualCookie = kernelAuthLib.getAuthForIndividual();
-//		return individualCookie;
-
 	}
 
 	@SuppressWarnings("unchecked")
@@ -324,13 +297,6 @@ public class KernelAuthentication extends BaseTestCase {
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-//		if (BaseTestCase.isTargetEnvLTS()) {
-//			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-//			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-//		} else {
-//			request.put(GlobalConstants.CLIENTID, ConfigManager.getPartnerClientId());
-//			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPartnerClientSecret());
-//		}
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
@@ -350,13 +316,6 @@ public class KernelAuthentication extends BaseTestCase {
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-//		if (BaseTestCase.isTargetEnvLTS()) {
-//			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-//			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-//		} else {
-//			request.put(GlobalConstants.CLIENTID, ConfigManager.getPartnerClientId());
-//			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPartnerClientSecret());
-//		}
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
@@ -376,13 +335,6 @@ public class KernelAuthentication extends BaseTestCase {
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-//		if (BaseTestCase.isTargetEnvLTS()) {
-//			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-//			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-//		} else {
-//			request.put(GlobalConstants.CLIENTID, ConfigManager.getPartnerClientId());
-//			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPartnerClientSecret());
-//		}
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
@@ -403,13 +355,6 @@ public class KernelAuthentication extends BaseTestCase {
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-//		if (BaseTestCase.isTargetEnvLTS()) {
-//			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-//			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-//		} else {
-//			request.put(GlobalConstants.CLIENTID, ConfigManager.getPartnerClientId());
-//			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPartnerClientSecret());
-//		}
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
@@ -429,13 +374,6 @@ public class KernelAuthentication extends BaseTestCase {
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-//		if (BaseTestCase.isTargetEnvLTS()) {
-//			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-//			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-//		} else {
-//			request.put(GlobalConstants.CLIENTID, ConfigManager.getPartnerClientId());
-//			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPartnerClientSecret());
-//		}
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
@@ -455,13 +393,6 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
 		
-//		if (BaseTestCase.isTargetEnvLTS()) {
-//			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-//			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-//		} else {
-//			request.put(GlobalConstants.CLIENTID, ConfigManager.getPartnerClientId());
-//			request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPartnerClientSecret());
-//		}
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
@@ -636,25 +567,6 @@ public class KernelAuthentication extends BaseTestCase {
 		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
 
-//	@SuppressWarnings("unchecked")
-//	public String getAuthForKeyCloak() {
-//
-//		Response response = RestAssured.given().with().auth().preemptive()
-//				.basic(props.get("keycloak_username"), props.get("keycloak_password"))
-//				.header("Content-Type", "application/x-www-form-urlencoded")
-//				.formParam("grant_type", props.get("keycloak_granttype"))
-//				.formParam("client_id", props.get("keycloak_clientid"))
-//				.formParam(GlobalConstants.USERNAME, props.get("keycloak_username"))
-//				.formParam(GlobalConstants.PASSWORD, props.get("keycloak_password")).when()
-//				.post(ApplnURIForKeyCloak + props.get("keycloakAuthURL"));
-//		logger.info(response.getBody().asString());
-//
-//		String responseBody = response.getBody().asString();
-//		String token = new org.json.JSONObject(responseBody).getString(GlobalConstants.ACCESSTOKEN);
-//		logger.info(token);
-//		return token;
-//	}
-
 	@SuppressWarnings("unchecked")
 	public String getAuthForHotlist() {
 		JSONObject actualrequest = getRequestJson(authRequest);
@@ -669,23 +581,6 @@ public class KernelAuthentication extends BaseTestCase {
 		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
 		return cookie;
 	}
-
-//	@SuppressWarnings("unchecked")
-//	public String getAuthForIndividual() {
-//		JSONObject actualRequest_generation = getRequestJson("kernel/Authorization/OtpGeneration/request.json");
-//		((JSONObject) actualRequest_generation.get(GlobalConstants.REQUEST)).get("userId").toString();
-//		JSONObject actualRequest_validation = getRequestJson("kernel/Authorization/OtpGeneration/request.json");
-//		AdminTestUtil.postWithJson(sendOtp, actualRequest_generation);
-//		String otp = null;
-//		if (proxy)
-//			otp = "111111";
-//		else {
-//		}
-//		((JSONObject) actualRequest_validation.get(GlobalConstants.REQUEST)).put("otp", otp);
-//		Response otpValidate = AdminTestUtil.postWithJson(useridOTP, actualRequest_validation);
-//		cookie = otpValidate.getCookie(GlobalConstants.AUTHORIZATION);
-//		return cookie;
-//	}
 
 	@SuppressWarnings("unchecked")
 	public String getPreRegToken() {
