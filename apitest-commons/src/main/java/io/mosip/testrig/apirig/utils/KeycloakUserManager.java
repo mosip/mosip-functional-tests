@@ -9,6 +9,7 @@ import java.util.Properties;
 
 import javax.ws.rs.core.Response;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.keycloak.OAuth2Constants;
 import org.keycloak.admin.client.CreatedResponseUtil;
@@ -31,6 +32,13 @@ public class KeycloakUserManager {
 	public static Properties propsKernel = getproperty(BaseTestCase.getGlobalResourcePath() + "/"+"config/Kernel.properties");
 	public static Keycloak key = null;
 	
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
+	}
+	
 	public static void closeKeycloakInstance() {
 		if (key != null) {
 			key.close();
@@ -41,15 +49,14 @@ public class KeycloakUserManager {
 	private static Keycloak getKeycloakInstance() {
 		if (key != null)
 			return key;
-			try {
-				String automationClientId = BaseTestCase.isTargetEnvLTS() ? ConfigManager.getAutomationClientId()
-						: ConfigManager.getPmsClientId();
-				key = KeycloakBuilder.builder().serverUrl(ConfigManager.getIAMUrl())
-						.realm(ConfigManager.getIAMRealmId()).grantType(OAuth2Constants.CLIENT_CREDENTIALS)
-						.clientId(automationClientId).clientSecret(ConfigManager.getAutomationClientSecret()).build();
-				logger.info(ConfigManager.getIAMUrl());
-				logger.info(key.toString() + key.realms());
-			} catch (Exception e) {
+		try {
+			String automationClientId = ConfigManager.getAutomationClientId();
+			key = KeycloakBuilder.builder().serverUrl(ConfigManager.getIAMUrl()).realm(ConfigManager.getIAMRealmId())
+					.grantType(OAuth2Constants.CLIENT_CREDENTIALS).clientId(automationClientId)
+					.clientSecret(ConfigManager.getAutomationClientSecret()).build();
+			logger.info(ConfigManager.getIAMUrl());
+			logger.info(key.toString() + key.realms());
+		} catch (Exception e) {
 				throw e;
 			}
 		return key;
@@ -79,14 +86,10 @@ public class KeycloakUserManager {
 			String moduleSpecificUser = null;
 			if (needsToBeCreatedUser.equals("globaladmin")) {
 				moduleSpecificUser = needsToBeCreatedUser;
-			}
-			else if(needsToBeCreatedUser.equals("masterdata-220005")){
+			} else if (needsToBeCreatedUser.equals("masterdata-220005")) { // for DSL - we don't need to append the current module.
 				moduleSpecificUser = needsToBeCreatedUser;
-				
-			}
-						
-			else {
-				moduleSpecificUser = BaseTestCase.currentModule +"-"+ needsToBeCreatedUser;
+			} else {
+				moduleSpecificUser = BaseTestCase.currentModule + "-" + needsToBeCreatedUser;
 			}
 			
 			logger.info(moduleSpecificUser);

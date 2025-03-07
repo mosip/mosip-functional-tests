@@ -33,58 +33,78 @@ public class ConfigManager {
 		} catch (Exception ex) {
 			LOGGER.error(ex.getMessage());
 		}
-		// Iterate over all keys in kernelProps and process them
-		for (String key : kernelProps.stringPropertyNames()) {
-			getValueForKeyAddToPropertiesMap(kernelProps, key);
-		}
+		// Process all common properties in kernelProps and add them to propertiesMap
+	    for (String key : kernelProps.stringPropertyNames()) {
+	    	propertiesMap.put(key, kernelProps.getProperty(key));
+	    }
 	}
 
-	public static void init(Map<String, Object> additionalPropertiesMap) {  
-        //Load common properties
-        init();
-        // Add all entries from module specific propertiesMap to propertiesMap
-        propertiesMap.putAll(additionalPropertiesMap);
-        LOGGER.info("propertiesMap = " + propertiesMap);
-    }
+	public static void init(Map<String, Object> additionalPropertiesMap) {
+
+		// Step 1: Load and process common properties (from Kernel.properties)
+		init();
+
+		// Step 2: Add all entries from the additionalPropertiesMap to propertiesMap
+		propertiesMap.putAll(additionalPropertiesMap);
+
+		// Step 3: Now, process all keys in propertiesMap (both common and additional
+		// properties)
+		for (String key : propertiesMap.keySet()) {
+			getValueForKeyAddToPropertiesMap(propertiesMap, key);
+		}
+
+		// Log the final propertiesMap to ensure all values have been processed
+		// correctly
+		LOGGER.info("propertiesMap = " + propertiesMap);
+	}
 	
-	public static void getValueForKeyAddToPropertiesMap(Properties props, String key) {
-		if(key.equalsIgnoreCase("serverErrorsToMonitor")){
+	public static void getValueForKeyAddToPropertiesMap(Map<String, Object> propsMap, String key) {
+		if (key.equalsIgnoreCase("serverErrorsToMonitor")) {
 			String value = System.getenv("serverErrorsToMonitor") == null
-			? props.getProperty("serverErrorsToMonitor")
-			: props.getProperty("serverErrorsToMonitor") + "," + System.getenv("serverErrorsToMonitor");
+					? (String) propsMap.get("serverErrorsToMonitor")
+					: (String) propsMap.get("serverErrorsToMonitor") + "," + System.getenv("serverErrorsToMonitor");
 			propertiesMap.put(key, value);
-		} else if (key.equalsIgnoreCase("eSignetbaseurl")){
+		} else if (key.equalsIgnoreCase("eSignetbaseurl")) {
 			String value = null;
 			if (System.getenv("eSignetbaseurl") != null) {
 				value = System.getenv("eSignetbaseurl");
+			} else if ((String) propsMap.get("eSignetbaseurl") != null
+					&& !((String) propsMap.get("eSignetbaseurl")).isBlank()) {
+				value = (String) propsMap.get("eSignetbaseurl");
 			} else {
 				value = System.getProperty("env.endpoint").replace("api-internal", "esignet");
 			}
 			propertiesMap.put(key, value);
-		} else if (key.equalsIgnoreCase("signupBaseUrl")){
+		} else if (key.equalsIgnoreCase("signupBaseUrl")) {
 			String value = null;
 			if (System.getenv("signupBaseUrl") != null) {
 				value = System.getenv("signupBaseUrl");
+			} else if ((String) propsMap.get("signupBaseUrl") != null
+					&& !((String) propsMap.get("signupBaseUrl")).isBlank()) {
+				value = (String) propsMap.get("signupBaseUrl");
 			} else {
 				value = System.getProperty("env.endpoint").replace("api-internal", "signup");
 			}
 			propertiesMap.put(key, value);
-		} else if (key.equalsIgnoreCase("injiCertifyBaseURL")){
+		} else if (key.equalsIgnoreCase("injiCertifyBaseURL")) {
 			String value = null;
 			if (System.getenv("injiCertifyBaseURL") != null) {
 				value = System.getenv("injiCertifyBaseURL");
+			} else if ((String) propsMap.get("injiCertifyBaseURL") != null
+					&& !((String) propsMap.get("injiCertifyBaseURL")).isBlank()) {
+				value = (String) propsMap.get("injiCertifyBaseURL");
 			} else {
 				value = System.getProperty("env.endpoint").replace("api-internal", "injicertify");
 			}
 			propertiesMap.put(key, value);
-		} else if (key.equalsIgnoreCase("mosip_components_base_urls")){
+		} else if (key.equalsIgnoreCase("mosip_components_base_urls")) {
 			String components_base_urls = System.getenv("mosip_components_base_urls") == null
-			? props.getProperty("mosip_components_base_urls")
-			: System.getenv("mosip_components_base_urls");
+					? (String) propsMap.get("mosip_components_base_urls")
+					: System.getenv("mosip_components_base_urls");
 			loadComponentBaseURLs(components_base_urls);
-		} else{
-			String value = System.getenv(key) == null ? props.getProperty(key) : System.getenv(key);
-			propertiesMap.put(key, value);	
+		} else {
+			String value = System.getenv(key) == null ? (String) propsMap.get(key) : System.getenv(key);
+			propertiesMap.put(key, value);
 		}
 	}
 	
@@ -199,9 +219,6 @@ public class ConfigManager {
 	public static String getRegprocClientSecret() { return getproperty("mosip_regproc_client_secret"); }
 	public static String getRegprocClientId() { return getproperty("mosip_regproc_client_id"); }
 	public static String getRegprocAppId() { return getproperty("mosip_regprocclient_app_id"); }
-	//public static String getRegprocessorClientSecret() { return getproperty("mosip_regproc_client_secret"); }
-	//public static String getRegprocessorClientId() { return getproperty("mosip_regproc_client_id"); }
-	//public static String getRegprocessorAppId() { return getproperty("mosip_regprocclient_app_id"); }
 	public static String getIdaClientSecret() { return getproperty("mosip_ida_client_secret"); }
 	public static String getIdaClientId() { return getproperty("mosip_ida_client_id"); }
 	public static String getIdaAppId() { return getproperty("mosip_ida_app_id"); }
