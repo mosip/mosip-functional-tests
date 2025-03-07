@@ -3960,14 +3960,10 @@ public class AdminTestUtil extends BaseTestCase {
 		copymoduleSpecificAndConfigFile(GlobalConstants.RESIDENT);
 	}
 
-	public static void copyPartnerTestResource() {
-		copymoduleSpecificAndConfigFile(GlobalConstants.PARTNER);
+	public static void copyPmsTestResource() {
+		copymoduleSpecificAndConfigFile(GlobalConstants.PARTNER_MANAGEMENT_SERVICE);
 	}
 	
-	public static void copyPmsNewTestResource() {
-		copymoduleSpecificAndConfigFile(GlobalConstants.PARTNERNEW);
-	}
-
 	public static ArrayList<JSONObject> getInputTestCase(TestCaseDTO testCaseDTO) {
 		String[] templateFields = testCaseDTO.getTemplateFields();
 		String input = testCaseDTO.getInput();
