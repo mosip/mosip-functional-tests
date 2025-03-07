@@ -542,8 +542,8 @@ public class KeyMgrUtil {
 		GlobalMethods.reportRequest(null, map.toString());
 		String identity = map.get("identity");
 		PrivateKeyEntry ekycKey;
-
-		ekycKey = getKeyEntry(getKeysDirPath(BaseTestCase.certsForModule), partnerName);
+		logger.info(AdminTestUtil.getKeysDirPath() + "partnerName");
+		ekycKey = getKeyEntry(AdminTestUtil.getKeysDirPath(), partnerName);
 		String sessionKey = map.get("sessionKey");
 
 		byte[] encSecKey;
