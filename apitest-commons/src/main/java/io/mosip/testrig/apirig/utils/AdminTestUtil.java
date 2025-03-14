@@ -1920,7 +1920,6 @@ public class AdminTestUtil extends BaseTestCase {
 		} else {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
-		
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
 		GlobalMethods.reportRequest(null, jsonInput, url);
 		try {
