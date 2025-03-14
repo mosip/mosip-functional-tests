@@ -540,7 +540,7 @@ public class AdminTestUtil extends BaseTestCase {
 			encodedResp = request.get(GlobalConstants.ENCODEDHASH).toString();
 			request.remove(GlobalConstants.ENCODEDHASH);
 		}
-		if (request.has(GlobalConstants.REQUEST)
+		if (request.has(GlobalConstants.REQUEST) && request.get(GlobalConstants.REQUEST) instanceof JSONObject
 				&& request.getJSONObject(GlobalConstants.REQUEST).has(GlobalConstants.TRANSACTIONID)) {
 			transactionId = request.getJSONObject(GlobalConstants.REQUEST).get(GlobalConstants.TRANSACTIONID)
 					.toString();
@@ -572,6 +572,13 @@ public class AdminTestUtil extends BaseTestCase {
 			cookiesMap.put(GlobalConstants.IDV_TRANSACTION_ID_KEY, headerTransactionID);
 			cookiesMap.put(GlobalConstants.XSRF_TOKEN, token);
 			request.remove(GlobalConstants.IDV_TRANSACTION_ID);
+		}
+		
+		if (testCaseName.contains("_Missing_CSRF_")) {
+			headers.remove(XSRF_HEADERNAME);
+		}
+		if (testCaseName.contains("_Invalid_CSRF_")) {
+			headers.put(XSRF_HEADERNAME, GlobalConstants.INVALID_STRING);
 		}
 		
 		logger.info(GlobalConstants.POST_REQ_URL + url);
@@ -1920,6 +1927,14 @@ public class AdminTestUtil extends BaseTestCase {
 		} else {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
+		
+		if (testCaseName.contains("_Missing_CSRF_")) {
+			cookiesMap.remove(GlobalConstants.XSRF_TOKEN);
+		}
+		if (testCaseName.contains("_Invalid_CSRF_")) {
+			cookiesMap.put(GlobalConstants.XSRF_TOKEN, GlobalConstants.INVALID_STRING);
+		}
+		
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
 		GlobalMethods.reportRequest(null, jsonInput, url);
 		try {
@@ -2574,22 +2589,13 @@ public class AdminTestUtil extends BaseTestCase {
 	public Object[] getYmlTestData(String ymlPath) {
 		String testType = testLevel;
 		final ObjectMapper mapper = new ObjectMapper();
-//		List<TestCaseDTO> testCaseDTOList = new LinkedList<TestCaseDTO>();
 		List<TestCaseDTO> testCaseDTOList = new ArrayList<>();
 
-//		Map<String, Map<String, Map<String, String>>> scriptsMap = loadyaml(ymlPath);
 		Map<String, Map<String, Map<String, String>>> scriptsMap = new LinkedHashMap<>(loadyaml(ymlPath));
 		
 		for (String key : scriptsMap.keySet()) {
-//			Map<String, Map<String, String>> testCases = scriptsMap.get(key);
 			Map<String, Map<String, String>> testCases = new LinkedHashMap<>(scriptsMap.get(key));
 
-//			if (testType.equalsIgnoreCase("smoke")) {
-//				testCases = testCases.entrySet().stream()
-//						.filter(mapElement -> mapElement.getKey().toLowerCase().contains("smoke")).collect(Collectors
-//								.toMap(mapElement -> mapElement.getKey(), mapElement -> mapElement.getValue()));
-//			}
-			
 			if (testType.equalsIgnoreCase("smoke")) {
 	            testCases = testCases.entrySet().stream()
 	                .filter(mapElement -> mapElement.getKey().toLowerCase().contains("smoke"))
@@ -2619,8 +2625,6 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			inputStream = new FileInputStream(new File(getResourcePath() + path).getAbsoluteFile());
 			bufferedInput = new BufferedInputStream(inputStream, customBufferSize);
-//			Yaml yaml = new Yaml();
-//			scriptsMap = yaml.loadAs(bufferedInput, Map.class);
 			
 			// Force YAML to use LinkedHashMap
 	        Yaml yaml = new Yaml(new Constructor(LinkedHashMap.class));

@@ -243,4 +243,5 @@ public class GlobalConstants {
 	public static final String IDV_SLOT_ALLOTED = "idvSlotAllotted";
 	public static final String IDV_SLOT_ALLOTED_KEY = "IDV_SLOT_ALLOTTED=";
 	public static final String RESPONSE_CODE = "responseCode";
+	public static final String INVALID_STRING = "ksdfsddjhsd";
 }
