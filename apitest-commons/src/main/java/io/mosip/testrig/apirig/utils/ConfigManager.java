@@ -249,7 +249,6 @@ public class ConfigManager {
 	// TO DO -- To be removed from commons
 	public static String getEsignetActuatorPropertySection() { return getproperty("esignetActuatorPropertySection");}
 	public static String getEsignetBaseUrl() { return getproperty("eSignetbaseurl");}
-	public static String getEsignetMockBaseURL() { return getproperty("esignetMockBaseURL");}
 	public static String getInjiCertifyBaseUrl() { return getproperty("injiCertifyBaseURL");}
 	public static String getSunBirdBaseURL() { return getproperty("sunBirdBaseURL");}
 	public static String getSignupBaseUrl() { return getproperty("signupBaseUrl");}
