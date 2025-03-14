@@ -574,13 +574,6 @@ public class AdminTestUtil extends BaseTestCase {
 			request.remove(GlobalConstants.IDV_TRANSACTION_ID);
 		}
 		
-		if (testCaseName.contains("_Missing_CSRF_")) {
-			headers.remove(XSRF_HEADERNAME);
-		}
-		if (testCaseName.contains("_Invalid_CSRF_")) {
-			headers.put(XSRF_HEADERNAME, GlobalConstants.INVALID_STRING);
-		}
-		
 		logger.info(GlobalConstants.POST_REQ_URL + url);
 		GlobalMethods.reportRequest(headers.toString(), inputJson, url);
 		try {
@@ -1926,13 +1919,6 @@ public class AdminTestUtil extends BaseTestCase {
 			token = "";
 		} else {
 			token = kernelAuthLib.getTokenByRole(role);
-		}
-		
-		if (testCaseName.contains("_Missing_CSRF_")) {
-			cookiesMap.remove(GlobalConstants.XSRF_TOKEN);
-		}
-		if (testCaseName.contains("_Invalid_CSRF_")) {
-			cookiesMap.put(GlobalConstants.XSRF_TOKEN, GlobalConstants.INVALID_STRING);
 		}
 		
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
