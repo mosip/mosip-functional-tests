@@ -3253,11 +3253,10 @@ public class AdminTestUtil extends BaseTestCase {
 
 
 	public String updateTimestampOtp(String otpIdentyEnryptRequest, String otpChannel, String testCaseName) {
-		
 		String otp = null;
 	
 		otp = OTPListener.getOtp(otpChannel);
-		logger.info("Fetched OTP for otp auth= " +otp);
+		logger.info("Fetched OTP for otp auth= " + otp);
 		
 		if(otp!=null && !otp.isBlank()){
 			otpIdentyEnryptRequest = JsonPrecondtion.parseAndReturnJsonContent(otpIdentyEnryptRequest, otp, "otp");
