@@ -244,6 +244,10 @@ public class GlobalMethods {
 	}
 
 	public static void reportRequest(String requestHeader, String request, String url) {
+		
+		if (url != null && url.isBlank() == false) {
+			url = GlobalMethods.addToServerEndPointMap(url);
+		}
 
 		String formattedHeader = ReportUtil.getTextAreaForHeaders(requestHeader);
 

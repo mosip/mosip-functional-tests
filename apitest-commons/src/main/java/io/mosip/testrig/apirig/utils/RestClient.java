@@ -744,14 +744,14 @@ public class RestClient {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
 			
 			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
-					.contentType(contentHeader).cookie("XSRF-TOKEN", properties.getProperty(GlobalConstants.XSRFTOKEN))
+					.contentType(contentHeader).cookie(GlobalConstants.XSRF_TOKEN, properties.getProperty(GlobalConstants.XSRFTOKEN))
 					.accept(acceptHeader).log().all().when().post(url).then().log().all().extract().response();
 			
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
 			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
-					.contentType(contentHeader).cookie("XSRF-TOKEN", properties.getProperty(GlobalConstants.XSRFTOKEN))
+					.contentType(contentHeader).cookie(GlobalConstants.XSRF_TOKEN, properties.getProperty(GlobalConstants.XSRFTOKEN))
 					.accept(acceptHeader).when().post(url).then().extract().response();
 		}
 
@@ -1038,6 +1038,7 @@ public class RestClient {
 	public static Response getRequestWithMultipleCookieAndPathParam(String url, Map<String, String> body, String contentHeader, String acceptHeader,
 			Map<String, String> cookieMap) {
 		Response getResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 		String key = GlobalConstants.IDV_TRANSACTION_ID_KEY;
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
@@ -1702,7 +1703,7 @@ public class RestClient {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
 
 			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
-					.contentType(contentHeader).cookie("XSRF-TOKEN", properties.getProperty(GlobalConstants.XSRFTOKEN))
+					.contentType(contentHeader).cookie(GlobalConstants.XSRF_TOKEN, properties.getProperty(GlobalConstants.XSRFTOKEN))
 					.cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when().post(url)
 					.then().log().all().extract().response();
 
@@ -1710,7 +1711,7 @@ public class RestClient {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
 			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
-					.contentType(contentHeader).cookie("XSRF-TOKEN", properties.getProperty(GlobalConstants.XSRFTOKEN))
+					.contentType(contentHeader).cookie(GlobalConstants.XSRF_TOKEN, properties.getProperty(GlobalConstants.XSRFTOKEN))
 					.cookie(cookieName, cookieValue).accept(acceptHeader).when().post(url).then().extract()
 					.response();
 		}
@@ -1903,6 +1904,7 @@ public class RestClient {
 	public static Response getRequestWithMultipleHeadersAndCookies(String url, String contentHeader,
 			String acceptHeader, String cookieName, String cookieValue, Map<String, String> headers) {
 		Response postResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
 

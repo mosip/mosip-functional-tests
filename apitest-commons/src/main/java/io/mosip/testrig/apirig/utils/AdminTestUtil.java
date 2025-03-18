@@ -51,6 +51,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -84,6 +85,7 @@ import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.SkipException;
 import org.yaml.snakeyaml.Yaml;
+import org.yaml.snakeyaml.constructor.Constructor;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.exceptions.JWTDecodeException;
@@ -538,7 +540,7 @@ public class AdminTestUtil extends BaseTestCase {
 			encodedResp = request.get(GlobalConstants.ENCODEDHASH).toString();
 			request.remove(GlobalConstants.ENCODEDHASH);
 		}
-		if (request.has(GlobalConstants.REQUEST)
+		if (request.has(GlobalConstants.REQUEST) && request.get(GlobalConstants.REQUEST) instanceof JSONObject
 				&& request.getJSONObject(GlobalConstants.REQUEST).has(GlobalConstants.TRANSACTIONID)) {
 			transactionId = request.getJSONObject(GlobalConstants.REQUEST).get(GlobalConstants.TRANSACTIONID)
 					.toString();
@@ -2572,15 +2574,24 @@ public class AdminTestUtil extends BaseTestCase {
 	public Object[] getYmlTestData(String ymlPath) {
 		String testType = testLevel;
 		final ObjectMapper mapper = new ObjectMapper();
-		List<TestCaseDTO> testCaseDTOList = new LinkedList<TestCaseDTO>();
-		Map<String, Map<String, Map<String, String>>> scriptsMap = loadyaml(ymlPath);
+		List<TestCaseDTO> testCaseDTOList = new ArrayList<>();
+
+		Map<String, Map<String, Map<String, String>>> scriptsMap = new LinkedHashMap<>(loadyaml(ymlPath));
+		
 		for (String key : scriptsMap.keySet()) {
-			Map<String, Map<String, String>> testCases = scriptsMap.get(key);
+			Map<String, Map<String, String>> testCases = new LinkedHashMap<>(scriptsMap.get(key));
+
 			if (testType.equalsIgnoreCase("smoke")) {
-				testCases = testCases.entrySet().stream()
-						.filter(mapElement -> mapElement.getKey().toLowerCase().contains("smoke")).collect(Collectors
-								.toMap(mapElement -> mapElement.getKey(), mapElement -> mapElement.getValue()));
-			}
+	            testCases = testCases.entrySet().stream()
+	                .filter(mapElement -> mapElement.getKey().toLowerCase().contains("smoke"))
+	                .collect(Collectors.toMap(
+	                    Map.Entry::getKey,
+	                    Map.Entry::getValue,
+	                    (e1, e2) -> e1, // Merge function (not used, just to satisfy Collectors.toMap)
+	                    LinkedHashMap::new // Preserve order
+	                ));
+	        }
+			
 			for (String testCase : testCases.keySet()) {
 				TestCaseDTO testCaseDTO = mapper.convertValue(testCases.get(testCase), TestCaseDTO.class);
 				testCaseDTO.setTestCaseName(testCase);
@@ -2599,8 +2610,11 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			inputStream = new FileInputStream(new File(getResourcePath() + path).getAbsoluteFile());
 			bufferedInput = new BufferedInputStream(inputStream, customBufferSize);
-			Yaml yaml = new Yaml();
-			scriptsMap = yaml.loadAs(bufferedInput, Map.class);
+			
+			// Force YAML to use LinkedHashMap
+	        Yaml yaml = new Yaml(new Constructor(LinkedHashMap.class));
+	        scriptsMap = yaml.loadAs(bufferedInput, LinkedHashMap.class);
+	        
 		} catch (Exception e) {
 			logger.error("Error loading YAML: " + e.getMessage());
 		} finally {

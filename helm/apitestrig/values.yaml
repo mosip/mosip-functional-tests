@@ -500,6 +500,12 @@ modules:
       repository: mosipqa/apitest-injicertify
       tag: develop
       pullPolicy: Always
+  injiverify:
+    enabled: false
+    image:
+      repository: mosipqa/apitest-inji-verify
+      tag: develop
+      pullPolicy: Always
   esignet-signup:
     enabled: false
     image:
