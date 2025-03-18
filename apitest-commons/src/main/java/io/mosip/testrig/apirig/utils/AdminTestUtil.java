@@ -3240,11 +3240,10 @@ public class AdminTestUtil extends BaseTestCase {
 
 
 	public String updateTimestampOtp(String otpIdentyEnryptRequest, String otpChannel, String testCaseName) {
-		otpIdentyEnryptRequest = JsonPrecondtion.parseAndReturnJsonContent(otpIdentyEnryptRequest,
-				generateCurrentUTCTimeStamp(), "timestamp");
 		String otp = null;
 	
 		otp = OTPListener.getOtp(otpChannel);
+		logger.info("Fetched OTP for otp auth= " + otp);
 		
 		if(otp!=null && !otp.isBlank()){
 			otpIdentyEnryptRequest = JsonPrecondtion.parseAndReturnJsonContent(otpIdentyEnryptRequest, otp, "otp");
@@ -3252,6 +3251,8 @@ public class AdminTestUtil extends BaseTestCase {
 		else {
 			logger.error("Not Able To Fetch OTP From SMTP");
 		}
+		otpIdentyEnryptRequest = JsonPrecondtion.parseAndReturnJsonContent(otpIdentyEnryptRequest,
+				generateCurrentUTCTimeStamp(), "timestamp");
 		return otpIdentyEnryptRequest;
 	}
 
