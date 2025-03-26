@@ -14,6 +14,7 @@ The API Test Commons is a shared codebase used for executing module-wise automat
 - ESignet-signup
 - Mimoto
 - Inji-Certify
+- Inji-Verify
 
 ---
 
@@ -84,7 +85,7 @@ Ensure the following software is installed on the machine from where the automat
     <dependency>
       <groupId>io.mosip.testrig.apirig.apitest.commons</groupId>
       <artifactId>apitest-commons</artifactId>
-      <version>1.3.2-SNAPSHOT</version>
+      <version>1.3.2</version>
     </dependency>
 
 ---
