@@ -2787,6 +2787,8 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		if (jsonString.contains(GlobalConstants.TIMESTAMP))
 			jsonString = replaceKeywordWithValue(jsonString, GlobalConstants.TIMESTAMP, generateCurrentUTCTimeStamp());
+		if (jsonString.contains("$EXPIRYTIMESTAMP$"))
+			jsonString = replaceKeywordWithValue(jsonString, "$EXPIRYTIMESTAMP$", generateExpiryUTCTimeStamp());
 		if (jsonString.contains(GlobalConstants.TRANSACTION_ID))
 			jsonString = replaceKeywordWithValue(jsonString, GlobalConstants.TRANSACTION_ID, TRANSACTION_ID);
 		if (jsonString.contains("$DATESTAMP$"))
@@ -3275,6 +3277,14 @@ public class AdminTestUtil extends BaseTestCase {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
 		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
 		return dateFormat.format(date);
+	}
+
+	public static String generateExpiryUTCTimeStamp() {
+		Calendar calendar = Calendar.getInstance();
+		calendar.add(Calendar.SECOND, Integer.parseInt(ConfigManager.getproperty("expirationTime")));
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+		return dateFormat.format(calendar.getTime());
 	}
 
 	public static String generateCurrentUTCDateStamp() {
