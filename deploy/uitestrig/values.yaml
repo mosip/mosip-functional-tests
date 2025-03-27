@@ -10,8 +10,8 @@ modules:
     enabled: false
     image:
       registry: docker.io
-      repository: mosipqa/uitest-pmp
-      tag: develop
+      repository: mosipid/uitest-pmp
+      tag: 1.2.2.0
       pullPolicy: Always
   - name: resident-ui
     enabled: false
