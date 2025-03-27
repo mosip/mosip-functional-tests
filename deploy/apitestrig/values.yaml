@@ -23,6 +23,12 @@ modules:
       repository: mosipid/apitest-pms
       tag: 1.2.2.0
       pullPolicy: Always
+  pms:
+    enabled: false
+    image:
+      repository: mosipid/apitest-pms
+      tag: 1.2.2.0
+      pullPolicy: Always
   resident:
     enabled: false
     image:
