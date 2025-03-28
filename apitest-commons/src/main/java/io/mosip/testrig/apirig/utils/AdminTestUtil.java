@@ -260,7 +260,8 @@ public class AdminTestUtil extends BaseTestCase {
 		url = uriKeyWordHandelerUri(url, testCaseName);
 		if (BaseTestCase.currentModule.equals(GlobalConstants.PREREG) || BaseTestCase.currentModule.equals("auth")
 				|| BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT)
-				|| BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)) {
+				|| BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)
+				|| BaseTestCase.currentModule.equals(GlobalConstants.DSL)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 
@@ -409,7 +410,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		
 		inputJson = request.toString();
-		if (BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)) {
+		if (BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA) || BaseTestCase.currentModule.equals(GlobalConstants.DSL)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 
@@ -498,7 +499,8 @@ public class AdminTestUtil extends BaseTestCase {
 		if (BaseTestCase.currentModule.equals(GlobalConstants.MIMOTO) || BaseTestCase.currentModule.equals("auth")
 				|| BaseTestCase.currentModule.equals(GlobalConstants.ESIGNET)
 				|| BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT)
-				|| BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)) {
+				|| BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)
+				|| BaseTestCase.currentModule.equals(GlobalConstants.DSL)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 
@@ -862,7 +864,8 @@ public class AdminTestUtil extends BaseTestCase {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		if (BaseTestCase.currentModule.equals(GlobalConstants.MIMOTO) || BaseTestCase.currentModule.equals("auth")
 				|| BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT)
-				|| BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)) {
+				|| BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)
+				|| BaseTestCase.currentModule.equals(GlobalConstants.DSL)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 
@@ -978,7 +981,8 @@ public class AdminTestUtil extends BaseTestCase {
 				|| BaseTestCase.currentModule.equals(GlobalConstants.ESIGNET)
 				|| BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT)
 				|| BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)
-				|| BaseTestCase.currentModule.equals(GlobalConstants.PREREG)) {
+				|| BaseTestCase.currentModule.equals(GlobalConstants.PREREG)
+				|| BaseTestCase.currentModule.equals(GlobalConstants.DSL)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 		if (bothAccessAndIdToken) {
@@ -5210,7 +5214,7 @@ public class AdminTestUtil extends BaseTestCase {
 				}
 			}
 		}
-		if (BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)) {
+		if (BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA) || BaseTestCase.currentModule.equals(GlobalConstants.DSL)) {
 			if (testCaseName.startsWith("Resident_GenerateVID")
 					|| testCaseName.startsWith("ESignet_AuthenticateUserIDP")
 					|| testCaseName.startsWith("Resident_credential")) {
