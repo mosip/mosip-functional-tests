@@ -22,6 +22,7 @@ import org.hibernate.cfg.Environment;
 import org.hibernate.jdbc.Work;
 import org.testng.Assert;
 
+import io.mosip.testrig.apirig.utils.AdminTestException;
 import io.mosip.testrig.apirig.utils.ConfigManager;
 import io.mosip.testrig.apirig.utils.GlobalConstants;
 public class DBManager {
@@ -101,6 +102,51 @@ public class DBManager {
 			}
 		} catch (NullPointerException e) {
 			logger.error("Exception occured " + e.getMessage());
+		} finally {
+			closeDataBaseConnection(session);
+		}
+	}
+	
+	public static void executeDBWithQueries(String dbURL, String dbUser, String dbPassword, String dbSchema,
+			String dbQueries) throws AdminTestException {
+		Session session = null;
+		try {
+			session = getDataBaseConnection(dbURL, dbUser, dbPassword, dbSchema);
+			if (session != null)
+				executeQueryAndInsertData(session, dbQueries);
+			else
+				throw new AdminTestException("Error:: While getting DB connection");
+		} catch (Exception e) {
+			logger.error("Error:: While executing DB Quiries." + e.getMessage());
+			throw new AdminTestException(e.getMessage());
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
+
+	public static void executeQueryAndInsertData(Session session, String deleteQuery) throws AdminTestException {
+		try {
+			if (session != null) {
+				session.doWork(new Work() {
+					@Override
+					public void execute(Connection connection) throws SQLException {
+						Statement statement = connection.createStatement();
+						try {
+							int rs = statement.executeUpdate(deleteQuery);
+							if (rs > 0) {
+								logger.info("Inserted Data successfully!");
+							}
+						} finally {
+							statement.close();
+						}
+					}
+				});
+			}
+		} catch (Exception e) {
+			logger.error("Exception occured " + e.getMessage());
+			throw new AdminTestException("Exception occured " + e.getMessage());
 		} finally {
 			closeDataBaseConnection(session);
 		}
@@ -221,7 +267,7 @@ public class DBManager {
 	public static Session getDataBaseConnection(String dburl, String userName, String password, String schema) {
 		SessionFactory factory = null;
 		Session session = null;
-		logger.info("dburl : " + dburl + " userName : " + userName + " password : " + password);
+		logger.info("dburl : " + dburl + " userName : " + userName + " password : " + (password!= null && !password.isBlank() ? "Masked" : ""));
 		try {
 			Configuration config = new Configuration();
 			config.setProperty(Environment.DRIVER, ConfigManager.getDbDriverClass());
