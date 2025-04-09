@@ -29,8 +29,11 @@ public class OTPListener {
 	public static Map<Object, Object> emailNotificationMapS = Collections
 			.synchronizedMap(new HashMap<Object, Object>());
 
+	public static Map<Object, Object> AllNotificationMapS = Collections
+			.synchronizedMap(new HashMap<Object, Object>());
+
 	public static Boolean bTerminate = false;
-	
+
 	public OTPListener() {
 		if (ConfigManager.IsDebugEnabled())
 			logger.setLevel(Level.ALL);
@@ -87,6 +90,10 @@ public class OTPListener {
 				ObjectMapper om = new ObjectMapper();
 				String message = "";
 				String address = "";
+				
+				String mailSubject = "";
+				String mailAddress = "";
+
 
 				root = om.readValue(data.toString(), Root.class);
 				if (root.type.equals("SMS")) {
@@ -96,7 +103,15 @@ public class OTPListener {
 				} else if (root.type.equals("MAIL")) {
 					message = root.html;
 					address = root.to.value.get(0).address;
+					if (BaseTestCase.currentModule.equals(GlobalConstants.DSL)) {
+						mailSubject = root.subject;
+						mailAddress = root.to.text.trim();
+						AllNotificationMapS.put(mailAddress, mailSubject);
+						logger.info(" After adding to AllNotificationMapS key = " + mailAddress + " mailSubject " + data
+								+ " root " + root);
+					}
 				}
+
 				else {
 					logger.error("Unsupported notification type. type="+ root.type);
 				}
@@ -175,7 +190,7 @@ public class OTPListener {
 		String additionalRequestId = "";
 
 		int additionalRequestIdLoopCount =10;
-		
+
 		while (counter < additionalRequestIdLoopCount ) {
 			if (emailNotificationMapS.get(emailId) != null) {
 				String html = (String) emailNotificationMapS.get(emailId);
@@ -203,7 +218,42 @@ public class OTPListener {
 		logger.info("OTP not found even after " + additionalRequestIdLoopCount + " retries");
 		return additionalRequestId;
 	}
-	
+
+	public static String verifyNotification(String emailId) {
+
+		int counter = 0;
+
+		String html="";
+		
+		int notificationTextCount =10;
+
+		while (counter < notificationTextCount ) {
+			if (AllNotificationMapS.get(emailId) != null) {
+				 html = (String) AllNotificationMapS.get(emailId);
+				AllNotificationMapS.remove(emailId);
+				if (html != null && html.length() > 0) {
+					logger.info("Found the NotificationText = " + html);
+					return html;
+				} else {
+					logger.info("html Message = " + html + " Email = " + emailId);
+				}
+
+			}
+			logger.info("*******Checking the email for NotificationText...*******");
+			counter++;
+			try {
+				logger.info("Not received NotificationText yet, waiting for 10 Sec");
+				Thread.sleep(AdminTestUtil.OTP_CHECK_INTERVAL);
+			} catch (InterruptedException e) {
+				logger.info(e.getMessage());
+				Thread.currentThread().interrupt();
+			}
+
+		}
+		logger.info("Notification Text not found even after " + notificationTextCount + " retries");
+		return html;
+	}
+
 	public static String parseOtp(String message) {
 
 		Pattern mPattern = Pattern.compile("(|^)\\s\\d{6}\\s");
