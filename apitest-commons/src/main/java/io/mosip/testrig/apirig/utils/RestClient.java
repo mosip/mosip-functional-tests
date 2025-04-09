@@ -1952,10 +1952,10 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			postResponse = given().config(config.encoderConfig(encoderConfig)).relaxedHTTPSValidation().formParams(formData)
-					.contentType("application/x-www-form-urlencoded").log().all().when().post(url).then().extract().response();
+					.contentType("application/x-www-form-urlencoded; charset=utf-8").log().all().when().post(url).then().extract().response();
 		} else {
 			postResponse = given().config(config.encoderConfig(encoderConfig)).relaxedHTTPSValidation().formParams(formData)
-					.contentType("application/x-www-form-urlencoded").when().post(url).then().extract().response();
+					.contentType("application/x-www-form-urlencoded; charset=utf-8").when().post(url).then().extract().response();
 		}
 
 		return postResponse;
