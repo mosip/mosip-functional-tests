@@ -4859,6 +4859,7 @@ public class AdminTestUtil extends BaseTestCase {
 		modifiedReq.put("name", policyGroup);
 
 		actualrequest.put(GlobalConstants.REQUEST, modifiedReq);
+		actualrequest.put(GlobalConstants.REQUESTTIME, generateCurrentUTCTimeStamp());
 
 		Response response2 = RestClient.postRequestWithCookie(url2, actualrequest, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
@@ -4878,6 +4879,7 @@ public class AdminTestUtil extends BaseTestCase {
 		actualrequest2.put("policyGroupName", policyGroup);
 		actualrequest2.put("policies", actualrequestAttr);
 		actualrequestBody.put(GlobalConstants.REQUEST, actualrequest2);
+		actualrequestBody.put(GlobalConstants.REQUESTTIME, generateCurrentUTCTimeStamp());
 
 		Response response = RestClient.postRequestWithCookie(url, actualrequestBody, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
@@ -4909,6 +4911,7 @@ public class AdminTestUtil extends BaseTestCase {
 		modifiedReq.put("name", policyGroup);
 
 		actualrequest.put(GlobalConstants.REQUEST, modifiedReq);
+		actualrequest.put(GlobalConstants.REQUESTTIME, generateCurrentUTCTimeStamp());
 
 		String urlForUpdate = ApplnURI + properties.getProperty("authPolicyUrl") + "/" + policygroupId;
 		Response responseForUpdate = RestClient.postRequestWithCookie(urlForUpdate, actualrequest,
@@ -4923,6 +4926,7 @@ public class AdminTestUtil extends BaseTestCase {
 		actualrequest2.put("policyGroupName", policyGroup);
 		actualrequest2.put("policies", actualrequestAttr);
 		actualrequestBody.put(GlobalConstants.REQUEST, actualrequest2);
+		actualrequestBody.put(GlobalConstants.REQUESTTIME, generateCurrentUTCTimeStamp());
 
 		Response response = RestClient.postRequestWithCookie(url, actualrequestBody, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
@@ -4954,6 +4958,7 @@ public class AdminTestUtil extends BaseTestCase {
 		modifiedReq.put("name", policyGroup2);
 
 		actualrequest.put(GlobalConstants.REQUEST, modifiedReq);
+		actualrequest.put(GlobalConstants.REQUESTTIME, generateCurrentUTCTimeStamp());
 
 		Response response2 = RestClient.postRequestWithCookie(url2, actualrequest, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
@@ -4970,6 +4975,7 @@ public class AdminTestUtil extends BaseTestCase {
 		actualrequest2.put("policyGroupName", policyGroup2);
 		actualrequest2.put("policies", actualrequestAttr);
 		actualrequestBody.put(GlobalConstants.REQUEST, actualrequest2);
+		actualrequestBody.put(GlobalConstants.REQUESTTIME, generateCurrentUTCTimeStamp());
 
 		Response response = RestClient.postRequestWithCookie(url, actualrequestBody, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
