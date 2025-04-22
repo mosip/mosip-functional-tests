@@ -29,7 +29,7 @@ public class OTPListener {
 	public static Map<Object, Object> emailNotificationMapS = Collections
 			.synchronizedMap(new HashMap<Object, Object>());
 
-	public static Map<Object, Object> AllNotificationMapS = Collections
+	public static Map<Object, Object> allNotificationMapS = Collections
 			.synchronizedMap(new HashMap<Object, Object>());
 
 	public static Boolean bTerminate = false;
@@ -106,7 +106,7 @@ public class OTPListener {
 					if (BaseTestCase.currentModule.equals(GlobalConstants.DSL)) {
 						mailSubject = root.subject;
 						mailAddress = root.to.text.trim();
-						AllNotificationMapS.put(mailAddress, mailSubject);
+						allNotificationMapS.put(mailAddress, mailSubject);
 						logger.info(" After adding to AllNotificationMapS key = " + mailAddress + " mailSubject " + data
 								+ " root " + root);
 					}
@@ -228,9 +228,9 @@ public class OTPListener {
 		int notificationTextCount =10;
 
 		while (counter < notificationTextCount ) {
-			if (AllNotificationMapS.get(emailId) != null) {
-				 html = (String) AllNotificationMapS.get(emailId);
-				AllNotificationMapS.remove(emailId);
+			if (allNotificationMapS.get(emailId) != null) {
+				 html = (String) allNotificationMapS.get(emailId);
+				 allNotificationMapS.remove(emailId);
 				if (html != null && html.length() > 0) {
 					logger.info("Found the NotificationText = " + html);
 					return html;
