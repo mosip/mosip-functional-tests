@@ -401,43 +401,8 @@ metrics:
     #       severity: error
     rules: []
 
-## Admin swagger should have only internal access. Hence linked to internal gateway
 istio:
-  enabled: false
-  gateways:
-    - istio-system/internal
-  prefix:
-  corsPolicy:
-    allowOrigins:
-      - prefix: https://api-internal.sandbox.xyz.net
-    allowCredentials: true
-    allowHeaders:
-      - Accept
-      - Accept-Encoding
-      - Accept-Language
-      - Connection
-      - Content-Type
-      - Cookie
-      - Host
-      - Referer
-      - Sec-Fetch-Dest
-      - Sec-Fetch-Mode
-      - Sec-Fetch-Site
-      - Sec-Fetch-User
-      - Origin
-      - Upgrade-Insecure-Requests
-      - User-Agent
-      - sec-ch-ua
-      - sec-ch-ua-mobile
-      - sec-ch-ua-platform
-      - x-xsrf-token
-      - xsrf-token
-    allowMethods:
-      - GET
-      - POST
-      - PATCH
-      - PUT
-      - DELETE
+  sidecarInject: false
 
 modules:
   prereg:
@@ -501,7 +466,7 @@ modules:
       tag: develop
       pullPolicy: Always
   injiverify:
-    enabled: false
+    enabled: true
     image:
       repository: mosipqa/apitest-inji-verify
       tag: develop
