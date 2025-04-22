@@ -466,7 +466,7 @@ modules:
       tag: develop
       pullPolicy: Always
   injiverify:
-    enabled: true
+    enabled: false
     image:
       repository: mosipqa/apitest-inji-verify
       tag: develop
