@@ -33,11 +33,13 @@ import org.testng.log4testng.Logger;
 import org.testng.xml.XmlSuite;
 
 import io.mosip.testrig.apirig.dto.TestCaseDTO;
+import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 import io.mosip.testrig.apirig.utils.AdminTestUtil;
 import io.mosip.testrig.apirig.utils.ConfigManager;
 import io.mosip.testrig.apirig.utils.GlobalConstants;
 import io.mosip.testrig.apirig.utils.GlobalMethods;
 import io.mosip.testrig.apirig.utils.S3Adapter;
+import io.mosip.testrig.apirig.utils.SlackChannelIntegration;
 
 /**
  * Reporter that generates a single-page HTML report of the test results.
@@ -178,6 +180,15 @@ public class EmailableReport implements IReporter {
 		}
 		
 		String newString = oldString.replace("-report", temp);
+		
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder
+		    .append("Completed automation run for ")
+		    .append(BaseTestCase.currentModule).append(" apitestrig in ")
+		    .append(BaseTestCase.environment.replace("api-internal.", ""))
+		    .append(" env with results -- ")
+		    .append(temp.replace("-full-report_", ""));
+		SlackChannelIntegration.sendMessageToSlack(stringBuilder.toString());
 
 		File orignialReportFile = new File(
 				System.getProperty("user.dir") + "/" + System.getProperty("testng.outpur.dir") + "/"
@@ -207,6 +218,12 @@ public class EmailableReport implements IReporter {
 					}
 					if (isStoreSuccess) {
 						LOG.info("Pushed file to S3");
+						String reportLink = "https://minio." 
+						        + BaseTestCase.environment.replace("api-internal.", "") 
+						        + ".mosip.net/browser/" 
+						        + ConfigManager.getS3Account() + "/" 
+						        + BaseTestCase.currentModule + "%2F" + newString;
+						SlackChannelIntegration.sendMessageToSlack("Here is the link for the report -- " + reportLink);
 					} else {
 						LOG.info("Failed while pushing file to S3");
 					}
