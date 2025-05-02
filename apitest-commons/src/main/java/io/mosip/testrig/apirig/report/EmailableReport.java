@@ -33,11 +33,13 @@ import org.testng.log4testng.Logger;
 import org.testng.xml.XmlSuite;
 
 import io.mosip.testrig.apirig.dto.TestCaseDTO;
+import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 import io.mosip.testrig.apirig.utils.AdminTestUtil;
 import io.mosip.testrig.apirig.utils.ConfigManager;
 import io.mosip.testrig.apirig.utils.GlobalConstants;
 import io.mosip.testrig.apirig.utils.GlobalMethods;
 import io.mosip.testrig.apirig.utils.S3Adapter;
+import io.mosip.testrig.apirig.utils.SlackChannelIntegration;
 
 /**
  * Reporter that generates a single-page HTML report of the test results.
@@ -178,6 +180,14 @@ public class EmailableReport implements IReporter {
 		}
 		
 		String newString = oldString.replace("-report", temp);
+		
+		StringBuilder slackNotification = new StringBuilder();
+		slackNotification
+		    .append("Completed apitestrig run --- ")
+		    .append(BaseTestCase.currentModule).append(" --- ")
+		    .append(BaseTestCase.environment.replace("api-internal.", ""))
+		    .append(" env --- ").append(BaseTestCase.testLevel)
+		    .append(" --- ").append(temp.replace("-full-report_", ""));
 
 		File orignialReportFile = new File(
 				System.getProperty("user.dir") + "/" + System.getProperty("testng.outpur.dir") + "/"
@@ -207,6 +217,12 @@ public class EmailableReport implements IReporter {
 					}
 					if (isStoreSuccess) {
 						LOG.info("Pushed file to S3");
+						String reportLink = "https://minio." 
+						        + BaseTestCase.environment.replace("api-internal.", "") 
+						        + ".mosip.net/browser/" 
+						        + ConfigManager.getS3Account() + "/" 
+						        + BaseTestCase.currentModule + "%2F" + newString;
+						slackNotification.append(" --- ").append(reportLink);
 					} else {
 						LOG.info("Failed while pushing file to S3");
 					}
@@ -225,6 +241,8 @@ public class EmailableReport implements IReporter {
 		} else {
 			LOG.error("Original report File does not exist!");
 		}
+		
+		SlackChannelIntegration.sendMessageToSlack(slackNotification.toString());
 	}
 
 	private String getCommitId() {
