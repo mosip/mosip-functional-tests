@@ -181,14 +181,13 @@ public class EmailableReport implements IReporter {
 		
 		String newString = oldString.replace("-report", temp);
 		
-		StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder
-		    .append("Completed automation run for ")
-		    .append(BaseTestCase.currentModule).append(" apitestrig in ")
+		StringBuilder slackNotification = new StringBuilder();
+		slackNotification
+		    .append("Completed automation run --- ")
+		    .append(BaseTestCase.currentModule).append(" --- ")
 		    .append(BaseTestCase.environment.replace("api-internal.", ""))
-		    .append(" env with results -- ")
-		    .append(temp.replace("-full-report_", ""));
-		SlackChannelIntegration.sendMessageToSlack(stringBuilder.toString());
+		    .append(" env --- ").append(BaseTestCase.testLevel)
+		    .append(" --- ").append(temp.replace("-full-report_", ""));
 
 		File orignialReportFile = new File(
 				System.getProperty("user.dir") + "/" + System.getProperty("testng.outpur.dir") + "/"
@@ -223,7 +222,7 @@ public class EmailableReport implements IReporter {
 						        + ".mosip.net/browser/" 
 						        + ConfigManager.getS3Account() + "/" 
 						        + BaseTestCase.currentModule + "%2F" + newString;
-						SlackChannelIntegration.sendMessageToSlack("Here is the link for the report -- " + reportLink);
+						slackNotification.append(" --- ").append(reportLink);
 					} else {
 						LOG.info("Failed while pushing file to S3");
 					}
@@ -242,6 +241,8 @@ public class EmailableReport implements IReporter {
 		} else {
 			LOG.error("Original report File does not exist!");
 		}
+		
+		SlackChannelIntegration.sendMessageToSlack(slackNotification.toString());
 	}
 
 	private String getCommitId() {
