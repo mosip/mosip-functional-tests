@@ -183,7 +183,7 @@ public class EmailableReport implements IReporter {
 		
 		StringBuilder slackNotification = new StringBuilder();
 		slackNotification
-		    .append("Completed automation run --- ")
+		    .append("Completed apitestrig run --- ")
 		    .append(BaseTestCase.currentModule).append(" --- ")
 		    .append(BaseTestCase.environment.replace("api-internal.", ""))
 		    .append(" env --- ").append(BaseTestCase.testLevel)
