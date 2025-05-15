@@ -1,6 +1,7 @@
 package io.mosip.testrig.apirig.utils;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
@@ -14,7 +15,6 @@ import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 
 public class Translator {
 
-    static String IDlookupFile = "src/main/resource/config/lang-isocode-transid.csv";
     private static final Logger logger = Logger.getLogger(Translator.class);
 
     private static Map<String, String> langIsoCodeCache = null;
@@ -36,7 +36,13 @@ public class Translator {
         if (langIsoCodeCache != null) return; 
 
         langIsoCodeCache = new HashMap<>();
-        String filename = BaseTestCase.getGlobalResourcePath() + "/" + "config/lang-isocode-transid.csv";
+        String filename = BaseTestCase.getGlobalResourcePath() + "/config/lang-isocode-transid.csv";
+        
+        File file = new File(filename);
+        if (!file.exists()) {
+        logger.error("Translation config file not found at path: " + filename);
+        return;
+        }
 
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String line;
