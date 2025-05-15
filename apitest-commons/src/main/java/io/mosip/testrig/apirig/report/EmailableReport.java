@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
 import org.testng.IReporter;
 import org.testng.ISuite;
 import org.testng.ISuiteResult;
@@ -29,7 +30,6 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.collections.Lists;
 import org.testng.internal.Utils;
-import org.testng.log4testng.Logger;
 import org.testng.xml.XmlSuite;
 
 import io.mosip.testrig.apirig.dto.TestCaseDTO;
@@ -242,7 +242,11 @@ public class EmailableReport implements IReporter {
 			LOG.error("Original report File does not exist!");
 		}
 		
-		SlackChannelIntegration.sendMessageToSlack(slackNotification.toString());
+		try {
+			SlackChannelIntegration.sendMessageToSlack(slackNotification.toString());
+		} catch (Exception e) {
+			LOG.error("Failed to send Slack notification: " + e.getMessage());
+		}
 	}
 
 	private String getCommitId() {
@@ -254,7 +258,7 @@ public class EmailableReport implements IReporter {
 					+ properties.getProperty("git.branch");
 
 		} catch (IOException e) {
-			LOG.error(e.getMessage());
+			LOG.error("Error getting git branch information: " + e.getMessage());
 			return "";
 		}
 
@@ -347,7 +351,7 @@ public class EmailableReport implements IReporter {
         branch = reader.readLine();
 		}
 		catch (Exception e) {
-			// TODO: handle exception
+			LOG.error("Error writing the date and branch information: " + e.getMessage());
 		}
 		
 		totalPassedTests = 0;
