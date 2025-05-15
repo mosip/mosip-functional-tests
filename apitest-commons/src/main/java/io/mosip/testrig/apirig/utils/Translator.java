@@ -16,7 +16,9 @@ import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 public class Translator {
 
     private static final Logger logger = Logger.getLogger(Translator.class);
-
+    
+    // Map is used to store language codes and their matching translation IDs
+    // Avoid reading the file again and again
     private static Map<String, String> langIsoCodeCache = null;
 
     public static void main(String[] args) {
@@ -25,14 +27,18 @@ public class Translator {
     }
 
     static String getLanguageID(String langIsoCode) {
+    	// If the cache is empty, load the data from the file
         if (langIsoCodeCache == null) {
             loadLanguageIDCache();
         }
-
+        
+        // Return the translation ID for the given language code.
+        // If not found, return a default value.
         return langIsoCodeCache.getOrDefault(langIsoCode.toLowerCase(), "Any-Any");
     }
 
     private static synchronized void loadLanguageIDCache() {
+    	// If the cache is already loaded, do nothing
         if (langIsoCodeCache != null) return; 
 
         langIsoCodeCache = new HashMap<>();
@@ -43,8 +49,9 @@ public class Translator {
         logger.error("Translation config file not found at path: " + filename);
         return;
         }
-
-        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+        
+        // Read data from the CSV file and put it into the cache
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] rec = line.split(",");
@@ -56,6 +63,8 @@ public class Translator {
                     }
                 }
             }
+            
+            // This message will be shown only once in the console when the cache is loaded for the first time.
             logger.info("Language ID cache loaded with " + langIsoCodeCache.size() + " entries.");
         } catch (IOException e) {
             logger.error("Error loading language ID CSV file: " + e.getMessage(), e);
