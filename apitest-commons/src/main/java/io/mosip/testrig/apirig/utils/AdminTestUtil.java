@@ -301,9 +301,11 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
-	    } catch (Exception e) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
 
@@ -325,8 +327,10 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
@@ -349,8 +353,10 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
@@ -374,8 +380,10 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
@@ -471,8 +479,10 @@ public class AdminTestUtil extends BaseTestCase {
 
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
@@ -547,8 +557,10 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
@@ -631,8 +643,10 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
@@ -676,8 +690,10 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
@@ -716,9 +732,11 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
-	    } catch (Exception e) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
@@ -740,9 +758,11 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
-	    } catch (Exception e) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
@@ -763,9 +783,11 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
-	    } catch (Exception e) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
@@ -796,8 +818,10 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
@@ -820,9 +844,11 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
-	    } catch (Exception e) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
 		return response;
@@ -848,8 +874,10 @@ public class AdminTestUtil extends BaseTestCase {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
@@ -875,8 +903,10 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
@@ -907,16 +937,18 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
-	    } catch (Exception e) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response postRequestWithHeaderAndSignature(String url, String jsonInput, String signature,
-			String testCaseName) {
+			String testCaseName) throws SecurityXSSException {
 		Response response = null;
 		HashMap<String, String> headers = new HashMap<>();
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
@@ -930,7 +962,12 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
@@ -973,10 +1010,12 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
-		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
-	    } catch (Exception e) {
+		} catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
@@ -1002,8 +1041,10 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
@@ -1043,8 +1084,10 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
@@ -1112,9 +1155,11 @@ public class AdminTestUtil extends BaseTestCase {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
-	    } catch (Exception e) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
 
@@ -1147,8 +1192,10 @@ public class AdminTestUtil extends BaseTestCase {
 
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
@@ -1186,9 +1233,11 @@ public class AdminTestUtil extends BaseTestCase {
 
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
-	    } catch (Exception e) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
@@ -1215,8 +1264,10 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
@@ -1243,8 +1294,10 @@ public class AdminTestUtil extends BaseTestCase {
 
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
@@ -1330,8 +1383,10 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
@@ -1397,9 +1452,11 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
-	    } catch (Exception e) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
@@ -1460,8 +1517,10 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
@@ -1500,9 +1559,11 @@ public class AdminTestUtil extends BaseTestCase {
 
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
-	    } catch (Exception e) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
@@ -1543,9 +1604,11 @@ public class AdminTestUtil extends BaseTestCase {
 
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
-	    } catch (Exception e) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
@@ -1604,8 +1667,10 @@ public class AdminTestUtil extends BaseTestCase {
 
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
@@ -1661,8 +1726,10 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 		} catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
@@ -1709,8 +1776,10 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
@@ -1740,9 +1809,11 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
-	    } catch (Exception e) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
@@ -1771,9 +1842,11 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
-	    } catch (Exception e) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
@@ -1811,9 +1884,11 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
-	    } catch (Exception e) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
@@ -1854,8 +1929,10 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
@@ -1889,8 +1966,10 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
@@ -1928,8 +2007,10 @@ public class AdminTestUtil extends BaseTestCase {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
@@ -1983,8 +2064,10 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
@@ -2021,8 +2104,10 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
@@ -2055,8 +2140,10 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
@@ -2180,9 +2267,11 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
-	    } catch (Exception e) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
 		return response;
@@ -2230,9 +2319,11 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
-	    } catch (Exception e) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
@@ -2265,9 +2356,11 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
-	    } catch (Exception e) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
@@ -2468,9 +2561,11 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
-	    } catch (Exception e) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
 			return response;
 		}
@@ -2500,8 +2595,10 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
 	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
 			return response;
@@ -3786,9 +3883,11 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
-	    } catch (Exception e) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
@@ -3816,9 +3915,11 @@ public class AdminTestUtil extends BaseTestCase {
 			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 		}catch (SecurityXSSException se) {
-	        // Let SecurityException bubble up as expected
-	        throw se;
-	    } catch (Exception e) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
 		return response;
@@ -6179,46 +6280,46 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	
-//	public static boolean checkIsCertTrusted(String certIssuer, JSONArray ArrayOfJsonObjects, int recursiveCount) {
-//		for (int i = 0; i < ArrayOfJsonObjects.length(); i++) {
-//			if (ArrayOfJsonObjects.getJSONObject(i).has("certSubject")
-//					&& ArrayOfJsonObjects.getJSONObject(i).has("certIssuer")
-//					&& ArrayOfJsonObjects.getJSONObject(i).getString("certSubject").equals(certIssuer)) {
-//
-//				String certSubjectValue = ArrayOfJsonObjects.getJSONObject(i).getString("certSubject");
-//				String certIssuerValue = ArrayOfJsonObjects.getJSONObject(i).getString("certIssuer");
-//
-//				if (!(certSubjectValue.equals(certIssuerValue)) && recursiveCount <= 5) {
-//					recursiveCount++;
-//					return checkIsCertTrusted(certIssuerValue, ArrayOfJsonObjects, recursiveCount);
-//				} else if (certSubjectValue.equals(certIssuerValue)) {
-//					return true;
-//				} else {
-//					break;
-//				}
-//			}
-//		}
-//		return false;
-//	}
-//	
-//	public static boolean IsCertTrusted(String certSubjectSubString) {
-//		if (ArrayOfJsonObjects == null) {
-//			ArrayOfJsonObjects = getSyncDataResponseArray();
-//		}
-//
-//		if (ArrayOfJsonObjects != null) {
-//			for (int i = 0; i < ArrayOfJsonObjects.length(); i++) {
-//				if (ArrayOfJsonObjects.getJSONObject(i).has("certSubject") && ArrayOfJsonObjects.getJSONObject(i)
-//						.getString("certSubject").contains(certSubjectSubString)) {
-//					if (ArrayOfJsonObjects.getJSONObject(i).has("certIssuer")) {
-//						return checkIsCertTrusted(ArrayOfJsonObjects.getJSONObject(i).getString("certIssuer"),
-//								ArrayOfJsonObjects, 1);
-//					}
-//				}
-//			}
-//		}
-//		return false;
-//	}
+	public static boolean checkIsCertTrusted(String certIssuer, JSONArray ArrayOfJsonObjects, int recursiveCount) {
+		for (int i = 0; i < ArrayOfJsonObjects.length(); i++) {
+			if (ArrayOfJsonObjects.getJSONObject(i).has("certSubject")
+					&& ArrayOfJsonObjects.getJSONObject(i).has("certIssuer")
+					&& ArrayOfJsonObjects.getJSONObject(i).getString("certSubject").equals(certIssuer)) {
+
+				String certSubjectValue = ArrayOfJsonObjects.getJSONObject(i).getString("certSubject");
+				String certIssuerValue = ArrayOfJsonObjects.getJSONObject(i).getString("certIssuer");
+
+				if (!(certSubjectValue.equals(certIssuerValue)) && recursiveCount <= 5) {
+					recursiveCount++;
+					return checkIsCertTrusted(certIssuerValue, ArrayOfJsonObjects, recursiveCount);
+				} else if (certSubjectValue.equals(certIssuerValue)) {
+					return true;
+				} else {
+					break;
+				}
+			}
+		}
+		return false;
+	}
+	
+	public static boolean IsCertTrusted(String certSubjectSubString) {
+		if (ArrayOfJsonObjects == null) {
+			ArrayOfJsonObjects = getSyncDataResponseArray();
+		}
+
+		if (ArrayOfJsonObjects != null) {
+			for (int i = 0; i < ArrayOfJsonObjects.length(); i++) {
+				if (ArrayOfJsonObjects.getJSONObject(i).has("certSubject") && ArrayOfJsonObjects.getJSONObject(i)
+						.getString("certSubject").contains(certSubjectSubString)) {
+					if (ArrayOfJsonObjects.getJSONObject(i).has("certIssuer")) {
+						return checkIsCertTrusted(ArrayOfJsonObjects.getJSONObject(i).getString("certIssuer"),
+								ArrayOfJsonObjects, 1);
+					}
+				}
+			}
+		}
+		return false;
+	}
    
    
    public static JSONArray getRequiredField()  {
