@@ -6280,46 +6280,46 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	
-	public static boolean checkIsCertTrusted(String certIssuer, JSONArray ArrayOfJsonObjects, int recursiveCount) {
-		for (int i = 0; i < ArrayOfJsonObjects.length(); i++) {
-			if (ArrayOfJsonObjects.getJSONObject(i).has("certSubject")
-					&& ArrayOfJsonObjects.getJSONObject(i).has("certIssuer")
-					&& ArrayOfJsonObjects.getJSONObject(i).getString("certSubject").equals(certIssuer)) {
-
-				String certSubjectValue = ArrayOfJsonObjects.getJSONObject(i).getString("certSubject");
-				String certIssuerValue = ArrayOfJsonObjects.getJSONObject(i).getString("certIssuer");
-
-				if (!(certSubjectValue.equals(certIssuerValue)) && recursiveCount <= 5) {
-					recursiveCount++;
-					return checkIsCertTrusted(certIssuerValue, ArrayOfJsonObjects, recursiveCount);
-				} else if (certSubjectValue.equals(certIssuerValue)) {
-					return true;
-				} else {
-					break;
-				}
-			}
-		}
-		return false;
-	}
-	
-	public static boolean IsCertTrusted(String certSubjectSubString) {
-		if (ArrayOfJsonObjects == null) {
-			ArrayOfJsonObjects = getSyncDataResponseArray();
-		}
-
-		if (ArrayOfJsonObjects != null) {
-			for (int i = 0; i < ArrayOfJsonObjects.length(); i++) {
-				if (ArrayOfJsonObjects.getJSONObject(i).has("certSubject") && ArrayOfJsonObjects.getJSONObject(i)
-						.getString("certSubject").contains(certSubjectSubString)) {
-					if (ArrayOfJsonObjects.getJSONObject(i).has("certIssuer")) {
-						return checkIsCertTrusted(ArrayOfJsonObjects.getJSONObject(i).getString("certIssuer"),
-								ArrayOfJsonObjects, 1);
-					}
-				}
-			}
-		}
-		return false;
-	}
+//	public static boolean checkIsCertTrusted(String certIssuer, JSONArray ArrayOfJsonObjects, int recursiveCount) {
+//		for (int i = 0; i < ArrayOfJsonObjects.length(); i++) {
+//			if (ArrayOfJsonObjects.getJSONObject(i).has("certSubject")
+//					&& ArrayOfJsonObjects.getJSONObject(i).has("certIssuer")
+//					&& ArrayOfJsonObjects.getJSONObject(i).getString("certSubject").equals(certIssuer)) {
+//
+//				String certSubjectValue = ArrayOfJsonObjects.getJSONObject(i).getString("certSubject");
+//				String certIssuerValue = ArrayOfJsonObjects.getJSONObject(i).getString("certIssuer");
+//
+//				if (!(certSubjectValue.equals(certIssuerValue)) && recursiveCount <= 5) {
+//					recursiveCount++;
+//					return checkIsCertTrusted(certIssuerValue, ArrayOfJsonObjects, recursiveCount);
+//				} else if (certSubjectValue.equals(certIssuerValue)) {
+//					return true;
+//				} else {
+//					break;
+//				}
+//			}
+//		}
+//		return false;
+//	}
+//	
+//	public static boolean IsCertTrusted(String certSubjectSubString) {
+//		if (ArrayOfJsonObjects == null) {
+//			ArrayOfJsonObjects = getSyncDataResponseArray();
+//		}
+//
+//		if (ArrayOfJsonObjects != null) {
+//			for (int i = 0; i < ArrayOfJsonObjects.length(); i++) {
+//				if (ArrayOfJsonObjects.getJSONObject(i).has("certSubject") && ArrayOfJsonObjects.getJSONObject(i)
+//						.getString("certSubject").contains(certSubjectSubString)) {
+//					if (ArrayOfJsonObjects.getJSONObject(i).has("certIssuer")) {
+//						return checkIsCertTrusted(ArrayOfJsonObjects.getJSONObject(i).getString("certIssuer"),
+//								ArrayOfJsonObjects, 1);
+//					}
+//				}
+//			}
+//		}
+//		return false;
+//	}
    
    
    public static JSONArray getRequiredField()  {
