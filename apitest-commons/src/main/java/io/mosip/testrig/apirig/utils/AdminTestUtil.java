@@ -239,22 +239,23 @@ public class AdminTestUtil extends BaseTestCase {
 	 */
 
 	protected Response postWithBodyAndCookie(String url, String jsonInput, String cookieName, String role,
-			String testCaseName) {
+			String testCaseName)throws SecurityXSSException {
 		return postWithBodyAndCookie(url, jsonInput, false, cookieName, role, testCaseName, false);
 	}
 
 	protected Response postWithBodyAndCookie(String url, String jsonInput, String cookieName, String role,
-			String testCaseName, boolean bothAccessAndIdToken) {
+			String testCaseName, boolean bothAccessAndIdToken)throws SecurityXSSException {
 		return postWithBodyAndCookie(url, jsonInput, false, cookieName, role, testCaseName, bothAccessAndIdToken);
 	}
 
 	protected Response postWithBodyAndCookie(String url, String jsonInput, boolean auditLogCheck, String cookieName,
-			String role, String testCaseName) {
+			String role, String testCaseName)throws SecurityXSSException {
+		
 		return postWithBodyAndCookie(url, jsonInput, auditLogCheck, cookieName, role, testCaseName, false);
 	}
 	
 	protected Response postWithBodyAndCookie(String url, String jsonInput, boolean auditLogCheck, String cookieName,
-			String role, String testCaseName, boolean bothAccessAndIdToken) {
+			String role, String testCaseName, boolean bothAccessAndIdToken) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
@@ -288,6 +289,8 @@ public class AdminTestUtil extends BaseTestCase {
 						MediaType.APPLICATION_JSON, cookieName, token);
 			}
 			
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);			
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 			if (auditLogCheck) {
@@ -297,7 +300,12 @@ public class AdminTestUtil extends BaseTestCase {
 				checkDbAndValidate(timeStamp1, dbChecker);
 			}
 
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
 
@@ -305,7 +313,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 	
 	protected Response deleteWithBodyAndCookie(String url, String jsonInput, String cookieName, String role,
-			String testCaseName) {
+			String testCaseName) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
@@ -315,15 +323,22 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.deleteRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
 		return response;
 	}
 
 	protected Response postWithBodyAndCookieWithText(String url, String jsonInput, String cookieName, String role,
-			String testCaseName) {
+			String testCaseName) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
@@ -333,16 +348,23 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON, "*/*", cookieName,
 					token);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response postWithBodyAndCookieWithoutBody(String url, String jsonInput, String cookieName, String role,
-			String testCaseName) {
+			String testCaseName) throws SecurityXSSException {
 		Response response = null;
 	
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
@@ -353,16 +375,23 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON, "*/*", cookieName,
 					token);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response postRequestWithCookieAuthHeaderAndXsrfToken(String url, String jsonInput, String cookieName,
-			String testCaseName) {
+			String testCaseName) throws SecurityXSSException {
 		Response response = null;
 		HashMap<String, String> headers = new HashMap<>();
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
@@ -441,13 +470,20 @@ public class AdminTestUtil extends BaseTestCase {
 				response = RestClient.postRequestWithMultipleHeadersAndCookies(url, inputJson,
 						MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token, headers);
 			}
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 			if (testCaseName.contains("_STransId"))
 				getvalueFromResponseHeader(response, testCaseName);
 
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
@@ -490,7 +526,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	protected Response postWithBodyAndCookieAuthHeaderAndXsrfTokenForAutoGeneratedId(String url, String jsonInput,
-			String cookieName, String testCaseName, String idKeyName) {
+			String cookieName, String testCaseName, String idKeyName) throws SecurityXSSException {
 		Response response = null;
 		HashMap<String, String> headers = new HashMap<>();
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
@@ -512,13 +548,20 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, headers);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
@@ -526,7 +569,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	protected Response postRequestWithCookieAuthHeaderAndXsrfTokenForAutoGenId(String url, String jsonInput,
-			String cookieName, String testCaseName, String idKeyName) {
+			String cookieName, String testCaseName, String idKeyName) throws SecurityXSSException {
 		Response response = null;
 		HashMap<String, String> headers = new HashMap<>();
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
@@ -589,6 +632,8 @@ public class AdminTestUtil extends BaseTestCase {
 				response = RestClient.postRequestWithMultipleHeadersAndCookies(url, inputJson, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token, headers);
 			}
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
@@ -597,14 +642,19 @@ public class AdminTestUtil extends BaseTestCase {
 				getvalueFromResponseHeader(response, testCaseName);
 			}
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 	
 	protected Response getRequestWithCookieAuthHeaderAndXsrfToken(String url, String jsonInput, String cookieName,
-			String role, String testCaseName) {
+			String role, String testCaseName) throws SecurityXSSException {
 		Response response = null;
 		HashMap<String, String> headers = new HashMap<>();
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
@@ -635,16 +685,23 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.getRequestWithMultipleHeadersAndCookies(url, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, headers);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response postRequestWithCookieAuthHeader(String url, String jsonInput, String cookieName, String role,
-			String testCaseName) {
+			String testCaseName) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
@@ -670,16 +727,23 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.postRequestWithMultipleHeadersWithoutCookie(url, inputJson,
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, headers);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response postWithBodyAndCookieForKeyCloak(String url, String jsonInput, String cookieName, String role,
-			String testCaseName) {
+			String testCaseName) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
@@ -689,16 +753,23 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.postRequestWithBearerToken(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response postWithBodyAcceptTextPlainAndCookie(String url, String jsonInput, String cookieName,
-			String role, String testCaseName) {
+			String role, String testCaseName) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
@@ -707,16 +778,23 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.TEXT_PLAIN, cookieName, token);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response postRequestWithCookieAuthHeaderAndSignature(String url, String jsonInput, String cookieName,
-			String role, String testCaseName) {
+			String role, String testCaseName) throws SecurityXSSException {
 		Response response = null;
 		String[] uriParts = url.split("/");
 		String partnerId = uriParts[uriParts.length - 2];
@@ -735,16 +813,23 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.postRequestWithMultipleHeaders(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, headers);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response postRequestWithAuthHeaderAndSignatureForOtp(String url, String jsonInput, String cookieName,
-			String token, Map<String, String> headers, String testCaseName) {
+			String token, Map<String, String> headers, String testCaseName) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
@@ -754,9 +839,16 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.postRequestWithMultipleHeaders(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, headers);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
 		return response;
@@ -764,7 +856,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	protected Response postRequestWithAuthHeaderAndSignatureForOtpAutoGenId(String url, String jsonInput,
-			String cookieName, String token, Map<String, String> headers, String testCaseName, String idKeyName) {
+			String cookieName, String token, Map<String, String> headers, String testCaseName, String idKeyName) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
@@ -774,12 +866,19 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.postRequestWithMultipleHeaders(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, headers);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
 		return response;
@@ -787,7 +886,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	protected Response patchRequestWithCookieAuthHeaderAndSignature(String url, String jsonInput, String cookieName,
-			String role, String testCaseName) {
+			String role, String testCaseName) throws SecurityXSSException {
 		Response response = null;
 		HashMap<String, String> headers = new HashMap<>();
 		headers.put(AUTHORIZATHION_HEADERNAME, AUTH_HEADER_VALUE);
@@ -799,15 +898,22 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.patchRequestWithMultipleHeaders(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, headers);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
-	protected Response postRequestWithAuthHeaderAndSignature(String url, String jsonInput, String testCaseName) {
+	protected Response postRequestWithAuthHeaderAndSignature(String url, String jsonInput, String testCaseName) throws SecurityXSSException {
 		Response response = null;
 		String[] uriParts = url.split("/");
 		String partnerId = uriParts[uriParts.length - 2];
@@ -826,16 +932,23 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.postRequestWithMultipleHeadersWithoutCookie(url, inputJson,
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, headers);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response postRequestWithHeaderAndSignature(String url, String jsonInput, String signature,
-			String testCaseName) {
+			String testCaseName) throws SecurityXSSException {
 		Response response = null;
 		HashMap<String, String> headers = new HashMap<>();
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
@@ -845,21 +958,28 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.postRequestWithMultipleHeadersWithoutCookie(url, inputJson,
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, headers);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response postRequestWithCookieAndHeader(String url, String jsonInput, String cookieName, String role,
-			String testCaseName) {
+			String testCaseName)throws SecurityXSSException {
 		return postRequestWithCookieAndHeader(url, jsonInput, cookieName, role, testCaseName, false);
 	}
 
 	protected Response postRequestWithCookieAndHeader(String url, String jsonInput, String cookieName, String role,
-			String testCaseName, boolean bothAccessAndIdToken) {
+			String testCaseName, boolean bothAccessAndIdToken) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		if (BaseTestCase.currentModule.equals(GlobalConstants.MIMOTO) || BaseTestCase.currentModule.equals("auth")
@@ -886,16 +1006,23 @@ public class AdminTestUtil extends BaseTestCase {
 				response = RestClient.postRequestWithCookieAndHeader(url, inputJson, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token, AUTHORIZATHION_HEADERNAME, AUTH_HEADER_VALUE);
 			}
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
-		} catch (Exception e) {
+		} catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response patchRequestWithCookieAndHeader(String url, String jsonInput, String cookieName, String role,
-			String testCaseName) {
+			String testCaseName) throws SecurityXSSException {
 		Response response = null;
 		if (url.contains("ID:"))
 			url = inputJsonKeyWordHandeler(url, testCaseName);
@@ -909,21 +1036,28 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.patchRequestWithCookieAndHeader(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, AUTHORIZATHION_HEADERNAME, AUTH_HEADER_VALUE);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response patchWithBodyAndCookie(String url, String jsonInput, String cookieName, String role,
-			String testCaseName) {
+			String testCaseName) throws SecurityXSSException {
 		return patchWithBodyAndCookie(url, jsonInput, cookieName, role, testCaseName, false);
 	}
 
 	protected Response patchWithBodyAndCookie(String url, String jsonInput, String cookieName, String role,
-			String testCaseName, boolean bothAccessAndIdToken) {
+			String testCaseName, boolean bothAccessAndIdToken) throws SecurityXSSException {
 		Response response = null;
 		if (url.contains("ID:")) {
 			url = uriKeyWordHandelerUri(url, testCaseName);
@@ -945,34 +1079,41 @@ public class AdminTestUtil extends BaseTestCase {
 				response = RestClient.patchRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token);
 			}
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response postWithBodyAndCookieForAutoGeneratedId(String url, String jsonInput, boolean auditLogCheck,
-			String cookieName, String role, String testCaseName, String idKeyName) {
+			String cookieName, String role, String testCaseName, String idKeyName)throws SecurityXSSException {
 		return postWithBodyAndCookieForAutoGeneratedId(url, jsonInput, auditLogCheck, cookieName, role, testCaseName,
 				idKeyName, false);
 	}
 
 	protected Response postWithBodyAndCookieForAutoGeneratedId(String url, String jsonInput, String cookieName,
-			String role, String testCaseName, String idKeyName) {
+			String role, String testCaseName, String idKeyName)throws SecurityXSSException {
 		return postWithBodyAndCookieForAutoGeneratedId(url, jsonInput, false, cookieName, role, testCaseName, idKeyName,
 				false);
 	}
 
 	protected Response postWithBodyAndCookieForAutoGeneratedId(String url, String jsonInput, boolean auditLogCheck,
-			boolean bothAccessAndIdToken, String cookieName, String role, String testCaseName, String idKeyName) {
+			boolean bothAccessAndIdToken, String cookieName, String role, String testCaseName, String idKeyName)throws SecurityXSSException {
 		return postWithBodyAndCookieForAutoGeneratedId(url, jsonInput, false, cookieName, role, testCaseName, idKeyName,
 				bothAccessAndIdToken);
 	}
 
 	protected Response postWithBodyAndCookieForAutoGeneratedId(String url, String jsonInput, boolean auditLogCheck,
-			String cookieName, String role, String testCaseName, String idKeyName, boolean bothAccessAndIdToken) {
+			String cookieName, String role, String testCaseName, String idKeyName, boolean bothAccessAndIdToken) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 
@@ -1001,6 +1142,8 @@ public class AdminTestUtil extends BaseTestCase {
 				response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token);
 			}
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			if (auditLogCheck) {
 				JSONObject jsonObject = new JSONObject(inputJson);
@@ -1011,7 +1154,12 @@ public class AdminTestUtil extends BaseTestCase {
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
 
@@ -1019,7 +1167,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	protected Response postWithBodyAndBearerTokenForAutoGeneratedId(String url, String jsonInput, String cookieName,
-			String role, String testCaseName, String idKeyName) {
+			String role, String testCaseName, String idKeyName) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		if (testCaseName.contains("Invalid_Token")) {
@@ -1034,6 +1182,8 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.postRequestWithBearerToken(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 			if (testCaseName.toLowerCase().contains("_sid")) {
@@ -1041,14 +1191,19 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response postWithBodyAndCookieForAutoGeneratedIdForUrlEncoded(String url, String jsonInput,
-			String testCaseName, String idKeyName) {
+			String testCaseName, String idKeyName) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		ObjectMapper mapper = new ObjectMapper();
@@ -1059,6 +1214,8 @@ public class AdminTestUtil extends BaseTestCase {
 			logger.info(inputJson);
 			GlobalMethods.reportRequest(null, inputJson, url);
 			response = RestClient.postRequestWithFormDataBody(url, map);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 			if (testCaseName.toLowerCase().contains("_sid")) {
@@ -1075,14 +1232,19 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response patchWithBodyAndCookieWithAutoGeneratedId(String url, String jsonInput, String cookieName,
-			String role, String testCaseName, String idKeyName) {
+			String role, String testCaseName, String idKeyName) throws SecurityXSSException {
 		Response response = null;
 		if (url.contains("ID:")) {
 			url = uriKeyWordHandelerUri(url, testCaseName);
@@ -1094,19 +1256,26 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.patchRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response patchWithBodyAndCookieForAutoGeneratedId(String url, String jsonInput, String cookieName,
-			String role, String testCaseName, String idKeyName) {
+			String role, String testCaseName, String idKeyName) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
@@ -1115,6 +1284,8 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.patchRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 			if (testCaseName.toLowerCase().contains("_sid")) {
@@ -1122,32 +1293,37 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response getWithPathParamAndCookieForAutoGeneratedId(String url, String jsonInput, String cookieName,
-			String role, String testCaseName, String idKeyName) {
+			String role, String testCaseName, String idKeyName) throws SecurityXSSException{
 		return getWithPathParamAndCookieForAutoGeneratedId(url, jsonInput, false, cookieName, role, testCaseName,
 				idKeyName, false);
 	}
 
 	protected Response getWithPathParamAndCookieForAutoGeneratedId(String url, String jsonInput, String cookieName,
-			String role, String testCaseName, String idKeyName, boolean bothAccessAndIdToken) {
+			String role, String testCaseName, String idKeyName, boolean bothAccessAndIdToken) throws SecurityXSSException{
 		return getWithPathParamAndCookieForAutoGeneratedId(url, jsonInput, false, cookieName, role, testCaseName,
 				idKeyName, bothAccessAndIdToken);
 	}
 
 	protected Response getWithPathParamAndCookieForAutoGeneratedId(String url, String jsonInput, boolean auditLogCheck,
-			String cookieName, String role, String testCaseName, String idKeyName) {
+			String cookieName, String role, String testCaseName, String idKeyName)throws SecurityXSSException {
 		return getWithPathParamAndCookieForAutoGeneratedId(url, jsonInput, auditLogCheck, cookieName, role,
 				testCaseName, idKeyName, false);
 	}
 
 	protected Response getWithPathParamAndCookieForAutoGeneratedId(String url, String jsonInput, boolean auditLogCheck,
-			String cookieName, String role, String testCaseName, String idKeyName, boolean bothAccessAndIdToken) {
+			String cookieName, String role, String testCaseName, String idKeyName, boolean bothAccessAndIdToken) throws SecurityXSSException {
 		Response response = null;
 		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		HashMap<String, String> map = null;
@@ -1195,6 +1371,8 @@ public class AdminTestUtil extends BaseTestCase {
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 			if (auditLogCheck) {
@@ -1204,7 +1382,12 @@ public class AdminTestUtil extends BaseTestCase {
 				checkDbAndValidate(timeStamp1, dbChecker);
 			}
 
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
 		return response;
@@ -1224,7 +1407,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	protected Response postWithFormPathParamAndFile(String url, String jsonInput, String role, String testCaseName,
-			String idKeyName) {
+			String idKeyName) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		JSONObject req = new JSONObject(inputJson);
@@ -1260,25 +1443,32 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.postWithFormPathParamAndFile(url, formParams, pathParams, filetoUpload, fileKeyName,
 					MediaType.MULTIPART_FORM_DATA, token);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response postWithParamAndFile(String url, String jsonInput, String role, String testCaseName,
-			String idKeyName) {
+			String idKeyName)throws SecurityXSSException {
 		return postWithParamAndFile(url, jsonInput, role, testCaseName, idKeyName, false);
 	}
 
 	protected Response postWithParamAndFile(String url, String jsonInput, String role, String testCaseName,
-			String idKeyName, boolean bothAccessAndIdToken) {
+			String idKeyName, boolean bothAccessAndIdToken) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		JSONObject req = new JSONObject(inputJson);
@@ -1318,20 +1508,27 @@ public class AdminTestUtil extends BaseTestCase {
 				response = RestClient.postWithParamsAndFile(url, map, filetoUpload, fileKeyName,
 						MediaType.MULTIPART_FORM_DATA, token);
 			}
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response postWithFormDataAndFile(String url, String jsonInput, String role, String testCaseName,
-			String idKeyName) {
+			String idKeyName) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 
@@ -1353,20 +1550,27 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.postWithFormDataAndFile(url, formParams, absolueFilePath,
 					MediaType.MULTIPART_FORM_DATA, token);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
 
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response postWithMultipartFormDataAndFile(String url, String jsonInput, String role, String testCaseName,
-			String idKeyName) {
+			String idKeyName) throws SecurityXSSException {
 		Response response = null;
 
 		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
@@ -1391,20 +1595,27 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.postWithMultipartFormDataAndFile(url, formParams, MediaType.MULTIPART_FORM_DATA,
 					token);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
 
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response postWithFormDataAndMultipleFile(String url, String jsonInput, String role, String testCaseName,
-			String idKeyName) {
+			String idKeyName) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 
@@ -1447,19 +1658,26 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.postWithFormDataAndMultipleFile(url, formParams, listFiles,
 					MediaType.MULTIPART_FORM_DATA, token);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
 
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
-	public static void initialUserCreation() {
+	public static void initialUserCreation() throws SecurityXSSException {
 		Response response = null;
 		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
 		org.json.simple.JSONObject actualRequestGeneration = BaseTestCase.getRequestJson("config/bulkUpload.json");
@@ -1503,9 +1721,16 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.postWithFormDataAndMultipleFile(url, formParams, listFiles,
 					MediaType.MULTIPART_FORM_DATA, token);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
-		} catch (Exception e) {
+		} catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
 
@@ -1522,12 +1747,12 @@ public class AdminTestUtil extends BaseTestCase {
 	 */
 
 	protected Response putWithBodyAndCookie(String url, String jsonInput, String cookieName, String role,
-			String testCaseName) {
+			String testCaseName)throws SecurityXSSException {
 		return putWithBodyAndCookie(url, jsonInput, cookieName, role, testCaseName, false);
 	}
 
 	protected Response putWithBodyAndCookie(String url, String jsonInput, String cookieName, String role,
-			String testCaseName, boolean bothAccessAndIdToken) {
+			String testCaseName, boolean bothAccessAndIdToken) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		if (bothAccessAndIdToken) {
@@ -1546,16 +1771,23 @@ public class AdminTestUtil extends BaseTestCase {
 				response = RestClient.putRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token);
 			}
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response putWithPathParamAndCookie(String url, String jsonInput, String cookieName, String role,
-			String testCaseName) {
+			String testCaseName) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		HashMap<String, String> map = null;
@@ -1572,16 +1804,23 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.putRequestWithParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
 					cookieName, token);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response patchWithPathParamAndCookie(String url, String jsonInput, String cookieName, String role,
-			String testCaseName) {
+			String testCaseName) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		HashMap<String, String> map = null;
@@ -1598,16 +1837,23 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.patchRequestWithParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
 					cookieName, token);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response putWithPathParamsBodyAndCookie(String url, String jsonInput, String cookieName, String role,
-			String testCaseName, String pathParams) {
+			String testCaseName, String pathParams) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		logger.info("inputJson is::" + inputJson);
@@ -1633,16 +1879,23 @@ public class AdminTestUtil extends BaseTestCase {
 				pathParamsMap.put("id", idField);
 			response = RestClient.putWithPathParamsBodyAndCookie(url, pathParamsMap, req.toString(),
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response putWithPathParamsBodyAndBearerToken(String url, String jsonInput, String cookieName, String role,
-			String testCaseName, String pathParams) {
+			String testCaseName, String pathParams) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		logger.info("inputJson is::" + inputJson);
@@ -1671,16 +1924,23 @@ public class AdminTestUtil extends BaseTestCase {
 				pathParamsMap.put("id", idField);
 			response = RestClient.putWithPathParamsBodyAndBearerToken(url, pathParamsMap, req.toString(),
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response postWithPathParamsBodyAndCookie(String url, String jsonInput, String cookieName, String role,
-			String testCaseName, String pathParams) {
+			String testCaseName, String pathParams) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
@@ -1701,9 +1961,16 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.postWithPathParamsBodyAndCookie(url, pathParamsMap, req.toString(),
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
@@ -1711,7 +1978,7 @@ public class AdminTestUtil extends BaseTestCase {
 	
 	
 	protected Response postWithPathParamsBodyAndCookieForAutoGeneratedId(String url, String jsonInput,
-			String cookieName, String role, String testCaseName, String pathParams, String idKeyName) {
+			String cookieName, String role, String testCaseName, String pathParams, String idKeyName) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
@@ -1732,19 +1999,26 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.postWithPathParamsBodyAndCookie(url, pathParamsMap, req.toString(),
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
 		return response;
 	}
 
 	protected Response postWithPathParamsBodyHeaderAndCookie(String url, String jsonInput, String cookieName,
-			String role, String testCaseName, String pathParams) {
+			String role, String testCaseName, String pathParams) throws SecurityXSSException {
 		Response response = null;
 		String signature = null;
 		HashMap<String, String> headers = new HashMap<>();
@@ -1785,16 +2059,23 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.postWithPathParamsBodyHeadersAndCookie(url, pathParamsMap, inputJson,
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token, headers);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response postWithQueryParamsBodyAndCookie(String url, String jsonInput, String cookieName, String role,
-			String testCaseName, String queryParams, String idKeyName) {
+			String testCaseName, String queryParams, String idKeyName) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
@@ -1815,19 +2096,26 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.postWithQueryParamsBodyAndCookie(url, queryParamsMap, req.toString(),
 					MediaType.APPLICATION_JSON, "*/*", cookieName, token);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response patchWithPathParamsBodyAndCookie(String url, String jsonInput, String cookieName, String role,
-			String testCaseName, String pathParams) {
+			String testCaseName, String pathParams) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		JSONObject req = new JSONObject(inputJson);
@@ -1847,9 +2135,16 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.patchWithPathParamsBodyAndCookie(url, pathParamsMap, req.toString(),
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
@@ -1866,22 +2161,22 @@ public class AdminTestUtil extends BaseTestCase {
 	 */
 
 	protected Response getWithPathParamAndCookie(String url, String jsonInput, String cookieName, String role,
-			String testCaseName) {
+			String testCaseName)throws SecurityXSSException {
 		return getWithPathParamAndCookie(url, jsonInput, false, cookieName, role, testCaseName, false);
 	}
 
 	protected Response getWithPathParamAndCookie(String url, String jsonInput, String cookieName, String role,
-			String testCaseName, boolean bothAccessAndIdToken) {
+			String testCaseName, boolean bothAccessAndIdToken)throws SecurityXSSException {
 		return getWithPathParamAndCookie(url, jsonInput, false, cookieName, role, testCaseName, bothAccessAndIdToken);
 	}
 
 	protected Response getWithPathParamAndCookie(String url, String jsonInput, boolean auditLogCheck, String cookieName,
-			String role, String testCaseName) {
+			String role, String testCaseName)throws SecurityXSSException {
 		return getWithPathParamAndCookie(url, jsonInput, auditLogCheck, cookieName, role, testCaseName, false);
 	}
 
 	protected Response getWithPathParamAndCookie(String url, String jsonInput, boolean auditLogCheck, String cookieName,
-			String role, String testCaseName, boolean bothAccessAndIdToken) {
+			String role, String testCaseName, boolean bothAccessAndIdToken) throws SecurityXSSException {
 		Response response = null;
 		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		HashMap<String, String> map = null;
@@ -1967,21 +2262,28 @@ public class AdminTestUtil extends BaseTestCase {
 					checkDbAndValidate(timeStamp1, dbChecker);
 				}
 			}
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
 		return response;
 	}
 
 	protected Response deleteWithPathParamAndCookie(String url, String jsonInput, String cookieName, String role,
-			String testCaseName) {
+			String testCaseName)throws SecurityXSSException {
 		return deleteWithPathParamAndCookie(url, jsonInput, cookieName, role, testCaseName, false);
 	}
 
 	protected Response deleteWithPathParamAndCookie(String url, String jsonInput, String cookieName, String role,
-			String testCaseName, boolean bothAccessAndIdToken) {
+			String testCaseName, boolean bothAccessAndIdToken) throws SecurityXSSException {
 		Response response = null;
 		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		HashMap<String, String> map = null;
@@ -2011,17 +2313,24 @@ public class AdminTestUtil extends BaseTestCase {
 				response = RestClient.deleteRequestWithCookieAndPathParm(url, map, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token);
 			}
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
 
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response deleteWithPathParamAndCookieForKeyCloak(String url, String jsonInput, String cookieName,
-			String role, String testCaseName) {
+			String role, String testCaseName) throws SecurityXSSException {
 		Response response = null;
 		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
@@ -2041,10 +2350,17 @@ public class AdminTestUtil extends BaseTestCase {
 
 			response = RestClient.deleteRequestWithCookieAndPathParmForKeyCloak(url, map, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
 
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
@@ -2222,7 +2538,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	protected Response getWithQueryParamAndCookie(String url, String jsonInput, String cookieName, String role,
-			String testCaseName) {
+			String testCaseName) throws SecurityXSSException {
 		Response response = null;
 		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		HashMap<String, String> map = null;
@@ -2240,16 +2556,23 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
 			return response;
 		}
 	}
 
 	protected Response patchWithQueryParamAndCookie(String url, String jsonInput, String cookieName, String role,
-			String testCaseName) {
+			String testCaseName) throws SecurityXSSException {
 		Response response = null;
 		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		HashMap<String, String> map = null;
@@ -2267,9 +2590,16 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    } catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
 			return response;
 		}
@@ -3515,12 +3845,12 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	protected Response postWithOnlyPathParamAndCookie(String url, String jsonInput, String cookieName, String role,
-			String testCaseName) {
+			String testCaseName) throws SecurityXSSException{
 		return postWithOnlyPathParamAndCookie(url, jsonInput, cookieName, role, testCaseName, false);
 	}
 
 	protected Response postWithOnlyPathParamAndCookie(String url, String jsonInput, String cookieName, String role,
-			String testCaseName, boolean bothAccessAndIdToken) {
+			String testCaseName, boolean bothAccessAndIdToken) throws SecurityXSSException {
 		Response response = null;
 		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		HashMap<String, String> map = null;
@@ -3548,16 +3878,23 @@ public class AdminTestUtil extends BaseTestCase {
 				response = RestClient.postRequestWithCookieAndOnlyPathParm(url, map, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token);
 			}
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 			return response;
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
 
 	protected Response postWithOnlyQueryParamAndCookie(String url, String jsonInput, String cookieName, String role,
-			String testCaseName) {
+			String testCaseName) throws SecurityXSSException {
 		Response response = null;
 		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		HashMap<String, String> map = null;
@@ -3574,8 +3911,15 @@ public class AdminTestUtil extends BaseTestCase {
 		GlobalMethods.reportRequest(null, jsonInput, url);
 		try {
 			response = RestClient.postRequestWithQueryParm(url, map, "*/*", "*/*", cookieName, token);
+			//check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);	
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
-		} catch (Exception e) {
+		}catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response" : response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString + "\nError: " + se.getMessage();
+		    logger.error(errorMessageString, se);
+		    throw se;
+	    }catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
 		return response;

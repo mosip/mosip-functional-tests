@@ -39,6 +39,18 @@ public class GlobalMethods {
 		return ConfigManager.getproperty("xssProtectionCheck").equalsIgnoreCase("yes") ? true : false;
 	}
 	
+	//Method to check if X-XSS-Protection is enabled or not
+	public static void checkXSSProtectionHeader(Response response, String url) throws SecurityXSSException {
+        String xssHeader = response.getHeader("X-Xss-Protection");
+
+        if (isXSSProtectionCheckEnabled() && 
+            (xssHeader == null || !xssHeader.equalsIgnoreCase("1; mode=block"))) {
+
+            reportResponseHeader(response.getHeaders().asList().toString(), url);
+            throw new SecurityXSSException("Response Header does not have X-XSS-Protection");
+        }
+    }
+	
 	// Method to set the module name and recompile the regex patterns
 	public static void setModuleNameAndReCompilePattern(String value) {
 		if (value == null || value.trim().isEmpty()) {
@@ -266,6 +278,12 @@ public class GlobalMethods {
 
 		Reporter.log(GlobalConstants.REPORT_RESPONSE_PREFIX + GlobalConstants.REPORT_RESPONSE_BODY + formattedHeader
 				+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + GlobalConstants.REPORT_RESPONSE_SUFFIX);
+	}
+	public static void reportResponseHeader(String responseHeader, String url) {
+		String formattedHeader = ReportUtil.getTextAreaForHeaders(responseHeader);
+
+		Reporter.log(GlobalConstants.REPORT_RESPONSE_PREFIX + GlobalConstants.REPORT_RESPONSE_BODY + formattedHeader
+				 + GlobalConstants.REPORT_RESPONSE_SUFFIX);
 	}
 
 	public static void reportResponse(String responseHeader, String url, String response) {
