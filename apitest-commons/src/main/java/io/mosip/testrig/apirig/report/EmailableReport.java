@@ -1,12 +1,12 @@
 package io.mosip.testrig.apirig.report;
 
-import java.io.BufferedReader;
+//import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
+//import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -339,16 +339,16 @@ public class EmailableReport implements IReporter {
 		NumberFormat integerFormat = NumberFormat.getIntegerInstance();
 		LocalDate currentDate = LocalDate.now();
 		String formattedDate =null;
-		String branch = null;
+//		String branch = null;
 		boolean endPointDetailsReported = false;
 		// Format the current date as per your requirement
 		try {
 		
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 	    formattedDate = currentDate.format(formatter);
-		Process process = Runtime.getRuntime().exec("git rev-parse --abbrev-ref HEAD");
-        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-        branch = reader.readLine();
+//		Process process = Runtime.getRuntime().exec("git rev-parse --abbrev-ref HEAD");
+//        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+//        branch = reader.readLine();
 		}
 		catch (Exception e) {
 			LOG.error("Error writing the date and branch information: " + e.getMessage());
@@ -732,7 +732,7 @@ public class EmailableReport implements IReporter {
 
 				buffer.setLength(0);
 
-				int scenariosPerClass = 0;
+//				int scenariosPerClass = 0;
 				int methodIndex = 0;
 				for (MethodResult methodResult : classResult.getMethodResults()) {
 					List<ITestResult> results = methodResult.getResults();
@@ -769,7 +769,7 @@ public class EmailableReport implements IReporter {
 						scenarioIndex++;
 					}
 
-					scenariosPerClass += resultsCount;
+//					scenariosPerClass += resultsCount;
 					methodIndex++;
 				}
 

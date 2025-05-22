@@ -71,11 +71,11 @@ import org.json.JSONObject;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import io.mosip.kernel.core.crypto.exception.InvalidKeyException;
+import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.testrig.apirig.dto.CertificateChainResponseDto;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 import io.mosip.testrig.apirig.utils.Encrypt.SplittedEncryptedData;
-import io.mosip.kernel.core.crypto.exception.InvalidKeyException;
-import io.mosip.kernel.core.util.CryptoUtil;
 
 
 
@@ -91,7 +91,7 @@ public class KeyMgrUtil {
 	
 	private static final Logger logger = Logger.getLogger(KeyMgrUtil.class);
     /** The Constant DOMAIN_URL. */
-    private static final String DOMAIN_URL = "mosip.base.url";
+//    private static final String DOMAIN_URL = "mosip.base.url";
 
 	/** The Constant CERTIFICATE_TYPE. */
 	private static final String CERTIFICATE_TYPE = "X.509";

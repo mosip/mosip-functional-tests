@@ -13,8 +13,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.attribute.PosixFileAttributes;
-import java.nio.file.attribute.PosixFilePermission;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableEntryException;
@@ -28,16 +26,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Optional;
+//import java.util.Optional;
 import java.util.Properties;
-import java.util.Set;
-import java.util.function.BiFunction;
+//import java.util.function.BiFunction;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Stream;
+//import java.util.stream.Stream;
 
 import javax.ws.rs.core.MediaType;
-import javax.xml.bind.DatatypeConverter;
+//import javax.xml.bind.DatatypeConverter;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.FileUtils;
@@ -52,7 +49,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Verify;
 import com.ibm.icu.text.Transliterator;
 
-import io.mosip.authentication.core.spi.indauth.match.MatchType;
+//import io.mosip.authentication.core.spi.indauth.match.MatchType;
 import io.mosip.testrig.apirig.dto.CertificateChainResponseDto;
 import io.mosip.testrig.apirig.dto.OutputValidationDto;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
@@ -71,7 +68,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	private static String testCaseName;
 	private static int testCaseId;
 	private static File testFolder;
-	private static File demoAppBatchFilePath;
+//	private static File demoAppBatchFilePath;
 	public static final String AUTHORIZATHION_COOKIENAME = GlobalConstants.AUTHORIZATION;
 	public static final String authHeaderValue = "Some String";
 	protected static String responseJsonToVerifyDigtalSignature;
@@ -84,50 +81,50 @@ public class AuthTestsUtil extends BaseTestCase {
     }
 
     private ObjectMapper mapper;
-    private static final String PIN = "pin";
+//    private static final String PIN = "pin";
 
-    private static final String BIO = "bio";
+//    private static final String BIO = "bio";
 
-    private static final String DEMO = "demo";
+//    private static final String DEMO = "demo";
 
-    private static final String OTP = "otp";
+//    private static final String OTP = "otp";
     private static final String BEGIN_CERTIFICATE = "-----BEGIN CERTIFICATE-----";
     private static final String END_CERTIFICATE = "-----END CERTIFICATE-----";
 
     private static final String LINE_SEPARATOR = System.getProperty("line.separator");
 
-    private static final String TIMESTAMP = "timestamp";
+//    private static final String TIMESTAMP = "timestamp";
 
-    private static final String ID = "id";
+//    private static final String ID = "id";
 
-    private static final String AUTH_TYPE = "authType";
+//    private static final String AUTH_TYPE = "authType";
 
-    private static final String SECONDARY_LANG_CODE = "secondaryLangCode";
+//    private static final String SECONDARY_LANG_CODE = "secondaryLangCode";
 
-    private static final String TXN = "txn";
+//    private static final String TXN = "txn";
 
-    private static final String VER = "ver";
+//    private static final String VER = "ver";
 
-    private static final String ENV = "env";
+//    private static final String ENV = "env";
 
-    private static final String DOMAIN_URI = "domainUri";
-
-    private static final String IDA_API_VERSION = "ida.api.version";
-
-    private static final String MOSIP_ENV = "Staging";
-
-    private static final String MOSIP_DOMAINURI = "mosip.base.url";
+//    private static final String DOMAIN_URI = "domainUri";
+//
+//    private static final String IDA_API_VERSION = "ida.api.version";
+//
+//    private static final String MOSIP_ENV = "Staging";
+//
+//    private static final String MOSIP_DOMAINURI = "mosip.base.url";
     public static final String BIOMETRICS = "biometrics";
-
-    private static final String IDA_AUTH_REQUEST_TEMPLATE = "ida.authRequest.template";
-
-    private static final String DATE_TIME = "dateTime";
-
-    private static final String TRANSACTION_ID = "transactionId";
-
-    private static final String IDENTITY = "Identity";
-
-    private static final String TEMPLATE = "Template";
+//
+//    private static final String IDA_AUTH_REQUEST_TEMPLATE = "ida.authRequest.template";
+//
+//    private static final String DATE_TIME = "dateTime";
+//
+//    private static final String TRANSACTION_ID = "transactionId";
+//
+//    private static final String IDENTITY = "Identity";
+//
+//    private static final String TEMPLATE = "Template";
 
 	/**
 	 * The method will get current test execution folder
@@ -256,69 +253,69 @@ public class AuthTestsUtil extends BaseTestCase {
         return isErrored ? "Upload Failed" : "Upload Success";
     }
     
-    private String digest(byte[] hash) throws NoSuchAlgorithmException {
-        return DatatypeConverter.printHexBinary(hash).toUpperCase();
-    }
-    
+//    private String digest(byte[] hash) throws NoSuchAlgorithmException {
+//        return DatatypeConverter.printHexBinary(hash).toUpperCase();
+//    }
+//    
     public byte[] getCertificateThumbprint(Certificate cert) throws CertificateEncodingException {
         return DigestUtils.sha256(cert.getEncoded());
     }
     
-    private void getAuthTypeMap(String reqAuth, Map<String, Object> reqValues, Map<String, Object> request) {
-        String[] reqAuthArr;
-        if (reqAuth == null) {
-            BiFunction<String, String, Optional<String>> authTypeMapFunction = (key, authType) -> Optional
-                    .ofNullable(request).filter(map -> map.containsKey(key)).map(map -> authType);
-            reqAuthArr = Stream
-                    .of(authTypeMapFunction.apply("demographics", "demo"), authTypeMapFunction.apply(BIOMETRICS, "bio"),
-                            authTypeMapFunction.apply("otp", "otp"), authTypeMapFunction.apply("staticPin", "pin"))
-                    .filter(Optional::isPresent).map(Optional::get).toArray(size -> new String[size]);
-        } else {
-            reqAuth = reqAuth.trim();
-            if (reqAuth.contains(",")) {
-                reqAuthArr = reqAuth.split(",");
-            } else {
-                reqAuthArr = new String[]{reqAuth};
-            }
-        }
-
-        for (String authType : reqAuthArr) {
-            authTypeSelectionMap(reqValues, authType);
-        }
-    }
+//    private void getAuthTypeMap(String reqAuth, Map<String, Object> reqValues, Map<String, Object> request) {
+//        String[] reqAuthArr;
+//        if (reqAuth == null) {
+//            BiFunction<String, String, Optional<String>> authTypeMapFunction = (key, authType) -> Optional
+//                    .ofNullable(request).filter(map -> map.containsKey(key)).map(map -> authType);
+//            reqAuthArr = Stream
+//                    .of(authTypeMapFunction.apply("demographics", "demo"), authTypeMapFunction.apply(BIOMETRICS, "bio"),
+//                            authTypeMapFunction.apply("otp", "otp"), authTypeMapFunction.apply("staticPin", "pin"))
+//                    .filter(Optional::isPresent).map(Optional::get).toArray(size -> new String[size]);
+//        } else {
+//            reqAuth = reqAuth.trim();
+//            if (reqAuth.contains(",")) {
+//                reqAuthArr = reqAuth.split(",");
+//            } else {
+//                reqAuthArr = new String[]{reqAuth};
+//            }
+//        }
+//
+//        for (String authType : reqAuthArr) {
+//            authTypeSelectionMap(reqValues, authType);
+//        }
+//    }
     
-    private void authTypeSelectionMap(Map<String, Object> reqValues, String authType) {
-
-        if (authType.equalsIgnoreCase(MatchType.Category.OTP.getType())) {
-            reqValues.put(OTP, true);
-        } else if (authType.equalsIgnoreCase(MatchType.Category.DEMO.getType())) {
-            reqValues.put(DEMO, true);
-        } else if (authType.equalsIgnoreCase(MatchType.Category.BIO.getType())) {
-            reqValues.put(BIO, true);
-        } else if (authType.equalsIgnoreCase(MatchType.Category.SPIN.getType())) {
-            reqValues.put("pin", true);
-        }
-    }
+//    private void authTypeSelectionMap(Map<String, Object> reqValues, String authType) {
+//
+//        if (authType.equalsIgnoreCase(MatchType.Category.OTP.getType())) {
+//            reqValues.put(OTP, true);
+//        } else if (authType.equalsIgnoreCase(MatchType.Category.DEMO.getType())) {
+//            reqValues.put(DEMO, true);
+//        } else if (authType.equalsIgnoreCase(MatchType.Category.BIO.getType())) {
+//            reqValues.put(BIO, true);
+//        } else if (authType.equalsIgnoreCase(MatchType.Category.SPIN.getType())) {
+//            reqValues.put("pin", true);
+//        }
+//    }
     
-    private void applyRecursively(Object obj, String key, String value) {
-        if (obj instanceof Map) {
-            Map<String, Object> map = (Map<String, Object>) obj;
-            Optional<String> matchingKey = map.keySet().stream().filter(k -> k.equalsIgnoreCase(key)).findFirst();
-            if (matchingKey.isPresent()) {
-                map.put(matchingKey.get(), value);
-            }
-
-            for (Object val : map.values()) {
-                applyRecursively(val, key, value);
-            }
-        } else if (obj instanceof List) {
-            List<?> list = (List<?>) obj;
-            for (Object object : list) {
-                applyRecursively(object, key, value);
-            }
-        }
-    }
-    
+//    private void applyRecursively(Object obj, String key, String value) {
+//        if (obj instanceof Map) {
+//            Map<String, Object> map = (Map<String, Object>) obj;
+//            Optional<String> matchingKey = map.keySet().stream().filter(k -> k.equalsIgnoreCase(key)).findFirst();
+//            if (matchingKey.isPresent()) {
+//                map.put(matchingKey.get(), value);
+//            }
+//
+//            for (Object val : map.values()) {
+//                applyRecursively(val, key, value);
+//            }
+//        } else if (obj instanceof List) {
+//            List<?> list = (List<?>) obj;
+//            for (Object object : list) {
+//                applyRecursively(object, key, value);
+//            }
+//        }
+//    }
+//    
     public String signRequest(
             PartnerTypes partnerType,
             String partnerName,
@@ -1177,29 +1174,29 @@ public class AuthTestsUtil extends BaseTestCase {
 	 * 
 	 * @param path
 	 */
-	private static void changeFilePermissionInLinux(Path path) {
-		try {
-			Set<PosixFilePermission> perms = Files.readAttributes(path, PosixFileAttributes.class).permissions();
-			perms.add(PosixFilePermission.OWNER_WRITE);
-			perms.add(PosixFilePermission.OWNER_READ);
-			perms.add(PosixFilePermission.OWNER_EXECUTE);
-			perms.add(PosixFilePermission.GROUP_WRITE);
-			perms.add(PosixFilePermission.GROUP_READ);
-			perms.add(PosixFilePermission.GROUP_EXECUTE);
-			Files.setPosixFilePermissions(path, perms);
-		} catch (Exception e) {
-			IDASCRIPT_LOGGER.error("Exception in change the file permission:" + e.getMessage());
-		}
-	}
+//	private static void changeFilePermissionInLinux(Path path) {
+//		try {
+//			Set<PosixFilePermission> perms = Files.readAttributes(path, PosixFileAttributes.class).permissions();
+//			perms.add(PosixFilePermission.OWNER_WRITE);
+//			perms.add(PosixFilePermission.OWNER_READ);
+//			perms.add(PosixFilePermission.OWNER_EXECUTE);
+//			perms.add(PosixFilePermission.GROUP_WRITE);
+//			perms.add(PosixFilePermission.GROUP_READ);
+//			perms.add(PosixFilePermission.GROUP_EXECUTE);
+//			Files.setPosixFilePermissions(path, perms);
+//		} catch (Exception e) {
+//			IDASCRIPT_LOGGER.error("Exception in change the file permission:" + e.getMessage());
+//		}
+//	}
 
-	private static File fileDemoAppJarPath;
-
-	/**
-	 * The method use to add partnerID and License key in endpoint url
-	 * 
-	 * @param file
-	 * @return PartnerID and LicenseKey
-	 */
+//	private static File fileDemoAppJarPath;
+//
+//	/**
+//	 * The method use to add partnerID and License key in endpoint url
+//	 * 
+//	 * @param file
+//	 * @return PartnerID and LicenseKey
+//	 */
 	public String getExtendedUrl(File file) {
 		if (file.exists()) {
 			Map<String, String> urlProperty = getPropertyAsMap(file.getAbsolutePath());
@@ -1221,7 +1218,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	 * @return version of demoApp as string
 	 */
 	public static String getDemoAppVersion() {
-		String expression = "//dependency/artifactId[text()='authentication-partnerdemo-service']//following::version";
+//		String expression = "//dependency/artifactId[text()='authentication-partnerdemo-service']//following::version";
 		return RunConfigUtil.getdemoAppVersion();
 	}
 

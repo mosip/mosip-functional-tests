@@ -1,23 +1,23 @@
 package io.mosip.testrig.apirig.utils;
 
-import java.util.Base64;
+//import java.util.Base64.Encoder;
+import java.util.Date;
+//import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-import java.util.Base64.Encoder;
-import java.util.Date;
-
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.algorithms.Algorithm;
-import com.auth0.jwt.interfaces.DecodedJWT;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
+//import com.auth0.jwt.interfaces.DecodedJWT;
+
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 import io.mosip.testrig.apirig.testrunner.OTPListener;
-import io.restassured.RestAssured;
+//import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
 public class KernelAuthentication extends BaseTestCase {
@@ -34,7 +34,7 @@ public class KernelAuthentication extends BaseTestCase {
 
 	private String admin_password = ConfigManager.getUserAdminPassword();
 
-	private String admin_userName = ConfigManager.getUserAdminName();
+//	private String admin_userName = ConfigManager.getUserAdminName();
 
 	private String partner_password = props.get("partner_user_password");
 	private String partner_userName = props.get("partner_userName");

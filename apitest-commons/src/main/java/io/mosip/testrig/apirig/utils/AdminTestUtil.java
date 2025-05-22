@@ -52,7 +52,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.LinkedList;
+//import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -117,7 +117,7 @@ import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 import io.mosip.testrig.apirig.testrunner.JsonPrecondtion;
 import io.mosip.testrig.apirig.testrunner.MessagePrecondtion;
 import io.mosip.testrig.apirig.testrunner.OTPListener;
-import io.restassured.RestAssured;
+//import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
@@ -5882,7 +5882,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static void getLocationLevelData() {
 
 		Response response = null;
-		JSONObject responseJson = null;
+//		JSONObject responseJson = null;
 		String url = ApplnURI + props.getProperty("fetchLocationHierarchyLevels")
 				+ BaseTestCase.getLanguageList().get(0);
 		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
@@ -5890,7 +5890,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String url2 = "";
 
 		Response responseLocationHierarchy = null;
-		JSONObject responseJsonLocationHierarchy = null;
+//		JSONObject responseJsonLocationHierarchy = null;
 
 		try {
 
@@ -6337,7 +6337,7 @@ public class AdminTestUtil extends BaseTestCase {
 	    org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
 	    org.json.JSONObject schemaData = (org.json.JSONObject) responseJson.get(GlobalConstants.RESPONSE);
 
-	    Double schemaVersion = ((BigDecimal) schemaData.get(GlobalConstants.ID_VERSION)).doubleValue();
+//	    Double schemaVersion = ((BigDecimal) schemaData.get(GlobalConstants.ID_VERSION)).doubleValue();
 	    idSchemaVersion = ((BigDecimal) schemaData.get(GlobalConstants.ID_VERSION)).doubleValue();
 	    String schemaJsonData = schemaData.getString(GlobalConstants.SCHEMA_JSON);
 

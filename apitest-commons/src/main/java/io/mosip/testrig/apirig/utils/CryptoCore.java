@@ -47,7 +47,7 @@ import io.mosip.kernel.core.crypto.exception.InvalidParamSpecException;
 import io.mosip.kernel.core.crypto.exception.SignatureException;
 import io.mosip.kernel.core.crypto.spi.CryptoCoreSpec;
 import io.mosip.kernel.core.exception.NoSuchAlgorithmException;
-import io.mosip.kernel.core.util.CryptoUtil;
+//import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.EmptyCheckUtils;
 import io.mosip.kernel.crypto.jce.constant.SecurityExceptionCodeConstant;
 import io.mosip.kernel.crypto.jce.util.CryptoUtils;
@@ -442,7 +442,7 @@ public class CryptoCore implements CryptoCoreSpec<byte[], byte[], SecretKey, Pub
 		JsonWebSignature jws = new JsonWebSignature();
 		try {
 			String[] parts = sign.split(PERIOD_SEPARATOR_REGEX);
-			parts[1] = CryptoUtil.encodeBase64(data);
+//			parts[1] = CryptoUtil.encodeBase64(data);
 			jws.setCompactSerialization(CompactSerializer.serialize(parts));
 			jws.setKey(publicKey);
 			return jws.verifySignature();
