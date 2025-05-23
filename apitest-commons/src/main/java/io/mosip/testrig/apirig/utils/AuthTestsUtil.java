@@ -13,6 +13,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.attribute.PosixFileAttributes;
+import java.nio.file.attribute.PosixFilePermission;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableEntryException;
@@ -29,6 +31,7 @@ import java.util.Map.Entry;
 import java.util.Optional;
 //import java.util.Optional;
 import java.util.Properties;
+import java.util.Set;
 import java.util.function.BiFunction;
 //import java.util.function.BiFunction;
 import java.util.regex.Matcher;
@@ -1179,29 +1182,29 @@ public class AuthTestsUtil extends BaseTestCase {
 	 * 
 	 * @param path
 	 */
-//	private static void changeFilePermissionInLinux(Path path) {
-//		try {
-//			Set<PosixFilePermission> perms = Files.readAttributes(path, PosixFileAttributes.class).permissions();
-//			perms.add(PosixFilePermission.OWNER_WRITE);
-//			perms.add(PosixFilePermission.OWNER_READ);
-//			perms.add(PosixFilePermission.OWNER_EXECUTE);
-//			perms.add(PosixFilePermission.GROUP_WRITE);
-//			perms.add(PosixFilePermission.GROUP_READ);
-//			perms.add(PosixFilePermission.GROUP_EXECUTE);
-//			Files.setPosixFilePermissions(path, perms);
-//		} catch (Exception e) {
-//			IDASCRIPT_LOGGER.error("Exception in change the file permission:" + e.getMessage());
-//		}
-//	}
+	private static void changeFilePermissionInLinux(Path path) {
+		try {
+			Set<PosixFilePermission> perms = Files.readAttributes(path, PosixFileAttributes.class).permissions();
+			perms.add(PosixFilePermission.OWNER_WRITE);
+			perms.add(PosixFilePermission.OWNER_READ);
+			perms.add(PosixFilePermission.OWNER_EXECUTE);
+			perms.add(PosixFilePermission.GROUP_WRITE);
+			perms.add(PosixFilePermission.GROUP_READ);
+			perms.add(PosixFilePermission.GROUP_EXECUTE);
+			Files.setPosixFilePermissions(path, perms);
+		} catch (Exception e) {
+			IDASCRIPT_LOGGER.error("Exception in change the file permission:" + e.getMessage());
+		}
+	}
 
-//	private static File fileDemoAppJarPath;
-//
-//	/**
-//	 * The method use to add partnerID and License key in endpoint url
-//	 * 
-//	 * @param file
-//	 * @return PartnerID and LicenseKey
-//	 */
+	private static File fileDemoAppJarPath;
+
+	/**
+	 * The method use to add partnerID and License key in endpoint url
+	 * 
+	 * @param file
+	 * @return PartnerID and LicenseKey
+	 */
 	public String getExtendedUrl(File file) {
 		if (file.exists()) {
 			Map<String, String> urlProperty = getPropertyAsMap(file.getAbsolutePath());

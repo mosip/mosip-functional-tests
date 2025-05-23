@@ -1,24 +1,12 @@
 package io.mosip.testrig.apirig.utils;
 
+import javax.websocket.*;
+import org.apache.log4j.Logger;
 import java.net.URI;
 import java.util.Collections;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CountDownLatch;
-
-import javax.websocket.ClientEndpoint;
-import javax.websocket.ClientEndpointConfig;
-import javax.websocket.CloseReason;
-import javax.websocket.ContainerProvider;
-import javax.websocket.Endpoint;
-import javax.websocket.EndpointConfig;
-import javax.websocket.OnClose;
-import javax.websocket.OnError;
-import javax.websocket.OnMessage;
-import javax.websocket.Session;
-import javax.websocket.WebSocketContainer;
-
-import org.apache.log4j.Logger;
+import java.util.concurrent.ConcurrentHashMap;
 
 @ClientEndpoint
 public class WebSocketClientUtil extends Endpoint {
