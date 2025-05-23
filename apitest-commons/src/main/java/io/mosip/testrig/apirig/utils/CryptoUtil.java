@@ -6,6 +6,8 @@ import java.security.NoSuchAlgorithmException;
 import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.security.Security;
+import java.util.Base64;
+import java.util.Base64.Encoder;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -16,6 +18,7 @@ import javax.crypto.SecretKey;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 import io.mosip.kernel.core.crypto.spi.CryptoCoreSpec;
+import io.mosip.kernel.core.util.EmptyCheckUtils;
 
 
 /**
@@ -34,6 +37,12 @@ public class CryptoUtil {
 
 	/** The bouncy castle provider. */
 	private static BouncyCastleProvider bouncyCastleProvider;
+	
+	private static Encoder urlSafeEncoder;
+	
+	static {
+		urlSafeEncoder = Base64.getUrlEncoder().withoutPadding();
+	}
 
 	static {
 		bouncyCastleProvider = addProvider();
@@ -66,6 +75,19 @@ public class CryptoUtil {
 
 	}
 	
+	public static String encodeToURLSafeBase64(byte[] data) {
+		if (EmptyCheckUtils.isNullEmpty(data)) {
+			return null;
+		}
+		return urlSafeEncoder.encodeToString(data);
+	}
+	
+	public static byte[] decodePlainBase64(String data) {
+		if (EmptyCheckUtils.isNullEmpty(data)) {
+			return null;
+		}
+		return Base64.getDecoder().decode(data);
+	}
 	
 	
 	/**

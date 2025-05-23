@@ -142,6 +142,18 @@ public class ConfigManager {
 	public static String getproperty(String key) {
 		return propertiesMap.get(key) == null ? "" : propertiesMap.get(key).toString();
 	}
+	
+	public static int getIntProperty(String key, int defaultValue) {
+		try {
+			String value = ConfigManager.getproperty(key);
+			if (value != null && !value.trim().isEmpty()) {
+				return Integer.parseInt(value.trim());
+			}
+		} catch (NumberFormatException e) {
+			LOGGER.warn("Exception occured while parsing : " + e.getMessage());
+		}
+		return defaultValue;
+	}
 
 
 	public static String getRolesForUser(String userId) { 

@@ -1,6 +1,9 @@
 package io.mosip.testrig.apirig.utils;
 
+import static io.mosip.authentication.core.constant.IdAuthCommonConstants.UTF_8;
+
 import java.io.BufferedWriter;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -9,6 +12,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
+import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -27,6 +32,7 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.Properties;
@@ -41,6 +47,7 @@ import javax.xml.bind.DatatypeConverter;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.jose4j.lang.JoseException;
@@ -48,15 +55,23 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.testng.Reporter;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Verify;
 import com.ibm.icu.text.Transliterator;
 
+import io.mosip.authentication.core.constant.IdAuthCommonConstants;
 import io.mosip.authentication.core.spi.indauth.match.MatchType;
+import io.mosip.kernel.core.util.CryptoUtil;
+import io.mosip.kernel.core.util.DateUtils;
+import io.mosip.kernel.core.util.HMACUtils2;
 import io.mosip.testrig.apirig.dto.CertificateChainResponseDto;
+import io.mosip.testrig.apirig.dto.EncryptionRequestDto;
+import io.mosip.testrig.apirig.dto.EncryptionResponseDto;
 import io.mosip.testrig.apirig.dto.OutputValidationDto;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 import io.mosip.testrig.apirig.testrunner.JsonPrecondtion;
+import io.mosip.testrig.apirig.utils.Encrypt.SplittedEncryptedData;
 import io.restassured.response.Response;
 
 /**
@@ -83,7 +98,7 @@ public class AuthTestsUtil extends BaseTestCase {
         mapper = new ObjectMapper();
     }
 
-    private ObjectMapper mapper;
+    private static ObjectMapper mapper;
     private static final String PIN = "pin";
 
     private static final String BIO = "bio";
@@ -211,6 +226,397 @@ public class AuthTestsUtil extends BaseTestCase {
         return isUpdated ? "Update Success" : "Update Failed";
     }
     
+    private static void idValuesMap(
+            String id,
+            boolean isKyc,
+            boolean isInternal,
+            Map<String, Object> reqValues,
+            String transactionId,
+            String utcCurrentDateTimeString
+    ) {
+        reqValues.put("id", id);
+
+        if (isInternal) {
+            reqValues.put("authType", "auth.internal");
+        } else {
+            if (isKyc) {
+                reqValues.put("authType", "kyc");
+                reqValues.put("secondaryLangCode", ConfigManager.getproperty("mosip.secondary-language"));
+            } else {
+                reqValues.put("authType", "auth");
+            }
+        }
+
+        reqValues.put("timestamp", utcCurrentDateTimeString);
+        reqValues.put("txn", (transactionId == null) ? "1234567890" : transactionId);
+        reqValues.put("ver", ConfigManager.getproperty(IDA_API_VERSION));
+        reqValues.put("domainUri", ApplnURI);
+        reqValues.put("env", "Staging");
+    }
+    
+    @SuppressWarnings("unchecked")
+    public static List<Map<String, Object>> encipherBiometrics(
+            boolean isInternal,
+            String timestampArg,
+            String transactionIdArg,
+            String partnerName,
+            boolean keyFileNameByPartnerName,
+            List<Map<String, Object>> biometrics,
+            String certsDir,
+            String moduleName
+    ) throws Exception {
+    	KeyMgrUtility keyMgrUtil = new KeyMgrUtility();
+    	Encrypt encrypt = new Encrypt();
+    	ObjectMapper mapper = new ObjectMapper();
+    	
+    	JWSSignAndVerifyController jwsController = new JWSSignAndVerifyController();
+        byte[] previousHash = getHash("");
+
+        for (Map<String, Object> bioMap : biometrics) {
+            Object data = bioMap.get("data");
+            if (data == null || !(data instanceof Map)) continue;
+
+            Map<String, Object> dataMap = (Map<String, Object>) data;
+            String bioValue = (String) dataMap.get("bioValue");
+
+            // Determine timestamp
+            String timestamp = timestampArg != null ? timestampArg : (String) dataMap.get("timestamp");
+            if (timestamp == null) {
+                timestamp = DateUtils.formatToISOString(DateUtils.getUTCCurrentDateTime());
+            }
+
+            dataMap.put("timestamp", timestamp);
+            dataMap.put("domainUri", ApplnURI);
+            dataMap.put("env", "Staging");
+            dataMap.put("specVersion", "1.0");
+
+            Object txnIdObj = dataMap.get("transactionId");
+            if (txnIdObj == null) {
+                dataMap.put("transactionId", transactionIdArg != null ? transactionIdArg : "1234567890");
+            }
+            String transactionId = String.valueOf(dataMap.get("transactionId"));
+
+            String keysDirPath = keyMgrUtil.getKeysDirPath(certsDir, moduleName, ApplnURI.replace("https://", ""));
+
+            SplittedEncryptedData encryptedBiometrics = encrypt.encryptBio(
+                    bioValue, timestamp, transactionId, isInternal, keysDirPath);
+
+            dataMap.put("bioValue", encryptedBiometrics.getEncryptedData());
+            bioMap.put("sessionKey", encryptedBiometrics.getEncryptedSessionKey());
+            bioMap.put("thumbprint", digest(getCertificateThumbprint(
+                    encrypt.getBioCertificate(isInternal, keysDirPath))));
+
+            // Handle digitalId
+            Object digitalId = dataMap.get("digitalId");
+            if (digitalId instanceof Map) {
+                String digitalIdStr = mapper.writeValueAsString(digitalId);
+                String signedDigitalId;
+
+                if (!isInternal) {
+                    signedDigitalId = jwsController.sign(digitalIdStr, true, true, false, null,
+                            keysDirPath, PartnerTypes.FTM, partnerName, keyFileNameByPartnerName);
+                } else {
+                    signedDigitalId = CryptoUtil.encodeToURLSafeBase64(digitalIdStr.getBytes());
+                }
+
+                dataMap.put("digitalId", signedDigitalId);
+            }
+
+            String dataStrJson = mapper.writeValueAsString(dataMap);
+            String dataStr;
+
+            if (isInternal) {
+                dataStr = CryptoUtil.encodeToURLSafeBase64(dataStrJson.getBytes());
+            } else {
+                dataStr = jwsController.sign(dataStrJson, true, true, false, null,
+                        keysDirPath, PartnerTypes.DEVICE, partnerName, keyFileNameByPartnerName);
+            }
+
+            bioMap.put("data", dataStr);
+
+            // Compute final hash of biometric data chain
+            byte[] currentHash = getHash(CryptoUtil.decodePlainBase64(bioValue));
+            byte[] finalBioDataBytes = new byte[currentHash.length + previousHash.length];
+            System.arraycopy(previousHash, 0, finalBioDataBytes, 0, previousHash.length);
+            System.arraycopy(currentHash, 0, finalBioDataBytes, previousHash.length, currentHash.length);
+            byte[] finalBioDataHash = getHash(finalBioDataBytes);
+            bioMap.put("hash", digest(finalBioDataHash));
+
+            previousHash = finalBioDataHash;
+        }
+
+        return biometrics;
+    }
+    
+    /**
+	 * Gets the hash.
+	 *
+	 * @param bytes the bytes
+	 * @return the hash
+	 * @throws NoSuchAlgorithmException
+	 */
+    private static byte[] getHash(byte[] bytes) throws NoSuchAlgorithmException {
+		return HMACUtils2.generateHash(bytes);
+	}
+    
+    /**
+	 * Gets the hash.
+	 *
+	 * @param string the string
+	 * @return the hash
+	 * @throws UnsupportedEncodingException the unsupported encoding exception
+	 * @throws NoSuchAlgorithmException
+	 */
+	private static byte[] getHash(String string) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+		return getHash(string.getBytes(UTF_8));
+	}
+
+
+    
+    @SuppressWarnings("unchecked")
+    public static String createAuthRequest(
+            String id,
+            String idType,
+            boolean isKyc,
+            boolean isInternal,
+            String reqAuth,
+            String transactionId,
+            String requestTime,
+            boolean isNewInternalAuth,
+            boolean isPreLTS,
+            boolean signWithMisp,
+            String partnerName,
+            boolean keyFileNameByPartnerName,
+            Map<String, Object> request,
+            String certsDir,
+            String moduleName
+    ) throws Exception {
+    	IDASCRIPT_LOGGER.info("request = " + request.toString());
+    	KeyMgrUtility keyMgrUtil = new KeyMgrUtility();
+    	Encrypt encrypt = new Encrypt();
+    	String authRequestTemplate = ConfigManager.getproperty(IDA_AUTH_REQUEST_TEMPLATE);
+    	
+    	ObjectMapper mapper = new ObjectMapper();
+    	
+    	SimpleTemplateManager templateManager = new SimpleTemplateManager();
+    	
+        Map<String, Object> reqValues = new HashMap<>();
+        
+        IDASCRIPT_LOGGER.info("reqValues = " + reqValues);
+
+        if (isPreLTS) {
+            reqValues.put("otp", false);
+            reqValues.put("demo", false);
+            reqValues.put("bio", false);
+            reqValues.put("pin", false);
+        }
+
+        if (isNewInternalAuth) {
+            isInternal = true;
+        }
+        
+        IDASCRIPT_LOGGER.info("reqValues = " + reqValues);
+
+        boolean needsEncryption = !isInternal || !isNewInternalAuth;
+        String keysDirPath = keyMgrUtil.getKeysDirPath(null, BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
+
+        if (needsEncryption) {
+            reqValues.put("thumbprint", digest(getCertificateThumbprint(encrypt.getCertificate(isInternal, keysDirPath))));
+        }
+        
+        IDASCRIPT_LOGGER.info("reqValues = " + reqValues);
+
+        if (requestTime == null) {
+            requestTime = DateUtils.getUTCCurrentDateTimeString(ConfigManager.getproperty("datetime.pattern"));
+        }
+        
+        IDASCRIPT_LOGGER.info("request = " + request);
+
+        if (!request.containsKey("timestamp")) {
+            request.put("timestamp", "");
+        }
+        
+        IDASCRIPT_LOGGER.info("request = " + request);
+
+        idValuesMap(id, isKyc, isInternal, reqValues, transactionId, requestTime);
+        
+        IDASCRIPT_LOGGER.info("reqValues = " + reqValues);
+        
+        getAuthTypeMap(reqAuth, reqValues, request);
+        
+        IDASCRIPT_LOGGER.info("request = " + request);
+        
+        IDASCRIPT_LOGGER.info("reqValues = " + reqValues);
+        
+        applyRecursively(request, "timestamp", requestTime);
+        
+        IDASCRIPT_LOGGER.info("request = " + request);
+        
+        applyRecursively(request, "dateTime", requestTime);
+        
+        IDASCRIPT_LOGGER.info("request = " + request);
+        
+        applyRecursively(request, "transactionId", transactionId);
+        
+        IDASCRIPT_LOGGER.info("request = " + request);
+
+        if (isKyc && signWithMisp) {
+            reqValues.put("authType", "kycauth");
+        }
+        
+        IDASCRIPT_LOGGER.info("reqValues = " + reqValues);
+
+        if (needsEncryption) {
+            if (Boolean.TRUE.equals(reqValues.get("bio"))) {
+                Object bioObj = request.get("biometrics");
+                if (bioObj instanceof List) {
+                    List<Map<String, Object>> encipheredBiometrics = encipherBiometrics(isInternal, requestTime,
+                            transactionId, partnerName, keyFileNameByPartnerName,
+                            (List<Map<String, Object>>) bioObj, certsDir, moduleName);
+                    request.put("biometrics", encipheredBiometrics);
+                    IDASCRIPT_LOGGER.info("request = " + request);
+                }
+            }
+            encryptValuesMap(request, reqValues, isInternal, certsDir, moduleName);
+            
+            IDASCRIPT_LOGGER.info("request = " + request);
+            
+            IDASCRIPT_LOGGER.info("reqValues = " + reqValues);
+        }
+
+        StringWriter writer = new StringWriter();
+        if (request != null && !request.isEmpty()) {
+            InputStream templateValue = templateManager.merge(
+                    new ByteArrayInputStream(authRequestTemplate.getBytes(StandardCharsets.UTF_8)),
+                    reqValues
+            );
+            
+            IDASCRIPT_LOGGER.info("reqValues = " + reqValues);
+
+            if (templateValue != null) {
+                IOUtils.copy(templateValue, writer, StandardCharsets.UTF_8);
+                String requestString = writer.toString();
+                
+                IDASCRIPT_LOGGER.info("requestString = " + requestString);
+
+                if (!needsEncryption) {
+                    Map<String, Object> resMap = mapper.readValue(requestString, Map.class);
+                    resMap.put("request", request);
+                    resMap.put("requestHMAC", null);
+                    resMap.put("requestSessionKey", null);
+                    resMap.put("thumbprint", null);
+                    requestString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resMap);
+                    
+                    IDASCRIPT_LOGGER.info("requestString = " + requestString);
+                }
+
+                if (reqValues.containsKey("secondaryLangCode")) {
+                    Map<String, Object> resMap = mapper.readValue(requestString, Map.class);
+                    resMap.put("secondaryLangCode", reqValues.get("secondaryLangCode"));
+                    requestString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resMap);
+                    
+                    IDASCRIPT_LOGGER.info("requestString = " + requestString);
+                    IDASCRIPT_LOGGER.info("reqValues = " + reqValues);
+                }
+
+                if (isPreLTS) {
+                    Map<String, Object> requestMap = mapper.readValue(requestString, Map.class);
+                    Map<String, Object> requestedAuth = new HashMap<>();
+                    requestMap.put("individualIdType", (idType == null || idType.trim().isEmpty()) ? "UIN" : idType);
+                    requestMap.put("requestedAuth", requestedAuth);
+                    if (Boolean.TRUE.equals(reqValues.get("otp"))) requestedAuth.put("otp", true);
+                    if (Boolean.TRUE.equals(reqValues.get("demo"))) requestedAuth.put("demo", true);
+                    if (Boolean.TRUE.equals(reqValues.get("bio"))) requestedAuth.put("bio", true);
+                    if (Boolean.TRUE.equals(reqValues.get("pin"))) requestedAuth.put("pin", true);
+
+                    requestString = mapper.writeValueAsString(requestMap);
+                    
+                    IDASCRIPT_LOGGER.info("requestString = " + requestString);
+				}
+                String response = null;
+                PartnerTypes partnerTypes = isKyc ? PartnerTypes.EKYC : PartnerTypes.RELYING_PARTY;
+
+				response = signRequest(signWithMisp ? PartnerTypes.MISP : partnerTypes, partnerName, true, requestString, null,
+						BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
+				
+				IDASCRIPT_LOGGER.info("signatureResponse = " + response);
+				
+				if (true) {
+					Map<String, Object> signatureMap = mapper.readValue(requestString, Map.class);
+					signatureMap.put("signatureHeader", response);
+					requestString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(signatureMap);
+				}
+				IDASCRIPT_LOGGER.info("requestString = " + requestString);
+				return requestString;
+            } else {
+                throw new RuntimeException("Missing input parameter: TEMPLATE");
+            }
+
+        } else {
+            throw new RuntimeException("Missing input parameter: IDENTITY");
+        }
+    }
+    
+    @SuppressWarnings("unchecked")
+	private static void encodeBioData(Map<String, Object> identity) {
+		List<Object> bioIdentity = (List<Object>) identity.get(IdAuthCommonConstants.BIOMETRICS);
+		if (bioIdentity == null) {
+			return;
+		}
+		List<Object> bioIdentityInfo = new ArrayList<>();
+
+		for (Object obj : bioIdentity) {
+			Map<String, Object> map = (Map<String, Object>) obj;
+			Map<String, Object> dataMap = map.get(GlobalConstants.KEYWORD_DATA) instanceof Map
+					? (Map<String, Object>) map.get(GlobalConstants.KEYWORD_DATA)
+					: null;
+			try {
+				if (Objects.nonNull(dataMap)) {
+					Object value = CryptoUtil.encodeToURLSafeBase64(mapper.writeValueAsBytes(dataMap));
+					map.replace(GlobalConstants.KEYWORD_DATA, value);
+				}
+			} catch (JsonProcessingException e) {
+			}
+			bioIdentityInfo.add(map);
+		}
+
+		identity.replace(IdAuthCommonConstants.BIOMETRICS, bioIdentityInfo);
+
+	}
+    
+    private static void encryptValuesMap(
+            Map<String, Object> identity,
+            Map<String, Object> reqValues,
+            boolean isInternal,
+            String certsDir,
+            String moduleName
+    ) throws Exception {
+        // Prepare DTO for encryption
+        EncryptionRequestDto encryptionRequestDto = new EncryptionRequestDto();
+        
+        KeyMgrUtility keyMgrUtility = new KeyMgrUtility();
+        
+        Encrypt encrypt = new Encrypt();
+
+        // Optionally encode or transform bio data
+        encodeBioData(identity);  // You must have this method already implemented
+
+        encryptionRequestDto.setIdentityRequest(identity);
+
+        // Compute cert path
+        String fullCertDirPath = keyMgrUtility.getKeysDirPath(certsDir, moduleName, ApplnURI.replace("https://", ""));
+
+        // Perform encryption
+        EncryptionResponseDto encryptionResponse = encrypt.encrypt(encryptionRequestDto, isInternal, fullCertDirPath);
+
+        // Populate response values into request map
+        reqValues.put("encHmac", encryptionResponse.getRequestHMAC());
+        reqValues.put("encSessionKey", encryptionResponse.getEncryptedSessionKey());
+        reqValues.put("encRequest", encryptionResponse.getEncryptedIdentity());
+    }
+
+
+    
     public String uploadIDACertificate(
             CertificateTypes certificateType,
             Map<String, String> requestData,
@@ -256,15 +662,15 @@ public class AuthTestsUtil extends BaseTestCase {
         return isErrored ? "Upload Failed" : "Upload Success";
     }
     
-    private String digest(byte[] hash) throws NoSuchAlgorithmException {
+    private static String digest(byte[] hash) throws NoSuchAlgorithmException {
         return DatatypeConverter.printHexBinary(hash).toUpperCase();
     }
     
-    public byte[] getCertificateThumbprint(Certificate cert) throws CertificateEncodingException {
+    public static byte[] getCertificateThumbprint(Certificate cert) throws CertificateEncodingException {
         return DigestUtils.sha256(cert.getEncoded());
     }
     
-    private void getAuthTypeMap(String reqAuth, Map<String, Object> reqValues, Map<String, Object> request) {
+    private static void getAuthTypeMap(String reqAuth, Map<String, Object> reqValues, Map<String, Object> request) {
         String[] reqAuthArr;
         if (reqAuth == null) {
             BiFunction<String, String, Optional<String>> authTypeMapFunction = (key, authType) -> Optional
@@ -287,7 +693,7 @@ public class AuthTestsUtil extends BaseTestCase {
         }
     }
     
-    private void authTypeSelectionMap(Map<String, Object> reqValues, String authType) {
+    private static void authTypeSelectionMap(Map<String, Object> reqValues, String authType) {
 
         if (authType.equalsIgnoreCase(MatchType.Category.OTP.getType())) {
             reqValues.put(OTP, true);
@@ -300,7 +706,7 @@ public class AuthTestsUtil extends BaseTestCase {
         }
     }
     
-    private void applyRecursively(Object obj, String key, String value) {
+    private static void applyRecursively(Object obj, String key, String value) {
         if (obj instanceof Map) {
             Map<String, Object> map = (Map<String, Object>) obj;
             Optional<String> matchingKey = map.keySet().stream().filter(k -> k.equalsIgnoreCase(key)).findFirst();
@@ -319,7 +725,7 @@ public class AuthTestsUtil extends BaseTestCase {
         }
     }
     
-    public String signRequest(
+    public static String signRequest(
             PartnerTypes partnerType,
             String partnerName,
             boolean keyFileNameByPartnerName,
