@@ -25,7 +25,7 @@ public class JWTTokenModel {
          jwtPayload= new String(decoder.decode(parts[1]));
          
         // jwtPayload = new JSONObject(payloadJson);
-//         String signatureJson = new String(decoder.decode(parts[2]));
+         String signatureJson = new String(decoder.decode(parts[2]));
          jwtHeader = new JSONObject(headerJson);
          //jwtSign = signatureJson;
         

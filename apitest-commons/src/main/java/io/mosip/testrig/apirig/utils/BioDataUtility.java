@@ -14,6 +14,7 @@ import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
 import io.mosip.kernel.core.util.CryptoUtil;
+import io.mosip.kernel.core.util.HMACUtils;
 //import io.mosip.kernel.core.util.HMACUtils;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 import io.mosip.testrig.apirig.testrunner.JsonPrecondtion;
@@ -49,7 +50,7 @@ public class BioDataUtility extends AdminTestUtil {
 					"request.referenceId");
 		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent, aad, "request.aad");
 		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent, salt, "request.salt");
-//		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent,  CryptoUtil.encodeBase64(CryptoUtil.decodeBase64(isoBiovalue)), "request.data");
+		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent,  CryptoUtil.encodeBase64(CryptoUtil.decodeBase64(isoBiovalue)), "request.data");
 		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent,
 				AdminTestUtil.generateCurrentUTCTimeStamp(), "request.timeStamp");
 		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent,
@@ -83,9 +84,9 @@ public class BioDataUtility extends AdminTestUtil {
 	
 	
 
-//	private String getHash(String content) {
-//		return HMACUtils.digestAsPlainText(HMACUtils.generateHash(content.getBytes()));
-//	}
+	private String getHash(String content) {
+		return HMACUtils.digestAsPlainText(HMACUtils.generateHash(content.getBytes()));
+	}
 	
 	public String constructBiorequest(String input, String bioValueencryptionTemplateJson, boolean isInternal, String testCaseName) throws Exception {
 		String bioValue = null;
@@ -130,7 +131,7 @@ public class BioDataUtility extends AdminTestUtil {
 	public String constractBioIdentityRequest(String identityRequest, String bioValueencryptionTemplateJson,
 			String testcaseName, boolean isInternal) throws Exception {
 		int count = AuthTestsUtil.getNumberOfTimeWordPresentInString(identityRequest, "\"data\"");
-//		String previousHash = getHash("");
+		String previousHash = getHash("");
 		byte[] previousBioDataHash = null;
 		byte [] previousDataByteArr =  "".getBytes(StandardCharsets.UTF_8);
 		previousBioDataHash = generateHash(previousDataByteArr);
@@ -196,10 +197,10 @@ public class BioDataUtility extends AdminTestUtil {
 		return identityRequest;
 	}
 	
-//	private String getSignedData(String identityDataBlock, String partnerId) {
-//
-//		return generateSignatureWithRequest(identityDataBlock, partnerId);
-//	}
+	private String getSignedData(String identityDataBlock, String partnerId) {
+
+		return generateSignatureWithRequest(identityDataBlock, partnerId);
+	}
 	
 	private String getSignedBiometrics(String identityDataBlock, String key) {
 

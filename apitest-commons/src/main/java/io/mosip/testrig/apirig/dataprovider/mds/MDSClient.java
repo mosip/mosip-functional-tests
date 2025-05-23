@@ -38,14 +38,14 @@ public class MDSClient implements MDSClientInterface {
 
 	public void setProfile(String profile, int port, String contextKey) {
 
-//		String url = MDSURL + port + "/admin/profile";
+		String url = MDSURL + port + "/admin/profile";
 		JSONObject body = new JSONObject();
 		body.put("profileId", profile);
 		body.put("type", "Biometric Device");
 
 		try {
 			logger.info("Inside Setprofile");
-//			Response response = RestClient.post(url, body.toString());
+			Response response = RestClient.post(url, body.toString());
 		} catch (Exception ex) {
 			logger.error(ex.getMessage());
 		}

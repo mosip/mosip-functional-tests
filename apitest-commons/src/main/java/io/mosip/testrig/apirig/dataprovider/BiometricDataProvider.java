@@ -363,8 +363,6 @@ public class BiometricDataProvider {
 			
 			Path p12path = Paths.get(getKeysDirPath("", BaseTestCase.certsForModule));
 			
-//			Path p12path = Paths.get("C:\\Users\\NANDHU~1\\AppData\\Local\\Temp\\AUTHCERTS\\IDA-api-internal.qa-inji.mosip.net");
-			
 			int maxLoopCount = 20;
 
 			while (maxLoopCount > 0) {
