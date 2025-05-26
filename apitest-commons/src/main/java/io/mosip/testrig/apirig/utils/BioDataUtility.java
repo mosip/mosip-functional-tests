@@ -15,6 +15,7 @@ import org.json.JSONObject;
 
 import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.HMACUtils;
+//import io.mosip.kernel.core.util.HMACUtils;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 import io.mosip.testrig.apirig.testrunner.JsonPrecondtion;
 import io.mosip.testrig.apirig.utils.Encrypt.SplittedEncryptedData;
@@ -91,7 +92,7 @@ public class BioDataUtility extends AdminTestUtil {
 		String bioValue = null;
 		String  timestamp = null;
 		String transactionId = null;
-		String previousHash = getHash("");
+//		String previousHash = getHash("");
 		byte[] previousBioDataHash = null;
 		byte [] previousDataByteArr =  "".getBytes(StandardCharsets.UTF_8);
 		previousBioDataHash = generateHash(previousDataByteArr);

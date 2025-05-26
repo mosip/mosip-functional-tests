@@ -204,8 +204,8 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 	public static String createAPIKeyForUpdatedPolicy(){
 		String url = ApplnURI + "/v1/partnermanager/partners/" + partnerId + "/generate/apikey";
 
-		String updateApiKeyUrl = ApplnURI + "/v1/partnermanager/partners/" + partnerId + "/policy/" + updatedPolicyId
-				+ "/apiKey/status";
+//		String updateApiKeyUrl = ApplnURI + "/v1/partnermanager/partners/" + partnerId + "/policy/" + updatedPolicyId
+//				+ "/apiKey/status";
 
 		String token = kernelAuthLib.getTokenByRole("partnernew");
 		

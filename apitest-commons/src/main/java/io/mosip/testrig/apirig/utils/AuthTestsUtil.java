@@ -29,14 +29,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
+//import java.util.Optional;
 import java.util.Properties;
 import java.util.Set;
 import java.util.function.BiFunction;
+//import java.util.function.BiFunction;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+//import java.util.stream.Stream;
 import java.util.stream.Stream;
 
 import javax.ws.rs.core.MediaType;
+//import javax.xml.bind.DatatypeConverter;
 import javax.xml.bind.DatatypeConverter;
 
 import org.apache.commons.codec.digest.DigestUtils;
@@ -53,6 +57,7 @@ import com.google.common.base.Verify;
 import com.ibm.icu.text.Transliterator;
 
 import io.mosip.authentication.core.spi.indauth.match.MatchType;
+//import io.mosip.authentication.core.spi.indauth.match.MatchType;
 import io.mosip.testrig.apirig.dto.CertificateChainResponseDto;
 import io.mosip.testrig.apirig.dto.OutputValidationDto;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
@@ -71,7 +76,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	private static String testCaseName;
 	private static int testCaseId;
 	private static File testFolder;
-	private static File demoAppBatchFilePath;
+//	private static File demoAppBatchFilePath;
 	public static final String AUTHORIZATHION_COOKIENAME = GlobalConstants.AUTHORIZATION;
 	public static final String authHeaderValue = "Some String";
 	protected static String responseJsonToVerifyDigtalSignature;
@@ -1221,7 +1226,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	 * @return version of demoApp as string
 	 */
 	public static String getDemoAppVersion() {
-		String expression = "//dependency/artifactId[text()='authentication-partnerdemo-service']//following::version";
+//		String expression = "//dependency/artifactId[text()='authentication-partnerdemo-service']//following::version";
 		return RunConfigUtil.getdemoAppVersion();
 	}
 

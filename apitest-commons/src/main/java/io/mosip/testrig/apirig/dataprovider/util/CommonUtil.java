@@ -39,7 +39,7 @@ public class CommonUtil {
 	private static final Logger logger = LoggerFactory.getLogger(CommonUtil.class);
 	private static SecureRandom rand = new SecureRandom();
 
-	private static final char[] HEX_ARRAY = "0123456789ABCDEF".toCharArray();
+	//private static final char[] HEX_ARRAY = "0123456789ABCDEF".toCharArray();
 
 	public static boolean isExists(List<String> missList, String categoryCode) {
 		if (missList != null) {
@@ -287,10 +287,10 @@ public class CommonUtil {
 	
 	
 	public static void main(String[] args) throws Exception {
-		String regex1 = "^|^0[5-7][0-9]{8}$";
-		String regex2 = "^[a-zA-Zء-ي٠-٩ ]{5,47}$";
-		String regex3 = "(^|^[A-Z]{2}[0-9]{1,6}$)|(^[A-Z]{1}[0-9]{1,7}$)";
-		String regex4 = "^|^(?=.{0,10}$).*";
+		//String regex1 = "^|^0[5-7][0-9]{8}$";
+		//String regex2 = "^[a-zA-Zء-ي٠-٩ ]{5,47}$";
+		//String regex3 = "(^|^[A-Z]{2}[0-9]{1,6}$)|(^[A-Z]{1}[0-9]{1,7}$)";
+		//String regex4 = "^|^(?=.{0,10}$).*";
 
 		String regex5 = "^(1869|18[7-9][0-9]|19[0-9][0-9]|20[0-9][0-9])/([0][1-9]|1[0-2])/([0][1-9]|[1-2][0-9]|3[01])$";
 

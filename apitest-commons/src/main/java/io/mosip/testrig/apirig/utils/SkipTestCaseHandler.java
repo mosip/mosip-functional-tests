@@ -6,12 +6,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 
 public class SkipTestCaseHandler {
-	private static final Logger logger = Logger.getLogger(SkipTestCaseHandler.class);
+//	private static final Logger logger = Logger.getLogger(SkipTestCaseHandler.class);
 	private static List<String> testcaseToBeSkippedList = new ArrayList<>();
 
 	// load test cases to be skipped in the execution in the list
