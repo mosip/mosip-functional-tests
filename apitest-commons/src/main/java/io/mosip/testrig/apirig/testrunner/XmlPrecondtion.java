@@ -37,8 +37,8 @@ public class XmlPrecondtion extends MessagePrecondtion {
 	private static Document xmlDocument;
 	private static final String FEATURE = "http://apache.org/xml/features/disallow-doctype-decl";
 	private static final String EXTERNAL_DTD_FEATURE = "http://apache.org/xml/features/nonvalidating/load-external-dtd";
-	private static final String SAX_EXTERNAL_GENERAL_FEATURE = "http://xml.org/sax/features/external-general-entities";
-	private static final String SAX_EXTERNAL_PARAMETER_FEATURE = "http://xml.org/sax/features/external-parameter-entities";
+//	private static final String SAX_EXTERNAL_GENERAL_FEATURE = "http://xml.org/sax/features/external-general-entities";
+//	private static final String SAX_EXTERNAL_PARAMETER_FEATURE = "http://xml.org/sax/features/external-parameter-entities";
 
 	/**
 	 * The method get node value from xml file

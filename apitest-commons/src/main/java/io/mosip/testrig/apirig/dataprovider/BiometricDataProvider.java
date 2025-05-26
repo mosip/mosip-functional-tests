@@ -101,9 +101,9 @@ public class BiometricDataProvider {
 	private static final String LEFTEYE = "leftEye";
 	private static final String RIGHTEYE = "rightEye";
 	private static final String RIGHT = "Right";
-	private static final String MOUNTPATH = "mountPath";
-	private static final String DIRPATH = "dirPath ";
-	private static final String SCENARIO = "scenario";
+//	private static final String MOUNTPATH = "mountPath";
+//	private static final String DIRPATH = "dirPath ";
+//	private static final String SCENARIO = "scenario";
 	private static HashMap<String, String> biometricDataMap = new HashMap();
 	
 	
@@ -134,7 +134,7 @@ public class BiometricDataProvider {
 	
 	public static Boolean generateBiometricTestData(String mdsMode) throws Exception {
 		ResidentBiometricModel resident = new ResidentBiometricModel();
-		String cbeff = null;
+//		String cbeff = null;
 		MDSRCaptureModel capture = BiometricDataProvider.regenBiometricViaMDS(resident, mdsMode, 70);
 		if (capture == null) {
 			logger.error("Failed to generate biometric via mds");
@@ -347,23 +347,21 @@ public class BiometricDataProvider {
 
 	public static MDSRCaptureModel regenBiometricViaMDS(ResidentBiometricModel resident, String mdsMode, int qualityScore)
 			throws Exception {
-		BiometricDataModel biodata = null;
+//		BiometricDataModel biodata = null;
 		MDSRCaptureModel capture = null;
 		String contextKey = "default";
 		MDSClientInterface mds = null;
-		String val;
-		String mdsprofilePath = null;
-		String profileName = null;
+//		String val;
+//		String mdsprofilePath = null;
+//		String profileName = null;
 		int port = 0;
-		List<String> filteredAttribs = resident.getFilteredBioAttribtures();
-		List<BioModality> bioExceptions = resident.getBioExceptions();
-		List<String> bioexceptionlist = new ArrayList<String>();
+//		List<String> filteredAttribs = resident.getFilteredBioAttribtures();
+//		List<BioModality> bioExceptions = resident.getBioExceptions();
+//		List<String> bioexceptionlist = new ArrayList<String>();
 
 		try {
 			
 			Path p12path = Paths.get(getKeysDirPath("", BaseTestCase.certsForModule));
-			
-//			Path p12path = Paths.get("C:\\Users\\NANDHU~1\\AppData\\Local\\Temp\\AUTHCERTS\\IDA-api-internal.qa-inji.mosip.net");
 			
 			int maxLoopCount = 20;
 
@@ -468,7 +466,7 @@ public class BiometricDataProvider {
 
 		String retXml = "";
 
-		String mosipVersion = "1.2.1-SNAPSHOT";
+//		String mosipVersion = "1.2.1-SNAPSHOT";
 
 		XMLBuilder builder = XMLBuilder.create("BIR").a(XMLNS, "http://standards.iso.org/iso-iec/19785/-3/ed-2/")
 				.e(BIRINFO).e(INTEGRITY).t(FALSE).up().up();

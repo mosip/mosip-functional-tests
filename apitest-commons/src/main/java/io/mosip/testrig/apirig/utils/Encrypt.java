@@ -51,7 +51,7 @@ public class Encrypt {
 
     public SplittedEncryptedData splitEncryptedData(String data) throws Exception {
         //boolean encryptedDataHasVersion =  env.getProperty("encryptedDataHasVersion", boolean.class, false);
-        boolean encryptedDataHasVersion = false;
+//        boolean encryptedDataHasVersion = false;
         byte[] dataBytes = io.mosip.kernel.core.util.CryptoUtil.decodeURLSafeBase64(data);
         byte[][] splits = splitAtFirstOccurance(dataBytes, keySplitter.getBytes());
         byte[] thumbPrintAndSessionKey = splits[0];

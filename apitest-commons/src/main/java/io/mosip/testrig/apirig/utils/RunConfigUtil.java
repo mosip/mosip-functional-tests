@@ -2,7 +2,7 @@ package io.mosip.testrig.apirig.utils;
 
 import java.io.File;
 
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 
@@ -14,7 +14,7 @@ import io.mosip.testrig.apirig.testrunner.BaseTestCase;
  */
 public class RunConfigUtil {
 	
-	private static final Logger runConfidUtilLogger = Logger.getLogger(RunConfigUtil.class);
+//	private static final Logger runConfidUtilLogger = Logger.getLogger(RunConfigUtil.class);
 	private static final String idaEnvConfigPath="/ida/TestData/RunConfig/envRunConfig.properties";
 	public static final String resourceFolderName="MosipTemporaryTestResource";
 	

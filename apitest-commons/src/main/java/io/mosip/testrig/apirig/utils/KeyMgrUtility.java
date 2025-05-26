@@ -72,7 +72,7 @@ public class KeyMgrUtility {
     @Autowired
     private CryptoCoreUtil cryptoCoreUtil;
 
-    private static final String DOMAIN_URL = "mosip.base.url";
+//    private static final String DOMAIN_URL = "mosip.base.url";
     private static final String CA_P12_FILE_NAME = "-ca.p12";
     private int rpPartnerCertExpiryYears = 5;
 

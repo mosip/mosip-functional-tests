@@ -24,7 +24,7 @@ import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.testng.Reporter;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+//import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.mosip.kernel.core.util.HMACUtils2;
 import io.mosip.testrig.apirig.dto.EncryptionResponseDto;
@@ -48,7 +48,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	public static String partnerThumbPrint =null;
 	public static String internalThumbPrint =null;
 	public static String idaFirThumbPrint =null;
-	private static ObjectMapper objMapper = new ObjectMapper();
+//	private static ObjectMapper objMapper = new ObjectMapper();
 	private static CryptoUtil cryptoUtil = new CryptoUtil();
 	private static KeyMgrUtil keymgrUtil = new KeyMgrUtil();
 	
