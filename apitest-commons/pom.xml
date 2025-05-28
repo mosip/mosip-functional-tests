@@ -48,7 +48,7 @@
 
 		<!-- utilities -->
 		<commons-codec>1.15</commons-codec>
-		<commons.beanutils.version>1.10.1</commons.beanutils.version>
+		<commons.beanutils.version>1.11.0</commons.beanutils.version>
 		<velocity.version>1.7</velocity.version>
 		<icu4j.version>63.1</icu4j.version>
 		<hadoop-client>2.8.1</hadoop-client>
