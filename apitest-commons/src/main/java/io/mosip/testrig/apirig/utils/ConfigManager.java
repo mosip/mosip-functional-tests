@@ -55,7 +55,7 @@ public class ConfigManager {
 
 		// Log the final propertiesMap to ensure all values have been processed
 		// correctly
-		LOGGER.info("propertiesMap = " + propertiesMap);
+		//LOGGER.info("propertiesMap = " + propertiesMap);
 	}
 	
 	public static void getValueForKeyAddToPropertiesMap(Map<String, Object> propsMap, String key) {
