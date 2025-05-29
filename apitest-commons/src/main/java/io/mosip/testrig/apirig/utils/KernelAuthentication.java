@@ -221,7 +221,7 @@ public class KernelAuthentication extends BaseTestCase {
 				zonemapCookie = kernelAuthLib.getAuthForzoneMap();
 			return zonemapCookie;	
 		case "user":
-				dslUserCookie = kernelAuthLib.getAuthForUser();
+			dslUserCookie = kernelAuthLib.getAuthForUser();
 			return dslUserCookie;
 		case "mobileauth":
 			if (!AdminTestUtil.isValidToken(mobileAuthCookie))
