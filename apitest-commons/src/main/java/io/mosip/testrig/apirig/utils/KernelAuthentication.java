@@ -219,7 +219,10 @@ public class KernelAuthentication extends BaseTestCase {
 		case "globaladmin":
 			if (!AdminTestUtil.isValidToken(zonemapCookie))
 				zonemapCookie = kernelAuthLib.getAuthForzoneMap();
-			return zonemapCookie;
+			return zonemapCookie;	
+		case "user":
+			dslUserCookie = kernelAuthLib.getAuthForUser();
+			return dslUserCookie;
 		case "mobileauth":
 			if (!AdminTestUtil.isValidToken(mobileAuthCookie))
 				mobileAuthCookie = kernelAuthLib.getAuthForMobile();
@@ -277,6 +280,24 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.APPID, ConfigManager.getAdminAppId());
 		request.put(GlobalConstants.PASSWORD, props.get("admin_zone_password"));
 		request.put(GlobalConstants.USER_NAME, props.get("admin_zone_userName"));
+		request.put(GlobalConstants.CLIENTID, ConfigManager.getAdminClientId());
+		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getAdminClientSecret());
+		actualrequest.put(GlobalConstants.REQUEST, request);
+
+		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualrequest);
+		String responseBody = reponse.getBody().asString();
+		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public String getAuthForUser() {
+
+		JSONObject actualrequest = getRequestJson(authInternalRequest);
+
+		JSONObject request = new JSONObject();
+		request.put(GlobalConstants.APPID, ConfigManager.getAdminAppId());
+		request.put(GlobalConstants.PASSWORD,BaseTestCase.dslUserPwd);
+		request.put(GlobalConstants.USER_NAME, BaseTestCase.dslUser);
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getAdminClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getAdminClientSecret());
 		actualrequest.put(GlobalConstants.REQUEST, request);

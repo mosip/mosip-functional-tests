@@ -91,6 +91,7 @@ public class BaseTestCase {
 	public String hotlistCookie = null;
 	public String keycloakCookie = null;
 	public String zonemapCookie = null;
+	public String dslUserCookie = null;
 	public String mobileAuthCookie = null;
 	public String autoTstUsrCkie = null;
 	public static String currentModule = GlobalConstants.MASTERDATA;
@@ -98,6 +99,8 @@ public class BaseTestCase {
 	public static List<String> listOfModules = null;
 	public static List<String> languageList = new ArrayList<>();
 	public static String languageCode = null;
+	public static String dslUser = null;
+	public static String dslUserPwd = null;
 	public static List<String> supportedIdType = new ArrayList<>();
 	public static KernelAuthentication kernelAuthLib = null;
 	public static Map<?, ?> queries;
