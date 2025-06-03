@@ -265,6 +265,10 @@ public class EmailableReport implements IReporter {
 	}
 	
 	private static String convertMillisToTime(long milliseconds) {
+		// Round to 1 second if duration is between 1 ms and 999 ms
+		if (milliseconds > 0 && milliseconds < 1000) {
+	        milliseconds = 1000;
+	    }
 		long seconds = (milliseconds / 1000) % 60;
 		long minutes = (milliseconds / (1000 * 60)) % 60;
 		long hours = (milliseconds / (1000 * 60 * 60)) % 24;
