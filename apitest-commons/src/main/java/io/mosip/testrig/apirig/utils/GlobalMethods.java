@@ -22,6 +22,7 @@ public class GlobalMethods {
 	private static final Logger logger = Logger.getLogger(GlobalMethods.class);
 
 	public static Map<Object, Object> serverFailuresMapS = Collections.synchronizedMap(new HashMap<Object, Object>());
+	public static Map<Object, Object> captchaStatusMap = Collections.synchronizedMap(new HashMap<Object, Object>());
 
 	public static Set<String> serverEndpoints = new HashSet<>();
 
@@ -211,6 +212,16 @@ public class GlobalMethods {
 		} else {
 			return serverFailuresMapS.toString();
 		}
+
+	}
+	
+	public static void reportCaptchaStatus(Object code, Object captchaMessage) {
+		captchaStatusMap.put(code, captchaMessage);
+	}
+	
+	public static boolean getCaptchaStatus() {
+		Object value = captchaStatusMap.get(GlobalConstants.CAPTCHA_ENABLED);
+	    return Boolean.parseBoolean(String.valueOf(value));
 
 	}
 

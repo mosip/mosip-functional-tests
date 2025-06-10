@@ -413,6 +413,15 @@ public class EmailableReport implements IReporter {
 				writer.print(Utils.escapeHtml("Server Errors " + "\n" + GlobalMethods.getServerErrors()));
 				writer.print("</pre></span>");
 				writer.print(GlobalConstants.TRTR);
+				
+				if (GlobalMethods.getCaptchaStatus()) {
+				    writer.print("<tr style=\"background-color: red;\"><th colspan=\"9\"><span class=\"not-bold\"><pre>");
+				} else {
+				    writer.print("<tr><th colspan=\"9\"><span class=\"not-bold\"><pre>");
+				}
+				writer.print(Utils.escapeHtml("Captcha Enabled" + "\n" + GlobalMethods.getCaptchaStatus()));
+				writer.print("</pre></span>");
+				writer.print(GlobalConstants.TRTR);
 
 				endPointDetailsReported = true;
 			}
