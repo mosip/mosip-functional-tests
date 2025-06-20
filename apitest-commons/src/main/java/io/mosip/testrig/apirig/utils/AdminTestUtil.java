@@ -3234,10 +3234,13 @@ public class AdminTestUtil extends BaseTestCase {
 
 			if (testType.equalsIgnoreCase("smoke")) {
 				testCases = testCases.entrySet().stream()
-						.filter(mapElement -> mapElement.getKey().toLowerCase().contains("smoke"))
-						.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, // Merge function (not used, just to satisfy Collectors.toMap)
-								LinkedHashMap::new // Preserve order
-						));
+		                .filter(mapElement -> mapElement.getKey().toLowerCase().contains("smoke"))
+		                .collect(Collectors.toMap(
+		                    Map.Entry::getKey,
+		                    Map.Entry::getValue,
+		                    (e1, e2) -> e1, // Merge function (not used, just to satisfy Collectors.toMap)
+		                    LinkedHashMap::new // Preserve order
+		                ));
 			}
 
 			for (String testCase : testCases.keySet()) {
