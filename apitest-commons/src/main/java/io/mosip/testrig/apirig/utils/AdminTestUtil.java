@@ -2196,7 +2196,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson, url);
+		GlobalMethods.reportRequest(headersMap.toString(), inputJson, url);
 		try {
 			response = RestClient.postWithPathParamsBodyHeadersAndCookie(url, pathParamsMap, inputJson,
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token, headersMap);
@@ -2555,7 +2555,10 @@ public class AdminTestUtil extends BaseTestCase {
 
 			// check if X-XSS-Protection is enabled or not
 			GlobalMethods.checkXSSProtectionHeader(response, url);
-			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
+			String contentType = response.getHeader("Content-Type");
+			if (contentType != null && !contentType.contains("application/pdf")) {
+				GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
+			}
 
 		} catch (SecurityXSSException se) {
 			String responseHeadersString = (response == null) ? "No response"
@@ -3232,13 +3235,7 @@ public class AdminTestUtil extends BaseTestCase {
 			if (testType.equalsIgnoreCase("smoke")) {
 				testCases = testCases.entrySet().stream()
 						.filter(mapElement -> mapElement.getKey().toLowerCase().contains("smoke"))
-						.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, // Merge
-																											// function
-																											// (not
-																											// used,
-																											// just to
-																											// satisfy
-																											// Collectors.toMap)
+						.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, // Merge function (not used, just to satisfy Collectors.toMap)
 								LinkedHashMap::new // Preserve order
 						));
 			}
