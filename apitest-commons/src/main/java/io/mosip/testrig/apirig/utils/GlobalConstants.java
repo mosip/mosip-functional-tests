@@ -245,4 +245,8 @@ public class GlobalConstants {
 	public static final String IDV_SLOT_ALLOTED_KEY = "IDV_SLOT_ALLOTTED=";
 	public static final String RESPONSE_CODE = "responseCode";
 	public static final String INVALID_STRING = "ksdfsddjhsd";
+	public static final String COOKIE = "cookie";
+	public static final String SESSION = "SESSION";
+	public static final String COOKIE_NAME = "cookieName";
+	public static final String ACCEPT_HEADER = "acceptHeader";
 }

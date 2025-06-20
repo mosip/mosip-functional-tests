@@ -42,29 +42,27 @@ public class RestClient {
 	private static RestAssuredConfig config = RestAssured.config().httpClient(HttpClientConfig.httpClientConfig());
 	protected static final Properties properties = AdminTestUtil
 			.getproperty(BaseTestCase.getGlobalResourcePath() + "/" + "config/application.properties");
-	
-	
+
 	public static Response getWithoutParams(String url, String cookie) {
-		
+
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse;
 		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a Get request to " + url);
-			
+
 			getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().log().all().when().get(url);
-			
+
 			responseLogger(getResponse);
 			RESTCLIENT_LOGGER.info("REST-ASSURED: the response Time is: " + getResponse.time());
 		} else {
 			getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().when().get(url);
 		}
 
-		
 		return getResponse;
 	}
-	
+
 	public static void responseLogger(Response response) {
 		int statusCode = response.statusCode();
 		if (statusCode < 200 || statusCode > 299) {
@@ -73,8 +71,7 @@ public class RestClient {
 			RESTCLIENT_LOGGER.info("status code: " + statusCode + "(success)");
 
 	}
-	
-	
+
 	public static Response postWithJson(String url, Object body, String contentHeader, String acceptHeader) {
 		Response postResponse;
 		url = GlobalMethods.addToServerEndPointMap(url);
@@ -94,8 +91,7 @@ public class RestClient {
 
 		return postResponse;
 	}
-	
-	
+
 	/**
 	 * REST ASSURED POST request method
 	 * 
@@ -111,11 +107,11 @@ public class RestClient {
 		Response postResponse;
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().header(authHeaderName, authHeaderValue)
 					.body(body).contentType(contentHeader).accept(acceptHeader).log().all().when().post(url).then()
 					.log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -123,10 +119,10 @@ public class RestClient {
 					.body(body).contentType(contentHeader).accept(acceptHeader).when().post(url).then().extract()
 					.response();
 		}
-		
+
 		return postResponse;
 	}
-	
+
 	public static Response post(String url, String requestBody) throws Exception {
 		Response response = null;
 		url = GlobalMethods.addToServerEndPointMap(url);
@@ -134,13 +130,13 @@ public class RestClient {
 			response = RestAssured.given().log().all().baseUri(url).contentType(MediaType.APPLICATION_JSON).and()
 					.body(requestBody).when().post().then().log().all().extract().response();
 		else
-			response = RestAssured.given().baseUri(url).contentType(MediaType.APPLICATION_JSON).and().body(requestBody).when()
-					.post().then().extract().response();
+			response = RestAssured.given().baseUri(url).contentType(MediaType.APPLICATION_JSON).and().body(requestBody)
+					.when().post().then().extract().response();
 
 		return response;
 
 	}
-	
+
 	public static String rawHttp(HttpRCapture httpRCapture, String jsonBody) throws IOException {
 
 		String result = "";
@@ -169,10 +165,10 @@ public class RestClient {
 		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader)
 					.accept(acceptHeader).log().all().when().post(url).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -191,11 +187,11 @@ public class RestClient {
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST:ASSURED:Sending post request with file to" + url);
 			RESTCLIENT_LOGGER.info("Name of the file is" + file.getName());
-			
+
 			postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().multiPart(fileKeyName, file)
 					.pathParams(pathParams).formParams(formParams).contentType(contentHeader).expect().when().post(url)
 					.then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info("REST-ASSURED: The response from request is: " + postResponse.asString());
 			RESTCLIENT_LOGGER.info("REST-ASSURED: the response time is: " + postResponse.time());
 		} else {
@@ -215,11 +211,11 @@ public class RestClient {
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST:ASSURED:Sending post request with file to" + url);
 			RESTCLIENT_LOGGER.info("Name of the file is" + file.getName());
-			
+
 			postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().multiPart(fileKeyName, file)
 					.pathParams(pathParams).contentType(contentHeader).expect().when().post(url).then().log().all()
 					.extract().response();
-			
+
 			RESTCLIENT_LOGGER.info("REST-ASSURED: The response from request is: " + postResponse.asString());
 			RESTCLIENT_LOGGER.info("REST-ASSURED: the response time is: " + postResponse.time());
 		} else {
@@ -241,11 +237,11 @@ public class RestClient {
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST:ASSURED:Sending post request with file to" + url);
 			RESTCLIENT_LOGGER.info("Name of the file is" + file.getName());
-			
+
 			postResponse = given().cookies(tokens).relaxedHTTPSValidation().multiPart(fileKeyName, file)
 					.pathParams(pathParams).contentType(contentHeader).expect().when().post(url).then().log().all()
 					.extract().response();
-			
+
 			RESTCLIENT_LOGGER.info("REST-ASSURED: The response from request is: " + postResponse.asString());
 			RESTCLIENT_LOGGER.info("REST-ASSURED: the response time is: " + postResponse.time());
 		} else {
@@ -264,13 +260,13 @@ public class RestClient {
 		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST:ASSURED:Sending post request with file to" + url);
-			
+
 			postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().contentType(contentHeader)
 					.multiPart("files", new File(filePath)).multiPart("tableName", formParams.get("tableName"))
 					.multiPart(GlobalConstants.OPERATION, formParams.get(GlobalConstants.OPERATION))
 					.multiPart("category", formParams.get("category")).expect().when().post(url).then().log().all()
 					.extract().response();
-			
+
 			RESTCLIENT_LOGGER.info("REST-ASSURED: The response from request is: " + postResponse.asString());
 			RESTCLIENT_LOGGER.info("REST-ASSURED: the response time is: " + postResponse.time());
 		} else {
@@ -297,9 +293,9 @@ public class RestClient {
 		Response postResponse;
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST:ASSURED:Sending post request with file to" + url);
-			
+
 			postResponse = requestSpecification.expect().when().post(url).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info("REST-ASSURED: The response from request is: " + postResponse.asString());
 			RESTCLIENT_LOGGER.info("REST-ASSURED: the response time is: " + postResponse.time());
 		} else {
@@ -322,12 +318,12 @@ public class RestClient {
 		Response postResponse;
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST:ASSURED:Sending post request with file to" + url);
-			
+
 			postResponse = requestSpecification.multiPart("tableName", formParams.get("tableName"))
 					.multiPart(GlobalConstants.OPERATION, formParams.get(GlobalConstants.OPERATION))
 					.multiPart("category", formParams.get("category")).expect().when().post(url).then().log().all()
 					.extract().response();
-			
+
 			RESTCLIENT_LOGGER.info("REST-ASSURED: The response from request is: " + postResponse.asString());
 			RESTCLIENT_LOGGER.info("REST-ASSURED: the response time is: " + postResponse.time());
 		} else {
@@ -354,10 +350,10 @@ public class RestClient {
 		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
-			
+
 			getResponse = given().config(config).relaxedHTTPSValidation().log().all().when().get(url + "?" + urls)
 					.then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		} else {
@@ -374,11 +370,11 @@ public class RestClient {
 		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request with query param " + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().body(body).queryParams(queryParams)
 					.contentType(contentHeader).accept(acceptHeader).log().all().when().post(url).then().log().all()
 					.extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -395,11 +391,11 @@ public class RestClient {
 		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request with query param " + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().body(body).queryParams(queryParams)
 					.contentType(contentHeader).accept(acceptHeader).log().all().when().post(url).then().log().all()
 					.extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -409,7 +405,7 @@ public class RestClient {
 
 		return postResponse;
 	}
-	
+
 	public static Response postRequestWithQueryParamsAndBodyForDecryption(String url, Object body,
 			Map<String, Object> queryParams, String contentHeader) {
 		Response postResponse;
@@ -418,8 +414,7 @@ public class RestClient {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request with query param " + url);
 
 			postResponse = given().config(config).relaxedHTTPSValidation().body(body).queryParams(queryParams)
-					.contentType(contentHeader).log().all().when().post(url).then().log().all()
-					.extract().response();
+					.contentType(contentHeader).log().all().when().post(url).then().log().all().extract().response();
 
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
@@ -437,11 +432,11 @@ public class RestClient {
 		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PUT request with query param " + url);
-			
+
 			puttResponse = given().config(config).relaxedHTTPSValidation().body(body).queryParams(queryParams)
 					.contentType(contentHeader).accept(acceptHeader).log().all().when().put(url).then().log().all()
 					.extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + puttResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + puttResponse.time());
 		} else {
@@ -466,10 +461,10 @@ public class RestClient {
 		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("RESSURED: Sending a GET request to " + url);
-			
+
 			getResponse = given().config(config).relaxedHTTPSValidation().log().all().when().get(url).then().log().all()
 					.extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		} else {
@@ -493,10 +488,10 @@ public class RestClient {
 		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().multiPart(file).contentType(contentHeader)
 					.accept(acceptHeader).log().all().when().post(url).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -521,11 +516,11 @@ public class RestClient {
 		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().body(content).contentType(contentHeader)
 					.accept(acceptHeader.toString()).log().all().when().post(url).then().log().all().extract()
 					.response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -550,10 +545,10 @@ public class RestClient {
 		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PATCH request to " + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader)
 					.accept(acceptHeader).log().all().when().patch(url).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -570,10 +565,10 @@ public class RestClient {
 		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader)
 					.accept(acceptHeader).log().all().when().post(url).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -590,11 +585,11 @@ public class RestClient {
 		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader)
 					.cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when().post(url).then().log()
 					.all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -614,11 +609,11 @@ public class RestClient {
 		Response postResponse;
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader)
 					.cookies(tokens).accept(acceptHeader).log().all().when().post(url).then().log().all().extract()
 					.response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -635,11 +630,11 @@ public class RestClient {
 		Response deleteResponse;
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a DELETE request to " + url);
-			
+
 			deleteResponse = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader)
 					.cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when().delete(url).then().log()
 					.all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + deleteResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + deleteResponse.time());
 		} else {
@@ -657,10 +652,10 @@ public class RestClient {
 		Response postResponse;
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader)
 					.accept(acceptHeader).log().all().when().post(url).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -677,11 +672,11 @@ public class RestClient {
 		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
-			
+
 			postResponse = given().headers(cookieName, "Bearer " + cookieValue).config(config)
 					.contentType(contentHeader).relaxedHTTPSValidation().body(body).accept(acceptHeader).log().all()
 					.when().post(url).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -699,11 +694,11 @@ public class RestClient {
 		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader)
 					.header(cookieName, cookieValue).accept(acceptHeader).log().all().when().post(url).then().log()
 					.all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -720,11 +715,11 @@ public class RestClient {
 		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
 					.contentType(contentHeader).cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when()
 					.post(url).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -742,22 +737,24 @@ public class RestClient {
 		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
-					.contentType(contentHeader).cookie(GlobalConstants.XSRF_TOKEN, properties.getProperty(GlobalConstants.XSRFTOKEN))
+					.contentType(contentHeader)
+					.cookie(GlobalConstants.XSRF_TOKEN, properties.getProperty(GlobalConstants.XSRFTOKEN))
 					.accept(acceptHeader).log().all().when().post(url).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
 			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
-					.contentType(contentHeader).cookie(GlobalConstants.XSRF_TOKEN, properties.getProperty(GlobalConstants.XSRFTOKEN))
+					.contentType(contentHeader)
+					.cookie(GlobalConstants.XSRF_TOKEN, properties.getProperty(GlobalConstants.XSRFTOKEN))
 					.accept(acceptHeader).when().post(url).then().extract().response();
 		}
 
 		return postResponse;
 	}
-	
+
 	public static Response postRequestWithMultipleHeadersAndCookies(String url, Object body, String contentHeader,
 			String acceptHeader, Map<String, String> cookieValue, Map<String, String> headers) {
 		Response postResponse;
@@ -768,7 +765,7 @@ public class RestClient {
 		} else if (cookieValue.containsKey(GlobalConstants.IDV_TRANSACTION_ID_KEY)) {
 			key = GlobalConstants.IDV_TRANSACTION_ID_KEY;
 		}
-		
+
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
 
@@ -782,7 +779,8 @@ public class RestClient {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
 			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
-					.contentType(contentHeader).cookie(GlobalConstants.XSRF_TOKEN, cookieValue.get(GlobalConstants.XSRF_TOKEN))
+					.contentType(contentHeader)
+					.cookie(GlobalConstants.XSRF_TOKEN, cookieValue.get(GlobalConstants.XSRF_TOKEN))
 					.cookie(key, cookieValue.get(key)).accept(acceptHeader).when().post(url).then().log().all()
 					.extract().response();
 		}
@@ -796,11 +794,11 @@ public class RestClient {
 		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
 					.contentType(contentHeader).accept(acceptHeader).log().all().when().post(url).then().log().all()
 					.extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -817,11 +815,11 @@ public class RestClient {
 		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PATCH request to " + url);
-			
+
 			patchResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
 					.contentType(contentHeader).cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when()
 					.patch(url).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + patchResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + patchResponse.time());
 		} else {
@@ -839,11 +837,11 @@ public class RestClient {
 		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().header(authHeaderName, authHeaderValue)
 					.body(body).contentType(contentHeader).cookie(cookieName, cookieValue).accept(acceptHeader).log()
 					.all().when().post(url).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -865,11 +863,11 @@ public class RestClient {
 		Response postResponse;
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().header(authHeaderName, authHeaderValue)
 					.body(body).contentType(contentHeader).cookies(tokens).accept(acceptHeader).log().all().when()
 					.post(url).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -887,11 +885,11 @@ public class RestClient {
 		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PATCH request to " + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().header(authHeaderName, authHeaderValue)
 					.body(body).contentType(contentHeader).cookie(cookieName, cookieValue).accept(acceptHeader).log()
 					.all().when().patch(url).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -909,10 +907,10 @@ public class RestClient {
 		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
-			
+
 			getResponse = given().config(config).relaxedHTTPSValidation().cookie(cookieName, cookieValue).log().all()
 					.when().get(url + "?" + urls).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		} else {
@@ -929,11 +927,11 @@ public class RestClient {
 		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PATCH request to " + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader)
 					.cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when().patch(url).then().log()
 					.all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -953,11 +951,11 @@ public class RestClient {
 		Response postResponse;
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PATCH request to " + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader)
 					.cookies(tokens).accept(acceptHeader).log().all().when().patch(url).then().log().all().extract()
 					.response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -974,11 +972,11 @@ public class RestClient {
 		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PATCH request to " + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader)
 					.cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when().patch(url).then().log()
 					.all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -995,10 +993,10 @@ public class RestClient {
 		url = GlobalMethods.addToServerEndPointMap(url);
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
-			
+
 			getResponse = given().config(config).relaxedHTTPSValidation().cookie(cookieName, cookieValue).log().all()
 					.when().get(url).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		} else {
@@ -1008,7 +1006,7 @@ public class RestClient {
 
 		return getResponse;
 	}
-	
+
 	public static Response getRequestWithMultipleCookie(String url, String contentHeader, String acceptHeader,
 			Map<String, String> cookieMap) {
 		Response getResponse;
@@ -1034,9 +1032,9 @@ public class RestClient {
 
 		return getResponse;
 	}
-	
-	public static Response getRequestWithMultipleCookieAndPathParam(String url, Map<String, String> body, String contentHeader, String acceptHeader,
-			Map<String, String> cookieMap) {
+
+	public static Response getRequestWithMultipleCookieAndPathParam(String url, Map<String, String> body,
+			String contentHeader, String acceptHeader, Map<String, String> cookieMap) {
 		Response getResponse;
 		url = GlobalMethods.addToServerEndPointMap(url);
 		String key = GlobalConstants.IDV_TRANSACTION_ID_KEY;
@@ -1069,10 +1067,10 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
-			
+
 			getResponse = given().config(config).relaxedHTTPSValidation().cookies(tokens).log().all().when().get(url)
 					.then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		} else {
@@ -1090,10 +1088,10 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
-			
+
 			getResponse = given().config(config).relaxedHTTPSValidation().headers(cookieName, "Bearer " + cookieValue)
 					.log().all().when().get(url).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		} else {
@@ -1111,11 +1109,11 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
-			
+
 			getResponse = given().headers(cookieName, "Bearer " + cookieValue).config(config).contentType(contentHeader)
 					.relaxedHTTPSValidation().accept(acceptHeader).log().all().when().get(url).then().log().all()
 					.extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		} else {
@@ -1133,11 +1131,11 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
-			
+
 			getResponse = given().config(config).relaxedHTTPSValidation()
 					.header(new Header("cookie", cookieName + cookieValue)).log().all().when().get(url).then().log()
 					.all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		} else {
@@ -1155,11 +1153,11 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().contentType(contentHeader)
 					.cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when().post(url).then().log()
 					.all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -1177,11 +1175,11 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PUT request to " + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().pathParams(body).contentType(contentHeader)
 					.cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when().put(url).then().log().all()
 					.extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -1199,11 +1197,11 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PATCH request to " + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().pathParams(body).contentType(contentHeader)
 					.cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when().patch(url).then().log()
 					.all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -1221,11 +1219,11 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PUT request to " + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().pathParams(pathParams).body(body)
 					.contentType(contentHeader).cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when()
 					.put(url).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -1244,11 +1242,11 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PUT request to " + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().pathParams(pathParams).body(body)
 					.contentType(contentHeader).headers(cookieName, "Bearer " + cookieValue).accept(acceptHeader).log()
 					.all().when().put(url).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -1267,11 +1265,11 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().pathParams(pathParams).body(body)
 					.contentType(contentHeader).cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when()
 					.post(url).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -1291,11 +1289,11 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).pathParams(pathParams)
 					.body(body).contentType(contentHeader).cookie(cookieName, cookieValue).accept(acceptHeader).log()
 					.all().when().post(url).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -1314,11 +1312,11 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().queryParams(queryParams).body(body)
 					.contentType(contentHeader).cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when()
 					.post(url).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -1337,11 +1335,11 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader)
 					.cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when().post(url).then().log()
 					.all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -1359,11 +1357,11 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PUT request to " + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().pathParams(pathParams).body(body)
 					.contentType(contentHeader).cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when()
 					.patch(url).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -1382,11 +1380,11 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().queryParams(body).contentType(contentHeader)
 					.cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when().post(url).then().log()
 					.all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -1404,11 +1402,11 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PUT request to " + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().queryParams(body).contentType(contentHeader)
 					.cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when().put(url).then().log().all()
 					.extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -1426,11 +1424,11 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PUT request to " + url);
-			
+
 			putResponse = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader)
 					.cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when().put(url).then().log().all()
 					.extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + putResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + putResponse.time());
 		} else {
@@ -1451,11 +1449,11 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PUT request to " + url);
-			
+
 			putResponse = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader)
 					.cookies(tokens).accept(acceptHeader).log().all().when().put(url).then().log().all().extract()
 					.response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + putResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + putResponse.time());
 		} else {
@@ -1473,11 +1471,11 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
-			
+
 			getResponse = given().config(config).relaxedHTTPSValidation().pathParams(body)
-					.cookie(cookieName, cookieValue).log().all().when().get(url).then().log().all().extract()
-					.response();
-			
+					.cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when().get(url).then().log().all()
+					.extract().response();
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		} else {
@@ -1498,10 +1496,10 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
-			
+
 			getResponse = given().config(config).relaxedHTTPSValidation().pathParams(body).cookies(tokens).log().all()
 					.when().get(url).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		} else {
@@ -1512,6 +1510,30 @@ public class RestClient {
 		return getResponse;
 	}
 
+	public static Response getRequestWithPathParamsHeadersBodyAndCookie(String url, Map<String, String> pathParams,
+			String body, String contentHeader, String acceptHeader, String cookieName, String cookieValue,
+			Map<String, String> headers) {
+		Response postResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
+
+		if (ConfigManager.IsDebugEnabled()) {
+			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
+
+			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).pathParams(pathParams)
+					.body(body).contentType(contentHeader).cookie(cookieName, cookieValue).accept(acceptHeader).log()
+					.all().when().get(url).then().log().all().extract().response();
+
+			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
+			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
+		} else {
+			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).pathParams(pathParams)
+					.body(body).contentType(contentHeader).cookie(cookieName, cookieValue).accept(acceptHeader).when()
+					.get(url).then().extract().response();
+		}
+
+		return postResponse;
+	}
+
 	public static Response getRequestWithCookieAndPathParmForKeyCloak(String url, Map<String, String> body,
 			String contentHeader, String acceptHeader, String cookieName, String cookieValue) {
 		Response getResponse;
@@ -1519,11 +1541,11 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
-			
+
 			getResponse = given().headers(cookieName, "Bearer " + cookieValue).config(config).contentType(contentHeader)
 					.relaxedHTTPSValidation().body(body).accept(acceptHeader).log().all().when().get(url).then().log()
 					.all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		} else {
@@ -1542,7 +1564,7 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
-			
+
 			pdf = given().config(config).relaxedHTTPSValidation().pathParams(body).contentType("application/pdf")
 					.accept("*/*").cookie(cookieName, cookieValue).log().all().when().get(url).then().extract()
 					.asByteArray();
@@ -1563,7 +1585,7 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
-			
+
 			pdf = given().config(config).relaxedHTTPSValidation().pathParams(body).contentType("application/pdf")
 					.accept("*/*").cookies(tokens).log().all().when().get(url).then().extract().asByteArray();
 		} else {
@@ -1581,7 +1603,7 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
-			
+
 			pdf = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader).accept("*/*")
 					.cookie(cookieName, cookieValue).log().all().when().get(url).then().extract().asByteArray();
 		} else {
@@ -1602,7 +1624,7 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
-			
+
 			pdf = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader).accept("*/*")
 					.cookies(tokens).log().all().when().get(url).then().extract().asByteArray();
 		} else {
@@ -1620,7 +1642,7 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
-			
+
 			pdf = given().config(config).relaxedHTTPSValidation().queryParams(body).contentType("application/pdf")
 					.accept("*/*").cookie(cookieName, cookieValue).log().all().when().get(url).then().extract()
 					.asByteArray();
@@ -1642,7 +1664,7 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
-			
+
 			pdf = given().config(config).relaxedHTTPSValidation().queryParams(body).contentType("application/pdf")
 					.accept("*/*").cookies(tokens).log().all().when().get(url).then().extract().asByteArray();
 		} else {
@@ -1660,11 +1682,11 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
-			
+
 			getResponse = given().config(config).relaxedHTTPSValidation().queryParams(body)
 					.cookie(cookieName, cookieValue).log().all().when().get(url).then().log().all().extract()
 					.response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		} else {
@@ -1682,10 +1704,10 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
-			
+
 			getResponse = given().config(config).relaxedHTTPSValidation().queryParams(body).log().all().when().get(url)
 					.then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		} else {
@@ -1695,25 +1717,27 @@ public class RestClient {
 
 		return getResponse;
 	}
-	
+
 	public static Response postRequestWithMultipleHeadersAndMultipleCookies(String url, Object body,
-			String contentHeader, String acceptHeader, String cookieName, String cookieValue, Map<String, String> headers) {
+			String contentHeader, String acceptHeader, String cookieName, String cookieValue,
+			Map<String, String> headers) {
 		Response postResponse;
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
 
 			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
-					.contentType(contentHeader).cookie(GlobalConstants.XSRF_TOKEN, properties.getProperty(GlobalConstants.XSRFTOKEN))
-					.cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when().post(url)
-					.then().log().all().extract().response();
+					.contentType(contentHeader)
+					.cookie(GlobalConstants.XSRF_TOKEN, properties.getProperty(GlobalConstants.XSRFTOKEN))
+					.cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when().post(url).then().log()
+					.all().extract().response();
 
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
 			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
-					.contentType(contentHeader).cookie(GlobalConstants.XSRF_TOKEN, properties.getProperty(GlobalConstants.XSRFTOKEN))
-					.cookie(cookieName, cookieValue).accept(acceptHeader).when().post(url).then().extract()
-					.response();
+					.contentType(contentHeader)
+					.cookie(GlobalConstants.XSRF_TOKEN, properties.getProperty(GlobalConstants.XSRFTOKEN))
+					.cookie(cookieName, cookieValue).accept(acceptHeader).when().post(url).then().extract().response();
 		}
 
 		return postResponse;
@@ -1726,11 +1750,11 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PATCH request to " + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().queryParams(body).contentType(contentHeader)
 					.cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when().patch(url).then().log()
 					.all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -1747,11 +1771,11 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a DELETE request to " + url);
-			
+
 			deleteResponse = given().config(config).relaxedHTTPSValidation().pathParams(body)
 					.cookie(cookieName, cookieValue).log().all().when().delete(url).then().log().all().extract()
 					.response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + deleteResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + deleteResponse.time());
 		} else {
@@ -1773,10 +1797,10 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a DELETE request to " + url);
-			
+
 			deleteResponse = given().config(config).relaxedHTTPSValidation().pathParams(body).cookies(tokens).log()
 					.all().when().delete(url).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + deleteResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + deleteResponse.time());
 		} else {
@@ -1793,10 +1817,10 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a DELETE request to " + url);
-			
+
 			deleteResponse = given().config(config).relaxedHTTPSValidation().log().all().when().delete(url).then().log()
 					.all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + deleteResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + deleteResponse.time());
 		} else {
@@ -1814,11 +1838,11 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a DELETE request to " + url);
-			
+
 			deleteResponse = given().headers(cookieName, "Bearer " + cookieValue).config(config)
 					.contentType(contentHeader).relaxedHTTPSValidation().body(body).accept(acceptHeader).log().all()
 					.when().delete(url).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + deleteResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + deleteResponse.time());
 		} else {
@@ -1837,11 +1861,11 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
-			
+
 			getResponse = given().config(config).relaxedHTTPSValidation().pathParams(body)
 					.cookie(cookieName, cookieValue).log().all().when().post(url).then().log().all().extract()
 					.response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		} else {
@@ -1863,10 +1887,10 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
-			
+
 			getResponse = given().config(config).relaxedHTTPSValidation().pathParams(body).cookies(tokens).log().all()
 					.when().post(url).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		} else {
@@ -1885,11 +1909,11 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request with query param " + url);
-			
+
 			postResponse = given().config(config).relaxedHTTPSValidation().body(body).queryParams(queryParams)
 					.cookie(cookieName, cookieValue).contentType(contentHeader).accept(acceptHeader).log().all().when()
 					.post(url).then().log().all().extract().response();
-			
+
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
@@ -1900,7 +1924,7 @@ public class RestClient {
 
 		return postResponse;
 	}
-	
+
 	public static Response getRequestWithMultipleHeadersAndCookies(String url, String contentHeader,
 			String acceptHeader, String cookieName, String cookieValue, Map<String, String> headers) {
 		Response postResponse;
@@ -1941,21 +1965,23 @@ public class RestClient {
 
 		return pdf;
 	}
-	
+
 	public static Response postRequestWithFormDataBody(String url, Map<String, String> formData) {
 		Response postResponse;
 		url = GlobalMethods.addToServerEndPointMap(url);
 
-		EncoderConfig encoderConfig = new EncoderConfig().encodeContentTypeAs("application/x-www-form-urlencoded; charset=utf-8",
-				io.restassured.http.ContentType.URLENC);
+		EncoderConfig encoderConfig = new EncoderConfig().encodeContentTypeAs(
+				"application/x-www-form-urlencoded; charset=utf-8", io.restassured.http.ContentType.URLENC);
 		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request to " + url);
 
 		if (ConfigManager.IsDebugEnabled()) {
-			postResponse = given().config(config.encoderConfig(encoderConfig)).relaxedHTTPSValidation().formParams(formData)
-					.contentType("application/x-www-form-urlencoded; charset=utf-8").log().all().when().post(url).then().extract().response();
+			postResponse = given().config(config.encoderConfig(encoderConfig)).relaxedHTTPSValidation()
+					.formParams(formData).contentType("application/x-www-form-urlencoded; charset=utf-8").log().all()
+					.when().post(url).then().extract().response();
 		} else {
-			postResponse = given().config(config.encoderConfig(encoderConfig)).relaxedHTTPSValidation().formParams(formData)
-					.contentType("application/x-www-form-urlencoded; charset=utf-8").when().post(url).then().extract().response();
+			postResponse = given().config(config.encoderConfig(encoderConfig)).relaxedHTTPSValidation()
+					.formParams(formData).contentType("application/x-www-form-urlencoded; charset=utf-8").when()
+					.post(url).then().extract().response();
 		}
 
 		return postResponse;

@@ -82,9 +82,9 @@ Ensure the following software is installed on the machine from where the automat
 - Add the following dependency in the POM of required project
     ```sh
     <dependency>
-      <groupId>io.mosip.testrig.apirig.apitest.commons</groupId>
+      <groupId>io.mosip.testrig.apitest.commons</groupId>
       <artifactId>apitest-commons</artifactId>
-      <version>1.3.2-SNAPSHOT</version>
+      <version>1.3.3</version>
     </dependency>
 
 ---
