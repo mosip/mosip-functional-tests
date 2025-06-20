@@ -34,7 +34,7 @@ To use this repository, ensure you have:
     <dependency>
       <groupId>io.mosip.testrig.apirig.apitest.commons</groupId>
       <artifactId>apitest-commons</artifactId>
-      <version>1.3.2-SNAPSHOT</version>
+      <version>1.3.3</version>
     </dependency>
 
 ---
