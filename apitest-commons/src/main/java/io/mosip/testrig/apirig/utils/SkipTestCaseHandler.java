@@ -42,4 +42,8 @@ public class SkipTestCaseHandler {
 	public static boolean isTestCaseInSkippedList(String strTestCase) {
 		return testcaseToBeSkippedList.contains(strTestCase);
 	}
+	
+	public static void clearTestCaseInSkippedList() {
+		testcaseToBeSkippedList.clear();
+	}
 }
