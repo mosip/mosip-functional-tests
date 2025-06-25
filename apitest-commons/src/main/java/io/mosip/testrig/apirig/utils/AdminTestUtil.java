@@ -220,14 +220,14 @@ public class AdminTestUtil extends BaseTestCase {
 		else
 			logger.setLevel(Level.ERROR);
 	}
-	
+
 	public static boolean isCaptchaEnabled() {
 		String temp = getValueFromEsignetActuator(GlobalConstants.CLASS_PATH_APPLICATION_PROPERTIES,
 				GlobalConstants.MOSIP_ESIGNET_CAPTCHA_REQUIRED);
-		if(temp.isEmpty()) {
+		if (temp.isEmpty()) {
 			return false;
 		}
-		return true;	
+		return true;
 	}
 
 	/**
@@ -3243,13 +3243,16 @@ public class AdminTestUtil extends BaseTestCase {
 
 			if (testType.equalsIgnoreCase("smoke")) {
 				testCases = testCases.entrySet().stream()
-		                .filter(mapElement -> mapElement.getKey().toLowerCase().contains("smoke"))
-		                .collect(Collectors.toMap(
-		                    Map.Entry::getKey,
-		                    Map.Entry::getValue,
-		                    (e1, e2) -> e1, // Merge function (not used, just to satisfy Collectors.toMap)
-		                    LinkedHashMap::new // Preserve order
-		                ));
+						.filter(mapElement -> mapElement.getKey().toLowerCase().contains("smoke"))
+						.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, // Merge
+																											// function
+																											// (not
+																											// used,
+																											// just to
+																											// satisfy
+																											// Collectors.toMap)
+								LinkedHashMap::new // Preserve order
+						));
 			}
 
 			for (String testCase : testCases.keySet()) {
@@ -5748,7 +5751,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 	}
-	
+
 	public static JSONArray getActiveProfilesFromActuator(String url, String key) {
 		JSONArray activeProfiles = null;
 
@@ -5770,11 +5773,11 @@ public class AdminTestUtil extends BaseTestCase {
 
 		return activeProfiles;
 	}
-	
-    public static JSONArray esignetActiveProfiles = null;
-	
+
+	public static JSONArray esignetActiveProfiles = null;
+
 	public static JSONArray esignetActuatorResponseArray = null;
-	
+
 	public static String getValueFromEsignetActuator(String section, String key) {
 		String value = null;
 
@@ -5840,7 +5843,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		return value;
 	}
-	
+
 	public static String getValueFromEsignetActuator(String section, String key, String url) {
 		// Combine the cache key to uniquely identify each request
 		String actuatorCacheKey = url + section + key;

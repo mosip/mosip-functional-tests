@@ -251,7 +251,7 @@ public class GlobalConstants {
 	public static final String SESSION = "SESSION";
 	public static final String COOKIE_NAME = "cookieName";
 	public static final String ACCEPT_HEADER = "acceptHeader";
-	
+
 	public static final String ACTIVE_PROFILES = "activeProfiles";
 
 	public static final String ESIGNET_ACTUATOR_ENDPOINT_KEYWORD = "actuatorEsignetEndpoint";
@@ -263,7 +263,7 @@ public class GlobalConstants {
 
 	public static final String SYSTEM_ENV_SECTION = "systemEnvironment";
 
-    public static final String CLASS_PATH_APPLICATION_PROPERTIES = "classpath:/application.properties";
+	public static final String CLASS_PATH_APPLICATION_PROPERTIES = "classpath:/application.properties";
 
 	public static final String MOSIP_ESIGNET_CAPTCHA_REQUIRED = "mosip.esignet.captcha.required";
 
