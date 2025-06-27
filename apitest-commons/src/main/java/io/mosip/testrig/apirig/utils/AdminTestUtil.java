@@ -221,6 +221,15 @@ public class AdminTestUtil extends BaseTestCase {
 			logger.setLevel(Level.ERROR);
 	}
 
+	public static boolean isCaptchaEnabled() {
+		String temp = getValueFromEsignetActuator(GlobalConstants.CLASS_PATH_APPLICATION_PROPERTIES,
+				GlobalConstants.MOSIP_ESIGNET_CAPTCHA_REQUIRED);
+		if (temp.isEmpty()) {
+			return false;
+		}
+		return true;
+	}
+
 	/**
 	 * This method will hit post request and return the response
 	 * 
@@ -5738,6 +5747,155 @@ public class AdminTestUtil extends BaseTestCase {
 			return "";
 		}
 
+	}
+
+	public static JSONArray getActiveProfilesFromActuator(String url, String key) {
+		JSONArray activeProfiles = null;
+
+		try {
+			Response response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+			JSONObject responseJson = new JSONObject(response.getBody().asString());
+
+			// If the key exists in the response, return the associated JSONArray
+			if (responseJson.has(key)) {
+				activeProfiles = responseJson.getJSONArray(key);
+			} else {
+				logger.warn("The key '" + key + "' was not found in the response.");
+			}
+
+		} catch (Exception e) {
+			// Handle other errors like network issues, etc.
+			logger.error("Error fetching active profiles from the actuator: " + e.getMessage());
+		}
+
+		return activeProfiles;
+	}
+
+	public static JSONArray esignetActiveProfiles = null;
+
+	public static JSONArray esignetActuatorResponseArray = null;
+
+	public static String getValueFromEsignetActuator(String section, String key) {
+		String value = null;
+
+		// Try to fetch profiles if not already fetched
+		if (esignetActiveProfiles == null || esignetActiveProfiles.length() == 0) {
+			esignetActiveProfiles = getActiveProfilesFromActuator(GlobalConstants.ESIGNET_ACTUATOR_URL,
+					GlobalConstants.ACTIVE_PROFILES);
+		}
+
+		// Normalize the key
+		String keyForEnvVariableSection = key.toUpperCase().replace("-", "_").replace(".", "_");
+
+		// Try fetching the value from different sections
+		value = getValueFromEsignetActuator(GlobalConstants.SYSTEM_ENV_SECTION, keyForEnvVariableSection,
+				GlobalConstants.ESIGNET_ACTUATOR_URL);
+
+		// Fallback to other sections if value is not found
+		if (value == null) {
+			value = getValueFromEsignetActuator(GlobalConstants.CLASS_PATH_APPLICATION_PROPERTIES, key,
+					GlobalConstants.ESIGNET_ACTUATOR_URL);
+		}
+
+		if (value == null) {
+			value = getValueFromEsignetActuator(GlobalConstants.CLASS_PATH_APPLICATION_DEFAULT_PROPERTIES, key,
+					GlobalConstants.ESIGNET_ACTUATOR_URL);
+		}
+
+		// Try profiles from active profiles if available
+		if (value == null) {
+			if (esignetActiveProfiles != null && esignetActiveProfiles.length() > 0) {
+				for (int i = 0; i < esignetActiveProfiles.length(); i++) {
+					String propertySection = esignetActiveProfiles.getString(i).equals(GlobalConstants.DEFAULT_STRING)
+							? GlobalConstants.MOSIP_CONFIG_APPLICATION_HYPHEN_STRING
+									+ esignetActiveProfiles.getString(i) + GlobalConstants.DOT_PROPERTIES_STRING
+							: esignetActiveProfiles.getString(i) + GlobalConstants.DOT_PROPERTIES_STRING;
+
+					value = getValueFromEsignetActuator(propertySection, key, GlobalConstants.ESIGNET_ACTUATOR_URL);
+
+					if (value != null) {
+						break;
+					}
+				}
+			} else {
+				logger.warn("No active profiles were retrieved.");
+			}
+		}
+
+		// Fallback to a default section
+		if (value == null) {
+			value = getValueFromEsignetActuator(ConfigManager.getEsignetActuatorPropertySection(), key,
+					GlobalConstants.ESIGNET_ACTUATOR_URL);
+		}
+
+		// Final fallback to the original section if no value was found
+		if (value == null) {
+			value = getValueFromEsignetActuator(section, key, GlobalConstants.ESIGNET_ACTUATOR_URL);
+		}
+
+		// Log the final result or an error message if not found
+		if (value == null) {
+			logger.error("Value not found for section: " + section + ", key: " + key);
+		}
+
+		return value;
+	}
+
+	public static String getValueFromEsignetActuator(String section, String key, String url) {
+		// Combine the cache key to uniquely identify each request
+		String actuatorCacheKey = url + section + key;
+
+		// Check if the value is already cached
+		String value = actuatorValueCache.get(actuatorCacheKey);
+		if (value != null) {
+			return value; // Return cached value if available
+		}
+
+		try {
+			// Fetch the actuator response array if it's not already populated
+			if (esignetActuatorResponseArray == null) {
+				Response response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+				JSONObject responseJson = new JSONObject(response.getBody().asString());
+				esignetActuatorResponseArray = responseJson.getJSONArray("propertySources");
+			}
+
+			// Loop through the "propertySources" to find the matching section and key
+			for (int i = 0, size = esignetActuatorResponseArray.length(); i < size; i++) {
+				JSONObject eachJson = esignetActuatorResponseArray.getJSONObject(i);
+				// Check if the section matches
+				if (eachJson.get("name").toString().contains(section)) {
+					// Get the value from the properties object
+					JSONObject properties = eachJson.getJSONObject(GlobalConstants.PROPERTIES);
+					if (properties.has(key)) {
+						value = properties.getJSONObject(key).get(GlobalConstants.VALUE).toString();
+						// Log the value if debug is enabled
+						if (ConfigManager.IsDebugEnabled()) {
+							logger.info("Actuator: " + url + " key: " + key + " value: " + value);
+						}
+						break; // Exit the loop once the value is found
+					} else {
+						logger.warn("Key '" + key + "' not found in section '" + section + "'.");
+					}
+				}
+			}
+
+			// Cache the retrieved value for future lookups
+			if (value != null) {
+				actuatorValueCache.put(actuatorCacheKey, value);
+			} else {
+				logger.warn("No value found for section: " + section + ", key: " + key);
+			}
+
+			return value;
+		} catch (JSONException e) {
+			// Handle JSON parsing exceptions separately
+			logger.error("JSON parsing error for section: " + section + ", key: " + key + " - " + e.getMessage());
+			return null; // Return null if JSON parsing fails
+		} catch (Exception e) {
+			// Catch any other exceptions (e.g., network issues)
+			logger.error("Error fetching value for section: " + section + ", key: " + key + " - " + e.getMessage());
+			return null; // Return null if any other exception occurs
+		}
 	}
 
 	public static JSONArray authActuatorResponseArray = null;
