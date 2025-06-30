@@ -37,15 +37,6 @@
 
     <repositories>
         <repository>
-            <id>ossrh</id>
-            <name>LegacyMavenSnapshot</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-            <layout>default</layout>
-            <snapshots>
-            <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
             <id>ossrh-central</id>
             <name>MavenCentralRepository</name>
             <url>https://central.sonatype.com/repository/maven-snapshots</url>
@@ -85,6 +76,7 @@
         <maven.sonar.plugin.version>3.7.0.1746</maven.sonar.plugin.version>
         <maven.jacoco.plugin.version>0.8.11</maven.jacoco.plugin.version>
         <jacoco.maven.plugin.version>0.8.11</jacoco.maven.plugin.version>
+        <central.publishing.maven.plugin.version>0.7.0</central.publishing.maven.plugin.version>
 
         <sonar.coverage.exclusions>
             io.mosip.testrig.apirig.apitest.commons/**
@@ -133,7 +125,7 @@
             <plugin>
 				<groupId>org.sonatype.central</groupId>
 				<artifactId>central-publishing-maven-plugin</artifactId>
-				<version>0.7.0</version>
+				<version>${central.publishing.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
 					<publishingServerId>ossrh</publishingServerId>

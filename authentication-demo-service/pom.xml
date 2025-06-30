@@ -40,19 +40,24 @@
 			<url>file:///${basedir}/lib</url>
 		</repository>
 
-       	<repository>
-	         <id>snapshots-repo</id>
-	         <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-	         <releases><enabled>false</enabled></releases>
-	         <snapshots><enabled>true</enabled></snapshots>
-       	</repository>
-
-        <repository>
-	         <id>releases-repo</id>
-	         <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-	         <releases><enabled>false</enabled></releases>
-	         <snapshots><enabled>false</enabled></snapshots>
-       	</repository>
+		<repository>
+			<id>ossrh-central</id>
+			<name>MavenCentralRepository</name>
+			<url>https://central.sonatype.com/repository/maven-snapshots</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>central</id>
+			<name>MavenCentral</name>
+			<layout>default</layout>
+			<url>https://repo1.maven.org/maven2</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
 
         <repository>
 	        <id>danubetech-maven-public</id>
@@ -71,6 +76,7 @@
 		<maven.javadoc.version>3.0.1</maven.javadoc.version>
 		<maven.swagger.version>2.9.2</maven.swagger.version>
 		<maven.jacoco.version>0.8.2</maven.jacoco.version>
+		<central.publishing.maven.plugin.version>0.7.0</central.publishing.maven.plugin.version>
 		
 		<kernel-websubclient-api.version>1.2.1-SNAPSHOT</kernel-websubclient-api.version>
 		
@@ -269,8 +275,29 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://central.sonatype.com/repository/maven-snapshots/</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://central.sonatype.com/api/v1/publisher</url>
+		</repository>
+	</distributionManagement>
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.sonatype.central</groupId>
+				<artifactId>central-publishing-maven-plugin</artifactId>
+				<version>${central.publishing.maven.plugin.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<publishingServerId>ossrh</publishingServerId>
+					<autoPublish>false</autoPublish>
+				</configuration>
+			</plugin>
+
 			<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -300,6 +327,9 @@
 							<goal>build-info</goal>
 							<goal>repackage</goal>
 						</goals>
+						<configuration>
+							<attach>false</attach>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
