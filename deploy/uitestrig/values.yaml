@@ -3,14 +3,14 @@ modules:
     enabled: false
     image:
       registry: docker.io
-      repository: mosipqa/uitest-admin
+      repository: mosipid/uitest-admin
       tag: 1.3.0-beta.1
       pullPolicy: Always
   - name: pmp-ui
     enabled: false
     image:
       registry: docker.io
-      repository: mosipqa/uitest-pmp
+      repository: mosipid/uitest-pmp
       tag: 1.2.2.1
       pullPolicy: Always
   - name: resident-ui
