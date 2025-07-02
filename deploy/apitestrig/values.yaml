@@ -21,7 +21,7 @@ modules:
     enabled: true
     image:
       repository: mosipid/apitest-pms
-      tag: v1.2.2.1
+      tag: 1.2.2.1
       pullPolicy: Always
   pms:
     enabled: true
@@ -57,13 +57,13 @@ modules:
     enabled: true
     image:
       repository: mosipid/apitest-injicertify
-      tag: v0.11.0
+      tag: 0.11.0
       pullPolicy: Always
   esignet-signup:
     enabled: true
     image:
       repository: mosipid/apitest-esignet-signup
-      tag: v1.1.1
+      tag: 1.1.1
       pullPolicy: Always      
   variables:
     push_reports_to_s3: "yes"
