@@ -598,7 +598,8 @@ public class EmailableReport implements IReporter {
 				Throwable throwable = result.getThrowable();
 				if (throwable != null) {
 					if (subSetString.contains(GlobalConstants.FEATURE_NOT_SUPPORTED)
-							|| subSetString.contains(GlobalConstants.SERVICE_NOT_DEPLOYED)) {
+							|| subSetString.contains(GlobalConstants.SERVICE_NOT_DEPLOYED)
+							|| subSetString.contains(GlobalConstants.NOT_IN_RUN_SCOPE)) {
 						if (containsAny(throwable.getMessage(), subSetString)) {
 							// Add only results which are skipped due to feature not supported
 							testResultsSubList.add(result);
@@ -615,7 +616,8 @@ public class EmailableReport implements IReporter {
 					} else { // Service not deployed. Hence skipping the testcase // skipped
 						if (!throwable.getMessage().contains(GlobalConstants.FEATURE_NOT_SUPPORTED)
 								&& !throwable.getMessage().contains(GlobalConstants.SERVICE_NOT_DEPLOYED)
-								&& !throwable.getMessage().contains(GlobalConstants.KNOWN_ISSUES)) {
+								&& !throwable.getMessage().contains(GlobalConstants.KNOWN_ISSUES)
+								&& !throwable.getMessage().contains(GlobalConstants.NOT_IN_RUN_SCOPE)) {
 							// Add only results which are not skipped due to feature not supported
 							testResultsSubList.add(result);
 						} else {
