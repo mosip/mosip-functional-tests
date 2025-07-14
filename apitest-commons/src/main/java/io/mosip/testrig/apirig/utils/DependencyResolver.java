@@ -7,24 +7,28 @@ import com.google.gson.reflect.TypeToken;
 
 
 public class DependencyResolver {
-
-	public static List<String> getDependencies(String testCaseIdsCsv, String jsonFilePath) throws Exception {
+	
+	private static Map<String, List<String>> dependecyData = null;
+	
+	public static void loadDependencies(String jsonFilePath) throws Exception {
 	    // Parse the JSON file into a Map
 	    Gson gson = new Gson();
-	    Map<String, List<String>> data = gson.fromJson(
+	    dependecyData = gson.fromJson(
 	        new FileReader(jsonFilePath),
 	        new TypeToken<Map<String, List<String>>>(){}.getType()
 	    );
+	}
 
+	public static List<String> getDependencies(String testCaseIdsCsv) {
 	    Set<String> result = new LinkedHashSet<>(); // to maintain order and avoid duplicates
-
-	    // Split comma-separated test case IDs
-	    String[] testCaseIds = testCaseIdsCsv.split(",");
-
-	    for (String testCaseId : testCaseIds) {
-	        resolveDependencies(testCaseId.trim(), data, result);
+	    if (dependecyData != null){
+		    // Split comma-separated test case IDs
+		    String[] testCaseIds = testCaseIdsCsv.split(",");
+	
+		    for (String testCaseId : testCaseIds) {
+		        resolveDependencies(testCaseId.trim(), dependecyData, result);
+		    }
 	    }
-
 	    return new ArrayList<>(result);
 	}
 
@@ -42,9 +46,11 @@ public class DependencyResolver {
 	public static void main(String[] args) throws Exception {
 		String pathToJson = "C:\\id-repository\\id-repository\\api-test\\testCaseInterDepndency.json";
 		
+		loadDependencies(pathToJson);
+		
 
-		System.out.println(getDependencies("TC_IDRepo_AuthInternalock_02,TC_IDRepo_AuthInternalock_01", pathToJson));
-		System.out.println(getDependencies("TC_IDRepo_AuthInternalock_01", pathToJson));
-		System.out.println(getDependencies("TC_IDRepo_AddIdentity_32", pathToJson));
+		System.out.println(getDependencies("TC_IDRepo_AuthInternalock_02,TC_IDRepo_AuthInternalock_01"));
+		System.out.println(getDependencies("TC_IDRepo_AuthInternalock_01"));
+		System.out.println(getDependencies("TC_IDRepo_AddIdentity_32"));
 	}
 }

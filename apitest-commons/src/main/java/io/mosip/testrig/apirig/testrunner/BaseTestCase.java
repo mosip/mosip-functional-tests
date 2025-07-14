@@ -316,7 +316,7 @@ public class BaseTestCase {
 	 * After the entire test suite clean up rest assured
 	 */
 	@AfterSuite(alwaysRun = true)
-	public void testTearDown(ITestContext ctx) {
+	public void testTearDown() {
 		RestAssured.reset();
 		copyReportAndLog();
 		logger.info("\n\n");
