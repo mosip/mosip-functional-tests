@@ -20,6 +20,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 import org.testng.IReporter;
@@ -36,6 +38,7 @@ import io.mosip.testrig.apirig.dto.TestCaseDTO;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 import io.mosip.testrig.apirig.utils.AdminTestUtil;
 import io.mosip.testrig.apirig.utils.ConfigManager;
+import io.mosip.testrig.apirig.utils.DependencyResolver;
 import io.mosip.testrig.apirig.utils.GlobalConstants;
 import io.mosip.testrig.apirig.utils.GlobalMethods;
 import io.mosip.testrig.apirig.utils.S3Adapter;
@@ -404,6 +407,20 @@ public class EmailableReport implements IReporter {
 				writer.print("</pre></td>");
 				writer.print(GlobalConstants.TRTR);
 				
+//				writer.print("<tr><th colspan=\"9\"><span class=\"not-bold\"><pre>");
+//				writer.print(Utils.escapeHtml(GlobalMethods.getTestCaseVariableMapping()));
+//				writer.print("</pre></span>");
+//				writer.print(GlobalConstants.TRTR);
+				
+//				writer.print("<div style=\"max-width:100%; overflow-x:auto;\"><pre style=\"white-space:pre-wrap; word-wrap:break-word;\">");
+//				writer.print(Utils.escapeHtml(GlobalMethods.getTestCaseVariableMapping()));
+//				writer.print("</pre></div>");
+				
+				writer.print("<tr><th colspan=\"9\"><span class=\"not-bold\"><pre style=\"white-space:pre-wrap; word-wrap:break-word;\">");
+				writer.print(Utils.escapeHtml(GlobalMethods.getTestCaseVariableMapping()));
+				writer.print("</pre></span>");
+				writer.print(GlobalConstants.TRTR);
+				
 				if (GlobalMethods.getServerErrors().equals("No server errors")) {
 					writer.print("<tr><th colspan=\"9\"><span class=\"not-bold\"><pre>");
 				} else {
@@ -584,7 +601,8 @@ public class EmailableReport implements IReporter {
 				Throwable throwable = result.getThrowable();
 				if (throwable != null) {
 					if (subSetString.contains(GlobalConstants.FEATURE_NOT_SUPPORTED)
-							|| subSetString.contains(GlobalConstants.SERVICE_NOT_DEPLOYED)) {
+							|| subSetString.contains(GlobalConstants.SERVICE_NOT_DEPLOYED)
+							|| subSetString.contains(GlobalConstants.NOT_IN_RUN_SCOPE)) {
 						if (containsAny(throwable.getMessage(), subSetString)) {
 							// Add only results which are skipped due to feature not supported
 							testResultsSubList.add(result);
@@ -601,7 +619,8 @@ public class EmailableReport implements IReporter {
 					} else { // Service not deployed. Hence skipping the testcase // skipped
 						if (!throwable.getMessage().contains(GlobalConstants.FEATURE_NOT_SUPPORTED)
 								&& !throwable.getMessage().contains(GlobalConstants.SERVICE_NOT_DEPLOYED)
-								&& !throwable.getMessage().contains(GlobalConstants.KNOWN_ISSUES)) {
+								&& !throwable.getMessage().contains(GlobalConstants.KNOWN_ISSUES)
+								&& !throwable.getMessage().contains(GlobalConstants.NOT_IN_RUN_SCOPE)) {
 							// Add only results which are not skipped due to feature not supported
 							testResultsSubList.add(result);
 						} else {
@@ -865,6 +884,35 @@ public class EmailableReport implements IReporter {
 
 		Object[] parameters = result.getParameters();
 		int parameterCount = (parameters == null ? 0 : parameters.length);
+		
+		if (parameterCount > 0) {
+			writer.print("<tr class=\"param\">");
+			for (int i = 1; i <= parameterCount; i++) {
+				writer.print("<th>Testcase Dependency");
+				writer.print("</th>");
+			}
+			writer.print("</tr><tr class=\"param stripe\">");
+			for (Object parameter : parameters) {
+				String testcaseDTO = Utils.toString(parameter).replace("TestCaseDTO(", "");
+				Pattern pattern = Pattern.compile("uniqueIdentifier\\s*=\\s*([^,\\s]+)");
+		        Matcher matcher = pattern.matcher(testcaseDTO);
+		        String uniqueIdentifier = null;
+
+		        if (matcher.find()) {
+		            uniqueIdentifier = matcher.group(1).replace(")", "");
+		            
+		            System.out.println("Unique Identifier: " + uniqueIdentifier);
+		        } else {
+		            System.out.println("uniqueIdentifier not found.");
+		        }
+				writer.print("<td>");
+				writer.print(Utils.escapeHtml(DependencyResolver.getDependencies(uniqueIdentifier).toString()));
+				writer.print("</td>");
+			}
+			writer.print(GlobalConstants.TR);
+		}
+		
+		
 		if (ConfigManager.IsDebugEnabled()) {
 			if (parameterCount > 0) {
 				writer.print("<tr class=\"param\">");

@@ -199,6 +199,53 @@ public class GlobalMethods {
 		}
 		return stringBuilder.toString();
 	}
+	
+	public static String getTestCaseVariableMapping() {
+		VariableDependencyMapper mapper = new VariableDependencyMapper(AdminTestUtil.generators,
+				AdminTestUtil.consumers);
+		StringBuilder sB = new StringBuilder();
+//		sB.append("Consumer to Generators Mapping:").append("\n");
+//
+//		mapper.getConsumerToGeneratorsMap().forEach((k, v) -> sB.append(k + " → " + v).append("\n"));
+//
+//		sB.append("\nImpact Summary:").append("\n");
+//		sB.append(mapper.getImpactSummary());
+//		
+//		
+//		sB.append("\nImpact Summary Based On Generator:").append("\n");
+//		sB.append(mapper.getImpactSummaryBasedOnGenerator());
+//		
+//		
+//		sB.append("\nImpact Summary Based On Consumer:").append("\n");
+//		sB.append(mapper.getImpactSummaryBasedOnConsumer());
+		
+		
+		if (!mapper.getConsumerToGeneratorsMap().isEmpty()) {
+	        sB.append("Consumer to Generators Mapping:\n");
+	        mapper.getConsumerToGeneratorsMap().forEach((k, v) -> sB.append(k + " → " + v).append("\n"));
+	    }
+
+	    String impactSummary = mapper.getImpactSummary();
+	    if (impactSummary != null && !impactSummary.trim().isEmpty()) {
+	        sB.append("\nImpact Summary:\n");
+	        sB.append(impactSummary);
+	    }
+
+	    String impactByGenerator = mapper.getImpactSummaryBasedOnGenerator();
+	    if (impactByGenerator != null && !impactByGenerator.trim().isEmpty()) {
+	        sB.append("\nImpact Summary Based On Generator:\n");
+	        sB.append(impactByGenerator);
+	    }
+
+	    String impactByConsumer = mapper.getImpactSummaryBasedOnConsumer();
+	    if (impactByConsumer != null && !impactByConsumer.trim().isEmpty()) {
+	        sB.append("\nImpact Summary Based On Consumer:\n");
+	        sB.append(impactByConsumer);
+	    }
+		
+		
+		return sB.toString();
+	}
 
 	public static void reportServerError(Object code, Object errorMessage) {
 		serverFailuresMapS.put(code, errorMessage);
