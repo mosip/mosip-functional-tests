@@ -216,6 +216,7 @@ public class GlobalConstants {
 	public static final String UIN_FEATURE_NOT_SUPPORTED = "UIN feature not supported. Hence skipping the testcase";
 	public static final String FEATURE_NOT_SUPPORTED_MESSAGE = "feature not supported. Hence skipping the testcase";
 	public static final String PRE_REQUISITE_FAILED_MESSAGE = "pre requisite failed. Hence skipping the testcase";
+	public static final String NOT_IN_RUN_SCOPE_MESSAGE = "Not in run scope. Hence skipping the testcase";
 	public static final String CAPTCHA_ENABLED_MESSAGE = "captcha feature not supported. Hence skipping the testcase";
 	public static final String CAPTCHA_ENABLED = "Captcha_enabled";
 	public static final String HANDLE_SCHEMA_NOT_DEPLOYED_MESSAGE = "ARRAY HANDLE Related Schema is not there Hence skipping the testcase";
@@ -223,6 +224,7 @@ public class GlobalConstants {
 	public static final String SERVICE_NOT_DEPLOYED_MESSAGE = "Service not deployed. Hence skipping the testcase";
 	public static final String FEATURE_NOT_SUPPORTED = "feature not supported";
 	public static final String SERVICE_NOT_DEPLOYED = "Service not deployed";
+	public static final String NOT_IN_RUN_SCOPE = "Not in run scope";
 	public static final String KNOWN_ISSUES_STRING = "known issue";
 	public static final String KNOWN_ISSUES = "known issue. Hence skipping the testcase";
 	public static final String IGNORED_SUBSET_STRING = "feature not supported;Service not deployed";
