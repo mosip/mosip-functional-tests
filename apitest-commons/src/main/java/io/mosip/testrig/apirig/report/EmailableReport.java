@@ -905,8 +905,11 @@ public class EmailableReport implements IReporter {
 		        } else {
 		            System.out.println("uniqueIdentifier not found.");
 		        }
+		        List<String> dependencies = DependencyResolver.getDependencies(uniqueIdentifier);
+		        dependencies.remove(uniqueIdentifier);
+
 				writer.print("<td>");
-				writer.print(Utils.escapeHtml(DependencyResolver.getDependencies(uniqueIdentifier).toString()));
+				writer.print(Utils.escapeHtml(dependencies.toString()));
 				writer.print("</td>");
 			}
 			writer.print(GlobalConstants.TR);

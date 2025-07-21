@@ -16,11 +16,11 @@ public class GetCredentialTableStackTrace extends DBManager {
 
     private static final Logger logger = Logger.getLogger(GetCredentialTableStackTrace.class);
 
-    private static final String HOST = "released.mosip.net";
-    private static final String IDREPO_DB_URL = "jdbc:postgresql://" + HOST + ":5433/mosip_idrepo";
-    private static final String CREDENTIAL_DB_URL = "jdbc:postgresql://" + HOST + ":5433/mosip_credential";
+    private static final String HOST = ConfigManager.getproperty("db-server");
+    private static final String IDREPO_DB_URL = "jdbc:postgresql://" + HOST + ":" + ConfigManager.getproperty("db-port") + "/mosip_idrepo";
+    private static final String CREDENTIAL_DB_URL = "jdbc:postgresql://" + HOST + ":" + ConfigManager.getproperty("db-port") + "/mosip_credential";
     private static final String DB_USER =  "postgres";
-    private static final String DB_PASSWORD =  "WfJpMctLjp";
+    private static final String DB_PASSWORD =  ConfigManager.getproperty("postgres-password");
 
     public static String getCredentialStatus(String uin) {
         return getRequestIdFromIdRepoCredentialRequestStatusTable(uin);
