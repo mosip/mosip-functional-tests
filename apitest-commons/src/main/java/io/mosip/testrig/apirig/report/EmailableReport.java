@@ -877,44 +877,64 @@ public class EmailableReport implements IReporter {
 		writer.print("<h3 id=\"m");
 		writer.print(scenarioIndex);
 		writer.print("\">");
-		writer.print(label);
-		writer.print("</h3>");
-
-		writer.print("<table class=\"result\">");
 
 		Object[] parameters = result.getParameters();
 		int parameterCount = (parameters == null ? 0 : parameters.length);
 		
+		String uniqueIdentifier = "UNKNOWN";
+		String description = "No description available.";
+
 		if (parameterCount > 0) {
-			writer.print("<tr class=\"param\">");
-			for (int i = 1; i <= parameterCount; i++) {
-				writer.print("<th>Testcase Dependency");
-				writer.print("</th>");
-			}
-			writer.print("</tr><tr class=\"param stripe\">");
-			for (Object parameter : parameters) {
-				String testcaseDTO = Utils.toString(parameter).replace("TestCaseDTO(", "");
-				Pattern pattern = Pattern.compile("uniqueIdentifier\\s*=\\s*([^,\\s]+)");
-		        Matcher matcher = pattern.matcher(testcaseDTO);
-		        String uniqueIdentifier = null;
+			// Extract TestCaseDTO string from first parameter
+			String paramStr = Utils.toString(parameters[0]).replace("TestCaseDTO(", "").replace(")", "");
 
-		        if (matcher.find()) {
-		            uniqueIdentifier = matcher.group(1).replace(")", "");
-		            
-		            System.out.println("Unique Identifier: " + uniqueIdentifier);
-		        } else {
-		            System.out.println("uniqueIdentifier not found.");
-		        }
-		        List<String> dependencies = DependencyResolver.getDependencies(uniqueIdentifier);
-		        dependencies.remove(uniqueIdentifier);
-
-				writer.print("<td>");
-				writer.print(Utils.escapeHtml(dependencies.toString()));
-				writer.print("</td>");
+			// Extract uniqueIdentifier (testcase number)
+			Pattern uidPattern = Pattern.compile("uniqueIdentifier\\s*=\\s*([^,]+)");
+			Matcher uidMatcher = uidPattern.matcher(paramStr);
+			if (uidMatcher.find()) {
+				uniqueIdentifier = uidMatcher.group(1).trim();
 			}
-			writer.print(GlobalConstants.TR);
+			// Extract description
+			Pattern descPattern = Pattern.compile("description\\s*=\\s*([^,]+)");
+			Matcher descMatcher = descPattern.matcher(paramStr);
+			if (descMatcher.find()) {
+				description = descMatcher.group(1).trim();
+			}
 		}
+
+		// Replace test case name with: TestcaseNumber # TestcaseDescription
+		writer.print(Utils.escapeHtml(uniqueIdentifier + " # " + description));
+		writer.print("</h3>");
+
+		writer.print("<table class=\"result\">");
 		
+		// Add Dependency
+		writer.print("<tr class=\"param\">");
+		for (int i = 1; i <= parameterCount; i++) {
+			writer.print("<th>Testcase Dependency</th>");
+		}
+		writer.print("</tr><tr class=\"param stripe\">");
+		for (Object parameter : parameters) {
+			String testcaseDTO = Utils.toString(parameter).replace("TestCaseDTO(", "");
+			Pattern pattern = Pattern.compile("uniqueIdentifier\\s*=\\s*([^,\\s]+)");
+	        Matcher matcher = pattern.matcher(testcaseDTO);
+	        uniqueIdentifier = null;
+
+	        if (matcher.find()) {
+	            uniqueIdentifier = matcher.group(1).replace(")", "");
+	            
+	            System.out.println("Unique Identifier: " + uniqueIdentifier);
+	        } else {
+	            System.out.println("uniqueIdentifier not found.");
+	        }
+	        List<String> dependencies = DependencyResolver.getDependencies(uniqueIdentifier);
+	        dependencies.remove(uniqueIdentifier);
+
+			writer.print("<td>");
+			writer.print(Utils.escapeHtml(dependencies.toString()));
+			writer.print("</td>");
+		}
+		writer.print(GlobalConstants.TR);
 		
 		if (ConfigManager.IsDebugEnabled()) {
 			if (parameterCount > 0) {
