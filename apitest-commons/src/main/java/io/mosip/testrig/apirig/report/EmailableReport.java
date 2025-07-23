@@ -883,6 +883,7 @@ public class EmailableReport implements IReporter {
 		
 		String uniqueIdentifier = "UNKNOWN";
 		String description = "No description available.";
+		String testCaseName = "UNKNOWN";
 
 		if (parameterCount > 0) {
 			// Extract TestCaseDTO string from first parameter
@@ -900,6 +901,12 @@ public class EmailableReport implements IReporter {
 			if (descMatcher.find()) {
 				description = descMatcher.group(1).trim();
 			}
+			// Extract testCaseName
+			Pattern namePattern = Pattern.compile("testCaseName\\s*=\\s*([^,\\)]+)");
+			Matcher nameMatcher = namePattern.matcher(paramStr);
+			if (nameMatcher.find()) {
+				testCaseName = nameMatcher.group(1).trim();
+			}
 		}
 
 		// Replace test case name with: TestcaseNumber # TestcaseDescription
@@ -907,6 +914,14 @@ public class EmailableReport implements IReporter {
 		writer.print("</h3>");
 
 		writer.print("<table class=\"result\">");
+		
+		// Add TestCaseName
+		writer.print("<tr class=\"param\">");
+		writer.print("<th>Testcase Name</th>");
+		writer.print("</tr><tr class=\"param stripe\">");
+		writer.print("<td>");
+		writer.print(Utils.escapeHtml(testCaseName));
+		writer.print("</td></tr>");
 		
 		// Add Dependency
 		writer.print("<tr class=\"param\">");
