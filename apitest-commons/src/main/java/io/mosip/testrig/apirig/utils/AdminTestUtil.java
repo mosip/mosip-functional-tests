@@ -145,6 +145,9 @@ public class AdminTestUtil extends BaseTestCase {
 	protected static String genertedUIN = null;
 	protected static String generatedRid = null;
 	protected static String policygroupId = null;
+	protected static String mispPolicyGroupId = null;
+	protected static String policyId = null;
+	protected static String mispPolicyId = null;
 	protected static String regDeviceResponse = null;
 	protected static String generatedVID = null;
 	public String RANDOM_ID = "mosip" + generateRandomNumberString(2) + Calendar.getInstance().getTimeInMillis();
@@ -170,9 +173,11 @@ public class AdminTestUtil extends BaseTestCase {
 	protected static String preregHbsForUpdate = null;
 	protected static String timeStamp = String.valueOf(Calendar.getInstance().getTimeInMillis());
 	protected static String policyGroup = "mosip auth policy group " + timeStamp;
+	protected static String mispPolicyGroup = "mosip misp policy group " + timeStamp;
 	protected static String policyGroupForUpdate = "mosip auth policy group update " + timeStamp;
 	protected static String policyGroup2 = "mosip auth policy group2 " + timeStamp;
 	protected static String policyName = "mosip auth policy " + timeStamp;
+	protected static String mispPolicyName = "mosip misp policy " + timeStamp;
 	protected static String policyName2 = "mosip auth policy2 " + timeStamp;
 	protected static String policyNameForUpdate = "mosip auth policy for update " + timeStamp;
 	protected static final String UPDATE_UIN_REQUEST = "config/Authorization/requestIdentity.json";
@@ -180,6 +185,7 @@ public class AdminTestUtil extends BaseTestCase {
 	protected static final String AUTH_POLICY_BODY = "config/AuthPolicy.json";
 	protected static final String AUTH_POLICY_REQUEST = "config/AuthPolicy3.json";
 	protected static final String AUTH_POLICY_REQUEST_ATTR = "config/AuthPolicy2.json";
+	protected static final String MISP_POLICY_REQUEST_ATTR = "config/mispPolicy.json";
 	protected static final String AUTH_POLICY_BODY1 = "config/AuthPolicy4.json";
 	protected static final String AUTH_POLICY_REQUEST1 = "config/AuthPolicy5.json";
 	protected static final String AUTH_POLICY_REQUEST_ATTR1 = "config/AuthPolicy6.json";
@@ -5624,15 +5630,29 @@ public class AdminTestUtil extends BaseTestCase {
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		String responseBody2 = response2.getBody().asString();
 		policygroupId = new org.json.JSONObject(responseBody2).getJSONObject(GlobalConstants.RESPONSE).getString("id");
+		
+		org.json.simple.JSONObject mispActualRequest = getRequestJson(POLICY_GROUP_REQUEST);
+
+		org.json.simple.JSONObject mispModifiedReq = new org.json.simple.JSONObject();
+		mispModifiedReq.put("desc", "desc mosip misp policy group");
+		mispModifiedReq.put("name", mispPolicyGroup);
+
+		mispActualRequest.put(GlobalConstants.REQUEST, mispModifiedReq);
+		mispActualRequest.put(GlobalConstants.REQUESTTIME, generateCurrentUTCTimeStamp());
+
+		Response mispResponse = RestClient.postRequestWithCookie(url2, mispActualRequest, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		String mispResponseBody = mispResponse.getBody().asString();
+		mispPolicyGroupId = new org.json.JSONObject(mispResponseBody).getJSONObject(GlobalConstants.RESPONSE).getString("id");
 
 		String urlForUpdate = ApplnURI + properties.getProperty("authPolicyUrl") + "/" + policygroupId;
 		Response responseForUpdate = RestClient.putRequestWithCookie(urlForUpdate, actualrequest,
 				MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 
 		String url = ApplnURI + properties.getProperty("authPolicyUrl");
-		org.json.simple.JSONObject actualrequestBody = getRequestJson(AUTH_POLICY_BODY);
-		org.json.simple.JSONObject actualrequest2 = getRequestJson(AUTH_POLICY_REQUEST);
-		org.json.simple.JSONObject actualrequestAttr = getRequestJson(AUTH_POLICY_REQUEST_ATTR);
+		org.json.simple.JSONObject actualrequestBody = getRequestJson(AUTH_POLICY_BODY); //config/AuthPolicy.json
+		org.json.simple.JSONObject actualrequest2 = getRequestJson(AUTH_POLICY_REQUEST); // config/AuthPolicy3.json
+		org.json.simple.JSONObject actualrequestAttr = getRequestJson(AUTH_POLICY_REQUEST_ATTR); // config/AuthPolicy2.json
 
 		actualrequest2.put("name", policyName);
 		actualrequest2.put("policyGroupName", policyGroup);
@@ -5643,7 +5663,25 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = RestClient.postRequestWithCookie(url, actualrequestBody, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		String responseBody = response.getBody().asString();
-		String policyId = new org.json.JSONObject(responseBody).getJSONObject(GlobalConstants.RESPONSE).getString("id");
+		policyId = new org.json.JSONObject(responseBody).getJSONObject(GlobalConstants.RESPONSE).getString("id");
+		
+		org.json.simple.JSONObject actualMispRequestBody = getRequestJson(AUTH_POLICY_BODY);
+		org.json.simple.JSONObject actualMispRequestJson = getRequestJson(AUTH_POLICY_REQUEST);
+		org.json.simple.JSONObject actualMispRequestAttr = getRequestJson(MISP_POLICY_REQUEST_ATTR);
+
+		actualMispRequestJson.put("name", mispPolicyName);
+		actualMispRequestJson.put("policyGroupName", mispPolicyGroup);
+		actualMispRequestJson.put("desc", "desc mosip misp policy");
+		actualMispRequestJson.put("policyType", "MISP");
+		
+		actualMispRequestJson.put("policies", actualMispRequestAttr);
+		actualMispRequestBody.put(GlobalConstants.REQUEST, actualMispRequestJson);
+		actualMispRequestBody.put(GlobalConstants.REQUESTTIME, generateCurrentUTCTimeStamp());
+
+		Response mispPolicyCreationResponse = RestClient.postRequestWithCookie(url, actualMispRequestBody, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		String mispPolicyCreationResponseBody = mispPolicyCreationResponse.getBody().asString();
+		mispPolicyId = new org.json.JSONObject(mispPolicyCreationResponseBody).getJSONObject(GlobalConstants.RESPONSE).getString("id");
 
 		String url3 = ApplnURI + properties.getProperty("publishPolicyurl");
 
@@ -5654,6 +5692,17 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 		Response response3 = RestClient.postRequestWithCookie(url3, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		
+		String publishPolicyURL = ApplnURI + properties.getProperty("publishPolicyurl");
+		
+		if (publishPolicyURL.contains("POLICYID")) {
+			publishPolicyURL = publishPolicyURL.replace("POLICYID", mispPolicyId);
+			publishPolicyURL = publishPolicyURL.replace("POLICYGROUPID", mispPolicyGroupId);
+
+		}
+
+		Response publishPolicyResponse = RestClient.postRequestWithCookie(publishPolicyURL, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 
 	}
