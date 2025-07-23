@@ -902,11 +902,7 @@ public class EmailableReport implements IReporter {
 				description = descMatcher.group(1).trim();
 			}
 			// Extract testCaseName
-			Pattern namePattern = Pattern.compile("testCaseName\\s*=\\s*([^,\\)]+)");
-			Matcher nameMatcher = namePattern.matcher(paramStr);
-			if (nameMatcher.find()) {
-				testCaseName = nameMatcher.group(1).trim();
-			}
+		    testCaseName = result.getMethod().getMethodName();
 		}
 
 		// Replace test case name with: TestcaseNumber # TestcaseDescription
