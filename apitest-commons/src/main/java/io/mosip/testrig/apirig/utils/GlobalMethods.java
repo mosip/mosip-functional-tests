@@ -204,21 +204,6 @@ public class GlobalMethods {
 		VariableDependencyMapper mapper = new VariableDependencyMapper(AdminTestUtil.generators,
 				AdminTestUtil.consumers);
 		StringBuilder sB = new StringBuilder();
-//		sB.append("Consumer to Generators Mapping:").append("\n");
-//
-//		mapper.getConsumerToGeneratorsMap().forEach((k, v) -> sB.append(k + " → " + v).append("\n"));
-//
-//		sB.append("\nImpact Summary:").append("\n");
-//		sB.append(mapper.getImpactSummary());
-//		
-//		
-//		sB.append("\nImpact Summary Based On Generator:").append("\n");
-//		sB.append(mapper.getImpactSummaryBasedOnGenerator());
-//		
-//		
-//		sB.append("\nImpact Summary Based On Consumer:").append("\n");
-//		sB.append(mapper.getImpactSummaryBasedOnConsumer());
-		
 		
 		if (!mapper.getConsumerToGeneratorsMap().isEmpty()) {
 	        sB.append("Consumer to Generators Mapping:\n");
