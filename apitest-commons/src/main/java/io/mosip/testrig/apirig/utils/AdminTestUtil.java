@@ -3507,10 +3507,11 @@ public class AdminTestUtil extends BaseTestCase {
 
 		return tempString;
 	}
+	public static String globalTestCaseName = null;
 
-	public static String replaceKeywordWithValue(String jsonString, String keyword, String value, String testCaseName) {
+	public static String replaceKeywordWithValue(String jsonString, String keyword, String value) {
 		if (value != null && !value.isEmpty()) {
-			RemoveFromTheConsumersMap(keyword, testCaseName);
+			RemoveFromTheConsumersMap(keyword, globalTestCaseName);
 			return jsonString.replace(keyword, value);
 		}
 		else {
@@ -3534,167 +3535,167 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 		if (jsonString.contains(GlobalConstants.MODULENAME)) {
-			jsonString = replaceKeywordWithValue(jsonString, GlobalConstants.MODULENAME, BaseTestCase.certsForModule, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, GlobalConstants.MODULENAME, BaseTestCase.certsForModule);
 		}
 		if (jsonString.contains(GlobalConstants.CERTSDIR)) {
 			jsonString = replaceKeywordWithValue(jsonString, GlobalConstants.CERTSDIR,
-					ConfigManager.getauthCertsPath(), testCaseName);
+					ConfigManager.getauthCertsPath());
 		}
 
 		if (jsonString.contains("$BIOVALUE$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$BIOVALUE$",
-					BiometricDataProvider.getFromBiometricMap("BioValue"), testCaseName);
+					BiometricDataProvider.getFromBiometricMap("BioValue"));
 		}
 		if (jsonString.contains("$BIOVALUEWITHOUTFACE$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$BIOVALUEWITHOUTFACE$",
-					BiometricDataProvider.getFromBiometricMap("BioValueWithoutFace"), testCaseName);
+					BiometricDataProvider.getFromBiometricMap("BioValueWithoutFace"));
 		}
 		if (jsonString.contains(GlobalConstants.TIMESTAMP))
-			jsonString = replaceKeywordWithValue(jsonString, GlobalConstants.TIMESTAMP, generateCurrentUTCTimeStamp(), testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, GlobalConstants.TIMESTAMP, generateCurrentUTCTimeStamp());
 		if (jsonString.contains("$EXPIRYTIMESTAMP$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$EXPIRYTIMESTAMP$", generateExpiryUTCTimeStamp(), testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$EXPIRYTIMESTAMP$", generateExpiryUTCTimeStamp());
 		if (jsonString.contains(GlobalConstants.TRANSACTION_ID))
-			jsonString = replaceKeywordWithValue(jsonString, GlobalConstants.TRANSACTION_ID, TRANSACTION_ID, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, GlobalConstants.TRANSACTION_ID, TRANSACTION_ID);
 		if (jsonString.contains("$DATESTAMP$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$DATESTAMP$", generateCurrentUTCDateStamp(), testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$DATESTAMP$", generateCurrentUTCDateStamp());
 		if (jsonString.contains("$TIMESTAMPL$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$TIMESTAMPL$", generateCurrentLocalTimeStamp(), testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$TIMESTAMPL$", generateCurrentLocalTimeStamp());
 		if (jsonString.contains("$RID$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$RID$", genRid, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$RID$", genRid);
 
 		if (jsonString.contains("$SCHEMAVERSION$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$SCHEMAVERSION$", generateLatestSchemaVersion(), testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$SCHEMAVERSION$", generateLatestSchemaVersion());
 
 		if (jsonString.contains("$NRCID$")) {
 			String nrcId = (100000 + new Random().nextInt(900000)) + "/" + (10 + new Random().nextInt(90)) + "/"
 					+ (1 + new Random().nextInt(9));
 
-			jsonString = replaceKeywordWithValue(jsonString, "$NRCID$", nrcId, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$NRCID$", nrcId);
 		}
 
 		if (jsonString.contains("$1STLANG$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$1STLANG$", BaseTestCase.languageList.get(0), testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$1STLANG$", BaseTestCase.languageList.get(0));
 		if (jsonString.contains("$2NDLANG$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$2NDLANG$", BaseTestCase.languageList.get(1), testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$2NDLANG$", BaseTestCase.languageList.get(1));
 
 		if (jsonString.contains(GlobalConstants.KEYCLOAK_USER_1))
 			jsonString = replaceKeywordWithValue(jsonString, GlobalConstants.KEYCLOAK_USER_1,
-					ConfigManager.getproperty("KEYCLOAKUSER1"), testCaseName);
+					ConfigManager.getproperty("KEYCLOAKUSER1"));
 		if (jsonString.contains(GlobalConstants.KEYCLOAK_USER_2))
 			jsonString = replaceKeywordWithValue(jsonString, GlobalConstants.KEYCLOAK_USER_2,
-					ConfigManager.getproperty("KEYCLOAKUSER2"),testCaseName);
+					ConfigManager.getproperty("KEYCLOAKUSER2"));
 		if (jsonString.contains("$RIDDEL$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$RIDDEL$", genRidDel, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$RIDDEL$", genRidDel);
 		if (jsonString.contains("$ID:")) {
 			jsonString = replaceIdWithAutogeneratedId(jsonString, "$ID:", testCaseName);
 		}
 		if (jsonString.contains("$POLICYGROUPDESC$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$POLICYGROUPDESC$", genPolicyGroupDesc, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$POLICYGROUPDESC$", genPolicyGroupDesc);
 
 		if (jsonString.contains("$POLICYGROUPNAME$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$POLICYGROUPNAME$", genPolicyGroupName, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$POLICYGROUPNAME$", genPolicyGroupName);
 
 		if (jsonString.contains("$POLICYDESC$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$POLICYDESC$", genPolicyDesc, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$POLICYDESC$", genPolicyDesc);
 
 		if (jsonString.contains("$POLICYDESC1$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$POLICYDESC1$", genPolicyDesc + "pol", testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$POLICYDESC1$", genPolicyDesc + "pol");
 
 		if (jsonString.contains("$POLICYNAME$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$POLICYNAME$", genPolicyName, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$POLICYNAME$", genPolicyName);
 
 		if (jsonString.contains("$POLICYNAMENONAUTH$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$POLICYNAMENONAUTH$", genPolicyNameNonAuth, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$POLICYNAMENONAUTH$", genPolicyNameNonAuth);
 
 		if (jsonString.contains("$POLICYNAME1$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$POLICYNAME1$", genPolicyName + "pold", testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$POLICYNAME1$", genPolicyName + "pold");
 
 		if (jsonString.contains(GlobalConstants.PARTNER_ID))
-			jsonString = replaceKeywordWithValue(jsonString, GlobalConstants.PARTNER_ID, genPartnerName, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, GlobalConstants.PARTNER_ID, genPartnerName);
 
 		if (jsonString.contains("$PARTNERIDFORDSL$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$PARTNERIDFORDSL$", genPartnerNameForDsl, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$PARTNERIDFORDSL$", genPartnerNameForDsl);
 
 		if (jsonString.contains("$PARTNERID1$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$PARTNERID1$", genPartnerName + "2n", testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$PARTNERID1$", genPartnerName + "2n");
 
 		if (jsonString.contains("$PARTNERIDNONAUTH$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$PARTNERIDNONAUTH$", genPartnerNameNonAuth, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$PARTNERIDNONAUTH$", genPartnerNameNonAuth);
 
 		if (jsonString.contains("$RANDOMPARTNEREMAIL$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMPARTNEREMAIL$",
-					"automation" + generateRandomNumberString(15) + GlobalConstants.MOSIP_NET, testCaseName);
+					"automation" + generateRandomNumberString(15) + GlobalConstants.MOSIP_NET);
 
 		if (jsonString.contains("$PARTNEREMAIL1$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$PARTNEREMAIL1$", "12d" + genPartnerEmail, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$PARTNEREMAIL1$", "12d" + genPartnerEmail);
 
 		if (jsonString.contains("$PARTNEREMAIL$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$PARTNEREMAIL$", genPartnerEmail, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$PARTNEREMAIL$", genPartnerEmail);
 
 		if (jsonString.contains("$PARTNEREMAILFORDSL$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$PARTNEREMAILFORDSL$", genPartnerEmailForDsl, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$PARTNEREMAILFORDSL$", genPartnerEmailForDsl);
 
 		if (jsonString.contains("$PARTNEREMAILNONAUTH$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$PARTNEREMAILNONAUTH$", genPartnerEmailNonAuth, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$PARTNEREMAILNONAUTH$", genPartnerEmailNonAuth);
 
 		if (jsonString.contains("$MISPPOLICYGROUPDESC$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$MISPPOLICYGROUPDESC$", genMispPolicyGroupDesc, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$MISPPOLICYGROUPDESC$", genMispPolicyGroupDesc);
 
 		if (jsonString.contains("$MISPPOLICYGROUPNAME$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$MISPPOLICYGROUPNAME$", genMispPolicyGroupName, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$MISPPOLICYGROUPNAME$", genMispPolicyGroupName);
 
 		if (jsonString.contains("$MISPPOLICYDESC$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$MISPPOLICYDESC$", genMispPolicyDesc, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$MISPPOLICYDESC$", genMispPolicyDesc);
 
 		if (jsonString.contains("$MISPPOLICYNAME$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$MISPPOLICYNAME$", genMispPolicyName, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$MISPPOLICYNAME$", genMispPolicyName);
 
 		if (jsonString.contains("$RANDOMPOLICYNAME$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMPOLICYNAME$",
-					generateRandomAlphaNumericString(15), testCaseName);
+					generateRandomAlphaNumericString(15));
 
 		if (jsonString.contains("$RANDOMPARTNERID$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMPARTNERID$", generateRandomAlphaNumericString(15), testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMPARTNERID$", generateRandomAlphaNumericString(15));
 
 		if (jsonString.contains("$MISPPARTNERID$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$MISPPARTNERID$", genMispPartnerName, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$MISPPARTNERID$", genMispPartnerName);
 
 		if (jsonString.contains("$MISPPARTNEREMAIL$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$MISPPARTNEREMAIL$", genMispPartnerEmail, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$MISPPARTNEREMAIL$", genMispPartnerEmail);
 
 		if (jsonString.contains("$ZONE_CODE$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$ZONE_CODE$", ZonelocationCode, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$ZONE_CODE$", ZonelocationCode);
 		if (jsonString.contains("$USERID$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$USERID$",
-					BaseTestCase.currentModule + ConfigManager.getproperty("admin_userName"), testCaseName);
+					BaseTestCase.currentModule + ConfigManager.getproperty("admin_userName"));
 
 		if (jsonString.contains("$LEAF_ZONE_CODE$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$LEAF_ZONE_CODE$", leafZoneCode, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$LEAF_ZONE_CODE$", leafZoneCode);
 
 		if (jsonString.contains("$LOCATIONCODE$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$LOCATIONCODE$", locationCode, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$LOCATIONCODE$", locationCode);
 
 		// Need to handle int replacement
 		if (jsonString.contains("$HIERARCHYLEVEL$")) {
 			getLocationData();
-			jsonString = replaceKeywordWithValue(jsonString, "$HIERARCHYLEVEL$", String.valueOf(hierarchyLevel), testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$HIERARCHYLEVEL$", String.valueOf(hierarchyLevel));
 		}
 
 		if (jsonString.contains("$HIERARCHYNAME$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$HIERARCHYNAME$", hierarchyName, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$HIERARCHYNAME$", hierarchyName);
 		}
 
 		if (jsonString.contains("$PARENTLOCCODE$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$PARENTLOCCODE$", parentLocCode, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$PARENTLOCCODE$", parentLocCode);
 		}
 
 		if (jsonString.contains("$LOCATIONNAME$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$LOCATIONNAME$", locationName, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$LOCATIONNAME$", locationName);
 		}
 
 		if (jsonString.contains("$HIERARCHYLEVELWITHLOCATIONCODE$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$HIERARCHYLEVELWITHLOCATIONCODE$",
-					String.valueOf(hierarchyLevelWithLocationCode), testCaseName);
+					String.valueOf(hierarchyLevelWithLocationCode));
 		}
 
 		if (jsonString.contains("$CACERT$")) {
@@ -3714,7 +3715,7 @@ public class AdminTestUtil extends BaseTestCase {
 				caFtmCertValue = caFtmCertValue.replaceAll("\n", "\\\\n");
 			}
 
-			jsonString = replaceKeywordWithValue(jsonString, "$CACERT$", caFtmCertValue, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$CACERT$", caFtmCertValue);
 
 		}
 
@@ -3734,7 +3735,7 @@ public class AdminTestUtil extends BaseTestCase {
 				caFtmCertValue = caFtmCertValue.replaceAll("\n", "\\\\n");
 			}
 
-			jsonString = replaceKeywordWithValue(jsonString, "$MISPCACERT$", caFtmCertValue, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$MISPCACERT$", caFtmCertValue);
 
 		}
 
@@ -3756,7 +3757,7 @@ public class AdminTestUtil extends BaseTestCase {
 				interFtmCertValue = interFtmCertValue.replaceAll("\n", "\\\\n");
 			}
 
-			jsonString = replaceKeywordWithValue(jsonString, "$INTERCERT$", interFtmCertValue, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$INTERCERT$", interFtmCertValue);
 
 		}
 
@@ -3776,7 +3777,7 @@ public class AdminTestUtil extends BaseTestCase {
 				interFtmCertValue = interFtmCertValue.replaceAll("\n", "\\\\n");
 			}
 
-			jsonString = replaceKeywordWithValue(jsonString, "$MISPINTERCERT$", interFtmCertValue, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$MISPINTERCERT$", interFtmCertValue);
 
 		}
 
@@ -3796,7 +3797,7 @@ public class AdminTestUtil extends BaseTestCase {
 			} else {
 				partnerFtmCertValue = partnerFtmCertValue.replaceAll("\n", "\\\\r\\\\n");
 			}
-			jsonString = replaceKeywordWithValue(jsonString, "$PARTNERCERT$", partnerFtmCertValue, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$PARTNERCERT$", partnerFtmCertValue);
 
 		}
 
@@ -3814,77 +3815,77 @@ public class AdminTestUtil extends BaseTestCase {
 			} else {
 				partnerFtmCertValue = partnerFtmCertValue.replaceAll("\n", "\\\\r\\\\n");
 			}
-			jsonString = replaceKeywordWithValue(jsonString, "$MISPPARTNERCERT$", partnerFtmCertValue, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$MISPPARTNERCERT$", partnerFtmCertValue);
 
 		}
 
 		if (jsonString.contains("$PUBLICKEY$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$PUBLICKEY$", generatePulicKey(), testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$PUBLICKEY$", generatePulicKey());
 			publickey = JsonPrecondtion.getJsonValueFromJson(jsonString, "request.publicKey");
 		}
 		if (jsonString.contains("$BLOCKEDPARTNERID$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$BLOCKEDPARTNERID$", getPartnerId(), testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$BLOCKEDPARTNERID$", getPartnerId());
 		}
 		if (jsonString.contains("$APIKEY$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$APIKEY$", getAPIKey(), testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$APIKEY$", getAPIKey());
 		}
 
 		if (jsonString.contains("$MISPLICKEY$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$MISPLICKEY$", getMISPLICKey(), testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$MISPLICKEY$", getMISPLICKey());
 		}
 
 		if (jsonString.contains("$IDENTITYJSON$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$IDENTITYJSON$", generateIdentityJson(testCaseName), testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$IDENTITYJSON$", generateIdentityJson(testCaseName));
 		}
 		if (jsonString.contains("$RANDOMID$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMID$V2S3", RANDOM_ID_V2_S3, testCaseName);
-			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMID$V2S2", RANDOM_ID_V2_S2, testCaseName);
-			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMID$V2", RANDOM_ID_V2, testCaseName);
-			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMID$2", RANDOM_ID_2, testCaseName);
-			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMID$", RANDOM_ID, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMID$V2S3", RANDOM_ID_V2_S3);
+			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMID$V2S2", RANDOM_ID_V2_S2);
+			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMID$V2", RANDOM_ID_V2);
+			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMID$2", RANDOM_ID_2);
+			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMID$", RANDOM_ID);
 		}
 
 		if (jsonString.contains("$RANDOMUUID$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMUUID$", UUID.randomUUID().toString(), testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMUUID$", UUID.randomUUID().toString());
 		}
 		if (jsonString.contains("$BASEURI$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$BASEURI$", ApplnURI, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$BASEURI$", ApplnURI);
 		}
 
 		if (jsonString.contains("$DOB$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$DOB$",
-					getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES, "mosip.date-of-birth.pattern"), testCaseName);
+					getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES, "mosip.date-of-birth.pattern"));
 		}
 		if (jsonString.contains("$BASE64URI$")) {
 			String redirectUri = ApplnURI.replace(GlobalConstants.API_INTERNAL, GlobalConstants.RESIDENT)
 					+ ConfigManager.getproperty("currentUserURI");
-			jsonString = replaceKeywordWithValue(jsonString, "$BASE64URI$", encodeBase64(redirectUri), testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$BASE64URI$", encodeBase64(redirectUri));
 		}
 		if (jsonString.contains("$JWKKEY$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$JWKKEY$", generateJWKPublicKey(), testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$JWKKEY$", generateJWKPublicKey());
 		}
 
 		if (jsonString.contains("$UINCODECHALLENGEPOS1$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$UINCODECHALLENGEPOS1$",
-					GlobalMethods.sha256(UIN_CODE_VERIFIER_POS_1), testCaseName);
+					GlobalMethods.sha256(UIN_CODE_VERIFIER_POS_1));
 		}
 
 		if (jsonString.contains("$UINCODEVERIFIERPOS1$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$UINCODEVERIFIERPOS1$", UIN_CODE_VERIFIER_POS_1, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$UINCODEVERIFIERPOS1$", UIN_CODE_VERIFIER_POS_1);
 		}
 
 		if (jsonString.contains("$CODECHALLENGE$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$CODECHALLENGE$",
-					properties.getProperty("codeChallenge"), testCaseName);
+					properties.getProperty("codeChallenge"));
 		}
 
 		if (jsonString.contains("$CODEVERIFIER$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$CODEVERIFIER$", properties.getProperty("codeVerifier"), testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$CODEVERIFIER$", properties.getProperty("codeVerifier"));
 		}
 
 		if (jsonString.contains("$VCICONTEXTURL$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$VCICONTEXTURL$",
-					properties.getProperty("vciContextURL"), testCaseName);
+					properties.getProperty("vciContextURL"));
 		}
 
 		if (jsonString.contains("$NAMEFORUPDATEUIN$")) {
@@ -3896,7 +3897,7 @@ public class AdminTestUtil extends BaseTestCase {
 			} else {
 				nameResult = name.replaceAll("\\[\"|\"\\]", "");
 			}
-			jsonString = replaceKeywordWithValue(jsonString, "$NAMEFORUPDATEUIN$", nameResult, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$NAMEFORUPDATEUIN$", nameResult);
 		}
 
 		if (jsonString.contains("$UPDATEDEMAILATTR$")) {
@@ -3904,7 +3905,7 @@ public class AdminTestUtil extends BaseTestCase {
 			String email = getValueFromAuthActuator("json-property", "emailId");
 			String emailResult = email.replaceAll("\\[\"|\"\\]", "");
 
-			jsonString = replaceKeywordWithValue(jsonString, "$UPDATEDEMAILATTR$", emailResult, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, "$UPDATEDEMAILATTR$", emailResult);
 		}
 
 		if (jsonString.contains(GlobalConstants.IDT_TOKEN)) {
@@ -3919,12 +3920,12 @@ public class AdminTestUtil extends BaseTestCase {
 
 			if (jsonString.contains("$IDTINDIVIUALID$")) {
 				String individualId = getSubjectFromJwt(idtToken);
-				jsonString = replaceKeywordWithValue(jsonString, "$IDTINDIVIUALID$", individualId, testCaseName);
+				jsonString = replaceKeywordWithValue(jsonString, "$IDTINDIVIUALID$", individualId);
 			}
 
 			if (jsonString.contains("$IDTCHALLENGE$")) {
 				String challenge = encodeBase64(encodingToken.toString());
-				jsonString = replaceKeywordWithValue(jsonString, "$IDTCHALLENGE$", challenge, testCaseName);
+				jsonString = replaceKeywordWithValue(jsonString, "$IDTCHALLENGE$", challenge);
 			}
 
 		}
@@ -4134,7 +4135,7 @@ public class AdminTestUtil extends BaseTestCase {
 				time += " PM";
 			else
 				time += " AM";
-			jsonString = replaceKeywordWithValue(jsonString, keyToReplace, time, testCaseName);
+			jsonString = replaceKeywordWithValue(jsonString, keyToReplace, time);
 		} else {
 			if (keyForIdProperty.equals("UploadPartnerCert_Misp_Valid_Smoke_sid_signedCertificateData")) {
 				String certData = getFromCache(keyForIdProperty, testCaseName);
@@ -4144,10 +4145,10 @@ public class AdminTestUtil extends BaseTestCase {
 					certData = certData.replaceAll("\n", "\\\\n");
 
 				}
-				jsonString = replaceKeywordWithValue(jsonString, keyToReplace, certData, testCaseName);
+				jsonString = replaceKeywordWithValue(jsonString, keyToReplace, certData);
 			} else {
 				jsonString = replaceKeywordWithValue(jsonString, keyToReplace,
-						getFromCache(keyForIdProperty, testCaseName), testCaseName);
+						getFromCache(keyForIdProperty, testCaseName));
 			}
 		}
 		if (jsonString.contains("\u200B")) {
