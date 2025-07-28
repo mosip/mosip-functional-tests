@@ -203,33 +203,33 @@ public class GlobalMethods {
 	public static String getTestCaseVariableMapping() {
 		VariableDependencyMapper mapper = new VariableDependencyMapper(AdminTestUtil.generators,
 				AdminTestUtil.consumers);
-		StringBuilder sB = new StringBuilder();
+		StringBuilder variableMappingBuilder = new StringBuilder();
 		
 		if (!mapper.getConsumerToGeneratorsMap().isEmpty()) {
-	        sB.append("Consumer to Generators Mapping:\n");
-	        mapper.getConsumerToGeneratorsMap().forEach((k, v) -> sB.append(k + " → " + v).append("\n"));
+			variableMappingBuilder.append("Consumer to Generators Mapping:\n");
+	        mapper.getConsumerToGeneratorsMap().forEach((k, v) -> variableMappingBuilder.append(k + " → " + v).append("\n"));
 	    }
 
 	    String impactSummary = mapper.getImpactSummary();
 	    if (impactSummary != null && !impactSummary.trim().isEmpty()) {
-	        sB.append("\nImpact Summary:\n");
-	        sB.append(impactSummary);
+	    	variableMappingBuilder.append("\nImpact Summary:\n");
+	    	variableMappingBuilder.append(impactSummary);
 	    }
 
 	    String impactByGenerator = mapper.getImpactSummaryBasedOnGenerator();
 	    if (impactByGenerator != null && !impactByGenerator.trim().isEmpty()) {
-	        sB.append("\nImpact Summary Based On Generator:\n");
-	        sB.append(impactByGenerator);
+	    	variableMappingBuilder.append("\nImpact Summary Based On Generator:\n");
+	    	variableMappingBuilder.append(impactByGenerator);
 	    }
 
 	    String impactByConsumer = mapper.getImpactSummaryBasedOnConsumer();
 	    if (impactByConsumer != null && !impactByConsumer.trim().isEmpty()) {
-	        sB.append("\nImpact Summary Based On Consumer:\n");
-	        sB.append(impactByConsumer);
+	    	variableMappingBuilder.append("\nImpact Summary Based On Consumer:\n");
+	    	variableMappingBuilder.append(impactByConsumer);
 	    }
 		
 		
-		return sB.toString();
+		return variableMappingBuilder.toString();
 	}
 
 	public static void reportServerError(Object code, Object errorMessage) {
