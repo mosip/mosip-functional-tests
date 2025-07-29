@@ -39,7 +39,6 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 		KeycloakUserManager.createKeyCloakUsers(partnerId, emailId, role);
 		String mappingKey = submittingPartnerAndGetMappingKey();
 		approvePartnerAPIKey(mappingKey);
-		
 		return createAPIKey();
 		
 	}
