@@ -407,10 +407,13 @@ public class EmailableReport implements IReporter {
 				writer.print("</pre></td>");
 				writer.print(GlobalConstants.TRTR);
 				
-				writer.print("<tr><th colspan=\"9\"><span class=\"not-bold\"><pre style=\"white-space:pre-wrap; word-wrap:break-word;\">");
-				writer.print(Utils.escapeHtml(GlobalMethods.getTestCaseVariableMapping()));
-				writer.print("</pre></span>");
-				writer.print(GlobalConstants.TRTR);
+				/*
+				 * writer.
+				 * print("<tr><th colspan=\"9\"><span class=\"not-bold\"><pre style=\"white-space:pre-wrap; word-wrap:break-word;\">"
+				 * );
+				 * writer.print(Utils.escapeHtml(GlobalMethods.getTestCaseVariableMapping()));
+				 * writer.print("</pre></span>"); writer.print(GlobalConstants.TRTR);
+				 */
 				
 				if (GlobalMethods.getServerErrors().equals("No server errors")) {
 					writer.print("<tr><th colspan=\"9\"><span class=\"not-bold\"><pre>");

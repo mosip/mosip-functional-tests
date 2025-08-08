@@ -188,6 +188,8 @@ public class BaseTestCase {
 	private static String runTypeS = "";
 	protected static String jarURLS = "";
 	
+	public static String runContext = GlobalMethods.getRunContext();
+	
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
 			logger.setLevel(Level.ALL);
