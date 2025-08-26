@@ -285,7 +285,7 @@ public class DBManager {
 			session = factory.getCurrentSession();
 			session.beginTransaction();
 		} catch (HibernateException | NullPointerException e) {
-			logger.error("Error while getting the db connection for ::" + dburl);
+			logger.error("Error while getting the db connection for ::" + dburl, e);
 		}
 		return session;
 	}
