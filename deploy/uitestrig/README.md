@@ -3,6 +3,8 @@
 ## Introduction
 UITESTRIG will test end-to-end functional flows involving multiple UI modules.
 
+### Note: Before installing ui-testrig make sure the values file is updated as per requirement.
+
 ## Install
 * Install
 ```sh
@@ -34,9 +36,11 @@ UITESTRIG will test end-to-end functional flows involving multiple UI modules.
 #### Rancher UI
 * Run ui-testrig manually via Rancher UI.
   ![ui-testrig.png](../../docs/_images/ui-testrig.png)
-* There are 3 cronjobs for ui-testrig:
+* There are 5 cronjobs for ui-testrig:
    - adminui
    - pmp-ui
-   - residentui
+   - resident-ui
+   - verify-ui
+   - injiweb-ui
 * select the cronjob which you want to initiate and select the `Run Now` button as shown in the above picture.
 * Once the job is completed the reports will be avaiable in `S3/minio`.
