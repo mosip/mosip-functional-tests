@@ -37,8 +37,8 @@ UITESTRIG will test end-to-end functional flows involving multiple UI modules.
 * Run ui-testrig manually via Rancher UI.
   ![ui-testrig.png](../../docs/_images/ui-testrig.png)
 * There are 5 cronjobs for ui-testrig:
-   - adminui
-   - pmp-ui
+   - admin-ui
+   - pmp-v2
    - resident-ui
    - verify-ui
    - injiweb-ui
