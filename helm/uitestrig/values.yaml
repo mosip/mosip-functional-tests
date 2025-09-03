@@ -466,7 +466,7 @@ modules:
     enabled: true
     image:
       registry: docker.io
-      repository: mosipqa/uitest-pmp
+      repository: mosipqa/uitest-pmp-v2
       tag: develop
       pullPolicy: Always
   - name: resident-ui
