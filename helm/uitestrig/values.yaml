@@ -51,7 +51,7 @@ service:
 
 image:
   registry: docker.io
-  repository: mosipdev/pmptest
+  repository: mosipqa/uitest-pmp-v2
   tag: develop
 
   ## Specify a imagePullPolicy
