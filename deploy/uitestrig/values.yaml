@@ -30,5 +30,5 @@ modules:
     enabled: true
     image:
       registry: docker.io
-      repository: mosipqa/uitest-verify
+      repository: mosipqa/uitest-web
       tag: develop
