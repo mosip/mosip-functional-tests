@@ -549,7 +549,7 @@ uitestrig:
         sleep 5
         cd /home/${container_user}/
         bash ./entrypoint.sh
-  secrets:      
+  secrets:
   volumes:
     configmaps:
       scripts:
