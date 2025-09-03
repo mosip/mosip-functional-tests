@@ -456,34 +456,34 @@ istio:
 
 modules:
   - name: admin-ui
-    enabled: true
+    enabled: false
     image:
       registry: docker.io
       repository: mosipqa/uitest-admin
       tag: develop
       pullPolicy: Always
   - name: pmp-ui
-    enabled: true
+    enabled: false
     image:
       registry: docker.io
       repository: mosipqa/uitest-pmp-v2
       tag: develop
       pullPolicy: Always
   - name: resident-ui
-    enabled: true
+    enabled: false
     image:
       registry: docker.io
       repository: mosipqa/uitest-resident
       tag: develop
       pullPolicy: Always
   - name: verify-ui
-    enabled: true
+    enabled: false
     image:
       registry: docker.io
       repository: mosipqa/uitest-verify
       tag: develop
   - name: injiweb-ui
-    enabled: true
+    enabled: false
     image:
       registry: docker.io
       repository: mosipqa/uitest-verify
