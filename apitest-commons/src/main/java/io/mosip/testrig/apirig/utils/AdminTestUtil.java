@@ -172,7 +172,7 @@ public class AdminTestUtil extends BaseTestCase {
 	protected static String preregHbsForCreate = null;
 	protected static String preregHbsForUpdate = null;
 	protected static String timeStamp = String.valueOf(Calendar.getInstance().getTimeInMillis());
-	protected static String policyGroup = "mosip auth policy group " + timeStamp;
+	protected static String policyGroup = "mosip auth policy group " + BaseTestCase.runContext + timeStamp;
 	protected static String mispPolicyGroup = "mosip misp policy group " + timeStamp;
 	protected static String policyGroupForUpdate = "mosip auth policy group update " + timeStamp;
 	protected static String policyGroup2 = "mosip auth policy group2 " + timeStamp;
@@ -237,10 +237,14 @@ public class AdminTestUtil extends BaseTestCase {
 	public static boolean isCaptchaEnabled() {
 		String temp = getValueFromEsignetActuator(GlobalConstants.CLASS_PATH_APPLICATION_PROPERTIES,
 				GlobalConstants.MOSIP_ESIGNET_CAPTCHA_REQUIRED);
-		if (temp.isEmpty()) {
-			return false;
-		}
-		return true;
+		 // Throw NPE if temp is null
+	    if (temp == null) {
+	        throw new NullPointerException("Captcha property value is null");
+	    } else if(temp.isEmpty()) {
+	    	return false;
+	    } else {
+	    	return true;
+	    }
 	}
 
 	/**
@@ -274,10 +278,10 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
-		if (BaseTestCase.currentModule.equals(GlobalConstants.PREREG) || BaseTestCase.currentModule.equals("auth")
-				|| BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT)
-				|| BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)
-				|| BaseTestCase.currentModule.equals(GlobalConstants.DSL)) {
+		if (BaseTestCase.currentModule.contains(GlobalConstants.PREREG) || BaseTestCase.currentModule.contains("auth")
+				|| BaseTestCase.currentModule.contains(GlobalConstants.RESIDENT)
+				|| BaseTestCase.currentModule.contains(GlobalConstants.MASTERDATA)
+				|| BaseTestCase.currentModule.contains(GlobalConstants.DSL)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 
@@ -470,7 +474,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 		inputJson = request.toString();
-		if (BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)
+		if (BaseTestCase.currentModule.contains(GlobalConstants.MASTERDATA)
 				|| BaseTestCase.currentModule.equals(GlobalConstants.DSL)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
@@ -569,11 +573,11 @@ public class AdminTestUtil extends BaseTestCase {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 
 		url = inputJsonKeyWordHandeler(url, testCaseName);
-		if (BaseTestCase.currentModule.equals(GlobalConstants.MIMOTO) || BaseTestCase.currentModule.equals("auth")
-				|| BaseTestCase.currentModule.equals(GlobalConstants.ESIGNET)
-				|| BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT)
-				|| BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)
-				|| BaseTestCase.currentModule.equals(GlobalConstants.DSL)) {
+		if (BaseTestCase.currentModule.contains(GlobalConstants.MIMOTO) || BaseTestCase.currentModule.contains("auth")
+				|| BaseTestCase.currentModule.contains(GlobalConstants.ESIGNET)
+				|| BaseTestCase.currentModule.contains(GlobalConstants.RESIDENT)
+				|| BaseTestCase.currentModule.contains(GlobalConstants.MASTERDATA)
+				|| BaseTestCase.currentModule.contains(GlobalConstants.DSL)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 
@@ -644,9 +648,9 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 		inputJson = request.toString();
-		if (BaseTestCase.currentModule.equals(GlobalConstants.MIMOTO) || BaseTestCase.currentModule.equals("auth")
-				|| BaseTestCase.currentModule.equals(GlobalConstants.ESIGNET)
-				|| BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT)) {
+		if (BaseTestCase.currentModule.contains(GlobalConstants.MIMOTO) || BaseTestCase.currentModule.contains("auth")
+				|| BaseTestCase.currentModule.contains(GlobalConstants.ESIGNET)
+				|| BaseTestCase.currentModule.contains(GlobalConstants.RESIDENT)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 
@@ -764,7 +768,7 @@ public class AdminTestUtil extends BaseTestCase {
 		headers.put("PARTNER-ID", partnerId);
 		headers.put(cookieName, "Bearer " + token);
 		inputJson = req.toString();
-		if (BaseTestCase.currentModule.equals(GlobalConstants.ESIGNET)) {
+		if (BaseTestCase.currentModule.contains(GlobalConstants.ESIGNET)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 
@@ -1048,10 +1052,10 @@ public class AdminTestUtil extends BaseTestCase {
 			String testCaseName, boolean bothAccessAndIdToken) throws SecurityXSSException {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		if (BaseTestCase.currentModule.equals(GlobalConstants.MIMOTO) || BaseTestCase.currentModule.equals("auth")
-				|| BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT)
-				|| BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)
-				|| BaseTestCase.currentModule.equals(GlobalConstants.DSL)) {
+		if (BaseTestCase.currentModule.contains(GlobalConstants.MIMOTO) || BaseTestCase.currentModule.contains("auth")
+				|| BaseTestCase.currentModule.contains(GlobalConstants.RESIDENT)
+				|| BaseTestCase.currentModule.contains(GlobalConstants.MASTERDATA)
+				|| BaseTestCase.currentModule.contains(GlobalConstants.DSL)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 
@@ -1095,7 +1099,7 @@ public class AdminTestUtil extends BaseTestCase {
 		if (url.contains("ID:"))
 			url = inputJsonKeyWordHandeler(url, testCaseName);
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		if (BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT)) {
+		if (BaseTestCase.currentModule.contains("auth") || BaseTestCase.currentModule.contains(GlobalConstants.RESIDENT)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 		token = kernelAuthLib.getTokenByRole(role);
@@ -1192,12 +1196,12 @@ public class AdminTestUtil extends BaseTestCase {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 
 		url = inputJsonKeyWordHandeler(url, testCaseName);
-		if (BaseTestCase.currentModule.equals(GlobalConstants.MIMOTO) || BaseTestCase.currentModule.equals("auth")
-				|| BaseTestCase.currentModule.equals(GlobalConstants.ESIGNET)
-				|| BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT)
-				|| BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)
-				|| BaseTestCase.currentModule.equals(GlobalConstants.PREREG)
-				|| BaseTestCase.currentModule.equals(GlobalConstants.DSL)) {
+		if (BaseTestCase.currentModule.contains(GlobalConstants.MIMOTO) || BaseTestCase.currentModule.contains("auth")
+				|| BaseTestCase.currentModule.contains(GlobalConstants.ESIGNET)
+				|| BaseTestCase.currentModule.contains(GlobalConstants.RESIDENT)
+				|| BaseTestCase.currentModule.contains(GlobalConstants.MASTERDATA)
+				|| BaseTestCase.currentModule.contains(GlobalConstants.PREREG)
+				|| BaseTestCase.currentModule.contains(GlobalConstants.DSL)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 		if (bothAccessAndIdToken) {
@@ -2769,7 +2773,7 @@ public class AdminTestUtil extends BaseTestCase {
 			String testCaseName, boolean bothAccessAndIdToken) {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = inputJsonKeyWordHandeler(url, testCaseName);
-		if (BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT)) {
+		if (BaseTestCase.currentModule.contains(GlobalConstants.RESIDENT)) {
 			jsonInput = smtpOtpHandler(inputJson, testCaseName);
 		}
 		byte[] pdf = null;
@@ -3270,7 +3274,7 @@ public class AdminTestUtil extends BaseTestCase {
 		int indexof = testCaseName.indexOf("_");
 		String autogenIdKeyName = testCaseName.substring(indexof + 1);
 		if (fieldName.equals("VID")
-				&& (BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals("esignet"))) {
+				&& (BaseTestCase.currentModule.contains("auth") || BaseTestCase.currentModule.contains("esignet"))) {
 			autogenIdKeyName = autogenIdKeyName + "_" + fieldName.toLowerCase();
 		} else {
 			autogenIdKeyName = autogenIdKeyName + "_" + fieldName;
@@ -5912,7 +5916,11 @@ public class AdminTestUtil extends BaseTestCase {
 
 		try {
 			Response response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+			// Get actual response body
+			String responseBody = response.getBody().asString();
+			System.out.println("Actuator response body: " + responseBody);
 			JSONObject responseJson = new JSONObject(response.getBody().asString());
+			
 
 			// If the key exists in the response, return the associated JSONArray
 			if (responseJson.has(key)) {
@@ -6113,7 +6121,7 @@ public class AdminTestUtil extends BaseTestCase {
 		JSONObject request = new JSONObject(inputJson);
 		String emailId = null;
 		String otp = null;
-		if (BaseTestCase.currentModule.equals(GlobalConstants.MIMOTO) || testCaseName.startsWith("auth_OTP_Auth")
+		if (BaseTestCase.currentModule.contains(GlobalConstants.MIMOTO) || testCaseName.startsWith("auth_OTP_Auth")
 				|| testCaseName.startsWith("auth_EkycOtp") || testCaseName.startsWith("auth_MultiFactorAuth")
 				|| testCaseName.startsWith("Ida_EkycOtp") || testCaseName.startsWith("Ida_OTP_Auth")) {
 			if (request.has("otp")) {
@@ -6134,7 +6142,7 @@ public class AdminTestUtil extends BaseTestCase {
 				}
 			}
 		}
-		if (BaseTestCase.currentModule.equals(GlobalConstants.PREREG)) {
+		if (BaseTestCase.currentModule.contains(GlobalConstants.PREREG)) {
 			if (request.has(GlobalConstants.REQUEST)) {
 				if (request.getJSONObject(GlobalConstants.REQUEST).has("otp")) {
 					emailId = request.getJSONObject(GlobalConstants.REQUEST).getString("userId");
@@ -6152,7 +6160,7 @@ public class AdminTestUtil extends BaseTestCase {
 				}
 			}
 		}
-		if (BaseTestCase.currentModule.equals("auth")) {
+		if (BaseTestCase.currentModule.contains("auth")) {
 			if (testCaseName.startsWith("auth_GenerateVID") || testCaseName.startsWith("auth_AuthLock")
 					|| testCaseName.startsWith("auth_AuthUnLock") || testCaseName.startsWith("auth_RevokeVID")) {
 				if (request.has(GlobalConstants.REQUEST)) {
@@ -6176,7 +6184,7 @@ public class AdminTestUtil extends BaseTestCase {
 				}
 			}
 		}
-		if (BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)
+		if (BaseTestCase.currentModule.contains(GlobalConstants.MASTERDATA)
 				|| BaseTestCase.currentModule.equals(GlobalConstants.DSL)) {
 			if (testCaseName.startsWith("Resident_GenerateVID")
 					|| testCaseName.startsWith("ESignet_AuthenticateUserIDP")
@@ -6241,7 +6249,7 @@ public class AdminTestUtil extends BaseTestCase {
 				}
 			}
 		}
-		if (BaseTestCase.currentModule.equals(GlobalConstants.ESIGNET)
+		if (BaseTestCase.currentModule.contains(GlobalConstants.ESIGNET)
 				|| testCaseName.startsWith("Mimoto_WalletBinding")
 				|| testCaseName.startsWith("Mimoto_ESignet_AuthenticateUser")) {
 			if (request.has(GlobalConstants.REQUEST)) {
@@ -6296,7 +6304,7 @@ public class AdminTestUtil extends BaseTestCase {
 				}
 			}
 		}
-		if (BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT)) {
+		if (BaseTestCase.currentModule.contains(GlobalConstants.RESIDENT)) {
 			if (request.has(GlobalConstants.REQUEST)) {
 				if (request.getJSONObject(GlobalConstants.REQUEST).has("otp")) {
 					if (request.getJSONObject(GlobalConstants.REQUEST).getString("otp")
