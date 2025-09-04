@@ -161,6 +161,8 @@ public class EmailableReport implements IReporter {
 		}
 
 		String oldString = System.getProperty(GlobalConstants.EMAILABLEREPORT2NAME);
+		// Remove unwanted random suffix (e.g., -5e9, -2b9, -abc123) before the module name
+		oldString = oldString.replaceAll("-[a-z0-9]{3,}(?=_)", "");
 		String temp = "";
 		String reportContext = skipPassed == true ? "error-" : "full-";
 		
@@ -876,6 +878,8 @@ public class EmailableReport implements IReporter {
 		int parameterCount = (parameters == null ? 0 : parameters.length);
 		
 		String testCaseName = result.getMethod().getMethodName();
+		// Get the class name
+		String className = result.getMethod().getTestClass().getRealClass().getSimpleName();
 
 		String uniqueIdentifier = (parameterCount > 0 && parameters[0] instanceof TestCaseDTO)
 				? (((TestCaseDTO) parameters[0]).getUniqueIdentifier() != null
@@ -912,6 +916,14 @@ public class EmailableReport implements IReporter {
 		writer.print("<td>");
 		writer.print(Utils.escapeHtml(dependencies.toString()));
 		writer.print("</td>");
+		
+		// Add ClassName
+		writer.print("<tr class=\"param\">");
+		writer.print("<th>Class Name</th>");
+		writer.print("</tr><tr class=\"param stripe\">");
+		writer.print("<td>");
+		writer.print(Utils.escapeHtml(className));
+		writer.print("</td></tr>");
 		
 		writer.print(GlobalConstants.TR);
 		

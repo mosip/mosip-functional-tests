@@ -246,6 +246,7 @@ public class DBManager {
 									if (line.trim().equals("") || line.trim().startsWith("#"))
 										continue;
 									line = line.replace("${currentModule}", BaseTestCase.currentModule);
+									logger.info("Current query is = " + line);
 									statement.addBatch(line);
 								}
 							} catch (IOException e) {
@@ -285,7 +286,7 @@ public class DBManager {
 			session = factory.getCurrentSession();
 			session.beginTransaction();
 		} catch (HibernateException | NullPointerException e) {
-			logger.error("Error while getting the db connection for ::" + dburl);
+			logger.error("Error while getting the db connection for ::" + dburl, e);
 		}
 		return session;
 	}

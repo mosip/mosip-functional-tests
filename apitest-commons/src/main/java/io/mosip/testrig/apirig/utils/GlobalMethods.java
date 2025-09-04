@@ -74,7 +74,8 @@ public class GlobalMethods {
 	}
 	
 	public static String getRunContext() {
-		// Generate a UUID, remove dashes, convert to lowercase, and take first 6 characters
+		// Generate a UUID, remove dashes,convert to lowercase, and take first 6
+		// characters
 		runContext = UUID.randomUUID().toString().replaceAll("-", "").toLowerCase().substring(0, 3) + "_";
 		logger.info("RUN_CONTEXT set to: " + runContext);
 		return runContext;
