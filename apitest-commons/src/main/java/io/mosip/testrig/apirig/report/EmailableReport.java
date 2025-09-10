@@ -161,6 +161,8 @@ public class EmailableReport implements IReporter {
 		}
 
 		String oldString = System.getProperty(GlobalConstants.EMAILABLEREPORT2NAME);
+		// Remove unwanted random suffix (e.g., -5e9, -2b9, -abc123) before the module name
+		oldString = oldString.replaceAll("-[a-z0-9]{3,}(?=_)", "");
 		String temp = "";
 		String reportContext = skipPassed == true ? "error-" : "full-";
 		
@@ -407,19 +409,13 @@ public class EmailableReport implements IReporter {
 				writer.print("</pre></td>");
 				writer.print(GlobalConstants.TRTR);
 				
-//				writer.print("<tr><th colspan=\"9\"><span class=\"not-bold\"><pre>");
-//				writer.print(Utils.escapeHtml(GlobalMethods.getTestCaseVariableMapping()));
-//				writer.print("</pre></span>");
-//				writer.print(GlobalConstants.TRTR);
-				
-//				writer.print("<div style=\"max-width:100%; overflow-x:auto;\"><pre style=\"white-space:pre-wrap; word-wrap:break-word;\">");
-//				writer.print(Utils.escapeHtml(GlobalMethods.getTestCaseVariableMapping()));
-//				writer.print("</pre></div>");
-				
-				writer.print("<tr><th colspan=\"9\"><span class=\"not-bold\"><pre style=\"white-space:pre-wrap; word-wrap:break-word;\">");
-				writer.print(Utils.escapeHtml(GlobalMethods.getTestCaseVariableMapping()));
-				writer.print("</pre></span>");
-				writer.print(GlobalConstants.TRTR);
+				/*
+				 * writer.
+				 * print("<tr><th colspan=\"9\"><span class=\"not-bold\"><pre style=\"white-space:pre-wrap; word-wrap:break-word;\">"
+				 * );
+				 * writer.print(Utils.escapeHtml(GlobalMethods.getTestCaseVariableMapping()));
+				 * writer.print("</pre></span>"); writer.print(GlobalConstants.TRTR);
+				 */
 				
 				if (GlobalMethods.getServerErrors().equals("No server errors")) {
 					writer.print("<tr><th colspan=\"9\"><span class=\"not-bold\"><pre>");
@@ -881,26 +877,21 @@ public class EmailableReport implements IReporter {
 		Object[] parameters = result.getParameters();
 		int parameterCount = (parameters == null ? 0 : parameters.length);
 		
-		String uniqueIdentifier = "UNKNOWN";
-		String description = "No description available.";
+		String testCaseName = result.getMethod().getMethodName();
+		// Get the class name
+		String className = result.getMethod().getTestClass().getRealClass().getSimpleName();
 
-		if (parameterCount > 0) {
-			// Extract TestCaseDTO string from first parameter
-			String paramStr = Utils.toString(parameters[0]).replace("TestCaseDTO(", "").replace(")", "");
+		String uniqueIdentifier = (parameterCount > 0 && parameters[0] instanceof TestCaseDTO)
+				? (((TestCaseDTO) parameters[0]).getUniqueIdentifier() != null
+						? ((TestCaseDTO) parameters[0]).getUniqueIdentifier()
+						: "TestCase ID is not available")
+				: "UNKNOWN";
 
-			// Extract uniqueIdentifier (testcase number)
-			Pattern uidPattern = Pattern.compile("uniqueIdentifier\\s*=\\s*([^,]+)");
-			Matcher uidMatcher = uidPattern.matcher(paramStr);
-			if (uidMatcher.find()) {
-				uniqueIdentifier = uidMatcher.group(1).trim();
-			}
-			// Extract description
-			Pattern descPattern = Pattern.compile("description\\s*=\\s*([^,]+)");
-			Matcher descMatcher = descPattern.matcher(paramStr);
-			if (descMatcher.find()) {
-				description = descMatcher.group(1).trim();
-			}
-		}
+		String description = (parameterCount > 0 && parameters[0] instanceof TestCaseDTO)
+				? (((TestCaseDTO) parameters[0]).getDescription() != null
+						? ((TestCaseDTO) parameters[0]).getDescription()
+						: "No description available.")
+				: "UNKNOWN";
 
 		// Replace test case name with: TestcaseNumber # TestcaseDescription
 		writer.print(Utils.escapeHtml(uniqueIdentifier + " # " + description));
@@ -908,32 +899,32 @@ public class EmailableReport implements IReporter {
 
 		writer.print("<table class=\"result\">");
 		
+		// Add TestCaseName
+		writer.print("<tr class=\"param\">");
+		writer.print("<th>Testcase Name</th>");
+		writer.print("</tr><tr class=\"param stripe\">");
+		writer.print("<td>");
+		writer.print(Utils.escapeHtml(testCaseName));
+		writer.print("</td></tr>");
+		
 		// Add Dependency
 		writer.print("<tr class=\"param\">");
-		for (int i = 1; i <= parameterCount; i++) {
-			writer.print("<th>Testcase Dependency</th>");
-		}
+		writer.print("<th>Testcase Dependency</th>");
 		writer.print("</tr><tr class=\"param stripe\">");
-		for (Object parameter : parameters) {
-			String testcaseDTO = Utils.toString(parameter).replace("TestCaseDTO(", "");
-			Pattern pattern = Pattern.compile("uniqueIdentifier\\s*=\\s*([^,\\s]+)");
-	        Matcher matcher = pattern.matcher(testcaseDTO);
-	        uniqueIdentifier = null;
-
-	        if (matcher.find()) {
-	            uniqueIdentifier = matcher.group(1).replace(")", "");
-	            
-	            System.out.println("Unique Identifier: " + uniqueIdentifier);
-	        } else {
-	            System.out.println("uniqueIdentifier not found.");
-	        }
-	        List<String> dependencies = DependencyResolver.getDependencies(uniqueIdentifier);
-	        dependencies.remove(uniqueIdentifier);
-
-			writer.print("<td>");
-			writer.print(Utils.escapeHtml(dependencies.toString()));
-			writer.print("</td>");
-		}
+		List<String> dependencies = DependencyResolver.getDependencies(uniqueIdentifier);
+		dependencies.remove(uniqueIdentifier);
+		writer.print("<td>");
+		writer.print(Utils.escapeHtml(dependencies.toString()));
+		writer.print("</td>");
+		
+		// Add ClassName
+		writer.print("<tr class=\"param\">");
+		writer.print("<th>Class Name</th>");
+		writer.print("</tr><tr class=\"param stripe\">");
+		writer.print("<td>");
+		writer.print(Utils.escapeHtml(className));
+		writer.print("</td></tr>");
+		
 		writer.print(GlobalConstants.TR);
 		
 		if (ConfigManager.IsDebugEnabled()) {

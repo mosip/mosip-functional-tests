@@ -10,7 +10,6 @@ import org.hibernate.Session;
 import org.hibernate.jdbc.Work;
 
 import io.mosip.testrig.apirig.dbaccess.DBManager;
-import io.restassured.response.Response;
 
 public class GetCredentialTableStackTrace extends DBManager {
 

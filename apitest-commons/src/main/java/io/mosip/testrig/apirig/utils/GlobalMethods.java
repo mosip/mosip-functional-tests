@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -35,6 +36,7 @@ public class GlobalMethods {
 	private static Pattern pattern_1 = Pattern.compile(regex_1);
 	private static Pattern pattern_2 = Pattern.compile(regex_2);
 	
+	public static String runContext = null;	
 	
 	public static boolean isXSSProtectionCheckEnabled() {
 		return ConfigManager.getproperty("xssProtectionCheck").equalsIgnoreCase("yes") ? true : false;
@@ -69,6 +71,14 @@ public class GlobalMethods {
 		// Recompile the regex patterns based on the new regex strings
 		pattern_1 = Pattern.compile(regex_1);
 		pattern_2 = Pattern.compile(regex_2);
+	}
+	
+	public static String getRunContext() {
+		// Generate a UUID, remove dashes,convert to lowercase, and take first 6
+		// characters
+		runContext = UUID.randomUUID().toString().replaceAll("-", "").toLowerCase().substring(0, 3) + "_";
+		logger.info("RUN_CONTEXT set to: " + runContext);
+		return runContext;
 	}
 
 	public static void main(String[] arg) {
@@ -203,48 +213,33 @@ public class GlobalMethods {
 	public static String getTestCaseVariableMapping() {
 		VariableDependencyMapper mapper = new VariableDependencyMapper(AdminTestUtil.generators,
 				AdminTestUtil.consumers);
-		StringBuilder sB = new StringBuilder();
-//		sB.append("Consumer to Generators Mapping:").append("\n");
-//
-//		mapper.getConsumerToGeneratorsMap().forEach((k, v) -> sB.append(k + " → " + v).append("\n"));
-//
-//		sB.append("\nImpact Summary:").append("\n");
-//		sB.append(mapper.getImpactSummary());
-//		
-//		
-//		sB.append("\nImpact Summary Based On Generator:").append("\n");
-//		sB.append(mapper.getImpactSummaryBasedOnGenerator());
-//		
-//		
-//		sB.append("\nImpact Summary Based On Consumer:").append("\n");
-//		sB.append(mapper.getImpactSummaryBasedOnConsumer());
-		
+		StringBuilder variableMappingBuilder = new StringBuilder();
 		
 		if (!mapper.getConsumerToGeneratorsMap().isEmpty()) {
-	        sB.append("Consumer to Generators Mapping:\n");
-	        mapper.getConsumerToGeneratorsMap().forEach((k, v) -> sB.append(k + " → " + v).append("\n"));
+			variableMappingBuilder.append("Consumer to Generators Mapping:\n");
+	        mapper.getConsumerToGeneratorsMap().forEach((k, v) -> variableMappingBuilder.append(k + " → " + v).append("\n"));
 	    }
 
 	    String impactSummary = mapper.getImpactSummary();
 	    if (impactSummary != null && !impactSummary.trim().isEmpty()) {
-	        sB.append("\nImpact Summary:\n");
-	        sB.append(impactSummary);
+	    	variableMappingBuilder.append("\nImpact Summary:\n");
+	    	variableMappingBuilder.append(impactSummary);
 	    }
 
 	    String impactByGenerator = mapper.getImpactSummaryBasedOnGenerator();
 	    if (impactByGenerator != null && !impactByGenerator.trim().isEmpty()) {
-	        sB.append("\nImpact Summary Based On Generator:\n");
-	        sB.append(impactByGenerator);
+	    	variableMappingBuilder.append("\nImpact Summary Based On Generator:\n");
+	    	variableMappingBuilder.append(impactByGenerator);
 	    }
 
 	    String impactByConsumer = mapper.getImpactSummaryBasedOnConsumer();
 	    if (impactByConsumer != null && !impactByConsumer.trim().isEmpty()) {
-	        sB.append("\nImpact Summary Based On Consumer:\n");
-	        sB.append(impactByConsumer);
+	    	variableMappingBuilder.append("\nImpact Summary Based On Consumer:\n");
+	    	variableMappingBuilder.append(impactByConsumer);
 	    }
 		
 		
-		return sB.toString();
+		return variableMappingBuilder.toString();
 	}
 
 	public static void reportServerError(Object code, Object errorMessage) {

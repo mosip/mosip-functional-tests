@@ -59,13 +59,13 @@ public class VariableDependencyMapper {
     }
 
     public String getImpactSummary() {
-    	StringBuilder sB = new StringBuilder();
+    	StringBuilder impactSummaryBuilder = new StringBuilder();
         for (Map.Entry<String, Set<String>> entry : generatorToConsumers.entrySet()) {
             String generator = entry.getKey();
             Set<String> affectedConsumers = entry.getValue();
-            sB.append(generator + " causes failures of " + String.join(", ", affectedConsumers)).append("\n");
+            impactSummaryBuilder.append(generator + " causes failures of " + String.join(", ", affectedConsumers)).append("\n");
         }
-        return sB.toString();
+        return impactSummaryBuilder.toString();
     }
     
     public String getImpactSummaryBasedOnGenerator() {

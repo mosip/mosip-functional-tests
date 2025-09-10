@@ -88,6 +88,36 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 		return mappingKey;
 	}
 	
+	public static String submitPartnerAndGetMappingKey(String partnerId, String policyName) {
+		String url = ApplnURI + "/v1/partnermanager/partners/"+partnerId+"/policy/map";
+		
+		String token = kernelAuthLib.getTokenByRole("partner");
+		
+		HashMap<String, String> requestBody = new HashMap<>();
+		
+		requestBody.put("policyName", policyName);
+		requestBody.put("useCaseDescription", "mapping Partner to policyName");
+		
+		HashMap<String, Object> body = new HashMap<>();
+		
+		body.put("id", GlobalConstants.STRING);
+		body.put(GlobalConstants.METADATA, new HashMap<>());
+		body.put(GlobalConstants.REQUEST, requestBody);
+		body.put(GlobalConstants.REQUESTTIME, generateCurrentUTCTimeStamp());
+		body.put(GlobalConstants.VERSION, GlobalConstants.STRING);
+		
+		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		lOGGER.info(response);
+		JSONObject responseJson = new JSONObject(response.asString());
+		lOGGER.info(responseJson);
+		JSONObject responseValue = (JSONObject) (responseJson.get("response"));
+		lOGGER.info(responseValue);
+		String mappingKey = responseValue.getString("mappingkey");
+		lOGGER.info(mappingKey);
+		
+		return mappingKey;
+	}
+	
 	public static String submittingPartnerAndGetMappingKeyWithUpdatePolicy() {
 		String url = ApplnURI + "/v1/partnermanager/partners/"+partnerId+"/policy/map";
 		
