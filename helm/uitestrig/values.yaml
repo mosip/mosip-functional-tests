@@ -465,12 +465,14 @@ modules:
       registry: docker.io
       repository: mosipqa/uitest-verify
       tag: develop
+      pullPolicy: Always
   - name: injiweb-ui
     enabled: false
     image:
       registry: docker.io
       repository: mosipqa/uitest-web
       tag: develop
+      pullPolicy: Always
 
 crontime: "0 3 * * *"    ## run cronjob every day at 3 AM (time hr: 0-23 )
 
