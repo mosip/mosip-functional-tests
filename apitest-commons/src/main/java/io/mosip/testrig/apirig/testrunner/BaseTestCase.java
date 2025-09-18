@@ -163,9 +163,7 @@ public class BaseTestCase {
 	public String genMispPolicyName = "policyNameForMispEsi" + generateRandomNumberString(6)
 			+ generateRandomNumberString(3);
 	public static String genPartnerName = "partnernameforautomationesi-" + generateRandomNumberString(6);
-	//public static String genPartnerName = null;
 	public static String genPartnerNameNonAuth = "partnernameforesignet-" + generateRandomNumberString(6);
-	//public static String genPartnerNameNonAuth = BaseTestCase.currentModule + "-partnernameforesignet";
 	public String genPartnerNameForDsl = "partnernameforautomationdsl-" + generateRandomNumberString(6);
 	public static String genMispPartnerName = "esignet_" + generateRandomNumberString(6)
 			+ generateRandomNumberString(3);
@@ -189,9 +187,7 @@ public class BaseTestCase {
 	
 	private static String runTypeS = "";
 	protected static String jarURLS = "";
-	
-	public static String runContext = GlobalMethods.getRunContext();
-	
+		
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
 			logger.setLevel(Level.ALL);
@@ -217,10 +213,6 @@ public class BaseTestCase {
 	 * "@gmail.com"; static String role = PartnerRegistration.partnerType;
 	 */
 	
-	/*
-	 * public static void initializePMSDetails() { genPartnerName =
-	 * BaseTestCase.currentModule + "-partnernameforautomationesi"; }
-	 */
 	public static String getGlobalResourcePath() {
 		if (cachedPath != null) {
 			return cachedPath;

@@ -245,7 +245,6 @@ public class DBManager {
 								while ((line = bufferedReader.readLine()) != null) {
 									if (line.trim().equals("") || line.trim().startsWith("#"))
 										continue;
-									line = line.replace("${currentModule}", BaseTestCase.currentModule);
 									statement.addBatch(line);
 								}
 							} catch (IOException e) {
