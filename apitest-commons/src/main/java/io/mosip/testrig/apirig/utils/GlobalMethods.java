@@ -9,7 +9,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -35,9 +34,7 @@ public class GlobalMethods {
 	// Compile the regex pattern
 	private static Pattern pattern_1 = Pattern.compile(regex_1);
 	private static Pattern pattern_2 = Pattern.compile(regex_2);
-	
-	public static String runContext = null;	
-	
+		
 	public static boolean isXSSProtectionCheckEnabled() {
 		return ConfigManager.getproperty("xssProtectionCheck").equalsIgnoreCase("yes") ? true : false;
 	}
@@ -73,14 +70,6 @@ public class GlobalMethods {
 		pattern_2 = Pattern.compile(regex_2);
 	}
 	
-	public static String getRunContext() {
-		// Generate a UUID, remove dashes,convert to lowercase, and take first 6
-		// characters
-		runContext = UUID.randomUUID().toString().replaceAll("-", "").toLowerCase().substring(0, 3) + "_";
-		logger.info("RUN_CONTEXT set to: " + runContext);
-		return runContext;
-	}
-
 	public static void main(String[] arg) {
 
 	}

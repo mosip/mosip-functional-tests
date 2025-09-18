@@ -161,8 +161,6 @@ public class EmailableReport implements IReporter {
 		}
 
 		String oldString = System.getProperty(GlobalConstants.EMAILABLEREPORT2NAME);
-		// Remove unwanted random suffix (e.g., -5e9, -2b9, -abc123) before the module name
-		oldString = oldString.replaceAll("-[a-z0-9]{3,}(?=_)", "");
 		String temp = "";
 		String reportContext = skipPassed == true ? "error-" : "full-";
 		

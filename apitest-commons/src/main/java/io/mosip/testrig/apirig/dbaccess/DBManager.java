@@ -22,7 +22,6 @@ import org.hibernate.cfg.Environment;
 import org.hibernate.jdbc.Work;
 import org.testng.Assert;
 
-import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 import io.mosip.testrig.apirig.utils.AdminTestException;
 import io.mosip.testrig.apirig.utils.ConfigManager;
 import io.mosip.testrig.apirig.utils.GlobalConstants;
@@ -245,7 +244,6 @@ public class DBManager {
 								while ((line = bufferedReader.readLine()) != null) {
 									if (line.trim().equals("") || line.trim().startsWith("#"))
 										continue;
-									line = line.replace("${currentModule}", BaseTestCase.currentModule);
 									statement.addBatch(line);
 								}
 							} catch (IOException e) {

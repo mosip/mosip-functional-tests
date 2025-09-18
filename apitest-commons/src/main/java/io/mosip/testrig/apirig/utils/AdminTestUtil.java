@@ -172,7 +172,7 @@ public class AdminTestUtil extends BaseTestCase {
 	protected static String preregHbsForCreate = null;
 	protected static String preregHbsForUpdate = null;
 	protected static String timeStamp = String.valueOf(Calendar.getInstance().getTimeInMillis());
-	protected static String policyGroup = "mosip auth policy group " + BaseTestCase.runContext + timeStamp;
+	protected static String policyGroup = "mosip auth policy group " + timeStamp;
 	protected static String mispPolicyGroup = "mosip misp policy group " + timeStamp;
 	protected static String policyGroupForUpdate = "mosip auth policy group update " + timeStamp;
 	protected static String policyGroup2 = "mosip auth policy group2 " + timeStamp;
@@ -5916,9 +5916,6 @@ public class AdminTestUtil extends BaseTestCase {
 
 		try {
 			Response response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-			// Get actual response body
-			String responseBody = response.getBody().asString();
-			System.out.println("Actuator response body: " + responseBody);
 			JSONObject responseJson = new JSONObject(response.getBody().asString());
 			
 
