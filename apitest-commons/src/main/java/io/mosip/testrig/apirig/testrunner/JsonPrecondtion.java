@@ -357,10 +357,13 @@ public class JsonPrecondtion extends MessagePrecondtion{
 	 * @return String
 	 */
 	public static String toPrettyFormat(String jsonString) {
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		JsonParser jp = new JsonParser();
-		JsonElement je = jp.parse(jsonString);
-		return gson.toJson(je);
+	    Gson gson = new GsonBuilder()
+	            .setPrettyPrinting()
+	            .serializeNulls()
+	            .create();
+	    JsonParser jp = new JsonParser();
+	    JsonElement je = jp.parse(jsonString);
+	    return gson.toJson(je);
 	}
 	
 	/**
