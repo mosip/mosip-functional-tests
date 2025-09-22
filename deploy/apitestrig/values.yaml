@@ -45,25 +45,31 @@ modules:
     enabled: true
     image:
       repository: mosipid/apitest-esignet
-      tag: 1.5.1
+      tag: 1.6.2
       pullPolicy: Always
   mimoto:
     enabled: true
     image:
       repository: mosipid/apitest-mimoto
-      tag: 0.17.1
+      tag: 0.19.0
       pullPolicy: Always
   injicertify:
     enabled: true
     image:
       repository: mosipid/apitest-injicertify
-      tag: 0.11.0
+      tag: 0.12.1
+      pullPolicy: Always
+  injiverify:
+    enabled: false
+    image:
+      repository: mosipid/apitest-inji-verify
+      tag: 0.13.1
       pullPolicy: Always
   esignet-signup:
     enabled: true
     image:
       repository: mosipid/apitest-esignet-signup
-      tag: 1.1.1
-      pullPolicy: Always      
+      tag: 1.2.2
+      pullPolicy: Always
   variables:
     push_reports_to_s3: "yes"

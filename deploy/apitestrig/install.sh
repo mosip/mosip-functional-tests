@@ -7,7 +7,7 @@ if [ $# -ge 1 ] ; then
 fi
 
 NS=apitestrig
-CHART_VERSION=1.3.3-develop
+CHART_VERSION=1.3.4
 
 echo Create $NS namespace
 kubectl create ns $NS
