@@ -215,6 +215,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static Map<String, List<String>> consumers = new HashMap<>();
 	public static Map<String, List<String>> globalConsumersList = new HashMap<>();
 	public static String currentTestCaseName = null;
+	public static boolean generateDependency = false;
 
 	public static void init() {
 		properties = getproperty(getGlobalResourcePath() + "/" + "config/application.properties");
@@ -3072,6 +3073,9 @@ public class AdminTestUtil extends BaseTestCase {
 	public static void generateTestCaseInterDependencies(String fileAbsolutePath) {
 		VariableDependencyMapper mapper = new VariableDependencyMapper(AdminTestUtil.generators,
 				AdminTestUtil.globalConsumersList);
+		
+		logger.info("final generators = " + generators);
+		logger.info("final globalConsumersList = " + globalConsumersList);
 
 		JSONObject map = new JSONObject();
 		
@@ -3101,8 +3105,8 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 	
 	protected void writeToCache(String idKeyName, String idKeyValue) {
-		int indexof = currentTestCaseName.indexOf("_");
-		String modifiedTestCaseName = currentTestCaseName.substring(indexof + 1);
+		int indexof = currentTestCaseName.indexOf("_"); //
+		String modifiedTestCaseName = currentTestCaseName.substring(indexof + 1); //
 		String testCaseID = getTestCaseUniqueIdentifier(modifiedTestCaseName) == null 
 			    ? currentTestCaseName 
 			    : getTestCaseUniqueIdentifier(modifiedTestCaseName);
@@ -3137,6 +3141,59 @@ public class AdminTestUtil extends BaseTestCase {
 			globalConsumersList.put(testCaseID, new ArrayList<>(Arrays.asList(idKeyName)));
 		}
 
+	}
+	
+	public static void addAdditionalDependencies(TestCaseDTO testCaseDTO) {
+	    String testCaseID = testCaseDTO.getUniqueIdentifier();
+	    String additionalDependencies = testCaseDTO.getAdditionalDependencies();
+
+	    if (additionalDependencies != null && !additionalDependencies.isBlank()) {
+	        // Split by comma and clean each dependency
+	        String[] dependencyArray = additionalDependencies.split(",");
+	        List<String> workflowDependencies = new ArrayList<>();
+
+	        for (String dependency : dependencyArray) {
+	            if (dependency != null && !dependency.trim().isEmpty()) {
+	                workflowDependencies.add(dependency.trim());
+	            }
+	        }
+
+	        // Process each dependency
+	        for (String dependencyTestCaseID : workflowDependencies) {
+	        	
+	        	// Skip lookup if it's a delete test case
+	            if (dependencyTestCaseID.contains("delete") || dependencyTestCaseID.contains("Delete")) {
+	                logger.info("Detected delete dependency, skipping lookup: " + dependencyTestCaseID);
+
+	                // Add dependency using ID directly for delete dependency
+	                String dependencyValue = dependencyTestCaseID + GlobalConstants.FLOWDEPENDENCY;
+	                addToMap(generators, dependencyTestCaseID, dependencyValue);
+	                addToMap(globalConsumersList, testCaseID, dependencyValue);
+	                continue;
+	            }
+	            String dependencyTestCaseName = getTestCaseNameWithUniqueIdentifier(dependencyTestCaseID);
+
+	            if (dependencyTestCaseName != null && !dependencyTestCaseName.isEmpty()) {
+	                String dependencyValue = dependencyTestCaseName + GlobalConstants.FLOWDEPENDENCY;
+
+	                // Use helper method to add to maps
+	                addToMap(generators, dependencyTestCaseID, dependencyValue);
+	                addToMap(globalConsumersList, testCaseID, dependencyValue);
+	            } else {
+	                logger.info("Dependency TestCaseName is empty for ID = " + dependencyTestCaseID);
+	            }
+	        }
+	    }
+	}
+		
+	private static void addToMap(Map<String, List<String>> map, String key, String value) {
+	    if (map.containsKey(key)) {
+	        map.get(key).add(value);
+	    } else {
+	        List<String> list = new ArrayList<>();
+	        list.add(value);
+	        map.put(key, list);
+	    }
 	}
 	
 	protected static void RemoveFromTheConsumersMap(String idKeyName) {
@@ -6107,6 +6164,20 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static String getTestCaseUniqueIdentifier(String testCaseName) {
 		return testcaseIDNameMap.get(testCaseName);
+	}
+	
+	public static String getTestCaseNameWithUniqueIdentifier(String uniqueIdentifier ) {
+		if (uniqueIdentifier == null) {
+	        return null; // no point in searching
+	    }
+
+	    for (Map.Entry<String, String> entry : testcaseIDNameMap.entrySet()) {
+	        String value = entry.getValue();
+	        if (value != null && value.equals(uniqueIdentifier)) {
+	            return entry.getKey(); // key is already String
+	        }
+	    }
+		return null;
 	}
 
 	public static String getRandomElement(List<String> list) {
