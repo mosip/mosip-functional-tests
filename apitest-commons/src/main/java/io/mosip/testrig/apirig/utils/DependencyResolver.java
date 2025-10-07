@@ -11,7 +11,7 @@ public class DependencyResolver {
 	private static Map<String, List<String>> dependecyData = null;
 	
 	public static void loadDependencies(String jsonFilePath) throws Exception {
-		AdminTestUtil.generateDependency = true;
+		AdminTestUtil.generateDependency = false;
 	    // Parse the JSON file into a Map
 	    Gson gson = new Gson();
 	    dependecyData = gson.fromJson(

@@ -215,7 +215,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static Map<String, List<String>> consumers = new HashMap<>();
 	public static Map<String, List<String>> globalConsumersList = new HashMap<>();
 	public static String currentTestCaseName = null;
-	public static boolean generateDependency = false;
+	public static boolean generateDependency = true;
 
 	public static void init() {
 		properties = getproperty(getGlobalResourcePath() + "/" + "config/application.properties");
@@ -3105,8 +3105,8 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 	
 	protected void writeToCache(String idKeyName, String idKeyValue) {
-		int indexof = currentTestCaseName.indexOf("_"); //
-		String modifiedTestCaseName = currentTestCaseName.substring(indexof + 1); //
+		int indexof = currentTestCaseName.indexOf("_");
+		String modifiedTestCaseName = currentTestCaseName.substring(indexof + 1);
 		String testCaseID = getTestCaseUniqueIdentifier(modifiedTestCaseName) == null 
 			    ? currentTestCaseName 
 			    : getTestCaseUniqueIdentifier(modifiedTestCaseName);
@@ -3161,27 +3161,20 @@ public class AdminTestUtil extends BaseTestCase {
 	        // Process each dependency
 	        for (String dependencyTestCaseID : workflowDependencies) {
 	        	
-	        	// Skip lookup if it's a delete test case
-	            if (dependencyTestCaseID.contains("delete") || dependencyTestCaseID.contains("Delete")) {
-	                logger.info("Detected delete dependency, skipping lookup: " + dependencyTestCaseID);
-
-	                // Add dependency using ID directly for delete dependency
-	                String dependencyValue = dependencyTestCaseID + GlobalConstants.FLOWDEPENDENCY;
-	                addToMap(generators, dependencyTestCaseID, dependencyValue);
-	                addToMap(globalConsumersList, testCaseID, dependencyValue);
-	                continue;
+	        	boolean isDeleteCase = dependencyTestCaseID.toLowerCase().contains("delete");
+	        	String dependencyValue = dependencyTestCaseID + GlobalConstants.FLOWDEPENDENCY;
+	        	
+	        	if (!isDeleteCase) {
+	                String dependencyTestCaseName = getTestCaseNameWithUniqueIdentifier(dependencyTestCaseID);
+	                if (dependencyTestCaseName == null || dependencyTestCaseName.isEmpty()) {
+	                    logger.info("Dependency TestCaseName is empty for ID = " + dependencyTestCaseID);
+	                    continue;
+	                }
+	                dependencyValue = dependencyTestCaseName + GlobalConstants.FLOWDEPENDENCY;
 	            }
-	            String dependencyTestCaseName = getTestCaseNameWithUniqueIdentifier(dependencyTestCaseID);
-
-	            if (dependencyTestCaseName != null && !dependencyTestCaseName.isEmpty()) {
-	                String dependencyValue = dependencyTestCaseName + GlobalConstants.FLOWDEPENDENCY;
-
-	                // Use helper method to add to maps
-	                addToMap(generators, dependencyTestCaseID, dependencyValue);
-	                addToMap(globalConsumersList, testCaseID, dependencyValue);
-	            } else {
-	                logger.info("Dependency TestCaseName is empty for ID = " + dependencyTestCaseID);
-	            }
+	        	
+	        	addToMap(generators, dependencyTestCaseID, dependencyValue);
+	            addToMap(globalConsumersList, dependencyTestCaseID, dependencyValue);
 	        }
 	    }
 	}
