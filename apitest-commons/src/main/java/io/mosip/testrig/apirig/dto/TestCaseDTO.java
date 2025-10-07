@@ -1,5 +1,7 @@
 package io.mosip.testrig.apirig.dto;
 
+import java.util.List;
+
 import lombok.Data;
 
 @Data
@@ -22,4 +24,5 @@ public class TestCaseDTO {
 	private String[] kycFields;
 	private String description;
 	private String uniqueIdentifier;
+	private String additionalDependencies;
 }
