@@ -50,6 +50,10 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		String mispCertValueSigned = mispSignedcertificateValue.getString("signedCertificateData");
 		lOGGER.info(mispCertValueSigned);
 		uploadSignedCertificate(mispCertValueSigned, getPartnerType);
+		
+		String mispMappingKey = KeyCloakUserAndAPIKeyGeneration.submitPartnerAndGetMappingKey(mispPartnerId, mispPolicyName);
+		KeyCloakUserAndAPIKeyGeneration.approvePartnerAPIKey(mispMappingKey);
+		
 		String mispLicKey = generateMispLicKey(mispPartnerId);
 		lOGGER.info(mispLicKey);
 		
@@ -69,7 +73,7 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		requestBody.put("organizationName", mispOrganizationName);
 		requestBody.put(GlobalConstants.PARTNERID, mispPartnerId);
 		requestBody.put(GlobalConstants.PARTNERTYPE, mispPartnerType);
-		requestBody.put("policyGroup", policyGroup);
+		requestBody.put("policyGroup", mispPolicyGroup);
 		
 		HashMap<String, Object> body = new HashMap<>();
 		

@@ -34,8 +34,7 @@ public class GlobalMethods {
 	// Compile the regex pattern
 	private static Pattern pattern_1 = Pattern.compile(regex_1);
 	private static Pattern pattern_2 = Pattern.compile(regex_2);
-	
-	
+		
 	public static boolean isXSSProtectionCheckEnabled() {
 		return ConfigManager.getproperty("xssProtectionCheck").equalsIgnoreCase("yes") ? true : false;
 	}
@@ -70,7 +69,7 @@ public class GlobalMethods {
 		pattern_1 = Pattern.compile(regex_1);
 		pattern_2 = Pattern.compile(regex_2);
 	}
-
+	
 	public static void main(String[] arg) {
 
 	}
@@ -198,6 +197,38 @@ public class GlobalMethods {
 			stringBuilder.append("\n").append(result);
 		}
 		return stringBuilder.toString();
+	}
+	
+	public static String getTestCaseVariableMapping() {
+		VariableDependencyMapper mapper = new VariableDependencyMapper(AdminTestUtil.generators,
+				AdminTestUtil.consumers);
+		StringBuilder variableMappingBuilder = new StringBuilder();
+		
+		if (!mapper.getConsumerToGeneratorsMap().isEmpty()) {
+			variableMappingBuilder.append("Consumer to Generators Mapping:\n");
+	        mapper.getConsumerToGeneratorsMap().forEach((k, v) -> variableMappingBuilder.append(k + " → " + v).append("\n"));
+	    }
+
+	    String impactSummary = mapper.getImpactSummary();
+	    if (impactSummary != null && !impactSummary.trim().isEmpty()) {
+	    	variableMappingBuilder.append("\nImpact Summary:\n");
+	    	variableMappingBuilder.append(impactSummary);
+	    }
+
+	    String impactByGenerator = mapper.getImpactSummaryBasedOnGenerator();
+	    if (impactByGenerator != null && !impactByGenerator.trim().isEmpty()) {
+	    	variableMappingBuilder.append("\nImpact Summary Based On Generator:\n");
+	    	variableMappingBuilder.append(impactByGenerator);
+	    }
+
+	    String impactByConsumer = mapper.getImpactSummaryBasedOnConsumer();
+	    if (impactByConsumer != null && !impactByConsumer.trim().isEmpty()) {
+	    	variableMappingBuilder.append("\nImpact Summary Based On Consumer:\n");
+	    	variableMappingBuilder.append(impactByConsumer);
+	    }
+		
+		
+		return variableMappingBuilder.toString();
 	}
 
 	public static void reportServerError(Object code, Object errorMessage) {

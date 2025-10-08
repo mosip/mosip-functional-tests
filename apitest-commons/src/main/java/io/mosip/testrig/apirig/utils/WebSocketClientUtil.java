@@ -20,7 +20,7 @@ public class WebSocketClientUtil extends Endpoint {
     
     
     // Global map to store received messages, keyed by message ID or custom key
-    private static final Map<String, String> messageStore = new ConcurrentHashMap<>();
+    public static Map<String, String> messageStore = new ConcurrentHashMap<>();
 
     public WebSocketClientUtil(String cookie, String subscribeDestination, String sendDestination) {
         this.cookie = cookie;
