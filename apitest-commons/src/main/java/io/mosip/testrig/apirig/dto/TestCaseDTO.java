@@ -1,7 +1,5 @@
 package io.mosip.testrig.apirig.dto;
 
-import java.util.List;
-
 import lombok.Data;
 
 @Data
