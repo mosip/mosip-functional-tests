@@ -402,7 +402,7 @@ public class PartnerRegistration extends AdminTestUtil {
 		requestBody.put("organizationName", deviceOrganizationName);
 		requestBody.put(GlobalConstants.PARTNERID, deviceOrganizationName);
 		requestBody.put("partnerType", "Device_Provider");
-		requestBody.put("policyGroup", policyGroup);
+//		requestBody.put("policyGroup", policyGroup);
 
 		HashMap<String, Object> body = new HashMap<>();
 
