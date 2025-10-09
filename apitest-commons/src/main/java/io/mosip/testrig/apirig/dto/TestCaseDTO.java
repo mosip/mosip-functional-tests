@@ -22,4 +22,5 @@ public class TestCaseDTO {
 	private String[] kycFields;
 	private String description;
 	private String uniqueIdentifier;
+	private String additionalDependencies;
 }

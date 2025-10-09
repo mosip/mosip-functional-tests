@@ -20,6 +20,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 import org.testng.IReporter;
@@ -36,6 +38,7 @@ import io.mosip.testrig.apirig.dto.TestCaseDTO;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 import io.mosip.testrig.apirig.utils.AdminTestUtil;
 import io.mosip.testrig.apirig.utils.ConfigManager;
+import io.mosip.testrig.apirig.utils.DependencyResolver;
 import io.mosip.testrig.apirig.utils.GlobalConstants;
 import io.mosip.testrig.apirig.utils.GlobalMethods;
 import io.mosip.testrig.apirig.utils.S3Adapter;
@@ -309,7 +312,7 @@ public class EmailableReport implements IReporter {
 	    writer.print(".num {text-align:center}");
 	    writer.print(".orange-bg {background-color: #FFD28E}");
 	    writer.print(".grey-bg {background-color: #808080}");
-	    writer.print(".thich-orange-bg {background-color: #CC5500}");
+	    writer.print(".yellow-bg {background-color: #FFFF00}");
 	    writer.print(".green-bg {background-color: #D0F0C0}");
 	    writer.print(".attn {background-color: #E74C3C}");
 	    writer.print(".passedodd td {background-color: #D0F0C0}");
@@ -403,6 +406,14 @@ public class EmailableReport implements IReporter {
 				writer.print(Utils.escapeHtml(GlobalMethods.getComponentDetails()));
 				writer.print("</pre></td>");
 				writer.print(GlobalConstants.TRTR);
+				
+				/*
+				 * writer.
+				 * print("<tr><th colspan=\"9\"><span class=\"not-bold\"><pre style=\"white-space:pre-wrap; word-wrap:break-word;\">"
+				 * );
+				 * writer.print(Utils.escapeHtml(GlobalMethods.getTestCaseVariableMapping()));
+				 * writer.print("</pre></span>"); writer.print(GlobalConstants.TRTR);
+				 */
 				
 				if (GlobalMethods.getServerErrors().equals("No server errors")) {
 					writer.print("<tr><th colspan=\"9\"><span class=\"not-bold\"><pre>");
@@ -511,7 +522,7 @@ public class EmailableReport implements IReporter {
 				}
 				
 				if (reportKnownIssueTestCases) {
-					writeTableData(integerFormat.format(knownIssueTests), (knownIssueTests > 0 ? "num thich-orange-bg" : "num"));
+					writeTableData(integerFormat.format(knownIssueTests), (knownIssueTests > 0 ? "num yellow-bg" : "num"));
 				}
 				writeTableData(convertMillisToTime(duration), "num");
 				writer.print(GlobalConstants.TR);
@@ -565,7 +576,7 @@ public class EmailableReport implements IReporter {
 			}
 			if (reportKnownIssueTestCases) {
 				writeTableHeader(integerFormat.format(totalKnownIssueTests),
-						(totalKnownIssueTests > 0 ? "num thich-orange-bg" : "num"));
+						(totalKnownIssueTests > 0 ? "num yellow-bg" : "num"));
 			}
 			writeTableHeader(convertMillisToTime(totalDuration), "num");
 			writer.print(GlobalConstants.TR);
@@ -584,7 +595,8 @@ public class EmailableReport implements IReporter {
 				Throwable throwable = result.getThrowable();
 				if (throwable != null) {
 					if (subSetString.contains(GlobalConstants.FEATURE_NOT_SUPPORTED)
-							|| subSetString.contains(GlobalConstants.SERVICE_NOT_DEPLOYED)) {
+							|| subSetString.contains(GlobalConstants.SERVICE_NOT_DEPLOYED)
+							|| subSetString.contains(GlobalConstants.NOT_IN_RUN_SCOPE)) {
 						if (containsAny(throwable.getMessage(), subSetString)) {
 							// Add only results which are skipped due to feature not supported
 							testResultsSubList.add(result);
@@ -601,7 +613,8 @@ public class EmailableReport implements IReporter {
 					} else { // Service not deployed. Hence skipping the testcase // skipped
 						if (!throwable.getMessage().contains(GlobalConstants.FEATURE_NOT_SUPPORTED)
 								&& !throwable.getMessage().contains(GlobalConstants.SERVICE_NOT_DEPLOYED)
-								&& !throwable.getMessage().contains(GlobalConstants.KNOWN_ISSUES)) {
+								&& !throwable.getMessage().contains(GlobalConstants.KNOWN_ISSUES)
+								&& !throwable.getMessage().contains(GlobalConstants.NOT_IN_RUN_SCOPE)) {
 							// Add only results which are not skipped due to feature not supported
 							testResultsSubList.add(result);
 						} else {
@@ -858,13 +871,60 @@ public class EmailableReport implements IReporter {
 		writer.print("<h3 id=\"m");
 		writer.print(scenarioIndex);
 		writer.print("\">");
-		writer.print(label);
-		writer.print("</h3>");
-
-		writer.print("<table class=\"result\">");
 
 		Object[] parameters = result.getParameters();
 		int parameterCount = (parameters == null ? 0 : parameters.length);
+		
+		String testCaseName = result.getMethod().getMethodName();
+		// Get the class name
+		String className = result.getMethod().getTestClass().getRealClass().getSimpleName();
+
+		String uniqueIdentifier = (parameterCount > 0 && parameters[0] instanceof TestCaseDTO)
+				? (((TestCaseDTO) parameters[0]).getUniqueIdentifier() != null
+						? ((TestCaseDTO) parameters[0]).getUniqueIdentifier()
+						: "TestCase ID is not available")
+				: "UNKNOWN";
+
+		String description = (parameterCount > 0 && parameters[0] instanceof TestCaseDTO)
+				? (((TestCaseDTO) parameters[0]).getDescription() != null
+						? ((TestCaseDTO) parameters[0]).getDescription()
+						: "No description available.")
+				: "UNKNOWN";
+
+		// Replace test case name with: TestcaseNumber # TestcaseDescription
+		writer.print(Utils.escapeHtml(uniqueIdentifier + " # " + description));
+		writer.print("</h3>");
+
+		writer.print("<table class=\"result\">");
+		
+		// Add TestCaseName
+		writer.print("<tr class=\"param\">");
+		writer.print("<th>Testcase Name</th>");
+		writer.print("</tr><tr class=\"param stripe\">");
+		writer.print("<td>");
+		writer.print(Utils.escapeHtml(testCaseName));
+		writer.print("</td></tr>");
+		
+		// Add Dependency
+		writer.print("<tr class=\"param\">");
+		writer.print("<th>Testcase Dependency</th>");
+		writer.print("</tr><tr class=\"param stripe\">");
+		List<String> dependencies = DependencyResolver.getDependencies(uniqueIdentifier);
+		dependencies.remove(uniqueIdentifier);
+		writer.print("<td>");
+		writer.print(Utils.escapeHtml(dependencies.toString()));
+		writer.print("</td>");
+		
+		// Add ClassName
+		writer.print("<tr class=\"param\">");
+		writer.print("<th>Class Name</th>");
+		writer.print("</tr><tr class=\"param stripe\">");
+		writer.print("<td>");
+		writer.print(Utils.escapeHtml(className));
+		writer.print("</td></tr>");
+		
+		writer.print(GlobalConstants.TR);
+		
 		if (ConfigManager.IsDebugEnabled()) {
 			if (parameterCount > 0) {
 				writer.print("<tr class=\"param\">");
