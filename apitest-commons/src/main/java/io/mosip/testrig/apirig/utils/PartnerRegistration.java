@@ -42,7 +42,6 @@ public class PartnerRegistration extends AdminTestUtil {
 	public static String updatedApiKey = "";
 	public static String kycApiKey = "";
 	public static String mispLicKey ="";
-//	public static volatile String appendEkycOrRp = "";
 	public static String policyGroup = AdminTestUtil.policyGroup;
 	public static String policyGroupForKyc = AdminTestUtil.policyGroup2;
 	public static final ThreadLocal<String> appendEkycOrRp = ThreadLocal.withInitial(() -> "");
