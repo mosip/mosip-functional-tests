@@ -393,9 +393,9 @@ public class KeyMgrUtil {
     public PrivateKeyEntry getKeyEntry(String dirPath, String parterId) throws NoSuchAlgorithmException, UnrecoverableEntryException, 
             KeyStoreException, CertificateException, IOException, OperatorCreationException {
         String filePrepend = parterId;
-
-        String partnerFilePath = dirPath + '/' +PartnerRegistration.appendEkycOrRp+ filePrepend + PARTNER_P12_FILE_NAME;;
-        return getPrivateKeyEntry(partnerFilePath);
+        String partnerFilePath = dirPath + '/' +PartnerRegistration.appendEkycOrRp.get()+ filePrepend + PARTNER_P12_FILE_NAME;;
+        logger.info("partnerFilePath : "+partnerFilePath);        
+		return getPrivateKeyEntry(partnerFilePath);
     }
 
     /**
