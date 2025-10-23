@@ -1440,6 +1440,25 @@ public class AdminTestUtil extends BaseTestCase {
 			throws SecurityXSSException {
 		Response response = null;
 		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		
+		if (bothAccessAndIdToken) {
+			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
+			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
+		} else if (role.equals("userDefinedCookie")) {
+			JSONObject req = new JSONObject(jsonInput);
+			if (req.has(GlobalConstants.COOKIE)) {
+				token = req.get(GlobalConstants.COOKIE).toString();
+				req.remove(GlobalConstants.COOKIE);
+				if (req.has(GlobalConstants.COOKIE_NAME)) {
+					cookieName = req.get(GlobalConstants.COOKIE_NAME).toString();
+					req.remove(GlobalConstants.COOKIE_NAME);
+				}
+			}
+			jsonInput = req.toString();
+		} else {
+			token = kernelAuthLib.getTokenByRole(role);
+		}
+
 		HashMap<String, String> map = null;
 		try {
 			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {
@@ -1451,12 +1470,6 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (testCaseName.contains("Resident_Login")) {
 			cookieName = COOKIENAMESTATE;
-		}
-		if (bothAccessAndIdToken) {
-			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
-			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
-		} else {
-			token = kernelAuthLib.getTokenByRole(role);
 		}
 
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
@@ -1508,7 +1521,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		return response;
 	}
-
+	
 	public static String encodeBase64(String value) {
 		String encodedStr;
 		try {
@@ -2364,7 +2377,19 @@ public class AdminTestUtil extends BaseTestCase {
 				logger.error(GlobalConstants.ERROR_STRING_2 + param + GlobalConstants.IN_STRING + inputJson);
 		}
 
-		token = kernelAuthLib.getTokenByRole(role);
+		if (role.equals("userDefinedCookie")) {
+			if (req.has(GlobalConstants.COOKIE)) {
+				token = req.get(GlobalConstants.COOKIE).toString();
+				req.remove(GlobalConstants.COOKIE);
+				if (req.has(GlobalConstants.COOKIE_NAME)) {
+					cookieName = req.get(GlobalConstants.COOKIE_NAME).toString();
+					req.remove(GlobalConstants.COOKIE_NAME);
+				}
+			}
+		} else {
+			token = kernelAuthLib.getTokenByRole(role);
+		}
+		
 		logger.info(GlobalConstants.PUT_REQ_STRING + url);
 		GlobalMethods.reportRequest(null, req.toString(), url);
 		try {
