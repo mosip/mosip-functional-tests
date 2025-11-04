@@ -210,6 +210,7 @@ public class GlobalConstants {
 	public static final String ACTU_AUTH_REQUESTFOR_RESIDENT = "Actual Auth Request for Resident: ";
 	public static final String AUTH_CLIENT_IDSECRET_KEYURL = "authclientidsecretkeyURL";
 	public static final String EXPECTED_VS_ACTUAL = "EXPECTED vs ACTUAL";
+	public static final String FLOWDEPENDENCY = "_FlowDependency";
 	public static final String RID_GENERATOR = "ridgenerator";
 	public static final String OTP_FEATURE_NOT_SUPPORTED = "OTP feature not supported. Hence skipping the testcase";
 	public static final String VID_FEATURE_NOT_SUPPORTED = "VID feature not supported. Hence skipping the testcase";

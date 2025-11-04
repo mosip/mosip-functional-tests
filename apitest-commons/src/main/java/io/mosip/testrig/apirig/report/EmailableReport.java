@@ -161,8 +161,8 @@ public class EmailableReport implements IReporter {
 		}
 
 		String oldString = System.getProperty(GlobalConstants.EMAILABLEREPORT2NAME);
-		// Remove unwanted random suffix (e.g., -5e9, -2b9, -abc123) before the module name
-		oldString = oldString.replaceAll("-[a-z0-9]{3,}(?=_)", "");
+        // Remove unwanted random suffix (e.g., -5e9, -2b9, -abc123) before the module name
+        oldString = oldString.replaceAll("-[a-z0-9]{3,}(?=_)", "");
 		String temp = "";
 		String reportContext = skipPassed == true ? "error-" : "full-";
 		
@@ -314,7 +314,7 @@ public class EmailableReport implements IReporter {
 	    writer.print(".num {text-align:center}");
 	    writer.print(".orange-bg {background-color: #FFD28E}");
 	    writer.print(".grey-bg {background-color: #808080}");
-	    writer.print(".thich-orange-bg {background-color: #CC5500}");
+	    writer.print(".yellow-bg {background-color: #FFFF00}");
 	    writer.print(".green-bg {background-color: #D0F0C0}");
 	    writer.print(".attn {background-color: #E74C3C}");
 	    writer.print(".passedodd td {background-color: #D0F0C0}");
@@ -524,7 +524,7 @@ public class EmailableReport implements IReporter {
 				}
 				
 				if (reportKnownIssueTestCases) {
-					writeTableData(integerFormat.format(knownIssueTests), (knownIssueTests > 0 ? "num thich-orange-bg" : "num"));
+					writeTableData(integerFormat.format(knownIssueTests), (knownIssueTests > 0 ? "num yellow-bg" : "num"));
 				}
 				writeTableData(convertMillisToTime(duration), "num");
 				writer.print(GlobalConstants.TR);
@@ -578,7 +578,7 @@ public class EmailableReport implements IReporter {
 			}
 			if (reportKnownIssueTestCases) {
 				writeTableHeader(integerFormat.format(totalKnownIssueTests),
-						(totalKnownIssueTests > 0 ? "num thich-orange-bg" : "num"));
+						(totalKnownIssueTests > 0 ? "num yellow-bg" : "num"));
 			}
 			writeTableHeader(convertMillisToTime(totalDuration), "num");
 			writer.print(GlobalConstants.TR);

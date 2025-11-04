@@ -180,6 +180,7 @@ public class AdminTestUtil extends BaseTestCase {
 	protected static String mispPolicyName = "mosip misp policy " + timeStamp;
 	protected static String policyName2 = "mosip auth policy2 " + timeStamp;
 	protected static String policyNameForUpdate = "mosip auth policy for update " + timeStamp;
+    protected static final String preRegUser = "Prereg_" + BaseTestCase.runContext +"@mosip.net";
 	protected static final String UPDATE_UIN_REQUEST = "config/Authorization/requestIdentity.json";
 	protected static final String AUTH_INTERNAL_REQUEST = "config/Authorization/internalAuthRequest.json";
 	protected static final String AUTH_POLICY_BODY = "config/AuthPolicy.json";
@@ -215,6 +216,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static Map<String, List<String>> consumers = new HashMap<>();
 	public static Map<String, List<String>> globalConsumersList = new HashMap<>();
 	public static String currentTestCaseName = null;
+	public static boolean generateDependency = true;
 
 	public static void init() {
 		properties = getproperty(getGlobalResourcePath() + "/" + "config/application.properties");
@@ -1439,6 +1441,25 @@ public class AdminTestUtil extends BaseTestCase {
 			throws SecurityXSSException {
 		Response response = null;
 		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		
+		if (bothAccessAndIdToken) {
+			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
+			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
+		} else if (role.equals("userDefinedCookie")) {
+			JSONObject req = new JSONObject(jsonInput);
+			if (req.has(GlobalConstants.COOKIE)) {
+				token = req.get(GlobalConstants.COOKIE).toString();
+				req.remove(GlobalConstants.COOKIE);
+				if (req.has(GlobalConstants.COOKIE_NAME)) {
+					cookieName = req.get(GlobalConstants.COOKIE_NAME).toString();
+					req.remove(GlobalConstants.COOKIE_NAME);
+				}
+			}
+			jsonInput = req.toString();
+		} else {
+			token = kernelAuthLib.getTokenByRole(role);
+		}
+
 		HashMap<String, String> map = null;
 		try {
 			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {
@@ -1450,12 +1471,6 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (testCaseName.contains("Resident_Login")) {
 			cookieName = COOKIENAMESTATE;
-		}
-		if (bothAccessAndIdToken) {
-			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
-			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
-		} else {
-			token = kernelAuthLib.getTokenByRole(role);
 		}
 
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
@@ -1507,7 +1522,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		return response;
 	}
-
+	
 	public static String encodeBase64(String value) {
 		String encodedStr;
 		try {
@@ -2363,7 +2378,19 @@ public class AdminTestUtil extends BaseTestCase {
 				logger.error(GlobalConstants.ERROR_STRING_2 + param + GlobalConstants.IN_STRING + inputJson);
 		}
 
-		token = kernelAuthLib.getTokenByRole(role);
+		if (role.equals("userDefinedCookie")) {
+			if (req.has(GlobalConstants.COOKIE)) {
+				token = req.get(GlobalConstants.COOKIE).toString();
+				req.remove(GlobalConstants.COOKIE);
+				if (req.has(GlobalConstants.COOKIE_NAME)) {
+					cookieName = req.get(GlobalConstants.COOKIE_NAME).toString();
+					req.remove(GlobalConstants.COOKIE_NAME);
+				}
+			}
+		} else {
+			token = kernelAuthLib.getTokenByRole(role);
+		}
+		
 		logger.info(GlobalConstants.PUT_REQ_STRING + url);
 		GlobalMethods.reportRequest(null, req.toString(), url);
 		try {
@@ -3072,6 +3099,9 @@ public class AdminTestUtil extends BaseTestCase {
 	public static void generateTestCaseInterDependencies(String fileAbsolutePath) {
 		VariableDependencyMapper mapper = new VariableDependencyMapper(AdminTestUtil.generators,
 				AdminTestUtil.globalConsumersList);
+		
+		logger.info("final generators = " + generators);
+		logger.info("final globalConsumersList = " + globalConsumersList);
 
 		JSONObject map = new JSONObject();
 		
@@ -3137,6 +3167,52 @@ public class AdminTestUtil extends BaseTestCase {
 			globalConsumersList.put(testCaseID, new ArrayList<>(Arrays.asList(idKeyName)));
 		}
 
+	}
+	
+	public static void addAdditionalDependencies(TestCaseDTO testCaseDTO) {
+	    String testCaseID = testCaseDTO.getUniqueIdentifier();
+	    String additionalDependencies = testCaseDTO.getAdditionalDependencies();
+
+	    if (additionalDependencies != null && !additionalDependencies.isBlank()) {
+	        // Split by comma and clean each dependency
+	        String[] dependencyArray = additionalDependencies.split(",");
+	        List<String> workflowDependencies = new ArrayList<>();
+
+	        for (String dependency : dependencyArray) {
+	            if (dependency != null && !dependency.trim().isEmpty()) {
+	                workflowDependencies.add(dependency.trim());
+	            }
+	        }
+
+	        // Process each dependency
+	        for (String dependencyTestCaseID : workflowDependencies) {
+	        	
+	        	boolean isDeleteCase = dependencyTestCaseID.toLowerCase().contains("delete");
+	        	String dependencyValue = dependencyTestCaseID + GlobalConstants.FLOWDEPENDENCY;
+	        	
+	        	if (!isDeleteCase) {
+	                String dependencyTestCaseName = getTestCaseNameWithUniqueIdentifier(dependencyTestCaseID);
+	                if (dependencyTestCaseName == null || dependencyTestCaseName.isEmpty()) {
+	                    logger.info("Dependency TestCaseName is empty for ID = " + dependencyTestCaseID);
+	                    continue;
+	                }
+	                dependencyValue = dependencyTestCaseName + GlobalConstants.FLOWDEPENDENCY;
+	            }
+	        	
+	        	addToMap(generators, dependencyTestCaseID, dependencyValue);
+	            addToMap(globalConsumersList, testCaseID, dependencyValue);
+	        }
+	    }
+	}
+		
+	private static void addToMap(Map<String, List<String>> map, String key, String value) {
+	    if (map.containsKey(key)) {
+	        map.get(key).add(value);
+	    } else {
+	        List<String> list = new ArrayList<>();
+	        list.add(value);
+	        map.put(key, list);
+	    }
 	}
 	
 	protected static void RemoveFromTheConsumersMap(String idKeyName) {
@@ -3708,6 +3784,23 @@ public class AdminTestUtil extends BaseTestCase {
 					String.valueOf(hierarchyLevelWithLocationCode));
 		}
 
+        if (jsonString.contains("$PREREGUSER$")) {
+            jsonString = replaceKeywordWithValue(jsonString, "$PREREGUSER$", preRegUser);
+        }
+        
+        if (jsonString.contains("$PHONENUMBER$")) {
+            try {
+                jsonString = replaceKeywordWithValue(jsonString, "$PHONENUMBER$", genStringAsperRegex(phoneSchemaRegex));
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+        
+		if (jsonString.contains("$EMAILVALUE$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$EMAILVALUE$",
+					BaseTestCase.currentModule + "_" + generateRandomAlphaNumericString(5) + "@mosip.com");
+		}
+
 		if (jsonString.contains("$CACERT$")) {
 			JSONObject request = new JSONObject(jsonString);
 			String partnerId = null;
@@ -4125,9 +4218,9 @@ public class AdminTestUtil extends BaseTestCase {
 				&& ConfigManager.getMockNotificationChannel().equalsIgnoreCase("phone")) {
 			String temp = idKey + keyForIdProperty + "$"; // $ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$
 			keyForIdProperty = keyForIdProperty.replace("_EMAIL", "_PHONE"); // AddIdentity_withValidParameters_smoke_Pos_PHONE
-			keyToReplace = temp; // $ID:AddIdentity_withValidParameters_smoke_Pos_PHONE$@phone
+			keyToReplace = temp;
 
-			jsonString = jsonString.replace(temp, temp + "@phone");
+			jsonString = jsonString.replace(temp, temp + "@phone");// $ID:AddIdentity_withValidParameters_smoke_Pos_PHONE$@phone
 
 		} else if (keyForIdProperty.endsWith("_PHONE")
 				&& ConfigManager.getMockNotificationChannel().equalsIgnoreCase("email")) {
@@ -5529,6 +5622,11 @@ public class AdminTestUtil extends BaseTestCase {
 				phoneFieldAdditionallyAdded = true;
 			}
 
+            if (identityPropsJson.has(result)) {
+                phoneSchemaRegex = identityPropsJson.getJSONObject(result).getJSONArray("validators").getJSONObject(0)
+                        .getString("validator");
+            }
+
 			// System.out.println("result is:" + result);
 			String email = getValueFromAuthActuator("json-property", "emailId");
 			String emailResult = email.replaceAll("\\[\"|\"\\]", "");
@@ -5597,7 +5695,11 @@ public class AdminTestUtil extends BaseTestCase {
 
 					if (eachRequiredProp.equals("IDSchemaVersion")) {
 						identityJson.put(eachRequiredProp, schemaVersion);
-					} else {
+					} else if (eachRequiredProp.equals(emailResult)) {
+                        identityJson.put(eachRequiredProp, "$EMAILVALUE$");
+                    } else if (eachRequiredProp.equals(result)) {
+                        identityJson.put(eachRequiredProp, "$PHONENUMBERFORIDENTITY$");
+                    } else {
 						identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
 					}
 				}
@@ -5916,9 +6018,6 @@ public class AdminTestUtil extends BaseTestCase {
 
 		try {
 			Response response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-			// Get actual response body
-			String responseBody = response.getBody().asString();
-			System.out.println("Actuator response body: " + responseBody);
 			JSONObject responseJson = new JSONObject(response.getBody().asString());
 			
 
@@ -6110,6 +6209,20 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static String getTestCaseUniqueIdentifier(String testCaseName) {
 		return testcaseIDNameMap.get(testCaseName);
+	}
+	
+	public static String getTestCaseNameWithUniqueIdentifier(String uniqueIdentifier ) {
+		if (uniqueIdentifier == null) {
+	        return null; // no point in searching
+	    }
+
+	    for (Map.Entry<String, String> entry : testcaseIDNameMap.entrySet()) {
+	        String value = entry.getValue();
+	        if (value != null && value.equals(uniqueIdentifier)) {
+	            return entry.getKey(); // key is already String
+	        }
+	    }
+		return null;
 	}
 
 	public static String getRandomElement(List<String> list) {
