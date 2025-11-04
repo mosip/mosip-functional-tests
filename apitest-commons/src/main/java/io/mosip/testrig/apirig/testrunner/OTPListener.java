@@ -143,7 +143,11 @@ public class OTPListener {
 			logger.info("*******emailNotificationMapS value = " + emailNotificationMapS + " and emailId = " + emailId);
 			if (emailNotificationMapS.get(emailId) != null) {
 				String html = (String) emailNotificationMapS.get(emailId);
-				emailNotificationMapS.remove(emailId);
+				if(BaseTestCase.currentModule.equals(GlobalConstants.DSL)) {
+					emailNotificationMapS.remove(emailId);
+				} else {
+					emailNotificationMapS.clear();
+				}
 				otp = parseOtp(html);
 				if (otp != null && otp.length() > 0) {
 					logger.info("Found the OTP = " + otp);
