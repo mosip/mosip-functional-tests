@@ -1986,4 +1986,67 @@ public class RestClient {
 
 		return postResponse;
 	}
+	
+	public static Response postRequestWithFormDataBodyWithHeaders(String url, Map<String, String> formData,
+			Map<String, String> headers) {
+		Response postResponse = null;
+		url = GlobalMethods.addToServerEndPointMap(url);
+
+		EncoderConfig encoderConfig = new EncoderConfig().encodeContentTypeAs(
+				"application/x-www-form-urlencoded; charset=utf-8", io.restassured.http.ContentType.URLENC);
+
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request to " + url);
+
+		try {
+			io.restassured.specification.RequestSpecification requestSpec = given()
+					.config(config.encoderConfig(encoderConfig)).relaxedHTTPSValidation()
+					.contentType("application/x-www-form-urlencoded; charset=utf-8");
+
+			if (formData != null && !formData.isEmpty()) {
+				requestSpec.formParams(formData);
+			}
+
+			if (headers != null && !headers.isEmpty()) {
+				RESTCLIENT_LOGGER.info("Headers being sent: " + headers);
+				requestSpec.headers(headers);
+			} else {
+				RESTCLIENT_LOGGER.info("No headers provided for this request.");
+			}
+
+			if (ConfigManager.IsDebugEnabled()) {
+				postResponse = requestSpec.log().all().when().post(url).then().extract().response();
+			} else {
+				postResponse = requestSpec.when().post(url).then().extract().response();
+			}
+
+			RESTCLIENT_LOGGER.info("Response Status Code: " + postResponse.getStatusCode());
+			RESTCLIENT_LOGGER.info("Response Body: " + postResponse.asString());
+
+		} catch (Exception e) {
+			RESTCLIENT_LOGGER.error("Error while sending POST request to " + url + ": " + e.getMessage(), e);
+		}
+
+		return postResponse;
+	}
+	
+	public static Response getRequestWithHeaders(String url, String contentHeader, String acceptHeader,
+			Map<String, String> headers) {
+		Response getResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
+
+		if (ConfigManager.IsDebugEnabled()) {
+			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
+
+			getResponse = given().config(config).relaxedHTTPSValidation().headers(headers).log().all().when().get(url)
+					.then().log().all().extract().response();
+
+			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
+			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
+		} else {
+			getResponse = given().config(config).relaxedHTTPSValidation().headers(headers).when().get(url).then()
+					.extract().response();
+		}
+
+		return getResponse;
+	}	
 }
