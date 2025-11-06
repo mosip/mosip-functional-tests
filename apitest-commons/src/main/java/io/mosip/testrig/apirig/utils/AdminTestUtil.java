@@ -3199,7 +3199,7 @@ public class AdminTestUtil extends BaseTestCase {
 	            }
 	        	
 	        	addToMap(generators, dependencyTestCaseID, dependencyValue);
-	            addToMap(globalConsumersList, dependencyTestCaseID, dependencyValue);
+	            addToMap(globalConsumersList, testCaseID, dependencyValue);
 	        }
 	    }
 	}
