@@ -498,7 +498,6 @@ apitestrig:
       eSignetDeployed: yes or no
       authCertsPath: '/home/mosip/authcerts'
       # Added properties for eSignet API Test Rigs (wait and retry configuration)
-      
       # Wait time (in milliseconds) after UIN generation in IDREPO before proceeding
       uinGenerationProcessingDelayTimeInMilliSeconds: '90000'
 
