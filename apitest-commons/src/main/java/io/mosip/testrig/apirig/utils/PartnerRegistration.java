@@ -42,9 +42,9 @@ public class PartnerRegistration extends AdminTestUtil {
 	public static String updatedApiKey = "";
 	public static String kycApiKey = "";
 	public static String mispLicKey ="";
-	public static final ThreadLocal<String> appendEkycOrRp = ThreadLocal.withInitial(() -> "");
 	public static String policyGroup = AdminTestUtil.policyGroup;
 	public static String policyGroupForKyc = AdminTestUtil.policyGroup2;
+	public static final ThreadLocal<String> appendEkycOrRp = ThreadLocal.withInitial(() -> "");
 	
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -402,7 +402,7 @@ public class PartnerRegistration extends AdminTestUtil {
 		requestBody.put("organizationName", deviceOrganizationName);
 		requestBody.put(GlobalConstants.PARTNERID, deviceOrganizationName);
 		requestBody.put("partnerType", "Device_Provider");
-		requestBody.put("policyGroup", policyGroup);
+//		requestBody.put("policyGroup", policyGroup);
 
 		HashMap<String, Object> body = new HashMap<>();
 

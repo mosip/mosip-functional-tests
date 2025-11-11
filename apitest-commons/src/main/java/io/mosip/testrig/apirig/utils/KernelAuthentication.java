@@ -609,8 +609,9 @@ public class KernelAuthentication extends BaseTestCase {
 		actualRequest_generation.put(GlobalConstants.REQUESTTIME, AdminTestUtil.getCurrentUTCTime());
 		((JSONObject) actualRequest_generation.get(GlobalConstants.REQUEST)).put("langCode",
 				BaseTestCase.getLanguageList().get(0));
-		((JSONObject) actualRequest_generation.get(GlobalConstants.REQUEST)).get("userId").toString();
-		String userId = ((JSONObject) actualRequest_generation.get(GlobalConstants.REQUEST)).get("userId").toString();
+		String userId = AdminTestUtil.preRegUser;
+        ((JSONObject) actualRequest_generation.get(GlobalConstants.REQUEST)).put("userId",
+                userId);
 		JSONObject actualRequest_validation = getRequestJson("config/prereg_ValidateOtp.json");
 		AdminTestUtil.postWithJson(preregSendOtp, actualRequest_generation);
 		String otp = null;
@@ -622,6 +623,8 @@ public class KernelAuthentication extends BaseTestCase {
 		}
 		((JSONObject) actualRequest_validation.get(GlobalConstants.REQUEST)).put("otp", otp);
 		actualRequest_validation.put(GlobalConstants.REQUESTTIME, AdminTestUtil.getCurrentUTCTime());
+        ((JSONObject) actualRequest_validation.get(GlobalConstants.REQUEST)).put("userId",
+                userId);
 		Response otpValidate = AdminTestUtil.postWithJson(preregValidateOtp, actualRequest_validation);
 		cookie = otpValidate.getCookie(GlobalConstants.AUTHORIZATION);
 		return cookie;
