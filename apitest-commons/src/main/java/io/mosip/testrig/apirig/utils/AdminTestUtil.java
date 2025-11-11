@@ -172,7 +172,7 @@ public class AdminTestUtil extends BaseTestCase {
 	protected static String preregHbsForCreate = null;
 	protected static String preregHbsForUpdate = null;
 	protected static String timeStamp = String.valueOf(Calendar.getInstance().getTimeInMillis());
-	protected static String policyGroup = "mosip auth policy group " + timeStamp;
+	protected static String policyGroup = "mosip auth policy group " + BaseTestCase.runContext + timeStamp;
 	protected static String mispPolicyGroup = "mosip misp policy group " + timeStamp;
 	protected static String policyGroupForUpdate = "mosip auth policy group update " + timeStamp;
 	protected static String policyGroup2 = "mosip auth policy group2 " + timeStamp;
@@ -180,6 +180,7 @@ public class AdminTestUtil extends BaseTestCase {
 	protected static String mispPolicyName = "mosip misp policy " + timeStamp;
 	protected static String policyName2 = "mosip auth policy2 " + timeStamp;
 	protected static String policyNameForUpdate = "mosip auth policy for update " + timeStamp;
+    protected static final String preRegUser = "Prereg_" + BaseTestCase.runContext +"@mosip.net";
 	protected static final String UPDATE_UIN_REQUEST = "config/Authorization/requestIdentity.json";
 	protected static final String AUTH_INTERNAL_REQUEST = "config/Authorization/internalAuthRequest.json";
 	protected static final String AUTH_POLICY_BODY = "config/AuthPolicy.json";
@@ -1440,7 +1441,6 @@ public class AdminTestUtil extends BaseTestCase {
 			throws SecurityXSSException {
 		Response response = null;
 		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
 			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
@@ -1521,7 +1521,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		return response;
 	}
-
+	
 	public static String encodeBase64(String value) {
 		String encodedStr;
 		try {
@@ -3783,6 +3783,23 @@ public class AdminTestUtil extends BaseTestCase {
 					String.valueOf(hierarchyLevelWithLocationCode));
 		}
 
+        if (jsonString.contains("$PREREGUSER$")) {
+            jsonString = replaceKeywordWithValue(jsonString, "$PREREGUSER$", preRegUser);
+        }
+        
+        if (jsonString.contains("$PHONENUMBER$")) {
+            try {
+                jsonString = replaceKeywordWithValue(jsonString, "$PHONENUMBER$", genStringAsperRegex(phoneSchemaRegex));
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+        
+		if (jsonString.contains("$EMAILVALUE$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$EMAILVALUE$",
+					BaseTestCase.currentModule + "_" + generateRandomAlphaNumericString(5) + "@mosip.com");
+		}
+
 		if (jsonString.contains("$CACERT$")) {
 			JSONObject request = new JSONObject(jsonString);
 			String partnerId = null;
@@ -4200,9 +4217,9 @@ public class AdminTestUtil extends BaseTestCase {
 				&& ConfigManager.getMockNotificationChannel().equalsIgnoreCase("phone")) {
 			String temp = idKey + keyForIdProperty + "$"; // $ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$
 			keyForIdProperty = keyForIdProperty.replace("_EMAIL", "_PHONE"); // AddIdentity_withValidParameters_smoke_Pos_PHONE
-			keyToReplace = temp; // $ID:AddIdentity_withValidParameters_smoke_Pos_PHONE$@phone
+			keyToReplace = temp;
 
-			jsonString = jsonString.replace(temp, temp + "@phone");
+			jsonString = jsonString.replace(temp, temp + "@phone");// $ID:AddIdentity_withValidParameters_smoke_Pos_PHONE$@phone
 
 		} else if (keyForIdProperty.endsWith("_PHONE")
 				&& ConfigManager.getMockNotificationChannel().equalsIgnoreCase("email")) {
@@ -5604,6 +5621,11 @@ public class AdminTestUtil extends BaseTestCase {
 				phoneFieldAdditionallyAdded = true;
 			}
 
+            if (identityPropsJson.has(result)) {
+                phoneSchemaRegex = identityPropsJson.getJSONObject(result).getJSONArray("validators").getJSONObject(0)
+                        .getString("validator");
+            }
+
 			// System.out.println("result is:" + result);
 			String email = getValueFromAuthActuator("json-property", "emailId");
 			String emailResult = email.replaceAll("\\[\"|\"\\]", "");
@@ -5672,7 +5694,11 @@ public class AdminTestUtil extends BaseTestCase {
 
 					if (eachRequiredProp.equals("IDSchemaVersion")) {
 						identityJson.put(eachRequiredProp, schemaVersion);
-					} else {
+					} else if (eachRequiredProp.equals(emailResult)) {
+                        identityJson.put(eachRequiredProp, "$EMAILVALUE$");
+                    } else if (eachRequiredProp.equals(result)) {
+                        identityJson.put(eachRequiredProp, "$PHONENUMBERFORIDENTITY$");
+                    } else {
 						identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
 					}
 				}
