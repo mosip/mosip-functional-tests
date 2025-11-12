@@ -40,6 +40,45 @@ spec:
               {{- if $.Values.enable_insecure }}
               {{- include "common.tplvalues.render" (dict "value" $.Values.initContainers "context" $) | nindent 12 }}
               {{- end }}
+              {{- if $.Values.modules.pms.enabled }}
+              - name: db-cleanup
+                image: postgres:15-alpine
+                imagePullPolicy: IfNotPresent
+                env:
+                  - name: PGPASSWORD
+                    valueFrom:
+                      secretKeyRef:
+                        name: postgres-postgresql
+                        key: postgres-password
+                  - name: PGHOST
+                    valueFrom:
+                      configMapKeyRef:
+                        name: db
+                        key: db-server
+                  - name: PGPORT
+                    valueFrom:
+                      configMapKeyRef:
+                        name: db
+                        key: db-port
+                  - name: PGUSER
+                    valueFrom:
+                      configMapKeyRef:
+                        name: db
+                        key: db-su-user
+                  - name: PGDATABASE
+                    value: mosip_pms
+                volumeMounts:
+                  - name: cleanup-sql
+                    mountPath: /scripts
+                    readOnly: true
+                command:
+                  - sh
+                  - -c
+                  - |
+                    set -euo pipefail
+                    # stop on first SQL error
+                    psql -v ON_ERROR_STOP=1 -f /scripts/cleanup.sql
+              {{- end }}
           containers:
           - name: {{ template "apitestrig.serviceAccountName" $ }}-{{ $modulename }}
             image: {{ $module.image.repository }}:{{ $module.image.tag }}
@@ -123,6 +162,12 @@ spec:
           - name: {{ $.Values.apitestrig.volumes.reports.name }}
             persistentVolumeClaim:
               claimName: {{ $.Values.apitestrig.volumes.reports.name }}-{{ $.Release.Namespace }}-{{ $modulename }}-pvc
+          {{- end }}
+          {{- if $.Values.modules.pms.enabled }}
+          - name: cleanup-sql
+            configMap:
+              name: db-cleanup-sql
+              defaultMode: 0440
           {{- end }}
 {{- end }}
 {{- end }}

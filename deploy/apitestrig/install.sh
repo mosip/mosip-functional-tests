@@ -140,7 +140,7 @@ function installing_apitestrig() {
       fi
     done
     echo Installing apitestrig
-    helm -n $NS install apitestrig mosip/apitestrig \
+    helm -n $NS install apitestrig /home/techno-408/IdeaProjects/mosip-functional-tests-new/helm/apitestrig \
     --set crontime="0 $time * * *" \
     -f values.yaml  \
     --version $CHART_VERSION \
