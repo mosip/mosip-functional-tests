@@ -432,6 +432,7 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = null;
 		HashMap<String, String> headers = new HashMap<>();
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		logger.info("Signed CSR Certificate generated and replaced in the request 3." + inputJson);
 		JSONObject request = new JSONObject(inputJson);
 		String encodedResp = null;
 		String transactionId = null;
@@ -4037,6 +4038,22 @@ public class AdminTestUtil extends BaseTestCase {
 
 		return jsonString;
 	}
+	
+	public static String normalizePemForJson(String pemContent) {
+		if (pemContent == null) {
+			return null;
+		}
+
+		String normalized = pemContent;
+		if (System.getProperty(GlobalConstants.OS_NAME).toLowerCase().contains(GlobalConstants.WINDOWS)) {
+			normalized = normalized.replaceAll("\r\n", "\\\\n");
+		} else {
+			normalized = normalized.replaceAll("\n", "\\\\n");
+		}
+
+		return normalized;
+	}
+	    
 
 	public static String generatePulicKey() {
 		String publicKey = null;
