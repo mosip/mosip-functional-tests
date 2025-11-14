@@ -342,7 +342,7 @@ public class BiometricDataProvider {
   		if (moduleName != null && moduleName.length() != 0){
   		    certsModuleName = moduleName;
   		}
-  		return certsTargetDir + File.separator + certsModuleName + "-IDA-" + System.getProperty("env.user")+ ".mosip.net";
+  		return certsTargetDir + File.separator + certsModuleName + "-IDA-" + System.getProperty("env.user");
   }
 
 	public static MDSRCaptureModel regenBiometricViaMDS(ResidentBiometricModel resident, String mdsMode, int qualityScore)

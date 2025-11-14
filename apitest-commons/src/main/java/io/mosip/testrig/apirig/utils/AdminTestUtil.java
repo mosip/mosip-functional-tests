@@ -4677,9 +4677,8 @@ public class AdminTestUtil extends BaseTestCase {
 		if (System.getProperty("os.name").toLowerCase().contains("windows") == false) {
 			certsTargetDir = "/home/mosip/authcerts";
 		}
-		logger.info("Certs target path is: " + certsTargetDir + File.separator + certsForModule + "-IDA-" + environment
-				+ ".mosip.net");
-		return certsTargetDir + File.separator + certsForModule + "-IDA-" + environment + ".mosip.net";
+		logger.info("Certs target path is: " + certsTargetDir + File.separator + certsForModule + "-IDA-" + environment);
+		return certsTargetDir + File.separator + certsForModule + "-IDA-" + environment;
 	}
 
 	public static String buildIdentityRequest(String identityRequest) {
