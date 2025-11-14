@@ -24,16 +24,20 @@ import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.SecureRandom;
+import java.security.Security;
 import java.security.UnrecoverableEntryException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.security.interfaces.RSAPublicKey;
+import java.security.spec.ECGenParameterSpec;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
@@ -62,6 +66,7 @@ import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.util.io.pem.PemObject;
 import org.bouncycastle.util.io.pem.PemReader;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.bouncycastle.pkcs.PKCS10CertificationRequest;
 
 import io.mosip.authentication.core.util.CryptoUtil;
 import io.mosip.testrig.apirig.dto.CertificateChainResponseDto;
@@ -239,26 +244,175 @@ public class KeyMgrUtility {
         outputStream.close();
         return new KeyStore.PrivateKeyEntry(keyPair.getPrivate(), chain);
     }
+    
+    // Method to expose key generation with different algorithms
 
-    private X509Certificate generateX509Certificate(PrivateKey signPrivateKey, PublicKey publicKey, String signCertType,
-                                                    String certType, KeyUsage keyUsage, LocalDateTime dateTime, LocalDateTime dateTimeExp, String organization) throws CertificateException, NoSuchAlgorithmException, OperatorCreationException, CertIOException {
-        X500Name certIssuer = getCertificateAttributes(signCertType, organization);
-        X500Name certSubject = getCertificateAttributes(certType, organization);
-        Date notBefore = Date.from(dateTime.atZone(ZoneId.systemDefault()).toInstant());
-        Date notAfter = Date.from(dateTimeExp.atZone(ZoneId.systemDefault()).toInstant());
+    public KeyStore.PrivateKeyEntry generateKeys(PrivateKey signKey, String signCertType, String certType,
+			String p12FilePath, KeyUsage keyUsage, LocalDateTime dateTime, LocalDateTime dateTimeExp,
+			String organization, String signatureAlgorithm) throws CertificateException, NoSuchAlgorithmException,
+			KeyStoreException, IOException, OperatorCreationException {
+		
+		KeyPair keyPair = generateKeyPair(signatureAlgorithm);
+		
+		
+		X509Certificate signCert = null;
+		if (Objects.isNull(signKey)) {
+			signCert = generateX509Certificate(keyPair.getPrivate(), keyPair.getPublic(), signCertType, certType,
+					keyUsage, dateTime, dateTimeExp, organization, signatureAlgorithm);
+		} else {
+			signCert = generateX509Certificate(signKey, keyPair.getPublic(), signCertType, certType, keyUsage, dateTime,
+					dateTimeExp, organization, signatureAlgorithm);
+		}
+		X509Certificate[] chain = new X509Certificate[] { signCert };
+		KeyStore.PrivateKeyEntry privateKeyEntry = new KeyStore.PrivateKeyEntry(keyPair.getPrivate(), chain);
 
-        BigInteger certSerialNum = new BigInteger(Long.toString(new SecureRandom().nextLong()));
+		KeyStore keyStore = KeyStore.getInstance(KEY_STORE);
+		keyStore.load(null, getP12Pass());
+		keyStore.setEntry(getKeyAlias(), privateKeyEntry, new KeyStore.PasswordProtection(getP12Pass()));
+		Path parentPath = Paths.get(p12FilePath).getParent();
+		if (parentPath != null && !Files.exists(parentPath)) {
+			Files.createDirectories(parentPath);
+		}
+		OutputStream outputStream = new FileOutputStream(p12FilePath);
+		keyStore.store(outputStream, getP12Pass());
+		outputStream.flush();
+		outputStream.close();
+		return new KeyStore.PrivateKeyEntry(keyPair.getPrivate(), chain);
+	}
+	
+	public static KeyPair generateKeyPair(String algorithm) {
+	    try {
+	        SecureRandom random = new SecureRandom();
+	        KeyPairGenerator keyGen;
 
-        ContentSigner certContentSigner = new JcaContentSignerBuilder(SIGN_ALGO).build(signPrivateKey);
-        X509v3CertificateBuilder certBuilder = new JcaX509v3CertificateBuilder(certIssuer, certSerialNum, notBefore,
-                notAfter, certSubject, publicKey);
-        JcaX509ExtensionUtils certExtUtils = new JcaX509ExtensionUtils();
-        certBuilder.addExtension(Extension.basicConstraints, true, new BasicConstraints(true));
-        certBuilder.addExtension(Extension.subjectKeyIdentifier, false, certExtUtils.createSubjectKeyIdentifier(publicKey));
-        certBuilder.addExtension(Extension.keyUsage, true, keyUsage);
-        X509CertificateHolder certHolder = certBuilder.build(certContentSigner);
-        return new JcaX509CertificateConverter().getCertificate(certHolder);
-    }
+	        switch (algorithm.toUpperCase()) {
+	            case "RSA":
+	                keyGen = KeyPairGenerator.getInstance("RSA");
+	                keyGen.initialize(4096, random);
+	                break;
+
+	            case "ED25519":
+	                keyGen = KeyPairGenerator.getInstance("Ed25519", "BC");
+	                // Ed25519 ignores initialize()
+	                break;
+
+	            case "SECP256R1":
+	            case "P-256":
+	                keyGen = KeyPairGenerator.getInstance("EC", "BC");
+	                keyGen.initialize(new ECGenParameterSpec("secp256r1"), random);
+	                break;
+
+	            case "SECP256K1":
+	                keyGen = KeyPairGenerator.getInstance("EC", "BC");
+	                keyGen.initialize(new ECGenParameterSpec("secp256k1"), random);
+	                break;
+
+	            default:
+	                throw new IllegalArgumentException("Unsupported algorithm: " + algorithm);
+	        }
+
+	        return keyGen.generateKeyPair();
+
+	    } catch (Exception e) {
+	        throw new RuntimeException("Failed to generate key pair for algorithm: " + algorithm, e);
+	    }
+	}
+
+	
+	public X509Certificate generateX509Certificate(
+	        PrivateKey signPrivateKey,
+	        PublicKey publicKey,
+	        String signCertType,
+	        String certType,
+	        KeyUsage keyUsage,
+	        LocalDateTime dateTime,
+	        LocalDateTime dateTimeExp,
+	        String organization,
+	        String algorithm)
+	        throws CertificateException, NoSuchAlgorithmException, OperatorCreationException, CertIOException {
+
+	    // Ensure BouncyCastle provider is registered once
+	    if (Security.getProvider("BC") == null) {
+	        Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
+	    }
+
+	    // Map key algorithm → signature algorithm
+	    String signAlgo;
+	    switch (algorithm.toUpperCase()) {
+	        case "RSA":
+	            signAlgo = "SHA256withRSA";
+	            break;
+	        case "SECP256R1":
+	        case "P-256":
+	            signAlgo = "SHA256withECDSA";
+	            break;
+	        case "SECP256K1":
+	            signAlgo = "SHA256withECDSA";
+	            break;
+	        case "ED25519":
+	            signAlgo = "Ed25519";
+	            break;
+	        default:
+	            throw new IllegalArgumentException("Unsupported signing algorithm: " + algorithm);
+	    }
+
+	    // Build certificate details
+		    X500Name certIssuer = getCertificateAttributes(signCertType, organization);
+		    X500Name certSubject = getCertificateAttributes(certType, organization);
+			/*
+			 * ZonedDateTime nowUtc = ZonedDateTime.now(ZoneOffset.UTC); Date notBefore =
+			 * Date.from(nowUtc.minusMinutes(5).toInstant()); Date notAfter =
+			 * Date.from(nowUtc.plusYears(5).toInstant());
+			 */
+		    
+			Date notBefore = Date.from(dateTime.minusMinutes(3).atZone(ZoneId.systemDefault()).toInstant());
+
+			Date notAfter = Date.from(dateTimeExp.atZone(ZoneId.systemDefault()).toInstant());
+	   
+	    BigInteger certSerialNum = new BigInteger(Long.toString(new SecureRandom().nextLong()));
+
+	    // Build signer with correct algorithm
+	    ContentSigner certContentSigner = new JcaContentSignerBuilder(signAlgo)
+	            .setProvider("BC")
+	            .build(signPrivateKey);
+
+	    // Build X.509v3 certificate
+	    X509v3CertificateBuilder certBuilder = new JcaX509v3CertificateBuilder(
+	            certIssuer, certSerialNum, notBefore, notAfter, certSubject, publicKey);
+
+	    JcaX509ExtensionUtils certExtUtils = new JcaX509ExtensionUtils();
+	    certBuilder.addExtension(Extension.basicConstraints, true, new BasicConstraints(true));
+	    certBuilder.addExtension(Extension.subjectKeyIdentifier, false, certExtUtils.createSubjectKeyIdentifier(publicKey));
+	    certBuilder.addExtension(Extension.keyUsage, true, keyUsage);
+
+	    // Build and return X509Certificate
+	    X509CertificateHolder certHolder = certBuilder.build(certContentSigner);
+	    return new JcaX509CertificateConverter().setProvider("BC").getCertificate(certHolder);
+	}
+
+
+	private X509Certificate generateX509Certificate(PrivateKey signPrivateKey, PublicKey publicKey, String signCertType,
+			String certType, KeyUsage keyUsage, LocalDateTime dateTime, LocalDateTime dateTimeExp, String organization)
+			throws CertificateException, NoSuchAlgorithmException, OperatorCreationException, CertIOException {
+		X500Name certIssuer = getCertificateAttributes(signCertType, organization);
+		X500Name certSubject = getCertificateAttributes(certType, organization);
+		Date notBefore = Date.from(dateTime.atZone(ZoneId.systemDefault()).toInstant());
+		Date notAfter = Date.from(dateTimeExp.atZone(ZoneId.systemDefault()).toInstant());
+
+		BigInteger certSerialNum = new BigInteger(Long.toString(new SecureRandom().nextLong()));
+
+		ContentSigner certContentSigner = new JcaContentSignerBuilder(SIGN_ALGO).build(signPrivateKey);
+		X509v3CertificateBuilder certBuilder = new JcaX509v3CertificateBuilder(certIssuer, certSerialNum, notBefore,
+				notAfter, certSubject, publicKey);
+		JcaX509ExtensionUtils certExtUtils = new JcaX509ExtensionUtils();
+		certBuilder.addExtension(Extension.basicConstraints, true, new BasicConstraints(true));
+		certBuilder.addExtension(Extension.subjectKeyIdentifier, false,
+				certExtUtils.createSubjectKeyIdentifier(publicKey));
+		certBuilder.addExtension(Extension.keyUsage, true, keyUsage);
+		X509CertificateHolder certHolder = certBuilder.build(certContentSigner);
+		return new JcaX509CertificateConverter().getCertificate(certHolder);
+	}
+	
 
     private static X500Name getCertificateAttributes(String cn, String organization) {
 
@@ -271,7 +425,7 @@ public class KeyMgrUtility {
         return builder.build();
     }
 
-    private String getCertificate(KeyStore.PrivateKeyEntry keyEntry) throws IOException {
+    public String getCertificate(KeyStore.PrivateKeyEntry keyEntry) throws IOException {
         StringWriter stringWriter = new StringWriter();
         JcaPEMWriter pemWriter = new JcaPEMWriter(stringWriter);
         pemWriter.writeObject(keyEntry.getCertificate());
@@ -446,4 +600,13 @@ public class KeyMgrUtility {
         System.out.println("AssymetricEncrypted data -- Start" + encryptedData + " End--AssymetricEncrypted data");
         return CryptoUtil.encodeBase64(encryptedData);
     }
+    
+    public PKCS10CertificationRequest parseCertificate(String certificate) throws IOException {
+    	PKCS10CertificationRequest csr;
+    	        try (PemReader reader = new PemReader(new StringReader(certificate))) {
+    	            PemObject pemObject = reader.readPemObject();
+    	            csr = new PKCS10CertificationRequest(pemObject.getContent());
+    	        }
+    	        return csr;
+    	}
 }

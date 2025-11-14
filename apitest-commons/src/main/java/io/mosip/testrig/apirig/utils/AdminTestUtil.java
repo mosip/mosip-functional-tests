@@ -4037,6 +4037,22 @@ public class AdminTestUtil extends BaseTestCase {
 
 		return jsonString;
 	}
+	
+	public static String normalizePemForJson(String pemContent) {
+		if (pemContent == null) {
+			return null;
+		}
+
+		String normalized = pemContent;
+		if (System.getProperty(GlobalConstants.OS_NAME).toLowerCase().contains(GlobalConstants.WINDOWS)) {
+			normalized = normalized.replaceAll("\r\n", "\\\\n");
+		} else {
+			normalized = normalized.replaceAll("\n", "\\\\n");
+		}
+
+		return normalized;
+	}
+	    
 
 	public static String generatePulicKey() {
 		String publicKey = null;
