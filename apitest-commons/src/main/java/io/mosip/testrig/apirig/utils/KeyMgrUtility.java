@@ -245,7 +245,9 @@ public class KeyMgrUtility {
         return new KeyStore.PrivateKeyEntry(keyPair.getPrivate(), chain);
     }
     
-	public KeyStore.PrivateKeyEntry generateKeys(PrivateKey signKey, String signCertType, String certType,
+    // Method to expose key generation with different algorithms
+
+    public KeyStore.PrivateKeyEntry generateKeys(PrivateKey signKey, String signCertType, String certType,
 			String p12FilePath, KeyUsage keyUsage, LocalDateTime dateTime, LocalDateTime dateTimeExp,
 			String organization, String signatureAlgorithm) throws CertificateException, NoSuchAlgorithmException,
 			KeyStoreException, IOException, OperatorCreationException {

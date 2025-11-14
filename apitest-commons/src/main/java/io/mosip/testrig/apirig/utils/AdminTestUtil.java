@@ -432,7 +432,6 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = null;
 		HashMap<String, String> headers = new HashMap<>();
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		logger.info("Signed CSR Certificate generated and replaced in the request 3." + inputJson);
 		JSONObject request = new JSONObject(inputJson);
 		String encodedResp = null;
 		String transactionId = null;
