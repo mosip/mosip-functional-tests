@@ -164,7 +164,7 @@ public class BaseTestCase {
 	//public static String genPartnerName = "partnernameforautomationesi-" + generateRandomNumberString(6);
 	public static String genPartnerName = null;
 	//public static String genPartnerNameNonAuth = "partnernameforesignet-" + generateRandomNumberString(6);
-	public static String genPartnerNameNonAuth = BaseTestCase.currentModule + "-partnernameforesignet";
+	public static String genPartnerNameNonAuth = null;
 	public String genPartnerNameForDsl = "partnernameforautomationdsl-" + generateRandomNumberString(6);
 	public static String genMispPartnerName = "esignet_" + generateRandomNumberString(6)
 			+ generateRandomNumberString(3);
@@ -217,7 +217,8 @@ public class BaseTestCase {
 	 */
 	
 	public static void initializePMSDetails() {
-		genPartnerName = BaseTestCase.currentModule + "-partnernameforautomationesi";
+		genPartnerName = BaseTestCase.currentModule + "-partnerforautomation";
+		genPartnerNameNonAuth = BaseTestCase.currentModule + "-partnerforesignet";
 	}
 
 	public static String getGlobalResourcePath() {
