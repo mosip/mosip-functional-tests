@@ -3626,6 +3626,10 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = replaceKeywordWithValue(jsonString, GlobalConstants.CERTSDIR,
 					ConfigManager.getauthCertsPath());
 		}
+		
+		if (jsonString.contains("$RUNCONTEXT$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$RUNCONTEXT$", BaseTestCase.runContext);
+		}
 
 		if (jsonString.contains("$BIOVALUE$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$BIOVALUE$",
