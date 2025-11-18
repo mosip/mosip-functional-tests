@@ -1,0 +1,11 @@
+{{- if .Values.modules.pms.enabled }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-cleanup-sql
+  labels:
+    app.kubernetes.io/managed-by: Helm
+data:
+  cleanup.sql: |
+{{ .Files.Get "scripts/cleanup.sql" | indent 4 }}
+{{- end }}
