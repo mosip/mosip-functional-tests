@@ -190,6 +190,7 @@ public class BaseTestCase {
 	protected static String jarURLS = "";
 
     public static String runContext = GlobalMethods.getRunContext();
+    public static String domain = System.getProperty("env.endpoint", "localhost").replaceFirst("^https?://", "").replaceAll("/$", "");
 		
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())

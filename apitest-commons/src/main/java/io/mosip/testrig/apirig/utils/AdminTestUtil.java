@@ -4708,11 +4708,14 @@ public class AdminTestUtil extends BaseTestCase {
 				+ System.getProperty("parent.certs.folder.name", "AUTHCERTS");
 
 		if (System.getProperty("os.name").toLowerCase().contains("windows") == false) {
-			certsTargetDir = "/home/mosip/authcerts";
+			if (System.getProperty("os.name").toLowerCase().contains("mac")) {
+				certsTargetDir = "/Users/" + System.getProperty("user.name") + "/authcerts";
+			} else {
+				certsTargetDir = ConfigManager.getauthCertsPath();
+			}
 		}
-		logger.info("Certs target path is: " + certsTargetDir + File.separator + certsForModule + "-IDA-" + environment
-				+ ".mosip.net");
-		return certsTargetDir + File.separator + certsForModule + "-IDA-" + environment + ".mosip.net";
+		logger.info("Certs target path is: " + certsTargetDir + File.separator + certsForModule + "-IDA-" + BaseTestCase.domain);
+		return certsTargetDir + File.separator + certsForModule + "-IDA-" + BaseTestCase.domain;
 	}
 
 	public static String buildIdentityRequest(String identityRequest) {
