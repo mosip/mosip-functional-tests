@@ -4707,14 +4707,13 @@ public class AdminTestUtil extends BaseTestCase {
 		String certsTargetDir = System.getProperty("java.io.tmpdir") + File.separator
 				+ System.getProperty("parent.certs.folder.name", "AUTHCERTS");
 
-		if (System.getProperty("os.name").toLowerCase().contains("windows") == false) {
-			if (System.getProperty("os.name").toLowerCase().contains("mac")) {
-				certsTargetDir = "/Users/" + System.getProperty("user.name") + "/authcerts";
-			} else {
-				certsTargetDir = ConfigManager.getauthCertsPath();
-			}
+		String os = System.getProperty("os.name").toLowerCase();
+
+		if (!os.contains("windows") && !os.contains("mac")) {
+			certsTargetDir = ConfigManager.getauthCertsPath();
 		}
-		logger.info("Certs target path is: " + certsTargetDir + File.separator + certsForModule + "-IDA-" + BaseTestCase.domain);
+		logger.info("Certs target path is: " + certsTargetDir + File.separator + certsForModule + "-IDA-"
+				+ BaseTestCase.domain);
 		return certsTargetDir + File.separator + certsForModule + "-IDA-" + BaseTestCase.domain;
 	}
 

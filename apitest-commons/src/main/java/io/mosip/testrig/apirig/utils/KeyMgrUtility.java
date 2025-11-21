@@ -115,26 +115,28 @@ public class KeyMgrUtility {
         return false;
     }
 
-    public String getKeysDirPath(String certsDir, String moduleName, String targetEnv) {
-        String certsTargetDir = System.getProperty("java.io.tmpdir") + File.separator + System.getProperty("parent.certs.folder.name", "AUTHCERTS");
+	public String getKeysDirPath(String certsDir, String moduleName, String targetEnv) {
+		String certsTargetDir = System.getProperty("java.io.tmpdir") + File.separator
+				+ System.getProperty("parent.certs.folder.name", "AUTHCERTS");
 
-        if (System.getProperty("os.name").toLowerCase().contains("windows") == false) {
-            certsTargetDir = ConfigManager.getauthCertsPath();
-        }
+		String os = System.getProperty("os.name").toLowerCase();
 
-        String certsModuleName = "IDA";
+		if (!os.contains("windows") && !os.contains("mac")) {
+			certsTargetDir = ConfigManager.getauthCertsPath();
+		}
 
+		String certsModuleName = "IDA";
 
-        if (certsDir != null && certsDir.length() != 0) {
-            certsTargetDir = certsDir;
-        }
+		if (certsDir != null && certsDir.length() != 0) {
+			certsTargetDir = certsDir;
+		}
 
-        if (moduleName != null && moduleName.length() != 0) {
-            certsModuleName = moduleName;
-        }
-        return certsTargetDir + File.separator + certsModuleName + "-IDA-" + targetEnv;
+		if (moduleName != null && moduleName.length() != 0) {
+			certsModuleName = moduleName;
+		}
+		return certsTargetDir + File.separator + certsModuleName + "-IDA-" + targetEnv;
 
-    }
+	}
 
     public CertificateChainResponseDto getPartnerCertificates(PartnerTypes partnerType, String dirPath, String organization, boolean keyFileNameByPartnerName) throws
             NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException, IOException, CertificateException, OperatorCreationException {
