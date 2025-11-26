@@ -1,0 +1,350 @@
+THIRD-PARTY-NOTICES
+
+This project includes third-party packages that are distributed under various open-source licenses. Below is a list of packages and their associated licenses.
+
+================================================================================
+Package: Project Lombok
+Version: Not specified
+License: MIT License (Inferred from project’s official repository)
+Homepage: https://projectlombok.org/
+================================================================================
+
+================================================================================
+Package: Jackson (FasterXML)
+Modules: jackson-databind, jackson-annotations, jackson-core,
+         jackson-module-jaxb-annotations, jackson-datatype-jsr310,
+         jackson-dataformat-xml
+Version: Not specified
+License: Apache License 2.0
+Homepage: https://github.com/FasterXML/jackson
+================================================================================
+
+================================================================================
+Package: Spring Framework & Spring Boot
+Modules: spring-web, spring-security-test, spring-boot-test-autoconfigure,
+         spring-boot-maven-plugin, spring-boot-starter-data-redis,
+         spring-boot-configuration-processor
+Version: Not specified / some 3.2.x entries
+License: Apache License 2.0
+Homepage: https://spring.io/projects/spring-framework
+================================================================================
+
+================================================================================
+Package: SLF4J
+Modules: jul-to-slf4j, jcl-over-slf4j
+Version: Not specified
+License: MIT License (Inferred from project’s official repository)
+Homepage: http://www.slf4j.org/
+================================================================================
+
+================================================================================
+Package: MOSIP Kernel Libraries
+Modules: kernel-core, kernel-bom, kernel-keymanager-service,
+         kernel-templatemanager-velocity, kernel-websubclient-api,
+         kernel-logger-logback
+Version: 1.3.x (varies per module)
+License: Mozilla Public License 2.0
+Homepage: https://github.com/mosip
+================================================================================
+
+================================================================================
+Package: ActiveMQ Broker
+Version: Not specified
+License: Apache License 2.0 (Inferred)
+Homepage: https://activemq.apache.org/
+================================================================================
+
+================================================================================
+Package: Apache Wink JSON4J Provider
+Version: 1.1.2-incubating
+License: Apache License 2.0
+Homepage: https://wink.apache.org/
+================================================================================
+
+================================================================================
+Package: Slack API Client
+Version: 1.6.1-RC1
+License: Apache License 2.0
+Homepage: https://github.com/slackapi/java-slack-sdk
+================================================================================
+
+================================================================================
+Package: Generex
+Version: 1.0.2
+License: Apache License 2.0
+Homepage: https://github.com/mifmif/Generex
+================================================================================
+
+================================================================================
+Package: Java-XMLBuilder
+Version: 1.3
+License: Apache License 2.0
+Homepage: https://github.com/jamesmurty/java-xmlbuilder
+================================================================================
+
+================================================================================
+Package: Keycloak Admin Client
+Version: 17.0.1
+License: Apache License 2.0
+Homepage: https://www.keycloak.org/
+================================================================================
+
+================================================================================
+Package: Commons BeanUtils
+Version: 1.10.1
+License: Apache License 2.0
+Homepage: https://commons.apache.org/proper/commons-beanutils/
+================================================================================
+
+================================================================================
+Package: Apache Velocity
+Version: 1.7
+License: Apache License 2.0
+Homepage: https://velocity.apache.org/
+================================================================================
+
+================================================================================
+Package: Swagger Annotations
+Version: Not specified
+License: Apache License 2.0
+Homepage: https://swagger.io/
+================================================================================
+
+================================================================================
+Package: Maven Compiler Plugin
+Version: 3.x (3.8.0, 3.9.0 across projects)
+License: Apache License 2.0
+Homepage: https://maven.apache.org/plugins/maven-compiler-plugin/
+================================================================================
+
+================================================================================
+Package: Maven Surefire Plugin
+Version: 2.22.0
+License: Apache License 2.0
+Homepage: https://maven.apache.org/surefire/maven-surefire-plugin/
+================================================================================
+
+================================================================================
+Package: Maven GPG Plugin
+Version: 1.5
+License: Apache License 2.0
+Homepage: https://maven.apache.org/plugins/maven-gpg-plugin/
+================================================================================
+
+================================================================================
+Package: Maven WAR Plugin
+Version: 3.1.0
+License: Apache License 2.0
+Homepage: https://maven.apache.org/plugins/maven-war-plugin/
+================================================================================
+
+================================================================================
+Package: Maven JAR / Source / Assembly / Shade plugins
+Version: Various (2.x – 3.x)
+License: Apache License 2.0
+Homepage: https://maven.apache.org/plugins/
+================================================================================
+
+================================================================================
+Package: Git Commit ID Plugin
+Version: 3.0.1
+License: LGPL-3.0 (per SBOM)
+Homepage: https://github.com/git-commit-id/git-commit-id-maven-plugin
+================================================================================
+
+================================================================================
+Package: Java JWT (Auth0)
+Version: 4.4.0
+License: MIT License
+Homepage: https://github.com/auth0/java-jwt
+================================================================================
+
+================================================================================
+Package: JUnit 4
+Version: 4.12 / unspecified
+License: EPL-1.0
+Homepage: https://junit.org/junit4/
+================================================================================
+
+================================================================================
+Package: PostgreSQL JDBC Driver
+Version: Not specified
+License: BSD-2-Clause (Inferred from PostgreSQL JDBC project)
+Homepage: https://github.com/pgjdbc/pgjdbc
+================================================================================
+
+================================================================================
+Package: ZJSONPatch
+Version: 0.4.7
+License: Apache License 2.0
+Homepage: https://github.com/flipkart-incubator/zjsonpatch
+================================================================================
+
+================================================================================
+Package: JSON.simple
+Version: Not specified
+License: Apache License 2.0
+Homepage: https://github.com/fangyidong/json-simple
+================================================================================
+
+================================================================================
+Package: BouncyCastle (bcprov-jdk18on)
+Version: 1.78.1
+License: MIT License
+Homepage: https://www.bouncycastle.org/
+================================================================================
+
+================================================================================
+Package: Apache HTTP Components (HttpMime)
+Version: 4.5.14
+License: Apache License 2.0
+Homepage: https://hc.apache.org/
+================================================================================
+
+================================================================================
+Package: Gson
+Version: Not specified
+License: Apache License 2.0
+Homepage: https://github.com/google/gson
+================================================================================
+
+================================================================================
+Package: Rest-Assured
+Version: Not specified
+License: Apache License 2.0
+Homepage: https://rest-assured.io/
+================================================================================
+
+================================================================================
+Package: ZXing Java SE
+Version: 2.0
+License: Apache License 2.0
+Homepage: https://github.com/zxing/zxing
+================================================================================
+
+================================================================================
+Package: AWS Java SDK (Bundle)
+Version: 1.11.368
+License: Apache License 2.0
+Homepage: https://aws.amazon.com/sdk-for-java/
+================================================================================
+
+================================================================================
+Package: OpenCSV
+Version: 4.1
+License: Apache License 2.0
+Homepage: http://opencsv.sourceforge.net/
+================================================================================
+
+================================================================================
+Package: Argon2-jvm
+Version: 2.9.1
+License: MIT License
+Homepage: https://github.com/phxql/argon2-jvm
+================================================================================
+
+================================================================================
+Package: Checker Framework Qualifiers
+Version: 2.9.0
+License: MIT License
+Homepage: https://checkerframework.org/
+================================================================================
+
+================================================================================
+Package: Zip4j
+Version: 2.11.5
+License: Apache License 2.0
+Homepage: https://github.com/srikanth-lingala/zip4j
+================================================================================
+
+================================================================================
+Package: Hibernate Core
+Version: 5.2.17
+License: LGPL-2.1 (Inferred from Hibernate ORM official repository)
+Homepage: https://hibernate.org/orm/
+================================================================================
+
+================================================================================
+Package: TestNG
+Version: 7.11.0
+License: Apache License 2.0
+Homepage: https://testng.org/
+================================================================================
+
+================================================================================
+Package: org.json
+Version: Not specified
+License: JSON License (Inferred)
+Homepage: https://github.com/stleary/JSON-java
+================================================================================
+
+================================================================================
+Package: ExtentReports
+Version: 3.0.0
+License: BSD-3-Clause
+Homepage: https://github.com/extent-framework/extentreports-java
+================================================================================
+
+================================================================================
+Package: JavaMail API
+Version: 1.6.2
+License: CDDL 1.1 / GPL-2.0 with Classpath Exception
+Homepage: https://eclipse-ee4j.github.io/mail/
+================================================================================
+
+================================================================================
+Package: iText 5 (itextpdf)
+Version: 5.5.13.4
+License: AGPL-3.0-only
+Homepage: https://itextpdf.com/
+================================================================================
+
+================================================================================
+Package: HTML2PDF (iText)
+Version: 2.0.0
+License: AGPL-3.0-only
+Homepage: https://itextpdf.com/
+================================================================================
+
+================================================================================
+Package: JAXB API
+Version: Not specified
+License: Eclipse Distribution License (Inferred)
+Homepage: https://github.com/javaee/jaxb-spec
+================================================================================
+
+================================================================================
+Package: H2 Database
+Version: 2.2.220
+License: MPL-2.0 / EPL-1.0 dual license
+Homepage: https://www.h2database.com/
+================================================================================
+
+================================================================================
+Package: actions/checkout
+Version: 2.*.*, 4.*.*
+License: MIT License (Inferred from GitHub Actions repository)
+Homepage: https://github.com/actions/checkout
+================================================================================
+
+================================================================================
+Package: actions/setup-node
+Version: 1.*.*
+License: MIT License (Inferred)
+Homepage: https://github.com/actions/setup-node
+================================================================================
+
+================================================================================
+Package: mosip/kattu GitHub Workflows (maven-build, maven-publish, sonar-analysis)
+Version: master-java21
+License: MPL-2.0 (MOSIP repository license)
+Homepage: https://github.com/mosip/kattu
+================================================================================
+
+================================================================================
+Package: GitHub Actions Workflow Files (.yml)
+License: Same as their originating repositories (MIT / MPL-2.0)
+Homepage: https://github.com/
+================================================================================
+
+Full license texts and additional details for each of the above packages are available in the license/ directory of this repository. Please refer to those files or the original source of each package for complete legal terms and conditions.
