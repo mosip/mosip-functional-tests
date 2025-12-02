@@ -31,7 +31,7 @@ spec:
             image: {{ $module.image.registry }}/{{ $module.image.repository }}:{{ $module.image.tag }}
             imagePullPolicy: {{ default "Always" $module.image.pullPolicy }}
             {{- if $.Values.lifecycleHooks }}
-            lifecycle: {{- include "common.tpvalues.render" (dict "value" $.Values.lifecycleHooks "context" $) | nindent 12 }}
+            lifecycle: {{- include "common.tplvalues.render" (dict "value" $.Values.lifecycleHooks "context" $) | nindent 12 }}
             {{- end }}
             {{- if $.Values.containerSecurityContext.enabled }}
             securityContext: {{- omit $.Values.containerSecurityContext "enabled" | toYaml | nindent 12 }}
@@ -52,11 +52,11 @@ spec:
                 value: "{{ $module.name }}"
 
               {{- if $.Values.extraEnvVars }}
-              {{- include "common.tpvalues.render" ( dict "value" $.Values.extraEnvVars "context" $ ) | nindent 14 }}
+              {{- include "common.tplvalues.render" ( dict "value" $.Values.extraEnvVars "context" $ ) | nindent 14 }}
               {{- end }}
 
               {{- if $module.extraEnvVars }}
-              {{- include "common.tpvalues.render" ( dict "value" $module.extraEnvVars "context" $ ) | nindent 14 }}
+              {{- include "common.tplvalues.render" ( dict "value" $module.extraEnvVars "context" $ ) | nindent 14 }}
               {{- end }}
 
             # ============================================================
