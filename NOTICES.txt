@@ -1,0 +1,115 @@
+THIRD-PARTY-NOTICES
+
+Copyright © MOSIP.
+All rights reserved.
+
+This project includes third-party components distributed under licenses
+that require attribution. Only those components with attribution-required
+licenses are listed below.
+
+================================================================================
+Mozilla Public License 2.0 (MPL-2.0)
+====================================
+
+• MOSIP Kernel Libraries
+Modules: kernel-core, kernel-bom, kernel-keymanager-service,
+kernel-templatemanager-velocity, kernel-websubclient-api,
+kernel-logger-logback
+Homepage: [https://github.com/mosip](https://github.com/mosip)
+
+• H2 Database
+Homepage: [https://www.h2database.com/](https://www.h2database.com/)
+
+================================================================================
+MIT License
+===========
+
+• Project Lombok
+Homepage: [https://projectlombok.org/](https://projectlombok.org/)
+
+• SLF4J (jul-to-slf4j, jcl-over-slf4j)
+Homepage: [http://www.slf4j.org/](http://www.slf4j.org/)
+
+• Java JWT (Auth0)
+Homepage: [https://github.com/auth0/java-jwt](https://github.com/auth0/java-jwt)
+
+• Argon2-jvm
+Homepage: [https://github.com/phxql/argon2-jvm](https://github.com/phxql/argon2-jvm)
+
+• Checker Framework Qualifiers
+Homepage: [https://checkerframework.org/](https://checkerframework.org/)
+
+• BouncyCastle bcprov-jdk18on
+Homepage: [https://www.bouncycastle.org/](https://www.bouncycastle.org/)
+
+• actions/checkout
+Homepage: [https://github.com/actions/checkout](https://github.com/actions/checkout)
+
+• actions/setup-node
+Homepage: [https://github.com/actions/setup-node](https://github.com/actions/setup-node)
+
+================================================================================
+BSD Licenses (BSD-2-Clause / BSD-3-Clause)
+==========================================
+
+• PostgreSQL JDBC Driver (BSD-2-Clause)
+Homepage: [https://github.com/pgjdbc/pgjdbc](https://github.com/pgjdbc/pgjdbc)
+
+• Protobuf Java (BSD-3-Clause)
+Homepage: [https://github.com/protocolbuffers/protobuf](https://github.com/protocolbuffers/protobuf)
+
+• JAI ImageIO JPEG2000 (BSD-3-Clause-No-Nuclear)
+Homepage: [https://github.com/jai-imageio/jai-imageio-core](https://github.com/jai-imageio/jai-imageio-core)
+
+• ExtentReports (BSD-3-Clause)
+Homepage: [https://github.com/extent-framework/extentreports-java](https://github.com/extent-framework/extentreports-java)
+
+================================================================================
+LGPL Licenses
+=============
+
+• Git Commit ID Plugin (LGPL-3.0)
+Homepage: [https://github.com/git-commit-id/git-commit-id-maven-plugin](https://github.com/git-commit-id/git-commit-id-maven-plugin)
+
+• Hibernate Core (LGPL-2.1)
+Homepage: [https://hibernate.org/orm/](https://hibernate.org/orm/)
+
+================================================================================
+Eclipse Licenses (EPL-1.0 / EPL-2.0 / EDL)
+==========================================
+
+• JUnit 4 (EPL-1.0)
+Homepage: [https://junit.org/junit4/](https://junit.org/junit4/)
+
+• JAXB API (EDL)
+Homepage: [https://github.com/javaee/jaxb-spec](https://github.com/javaee/jaxb-spec)
+
+================================================================================
+CDDL 1.1 / GPL-2.0 with Classpath Exception
+===========================================
+
+• JavaMail API
+Homepage: [https://eclipse-ee4j.github.io/mail/](https://eclipse-ee4j.github.io/mail/)
+
+================================================================================
+AGPL-3.0-only
+=============
+
+• iText 5 (itextpdf)
+Homepage: [https://itextpdf.com/](https://itextpdf.com/)
+
+• HTML2PDF (iText)
+Homepage: [https://itextpdf.com/](https://itextpdf.com/)
+
+================================================================================
+JSON License
+============
+
+• org.json
+Homepage: [https://github.com/stleary/JSON-java](https://github.com/stleary/JSON-java)
+
+---
+
+Full license texts for these components are available in the `license/`
+directory of this repository.
+-----------------------------
