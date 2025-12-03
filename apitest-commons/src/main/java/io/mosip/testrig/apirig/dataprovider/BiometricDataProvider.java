@@ -325,29 +325,25 @@ public class BiometricDataProvider {
 		}
 	}
 	
-    public static String getKeysDirPath(String certsDir, String moduleName) {
-      	String certsTargetDir = System.getProperty("java.io.tmpdir")+ File.separator + "AUTHCERTS";
-      	
-      	if (System.getProperty("os.name").toLowerCase().contains("windows") == false) {
-      		if (System.getProperty("os.name").toLowerCase().contains("mac")) {
-				certsTargetDir = "/Users/" + System.getProperty("user.name") + "/authcerts";
-			} else {
-				certsTargetDir = ConfigManager.getauthCertsPath();
-			}
-      	}
-      	
-      	String certsModuleName = "IDA";
-  		
-  		
-  		if (certsDir != null && certsDir.length() != 0){
-      	   certsTargetDir = certsDir;
-  		}
-  		
-  		if (moduleName != null && moduleName.length() != 0){
-  		    certsModuleName = moduleName;
-  		}
-  		return certsTargetDir + File.separator + certsModuleName + "-IDA-" + System.getProperty("env.user") + BaseTestCase.domain;
-  }
+	public static String getKeysDirPath(String certsDir, String moduleName) {
+		String certsTargetDir = System.getProperty("java.io.tmpdir") + File.separator + "AUTHCERTS";
+		String os = System.getProperty("os.name").toLowerCase();
+
+		if (!os.contains("windows") && !os.contains("mac")) {
+			certsTargetDir = ConfigManager.getauthCertsPath();
+		}
+
+		String certsModuleName = "IDA";
+
+		if (certsDir != null && certsDir.length() != 0) {
+			certsTargetDir = certsDir;
+		}
+
+		if (moduleName != null && moduleName.length() != 0) {
+			certsModuleName = moduleName;
+		}
+		return certsTargetDir + File.separator + certsModuleName + "-IDA-" + BaseTestCase.domain;
+	}
 
 	public static MDSRCaptureModel regenBiometricViaMDS(ResidentBiometricModel resident, String mdsMode, int qualityScore)
 			throws Exception {
