@@ -3630,6 +3630,10 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$RUNCONTEXT$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$RUNCONTEXT$", BaseTestCase.runContext);
 		}
+		
+		if (jsonString.contains("$TESTDATACONTEXT$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$TESTDATACONTEXT$", BaseTestCase.testDataContext);
+		}
 
 		if (jsonString.contains("$BIOVALUE$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$BIOVALUE$",
@@ -4689,11 +4693,15 @@ public class AdminTestUtil extends BaseTestCase {
 				+ System.getProperty("parent.certs.folder.name", "AUTHCERTS");
 
 		if (System.getProperty("os.name").toLowerCase().contains("windows") == false) {
-			certsTargetDir = "/home/mosip/authcerts";
+			if (System.getProperty("os.name").toLowerCase().contains("mac")) {
+				certsTargetDir = "/Users/" + System.getProperty("user.name") + "/authcerts";
+			} else {
+				certsTargetDir = ConfigManager.getauthCertsPath();
+			}
 		}
 		logger.info("Certs target path is: " + certsTargetDir + File.separator + certsForModule + "-IDA-" + environment
-				+ ".mosip.net");
-		return certsTargetDir + File.separator + certsForModule + "-IDA-" + environment + ".mosip.net";
+				+ BaseTestCase.domain);
+		return certsTargetDir + File.separator + certsForModule + "-IDA-" + environment + BaseTestCase.domain;
 	}
 
 	public static String buildIdentityRequest(String identityRequest) {
@@ -6707,7 +6715,7 @@ public class AdminTestUtil extends BaseTestCase {
 		Map<String, String> map = new HashMap<>();
 
 		map.put("langCode", BaseTestCase.getLanguageList().get(0));
-		map.put("userID", "masterdata-" + ConfigManager.getUserAdminName());
+		map.put("userID", currentModule + "-" + ConfigManager.getUserAdminName());
 
 		try {
 

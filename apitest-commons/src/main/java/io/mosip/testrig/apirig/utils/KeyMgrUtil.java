@@ -580,7 +580,6 @@ public class KeyMgrUtil {
 	}
 	
 	public  String getKeysDirPath(String moduleName) {
-		String domain = System.getProperty("env.endpoint", "localhost").replace("https://", "").replace("http://", "").replace("/", "");
-		return System.getProperty("java.io.tmpdir") + "/" + "AUTHCERTS" + "/" + moduleName+"-IDA-" + domain;
+		return System.getProperty("java.io.tmpdir") + "/" + "AUTHCERTS" + "/" + moduleName+"-IDA-" + BaseTestCase.domain;
 	}
 }

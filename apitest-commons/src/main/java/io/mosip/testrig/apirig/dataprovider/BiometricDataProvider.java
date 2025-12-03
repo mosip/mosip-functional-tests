@@ -329,7 +329,11 @@ public class BiometricDataProvider {
       	String certsTargetDir = System.getProperty("java.io.tmpdir")+ File.separator + "AUTHCERTS";
       	
       	if (System.getProperty("os.name").toLowerCase().contains("windows") == false) {
-      		certsTargetDir = "/home/mosip/authcerts";
+      		if (System.getProperty("os.name").toLowerCase().contains("mac")) {
+				certsTargetDir = "/Users/" + System.getProperty("user.name") + "/authcerts";
+			} else {
+				certsTargetDir = ConfigManager.getauthCertsPath();
+			}
       	}
       	
       	String certsModuleName = "IDA";
@@ -342,7 +346,7 @@ public class BiometricDataProvider {
   		if (moduleName != null && moduleName.length() != 0){
   		    certsModuleName = moduleName;
   		}
-  		return certsTargetDir + File.separator + certsModuleName + "-IDA-" + System.getProperty("env.user")+ ".mosip.net";
+  		return certsTargetDir + File.separator + certsModuleName + "-IDA-" + System.getProperty("env.user") + BaseTestCase.domain;
   }
 
 	public static MDSRCaptureModel regenBiometricViaMDS(ResidentBiometricModel resident, String mdsMode, int qualityScore)
