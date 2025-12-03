@@ -50,7 +50,7 @@ Homepage: https://github.com/mosip
 ================================================================================
 Package: ActiveMQ Broker
 Version: Not specified
-License: Apache License 2.0 (Inferred)
+License: Apache License 2.0 
 Homepage: https://activemq.apache.org/
 ================================================================================
 
@@ -188,8 +188,8 @@ Homepage: https://github.com/fangyidong/json-simple
 ================================================================================
 
 ================================================================================
-Package: BouncyCastle (bcprov-jdk18on)
-Version: 1.78.1
+Package: BouncyCastle (bcprov-jdk15on)
+Version: 1.70
 License: MIT License
 Homepage: https://www.bouncycastle.org/
 ================================================================================
@@ -274,7 +274,7 @@ Homepage: https://testng.org/
 ================================================================================
 Package: org.json
 Version: Not specified
-License: JSON License (Inferred)
+License: JSON License
 Homepage: https://github.com/stleary/JSON-java
 ================================================================================
 
@@ -309,7 +309,7 @@ Homepage: https://itextpdf.com/
 ================================================================================
 Package: JAXB API
 Version: Not specified
-License: Eclipse Distribution License (Inferred)
+License: Eclipse Distribution License 
 Homepage: https://github.com/javaee/jaxb-spec
 ================================================================================
 
@@ -330,7 +330,7 @@ Homepage: https://github.com/actions/checkout
 ================================================================================
 Package: actions/setup-node
 Version: 1.*.*
-License: MIT License (Inferred)
+License: MIT License
 Homepage: https://github.com/actions/setup-node
 ================================================================================
 
