@@ -79,7 +79,7 @@ public class GlobalMethods {
         logger.info("RUN_CONTEXT set to: " + runContext);
         return runContext;
     }
-	
+    
 	public static void main(String[] arg) {
 
 	}

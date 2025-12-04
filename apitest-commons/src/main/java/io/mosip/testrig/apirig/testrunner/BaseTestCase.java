@@ -357,6 +357,13 @@ public class BaseTestCase {
 		logProp.setProperty("log4j.appender.Appender2.File", "src/logs/mosip-api-test.log");
 		logProp.setProperty("log4j.appender.Appender2.layout", "org.apache.log4j.PatternLayout");
 		logProp.setProperty("log4j.appender.Appender2.layout.ConversionPattern", "%-7p %d [%t] %c %x - %m%n");
+		
+		logProp.setProperty("log4j.logger.API_LOGGER", "INFO, APIConsole");
+		logProp.setProperty("log4j.additivity.API_LOGGER", "false");
+		logProp.setProperty("log4j.appender.APIConsole", "org.apache.log4j.ConsoleAppender");
+		logProp.setProperty("log4j.appender.APIConsole.layout", "org.apache.log4j.PatternLayout");
+		logProp.setProperty("log4j.appender.APIConsole.layout.ConversionPattern", "%m%n");
+	    
 		return logProp;
 	}
 
