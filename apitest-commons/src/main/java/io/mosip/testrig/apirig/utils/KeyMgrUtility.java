@@ -275,15 +275,22 @@ public class KeyMgrUtility {
 		if (parentPath != null && !Files.exists(parentPath)) {
 			Files.createDirectories(parentPath);
 		}
-		OutputStream outputStream = new FileOutputStream(p12FilePath);
-		keyStore.store(outputStream, getP12Pass());
-		outputStream.flush();
-		outputStream.close();
+
+		// try-with-resources to avoid resource leak
+	    try (OutputStream outputStream = new FileOutputStream(p12FilePath)) {
+	        keyStore.store(outputStream, getP12Pass());
+	        outputStream.flush();
+	    }
+	    
 		return new KeyStore.PrivateKeyEntry(keyPair.getPrivate(), chain);
 	}
 	
 	public static KeyPair generateKeyPair(String algorithm) {
 	    try {
+			if (Security.getProvider("BC") == null) {
+				Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
+			}
+
 	        SecureRandom random = new SecureRandom();
 	        KeyPairGenerator keyGen;
 
