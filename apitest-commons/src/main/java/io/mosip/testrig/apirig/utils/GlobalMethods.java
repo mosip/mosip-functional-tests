@@ -267,28 +267,30 @@ public class GlobalMethods {
 	}
 
 	public static String maskOutSensitiveInfo(String strInput) {
-		if (ConfigManager.IsDebugEnabled())
-			return strInput;
-		
-		Pattern secretKeyPattern = Pattern
-				.compile("\"secretKey\"\\s*:\\s*\"[^\"]*\"");
-		Matcher secretKeyMatcher = secretKeyPattern.matcher(strInput);
-		String maskedInput = secretKeyMatcher
-				.replaceAll("\"secretKey\": \"***** MASKED *****\"");
-		
-		Pattern clientSecretKeyPattern = Pattern
-				.compile("\"client_secret\"\\s*:\\s*\"[^\"]*\"");
-		Matcher clientSecretKeyMatcher = clientSecretKeyPattern.matcher(strInput);
-		maskedInput = clientSecretKeyMatcher
-				.replaceAll("\"client_secret\": \"***** MASKED *****\"");
-		
-		Pattern INDIVIDUAL_BIOMETRICS_PATTERN = Pattern
-				.compile("\"category\":\\s?\"individualBiometrics\",\\s?\"value\":\\s?\"(.*?)\"");
-		Matcher biometricsMatcher = INDIVIDUAL_BIOMETRICS_PATTERN.matcher(maskedInput);
-		maskedInput = biometricsMatcher
-				.replaceAll("\"category\": \"individualBiometrics\", \"value\": \"***** MASKED *****\"");
+	    if (ConfigManager.IsDebugEnabled())
+	        return strInput;
 
-		return maskedInput;
+	    if (strInput == null || strInput.isBlank())
+	        return strInput;
+
+	    String maskedInput = strInput;
+
+	    String[] sensitiveKeys = {
+	        "password", "secret", "token", "key", "private", "client_secret", "authclientsecret"
+	    };
+
+	    for (String key : sensitiveKeys) {
+	        String regex = "(?i)(\"[^\"]*" + key + "[^\"]*\"\\s*:\\s*\")(.*?)(\")";
+	        maskedInput = maskedInput.replaceAll(regex, "$1***** MASKED *****$3");
+	    }
+
+	    Pattern INDIVIDUAL_BIOMETRICS_PATTERN = Pattern.compile(
+	            "\"category\"\\s*:\\s*\"individualBiometrics\"\\s*,\\s*\"value\"\\s*:\\s*\"(.*?)\"");
+	    Matcher biometricsMatcher = INDIVIDUAL_BIOMETRICS_PATTERN.matcher(maskedInput);
+	    maskedInput = biometricsMatcher.replaceAll(
+	            "\"category\": \"individualBiometrics\", \"value\": \"***** MASKED *****\"");
+
+	    return maskedInput;
 	}
 
 	public static void ReportRequestAndResponse(String reqHeader, String resHeader, String url, String requestBody,
