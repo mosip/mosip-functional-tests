@@ -1,0 +1,190 @@
+================================================================================
+COPYRIGHT NOTICES
+================================================================================
+
+This software incorporates components from the projects listed below. The
+original copyright notices have been preserved in accordance with the terms
+of their respective licenses:
+
+Project Lombok
+  Copyright (C) 2009-2021 The Project Lombok Authors
+  Licensed under the MIT License
+
+Jackson (FasterXML)
+  Copyright (c) 2007- Tatu Saloranta, tatu.saloranta@iki.fi
+  Licensed under the Apache License, Version 2.0
+
+Spring Framework & Spring Boot
+  Copyright © 2002-2024 Pivotal Software, Inc.
+  Copyright © 2002-2024 VMware, Inc. or its affiliates
+  Licensed under the Apache License, Version 2.0
+
+SLF4J
+  Copyright (c) 2004-2025 QOS.ch
+  Licensed under the MIT License
+
+MOSIP Kernel Libraries
+  Copyright © MOSIP
+  Licensed under the Mozilla Public License 2.0
+
+PostgreSQL JDBC Driver
+  Copyright (c) 1997, PostgreSQL Global Development Group
+  Licensed under the BSD 2-Clause License
+
+ActiveMQ
+  Copyright 2005-2024 The Apache Software Foundation
+  Licensed under the Apache License, Version 2.0
+
+Google Gson
+  Copyright © 2008 Google Inc.
+  Licensed under the Apache License, Version 2.0
+
+REST Assured
+  Copyright © 2010-2024 Jayway
+  Licensed under the Apache License, Version 2.0
+
+org.json
+  Copyright (c) 2002 JSON.org
+  Licensed under the JSON License
+
+JAXB API
+  Copyright (c) 2003-2018 Oracle and/or its affiliates
+  Licensed under the Eclipse Distribution License 1.0
+
+JUnit 4
+  Copyright © 2002-2024 JUnit
+  Licensed under the Eclipse Public License 1.0
+
+Hibernate Core
+  Copyright (c) Red Hat Inc. and/or its affiliates
+  Licensed under the GNU Lesser General Public License (LGPL), version 2.1 or later
+
+Hibernate Validator
+  Copyright (c) Red Hat Inc. and/or its affiliates
+  Licensed under the Apache License, Version 2.0
+
+iText 5 (itextpdf)
+  Copyright (c) 1999-2025 iText Group NV
+  Copyright (c) 1985, 1987, 1988, 1989, 1997 Adobe Systems Incorporated
+  Licensed under the GNU Affero General Public License, Version 3.0 (AGPL-3.0-only)
+
+iText HTML2PDF
+  Copyright (c) 1999-2025 iText Group NV
+  Licensed under the GNU Affero General Public License, Version 3.0 (AGPL-3.0-only)
+
+BouncyCastle Crypto APIs
+  Copyright (c) 2000-2021 The Legion of the Bouncy Castle Inc.
+  Licensed under the MIT License
+
+Keycloak Admin Client
+  Copyright 2016 Red Hat, Inc. and/or its affiliates and other contributors
+  Licensed under the Apache License, Version 2.0
+
+TestNG
+  Copyright (c) OpenJS Foundation and other contributors
+  Licensed under the Apache License, Version 2.0
+
+JavaMail API
+  Copyright (c) 1997-2018 Oracle and/or its affiliates
+  Copyright (c) 1989, 1991 Free Software Foundation, Inc.
+  Licensed under the CDDL 1.1 / GPL-2.0 with Classpath Exception (Dual License)
+
+ZXing Core & JavaSE
+  Copyright (c) 2007-2024 ZXing Authors
+  Licensed under the Apache License, Version 2.0
+
+Zip4j
+  Copyright (c) 2010-2024 Srikanth Reddy Lingala
+  Licensed under the Apache License, Version 2.0
+
+AWS SDK for Java
+  Copyright 2010-2024 Amazon.com, Inc. or its affiliates
+  Licensed under the Apache License, Version 2.0
+
+OpenCSV
+  Copyright 2017 Andrew Rucker Jones
+  Licensed under the Apache License, Version 2.0
+
+JavaFaker
+  Copyright (c) 2009 Iulian Dogariu
+  Licensed under the Apache License, Version 2.0
+
+Apache Commons Libraries (Commons BeanUtils, Commons Codec, Commons IO)
+  Copyright 2000-2025 The Apache Software Foundation
+  Licensed under the Apache License, Version 2.0
+
+Apache Velocity
+  Copyright (c) 2000-2007 The Apache Software Foundation
+  Licensed under the Apache License, Version 2.0
+
+Apache HttpComponents HttpMime
+  Copyright 1999-2022 The Apache Software Foundation
+  Licensed under the Apache License, Version 2.0
+
+Auth0 Java JWT
+  Copyright (c) Auth0
+  Licensed under the MIT License
+
+Argon2-jvm
+  Copyright (c) Moritz Kammerer
+  Licensed under the GNU Lesser General Public License v3.0 (LGPL-3.0)
+
+ExtentReports
+  Copyright (c) Anshoo Arora
+  Licensed under the BSD 3-Clause License
+
+ZJSONPatch
+  Copyright (c) Flipkart
+  Licensed under the Apache License, Version 2.0
+
+H2 Database
+  Copyright (c) H2 Group
+  Licensed under the Mozilla Public License 2.0 / Eclipse Public License 1.0 (Dual License)
+
+Hamcrest
+  Copyright (c) 2000-2006, www.hamcrest.org
+  Licensed under the BSD 3-Clause License
+
+JJWT (JSON Web Token for Java)
+  Copyright (c) 2014 Les Hazlewood and contributors
+  Licensed under the Apache License, Version 2.0
+
+Checker Framework
+  Copyright (c) The Checker Framework developers
+  Licensed under the MIT License
+
+Generex
+  Copyright (c) Mifmif
+  Licensed under the Apache License, Version 2.0
+
+Slack API Client
+  Copyright (c) Slack Technologies, Inc.
+  Licensed under the Apache License, Version 2.0
+
+Apache Wink JSON4J Provider
+  Copyright 2009-2012 The Apache Software Foundation
+  Licensed under the Apache License, Version 2.0
+
+Java-XMLBuilder
+  Copyright (c) James Murty
+  Licensed under the Apache License, Version 2.0
+
+JaCoCo Maven Plugin
+  Copyright (c) 2009, 2024 Mountainminds GmbH & Co. KG and Contributors
+  Licensed under the Eclipse Public License 2.0
+
+Git Commit ID Plugin
+  Copyright (C) 2010 Konrad Malawski
+  Licensed under the GNU Lesser General Public License v3.0
+
+SonarQube Scanner for Maven
+  Copyright 2011-2025 SonarSource
+  Licensed under the GNU Lesser General Public License v3.0
+
+Apache Maven Plugins (Maven Compiler Plugin, Maven Surefire Plugin, Maven Jar Plugin)
+  Copyright 2001-2024 The Apache Software Foundation
+  Licensed under the Apache License, Version 2.0
+
+For complete license texts, please refer to the respective project homepages
+listed in the package information above.
+================================================================================
