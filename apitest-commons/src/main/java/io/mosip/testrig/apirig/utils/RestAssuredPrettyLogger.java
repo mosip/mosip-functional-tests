@@ -46,17 +46,37 @@ public class RestAssuredPrettyLogger {
                 // Headers
             	apiLogger.info("Headers:\t");
                 req.getHeaders().asList()
-                        .forEach(h -> apiLogger.info("\t" + h.getName() + "=" + h.getValue()));
+                        .forEach(h -> apiLogger.info("\t" + h.getName() + "=" + LogMaskingUtil.maskSensitiveData(h.getValue())));
 
-                // Cookies (FIXED)
-                apiLogger.info("Cookies:\t" +
-                        (req.getCookies() == null || req.getCookies().asList().isEmpty()
-                                ? "<none>" : req.getCookies()));
+                // Cookies
+                apiLogger.info("Cookies:\t");
 
-                // Multiparts (safe check)
-                apiLogger.info("Multiparts:\t" +
-                        (req.getMultiPartParams() == null || req.getMultiPartParams().isEmpty()
-                                ? "<none>" : req.getMultiPartParams()));
+                if (req.getCookies() == null || req.getCookies().asList().isEmpty()) {
+                    apiLogger.info("\t<none>");
+                } else {
+                    req.getCookies().asList().forEach(cookie -> {
+                        // cookie.getName() -> cookie name
+                        // cookie.getValue() -> cookie value (String)
+                        String maskedValue = LogMaskingUtil.maskSensitiveData(cookie.getValue());
+                        apiLogger.info("\t" + cookie.getName() + "=" + maskedValue);
+                    });
+                }
+
+                // Multiparts
+                apiLogger.info("Multiparts:\t");
+
+                if (req.getMultiPartParams() == null || req.getMultiPartParams().isEmpty()) {
+                    apiLogger.info("\t<none>");
+                } else {
+                	req.getMultiPartParams().forEach(mp -> {
+                	    String key = mp.getControlName(); // field name
+                	    Object value = mp.getContent(); // file or string value
+
+                	    String maskedValue = LogMaskingUtil.maskSensitiveData(String.valueOf(value));
+                	    apiLogger.info("\t" + key + "=" + maskedValue);
+                	});
+                }
+
 
                 // Body
                 String body = req.getBody() == null ? "" : req.getBody().toString();
@@ -72,7 +92,7 @@ public class RestAssuredPrettyLogger {
 
                 // Response headers
                 response.getHeaders().forEach(
-                        h -> apiLogger.info(h.getName() + ": " + h.getValue())
+                        h -> apiLogger.info(h.getName() + ": " + LogMaskingUtil.maskSensitiveData(h.getValue()))
                 );
 
                 // Response body

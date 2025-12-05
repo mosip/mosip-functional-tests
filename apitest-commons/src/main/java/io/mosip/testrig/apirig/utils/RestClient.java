@@ -947,7 +947,7 @@ public class RestClient {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PATCH request to " + url);
 
 			postResponse = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader)
-					.cookies(tokens).accept(acceptHeader).filter(RestAssuredPrettyLogger.getMaskingFilter()).when().patch(url).then().log().all().extract()
+					.cookies(tokens).accept(acceptHeader).filter(RestAssuredPrettyLogger.getMaskingFilter()).when().patch(url).then().extract()
 					.response();
 
 			LogMaskingUtil.safeLogInfo(RESTCLIENT_LOGGER, GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString()
@@ -2000,7 +2000,7 @@ public class RestClient {
 			}
 			
 			RESTCLIENT_LOGGER.info("Response Status Code: " + postResponse.getStatusCode());
-			RESTCLIENT_LOGGER.info("Response Body: " + postResponse.asString());
+			LogMaskingUtil.safeLogInfo(RESTCLIENT_LOGGER, "Response Body: " + postResponse.asString());
 
 		} catch (Exception e) {
 			RESTCLIENT_LOGGER.error("Error while sending POST request to " + url + ": " + e.getMessage(), e);

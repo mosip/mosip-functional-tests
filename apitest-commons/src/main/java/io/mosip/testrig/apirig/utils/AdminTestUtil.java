@@ -64,14 +64,11 @@ import java.util.Objects;
 import java.util.Properties;
 import java.util.Random;
 import java.util.Set;
-import java.util.Spliterators;
 import java.util.TimeZone;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
-
 import javax.ws.rs.core.MediaType;
 
 import org.apache.commons.io.FileUtils;
@@ -3269,10 +3266,10 @@ public class AdminTestUtil extends BaseTestCase {
 	                // Save into cache
 	                writeToCache(identifierKeyName, requestObj.get(filedName).toString());
 
-	                logger.info(GlobalConstants.ERROR_STRING_5 + filedName + " = " + requestObj.get(filedName));
+	                logger.info(GlobalConstants.ERROR_STRING_5 + filedName + " = " + LogMaskingUtil.maskSensitiveData(requestObj.get(filedName).toString()));
 	            } else {
-	                logger.error(GlobalConstants.ERROR_STRING_3 + filedName + GlobalConstants.WRITE_STRING_1
-							+ requestObj.toString());
+	                logger.error(GlobalConstants.ERROR_STRING_4 + filedName + GlobalConstants.WRITE_STRING_1
+							+ LogMaskingUtil.maskSensitiveData(requestObj != null ? requestObj.toString() : reqJson.toString()));
 	            }
 	        }
 	    } catch (Exception e) {
@@ -3350,10 +3347,10 @@ public class AdminTestUtil extends BaseTestCase {
 						}
 					} else
 						logger.error(GlobalConstants.ERROR_STRING_3 + filedName + GlobalConstants.WRITE_STRING
-								+ response.asString());
+								+ LogMaskingUtil.maskSensitiveData(response.asString()));
 				} else {
 					logger.error(GlobalConstants.ERROR_STRING_3 + filedName + GlobalConstants.WRITE_STRING
-							+ response.asString());
+							+ LogMaskingUtil.maskSensitiveData(response.asString()));
 				}
 			}
 		} catch (JSONException | NoSuchAlgorithmException | IOException e) {
@@ -7167,7 +7164,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public void checkResponseUTCTime(Response response) {
-		logger.info(response.asString());
+		logger.info(LogMaskingUtil.maskSensitiveData(response.asString()));
 		org.json.simple.JSONObject responseJson = null;
 		String responseTime = null;
 		try {
@@ -7323,19 +7320,24 @@ public class AdminTestUtil extends BaseTestCase {
 	
 	public static String addCustomExpiryDate(String json, String token, ChronoUnit unit) {
 
-	    while (json.contains(token)) {
+		while (json.contains(token)) {
 
-	    	int start = json.indexOf(token) + token.length();
-	    	int end   = json.indexOf("$", start);
-	    	if (end == -1) {
-	            throw new IllegalArgumentException("Invalid format for token: " + token);
-	        }
+			int start = json.indexOf(token) + token.length();
+			int end = json.indexOf("$", start);
+			if (end == -1) {
+				throw new IllegalArgumentException("Invalid format for token: " + token);
+			}
 
-	    	long amount = Long.parseLong(json.substring(start, end));
+			long amount;
+			try {
+				amount = Long.parseLong(json.substring(start, end));
+			} catch (NumberFormatException e) {
+				throw new IllegalArgumentException("Invalid number for token '" + token + "' in text: " + json, e);
+			}
 
-	        String actualToken = token + amount + "$";
-	        json = replaceKeywordWithValue(json, actualToken, getUtcTimestamp(amount, unit));
-	    }
+			String actualToken = token + amount + "$";
+			json = replaceKeywordWithValue(json, actualToken, getUtcTimestamp(amount, unit));
+		}
 
 	    return json;
 	}
