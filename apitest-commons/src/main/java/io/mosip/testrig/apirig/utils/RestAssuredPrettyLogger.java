@@ -47,36 +47,33 @@ public class RestAssuredPrettyLogger {
             	apiLogger.info("Headers:\t");
                 req.getHeaders().asList()
                         .forEach(h -> apiLogger.info("\t" + h.getName() + "=" + LogMaskingUtil.maskSensitiveData(h.getValue())));
-
+                
                 // Cookies
-                apiLogger.info("Cookies:\t");
+                String cookiesLog = (req.getCookies() == null || req.getCookies().asList().isEmpty()) 
+                        ? "<none>" 
+                        : req.getCookies().asList().stream()
+                            .map(c -> c.getName() + "=" + LogMaskingUtil.maskSensitiveData(c.getValue()))
+                            .reduce((a, b) -> a + ", " + b)
+                            .orElse("<none>");
 
-                if (req.getCookies() == null || req.getCookies().asList().isEmpty()) {
-                    apiLogger.info("\t<none>");
-                } else {
-                    req.getCookies().asList().forEach(cookie -> {
-                        // cookie.getName() -> cookie name
-                        // cookie.getValue() -> cookie value (String)
-                        String maskedValue = LogMaskingUtil.maskSensitiveData(cookie.getValue());
-                        apiLogger.info("\t" + cookie.getName() + "=" + maskedValue);
-                    });
-                }
-
-                // Multiparts
-                apiLogger.info("Multiparts:\t");
-
+                apiLogger.info("Cookies:\t" + cookiesLog);
+                
+                // Multiparts (one line)
                 if (req.getMultiPartParams() == null || req.getMultiPartParams().isEmpty()) {
-                    apiLogger.info("\t<none>");
+                    apiLogger.info("Multiparts:\t<none>");
                 } else {
-                	req.getMultiPartParams().forEach(mp -> {
-                	    String key = mp.getControlName(); // field name
-                	    Object value = mp.getContent(); // file or string value
-
-                	    String maskedValue = LogMaskingUtil.maskSensitiveData(String.valueOf(value));
-                	    apiLogger.info("\t" + key + "=" + maskedValue);
-                	});
+                    StringBuilder mpLog = new StringBuilder();
+                    req.getMultiPartParams().forEach(mp -> {
+                        String key = mp.getControlName(); // field name
+                        Object value = mp.getContent();   // value (file or string)
+                        String maskedValue = LogMaskingUtil.maskSensitiveData(String.valueOf(value));
+                        if (mpLog.length() > 0) {
+                            mpLog.append(", ");
+                        }
+                        mpLog.append(key).append("=").append(maskedValue);
+                    });
+                    apiLogger.info("Multiparts:\t" + mpLog.toString());
                 }
-
 
                 // Body
                 String body = req.getBody() == null ? "" : req.getBody().toString();
