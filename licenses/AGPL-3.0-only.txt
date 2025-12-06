@@ -1,8 +1,9 @@
 GNU AFFERO GENERAL PUBLIC LICENSE
-Version 3, 19 November 2007
+Version: 5.5.13.4
 
-Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
-
+  Copyright (c) 1999-2025 iText Group NV
+  Copyright (c) 1985, 1987, 1988, 1989, 1997 Adobe Systems Incorporated
+  
 Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
 
                             Preamble
