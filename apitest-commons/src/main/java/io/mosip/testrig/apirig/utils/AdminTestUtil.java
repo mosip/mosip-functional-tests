@@ -7325,14 +7325,14 @@ public class AdminTestUtil extends BaseTestCase {
 			int start = json.indexOf(token) + token.length();
 			int end = json.indexOf("$", start);
 			if (end == -1) {
-				throw new IllegalArgumentException("Invalid format for token: " + token);
+				throw new IllegalArgumentException("Invalid format for token '" + token + "': missing trailing '$' after the amount");
 			}
 
 			long amount;
 			try {
 				amount = Long.parseLong(json.substring(start, end));
 			} catch (NumberFormatException e) {
-				throw new IllegalArgumentException("Invalid number for token '" + token + "' in text: " + json, e);
+				throw new IllegalArgumentException("Invalid number for token '" + token);
 			}
 
 			String actualToken = token + amount + "$";

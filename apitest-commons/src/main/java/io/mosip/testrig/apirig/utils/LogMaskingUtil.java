@@ -2,6 +2,7 @@ package io.mosip.testrig.apirig.utils;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 import org.json.JSONArray;
@@ -11,7 +12,9 @@ public class LogMaskingUtil {
 	
 	private static final List<String> SENSITIVE_KEYS = Arrays.asList(
             "clientSecret", "client_secret", "password", "pwd", 
-            "token", "access_token", "refresh_token", "refreshToken"
+            "token", "access_token", "refresh_token", "refreshToken", "Authorization", "set-cookie",
+            "cookie", "XSRF-TOKEN", "X-XSRF-TOKEN"
+            
     );
 
     public static String maskSensitiveData(String json) {
@@ -63,6 +66,27 @@ public class LogMaskingUtil {
         } catch (Exception e) {
             logger.info(message);
         }
+    }
+    
+    public static String maskSensitiveData(String headerName, String value) {
+        if (value == null) return null;
+
+        String maskedValue = value;
+
+        for (String sensitiveKey : SENSITIVE_KEYS) {
+
+            // If header name itself is sensitive -> mask fully
+            if (headerName.equalsIgnoreCase(sensitiveKey) && sensitiveKey != "set-cookie") {
+                return maskValue(value);
+            }
+
+            // If Set-Cookie header -> mask sensitive keys inside cookie value
+            if ("set-cookie".equalsIgnoreCase(headerName)) {
+                maskedValue = maskedValue.replaceAll("(?i)" + sensitiveKey + "=[^;]*", sensitiveKey + "=********");
+            }
+        }
+
+        return maskedValue.equals(value) ? maskSensitiveData(value) : maskedValue;
     }
 
 }
