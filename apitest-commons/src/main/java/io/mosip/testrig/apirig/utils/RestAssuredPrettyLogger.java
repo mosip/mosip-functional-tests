@@ -29,19 +29,19 @@ public class RestAssuredPrettyLogger {
 
                 // Request params
             	apiLogger.info("Request params:\t" +
-                        (req.getRequestParams().isEmpty() ? "<none>" : req.getRequestParams()));
+                        (req.getRequestParams().isEmpty() ? "<none>" : LogMaskingUtil.maskParams(req.getRequestParams())));
 
                 // Query params
             	apiLogger.info("Query params:\t" +
-                        (req.getQueryParams().isEmpty() ? "<none>" : req.getQueryParams()));
+                        (req.getQueryParams().isEmpty() ? "<none>" : LogMaskingUtil.maskParams(req.getQueryParams())));
 
                 // Form params
             	apiLogger.info("Form params:\t" +
-                        (req.getFormParams().isEmpty() ? "<none>" : req.getFormParams()));
+                        (req.getFormParams().isEmpty() ? "<none>" : LogMaskingUtil.maskParams(req.getFormParams())));
 
                 // Path params
             	apiLogger.info("Path params:\t" +
-                        (req.getPathParams().isEmpty() ? "<none>" : req.getPathParams()));
+                        (req.getPathParams().isEmpty() ? "<none>" : LogMaskingUtil.maskParams(req.getPathParams())));
 
                 // Headers
             	apiLogger.info("Headers:\t");

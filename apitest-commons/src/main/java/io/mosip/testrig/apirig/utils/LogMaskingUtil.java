@@ -2,7 +2,9 @@ package io.mosip.testrig.apirig.utils;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import org.apache.log4j.Logger;
 import org.json.JSONArray;
@@ -88,5 +90,16 @@ public class LogMaskingUtil {
 
         return maskedValue.equals(value) ? maskSensitiveData(value) : maskedValue;
     }
+    
+    public static String maskParams(Map<String, ?> params) {
+        if (params == null || params.isEmpty()) return "<none>";
+
+        return params.entrySet().stream()
+                .map(e -> e.getKey() + "=" +
+                        LogMaskingUtil.maskSensitiveData(e.getKey(),
+                                e.getValue() == null ? null : e.getValue().toString()))
+                .collect(Collectors.joining(", "));
+    }
+
 
 }
