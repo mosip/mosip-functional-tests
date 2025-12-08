@@ -79,7 +79,7 @@ src/main/resources/application.properties
 Or load external config:
 
 ```bash
-java -jar authentication-demo-service.jar --spring.config.location=<path>
+*java -jar -Dmosip.base.url=https://<<test-environment-domain>> -Dserver.port=8082 -Dauth-token-generator.rest.clientId=mosip-resident-client -Dauth-token-generator.rest.secretKey=<<testSecretKey>> -Dauth-token-generator.rest.appId=resident authentication-demo-service-<<version-number>>.jar
 ```
 
 ---
