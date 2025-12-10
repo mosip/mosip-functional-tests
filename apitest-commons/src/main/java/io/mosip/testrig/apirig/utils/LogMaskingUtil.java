@@ -3,7 +3,6 @@ package io.mosip.testrig.apirig.utils;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import org.apache.log4j.Logger;
@@ -78,7 +77,7 @@ public class LogMaskingUtil {
         for (String sensitiveKey : SENSITIVE_KEYS) {
 
             // If header name itself is sensitive -> mask fully
-            if (headerName.equalsIgnoreCase(sensitiveKey) && sensitiveKey != "set-cookie") {
+            if (!"set-cookie".equalsIgnoreCase(headerName) && headerName.equalsIgnoreCase(sensitiveKey)) {
                 return maskValue(value);
             }
 
