@@ -146,13 +146,6 @@ Homepage: https://maven.apache.org/plugins/
 ================================================================================
 
 ================================================================================
-Package: Git Commit ID Plugin
-Version: 3.0.1
-License: LGPL-3.0 (per SBOM)
-Homepage: https://github.com/git-commit-id/git-commit-id-maven-plugin
-================================================================================
-
-================================================================================
 Package: Java JWT (Auth0)
 Version: 4.4.0
 License: MIT License
