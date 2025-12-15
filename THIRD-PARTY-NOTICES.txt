@@ -281,7 +281,7 @@ Homepage: https://github.com/extent-framework/extentreports-java
 ================================================================================
 Package: JavaMail API
 Version: 1.6.2
-License: CDDL 1.1 / GPL-2.0 with Classpath Exception
+License: CDDL 1.1 
 Homepage: https://eclipse-ee4j.github.io/mail/
 ================================================================================
 
@@ -336,7 +336,7 @@ Homepage: https://github.com/mosip/kattu
 
 ================================================================================
 Package: GitHub Actions Workflow Files (.yml)
-License: Same as their originating repositories (MIT / MPL-2.0)
+License: MIT License
 Homepage: https://github.com/
 ================================================================================
 
