@@ -1217,11 +1217,11 @@ public class AdminTestUtil extends BaseTestCase {
 			if (request.has(GlobalConstants.COOKIE)) {
 				token = request.get(GlobalConstants.COOKIE).toString();
 				request.remove(GlobalConstants.COOKIE);
-				inputJson = request.toString();
 				if (request.has(GlobalConstants.COOKIE_NAME)) {
 					cookieName = request.get(GlobalConstants.COOKIE_NAME).toString();
 					request.remove(GlobalConstants.COOKIE_NAME);
 				}
+				inputJson = request.toString();
 			}
 		} else {
 			token = kernelAuthLib.getTokenByRole(role);
@@ -1285,11 +1285,11 @@ public class AdminTestUtil extends BaseTestCase {
 			if (request.has(GlobalConstants.COOKIE)) {
 				token = request.get(GlobalConstants.COOKIE).toString();
 				request.remove(GlobalConstants.COOKIE);
-				inputJson = request.toString();
 				if (request.has(GlobalConstants.COOKIE_NAME)) {
 					cookieName = request.get(GlobalConstants.COOKIE_NAME).toString();
 					request.remove(GlobalConstants.COOKIE_NAME);
 				}
+				inputJson = request.toString();
 			}
 		} else {
 			token = kernelAuthLib.getTokenByRole(role);
