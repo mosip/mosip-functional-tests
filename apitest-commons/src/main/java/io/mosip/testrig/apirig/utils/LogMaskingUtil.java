@@ -11,12 +11,11 @@ import org.json.JSONObject;
 
 public class LogMaskingUtil {
 	
-	private static final List<String> SENSITIVE_KEYS = Arrays.asList(
-            "clientSecret", "client_secret", "password", "pwd", 
-            "token", "access_token", "refresh_token", "refreshToken", "Authorization", "set-cookie",
-            "cookie", "XSRF-TOKEN", "X-XSRF-TOKEN"
-            
-    );
+	private static final List<String> SENSITIVE_KEYS = Arrays.asList("clientSecret", "client_secret", "password", "pwd",
+			"token", "access_token", "refresh_token", "refreshToken", "Authorization", "set-cookie", "cookie",
+			"XSRF-TOKEN", "X-XSRF-TOKEN"
+
+	);
 
     public static String maskSensitiveData(String json) {
         if (json == null) return null;
