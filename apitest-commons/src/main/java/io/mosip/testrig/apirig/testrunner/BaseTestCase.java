@@ -161,9 +161,7 @@ public class BaseTestCase {
 	public String genPolicyNameNonAuth = "policyNameForEsignet" + generateRandomNumberString(4);
 	public String genMispPolicyName = "policyNameForMispEsi" + generateRandomNumberString(6)
 			+ generateRandomNumberString(3);
-	//public static String genPartnerName = "partnernameforautomationesi-" + generateRandomNumberString(6);
 	public static String genPartnerName = null;
-	//public static String genPartnerNameNonAuth = "partnernameforesignet-" + generateRandomNumberString(6);
 	public static String genPartnerNameNonAuth = null;
 	public String genPartnerNameForDsl = "partnernameforautomationdsl-" + generateRandomNumberString(6);
 	public static String genMispPartnerName = "esignet_" + generateRandomNumberString(6)
