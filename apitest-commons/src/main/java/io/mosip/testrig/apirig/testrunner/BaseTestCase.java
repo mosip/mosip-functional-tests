@@ -2,6 +2,7 @@ package io.mosip.testrig.apirig.testrunner;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.nio.file.Paths;
 import java.security.SecureRandom;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -190,6 +191,9 @@ public class BaseTestCase {
     public static String runContext = GlobalMethods.getRunContext();
     public static String testDataContext = generateRandomAlphabeticString(3).toLowerCase();
     public static String domain = System.getProperty("env.endpoint", "localhost").replaceFirst("^https?://", "").replaceAll("/$", "");
+	public static String testCaseInterDependencyPath = Paths
+			.get(System.getProperty("user.dir"), "src", "main", "resources", "config", "testCaseInterDependency.json")
+			.toString();
 		
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
