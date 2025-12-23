@@ -43,7 +43,6 @@ import java.time.Clock;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -3759,15 +3758,6 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 	}
-	
-	public static boolean isIsoDateTime(String value) {
-	    try {
-	        OffsetDateTime.parse(value);
-	        return true;
-	    } catch (Exception e) {
-	        return false;
-	    }
-	}
 
 	public static String addIdentityPassword = "";
 	public static String addIdentitySalt = "";
@@ -4204,7 +4194,6 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 
 		}
-		
 		if (jsonString.contains(GlobalConstants.REMOVE))
 			jsonString = removeObject(new JSONObject(jsonString));
 
