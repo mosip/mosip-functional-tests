@@ -43,6 +43,7 @@ import java.time.Clock;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -3758,6 +3759,15 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 	}
+	
+	public static boolean isIsoDateTime(String value) {
+	    try {
+	        OffsetDateTime.parse(value);
+	        return true;
+	    } catch (Exception e) {
+	        return false;
+	    }
+	}
 
 	public static String addIdentityPassword = "";
 	public static String addIdentitySalt = "";
@@ -4194,7 +4204,7 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 
 		}
-
+		
 		if (jsonString.contains(GlobalConstants.REMOVE))
 			jsonString = removeObject(new JSONObject(jsonString));
 
@@ -4414,6 +4424,21 @@ public class AdminTestUtil extends BaseTestCase {
 			keyToReplace = temp + "@phone";
 		} else {
 			keyToReplace = idKey + keyForIdProperty + "$"; // AddIdentity_withValidParameters_smoke_Pos_EMAIL
+		}
+		
+		if(keyForIdProperty.contains("sbiExpiryDateTime") || keyForIdProperty.contains("sbiCreatedDateTime")) {
+			String dateValue = getFromCache(keyForIdProperty);
+			if (dateValue != null && !dateValue.isBlank() && dateValue.contains("T")) {
+		        try {
+		            LocalDate dateOnly = LocalDateTime.parse(dateValue).toLocalDate();
+		            dateValue = dateOnly.toString(); // yyyy-MM-dd
+		        } catch (Exception e) {
+		            logger.warn("Unable to parse date value: " + dateValue, e);
+		        }
+		    }
+
+		    // Replace in JSON
+		    jsonString = replaceKeywordWithValue(jsonString, keyToReplace, dateValue);
 		}
 
 		if (keyForIdProperty.contains("time_slot_from")) {
