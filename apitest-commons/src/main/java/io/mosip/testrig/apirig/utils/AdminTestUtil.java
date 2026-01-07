@@ -4194,6 +4194,7 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 
 		}
+
 		if (jsonString.contains(GlobalConstants.REMOVE))
 			jsonString = removeObject(new JSONObject(jsonString));
 
@@ -4413,21 +4414,6 @@ public class AdminTestUtil extends BaseTestCase {
 			keyToReplace = temp + "@phone";
 		} else {
 			keyToReplace = idKey + keyForIdProperty + "$"; // AddIdentity_withValidParameters_smoke_Pos_EMAIL
-		}
-		
-		if(keyForIdProperty.contains("sbiExpiryDateTime") || keyForIdProperty.contains("sbiCreatedDateTime")) {
-			String dateValue = getFromCache(keyForIdProperty);
-			if (dateValue != null && !dateValue.isBlank() && dateValue.contains("T")) {
-		        try {
-		            LocalDate dateOnly = LocalDateTime.parse(dateValue).toLocalDate();
-		            dateValue = dateOnly.toString(); // yyyy-MM-dd
-		        } catch (Exception e) {
-		            logger.warn("Unable to parse date value: " + dateValue, e);
-		        }
-		    }
-
-		    // Replace in JSON
-		    jsonString = replaceKeywordWithValue(jsonString, keyToReplace, dateValue);
 		}
 
 		if (keyForIdProperty.contains("time_slot_from")) {

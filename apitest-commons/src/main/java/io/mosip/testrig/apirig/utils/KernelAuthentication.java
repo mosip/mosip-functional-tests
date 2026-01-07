@@ -140,7 +140,6 @@ public class KernelAuthentication extends BaseTestCase {
 			if (!AdminTestUtil.isValidToken(partnerdeviceCookie))
 				partnerdeviceCookie = kernelAuthLib.getAuthForPartnerRevampDevice();
 			return partnerdeviceCookie;
-		
 		case "partnerftm":
 			if (!AdminTestUtil.isValidToken(partnerftmCookie))
 				partnerftmCookie = kernelAuthLib.getAuthForPartnerRevampFtm();
