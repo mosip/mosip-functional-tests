@@ -7547,8 +7547,27 @@ public class AdminTestUtil extends BaseTestCase {
     }
 	
 	public static void extractAndStoreCsrfToken(Response response) {
+		if (response == null) {
+			throw new IllegalStateException("CSRF token response is null");
+		}
+
+		int status = response.getStatusCode();
+		if (status < 200 || status >= 300) {
+			throw new IllegalStateException(
+					"CSRF token fetch failed with status " + status + " and body: " + response.asString());
+		}
+
 		String csrfToken = response.jsonPath().getString("token");
 		String csrfCookie = response.getCookie(GlobalConstants.XSRF_TOKEN);
+
+		if (StringUtils.isBlank(csrfToken)) {
+			throw new IllegalStateException("CSRF token is missing in response body");
+		}
+
+		if (StringUtils.isBlank(csrfCookie)) {
+			throw new IllegalStateException("CSRF cookie is missing in response cookies");
+		}
+
 		BaseTestCase.CSRF_TOKEN = csrfToken;
 		BaseTestCase.CSRF_COOKIE = csrfCookie;
 	}
