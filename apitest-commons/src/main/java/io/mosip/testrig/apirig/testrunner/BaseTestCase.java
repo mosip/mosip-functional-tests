@@ -188,6 +188,9 @@ public class BaseTestCase {
 	
 	private static String runTypeS = "";
 	protected static String jarURLS = "";
+	
+	public static String CSRF_TOKEN;
+	public static String CSRF_COOKIE;
 
     public static String runContext = GlobalMethods.getRunContext();
     public static String testDataContext = generateRandomAlphabeticString(3).toLowerCase();
