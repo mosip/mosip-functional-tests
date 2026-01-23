@@ -280,5 +280,9 @@ public class GlobalConstants {
 	public static final String MOSIP_CONFIG_APPLICATION_HYPHEN_STRING = "mosip-config/application-";
 
 	public static final String DOT_PROPERTIES_STRING = ".properties";
+	
+	public static String CSRF_TOKEN;
 
+	public static String CSRF_COOKIE;
+	
 }
