@@ -1395,16 +1395,16 @@ public class AdminTestUtil extends BaseTestCase {
 			@SuppressWarnings("unchecked")
 			Map<String, Object> jsonMap = mapper.readValue(inputJson, Map.class);
 
-			// Smart conversion: simple strings → raw values, complex → JSON strings
+			// conversion: simple strings → raw values, complex → JSON strings
 			for (Map.Entry<String, Object> entry : jsonMap.entrySet()) {
 				Object value = entry.getValue();
 				String formValue;
 
-				if (value instanceof String && !((String) value).startsWith("[") && !((String) value).startsWith("{")) {
-					// Simple string → send as raw value (no quotes)
+				if (value instanceof String) {
+					// String values should remain raw
 					formValue = (String) value;
 				} else {
-					// Array/Object → JSON string
+					// Arrays/objects/other types → JSON string
 					formValue = mapper.writeValueAsString(value);
 				}
 
