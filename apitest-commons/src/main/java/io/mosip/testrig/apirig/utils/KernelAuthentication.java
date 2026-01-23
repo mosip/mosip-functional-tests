@@ -340,7 +340,7 @@ public class KernelAuthentication extends BaseTestCase {
 
 		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
 		request.put(GlobalConstants.PASSWORD, partner_password);
-		request.put(GlobalConstants.USER_NAME, partner_auth_userName);
+		request.put(GlobalConstants.USER_NAME, BaseTestCase.runContext + partner_auth_userName);
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
@@ -359,7 +359,7 @@ public class KernelAuthentication extends BaseTestCase {
 
 		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
 		request.put(GlobalConstants.PASSWORD, partner_auth_externaluser_password);
-		request.put(GlobalConstants.USER_NAME,  partner_auth_external_userName);
+		request.put(GlobalConstants.USER_NAME, BaseTestCase.runContext + partner_auth_external_userName);
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
@@ -378,7 +378,7 @@ public class KernelAuthentication extends BaseTestCase {
 
 		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
 		request.put(GlobalConstants.PASSWORD, partner_password);
-		request.put(GlobalConstants.USER_NAME, device_provider_userName);
+		request.put(GlobalConstants.USER_NAME, BaseTestCase.runContext + device_provider_userName);
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
@@ -397,7 +397,7 @@ public class KernelAuthentication extends BaseTestCase {
 
 		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
 		request.put(GlobalConstants.PASSWORD, partner_password);
-		request.put(GlobalConstants.USER_NAME,  partner_device_userName);
+		request.put(GlobalConstants.USER_NAME,  BaseTestCase.runContext + partner_device_userName);
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
@@ -416,7 +416,7 @@ public class KernelAuthentication extends BaseTestCase {
 
 		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
 		request.put(GlobalConstants.PASSWORD, partner_password);
-		request.put(GlobalConstants.USER_NAME,  partner_ftm_userName);
+		request.put(GlobalConstants.USER_NAME,  BaseTestCase.runContext + partner_ftm_userName);
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
@@ -434,7 +434,7 @@ public class KernelAuthentication extends BaseTestCase {
 
 		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
 		request.put(GlobalConstants.PASSWORD, partner_password);
-		request.put(GlobalConstants.USER_NAME,  partner_admin_userName);
+		request.put(GlobalConstants.USER_NAME,  BaseTestCase.runContext + partner_admin_userName);
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
