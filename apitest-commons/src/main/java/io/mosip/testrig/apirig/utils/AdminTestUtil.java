@@ -1412,8 +1412,12 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 
 			logger.info(GlobalConstants.POST_REQ_URL + url);
-			logger.info("Form data: " + formData.toString());
-			GlobalMethods.reportRequest(null, formData.toString(), url);
+			String formDataStr = formData.toString();
+					String safeFormData = LogMaskingUtil.maskSensitiveData(formDataStr);
+						if (ConfigManager.IsDebugEnabled()) {
+							logger.info("Form data: " + safeFormData);
+						}
+						GlobalMethods.reportRequest(null, safeFormData, url);
 
 			response = RestClient.postRequestWithFormDataBody(url, formData);
 
