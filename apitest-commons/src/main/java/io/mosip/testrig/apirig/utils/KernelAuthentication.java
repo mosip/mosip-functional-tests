@@ -38,6 +38,8 @@ public class KernelAuthentication extends BaseTestCase {
 
 	private String partner_password = props.get("partner_user_password");
 	private String partner_userName = props.get("partner_userName");
+	private String partner_auth_externaluser_password = props.get("partner_auth_externaluser_password");
+	private String partner_auth_external_userName = props.get("partner_auth_external_userName");
 	private String partner_auth_userName = props.get("partner_auth_userName");
 	private String device_provider_userName = props.get("device_provider_userName");
 	private String partner_device_userName = props.get("partner_device_userName");
@@ -123,6 +125,11 @@ public class KernelAuthentication extends BaseTestCase {
 			if (!AdminTestUtil.isValidToken(partnerauthCookie))
 				partnerauthCookie = kernelAuthLib.getAuthForPartnerAuth();
 			return partnerauthCookie;
+			
+		case "partnerauthexternal":
+			if (!AdminTestUtil.isValidToken(partnerauthexternalCookie))
+				partnerauthexternalCookie = kernelAuthLib.getAuthForPartnerAuthExternal();
+			return partnerauthexternalCookie;
 		
 		case "deviceprovider":
 			if (!AdminTestUtil.isValidToken(deviceproviderCookie))
@@ -346,6 +353,25 @@ public class KernelAuthentication extends BaseTestCase {
 	}
 	
 	@SuppressWarnings({ "unchecked" })
+	public String getAuthForPartnerAuthExternal() {
+
+		JSONObject request = new JSONObject();
+
+		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
+		request.put(GlobalConstants.PASSWORD, partner_auth_externaluser_password);
+		request.put(GlobalConstants.USER_NAME,  partner_auth_external_userName);
+		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
+		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
+		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+
+		actualInternalrequest.put(GlobalConstants.REQUEST, request);
+		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		String responseBody = reponse.getBody().asString();
+		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+	}
+	
+	@SuppressWarnings({ "unchecked" })
 	public String getAuthForDeviceProvider() {
 
 		JSONObject request = new JSONObject();
@@ -363,7 +389,6 @@ public class KernelAuthentication extends BaseTestCase {
 		String responseBody = reponse.getBody().asString();
 		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
-	
 	
 	@SuppressWarnings({ "unchecked" })
 	public String getAuthForPartnerRevampDevice() {
