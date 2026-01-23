@@ -246,6 +246,7 @@ public class DBManager {
 									if (line.trim().equals("") || line.trim().startsWith("#"))
 										continue;
                                     line = line.replace("${currentModule}", BaseTestCase.currentModule);
+                                    line = line.replace("${runContext}", BaseTestCase.runContext);
 									statement.addBatch(line);
 								}
 							} catch (IOException e) {
