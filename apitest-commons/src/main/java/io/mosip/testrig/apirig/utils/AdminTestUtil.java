@@ -449,7 +449,7 @@ public class AdminTestUtil extends BaseTestCase {
 			headers.put(OAUTH_TRANSID_HEADERNAME, transactionId);
 		}
 
-		token = GlobalConstants.CSRF_TOKEN;
+		token = BaseTestCase.CSRF_TOKEN;
 
 		if (request.has(GlobalConstants.HEADERTRANSACTIONID)) {
 			headerTransactionID = request.get(GlobalConstants.HEADERTRANSACTIONID).toString();
@@ -484,7 +484,7 @@ public class AdminTestUtil extends BaseTestCase {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 
-		headers.put(XSRF_HEADERNAME, GlobalConstants.CSRF_TOKEN);
+		headers.put(XSRF_HEADERNAME, BaseTestCase.CSRF_TOKEN);
 
 		if (testCaseName.contains("_IdpAccessToken_")) {
 			JSONObject requestInput = new JSONObject(inputJson);
@@ -586,8 +586,8 @@ public class AdminTestUtil extends BaseTestCase {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 
-		headers.put(XSRF_HEADERNAME, GlobalConstants.CSRF_TOKEN);
-		token = GlobalConstants.CSRF_COOKIE;
+		headers.put(XSRF_HEADERNAME, BaseTestCase.CSRF_TOKEN);
+		token = BaseTestCase.CSRF_COOKIE;
 
 		logger.info(GlobalConstants.POST_REQ_URL + url);
 		GlobalMethods.reportRequest(headers.toString(), inputJson, url);
@@ -639,7 +639,7 @@ public class AdminTestUtil extends BaseTestCase {
 					.toString();
 
 		}
-		headers.put(XSRF_HEADERNAME, GlobalConstants.CSRF_TOKEN);
+		headers.put(XSRF_HEADERNAME, BaseTestCase.CSRF_TOKEN);
 		headers.put(OAUTH_HASH_HEADERNAME, encodedResp);
 		headers.put(OAUTH_TRANSID_HEADERNAME, transactionId);
 
@@ -659,7 +659,7 @@ public class AdminTestUtil extends BaseTestCase {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 
-		token = GlobalConstants.CSRF_TOKEN;
+		token = BaseTestCase.CSRF_TOKEN;
 
 		if (request.has(GlobalConstants.IDV_TRANSACTION_ID)) {
 			headerTransactionID = request.get(GlobalConstants.IDV_TRANSACTION_ID).toString();
@@ -722,7 +722,7 @@ public class AdminTestUtil extends BaseTestCase {
 			transactionId = request.get(GlobalConstants.TRANSACTIONID).toString();
 			request.remove(GlobalConstants.ENCODEDHASH);
 		}
-		headers.put(XSRF_HEADERNAME, GlobalConstants.CSRF_TOKEN);
+		headers.put(XSRF_HEADERNAME, BaseTestCase.CSRF_TOKEN);
 		headers.put(OAUTH_HASH_HEADERNAME, encodedResp);
 		headers.put(OAUTH_TRANSID_HEADERNAME, transactionId);
 
@@ -7549,8 +7549,8 @@ public class AdminTestUtil extends BaseTestCase {
 	public static void extractAndStoreCsrfToken(Response response) {
 		String csrfToken = response.jsonPath().getString("token");
 		String csrfCookie = response.getCookie(GlobalConstants.XSRF_TOKEN);
-		GlobalConstants.CSRF_TOKEN = csrfToken;
-		GlobalConstants.CSRF_COOKIE = csrfCookie;
+		BaseTestCase.CSRF_TOKEN = csrfToken;
+		BaseTestCase.CSRF_COOKIE = csrfCookie;
 	}
 	
 	public static void fetchAndStoreCsrfToken() {
