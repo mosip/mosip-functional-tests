@@ -450,7 +450,7 @@ public class AdminTestUtil extends BaseTestCase {
 			headers.put(OAUTH_TRANSID_HEADERNAME, transactionId);
 		}
 
-		token = BaseTestCase.CSRF_TOKEN;
+		token = BaseTestCase.CSRF_COOKIE;
 
 		if (request.has(GlobalConstants.HEADERTRANSACTIONID)) {
 			headerTransactionID = request.get(GlobalConstants.HEADERTRANSACTIONID).toString();
@@ -660,7 +660,7 @@ public class AdminTestUtil extends BaseTestCase {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 
-		token = BaseTestCase.CSRF_TOKEN;
+		token = BaseTestCase.CSRF_COOKIE;
 
 		if (request.has(GlobalConstants.IDV_TRANSACTION_ID)) {
 			headerTransactionID = request.get(GlobalConstants.IDV_TRANSACTION_ID).toString();
