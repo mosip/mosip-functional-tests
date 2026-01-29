@@ -88,7 +88,7 @@ public class AllNotificationListner {
                     message = root.subject;
                     address = root.to.text.trim();
                 } else if ("MAIL".equalsIgnoreCase(root.type)) {
-                    message = root.html;
+                	message = root.subject;
                     address = root.to.value.get(0).address;
                 } else {
                     logger.warn("Unsupported notification type. type=" + root.type);

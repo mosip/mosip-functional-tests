@@ -738,7 +738,7 @@ public class RestClient {
 
 			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
 					.contentType(contentHeader)
-					.cookie(GlobalConstants.XSRF_TOKEN, properties.getProperty(GlobalConstants.XSRFTOKEN))
+					.cookie(GlobalConstants.XSRF_TOKEN, BaseTestCase.CSRF_COOKIE)
 					.accept(acceptHeader).filter(RestAssuredPrettyLogger.getMaskingFilter()).when().post(url).then().extract().response();
 
 			LogMaskingUtil.safeLogInfo(RESTCLIENT_LOGGER, GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString()
@@ -746,7 +746,7 @@ public class RestClient {
 		} else {
 			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
 					.contentType(contentHeader)
-					.cookie(GlobalConstants.XSRF_TOKEN, properties.getProperty(GlobalConstants.XSRFTOKEN))
+					.cookie(GlobalConstants.XSRF_TOKEN, BaseTestCase.CSRF_COOKIE)
 					.accept(acceptHeader).when().post(url).then().extract().response();
 		}
 
@@ -769,7 +769,7 @@ public class RestClient {
 
 			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
 					.contentType(contentHeader)
-					.cookie(GlobalConstants.XSRF_TOKEN, cookieValue.get(GlobalConstants.XSRF_TOKEN))
+					.cookie(GlobalConstants.XSRF_TOKEN, BaseTestCase.CSRF_COOKIE)
 					.cookie(key, cookieValue.get(key)).accept(acceptHeader).filter(RestAssuredPrettyLogger.getMaskingFilter()).when().post(url).then().extract().response();
 
 			LogMaskingUtil.safeLogInfo(RESTCLIENT_LOGGER, GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString()
@@ -777,7 +777,7 @@ public class RestClient {
 		} else {
 			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
 					.contentType(contentHeader)
-					.cookie(GlobalConstants.XSRF_TOKEN, cookieValue.get(GlobalConstants.XSRF_TOKEN))
+					.cookie(GlobalConstants.XSRF_TOKEN, BaseTestCase.CSRF_COOKIE)
 					.cookie(key, cookieValue.get(key)).accept(acceptHeader).when().post(url).then().log().all()
 					.extract().response();
 		}
@@ -1011,7 +1011,7 @@ public class RestClient {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
 
 			getResponse = given().config(config).relaxedHTTPSValidation()
-					.cookie(GlobalConstants.XSRF_TOKEN, cookieMap.get(GlobalConstants.XSRF_TOKEN))
+					.cookie(GlobalConstants.XSRF_TOKEN, BaseTestCase.CSRF_COOKIE)
 					.cookie(key, cookieMap.get(key)).filter(RestAssuredPrettyLogger.getMaskingFilter()).when().get(url).then().extract()
 					.response();
 
@@ -1019,7 +1019,7 @@ public class RestClient {
 			+ GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		} else {
 			getResponse = given().config(config).relaxedHTTPSValidation()
-					.cookie(GlobalConstants.XSRF_TOKEN, cookieMap.get(GlobalConstants.XSRF_TOKEN))
+					.cookie(GlobalConstants.XSRF_TOKEN, BaseTestCase.CSRF_COOKIE)
 					.cookie(key, cookieMap.get(key)).when().get(url).then().extract().response();
 		}
 
@@ -1035,7 +1035,7 @@ public class RestClient {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
 
 			getResponse = given().config(config).relaxedHTTPSValidation().pathParams(body)
-					.cookie(GlobalConstants.XSRF_TOKEN, cookieMap.get(GlobalConstants.XSRF_TOKEN))
+					.cookie(GlobalConstants.XSRF_TOKEN,  BaseTestCase.CSRF_COOKIE)
 					.cookie(key, cookieMap.get(key)).filter(RestAssuredPrettyLogger.getMaskingFilter()).when().get(url).then().extract()
 					.response();
 
@@ -1043,7 +1043,7 @@ public class RestClient {
 			+ GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		} else {
 			getResponse = given().config(config).relaxedHTTPSValidation().pathParams(body)
-					.cookie(GlobalConstants.XSRF_TOKEN, cookieMap.get(GlobalConstants.XSRF_TOKEN))
+					.cookie(GlobalConstants.XSRF_TOKEN, BaseTestCase.CSRF_COOKIE)
 					.cookie(key, cookieMap.get(key)).when().get(url).then().extract().response();
 		}
 
@@ -1711,7 +1711,7 @@ public class RestClient {
 
 			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
 					.contentType(contentHeader)
-					.cookie(GlobalConstants.XSRF_TOKEN, properties.getProperty(GlobalConstants.XSRFTOKEN))
+					.cookie(GlobalConstants.XSRF_TOKEN, BaseTestCase.CSRF_COOKIE)
 					.cookie(cookieName, cookieValue).accept(acceptHeader).filter(RestAssuredPrettyLogger.getMaskingFilter()).when().post(url).then().extract().response();
 
 			LogMaskingUtil.safeLogInfo(RESTCLIENT_LOGGER, GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString()
@@ -1719,7 +1719,7 @@ public class RestClient {
 		} else {
 			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
 					.contentType(contentHeader)
-					.cookie(GlobalConstants.XSRF_TOKEN, properties.getProperty(GlobalConstants.XSRFTOKEN))
+					.cookie(GlobalConstants.XSRF_TOKEN, BaseTestCase.CSRF_COOKIE)
 					.cookie(cookieName, cookieValue).accept(acceptHeader).when().post(url).then().extract().response();
 		}
 

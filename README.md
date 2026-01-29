@@ -32,9 +32,9 @@ To use this repository, ensure you have:
 - Add the following dependency in the POM of required project
     ```sh
     <dependency>
-      <groupId>io.mosip.testrig.apirig.apitest.commons</groupId>
+      <groupId>io.mosip.testrig.apitest.commons</groupId>
       <artifactId>apitest-commons</artifactId>
-      <version>1.4.0-SNAPSHOT</version>
+      <version>1.5.0-SNAPSHOT</version>
     </dependency>
 
 ---
