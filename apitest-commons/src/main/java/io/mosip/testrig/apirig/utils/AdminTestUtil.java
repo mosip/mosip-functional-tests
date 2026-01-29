@@ -117,6 +117,7 @@ import io.mosip.testrig.apirig.dataprovider.BiometricDataProvider;
 import io.mosip.testrig.apirig.dbaccess.DBManager;
 import io.mosip.testrig.apirig.dto.OutputValidationDto;
 import io.mosip.testrig.apirig.dto.TestCaseDTO;
+import io.mosip.testrig.apirig.id.IdGenerator;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 import io.mosip.testrig.apirig.testrunner.JsonPrecondtion;
 import io.mosip.testrig.apirig.testrunner.MessagePrecondtion;
@@ -3790,6 +3791,38 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = replaceKeywordWithValue(jsonString, "$TESTDATACONTEXT$", BaseTestCase.testDataContext);
 		}
 
+		if (jsonString.contains("$BIOVALUE$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$BIOVALUE$",
+					BiometricDataProvider.getFromBiometricMap("BioValue"));
+		}
+		
+		if (jsonString.contains("$INVALID_UIN$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$INVALID_UIN$",
+					IdGenerator.generateInvalidUin());
+		}
+		if (jsonString.contains("$VALID_UIN_NOTIN_DB$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$VALID_UIN_NOTIN_DB$",
+					IdGenerator.generateValidUin());
+		}
+		
+		if (jsonString.contains("$INVALID_VID$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$INVALID_VID$",
+					IdGenerator.generateInvalidVid());
+		}
+		if (jsonString.contains("$VALID_VID_NOTIN_DB$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$VALID_VID_NOTIN_DB$",
+					IdGenerator.generateValidVid());
+		}
+		
+		if (jsonString.contains("$INVALID_PRID$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$INVALID_PRID$",
+					IdGenerator.generateInvalidPrid());
+		}
+		if (jsonString.contains("$VALID_PRID_NOTIN_DB$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$VALID_PRID_NOTIN_DB$",
+					IdGenerator.generateValidPrid());
+		}
+		
 		if (jsonString.contains("$BIOVALUE$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$BIOVALUE$",
 					BiometricDataProvider.getFromBiometricMap("BioValue"));

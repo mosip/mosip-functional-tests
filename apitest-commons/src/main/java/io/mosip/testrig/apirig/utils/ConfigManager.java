@@ -33,6 +33,31 @@ public class ConfigManager {
 		} catch (Exception ex) {
 			LOGGER.error(ex.getMessage());
 		}
+		
+		// LOAD ID FILTER PROPERTIES
+		try (InputStream idFilterInput =
+		             ConfigManager.class.getClassLoader()
+		                     .getResourceAsStream("config/id-filter.properties")) {
+
+		    if (idFilterInput != null) {
+
+		        Properties idProps = new Properties();
+		        idProps.load(idFilterInput);
+
+		        for (String key : idProps.stringPropertyNames()) {
+		            propertiesMap.put(key, idProps.getProperty(key));
+		        }
+
+		        LOGGER.info("Loaded id-filter.properties");
+
+		    } else {
+		        LOGGER.error("Couldn't find id-filter.properties");
+		    }
+
+		} catch (Exception ex) {
+		    LOGGER.error("Error loading id-filter.properties : " + ex.getMessage());
+		}
+
 		// Process all common properties in kernelProps and add them to propertiesMap
 	    for (String key : kernelProps.stringPropertyNames()) {
 	    	propertiesMap.put(key, kernelProps.getProperty(key));
@@ -273,9 +298,20 @@ public class ConfigManager {
 		return false;
 	}
 	
-	
 	public static String getComponentBaseURL(String component) {
 		return mosip_components_base_urls.get(component);
+	}
+	
+	public static int getIntProperty(String key) {
+	    return Integer.parseInt(getproperty(key));
+	}
+
+	public static List<String> getListProperty(String key) {
+	    return Arrays.asList(getproperty(key).split(","));
+	}
+
+	public static String[] getArrayProperty(String key) {
+	    return getproperty(key).split(",");
 	}
 	
 }
