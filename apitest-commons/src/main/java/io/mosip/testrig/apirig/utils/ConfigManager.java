@@ -35,27 +35,26 @@ public class ConfigManager {
 		}
 		
 		// LOAD ID FILTER PROPERTIES
-		try (InputStream idFilterInput =
-		             ConfigManager.class.getClassLoader()
-		                     .getResourceAsStream("config/id-filter.properties")) {
+		try (InputStream idFilterInput = ConfigManager.class.getClassLoader()
+				.getResourceAsStream("config/id-filter.properties")) {
 
-		    if (idFilterInput != null) {
+			if (idFilterInput != null) {
 
-		        Properties idProps = new Properties();
-		        idProps.load(idFilterInput);
+				Properties idProps = new Properties();
+				idProps.load(idFilterInput);
 
-		        for (String key : idProps.stringPropertyNames()) {
-		            propertiesMap.put(key, idProps.getProperty(key));
-		        }
+				for (String key : idProps.stringPropertyNames()) {
+					propertiesMap.put(key, idProps.getProperty(key));
+				}
 
-		        LOGGER.info("Loaded id-filter.properties");
+				LOGGER.info("Loaded id-filter.properties file successfully.");
 
-		    } else {
-		        LOGGER.error("Couldn't find id-filter.properties");
-		    }
+			} else {
+				LOGGER.error("Couldn't find id-filter.properties file");
+			}
 
 		} catch (Exception ex) {
-		    LOGGER.error("Error loading id-filter.properties : " + ex.getMessage());
+			LOGGER.error("Error loading id-filter.properties : " + ex.getMessage());
 		}
 
 		// Process all common properties in kernelProps and add them to propertiesMap
@@ -301,17 +300,32 @@ public class ConfigManager {
 	public static String getComponentBaseURL(String component) {
 		return mosip_components_base_urls.get(component);
 	}
-	
+
 	public static int getIntProperty(String key) {
-	    return Integer.parseInt(getproperty(key));
+		String value = getproperty(key).trim();
+		if (value.isEmpty()) {
+			throw new IllegalStateException("Missing required property: " + key);
+		}
+		return Integer.parseInt(value);
 	}
 
 	public static List<String> getListProperty(String key) {
-	    return Arrays.asList(getproperty(key).split(","));
+		String value = getproperty(key).trim();
+		if (value.isEmpty()) {
+			throw new IllegalStateException("Missing required property: " + key);
+		}
+		List<String> result = new java.util.ArrayList<>();
+		for (String part : value.split(",")) {
+			String trimmed = part.trim();
+			if (!trimmed.isEmpty()) {
+				result.add(trimmed);
+			}
+		}
+		return result;
 	}
 
 	public static String[] getArrayProperty(String key) {
-	    return getproperty(key).split(",");
+		return getListProperty(key).toArray(new String[0]);
 	}
-	
+
 }
