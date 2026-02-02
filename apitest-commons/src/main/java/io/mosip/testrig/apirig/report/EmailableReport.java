@@ -877,7 +877,7 @@ public class EmailableReport implements IReporter {
 		
 		String testCaseName = (String) result.getAttribute("TestCaseName");
 
-		if (testCaseName == null) {
+		if (testCaseName == null || testCaseName.trim().isEmpty()) {
 		    testCaseName = result.getMethod().getMethodName();
 		}
 		// Get the class name
@@ -1373,14 +1373,17 @@ public class EmailableReport implements IReporter {
 	
 	private static String getTestCaseKey(ITestResult result) {
 
-		String TestCaseName = (String) result.getAttribute("TestCaseName");
-		if (TestCaseName != null && !TestCaseName.isEmpty()) {
-			return TestCaseName;
+		String testCaseName = (String) result.getAttribute("TestCaseName");
+		if (testCaseName != null && !testCaseName.isEmpty()) {
+			return testCaseName;
 		}
 
 		Object[] params = result.getParameters();
 		if (params != null && params.length > 0 && params[0] instanceof TestCaseDTO dto) {
-			return dto.getTestCaseName();
+			String dtoTestcaseName = dto.getTestCaseName();
+	        if (dtoTestcaseName != null && !dtoTestcaseName.trim().isEmpty()) {
+	            return dtoTestcaseName;
+	        }
 		}
 
 		return result.getMethod().getMethodName();
