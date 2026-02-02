@@ -20,8 +20,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 import org.testng.IReporter;
@@ -779,7 +777,7 @@ public class EmailableReport implements IReporter {
 
 					}
 					
-					String temp = uniqueIdentifier.isEmpty() ? methodName : uniqueIdentifier;
+					String temp = uniqueIdentifier.isEmpty() ? getTestCaseKey(firstResult) : uniqueIdentifier;
 					
 					
 					buffer.append("<td style=\"text-align:left;\"><a href=\"#m").append(scenarioIndex).append("\">")
@@ -877,7 +875,11 @@ public class EmailableReport implements IReporter {
 		Object[] parameters = result.getParameters();
 		int parameterCount = (parameters == null ? 0 : parameters.length);
 		
-		String testCaseName = result.getMethod().getMethodName();
+		String testCaseName = (String) result.getAttribute("TestCaseName");
+
+		if (testCaseName == null) {
+		    testCaseName = result.getMethod().getMethodName();
+		}
 		// Get the class name
 		String className = result.getMethod().getTestClass().getRealClass().getSimpleName();
 
@@ -1188,7 +1190,7 @@ public class EmailableReport implements IReporter {
 				resultsPerMethod.add(result);
 
 				String previousClassName = result.getTestClass().getName();
-				String previousMethodName = result.getMethod().getMethodName();
+				String previousMethodName = getTestCaseKey(result);
 				while (resultsIterator.hasNext()) {
 					result = resultsIterator.next();
 
@@ -1203,9 +1205,9 @@ public class EmailableReport implements IReporter {
 						resultsPerClass = Lists.newArrayList();
 
 						previousClassName = className;
-						previousMethodName = result.getMethod().getMethodName();
+						previousMethodName = getTestCaseKey(result);
 					} else {
-						String methodName = result.getMethod().getMethodName();
+						String methodName = getTestCaseKey(result);
 						if (!previousMethodName.equals(methodName)) {
 							assert !resultsPerMethod.isEmpty();
 							resultsPerClass.add(new MethodResult(resultsPerMethod));
@@ -1367,6 +1369,21 @@ public class EmailableReport implements IReporter {
 		public List<ITestResult> getResults() {
 			return results;
 		}
+	}
+	
+	private static String getTestCaseKey(ITestResult result) {
+
+		String TestCaseName = (String) result.getAttribute("TestCaseName");
+		if (TestCaseName != null && !TestCaseName.isEmpty()) {
+			return TestCaseName;
+		}
+
+		Object[] params = result.getParameters();
+		if (params != null && params.length > 0 && params[0] instanceof TestCaseDTO dto) {
+			return dto.getTestCaseName();
+		}
+
+		return result.getMethod().getMethodName();
 	}
 
 }
