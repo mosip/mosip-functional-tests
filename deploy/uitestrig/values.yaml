@@ -18,15 +18,15 @@ modules:
     enabled: true
     image:
       registry: docker.io
-      repository: mosipqa/uitest-admin
-      tag: develop
+      repository: mosipid/uitest-admin
+      tag: 1.3.0
       pullPolicy: Always
   - name: pmp-ui
     enabled: true
     image:
       registry: docker.io
-      repository: mosipqa/uitest-pmp-v2
-      tag: develop
+      repository: mosipid/uitest-pmp-v2
+      tag: 1.3.0-beta.4
       pullPolicy: Always
   - name: resident-ui
     enabled: true
@@ -39,15 +39,15 @@ modules:
     enabled: true
     image:
       registry: docker.io
-      repository: mosipqa/uitest-verify
-      tag: develop
+      repository: mosipid/uitest-verify
+      tag: 0.16.0
       pullPolicy: Always
   - name: injiweb-ui
     enabled: true
     image:
       registry: docker.io
-      repository: mosipqa/uitest-web
-      tag: develop
+      repository: mosipid/uitest-web
+      tag: 0.15.0
       pullPolicy: Always
 
 crontime: "0 3 * * *"    ## run cronjob every day at 3 AM (time hr: 0-23 )
