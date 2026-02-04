@@ -12,6 +12,8 @@ import java.util.Map;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
+
+import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 public class ConfigManager {
 	private static final Logger LOGGER = Logger.getLogger(ConfigManager.class);
 	private static Map<String, String> mosip_components_base_urls = new HashMap<>();
@@ -34,29 +36,6 @@ public class ConfigManager {
 			LOGGER.error(ex.getMessage());
 		}
 		
-		// LOAD ID FILTER PROPERTIES
-		try (InputStream idFilterInput = ConfigManager.class.getClassLoader()
-				.getResourceAsStream("config/id-filter.properties")) {
-
-			if (idFilterInput != null) {
-
-				Properties idProps = new Properties();
-				idProps.load(idFilterInput);
-
-				for (String key : idProps.stringPropertyNames()) {
-					propertiesMap.put(key, idProps.getProperty(key));
-				}
-
-				LOGGER.info("Loaded id-filter.properties file successfully.");
-
-			} else {
-				LOGGER.error("Couldn't find id-filter.properties file");
-			}
-
-		} catch (Exception ex) {
-			LOGGER.error("Error loading id-filter.properties : " + ex.getMessage());
-		}
-
 		// Process all common properties in kernelProps and add them to propertiesMap
 	    for (String key : kernelProps.stringPropertyNames()) {
 	    	propertiesMap.put(key, kernelProps.getProperty(key));
@@ -300,32 +279,25 @@ public class ConfigManager {
 	public static String getComponentBaseURL(String component) {
 		return mosip_components_base_urls.get(component);
 	}
+	
+	private static String getActuatorValue(String key) {
+		return BaseTestCase.getValueFromActuators(ConfigManager.getproperty("actuatorMasterDataEndpoint"),
+	            GlobalConstants.ACTUATOR_PROPERTY_SECTION,
+	            key);
+	}
 
 	public static int getIntProperty(String key) {
-		String value = getproperty(key).trim();
-		if (value.isEmpty()) {
-			throw new IllegalStateException("Missing required property: " + key);
-		}
-		return Integer.parseInt(value);
-	}
+	    String value = getActuatorValue(key);
 
+	    if (value == null || value.trim().isEmpty()) {
+	        throw new IllegalStateException("Missing required property: " + key);
+	    }
+
+	    return Integer.parseInt(value.trim());
+	}
+	
 	public static List<String> getListProperty(String key) {
-		String value = getproperty(key).trim();
-		if (value.isEmpty()) {
-			throw new IllegalStateException("Missing required property: " + key);
-		}
-		List<String> result = new java.util.ArrayList<>();
-		for (String part : value.split(",")) {
-			String trimmed = part.trim();
-			if (!trimmed.isEmpty()) {
-				result.add(trimmed);
-			}
-		}
-		return result;
-	}
-
-	public static String[] getArrayProperty(String key) {
-		return getListProperty(key).toArray(new String[0]);
+		return Arrays.asList(getActuatorValue(key).split(","));
 	}
 
 }

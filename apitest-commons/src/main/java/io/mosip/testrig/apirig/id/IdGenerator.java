@@ -12,27 +12,27 @@ public class IdGenerator {
 	}
 
 	public static String generateValidUin() {
-		return generateId(ConfigManager.getIntProperty("mosip.uin.length") - 1, Type.UIN, true);
+		return generateId(ConfigManager.getIntProperty("mosip.kernel.uin.length") - 1, Type.UIN, true);
 	}
 
 	public static String generateValidVid() {
-		return generateId(ConfigManager.getIntProperty("mosip.vid.length") - 1, Type.VID, true);
+		return generateId(ConfigManager.getIntProperty("mosip.kernel.vid.length") - 1, Type.VID, true);
 	}
 
 	public static String generateValidPrid() {
-		return generateId(ConfigManager.getIntProperty("mosip.prid.length") - 1, Type.PRID, true);
+		return generateId(ConfigManager.getIntProperty("mosip.kernel.prid.length") - 1, Type.PRID, true);
 	}
 
 	public static String generateInvalidUin() {
-		return generateId(ConfigManager.getIntProperty("mosip.uin.length") - 1, Type.UIN, false);
+		return generateId(ConfigManager.getIntProperty("mosip.kernel.uin.length") - 1, Type.UIN, false);
 	}
 
 	public static String generateInvalidVid() {
-		return generateId(ConfigManager.getIntProperty("mosip.vid.length") - 1, Type.VID, false);
+		return generateId(ConfigManager.getIntProperty("mosip.kernel.vid.length") - 1, Type.VID, false);
 	}
 
 	public static String generateInvalidPrid() {
-		return generateId(ConfigManager.getIntProperty("mosip.prid.length") - 1, Type.PRID, false);
+		return generateId(ConfigManager.getIntProperty("mosip.kernel.prid.length") - 1, Type.PRID, false);
 	}
 
 	private enum Type {
