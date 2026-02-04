@@ -3914,11 +3914,6 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = replaceKeywordWithValue(jsonString, "$TESTDATACONTEXT$", BaseTestCase.testDataContext);
 		}
 
-		if (jsonString.contains("$BIOVALUE$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$BIOVALUE$",
-					BiometricDataProvider.getFromBiometricMap("BioValue"));
-		}
-		
 		if (jsonString.contains("$INVALID_UIN$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$INVALID_UIN$",
 					IdGenerator.generateInvalidUin());
