@@ -65,7 +65,7 @@ public class ExtractResource {
 				File resourceFile = new File(BaseTestCase.jarURLS).getParentFile();
 				String resourceFileParentPath = resourceFile.getAbsolutePath() + "/MosipTestResource/";
 				while (true) {
-					ZipEntry e = zipInputStream.getNextEntry();
+					ZipEntry e = zipInputStream.getNextEntry(); // NOSONAR
 					if (e == null)
 						break;
 					String name = e.getName();

@@ -4,11 +4,11 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.WebSocket;
 import java.net.http.WebSocket.Listener;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-//import java.util.Properties;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.CompletionStage;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -24,215 +24,287 @@ import io.mosip.testrig.apirig.utils.ConfigManager;
 import io.mosip.testrig.apirig.utils.GlobalConstants;
 
 public class OTPListener {
-	private static Logger logger = Logger.getLogger(OTPListener.class);
 
-	public static Map<Object, Object> emailNotificationMapS = Collections
-			.synchronizedMap(new HashMap<Object, Object>());
+    private static final Logger logger = Logger.getLogger(OTPListener.class);
 
-	public static Boolean bTerminate = false;
-	
-	public OTPListener() {
-		if (ConfigManager.IsDebugEnabled())
-			logger.setLevel(Level.ALL);
-		else
-			logger.setLevel(Level.ERROR);
-	}
+    // 🔐 One queue per email
+    private static final ConcurrentHashMap<String, BlockingQueue<OtpMessage>> otpQueues =
+            new ConcurrentHashMap<>();
+    
+    // Time stamp variable
+    private static final ThreadLocal<Long> requestWatermark =
+            ThreadLocal.withInitial(() -> 0L);
 
-	public void run() {
-		try {
-			String a1 = "wss://smtp.";
-			String externalurl = ConfigManager.getIAMUrl();
+    public static volatile boolean bTerminate = false;
+    private static final HttpClient HTTP_CLIENT = HttpClient.newHttpClient();
 
-			if (externalurl.contains("/auth")) {
-				externalurl = externalurl.replace("/auth", "");
-			}
-			String a2 = externalurl.substring(externalurl.indexOf(".") + 1);
-			String a3 = "/mocksmtp/websocket";
+    public OTPListener() {
+        if (ConfigManager.IsDebugEnabled()) {
+            logger.setLevel(Level.ALL);
+        } else {
+            logger.setLevel(Level.ERROR);
+        }
+    }
 
-			WebSocket ws = HttpClient.newHttpClient().newWebSocketBuilder()
-					.buildAsync(URI.create(a1 + a2 + a3), new WebSocketClient()).join();
-		} catch (Exception e) {
-			logger.error(e.getMessage());
-		}
+    public void run() {
+        try {
+            String a1 = "wss://smtp.";
+            String externalurl = ConfigManager.getIAMUrl();
 
-	}
+            if (externalurl.contains("/auth")) {
+                externalurl = externalurl.replace("/auth", "");
+            }
+            String a2 = externalurl.substring(externalurl.indexOf(".") + 1);
+            String a3 = "/mocksmtp/websocket";
 
-	private static class WebSocketClient implements WebSocket.Listener {
+            HTTP_CLIENT.newWebSocketBuilder()
+                    .buildAsync(URI.create(a1 + a2 + a3), new WebSocketClient())
+                    .join();
 
-		public WebSocketClient() {
-			return;
+        } catch (Exception e) {
+            logger.error("Failed to start OTP listener", e);
+        }
+    }
 
-		}
+    // ---------------------------------------------------------------------
+    // WebSocket listener
+    // ---------------------------------------------------------------------
+    private static class WebSocketClient implements WebSocket.Listener {
 
-		@Override
-		public void onOpen(WebSocket webSocket) {
-			logger.info("onOpen using subprotocol " + webSocket.getSubprotocol());
-			WebSocket.Listener.super.onOpen(webSocket);
-		}
+        @Override
+        public void onOpen(WebSocket webSocket) {
+            logger.info("OTP WebSocket opened");
+            Listener.super.onOpen(webSocket);
+        }
 
-		@Override
-		public CompletionStage<?> onClose(WebSocket webSocket, int statusCode, String reason) {
-			return Listener.super.onClose(webSocket, statusCode, reason);
-		}
+        @Override
+        public CompletionStage<?> onText(WebSocket webSocket, CharSequence data, boolean last) {
 
-		@Override
-		public CompletionStage<?> onText(WebSocket webSocket, CharSequence data, boolean last) {
-			if (bTerminate) {
-				logger.info(emailNotificationMapS);
-				logger.info("End Closure of listner ");
-				onClose(webSocket, 0, "After suite invoked closing");
-			}
-			try {
-				Root root = new Root();
-				ObjectMapper om = new ObjectMapper();
-				String message = "";
-				String address = "";
+            if (bTerminate) {
+                logger.info("OTP Listener terminating");
+                webSocket.sendClose(WebSocket.NORMAL_CLOSURE, "Suite finished");
+                return Listener.super.onText(webSocket, data, last);
+            }
 
-				root = om.readValue(data.toString(), Root.class);
-				if (root.type.equals("SMS")) {
-					message = root.subject;
-					address = root.to.text.trim();
+            try {
+                ObjectMapper om = new ObjectMapper();
+                Root root = om.readValue(data.toString(), Root.class);
 
-				} else if (root.type.equals("MAIL")) {
-					message = root.html;
-					address = root.to.value.get(0).address;
-				}
-				else {
-					logger.error("Unsupported notification type. type="+ root.type);
-				}
+                String message = "";
+                String address = "";
 
-				if (!parseOtp(message).isEmpty() || !parseAdditionalReqId(message).isEmpty()) {
-					emailNotificationMapS.put(address, message);
-					logger.info(" After adding to emailNotificationMap key = " + address + " data " + data + " root "
-							+ root);
-				}
+                if ("SMS".equals(root.type)) {
+                    message = root.subject;
+                    address = root.to.text.trim();
 
-				else {
-					logger.info(" Skip adding to emailNotificationMap key = " + address + " data " + data + " root "
-							+ root);
-				}
-			} catch (Exception e) {
+                } else if ("MAIL".equals(root.type)) {
+                    message = root.html;
+                    address = root.to.value.get(0).address;
 
-				logger.error(e.getMessage());
-			}
+                } else {
+                    logger.error("Unsupported notification type: " + root.type);
+                    return Listener.super.onText(webSocket, data, last);
+                }
 
-			return WebSocket.Listener.super.onText(webSocket, data, last);
-		}
+                if (!parseOtp(message).isEmpty()
+                        || !parseAdditionalReqId(message).isEmpty()) {
 
-		@Override
-		public void onError(WebSocket webSocket, Throwable error) {
+                	boolean offered = otpQueues
+                        .computeIfAbsent(address, k -> new LinkedBlockingQueue<>())
+                        .offer(new OtpMessage(message));
 
-			logger.info("Bad day! " + webSocket.toString());
-			logger.error(error.getMessage());
-			WebSocket.Listener.super.onError(webSocket, error);
-		}
-	}
+                	if (!offered) {
+                	    logger.warn("Failed to queue OTP message for " + address);
+                	} else {
+                	    logger.info("OTP message queued for " + address);
+                	}
+                }
 
-	public static String getOtp(String emailId) {
-		if (ConfigManager.getUsePreConfiguredOtp().equalsIgnoreCase(GlobalConstants.TRUE_STRING)) {
-			return ConfigManager.getPreConfiguredOtp();
-		}
-		int otpExpTime = AdminTestUtil.getOtpExpTimeFromActuator();
-		int otpCheckLoopCount = (otpExpTime * 1000) / AdminTestUtil.OTP_CHECK_INTERVAL;
+            } catch (Exception e) {
+                logger.error("Error processing OTP message", e);
+            }
 
-		int counter = 0;
+            return Listener.super.onText(webSocket, data, last);
+        }
 
-		String otp = "";
+        @Override
+        public void onError(WebSocket webSocket, Throwable error) {
+            logger.error("WebSocket error", error);
+            Listener.super.onError(webSocket, error);
+        }
+    }
 
-		while (counter < otpCheckLoopCount) {
-			logger.info("*******emailNotificationMapS value = " + emailNotificationMapS + " and emailId = " + emailId);
-			if (emailNotificationMapS.get(emailId) != null) {
-				String html = (String) emailNotificationMapS.get(emailId);
-				if(BaseTestCase.currentModule.equals(GlobalConstants.DSL)) {
-					emailNotificationMapS.remove(emailId);
-				} else {
-					emailNotificationMapS.clear();
-				}
-				otp = parseOtp(html);
-				if (otp != null && otp.length() > 0) {
-					logger.info("Found the OTP = " + otp);
-					return otp;
-				} else {
-					logger.info("html Message = " + html + " Email = " + emailId);
-				}
+    // ---------------------------------------------------------------------
+    // OTP retrieval (timestamp-based)
+    // ---------------------------------------------------------------------
+    public static String getOtp(String emailId) {
 
-			}
-			logger.info("*******Checking the OTP for " + emailId + "...*******");
-			counter++;
-			try {
-				logger.info("Not received Otp yet, waiting for 10 Sec for " + emailId);
-				Thread.sleep(AdminTestUtil.OTP_CHECK_INTERVAL);
-			} catch (InterruptedException e) {
-				logger.error(e.getMessage());
-				Thread.currentThread().interrupt();
-			}
+        if (ConfigManager.getUsePreConfiguredOtp()
+                .equalsIgnoreCase(GlobalConstants.TRUE_STRING)) {
+            return ConfigManager.getPreConfiguredOtp();
+        }
+        
+        long afterTime = requestWatermark.get(); // Get the timestamp for this thread
+        if (afterTime == 0L) {
+    	    logger.warn("markRequestStart() not called! Risk of stale OTP");
+    	}
+    	
+    	logger.info("OTP watermark for thread " +
+    	        Thread.currentThread().getName() + " = " + afterTime);
 
-		}
-		logger.info("OTP not found for " + emailId + " even after " + otpCheckLoopCount + " retries");
-		return otp;
-	}
 
-	public static String getAdditionalReqId(String emailId) {
+        BlockingQueue<OtpMessage> queue =
+                otpQueues.computeIfAbsent(emailId, k -> new LinkedBlockingQueue<>());
 
-		int counter = 0;
+        long timeoutSeconds = AdminTestUtil.getOtpExpTimeFromActuator();
+        long endTime = System.currentTimeMillis() + timeoutSeconds * 1000;
+        
+        int retryCount = 0;  // To count how many times the loop has tried
+        long startTime = System.currentTimeMillis();  // Track total waiting time
 
-		String additionalRequestId = "";
+        try {
+            while (System.currentTimeMillis() < endTime) {
+            	long iterationStartTime = System.currentTimeMillis();
 
-		int additionalRequestIdLoopCount =10;
-		
-		while (counter < additionalRequestIdLoopCount ) {
-			if (emailNotificationMapS.get(emailId) != null) {
-				String html = (String) emailNotificationMapS.get(emailId);
-				emailNotificationMapS.remove(emailId);
-				additionalRequestId = parseAdditionalReqId(html);
-				if (additionalRequestId != null && additionalRequestId.length() > 0) {
-					logger.info("Found the additionalRequestId = " + additionalRequestId);
-					return additionalRequestId;
-				} else {
-					logger.info("html Message = " + html + " Email = " + emailId);
-				}
+                OtpMessage otpMsg = queue.poll(5, TimeUnit.SECONDS);
+                if (otpMsg == null) {
+                    continue;
+                }
 
-			}
-			logger.info("*******Checking the email for additionalRequestId...*******");
-			counter++;
-			try {
-				logger.info("Not received additionalRequestId yet, waiting for 10 Sec");
-				Thread.sleep(AdminTestUtil.OTP_CHECK_INTERVAL);
-			} catch (InterruptedException e) {
-				logger.info(e.getMessage());
-				Thread.currentThread().interrupt();
-			}
+                // 🚫 Ignore stale OTPs
+                if (otpMsg.receivedAt < afterTime) {
+                    logger.info("Skipping stale OTP for " + emailId);
+                    continue;
+                }
 
-		}
-		logger.info("OTP not found even after " + additionalRequestIdLoopCount + " retries");
-		return additionalRequestId;
-	}
-	
-	public static String parseOtp(String message) {
+                String otp = parseOtp(otpMsg.message);
+                if (!otp.isEmpty()) {
+                    logger.info("Found OTP for " + emailId + " : " + otp);
+                    return otp;
+                }
+                
+				retryCount++; // Increment retry count
 
-		Pattern mPattern = Pattern.compile("(|^)\\s\\d{6}\\s");
-		String otp = "";
-		if (message != null) {
-			Matcher mMatcher = mPattern.matcher(message);
-			if (mMatcher.find()) {
-				otp = mMatcher.group(0);
-				otp = otp.trim();
-				logger.info("Extracted OTP: " + otp + " message : " + message);
-			} else {
-				logger.info("Failed to extract the OTP!! " + "message : " + message);
+				// Log every iteration to see the waiting time and progress
+				long elapsedTime = System.currentTimeMillis() - startTime;
+				long iterationElapsedTime = System.currentTimeMillis() - iterationStartTime;
+				logger.info(String.format("Attempt #%d: Waiting for OTP... %d seconds elapsed (Iteration time: %d ms)",
+						retryCount, elapsedTime / 1000, iterationElapsedTime));
+            }
+        } catch (InterruptedException e) {
+        	logger.error("Thread interrupted while waiting for OTP: " + e.getMessage());
+            Thread.currentThread().interrupt();
+        }
 
-			}
-		}
-		return otp;
-	}
+        logger.info("Failed to find OTP for " + emailId + " after " + retryCount + " attempts");
+        return "";
+    }
 
-	public static String parseAdditionalReqId(String message) {
-		String additionalReqId = StringUtils.substringBetween(message, "AdditionalInfoRequestId",
-				"-BIOMETRIC_CORRECTION-1");
-		if (additionalReqId == null)
-			return "";
-		else
-			return additionalReqId;
-	}
+    // ---------------------------------------------------------------------
+    // Additional ReqId retrieval (timestamp-based)
+    // ---------------------------------------------------------------------
+    public static String getAdditionalReqId(String emailId) {
+    	
+    	long afterTime = requestWatermark.get(); // Get the timestamp for this thread
+    	if (afterTime == 0L) {
+    	    logger.warn("markRequestStart() not called! Risk of stale AdditionalReqId");
+    	}
+    	
+        BlockingQueue<OtpMessage> queue =
+                otpQueues.computeIfAbsent(emailId, k -> new LinkedBlockingQueue<>());
 
+        int maxWaitSeconds = 10 * (AdminTestUtil.OTP_CHECK_INTERVAL / 1000);
+        long endTime = System.currentTimeMillis() + maxWaitSeconds * 1000L;
+        
+        int retryCount = 0;  // To count how many times the loop has tried
+        long startTime = System.currentTimeMillis();  // Track total waiting time
+
+        try {
+            while (System.currentTimeMillis() < endTime) {
+            	long iterationStartTime = System.currentTimeMillis();
+
+                OtpMessage msg = queue.poll(5, TimeUnit.SECONDS);
+                if (msg == null) {
+                    continue;
+                }
+
+                // 🚫 Ignore stale messages
+                if (msg.receivedAt < afterTime) {
+                    logger.info("Skipping stale AdditionalReqId message for " + emailId);
+                    continue;
+                }
+
+                String additionalReqId = parseAdditionalReqId(msg.message);
+                if (!additionalReqId.isEmpty()) {
+                    logger.info("Found AdditionalReqId for " + emailId + " : " + additionalReqId);
+                    return additionalReqId;
+                }
+                
+                retryCount++; // Increment retry count
+
+				// Log every iteration to see the waiting time and progress
+				long elapsedTime = System.currentTimeMillis() - startTime;
+				long iterationElapsedTime = System.currentTimeMillis() - iterationStartTime;
+				logger.info(String.format("Attempt #%d: Waiting for OTP... %d seconds elapsed (Iteration time: %d ms)",
+						retryCount, elapsedTime / 1000, iterationElapsedTime));
+            }
+        } catch (InterruptedException e) {
+        	logger.error("Thread interrupted while waiting for AdditionalReqId: " + e.getMessage());
+            Thread.currentThread().interrupt();
+        }
+
+        logger.info("AdditionalReqId not found for " + emailId + " after " + retryCount + " attempts");
+        return "";
+    }
+
+
+    // ---------------------------------------------------------------------
+    // Parsing helpers
+    // ---------------------------------------------------------------------
+    private static String parseOtp(String message) {
+        Pattern pattern = Pattern.compile("(|^)\\s\\d{6}\\s");
+        if (message == null) return "";
+
+        Matcher matcher = pattern.matcher(message);
+        if (matcher.find()) {
+            return matcher.group(0).trim();
+        }
+        return "";
+    }
+
+    private static String parseAdditionalReqId(String message) {
+        String val = StringUtils.substringBetween(
+                message,
+                "AdditionalInfoRequestId",
+                "-BIOMETRIC_CORRECTION-1"
+        );
+        return val == null ? "" : val;
+    }
+
+    // ---------------------------------------------------------------------
+    // Internal wrapper
+    // ---------------------------------------------------------------------
+    private static class OtpMessage {
+        final String message;
+        final long receivedAt;
+
+        OtpMessage(String message) {
+            this.message = message;
+            this.receivedAt = System.currentTimeMillis();
+        }
+    }
+    
+    // ---------------------------------------------------------------------
+    // Mark Request start time
+    // ---------------------------------------------------------------------
+    public static void markRequestStart() {
+        requestWatermark.set(System.currentTimeMillis());
+    }
+    
+    // ---------------------------------------------------------------------
+    // Removing the Mark Request time
+    // ---------------------------------------------------------------------
+    public static void markRequestRemove() {
+        requestWatermark.remove();
+    }
 }

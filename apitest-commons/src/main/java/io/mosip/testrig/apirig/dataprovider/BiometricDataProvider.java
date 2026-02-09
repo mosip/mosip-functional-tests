@@ -119,8 +119,7 @@ public class BiometricDataProvider {
 		try {
 			generateBiometricTestData("Registration");
 		} catch (Exception e) {
-			logger.error("Failed to generate biometric test data " + e.getMessage());
-			e.printStackTrace();
+			logger.error("Failed to generate biometric test data ", e);
 		}
 	}
 	

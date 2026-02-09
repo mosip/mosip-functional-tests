@@ -591,7 +591,7 @@ public class BaseTestCase {
 
 			logger.info("mandatoryLanguages from env:" + mandatoryLanguages);
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Failed to fetch language configuration from actuators", e);
 		}
 		if (mandatoryLanguages != null && !mandatoryLanguages.isBlank())
 			languageList.addAll(Arrays.asList(mandatoryLanguages.split(",")));

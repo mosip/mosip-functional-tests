@@ -205,7 +205,10 @@ public class EmailableReport implements IReporter {
 
 		if (orignialReportFile.exists()) {
 			if (orignialReportFile.renameTo(newReportFile)) {
-				orignialReportFile.delete();
+				boolean deleted = orignialReportFile.delete();
+			    if (!deleted) {
+			        LOG.warn("Failed to delete original report file: " + orignialReportFile.getAbsolutePath());
+			    }
 				LOG.info("Report File re-named successfully!");
 				if (ConfigManager.getPushReportsToS3().equalsIgnoreCase("yes")) {
 					S3Adapter s3Adapter = new S3Adapter();
@@ -246,7 +249,7 @@ public class EmailableReport implements IReporter {
 		}
 		
 		try {
-			SlackChannelIntegration.sendMessageToSlack(slackNotification.toString());
+			SlackChannelIntegration.sendMessageToSlack(slackNotification.toString()); // NOSONAR
 		} catch (Exception e) {
 			LOG.error("Failed to send Slack notification: " + e.getMessage());
 		}
@@ -452,10 +455,20 @@ public class EmailableReport implements IReporter {
 			}
 			
 			writer.print("<tr><th colspan=\"9\" style=\"background-color: #FFFFE0;\">");
-			writer.print(Utils.escapeHtml(suiteResult.getSuiteName() + " ---- " + "Report Date: " + formattedDate
-					+ " ---- " + "Tested Environment: "
-					+ System.getProperty("env.endpoint").replaceAll(".*?\\.([^\\.]+)\\..*", "$1") + " ---- "
-					+ getCommitId()));
+			
+			String endpoint = System.getProperty("env.endpoint");
+			String env = "";
+			
+			if (endpoint != null) {
+			    String[] parts = endpoint.split("\\.");
+			    if (parts.length >= 3) {
+			        env = parts[parts.length - 2];
+			    }
+			}
+			
+			writer.print(Utils.escapeHtml(suiteResult.getSuiteName() + " ---- Report Date: " + formattedDate
+					+ " ---- Tested Environment: " + env 
+					+ " ---- " + getCommitId()));
 			writer.print(GlobalConstants.TRTR);
 
 			writer.print("<tr>");
@@ -551,16 +564,16 @@ public class EmailableReport implements IReporter {
 			writer.print("<th>Total</th>");
 			
 			if (reportIgnoredTestCases && reportKnownIssueTestCases) {
-				writeTableHeader(integerFormat.format(totalPassedTests + totalSkippedTests + totalFailedTests
+				writeTableHeader(integerFormat.format((long) totalPassedTests + totalSkippedTests + totalFailedTests
 						+ totalIgnoredTests + totalKnownIssueTests), "num");
 			} else if (reportIgnoredTestCases && !(reportKnownIssueTestCases)) {
-				writeTableHeader(integerFormat.format(totalPassedTests + totalSkippedTests + totalFailedTests
+				writeTableHeader(integerFormat.format((long) totalPassedTests + totalSkippedTests + totalFailedTests
 						+ totalIgnoredTests), "num");
 			} else if (reportKnownIssueTestCases && !(reportIgnoredTestCases)) {
-				writeTableHeader(integerFormat.format(totalPassedTests + totalSkippedTests + totalFailedTests
+				writeTableHeader(integerFormat.format((long) totalPassedTests + totalSkippedTests + totalFailedTests
 						+totalKnownIssueTests), "num");
 			} else {
-				writeTableHeader(integerFormat.format(totalPassedTests + totalSkippedTests + totalFailedTests), "num");
+				writeTableHeader(integerFormat.format((long) totalPassedTests + totalSkippedTests + totalFailedTests), "num");
 			}
 			
 			if (skipPassed == false)

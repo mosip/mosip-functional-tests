@@ -8,9 +8,7 @@ import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
 
 import com.amazonaws.ClientConfiguration;
-import com.amazonaws.auth.AWSCredentials;
-import com.amazonaws.auth.AWSStaticCredentialsProvider;
-import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
 import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
@@ -42,18 +40,12 @@ public class S3Adapter {
 		if (connection != null)
 			return connection;
 
-		logger.info("ConfigManager.getS3UserKey() :: "+ConfigManager.getS3UserKey());
 		logger.info("ConfigManager.getS3Host() :: "+ConfigManager.getS3Host());
 		logger.info("ConfigManager.getS3Region() :: "+ConfigManager.getS3Region());
-		logger.info("ConfigManager.getS3SecretKey() :: "
-				+ (ConfigManager.getS3SecretKey() != null && !ConfigManager.getS3SecretKey().isBlank() ? "Masked"
-						: ""));
 
 		try {
-			AWSCredentials awsCredentials = new BasicAWSCredentials(ConfigManager.getS3UserKey(),
-					ConfigManager.getS3SecretKey());
 			connection = AmazonS3ClientBuilder.standard()
-					.withCredentials(new AWSStaticCredentialsProvider(awsCredentials)).enablePathStyleAccess()
+					.withCredentials(DefaultAWSCredentialsProviderChain.getInstance()).enablePathStyleAccess()
 					.withClientConfiguration(
 							new ClientConfiguration().withMaxConnections(maxConnection).withMaxErrorRetry(maxRetry))
 					.withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(ConfigManager.getS3Host(),
