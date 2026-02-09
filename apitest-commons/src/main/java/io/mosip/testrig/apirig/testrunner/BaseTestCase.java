@@ -198,19 +198,15 @@ public class BaseTestCase {
     public static String domain = System.getProperty("env.endpoint", "localhost").replaceFirst("^https?://", "").replaceAll("/$", "");
 	private static final Path BASE_CONFIG_PATH = Paths.get(System.getProperty("user.dir"), "src", "main", "resources",
 			"config");
-
-	public static String getTestCaseInterDependencyPath() {
-		return BASE_CONFIG_PATH.resolve("testCaseInterDependency.json").toString();
-	}
-
+	
 	public static String getTestCaseInterDependencyPath(String pluginName) {
 		if (pluginName == null || pluginName.isBlank()) {
-			return getTestCaseInterDependencyPath();
+			return BASE_CONFIG_PATH.resolve("testCaseInterDependency.json").toString();
 		}
 
 		return BASE_CONFIG_PATH.resolve("testCaseInterDependency_" + pluginName + ".json").toString();
 	}
-		
+
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
 			logger.setLevel(Level.ALL);
