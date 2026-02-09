@@ -113,8 +113,7 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		try {
 			certificateChainResponseDto = authUtil.generatePartnerKeys(partnerTypeEnum, partnerId, keyFileNameByPartnerName, null, BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
 		} catch (Exception  e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			lOGGER.error("Failed to generate partner keys. partnerType=" + partnerTypeEnum + ", partnerId=" + partnerId, e);
 		}
 		JSONObject responseJson = new JSONObject();
 		responseJson.put("caCertificate", certificateChainResponseDto.getCaCertificate());
@@ -226,8 +225,7 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		try {
 			authUtil.updatePartnerCertificate(partnerTypeEnum, null, false, requestBody, null, BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			lOGGER.error("Failed to update partner certificate. partnerType=" + partnerTypeEnum, e);
 		}
 
 	}

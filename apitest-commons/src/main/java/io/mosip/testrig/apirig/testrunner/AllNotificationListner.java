@@ -27,6 +27,7 @@ public class AllNotificationListner {
             .synchronizedMap(new HashMap<Object, Object>());
 
     public static Boolean bTerminate = false;
+    private static final HttpClient HTTP_CLIENT = HttpClient.newHttpClient();
 
     public AllNotificationListner() {
         if (ConfigManager.IsDebugEnabled())
@@ -36,21 +37,20 @@ public class AllNotificationListner {
     }
 
     public void run() {
-        try {
-            String a1 = "wss://smtp.";
-            String externalurl = ConfigManager.getIAMUrl();
+		try {
+			String a1 = "wss://smtp.";
+			String externalurl = ConfigManager.getIAMUrl();
 
-            if (externalurl.contains("/auth")) {
-                externalurl = externalurl.replace("/auth", "");
-            }
-            String a2 = externalurl.substring(externalurl.indexOf(".") + 1);
-            String a3 = "/mocksmtp/websocket";
+			if (externalurl.contains("/auth")) {
+				externalurl = externalurl.replace("/auth", "");
+			}
+			String a2 = externalurl.substring(externalurl.indexOf(".") + 1);
+			String a3 = "/mocksmtp/websocket";
 
-            WebSocket ws = HttpClient.newHttpClient().newWebSocketBuilder()
-                    .buildAsync(URI.create(a1 + a2 + a3), new WebSocketClient()).join();
-        } catch (Exception e) {
-            logger.error(e.getMessage(), e);
-        }
+			HTTP_CLIENT.newWebSocketBuilder().buildAsync(URI.create(a1 + a2 + a3), new WebSocketClient()).join();
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+		}
     }
 
     private static class WebSocketClient implements WebSocket.Listener {

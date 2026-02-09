@@ -1994,7 +1994,7 @@ public class RestClient {
 			}
 
 			if (ConfigManager.IsDebugEnabled()) {
-				postResponse = requestSpec.when().post(url).then().extract().response();
+				postResponse = requestSpec.filter(RestAssuredPrettyLogger.getMaskingFilter()).when().post(url).then().extract().response();
 			} else {
 				postResponse = requestSpec.when().post(url).then().extract().response();
 			}

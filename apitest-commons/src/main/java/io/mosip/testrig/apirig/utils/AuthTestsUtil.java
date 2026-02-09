@@ -83,6 +83,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	protected static String responseDigitalSignatureValue;
 	protected static String responseDigitalSignatureKey = "response-signature";
 	protected static String logFileName = "id-auth.log";
+	CryptoCoreUtil cryptoCoreUtil = new CryptoCoreUtil();
 	
 	public AuthTestsUtil() {
         mapper = new ObjectMapper();
@@ -189,13 +190,13 @@ public class AuthTestsUtil extends BaseTestCase {
 	}
 	
     public void clearKeys(String certsDir, String moduleName, String targetEnv) throws IOException {
-        KeyMgrUtility keyMgrUtil = new KeyMgrUtility();
+        KeyMgrUtility keyMgrUtil = new KeyMgrUtility(cryptoCoreUtil);
         keyMgrUtil.deleteFile(new File(keyMgrUtil.getKeysDirPath(certsDir, moduleName, targetEnv).toString()));
     }
     
     public CertificateChainResponseDto generatePartnerKeys(
             PartnerTypes partnerType, String partnerName, boolean keyFileNameByPartnerName, String certsDir, String moduleName, String targetEnv) throws UnrecoverableEntryException, CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException, OperatorCreationException {
-        KeyMgrUtility keyMgrUtil = new KeyMgrUtility();
+        KeyMgrUtility keyMgrUtil = new KeyMgrUtility(cryptoCoreUtil);
         return keyMgrUtil.getPartnerCertificates(partnerType, keyMgrUtil.getKeysDirPath(certsDir, moduleName, targetEnv), partnerName,
                 keyFileNameByPartnerName);
     }
@@ -204,7 +205,7 @@ public class AuthTestsUtil extends BaseTestCase {
             PartnerTypes partnerType, String partnerName, boolean keyFileNameByPartnerName, Map<String, String> requestData, String certsDir,
             String moduleName, String targetEnv) throws CertificateException,
             IOException, NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException {
-        KeyMgrUtility keyMgrUtil = new KeyMgrUtility();
+        KeyMgrUtility keyMgrUtil = new KeyMgrUtility(cryptoCoreUtil);
         String certificateData = requestData.get("certData");
         String filePrepend = partnerType.getFilePrepend();
 
@@ -223,7 +224,7 @@ public class AuthTestsUtil extends BaseTestCase {
             String moduleName,
             String targetEnv)
             throws CertificateException, IOException {
-        KeyMgrUtility keyMgrUtil = new KeyMgrUtility();
+        KeyMgrUtility keyMgrUtil = new KeyMgrUtility(cryptoCoreUtil);
 
         String certificateData = requestData.get("certData");
         String fileName = certificateType.getFileName();
@@ -334,7 +335,7 @@ public class AuthTestsUtil extends BaseTestCase {
             String targetEnv)
             throws JoseException, NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException,
             CertificateException, IOException, OperatorCreationException {
-        KeyMgrUtility keyMgrUtil = new KeyMgrUtility();
+        KeyMgrUtility keyMgrUtil = new KeyMgrUtility(cryptoCoreUtil);
         JWSSignAndVerifyController jWSSignAndVerifyController = new JWSSignAndVerifyController();
         return jWSSignAndVerifyController.sign(request, false,
                 true, false, null, keyMgrUtil.getKeysDirPath(certsDir, moduleName, targetEnv), partnerType, partnerName, keyFileNameByPartnerName);
