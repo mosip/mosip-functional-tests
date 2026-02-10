@@ -2,6 +2,7 @@ package io.mosip.testrig.apirig.testrunner;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.SecureRandom;
 import java.time.LocalDateTime;
@@ -195,9 +196,20 @@ public class BaseTestCase {
     public static String runContext = GlobalMethods.getRunContext();
     public static String testDataContext = generateRandomAlphabeticString(3).toLowerCase();
     public static String domain = System.getProperty("env.endpoint", "localhost").replaceFirst("^https?://", "").replaceAll("/$", "");
-	public static String testCaseInterDependencyPath = Paths
-			.get(System.getProperty("user.dir"), "src", "main", "resources", "config", "testCaseInterDependency.json")
-			.toString();
+	private static final Path BASE_CONFIG_PATH = Paths.get(System.getProperty("user.dir"), "src", "main", "resources",
+			"config");
+
+	public static String getTestCaseInterDependencyPath() {
+		return BASE_CONFIG_PATH.resolve("testCaseInterDependency.json").toString();
+	}
+
+	public static String getTestCaseInterDependencyPath(String pluginName) {
+		if (pluginName == null || pluginName.isBlank()) {
+			return getTestCaseInterDependencyPath();
+		}
+
+		return BASE_CONFIG_PATH.resolve("testCaseInterDependency_" + pluginName + ".json").toString();
+	}
 		
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
