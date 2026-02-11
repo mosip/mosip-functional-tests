@@ -35,11 +35,32 @@ public class ConfigManager {
 		} catch (Exception ex) {
 			LOGGER.error(ex.getMessage());
 		}
+		Properties idDefaultProps = new Properties();
+		try (InputStream input = ConfigManager.class
+	            .getClassLoader()
+	            .getResourceAsStream("config/id-default.properties")) {
+
+	        if (input != null) {
+	            idDefaultProps.load(input);
+	            LOGGER.info("Loaded id-default.properties");
+	        } else {
+	            LOGGER.warn("id-default.properties not found");
+	        }
+
+	    } catch (Exception ex) {
+	        LOGGER.error("Error loading id-default.properties", ex);
+	    }
 		
 		// Process all common properties in kernelProps and add them to propertiesMap
 	    for (String key : kernelProps.stringPropertyNames()) {
 	    	propertiesMap.put(key, kernelProps.getProperty(key));
 	    }
+	    for (String key : idDefaultProps.stringPropertyNames()) {
+	        if (!propertiesMap.containsKey(key)) {
+	            propertiesMap.put(key, idDefaultProps.getProperty(key));
+	        }
+	    }
+
 	}
 
 	public static void init(Map<String, Object> additionalPropertiesMap) {
@@ -281,13 +302,30 @@ public class ConfigManager {
 	}
 	
 	private static String getActuatorValue(String key) {
-		return BaseTestCase.getValueFromActuators(ConfigManager.getproperty("actuatorMasterDataEndpoint"),
-	            GlobalConstants.ACTUATOR_PROPERTY_SECTION,
-	            key);
-	}
+		try {
+	        String value = BaseTestCase.getValueFromActuators(ConfigManager.getproperty("actuatorMasterDataEndpoint"),
+		            GlobalConstants.ACTUATOR_PROPERTY_SECTION,
+		            key);
 
+	        if (value != null && !value.trim().isEmpty()) {
+	            return value.trim();
+	        }
+
+	    } catch (Exception e) {
+	        LOGGER.warn("Actuator fetch failed for key: " + key);
+	    }
+
+	    return null;
+	}
+	
 	public static int getIntProperty(String key) {
+
 	    String value = getActuatorValue(key);
+
+	    if (value == null || value.isEmpty()) {
+	        value = getproperty(key);
+	        LOGGER.info("Using fallback property for key: " + key);
+	    }
 
 	    if (value == null || value.trim().isEmpty()) {
 	        throw new IllegalStateException("Missing required property: " + key);
@@ -297,7 +335,19 @@ public class ConfigManager {
 	}
 	
 	public static List<String> getListProperty(String key) {
-		return Arrays.asList(getActuatorValue(key).split(","));
+
+	    String value = getActuatorValue(key);
+
+	    if (value == null || value.isEmpty()) {
+	        value = getproperty(key);
+	        LOGGER.info("Using fallback list property for key: " + key);
+	    }
+
+	    if (value == null || value.trim().isEmpty()) {
+	        throw new IllegalStateException("Missing required list property: " + key);
+	    }
+
+	    return Arrays.asList(value.split(","));
 	}
 
 }
