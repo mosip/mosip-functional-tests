@@ -29,8 +29,10 @@ public class OTPListener {
 	public static Map<Object, Object> emailNotificationMapS = Collections
 			.synchronizedMap(new HashMap<Object, Object>());
 
+	public static Map<Object, Object> allNotificationMapS = Collections.synchronizedMap(new HashMap<>());
+
 	public static Boolean bTerminate = false;
-	
+
 	public OTPListener() {
 		if (ConfigManager.IsDebugEnabled())
 			logger.setLevel(Level.ALL);
@@ -77,43 +79,48 @@ public class OTPListener {
 
 		@Override
 		public CompletionStage<?> onText(WebSocket webSocket, CharSequence data, boolean last) {
+
 			if (bTerminate) {
-				logger.info(emailNotificationMapS);
-				logger.info("End Closure of listner ");
+				logger.info("Closing listener");
 				onClose(webSocket, 0, "After suite invoked closing");
 			}
+
 			try {
-				Root root = new Root();
 				ObjectMapper om = new ObjectMapper();
-				String message = "";
+				Root root = om.readValue(data.toString(), Root.class);
+
+				String otpMessage = "";
+				String allMessage = "";
 				String address = "";
 
-				root = om.readValue(data.toString(), Root.class);
-				if (root.type.equals("SMS")) {
-					message = root.subject;
+				if ("SMS".equalsIgnoreCase(root.type)) {
+					otpMessage = root.subject;
+					allMessage = root.subject;
 					address = root.to.text.trim();
 
-				} else if (root.type.equals("MAIL")) {
-					message = root.html;
+				} else if ("MAIL".equalsIgnoreCase(root.type)) {
+					otpMessage = root.html; 
+					allMessage = root.subject;
 					address = root.to.value.get(0).address;
-				}
-				else {
-					logger.error("Unsupported notification type. type="+ root.type);
+
+				} else {
+					logger.warn("Unsupported notification type. type=" + root.type);
+					return WebSocket.Listener.super.onText(webSocket, data, last);
 				}
 
-				if (!parseOtp(message).isEmpty() || !parseAdditionalReqId(message).isEmpty()) {
-					emailNotificationMapS.put(address, message);
-					logger.info(" After adding to emailNotificationMap key = " + address + " data " + data + " root "
-							+ root);
+				// Always store ALL notifications (subject)
+				allNotificationMapS.put(address, allMessage);
+				logger.info("Stored in allNotificationMapS for " + address);
+
+				// Store only OTP / AdditionalReqId (html / subject)
+				if (!parseOtp(otpMessage).isEmpty() || !parseAdditionalReqId(otpMessage).isEmpty()) {
+
+					emailNotificationMapS.put(address, otpMessage);
+					logger.info("Stored in emailNotificationMapS for " + address);
 				}
 
-				else {
-					logger.info(" Skip adding to emailNotificationMap key = " + address + " data " + data + " root "
-							+ root);
-				}
 			} catch (Exception e) {
-
-				logger.error(e.getMessage());
+				logger.error("Error processing WebSocket message", e);
 			}
 
 			return WebSocket.Listener.super.onText(webSocket, data, last);
@@ -143,7 +150,7 @@ public class OTPListener {
 			logger.info("*******emailNotificationMapS value = " + emailNotificationMapS + " and emailId = " + emailId);
 			if (emailNotificationMapS.get(emailId) != null) {
 				String html = (String) emailNotificationMapS.get(emailId);
-				if(BaseTestCase.currentModule.equals(GlobalConstants.DSL)) {
+				if (BaseTestCase.currentModule.contains(GlobalConstants.DSL)) {
 					emailNotificationMapS.remove(emailId);
 				} else {
 					emailNotificationMapS.clear();
@@ -171,6 +178,32 @@ public class OTPListener {
 		logger.info("OTP not found for " + emailId + " even after " + otpCheckLoopCount + " retries");
 		return otp;
 	}
+	
+	public static String getNotification(String emailId) {
+		int otpExpTime = AdminTestUtil.getOtpExpTimeFromActuator();
+		int otpCheckLoopCount = (otpExpTime * 1000) / AdminTestUtil.OTP_CHECK_INTERVAL;
+		int counter = 0;
+		while (counter < otpCheckLoopCount) {
+
+			if (allNotificationMapS.get(emailId) != null) {
+				String message = (String) allNotificationMapS.remove(emailId);
+				logger.info("Found notification for " + emailId);
+				return message;
+			}
+			counter++;
+			sleep();
+		}
+		logger.info("Notification not found for " + emailId);
+		return "";
+	}
+
+	private static void sleep() {
+		try {
+			Thread.sleep(AdminTestUtil.OTP_CHECK_INTERVAL);
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+		}
+	}
 
 	public static String getAdditionalReqId(String emailId) {
 
@@ -178,9 +211,9 @@ public class OTPListener {
 
 		String additionalRequestId = "";
 
-		int additionalRequestIdLoopCount =10;
-		
-		while (counter < additionalRequestIdLoopCount ) {
+		int additionalRequestIdLoopCount = 10;
+
+		while (counter < additionalRequestIdLoopCount) {
 			if (emailNotificationMapS.get(emailId) != null) {
 				String html = (String) emailNotificationMapS.get(emailId);
 				emailNotificationMapS.remove(emailId);
@@ -207,7 +240,7 @@ public class OTPListener {
 		logger.info("OTP not found even after " + additionalRequestIdLoopCount + " retries");
 		return additionalRequestId;
 	}
-	
+
 	public static String parseOtp(String message) {
 
 		Pattern mPattern = Pattern.compile("(|^)\\s\\d{6}\\s");
