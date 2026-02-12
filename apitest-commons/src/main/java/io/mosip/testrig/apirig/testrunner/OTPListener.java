@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 //import java.util.Properties;
 import java.util.concurrent.CompletionStage;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -29,7 +30,7 @@ public class OTPListener {
 	public static Map<Object, Object> emailNotificationMapS = Collections
 			.synchronizedMap(new HashMap<Object, Object>());
 
-	public static Map<Object, Object> allNotificationMapS = Collections.synchronizedMap(new HashMap<>());
+	public static Map<String, String> allNotificationMapS = new ConcurrentHashMap<>();
 
 	public static Boolean bTerminate = false;
 
@@ -99,7 +100,7 @@ public class OTPListener {
 					address = root.to.text.trim();
 
 				} else if ("MAIL".equalsIgnoreCase(root.type)) {
-					otpMessage = root.html; 
+					otpMessage = root.html;
 					allMessage = root.subject;
 					address = root.to.value.get(0).address;
 
@@ -178,7 +179,7 @@ public class OTPListener {
 		logger.info("OTP not found for " + emailId + " even after " + otpCheckLoopCount + " retries");
 		return otp;
 	}
-	
+
 	public static String getNotification(String emailId) {
 		int otpExpTime = AdminTestUtil.getOtpExpTimeFromActuator();
 		int otpCheckLoopCount = (otpExpTime * 1000) / AdminTestUtil.OTP_CHECK_INTERVAL;
@@ -186,9 +187,10 @@ public class OTPListener {
 		while (counter < otpCheckLoopCount) {
 
 			if (allNotificationMapS.get(emailId) != null) {
-				String message = (String) allNotificationMapS.remove(emailId);
-				logger.info("Found notification for " + emailId);
-				return message;
+				String message = allNotificationMapS.remove(emailId);
+				if (message != null) {
+					return message;
+				}
 			}
 			counter++;
 			sleep();
