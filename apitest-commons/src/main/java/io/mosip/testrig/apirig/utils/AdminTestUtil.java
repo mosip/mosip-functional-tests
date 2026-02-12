@@ -106,6 +106,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.itextpdf.text.pdf.PdfReader;
 import com.mifmif.common.regex.Generex;
+import com.nimbusds.jose.JWEAlgorithm;
 import com.nimbusds.jose.jwk.KeyUse;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.util.StandardCharset;
@@ -4385,6 +4386,26 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 	}
 
+	public static String generateJWKEncPublicKey() {
+		try {
+			KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
+			keyGenerator.initialize(2048, BaseTestCase.secureRandom);
+
+			KeyPair keyPair = keyGenerator.generateKeyPair();
+
+			RSAKey jwk = new RSAKey.Builder((RSAPublicKey) keyPair.getPublic()).keyID("RSAEncKeyID")
+					.keyUse(KeyUse.ENCRYPTION) // "use":"enc"
+					.algorithm(JWEAlgorithm.RSA_OAEP_256) // "alg":"RSA-OAEP-256"
+					.build();
+
+			return jwk.toJSONString();
+
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+			return null;
+		}
+	}
+	
 	public static JSONArray getArrayFromJson(JSONObject request, String value) {
 
 		if (request.getJSONObject(GlobalConstants.REQUEST).has(value)) {

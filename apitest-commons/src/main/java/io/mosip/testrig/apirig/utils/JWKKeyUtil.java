@@ -30,4 +30,11 @@ public class JWKKeyUtil {
     	logger.info("keyName: " + keyName + " jwkKey: " + jwkKey );
         return jwkKey;
     }
+    public static String generateAndCacheEncJWKKey(String keyName) {
+        String jwkKey = AdminTestUtil.generateJWKEncPublicKey();
+        jwkKeyCache.put(keyName, jwkKey);
+        logger.info("ENC keyName: " + keyName + " jwkKey: " + jwkKey);
+        return jwkKey;
+    }
+
 }
