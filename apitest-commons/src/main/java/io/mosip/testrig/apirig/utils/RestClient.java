@@ -1366,7 +1366,7 @@ public class RestClient {
 		url = GlobalMethods.addToServerEndPointMap(url);
 
 		if (ConfigManager.IsDebugEnabled()) {
-			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PUT request to " + url);
+			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PATCH request to " + url);
 
 			postResponse = given().config(config).relaxedHTTPSValidation().pathParams(pathParams).body(body)
 					.contentType(contentHeader).headers(cookieName, "Bearer " + cookieValue).accept(acceptHeader).filter(RestAssuredPrettyLogger.getMaskingFilter()).when()
