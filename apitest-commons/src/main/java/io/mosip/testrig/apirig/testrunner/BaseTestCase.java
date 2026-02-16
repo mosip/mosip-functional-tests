@@ -22,6 +22,7 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.json.JSONArray;
 import org.json.simple.JSONObject;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -701,5 +702,10 @@ public class BaseTestCase {
 		String recommendedHierarchLevel = getValueFromActuators(ConfigManager.getproperty("actuatorMasterDataEndpoint"),
 				"/mosip-config/application-default.properties", "mosip.recommended.centers.locCode");
 		return Integer.parseInt(recommendedHierarchLevel);
+	}
+	
+	@AfterMethod(alwaysRun = true)
+	public void clearThreadLocal() {
+	    RestClient.clear();
 	}
 }
