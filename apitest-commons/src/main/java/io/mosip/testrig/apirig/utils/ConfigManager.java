@@ -12,10 +12,13 @@ import java.util.Map;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
+
+import io.mosip.testrig.apirig.id.IdPropertyLoader;
 public class ConfigManager {
 	private static final Logger LOGGER = Logger.getLogger(ConfigManager.class);
 	private static Map<String, String> mosip_components_base_urls = new HashMap<>();
 	protected static Map<String, Object> propertiesMap = new HashMap<>();
+	public static Map<String, String> id_default_propertiesMap = new HashMap<>();
 	
 	private static void init() {
 		Properties kernelProps = new Properties();
@@ -33,10 +36,12 @@ public class ConfigManager {
 		} catch (Exception ex) {
 			LOGGER.error(ex.getMessage());
 		}
+		
 		// Process all common properties in kernelProps and add them to propertiesMap
 	    for (String key : kernelProps.stringPropertyNames()) {
 	    	propertiesMap.put(key, kernelProps.getProperty(key));
 	    }
+
 	}
 
 	public static void init(Map<String, Object> additionalPropertiesMap) {
@@ -273,9 +278,33 @@ public class ConfigManager {
 		return false;
 	}
 	
-	
 	public static String getComponentBaseURL(String component) {
 		return mosip_components_base_urls.get(component);
 	}
 	
+	public static int getIntProperty(String key) {
+		
+		IdPropertyLoader.loadAllProperties();
+
+	    String value = id_default_propertiesMap.get(key);
+	    if (value == null || value.trim().isEmpty()) {
+	        throw new IllegalStateException("Missing required property: " + key);
+	    }
+
+	    return Integer.parseInt(value.trim());
+	}
+	
+	public static List<String> getListProperty(String key) {
+		
+		IdPropertyLoader.loadAllProperties();
+
+	    String value = id_default_propertiesMap.get(key);
+
+	    if (value == null || value.trim().isEmpty()) {
+	        throw new IllegalStateException("Missing required list property: " + key);
+	    }
+
+	    return Arrays.asList(value.split(","));
+	}
+
 }
