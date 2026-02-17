@@ -13,11 +13,12 @@ import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
-import io.mosip.testrig.apirig.testrunner.BaseTestCase;
+import io.mosip.testrig.apirig.id.IdPropertyLoader;
 public class ConfigManager {
 	private static final Logger LOGGER = Logger.getLogger(ConfigManager.class);
 	private static Map<String, String> mosip_components_base_urls = new HashMap<>();
 	protected static Map<String, Object> propertiesMap = new HashMap<>();
+	public static Map<String, String> id_default_propertiesMap = new HashMap<>();
 	
 	private static void init() {
 		Properties kernelProps = new Properties();
@@ -35,30 +36,10 @@ public class ConfigManager {
 		} catch (Exception ex) {
 			LOGGER.error(ex.getMessage());
 		}
-		Properties idDefaultProps = new Properties();
-		try (InputStream input = ConfigManager.class
-	            .getClassLoader()
-	            .getResourceAsStream("config/id-default.properties")) {
-
-	        if (input != null) {
-	            idDefaultProps.load(input);
-	            LOGGER.info("Loaded id-default.properties");
-	        } else {
-	            LOGGER.warn("id-default.properties not found");
-	        }
-
-	    } catch (Exception ex) {
-	        LOGGER.error("Error loading id-default.properties", ex);
-	    }
 		
 		// Process all common properties in kernelProps and add them to propertiesMap
 	    for (String key : kernelProps.stringPropertyNames()) {
 	    	propertiesMap.put(key, kernelProps.getProperty(key));
-	    }
-	    for (String key : idDefaultProps.stringPropertyNames()) {
-	        if (!propertiesMap.containsKey(key)) {
-	            propertiesMap.put(key, idDefaultProps.getProperty(key));
-	        }
 	    }
 
 	}
@@ -301,32 +282,11 @@ public class ConfigManager {
 		return mosip_components_base_urls.get(component);
 	}
 	
-	private static String getActuatorValue(String key) {
-		try {
-	        String value = BaseTestCase.getValueFromActuators(ConfigManager.getproperty("actuatorMasterDataEndpoint"),
-		            GlobalConstants.ACTUATOR_PROPERTY_SECTION,
-		            key);
-
-	        if (value != null && !value.trim().isEmpty()) {
-	            return value.trim();
-	        }
-
-	    } catch (Exception e) {
-	        LOGGER.warn("Actuator fetch failed for key: " + key);
-	    }
-
-	    return null;
-	}
-	
 	public static int getIntProperty(String key) {
+		
+		IdPropertyLoader.loadAllProperties();
 
-	    String value = getActuatorValue(key);
-
-	    if (value == null || value.isEmpty()) {
-	        value = getproperty(key);
-	        LOGGER.info("Using fallback property for key: " + key);
-	    }
-
+	    String value = id_default_propertiesMap.get(key);
 	    if (value == null || value.trim().isEmpty()) {
 	        throw new IllegalStateException("Missing required property: " + key);
 	    }
@@ -335,13 +295,10 @@ public class ConfigManager {
 	}
 	
 	public static List<String> getListProperty(String key) {
+		
+		IdPropertyLoader.loadAllProperties();
 
-	    String value = getActuatorValue(key);
-
-	    if (value == null || value.isEmpty()) {
-	        value = getproperty(key);
-	        LOGGER.info("Using fallback list property for key: " + key);
-	    }
+	    String value = id_default_propertiesMap.get(key);
 
 	    if (value == null || value.trim().isEmpty()) {
 	        throw new IllegalStateException("Missing required list property: " + key);

@@ -6352,6 +6352,48 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 	}
+	
+	private static final Map<String, JSONArray> actuatorResponseCache = new HashMap<>();
+
+	public static Map<String, String> getAllActuatorProperties(String endpoint, String section) {
+
+		Map<String, String> propertyMap = new HashMap<>();
+
+		try {
+
+			if (!actuatorResponseCache.containsKey(endpoint)) {
+
+				String url = ApplnURI + endpoint;
+				Response response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+				JSONObject responseJson = new JSONObject(response.getBody().asString());
+				JSONArray propertySources = responseJson.getJSONArray("propertySources");
+				actuatorResponseCache.put(endpoint, propertySources);
+			}
+
+			JSONArray sources = actuatorResponseCache.get(endpoint);
+
+			for (int i = 0; i < sources.length(); i++) {
+
+				JSONObject eachJson = sources.getJSONObject(i);
+				if (eachJson.get("name").toString().contains(section)) {
+					JSONObject properties = eachJson.getJSONObject(GlobalConstants.PROPERTIES);
+					Iterator<String> keys = properties.keys();
+					while (keys.hasNext()) {
+						String key = keys.next();
+						String value = properties.getJSONObject(key).get(GlobalConstants.VALUE).toString();
+						propertyMap.put(key, value);
+					}
+
+					break;
+				}
+			}
+
+		} catch (Exception e) {
+			logger.error("Error fetching actuator properties", e);
+		}
+
+		return propertyMap;
+	}
 
 	public static JSONArray getActiveProfilesFromActuator(String url, String key) {
 		JSONArray activeProfiles = null;
