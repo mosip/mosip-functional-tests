@@ -1,4 +1,4 @@
-package io.mosip.testrig.apirig.testrunner;
+package io.mosip.testrig.apirig.utils;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -13,17 +13,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.mosip.testrig.apirig.otp.Root;
 import io.mosip.testrig.apirig.utils.ConfigManager;
-import io.mosip.testrig.apirig.utils.NotificationService;
 
-public class OTPListener {
+public class OTPListenerNew {
 
-    private static final Logger logger = Logger.getLogger(OTPListener.class);
+    private static final Logger logger = Logger.getLogger(OTPListenerNew.class);
 
     private static final HttpClient HTTP_CLIENT = HttpClient.newHttpClient();
 
     public static volatile boolean bTerminate = false;
 
-    public OTPListener() {
+    public OTPListenerNew() {
         if (ConfigManager.IsDebugEnabled()) {
             logger.setLevel(Level.ALL);
         } else {

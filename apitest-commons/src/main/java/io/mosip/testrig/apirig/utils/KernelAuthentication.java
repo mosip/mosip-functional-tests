@@ -644,7 +644,7 @@ public class KernelAuthentication extends BaseTestCase {
 			//TODO REMOVE THE HARDCODING
 			otp = "111111";
 		else {
-			otp = OTPListener.getOtp(userId);
+			otp = NotificationService.getOtp(userId);
 		}
 		((JSONObject) actualRequest_validation.get(GlobalConstants.REQUEST)).put("otp", otp);
 		actualRequest_validation.put(GlobalConstants.REQUESTTIME, AdminTestUtil.getCurrentUTCTime());

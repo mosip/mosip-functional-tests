@@ -4408,7 +4408,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public String updateTimestampOtp(String otpIdentyEnryptRequest, String otpChannel, String testCaseName) {
 		String otp = null;
 
-		otp = OTPListener.getOtp(otpChannel);
+		otp = NotificationService.getOtp(otpChannel);
 		logger.info("Fetched OTP for otp auth= " + otp);
 
 		if (otp != null && !otp.isBlank()) {
@@ -6550,7 +6550,7 @@ public class AdminTestUtil extends BaseTestCase {
 						emailId = removeLeadingPlusSigns(emailId);
 					}
 					logger.info(emailId);
-					otp = OTPListener.getOtp(emailId);
+					otp = NotificationService.getOtp(emailId);
 					request.put("otp", otp);
 					inputJson = request.toString();
 					return inputJson;
@@ -6566,7 +6566,7 @@ public class AdminTestUtil extends BaseTestCase {
 					if (testCaseName.contains("_INVALIDOTP")) {
 						otp = "26258976";
 					} else {
-						otp = OTPListener.getOtp(emailId);
+						otp = NotificationService.getOtp(emailId);
 					}
 
 					request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
@@ -6590,7 +6590,7 @@ public class AdminTestUtil extends BaseTestCase {
 								emailId = removeLeadingPlusSigns(emailId);
 							}
 							logger.info(emailId);
-							otp = OTPListener.getOtp(emailId);
+							otp = NotificationService.getOtp(emailId);
 							request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
 							inputJson = request.toString();
 							return inputJson;
@@ -6618,7 +6618,7 @@ public class AdminTestUtil extends BaseTestCase {
 								emailId = removeLeadingPlusSigns(emailId);
 							}
 							logger.info(emailId);
-							otp = OTPListener.getOtp(emailId);
+							otp = NotificationService.getOtp(emailId);
 							request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
 							inputJson = request.toString();
 							return inputJson;
@@ -6650,7 +6650,7 @@ public class AdminTestUtil extends BaseTestCase {
 											emailId = removeLeadingPlusSigns(emailId);
 										}
 										logger.info(emailId);
-										otp = OTPListener.getOtp(emailId);
+										otp = NotificationService.getOtp(emailId);
 										request.getJSONObject(GlobalConstants.REQUEST)
 												.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 												.put(GlobalConstants.CHALLENGE, otp);
@@ -6679,7 +6679,7 @@ public class AdminTestUtil extends BaseTestCase {
 							emailId = removeLeadingPlusSigns(emailId);
 						}
 						logger.info(emailId);
-						otp = OTPListener.getOtp(emailId);
+						otp = NotificationService.getOtp(emailId);
 						request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
 						inputJson = request.toString();
 						return inputJson;
@@ -6706,7 +6706,7 @@ public class AdminTestUtil extends BaseTestCase {
 										emailId = removeLeadingPlusSigns(emailId);
 									}
 									logger.info(emailId);
-									otp = OTPListener.getOtp(emailId);
+									otp = NotificationService.getOtp(emailId);
 									request.getJSONObject(GlobalConstants.REQUEST)
 											.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 											.put(GlobalConstants.CHALLENGE, otp);
@@ -6735,7 +6735,7 @@ public class AdminTestUtil extends BaseTestCase {
 						if (testCaseName.contains("_EmptyChannel_Invalid_Neg"))
 							otp = "";
 						else
-							otp = OTPListener.getOtp(emailId);
+							otp = NotificationService.getOtp(emailId);
 						request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
 						inputJson = request.toString();
 					}
@@ -6759,7 +6759,7 @@ public class AdminTestUtil extends BaseTestCase {
 									emailId = removeLeadingPlusSigns(emailId);
 								}
 								logger.info(emailId);
-								otp = OTPListener.getOtp(emailId);
+								otp = NotificationService.getOtp(emailId);
 								request.getJSONObject(GlobalConstants.REQUEST)
 										.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 										.put(GlobalConstants.CHALLENGE, otp);
