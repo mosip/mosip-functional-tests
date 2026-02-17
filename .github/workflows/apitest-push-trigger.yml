@@ -21,6 +21,7 @@ on:
       - develop*
       - MOSIP*
       - release*
+      - sonar_fixes
 
 jobs:
   build-maven-apitest-commons:
