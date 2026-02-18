@@ -118,6 +118,7 @@ import io.mosip.testrig.apirig.dataprovider.BiometricDataProvider;
 import io.mosip.testrig.apirig.dbaccess.DBManager;
 import io.mosip.testrig.apirig.dto.OutputValidationDto;
 import io.mosip.testrig.apirig.dto.TestCaseDTO;
+import io.mosip.testrig.apirig.id.IdGenerator;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 import io.mosip.testrig.apirig.testrunner.JsonPrecondtion;
 import io.mosip.testrig.apirig.testrunner.MessagePrecondtion;
@@ -3961,6 +3962,33 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = replaceKeywordWithValue(jsonString, "$TESTDATACONTEXT$", BaseTestCase.testDataContext);
 		}
 
+		if (jsonString.contains("$INVALID_UIN$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$INVALID_UIN$",
+					IdGenerator.generateInvalidUin());
+		}
+		if (jsonString.contains("$VALID_UIN_NOTIN_DB$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$VALID_UIN_NOTIN_DB$",
+					IdGenerator.generateValidUin());
+		}
+		
+		if (jsonString.contains("$INVALID_VID$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$INVALID_VID$",
+					IdGenerator.generateInvalidVid());
+		}
+		if (jsonString.contains("$VALID_VID_NOTIN_DB$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$VALID_VID_NOTIN_DB$",
+					IdGenerator.generateValidVid());
+		}
+		
+		if (jsonString.contains("$INVALID_PRID$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$INVALID_PRID$",
+					IdGenerator.generateInvalidPrid());
+		}
+		if (jsonString.contains("$VALID_PRID_NOTIN_DB$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$VALID_PRID_NOTIN_DB$",
+					IdGenerator.generateValidPrid());
+		}
+		
 		if (jsonString.contains("$BIOVALUE$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$BIOVALUE$",
 					BiometricDataProvider.getFromBiometricMap("BioValue"));
@@ -6374,6 +6402,48 @@ public class AdminTestUtil extends BaseTestCase {
 			return "";
 		}
 
+	}
+	
+	private static final Map<String, JSONArray> actuatorResponseCache = new HashMap<>();
+
+	public static Map<String, String> getAllActuatorProperties(String endpoint, String section) {
+
+		Map<String, String> propertyMap = new HashMap<>();
+
+		try {
+
+			if (!actuatorResponseCache.containsKey(endpoint)) {
+
+				String url = ApplnURI + endpoint;
+				Response response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+				JSONObject responseJson = new JSONObject(response.getBody().asString());
+				JSONArray propertySources = responseJson.getJSONArray("propertySources");
+				actuatorResponseCache.put(endpoint, propertySources);
+			}
+
+			JSONArray sources = actuatorResponseCache.get(endpoint);
+
+			for (int i = 0; i < sources.length(); i++) {
+
+				JSONObject eachJson = sources.getJSONObject(i);
+				if (eachJson.get("name").toString().contains(section)) {
+					JSONObject properties = eachJson.getJSONObject(GlobalConstants.PROPERTIES);
+					Iterator<String> keys = properties.keys();
+					while (keys.hasNext()) {
+						String key = keys.next();
+						String value = properties.getJSONObject(key).get(GlobalConstants.VALUE).toString();
+						propertyMap.put(key, value);
+					}
+
+					break;
+				}
+			}
+
+		} catch (Exception e) {
+			logger.error("Error fetching actuator properties", e);
+		}
+
+		return propertyMap;
 	}
 
 	public static JSONArray getActiveProfilesFromActuator(String url, String key) {
