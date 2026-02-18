@@ -42,19 +42,7 @@ public class RestClient {
 	private static RestAssuredConfig config = RestAssured.config().httpClient(HttpClientConfig.httpClientConfig());
 	protected static final Properties properties = AdminTestUtil
 			.getproperty(BaseTestCase.getGlobalResourcePath() + "/" + "config/application.properties");
-	private static ThreadLocal<Response> pdfDownloadResponse = new ThreadLocal<>();
-	
-	public static void setPdfDownloadResponse(Response response) {
-	    pdfDownloadResponse.set(response);
-	}
-
-	public static Response getPdfDownloadResponse() {
-	    return pdfDownloadResponse.get();
-	}
-	
-	public static void clear() {
-	    pdfDownloadResponse.remove();
-	}
+	public static Response pdfDownloadResponse;
 
 	public static Response getWithoutParams(String url, String cookie) {
 
@@ -1558,20 +1546,18 @@ public class RestClient {
 			String cookieName, String cookieValue) {
 		byte[] pdf;
 		url = GlobalMethods.addToServerEndPointMap(url);
-		Response response;
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
 			
-			response = given().config(config).relaxedHTTPSValidation().pathParams(body).contentType("application/pdf")
+			RestClient.pdfDownloadResponse = given().config(config).relaxedHTTPSValidation().pathParams(body).contentType("application/pdf")
 					.accept("*/*").cookie(cookieName, cookieValue).filter(RestAssuredPrettyLogger.getMaskingFilter()).when().get(url);
 
 		} else {
-			response = given().config(config).relaxedHTTPSValidation().pathParams(body).contentType("application/pdf")
+			RestClient.pdfDownloadResponse = given().config(config).relaxedHTTPSValidation().pathParams(body).contentType("application/pdf")
 					.accept("*/*").cookie(cookieName, cookieValue).when().get(url);
 		}
-		RestClient.setPdfDownloadResponse(response);
-		pdf = response.asByteArray();
+		pdf = RestClient.pdfDownloadResponse.asByteArray();
 		return pdf;
 	}
 
@@ -1582,20 +1568,18 @@ public class RestClient {
 		tokens.put(idTokenName, idTokenValue);
 		byte[] pdf;
 		url = GlobalMethods.addToServerEndPointMap(url);
-		Response response;
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
 
-			response = given().config(config).relaxedHTTPSValidation().pathParams(body)
+			RestClient.pdfDownloadResponse = given().config(config).relaxedHTTPSValidation().pathParams(body)
 					.contentType("application/pdf").accept("*/*").cookies(tokens)
 					.filter(RestAssuredPrettyLogger.getMaskingFilter()).when().get(url);
 		} else {
-			response = given().config(config).relaxedHTTPSValidation().pathParams(body)
+			RestClient.pdfDownloadResponse = given().config(config).relaxedHTTPSValidation().pathParams(body)
 					.contentType("application/pdf").accept("*/*").cookies(tokens).when().get(url);
 		}
-		RestClient.setPdfDownloadResponse(response);
-		pdf = response.asByteArray();
+		pdf = RestClient.pdfDownloadResponse.asByteArray();
 		return pdf;
 	}
 
@@ -1603,19 +1587,17 @@ public class RestClient {
 			String cookieName, String cookieValue) {
 		byte[] pdf;
 		url = GlobalMethods.addToServerEndPointMap(url);
-		Response response;
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request to " + url);
-			response= given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader).accept("*/*")
+			RestClient.pdfDownloadResponse= given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader).accept("*/*")
 					.cookie(cookieName, cookieValue).filter(RestAssuredPrettyLogger.getMaskingFilter()).when().post(url);
 
 		} else {
-			response= given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader).accept("*/*")
+			RestClient.pdfDownloadResponse= given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader).accept("*/*")
 					.cookie(cookieName, cookieValue).when().post(url);
 		}
-		RestClient.setPdfDownloadResponse(response);
-		pdf = response.asByteArray();
+		pdf = RestClient.pdfDownloadResponse.asByteArray();
 
 		return pdf;
 	}
@@ -1627,19 +1609,17 @@ public class RestClient {
 		tokens.put(idTokenName, idTokenValue);
 		byte[] pdf;
 		url = GlobalMethods.addToServerEndPointMap(url);
-		Response response;
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request to " + url);
-			response = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader).accept("*/*")
+			RestClient.pdfDownloadResponse = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader).accept("*/*")
 					.cookies(tokens).filter(RestAssuredPrettyLogger.getMaskingFilter()).when().post(url);
 
 		} else {
-			response = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader).accept("*/*")
+			RestClient.pdfDownloadResponse = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader).accept("*/*")
 					.cookies(tokens).when().post(url);
 		}
-		RestClient.setPdfDownloadResponse(response);
-		pdf = response.asByteArray();
+		pdf = RestClient.pdfDownloadResponse.asByteArray();
 		return pdf;
 	}
 	
@@ -1647,19 +1627,17 @@ public class RestClient {
 			String acceptHeader, String cookieName, String cookieValue) {
 		byte[] pdf;
 		url = GlobalMethods.addToServerEndPointMap(url);
-		Response response;
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
-			response = given().config(config).relaxedHTTPSValidation().queryParams(body).contentType("application/pdf")
+			RestClient.pdfDownloadResponse = given().config(config).relaxedHTTPSValidation().queryParams(body).contentType("application/pdf")
 					.accept("*/*").cookie(cookieName, cookieValue).filter(RestAssuredPrettyLogger.getMaskingFilter()).when().get(url);
 
 		} else {
-			response = given().config(config).relaxedHTTPSValidation().queryParams(body).contentType("application/pdf")
+			RestClient.pdfDownloadResponse = given().config(config).relaxedHTTPSValidation().queryParams(body).contentType("application/pdf")
 					.accept("*/*").cookie(cookieName, cookieValue).when().get(url);
 		}
-		RestClient.setPdfDownloadResponse(response);
-		pdf = response.asByteArray();
+		pdf = RestClient.pdfDownloadResponse.asByteArray();
 		return pdf;
 	}
 
@@ -1670,19 +1648,17 @@ public class RestClient {
 		tokens.put(idTokenName, idTokenValue);
 		byte[] pdf;
 		url = GlobalMethods.addToServerEndPointMap(url);
-		Response response;
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
 			
-			response = given().config(config).relaxedHTTPSValidation().queryParams(body).contentType("application/pdf")
+			RestClient.pdfDownloadResponse = given().config(config).relaxedHTTPSValidation().queryParams(body).contentType("application/pdf")
 					.accept("*/*").cookies(tokens).filter(RestAssuredPrettyLogger.getMaskingFilter()).when().get(url);
 		} else {
-			response = given().config(config).relaxedHTTPSValidation().queryParams(body).contentType("application/pdf")
+			RestClient.pdfDownloadResponse = given().config(config).relaxedHTTPSValidation().queryParams(body).contentType("application/pdf")
 					.accept("*/*").cookies(tokens).when().get(url);
 		}
-		RestClient.setPdfDownloadResponse(response);
-		pdf = response.asByteArray();
+		pdf = RestClient.pdfDownloadResponse.asByteArray();
 		return pdf;
 	}
 
