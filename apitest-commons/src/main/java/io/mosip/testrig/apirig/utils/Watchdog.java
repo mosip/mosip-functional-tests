@@ -29,9 +29,6 @@ public class Watchdog {
 				LOGGER.info("Watchdog interrupted before timeout.");
 			}
 		});
-		
-		watchdogThread.setDaemon(true); // Allows JVM to exit if main ends early
-		watchdogThread.start();
 	}
 
 	public void stop() {
