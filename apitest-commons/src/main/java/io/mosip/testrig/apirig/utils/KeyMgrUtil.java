@@ -504,6 +504,8 @@ public class KeyMgrUtil {
         }
 
         pKey = pKey
+        		.replace("-----BEGIN CERTIFICATE-----", "")
+                .replace("-----END CERTIFICATE-----", "")
                 .replace("-----BEGIN PUBLIC KEY-----", "")
                 .replace("-----END PUBLIC KEY-----", "")
                 .replace("-----BEGIN PRIVATE KEY-----", "")
