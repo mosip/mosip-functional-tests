@@ -4982,7 +4982,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static String getKeysDirPath() {
-		String certsTargetDir = System.getProperty("java.io.tmpdir") + File.separator
+		String certsTargetDir = System.getProperty("java.io.tmpdir")
 				+ System.getProperty("parent.certs.folder.name", "AUTHCERTS");
 
 		String os = System.getProperty("os.name").toLowerCase();
