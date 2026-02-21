@@ -4368,70 +4368,51 @@ public class AdminTestUtil extends BaseTestCase {
 
 		return normalized;
 	}
-	    
 
 	public static String generatePulicKey() {
-		String publicKey = null;
-		try {
-			KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
-			keyGenerator.initialize(2048, BaseTestCase.secureRandom);
-			final KeyPair keypair = keyGenerator.generateKeyPair();
-			publicKey = java.util.Base64.getEncoder().encodeToString(keypair.getPublic().getEncoded());
-		} catch (NoSuchAlgorithmException e) {
-			logger.error(e.getMessage());
-		}
-		return publicKey;
+	    String publicKey = null;
+	    try {
+	        KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
+	        keyGenerator.initialize(2048, BaseTestCase.secureRandom);
+	        final KeyPair keypair = keyGenerator.generateKeyPair();
+	        publicKey = Base64.getEncoder().encodeToString(keypair.getPublic().getEncoded());
+	    } catch (NoSuchAlgorithmException e) {
+	        logger.error(e.getMessage());
+	    }
+	    return publicKey;
 	}
-
-	public static KeyPairGenerator keyPairGen = null;
-
-	public static KeyPairGenerator getKeyPairGeneratorInstance() {
-		if (keyPairGen != null)
-			return keyPairGen;
-		try {
-			keyPairGen = KeyPairGenerator.getInstance("RSA");
-			keyPairGen.initialize(2048);
-
-		} catch (NoSuchAlgorithmException e) {
-			logger.error(e.getMessage());
-		}
-
-		return keyPairGen;
-	}
-
-	public static String generateJWKPublicKey() {
-		try {
-			KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
-			keyGenerator.initialize(2048, BaseTestCase.secureRandom);
-			final KeyPair keypair = keyGenerator.generateKeyPair();
-			RSAKey jwk = new RSAKey.Builder((RSAPublicKey) keypair.getPublic()).keyID("RSAKeyID")
-					.keyUse(KeyUse.SIGNATURE).privateKey(keypair.getPrivate()).build();
-
-			return jwk.toJSONString();
-		} catch (NoSuchAlgorithmException e) {
-			logger.error(e.getMessage());
-			return null;
-		}
-	}
-
-	public static String generateJWKEncPublicKey() {
+	
+	private static String generateJWKKey(KeyUse keyUse, String keyId, JWEAlgorithm algorithm, boolean includePrivate) {
 		try {
 			KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
 			keyGenerator.initialize(2048, BaseTestCase.secureRandom);
 
 			KeyPair keyPair = keyGenerator.generateKeyPair();
 
-			RSAKey jwk = new RSAKey.Builder((RSAPublicKey) keyPair.getPublic()).keyID("RSAEncKeyID")
-					.keyUse(KeyUse.ENCRYPTION) // "use":"enc"
-					.algorithm(JWEAlgorithm.RSA_OAEP_256) // "alg":"RSA-OAEP-256"
-					.build();
+			RSAKey.Builder builder = new RSAKey.Builder((RSAPublicKey) keyPair.getPublic()).keyID(keyId).keyUse(keyUse);
 
-			return jwk.toJSONString();
+			if (includePrivate) {
+				builder.privateKey(keyPair.getPrivate());
+			}
+
+			if (algorithm != null) {
+				builder.algorithm(algorithm);
+			}
+
+			return builder.build().toJSONString();
 
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 			return null;
 		}
+	}
+	
+	public static String generateJWKPublicKey() {
+		return generateJWKKey(KeyUse.SIGNATURE, "RSAKeyID", null, true);
+	}
+	
+	public static String generateJWKEncPublicKey() {
+		return generateJWKKey(KeyUse.ENCRYPTION, "RSAEncKeyID", JWEAlgorithm.RSA_OAEP_256, false);
 	}
 	
 	public static JSONArray getArrayFromJson(JSONObject request, String value) {

@@ -9,32 +9,31 @@ import org.apache.log4j.Logger;
 public class JWKKeyUtil {
 	private static final Logger logger = Logger.getLogger(JWKKeyUtil.class);
 	private static final Map<String, String> jwkKeyCache = new HashMap<>();
-	
-	
+
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
 			logger.setLevel(Level.ALL);
 		else
 			logger.setLevel(Level.ERROR);
 	}
-	
-	
-    public static String generateAndCacheJWKKey(String keyName) {
-        String jwkKey = AdminTestUtil.generateJWKPublicKey();
-        jwkKeyCache.put(keyName, jwkKey);
-        logger.info("keyName: " + keyName + " jwkKey: " + jwkKey );
-        return jwkKey;
-    }
-    public static String getJWKKey(String keyName) {
-    	String jwkKey = jwkKeyCache.get(keyName);
-    	logger.info("keyName: " + keyName + " jwkKey: " + jwkKey );
-        return jwkKey;
-    }
-    public static String generateAndCacheEncJWKKey(String keyName) {
-        String jwkKey = AdminTestUtil.generateJWKEncPublicKey();
-        jwkKeyCache.put(keyName, jwkKey);
-        logger.info("ENC keyName: " + keyName + " jwkKey: " + jwkKey);
-        return jwkKey;
-    }
+
+	private static String cacheKey(String keyName, boolean isEnc) {
+		String jwkKey = isEnc ? AdminTestUtil.generateJWKEncPublicKey() : AdminTestUtil.generateJWKPublicKey();
+		if (jwkKey != null) {
+			jwkKeyCache.put(keyName, jwkKey);}
+		logger.info((isEnc ? "ENC " : "") + "keyName: " + keyName + " jwkKey: " + jwkKey);
+		return jwkKey;
+	}
+	public static String generateAndCacheJWKKey(String keyName) {
+		return cacheKey(keyName, false);
+	}
+	public static String generateAndCacheEncJWKKey(String keyName) {
+		return cacheKey(keyName, true);
+	}
+	public static String getJWKKey(String keyName) {
+		String jwkKey = jwkKeyCache.get(keyName);
+		logger.info("keyName: " + keyName + " jwkKey: " + jwkKey);
+		return jwkKey;
+	}
 
 }
