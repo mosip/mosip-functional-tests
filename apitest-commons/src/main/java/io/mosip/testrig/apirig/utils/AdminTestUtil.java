@@ -3147,6 +3147,41 @@ public class AdminTestUtil extends BaseTestCase {
 			return pdf;
 		}
 	}
+	
+	protected Response getWithQueryParamAndCookieForBothAccessToken(String url, String jsonInput, String cookieName,
+			String role, String testCaseName, boolean bothAccessAndIdToken) {
+		Response response = null;
+		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		HashMap<String, String> map = null;
+		try {
+			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {
+			}.getType());
+		} catch (Exception e) {
+			logger.error(
+					GlobalConstants.ERROR_STRING_1 + jsonInput + GlobalConstants.EXCEPTION_STRING_1 + e.getMessage());
+		}
+
+		if (bothAccessAndIdToken) {
+			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
+			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
+		} else {
+			token = kernelAuthLib.getTokenByRole(role);
+		}
+		logger.info(GlobalConstants.GET_REQ_STRING + url);
+		GlobalMethods.reportRequest(null, jsonInput, url);
+		try {
+			if (bothAccessAndIdToken) {
+				response = RestClient.getPdfWithQueryParmForBothAccessToken(url, map, MediaType.APPLICATION_JSON,
+						MediaType.APPLICATION_JSON, cookieName, token, IDTOKENCOOKIENAME, idToken);
+			} else {
+				response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
+						MediaType.APPLICATION_JSON, cookieName, token);
+			}
+		} catch (Exception e) {
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+		}
+		return response;
+	}
 
 	protected Response getWithQueryParamAndCookie(String url, String jsonInput, String cookieName, String role,
 			String testCaseName) throws SecurityXSSException {
