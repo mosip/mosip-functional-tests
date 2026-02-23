@@ -3149,7 +3149,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 	
 	protected Response getWithQueryParamAndCookieForBothAccessToken(String url, String jsonInput, String cookieName,
-			String role, String testCaseName, boolean bothAccessAndIdToken) {
+			String role, String testCaseName, boolean bothAccessAndIdToken) throws SecurityXSSException {
 		Response response = null;
 		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		HashMap<String, String> map = null;
@@ -3177,6 +3177,15 @@ public class AdminTestUtil extends BaseTestCase {
 				response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token);
 			}
+			// check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);
+		} catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response"
+					: response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString
+					+ "\nError: " + se.getMessage();
+			logger.error(errorMessageString, se);
+			throw se;
 		} catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
