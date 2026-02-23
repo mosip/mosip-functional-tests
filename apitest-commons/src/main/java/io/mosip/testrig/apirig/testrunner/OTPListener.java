@@ -4,11 +4,14 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.WebSocket;
 import java.net.http.WebSocket.Listener;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 //import java.util.Properties;
 import java.util.concurrent.CompletionStage;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -29,7 +32,7 @@ public class OTPListener {
 	public static Map<Object, Object> emailNotificationMapS = Collections
 			.synchronizedMap(new HashMap<Object, Object>());
 
-	public static Map<Object, Object> allNotificationMapS = Collections.synchronizedMap(new HashMap<>());
+	public static Map<String, List<String>> allNotificationMapS = new ConcurrentHashMap<>();
 
 	public static Boolean bTerminate = false;
 
@@ -99,7 +102,7 @@ public class OTPListener {
 					address = root.to.text.trim();
 
 				} else if ("MAIL".equalsIgnoreCase(root.type)) {
-					otpMessage = root.html; 
+					otpMessage = root.html;
 					allMessage = root.subject;
 					address = root.to.value.get(0).address;
 
@@ -109,7 +112,8 @@ public class OTPListener {
 				}
 
 				// Always store ALL notifications (subject)
-				allNotificationMapS.put(address, allMessage);
+				allNotificationMapS.putIfAbsent(address, new ArrayList<>());
+				allNotificationMapS.get(address).add(allMessage);
 				logger.info("Stored in allNotificationMapS for " + address);
 
 				// Store only OTP / AdditionalReqId (html / subject)
@@ -178,17 +182,22 @@ public class OTPListener {
 		logger.info("OTP not found for " + emailId + " even after " + otpCheckLoopCount + " retries");
 		return otp;
 	}
-	
-	public static String getNotification(String emailId) {
-		int otpExpTime = AdminTestUtil.getOtpExpTimeFromActuator();
-		int otpCheckLoopCount = (otpExpTime * 1000) / AdminTestUtil.OTP_CHECK_INTERVAL;
-		int counter = 0;
-		while (counter < otpCheckLoopCount) {
 
-			if (allNotificationMapS.get(emailId) != null) {
-				String message = (String) allNotificationMapS.remove(emailId);
-				logger.info("Found notification for " + emailId);
-				return message;
+	public static String getNotification(String emailId, String expectedText) {
+		int otpExpTime = AdminTestUtil.getOtpExpTimeFromActuator();
+		int loopCount = (otpExpTime * 1000) / AdminTestUtil.OTP_CHECK_INTERVAL;
+		int counter = 0;
+		while (counter < loopCount) {
+			
+			List<String> list = allNotificationMapS.get(emailId);
+			if (list != null && !list.isEmpty()) {
+				for (int i = 0; i < list.size(); i++) {
+					String msg = list.get(i);
+					if (msg != null && msg.toLowerCase().contains(expectedText.toLowerCase())) {
+						list.remove(i);
+						return msg;
+					}
+				}
 			}
 			counter++;
 			sleep();
