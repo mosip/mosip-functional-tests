@@ -250,7 +250,7 @@ public class AdminTestUtil extends BaseTestCase {
 	    } else if(temp.isEmpty()) {
 	    	return false;
 	    } else {
-	    	return true;
+	    	return false;
 	    }
 	}
 
@@ -3179,6 +3179,7 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			// check if X-XSS-Protection is enabled or not
 			GlobalMethods.checkXSSProtectionHeader(response, url);
+			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 		} catch (SecurityXSSException se) {
 			String responseHeadersString = (response == null) ? "No response"
 					: response.getHeaders().asList().toString();
