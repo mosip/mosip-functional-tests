@@ -176,7 +176,7 @@ public class KeycloakUserManager {
 		try (Response response = usersRessource.create(user)) {
 
 			if (response.getStatus() == 409) {
-				logger.warn("User already exists in Keycloak: {}" + userid);
+				logger.warn("User already exists in Keycloak: " + userid);
 			} else {
 				logger.info(response);
 				logger.info(String.format(GlobalConstants.REPSONSE, response.getStatus(), response.getStatusInfo()));
@@ -257,7 +257,7 @@ public class KeycloakUserManager {
 
 		} catch (Exception e) {
 			logger.error("Error creating user: " + userid, e);
-			throw e;
+			throw new RuntimeException("Error creating user: " + userid, e);
 		}
 
 		logger.info(String.format(GlobalConstants.USERCREATEDWITHUSERID, userId));
@@ -392,7 +392,7 @@ public class KeycloakUserManager {
                 }
             } catch (Exception e) {
                 logger.error("Error while creating Keycloak user: " + needsToBeCreatedUser, e);
-                throw e; 
+                throw new RuntimeException("Error creating user: " + needsToBeCreatedUser, e);
             }
 
             logger.info(String.format(GlobalConstants.USERCREATEDWITHUSERID, userId));
@@ -449,7 +449,7 @@ public class KeycloakUserManager {
 			RealmResource realmResource = keycloakInstance.realm(ConfigManager.getIAMRealmId());
 			UsersResource usersRessource = realmResource.users();
 
-			List<UserRepresentation> usersFromDB = usersRessource.search(needsToBeRemovedUser);
+			List<UserRepresentation> usersFromDB = usersRessource.search(needsToBeRemovedUser, true);
 			
 			if (!usersFromDB.isEmpty()) {
 				UserResource userResource = usersRessource.get(usersFromDB.get(0).getId());
@@ -471,7 +471,7 @@ public class KeycloakUserManager {
 			RealmResource realmResource = keycloakInstance.realm(ConfigManager.getIAMRealmId());
 			UsersResource usersRessource = realmResource.users();
 
-			List<UserRepresentation> usersFromDB = usersRessource.search(moduleSpecificUserToBeRemoved);
+			List<UserRepresentation> usersFromDB = usersRessource.search(moduleSpecificUserToBeRemoved, true);
 			
 			if (!usersFromDB.isEmpty()) {
 				UserResource userResource = usersRessource.get(usersFromDB.get(0).getId());
@@ -493,7 +493,7 @@ public class KeycloakUserManager {
 			RealmResource realmResource = keycloakInstance.realm(ConfigManager.getIAMRealmId());
 			UsersResource usersRessource = realmResource.users();
 
-			List<UserRepresentation> usersFromDB = usersRessource.search(needsToBeRemovedUser);
+			List<UserRepresentation> usersFromDB = usersRessource.search(needsToBeRemovedUser, true);
 			
 			if (!usersFromDB.isEmpty()) {
 				UserResource userResource = usersRessource.get(usersFromDB.get(0).getId());
@@ -511,7 +511,7 @@ public class KeycloakUserManager {
 		RealmResource realmResource = keycloakInstance.realm(ConfigManager.getIAMRealmId());
 		UsersResource usersRessource = realmResource.users();
 		try {
-			List<UserRepresentation> usersFromDB = usersRessource.search(user);
+			List<UserRepresentation> usersFromDB = usersRessource.search(user, true);
 			if (!usersFromDB.isEmpty()) {
 				UserResource userResource = usersRessource.get(usersFromDB.get(0).getId());
 				userResource.remove();

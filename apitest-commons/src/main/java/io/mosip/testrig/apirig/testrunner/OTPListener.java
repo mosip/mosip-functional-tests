@@ -98,6 +98,10 @@ public class OTPListener {
 
                     otpMessage = root.subject;
                     notificationMessage = root.subject;
+                    if (root.to == null || root.to.value == null) {
+						logger.warn("SMS notification missing recipient address");
+						return Listener.super.onText(webSocket, data, last);
+					}
                     address = root.to.text.trim();
 
                 } else if ("MAIL".equalsIgnoreCase(root.type)) {
