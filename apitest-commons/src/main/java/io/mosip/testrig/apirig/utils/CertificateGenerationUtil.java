@@ -50,8 +50,7 @@ public class CertificateGenerationUtil extends AdminTestUtil {
 		try {
 			authUtil.uploadIDACertificate(certificateType, requestBodyMap, null, BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
 		} catch (CertificateException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			lOGGER.error("Failed to upload IDA certificate. certificateType=" + certificateType, e);
 		}
 	}
 

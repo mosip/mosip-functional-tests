@@ -137,19 +137,15 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	
 	private static String getRefId(boolean isInternal, boolean isBiometrics) {
         String refId;
-        if (isBiometrics) {
-            if (isInternal) {
-                refId = props.getProperty("internal.biometric.reference.id");
-            } else {
-                refId = props.getProperty("internal.biometric.reference.id");
-            }
-        } else {
-            if (isInternal) {
-                refId = props.getProperty("internal.reference.id");
-            } else {
-                refId = props.getProperty("partner.reference.id");
-            }
-        }
+		if (isBiometrics) {
+			refId = props.getProperty("internal.biometric.reference.id");
+		} else {
+			if (isInternal) {
+				refId = props.getProperty("internal.reference.id");
+			} else {
+				refId = props.getProperty("partner.reference.id");
+			}
+		}
         return refId;
     }
 	

@@ -44,6 +44,7 @@ public class PartnerRegistration extends AdminTestUtil {
 	public static String mispLicKey ="";
 	public static String policyGroup = AdminTestUtil.policyGroup;
 	public static String policyGroupForKyc = AdminTestUtil.policyGroup2;
+	private static final String PARTNER_CONTEXT = "partnerType=%s, partnerId=%s";
 	public static final ThreadLocal<String> appendEkycOrRp = ThreadLocal.withInitial(() -> "");
 	
 	public static void setLogLevel() {
@@ -226,8 +227,7 @@ public class PartnerRegistration extends AdminTestUtil {
 		try {
 			certificateChainResponseDto = authUtil.generatePartnerKeys(partnerTypeEnum, partnerId, keyFileNameByPartnerName, null, BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
 		} catch (Exception  e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			lOGGER.error("Failed to generate partner keys. " + String.format(PARTNER_CONTEXT, partnerTypeEnum, partnerId), e);
 		}
 		
 		JSONObject responseJson = new JSONObject();
@@ -261,8 +261,7 @@ public class PartnerRegistration extends AdminTestUtil {
 		try {
 			certificateChainResponseDto = authUtil.generatePartnerKeys(partnerTypeEnum, partnerId, keyFileNameByPartnerName, null, BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
 		} catch (Exception  e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			lOGGER.error("Failed to generate partner keys. " + String.format(PARTNER_CONTEXT, partnerTypeEnum, partnerId), e);
 		}
 		
 		JSONObject responseJson = new JSONObject();
@@ -356,7 +355,9 @@ public class PartnerRegistration extends AdminTestUtil {
 
 	public static void uploadSignedCertificate(String certValueSigned, String partnerType, String partnerId,
 			Boolean keyFileNameByPartnerName) {
+		
 		PartnerTypes partnerTypeEnum = null;
+		
 		if (partnerType.equals("RELYING_PARTY")) {
 			partnerTypeEnum = PartnerTypes.RELYING_PARTY;           
         } else if (partnerType.equals("DEVICE")) {
@@ -369,13 +370,11 @@ public class PartnerRegistration extends AdminTestUtil {
         	partnerTypeEnum = PartnerTypes.MISP;
         }
 		
-		keyFileNameByPartnerName = false;
-		
 		if (partnerType.equals("RELYING_PARTY") || partnerType.equals("EKYC")) {
 			keyFileNameByPartnerName = true;
 		}
+		
 		HashMap<String, String> requestBody = new HashMap<>();
-
 		requestBody.put("certData", certValueSigned);
 		
 		AuthTestsUtil authUtil = new AuthTestsUtil();
@@ -383,8 +382,7 @@ public class PartnerRegistration extends AdminTestUtil {
 			String str = authUtil.updatePartnerCertificate(partnerTypeEnum, partnerId, keyFileNameByPartnerName, requestBody, null, BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
 			lOGGER.info("Is update partner certificate "+str);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			lOGGER.error("Failed to update partner certificate. " + String.format(PARTNER_CONTEXT, partnerTypeEnum, partnerId), e);
 		}
 		
 	}
@@ -487,8 +485,7 @@ public class PartnerRegistration extends AdminTestUtil {
 		try {
 			authUtil.clearKeys(null, BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			lOGGER.error("Failed to clear keys for certs module=" + BaseTestCase.certsForModule, e);
 		}
 		
 	}

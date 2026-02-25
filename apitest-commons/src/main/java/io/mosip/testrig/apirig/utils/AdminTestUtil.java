@@ -32,6 +32,7 @@ import java.security.KeyStoreException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
+import java.security.SecureRandom;
 import java.security.UnrecoverableEntryException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
@@ -40,7 +41,6 @@ import java.security.cert.X509Certificate;
 import java.security.interfaces.RSAPublicKey;
 import java.text.SimpleDateFormat;
 import java.time.Clock;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
@@ -62,7 +62,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
-import java.util.Random;
 import java.util.Set;
 import java.util.TimeZone;
 import java.util.UUID;
@@ -95,7 +94,6 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.jknack.handlebars.Context;
@@ -123,7 +121,6 @@ import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 import io.mosip.testrig.apirig.testrunner.JsonPrecondtion;
 import io.mosip.testrig.apirig.testrunner.MessagePrecondtion;
 import io.mosip.testrig.apirig.testrunner.OTPListener;
-//import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
@@ -222,6 +219,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static Map<String, List<String>> globalConsumersList = new HashMap<>();
 	public static String currentTestCaseName = null;
 	public static boolean generateDependency = true;
+	private static final SecureRandom random = new SecureRandom();
 
 	public static void init() {
 		properties = getproperty(getGlobalResourcePath() + "/" + "config/application.properties");
@@ -3728,24 +3726,23 @@ public class AdminTestUtil extends BaseTestCase {
 
 	@SuppressWarnings("unchecked")
 	protected Map<String, Map<String, Map<String, String>>> loadyaml(String path) {
-		Map<String, Map<String, Map<String, String>>> scriptsMap = null;
-		FileInputStream inputStream = null;
-		BufferedInputStream bufferedInput = null;
-		int customBufferSize = 16384; // 16 KB
-		try {
-			inputStream = new FileInputStream(new File(getResourcePath() + path).getAbsoluteFile());
-			bufferedInput = new BufferedInputStream(inputStream, customBufferSize);
 
-			// Force YAML to use LinkedHashMap
-			Yaml yaml = new Yaml(new Constructor(LinkedHashMap.class));
-			scriptsMap = yaml.loadAs(bufferedInput, LinkedHashMap.class);
+	    int customBufferSize = 16384; // 16 KB
 
-		} catch (Exception e) {
-			logger.error("Error loading YAML: " + e.getMessage());
-		} finally {
-			closeInputStream(inputStream);
-		}
-		return scriptsMap;
+	    try (BufferedInputStream bufferedInput =
+	                 new BufferedInputStream(
+	                         new FileInputStream(
+	                                 new File(getResourcePath() + path).getAbsoluteFile()),
+	                         customBufferSize)) {
+
+	        // Force YAML to use LinkedHashMap
+	        Yaml yaml = new Yaml(new Constructor(LinkedHashMap.class));
+	        return yaml.loadAs(bufferedInput, LinkedHashMap.class);
+
+	    } catch (Exception e) {
+	        logger.error("Error loading YAML: " + e.getMessage());
+	        return null;
+	    }
 	}
 
 	public String getJsonFromTemplate(String input, String template) {
@@ -3967,8 +3964,8 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = replaceKeywordWithValue(jsonString, "$SCHEMAVERSION$", generateLatestSchemaVersion());
 
 		if (jsonString.contains("$NRCID$")) {
-			String nrcId = (100000 + new Random().nextInt(900000)) + "/" + (10 + new Random().nextInt(90)) + "/"
-					+ (1 + new Random().nextInt(9));
+			String nrcId = (100000 + random.nextInt(900000)) + "/" + (10 + random.nextInt(90)) + "/"
+					+ (1 + random.nextInt(9));
 
 			jsonString = replaceKeywordWithValue(jsonString, "$NRCID$", nrcId);
 		}
@@ -4440,7 +4437,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public String updateTimestampOtp(String otpIdentyEnryptRequest, String otpChannel, String testCaseName) {
 		String otp = null;
 
-		otp = OTPListener.getOtp(otpChannel);
+		otp = NotificationListener.getOtp(otpChannel);
 		logger.info("Fetched OTP for otp auth= " + otp);
 
 		if (otp != null && !otp.isBlank()) {
@@ -4579,16 +4576,10 @@ public class AdminTestUtil extends BaseTestCase {
 		} else {
 			if (keyForIdProperty.equals("UploadPartnerCert_Misp_Valid_Smoke_sid_signedCertificateData")) {
 				String certData = getFromCache(keyForIdProperty);
-				if (System.getProperty(GlobalConstants.OS_NAME).toLowerCase().contains(GlobalConstants.WINDOWS)) {
-					certData = certData.replaceAll("\n", "\\\\n");
-				} else {
-					certData = certData.replaceAll("\n", "\\\\n");
-
-				}
+				certData = certData.replaceAll("\n", "\\\\n");
 				jsonString = replaceKeywordWithValue(jsonString, keyToReplace, certData);
 			} else {
-				jsonString = replaceKeywordWithValue(jsonString, keyToReplace,
-						getFromCache(keyForIdProperty));
+				jsonString = replaceKeywordWithValue(jsonString, keyToReplace, getFromCache(keyForIdProperty));
 			}
 		}
 		if (jsonString.contains("\u200B")) {
@@ -5020,7 +5011,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static String getKeysDirPath() {
-		String certsTargetDir = System.getProperty("java.io.tmpdir") + File.separator
+		String certsTargetDir = System.getProperty("java.io.tmpdir")
 				+ System.getProperty("parent.certs.folder.name", "AUTHCERTS");
 
 		String os = System.getProperty("os.name").toLowerCase();
@@ -5390,10 +5381,10 @@ public class AdminTestUtil extends BaseTestCase {
 
 				JSONObject eachPropDataJson = (JSONObject) identityPropsJson.get(eachRequiredProp);
 				String randomValue = "";
-				if (eachRequiredProp == emailResult) {
+				if (Objects.equals(eachRequiredProp, emailResult)) {
 					randomValue = "shshssh";
 				}
-				if (eachRequiredProp == result) {
+				if (Objects.equals(eachRequiredProp, result)) {
 					randomValue = phoneSchemaRegex;
 				}
 
@@ -5638,10 +5629,10 @@ public class AdminTestUtil extends BaseTestCase {
 
 				JSONObject eachPropDataJson = (JSONObject) identityPropsJson.get(eachRequiredProp);
 				String randomValue = "";
-				if (eachRequiredProp == emailResult) {
+				if (Objects.equals(eachRequiredProp, emailResult)) {
 					randomValue = "shshssh";
 				}
-				if (eachRequiredProp == result) {
+				if (Objects.equals(eachRequiredProp, result)) {
 					randomValue = phoneSchemaRegex;
 				}
 
@@ -6630,7 +6621,7 @@ public class AdminTestUtil extends BaseTestCase {
 						emailId = removeLeadingPlusSigns(emailId);
 					}
 					logger.info(emailId);
-					otp = OTPListener.getOtp(emailId);
+					otp = NotificationListener.getOtp(emailId);
 					request.put("otp", otp);
 					inputJson = request.toString();
 					return inputJson;
@@ -6646,7 +6637,7 @@ public class AdminTestUtil extends BaseTestCase {
 					if (testCaseName.contains("_INVALIDOTP")) {
 						otp = "26258976";
 					} else {
-						otp = OTPListener.getOtp(emailId);
+						otp = NotificationListener.getOtp(emailId);
 					}
 
 					request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
@@ -6670,7 +6661,7 @@ public class AdminTestUtil extends BaseTestCase {
 								emailId = removeLeadingPlusSigns(emailId);
 							}
 							logger.info(emailId);
-							otp = OTPListener.getOtp(emailId);
+							otp = NotificationListener.getOtp(emailId);
 							request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
 							inputJson = request.toString();
 							return inputJson;
@@ -6698,7 +6689,7 @@ public class AdminTestUtil extends BaseTestCase {
 								emailId = removeLeadingPlusSigns(emailId);
 							}
 							logger.info(emailId);
-							otp = OTPListener.getOtp(emailId);
+							otp = NotificationListener.getOtp(emailId);
 							request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
 							inputJson = request.toString();
 							return inputJson;
@@ -6730,7 +6721,7 @@ public class AdminTestUtil extends BaseTestCase {
 											emailId = removeLeadingPlusSigns(emailId);
 										}
 										logger.info(emailId);
-										otp = OTPListener.getOtp(emailId);
+										otp = NotificationListener.getOtp(emailId);
 										request.getJSONObject(GlobalConstants.REQUEST)
 												.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 												.put(GlobalConstants.CHALLENGE, otp);
@@ -6759,7 +6750,7 @@ public class AdminTestUtil extends BaseTestCase {
 							emailId = removeLeadingPlusSigns(emailId);
 						}
 						logger.info(emailId);
-						otp = OTPListener.getOtp(emailId);
+						otp = NotificationListener.getOtp(emailId);
 						request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
 						inputJson = request.toString();
 						return inputJson;
@@ -6786,7 +6777,7 @@ public class AdminTestUtil extends BaseTestCase {
 										emailId = removeLeadingPlusSigns(emailId);
 									}
 									logger.info(emailId);
-									otp = OTPListener.getOtp(emailId);
+									otp = NotificationListener.getOtp(emailId);
 									request.getJSONObject(GlobalConstants.REQUEST)
 											.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 											.put(GlobalConstants.CHALLENGE, otp);
@@ -6815,7 +6806,7 @@ public class AdminTestUtil extends BaseTestCase {
 						if (testCaseName.contains("_EmptyChannel_Invalid_Neg"))
 							otp = "";
 						else
-							otp = OTPListener.getOtp(emailId);
+							otp = NotificationListener.getOtp(emailId);
 						request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
 						inputJson = request.toString();
 					}
@@ -6839,7 +6830,7 @@ public class AdminTestUtil extends BaseTestCase {
 									emailId = removeLeadingPlusSigns(emailId);
 								}
 								logger.info(emailId);
-								otp = OTPListener.getOtp(emailId);
+								otp = NotificationListener.getOtp(emailId);
 								request.getJSONObject(GlobalConstants.REQUEST)
 										.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 										.put(GlobalConstants.CHALLENGE, otp);
@@ -7326,14 +7317,13 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			idValue = queryParams.get("id");
 			if (idValue != null) {
-				System.out.println("Value of 'id' parameter: " + idValue);
+				logger.info("Value of 'id' parameter: " + idValue);
 			} else {
-				System.out.println("'id' parameter not found in the URL.");
+				logger.warn("'id' parameter not found in the URL.");
 			}
 
 		} catch (URISyntaxException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			logger.error("Invalid URL syntax: " + url, e1);
 		}
 		return idValue;
 

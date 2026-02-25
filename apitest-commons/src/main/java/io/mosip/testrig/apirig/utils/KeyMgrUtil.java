@@ -115,7 +115,7 @@ public class KeyMgrUtil {
 	private static final String PARTNER_CER_FILE_NAME = "-partner.cer";
 
     /** The Constant TEMP_P12_PWD. */
-    private static final char[] TEMP_P12_PWD = "qwerty@123".toCharArray();
+    private static final char[] TEMP_P12PASS = GlobalConstants.TEMP_P12PASS.toCharArray();
 
     /** The Constant KEY_ALIAS. */
     private static final String KEY_ALIAS = "keyalias";
@@ -449,7 +449,7 @@ public class KeyMgrUtil {
 	 */
 	private char[] getP12Pass() {
 		String pass = System.getProperty("p12.password");
-		return  pass == null ? TEMP_P12_PWD : pass.toCharArray();
+		return  pass == null ? TEMP_P12PASS : pass.toCharArray();
 	}
     
     /**
@@ -499,10 +499,20 @@ public class KeyMgrUtil {
 	 * @return the string
 	 */
 	public static String trimBeginEnd(String pKey) {
-		pKey = pKey.replaceAll("-*BEGIN([^-]*)-*(\r?\n)?", "");
-		pKey = pKey.replaceAll("-*END([^-]*)-*(\r?\n)?", "");
-		pKey = pKey.replaceAll("\\s", "");
-		return pKey;
+		if (pKey == null) {
+            return null;
+        }
+
+        pKey = pKey
+        		.replace("-----BEGIN CERTIFICATE-----", "")
+                .replace("-----END CERTIFICATE-----", "")
+                .replace("-----BEGIN PUBLIC KEY-----", "")
+                .replace("-----END PUBLIC KEY-----", "")
+                .replace("-----BEGIN PRIVATE KEY-----", "")
+                .replace("-----END PRIVATE KEY-----", "")
+                .replaceAll("\\s+", "");
+
+        return pKey;
 	}
 	
 	public X509Certificate getCertificate(String refId)
