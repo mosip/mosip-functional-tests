@@ -97,7 +97,7 @@ spec:
             {{- end }}
             env:
                 - name: container_user
-                  value: {{ $.Values.containerSecurityContext.runAsUser }}
+                  value: {{ $.Values.containerSecurityContext.runAsUser | quote }}
                 - name: JDK_JAVA_OPTIONS
                   value: {{ $.Values.additionalResources.javaOpts }}
                 - name: MODULES
