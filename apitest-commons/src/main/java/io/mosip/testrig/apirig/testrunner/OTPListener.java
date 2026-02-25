@@ -55,7 +55,7 @@ public class OTPListener {
 
             HTTP_CLIENT.newWebSocketBuilder()
                     .buildAsync(URI.create(websocketUrl), new WebSocketClient())
-                    .join();
+                    .get(30, java.util.concurrent.TimeUnit.SECONDS);
 
         } catch (Exception e) {
             logger.error("Failed to start OTP WebSocket listener", e);
