@@ -104,6 +104,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.itextpdf.text.pdf.PdfReader;
 import com.mifmif.common.regex.Generex;
+import com.nimbusds.jose.JWEAlgorithm;
 import com.nimbusds.jose.jwk.KeyUse;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.util.StandardCharset;
@@ -4364,52 +4365,53 @@ public class AdminTestUtil extends BaseTestCase {
 
 		return normalized;
 	}
-	    
 
 	public static String generatePulicKey() {
-		String publicKey = null;
+	    String publicKey = null;
+	    try {
+	        KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
+	        keyGenerator.initialize(2048, BaseTestCase.secureRandom);
+	        final KeyPair keypair = keyGenerator.generateKeyPair();
+	        publicKey = Base64.getEncoder().encodeToString(keypair.getPublic().getEncoded());
+	    } catch (NoSuchAlgorithmException e) {
+	        logger.error(e.getMessage());
+	    }
+	    return publicKey;
+	}
+	
+	private static String generateJWKKey(KeyUse keyUse, String keyId, JWEAlgorithm algorithm, boolean includePrivate) {
 		try {
 			KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
 			keyGenerator.initialize(2048, BaseTestCase.secureRandom);
-			final KeyPair keypair = keyGenerator.generateKeyPair();
-			publicKey = java.util.Base64.getEncoder().encodeToString(keypair.getPublic().getEncoded());
-		} catch (NoSuchAlgorithmException e) {
-			logger.error(e.getMessage());
-		}
-		return publicKey;
-	}
 
-	public static KeyPairGenerator keyPairGen = null;
+			KeyPair keyPair = keyGenerator.generateKeyPair();
 
-	public static KeyPairGenerator getKeyPairGeneratorInstance() {
-		if (keyPairGen != null)
-			return keyPairGen;
-		try {
-			keyPairGen = KeyPairGenerator.getInstance("RSA");
-			keyPairGen.initialize(2048);
+			RSAKey.Builder builder = new RSAKey.Builder((RSAPublicKey) keyPair.getPublic()).keyID(keyId).keyUse(keyUse);
 
-		} catch (NoSuchAlgorithmException e) {
-			logger.error(e.getMessage());
-		}
+			if (includePrivate) {
+				builder.privateKey(keyPair.getPrivate());
+			}
 
-		return keyPairGen;
-	}
+			if (algorithm != null) {
+				builder.algorithm(algorithm);
+			}
 
-	public static String generateJWKPublicKey() {
-		try {
-			KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
-			keyGenerator.initialize(2048, BaseTestCase.secureRandom);
-			final KeyPair keypair = keyGenerator.generateKeyPair();
-			RSAKey jwk = new RSAKey.Builder((RSAPublicKey) keypair.getPublic()).keyID("RSAKeyID")
-					.keyUse(KeyUse.SIGNATURE).privateKey(keypair.getPrivate()).build();
+			return builder.build().toJSONString();
 
-			return jwk.toJSONString();
-		} catch (NoSuchAlgorithmException e) {
+		} catch (Exception e) {
 			logger.error(e.getMessage());
 			return null;
 		}
 	}
-
+	
+	public static String generateJWKPublicKey() {
+		return generateJWKKey(KeyUse.SIGNATURE, "RSAKeyID", null, true);
+	}
+	
+	public static String generateJWKEncPublicKey() {
+		return generateJWKKey(KeyUse.ENCRYPTION, "RSAEncKeyID", JWEAlgorithm.RSA_OAEP_256, false);
+	}
+	
 	public static JSONArray getArrayFromJson(JSONObject request, String value) {
 
 		if (request.getJSONObject(GlobalConstants.REQUEST).has(value)) {
