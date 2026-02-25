@@ -136,22 +136,11 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
     }
 	
 	private static String getRefId(boolean isInternal, boolean isBiometrics) {
-        String refId;
-        if (isBiometrics) {
-            if (isInternal) {
-                refId = props.getProperty("internal.biometric.reference.id");
-            } else {
-                refId = props.getProperty("internal.biometric.reference.id");
-            }
-        } else {
-            if (isInternal) {
-                refId = props.getProperty("internal.reference.id");
-            } else {
-                refId = props.getProperty("partner.reference.id");
-            }
-        }
-        return refId;
-    }
+		if (isBiometrics && isInternal) {
+			return props.getProperty("internal.biometric.reference.id");
+		}
+		return isInternal ? props.getProperty("internal.reference.id") : props.getProperty("partner.reference.id");
+	}
 	
 	private static EncryptionResponseDto kernelEncrypt(String identityBlock, String refId) throws Exception {
 //        String identityBlock = objMapper.writeValueAsString(jsonString);

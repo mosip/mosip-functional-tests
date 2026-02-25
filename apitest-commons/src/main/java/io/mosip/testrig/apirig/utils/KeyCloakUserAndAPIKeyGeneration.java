@@ -11,7 +11,7 @@ import org.json.JSONObject;
 import io.restassured.response.Response;
 
 public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
-	private static final Logger lOGGER = Logger.getLogger(KeyCloakUserAndAPIKeyGeneration.class);
+	protected static final Logger lOGGER = Logger.getLogger(KeyCloakUserAndAPIKeyGeneration.class);
 	
 	static String partnerId = PartnerRegistration.partnerId;
 	static String updatedPolicyId =AdminTestUtil.updatedPolicyId;

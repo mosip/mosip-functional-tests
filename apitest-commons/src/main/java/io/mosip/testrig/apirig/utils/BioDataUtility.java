@@ -227,8 +227,7 @@ public class BioDataUtility extends AdminTestUtil {
 		try {
 			response = authUtil.signRequest(partnerTypeEnum, null, false, identityDataBlock,"", BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error("Failed to sign request for partnerType=" + partnerTypeEnum, e);
 		}
 		byte[] bytePayload = identityDataBlock.getBytes();
 		String payloadData = Base64.getUrlEncoder().encodeToString(bytePayload);
