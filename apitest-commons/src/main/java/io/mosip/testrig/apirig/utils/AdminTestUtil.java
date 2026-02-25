@@ -3739,10 +3739,10 @@ public class AdminTestUtil extends BaseTestCase {
 	        Yaml yaml = new Yaml(new Constructor(LinkedHashMap.class));
 	        return yaml.loadAs(bufferedInput, LinkedHashMap.class);
 
-	    } catch (Exception e) {
-	        logger.error("Error loading YAML: " + e.getMessage());
-	        return null;
-	    }
+		} catch (Exception e) {
+			logger.error("Error loading YAML from path: " + path, e);
+			throw new IllegalStateException("Failed to load YAML: " + path, e);
+		}
 	}
 
 	public String getJsonFromTemplate(String input, String template) {

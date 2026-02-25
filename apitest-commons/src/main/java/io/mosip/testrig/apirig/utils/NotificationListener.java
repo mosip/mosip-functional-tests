@@ -17,6 +17,7 @@ public final class NotificationListener {
 
     private static final int MAX_QUEUE_SIZE = 50;
     private static final long INACTIVE_EXPIRY_MS = 15 * 60 * 1000; // 15 mins
+    private static final Pattern OTP_PATTERN = Pattern.compile("\\b(\\d{6})\\b");
 
     private static final ConcurrentHashMap<String, EmailQueue> otpQueues =
             new ConcurrentHashMap<>();
@@ -75,11 +76,11 @@ public final class NotificationListener {
         EmailQueue emailQueue = map.computeIfAbsent(email, k -> new EmailQueue());
         emailQueue.lastAccessTime = System.currentTimeMillis();
 
-        if (!emailQueue.queue.offer(new OtpMessage(message))) {
-            emailQueue.queue.poll(); // remove oldest
-            emailQueue.queue.offer(new OtpMessage(message));
-            logger.warn("Queue full. Oldest message removed for " + email);
-        }
+		OtpMessage newMessage = new OtpMessage(message);
+		while (!emailQueue.queue.offer(newMessage)) {
+			emailQueue.queue.poll(); // remove oldest and retry insert
+			logger.warn("Queue full. Oldest message removed for " + email);
+		}
     }
 
     public static String getOtp(String emailId) {
@@ -139,12 +140,12 @@ public final class NotificationListener {
         return "";
     }
 
-    public static String parseOtp(String message) {
-        if (message == null) return "";
-        Pattern pattern = Pattern.compile("(|^)\\s\\d{6}\\s");
-        Matcher matcher = pattern.matcher(message);
-        return matcher.find() ? matcher.group(0).trim() : "";
-    }
+	public static String parseOtp(String message) {
+		if (message == null)
+			return "";
+		Matcher matcher = OTP_PATTERN.matcher(message);
+		return matcher.find() ? matcher.group(1) : "";
+	}
 
     // --------------------------------------------------
     // Cleanup Thread

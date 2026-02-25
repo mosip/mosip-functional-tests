@@ -378,7 +378,7 @@ public class KeyMgrUtility {
 
 			Date notAfter = Date.from(dateTimeExp.atZone(ZoneId.systemDefault()).toInstant());
 	   
-	    BigInteger certSerialNum = new BigInteger(Long.toString(random.nextLong()));
+			BigInteger certSerialNum = new BigInteger(159, random).add(BigInteger.ONE);
 
 	    // Build signer with correct algorithm
 	    ContentSigner certContentSigner = new JcaContentSignerBuilder(signAlgo)
@@ -408,7 +408,7 @@ public class KeyMgrUtility {
 		Date notBefore = Date.from(dateTime.atZone(ZoneId.systemDefault()).toInstant());
 		Date notAfter = Date.from(dateTimeExp.atZone(ZoneId.systemDefault()).toInstant());
 
-		BigInteger certSerialNum = new BigInteger(Long.toString(random.nextLong()));
+		BigInteger certSerialNum = new BigInteger(159, random).add(BigInteger.ONE);
 
 		ContentSigner certContentSigner = new JcaContentSignerBuilder(SIGN_ALGO).build(signPrivateKey);
 		X509v3CertificateBuilder certBuilder = new JcaX509v3CertificateBuilder(certIssuer, certSerialNum, notBefore,

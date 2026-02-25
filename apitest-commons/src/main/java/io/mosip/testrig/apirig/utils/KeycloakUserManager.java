@@ -217,7 +217,7 @@ public class KeycloakUserManager {
 			}
 		} catch (Exception e) {
 			logger.error("Error creating user: " + userid, e);
-			throw e;
+			throw new RuntimeException("Error creating user: " + userid, e);
 		}
 
 	}
@@ -249,6 +249,10 @@ public class KeycloakUserManager {
 			} else {
 				logger.info(response.getLocation());
 				userId = CreatedResponseUtil.getCreatedId(response);
+			}
+			
+			if (userId == null || userId.isBlank()) {
+				throw new IllegalStateException("Unable to resolve Keycloak userId for " + userid);
 			}
 
 		} catch (Exception e) {

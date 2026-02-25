@@ -142,16 +142,16 @@ public class CommonUtil {
 
 		// Traverse the file tree and copy each file/directory.
 		try (var paths = Files.walk(sourceDirectory)) {
-			paths.forEach(sourcePath -> {
+			for (Path sourcePath : (Iterable<Path>) paths::iterator) {
 
 				Path targetPath = targetDirectory.resolve(sourceDirectory.relativize(sourcePath));
 
 				try {
 					Files.copy(sourcePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
 				} catch (IOException e) {
-					logger.error(e.getMessage());
+					throw new IOException("Failed to copy from '" + sourcePath + "' to '" + targetPath + "'", e);
 				}
-			});
+			}
 		}
 	}
 

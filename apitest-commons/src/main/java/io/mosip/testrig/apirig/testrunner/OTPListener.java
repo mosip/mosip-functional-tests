@@ -36,16 +36,20 @@ public class OTPListener {
     // --------------------------------------------------
     public void run() {
         try {
-            String base = ConfigManager.getIAMUrl();
+        	
+			URI iamUri = URI.create(ConfigManager.getIAMUrl());
 
-            if (base.contains("/auth")) {
-                base = base.replace("/auth", "");
-            }
+			String host = iamUri.getHost();
+			if (host == null) {
+				throw new IllegalStateException("Invalid IAM URL: " + ConfigManager.getIAMUrl());
+			}
 
-            String websocketUrl =
-                    "wss://smtp."
-                            + base.substring(base.indexOf(".") + 1)
-                            + "/mocksmtp/websocket";
+			// prepend smtp safely
+			String smtpHost = host.startsWith("smtp.") ? host : "smtp." + host;
+
+			int port = iamUri.getPort();
+
+			String websocketUrl = "wss://" + smtpHost + (port > 0 ? ":" + port : "") + "/mocksmtp/websocket";
 
             logger.info("Connecting to OTP WebSocket: " + websocketUrl);
 
@@ -100,9 +104,14 @@ public class OTPListener {
 
                     otpMessage = root.html;
                     notificationMessage = root.subject;
-                    address = root.to.value.get(0).address;
+					if (root.to == null || root.to.value == null || root.to.value.isEmpty()
+							|| root.to.value.get(0) == null || root.to.value.get(0).address == null) {
+						logger.warn("MAIL notification missing recipient address");
+						return Listener.super.onText(webSocket, data, last);
+					}
+					address = root.to.value.get(0).address.trim();
 
-                } else {
+				} else {
                     logger.warn("Unsupported notification type: " + root.type);
                     return Listener.super.onText(webSocket, data, last);
                 }
