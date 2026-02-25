@@ -5,6 +5,7 @@ import java.net.http.HttpClient;
 import java.net.http.WebSocket;
 import java.net.http.WebSocket.Listener;
 import java.util.concurrent.CompletionStage;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -55,7 +56,7 @@ public class OTPListener {
 
             HTTP_CLIENT.newWebSocketBuilder()
                     .buildAsync(URI.create(websocketUrl), new WebSocketClient())
-                    .get(30, java.util.concurrent.TimeUnit.SECONDS);
+                    .get(30, TimeUnit.SECONDS);
 
         } catch (Exception e) {
             logger.error("Failed to start OTP WebSocket listener", e);
@@ -98,7 +99,7 @@ public class OTPListener {
 
                     otpMessage = root.subject;
                     notificationMessage = root.subject;
-                    if (root.to == null || root.to.value == null) {
+                    if (root.to == null || root.to.text == null) {
 						logger.warn("SMS notification missing recipient address");
 						return Listener.super.onText(webSocket, data, last);
 					}
