@@ -17,6 +17,7 @@ import org.jose4j.lang.JoseException;
 public class JWSSignAndVerifyController {
 
     private static final String SIGN_ALGO = "RS256";
+    CryptoCoreUtil cryptoCoreUtil = new CryptoCoreUtil();
 
     public String sign(String dataToSign,
                        boolean includePayload,
@@ -29,7 +30,7 @@ public class JWSSignAndVerifyController {
                        boolean keyFileNameByPartnerName) throws JoseException, NoSuchAlgorithmException, UnrecoverableEntryException,
             KeyStoreException, CertificateException, IOException, OperatorCreationException {
 
-        KeyMgrUtility keyMgrUtil = new KeyMgrUtility();
+        KeyMgrUtility keyMgrUtil = new KeyMgrUtility(cryptoCoreUtil);
         JsonWebSignature jwSign = new JsonWebSignature();
         PrivateKeyEntry keyEntry = keyMgrUtil.getKeyEntry(dirPath, partnerType, organizationName,
                 keyFileNameByPartnerName);
@@ -59,9 +60,19 @@ public class JWSSignAndVerifyController {
 
     }
     public static String trimBeginEnd(String pKey) {
-        pKey = pKey.replaceAll("-*BEGIN([^-]*)-*(\r?\n)?", "");
-        pKey = pKey.replaceAll("-*END([^-]*)-*(\r?\n)?", "");
-        pKey = pKey.replaceAll("\\s", "");
+    	if (pKey == null) {
+            return null;
+        }
+
+        pKey = pKey
+        		.replace("-----BEGIN CERTIFICATE-----", "")
+                .replace("-----END CERTIFICATE-----", "")
+                .replace("-----BEGIN PUBLIC KEY-----", "")
+                .replace("-----END PUBLIC KEY-----", "")
+                .replace("-----BEGIN PRIVATE KEY-----", "")
+                .replace("-----END PRIVATE KEY-----", "")
+                .replaceAll("\\s+", "");
+
         return pKey;
     }
 }

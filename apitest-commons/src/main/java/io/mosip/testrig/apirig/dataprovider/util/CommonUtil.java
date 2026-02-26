@@ -141,17 +141,18 @@ public class CommonUtil {
 	public static void CopyRecursivly(Path sourceDirectory, Path targetDirectory) throws IOException {
 
 		// Traverse the file tree and copy each file/directory.
-		Files.walk(sourceDirectory).forEach(sourcePath -> {
+		try (var paths = Files.walk(sourceDirectory)) {
+			for (Path sourcePath : (Iterable<Path>) paths::iterator) {
 
-			Path targetPath = targetDirectory.resolve(sourceDirectory.relativize(sourcePath));
+				Path targetPath = targetDirectory.resolve(sourceDirectory.relativize(sourcePath));
 
-			try {
-				Files.copy(sourcePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
-			} catch (IOException e) {
-				logger.error(e.getMessage());
+				try {
+					Files.copy(sourcePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
+				} catch (IOException e) {
+					throw new IOException("Failed to copy from '" + sourcePath + "' to '" + targetPath + "'", e);
+				}
 			}
-
-		});
+		}
 	}
 
 	public static String generateRandomString(int len) {

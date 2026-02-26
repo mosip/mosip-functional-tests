@@ -17,17 +17,18 @@ public class Watchdog {
 		if (running)
 			return;
 		running = true;
-		watchdogThread = new Thread(() -> {
+		watchdogThread = Thread.startVirtualThread(() -> {
 			try {
 				Thread.sleep(timeoutMillis);
+				
 				LOGGER.error("Watchdog timeout exceeded. Terminating the application.");
 				System.exit(1); // Forcefully terminate after timeout
+				
 			} catch (InterruptedException e) {
+				Thread.currentThread().interrupt();
 				LOGGER.info("Watchdog interrupted before timeout.");
 			}
 		});
-		watchdogThread.setDaemon(true); // Allows JVM to exit if main ends early
-		watchdogThread.start();
 	}
 
 	public void stop() {

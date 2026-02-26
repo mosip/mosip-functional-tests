@@ -32,10 +32,14 @@ import io.mosip.testrig.apirig.testrunner.JsonPrecondtion;
 
 public class BiometricDataUtility extends AuthTestsUtil {
 	
-	@Autowired
 	private static CryptoCore cryptoCore;
 	
 	private static final Logger logger = Logger.getLogger(BiometricDataUtility.class);
+	
+	@Autowired
+	public void setCryptoCore(CryptoCore cryptoCore) {
+	    BiometricDataUtility.cryptoCore = cryptoCore; // NOSONAR – static utility injected via Spring setter
+	}
 
 	private static String cryptoEncryptUrl = RunConfigUtil.objRunConfig.getEndPointUrl()
 			+ RunConfigUtil.objRunConfig.getCryptomanagerEncrypt();

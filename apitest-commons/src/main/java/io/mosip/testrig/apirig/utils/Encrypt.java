@@ -1,6 +1,7 @@
 package io.mosip.testrig.apirig.utils;
 
 import java.security.KeyManagementException;
+import java.security.KeyStore;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.util.Arrays;
@@ -9,45 +10,69 @@ import java.util.stream.IntStream;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
+import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 import javax.xml.bind.DatatypeConverter;
 
-import org.springframework.beans.factory.annotation.Autowired;
 public class Encrypt {
 
-    private static final String SSL = "SSL";
+    private static final String TLS = "TLS";
     String publicKeyURL = "${mosip.ida.publicKey-url}";
     String appID = "${application.id}";
 
     String keySplitter = "#KEY_SPLITTER#";
     
-    @Autowired
-    CryptoUtil cryptoUtil;
-
     private static String digestAsPlainText(byte[] data) {
         return DatatypeConverter.printHexBinary(data).toUpperCase();
     }
 
     public static void turnOffSslChecking() throws NoSuchAlgorithmException, KeyManagementException {
         // Install the all-trusting trust manager
-        final SSLContext sc = SSLContext.getInstance(Encrypt.SSL);
+        final SSLContext sc = SSLContext.getInstance(Encrypt.TLS);
         sc.init(null, UNQUESTIONING_TRUST_MANAGER, null);
         HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
     }
 
-    private static final TrustManager[] UNQUESTIONING_TRUST_MANAGER = new TrustManager[]{new X509TrustManager() {
-        public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-            return null;
-        }
+	private static final TrustManager[] UNQUESTIONING_TRUST_MANAGER = new TrustManager[] { new X509TrustManager() {
 
-        public void checkClientTrusted(java.security.cert.X509Certificate[] arg0, String arg1)
-                throws CertificateException {
-        }
+		private final X509TrustManager defaultTrustManager = getDefaultTrustManager();
 
-        public void checkServerTrusted(java.security.cert.X509Certificate[] certs, String arg1)
-                throws CertificateException {
-        }
-    }};
+		@Override
+		public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+			return defaultTrustManager.getAcceptedIssuers();
+		}
+
+		@Override
+		public void checkClientTrusted(java.security.cert.X509Certificate[] chain, String authType)
+				throws CertificateException {
+
+			defaultTrustManager.checkClientTrusted(chain, authType);
+		}
+
+		@Override
+		public void checkServerTrusted(java.security.cert.X509Certificate[] chain, String authType)
+				throws CertificateException {
+
+			defaultTrustManager.checkServerTrusted(chain, authType);
+		}
+	} };
+	
+	private static X509TrustManager getDefaultTrustManager() {
+		try {
+			TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+
+			tmf.init((KeyStore) null);
+
+			for (TrustManager tm : tmf.getTrustManagers()) {
+				if (tm instanceof X509TrustManager) {
+					return (X509TrustManager) tm;
+				}
+			}
+		} catch (Exception e) {
+			throw new IllegalStateException("Unable to load default TrustManager", e);
+		}
+		throw new IllegalStateException("No X509TrustManager found");
+	}
 
     public SplittedEncryptedData splitEncryptedData(String data) throws Exception {
         //boolean encryptedDataHasVersion =  env.getProperty("encryptedDataHasVersion", boolean.class, false);

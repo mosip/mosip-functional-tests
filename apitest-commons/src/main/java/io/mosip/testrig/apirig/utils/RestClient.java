@@ -1360,6 +1360,29 @@ public class RestClient {
 		return postResponse;
 	}
 
+	public static Response patchWithPathParamsBodyHeaderWithBearerToken(String url, Map<String, String> pathParams, String body,
+			String contentHeader, String acceptHeader, String cookieName, String cookieValue) {
+		Response postResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
+
+		if (ConfigManager.IsDebugEnabled()) {
+			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PATCH request to " + url);
+
+			postResponse = given().config(config).relaxedHTTPSValidation().pathParams(pathParams).body(body)
+					.contentType(contentHeader).headers(cookieName, "Bearer " + cookieValue).accept(acceptHeader).filter(RestAssuredPrettyLogger.getMaskingFilter()).when()
+					.patch(url).then().extract().response();
+
+			LogMaskingUtil.safeLogInfo(RESTCLIENT_LOGGER, GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString()
+			+ GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
+		} else {
+			postResponse = given().config(config).relaxedHTTPSValidation().pathParams(pathParams).body(body)
+					.contentType(contentHeader).headers(cookieName, "Bearer " + cookieValue).accept(acceptHeader).when().patch(url)
+					.then().extract().response();
+		}
+
+		return postResponse;
+	}
+	
 	public static Response postRequestWithQueryParm(String url, Map<String, String> body, String contentHeader,
 			String acceptHeader, String cookieName, String cookieValue) {
 		Response postResponse;
@@ -2013,7 +2036,7 @@ public class RestClient {
 			}
 
 			if (ConfigManager.IsDebugEnabled()) {
-				postResponse = requestSpec.when().post(url).then().extract().response();
+				postResponse = requestSpec.filter(RestAssuredPrettyLogger.getMaskingFilter()).when().post(url).then().extract().response();
 			} else {
 				postResponse = requestSpec.when().post(url).then().extract().response();
 			}

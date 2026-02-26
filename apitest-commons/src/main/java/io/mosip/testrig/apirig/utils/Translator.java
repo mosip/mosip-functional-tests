@@ -32,44 +32,51 @@ public class Translator {
             loadLanguageIDCache();
         }
         
+        if (langIsoCode == null || langIsoCodeCache == null) {
+            return "Any-Any";
+        }
+        
         // Return the translation ID for the given language code.
         // If not found, return a default value.
         return langIsoCodeCache.getOrDefault(langIsoCode.toLowerCase(), "Any-Any");
     }
 
-    private static synchronized void loadLanguageIDCache() {
-    	// If the cache is already loaded, do nothing
-        if (langIsoCodeCache != null) return; 
+	private static synchronized void loadLanguageIDCache() {
+		// If the cache is already loaded, do nothing
+		if (langIsoCodeCache != null) {
+	        return;
+	    }
 
-        langIsoCodeCache = new HashMap<>();
-        String filename = BaseTestCase.getGlobalResourcePath() + "/config/lang-isocode-transid.csv";
-        
-        File file = new File(filename);
-        if (!file.exists()) {
-        logger.error("Translation config file not found at path: " + filename);
-        return;
-        }
-        
-        // Read data from the CSV file and put it into the cache
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] rec = line.split(",");
-                if (rec.length >= 3) {
-                    String key = rec[0].trim().toLowerCase();
-                    String value = rec[2].trim();
-                    if (!value.isEmpty()) {
-                        langIsoCodeCache.put(key, value);
-                    }
-                }
-            }
-            
-            // This message will be shown only once in the console when the cache is loaded for the first time.
-            logger.info("Language ID cache loaded with " + langIsoCodeCache.size() + " entries.");
-        } catch (IOException e) {
-            logger.error("Error loading language ID CSV file: " + e.getMessage(), e);
-        }
-    }
+		langIsoCodeCache = new HashMap<>();
+		String filename = BaseTestCase.getGlobalResourcePath() + "/config/lang-isocode-transid.csv";
+
+		File file = new File(filename);
+		if (!file.exists()) {
+			logger.error("Translation config file not found at path: " + filename);
+			return;
+		}
+
+		// Read data from the CSV file and put it into the cache
+		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+			String line;
+			while ((line = br.readLine()) != null) {
+				String[] rec = line.split(",");
+				if (rec.length >= 3) {
+					String key = rec[0].trim().toLowerCase();
+					String value = rec[2].trim();
+					if (!value.isEmpty()) {
+						langIsoCodeCache.put(key, value);
+					}
+				}
+			}
+
+			// This message will be shown only once in the console when the cache is loaded
+			// for the first time.
+			logger.info("Language ID cache loaded with " + langIsoCodeCache.size() + " entries.");
+		} catch (IOException e) {
+			logger.error("Error loading language ID CSV file: " + e.getMessage(), e);
+		}
+	}
 
     public static String translate(String toLanguageIsoCode, String text) {
         String lang_from_to = getLanguageID(toLanguageIsoCode);
