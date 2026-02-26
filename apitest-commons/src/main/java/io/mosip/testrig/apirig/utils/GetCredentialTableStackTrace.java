@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Map;
 
 import javax.ws.rs.core.MediaType;
 
@@ -14,7 +13,6 @@ import org.hibernate.jdbc.Work;
 
 import io.mosip.idrepository.core.constant.IdRepoErrorConstants;
 import io.mosip.idrepository.core.exception.IdRepoAppUncheckedException;
-import io.mosip.kernel.core.exception.ExceptionUtils;
 import java.security.NoSuchAlgorithmException;
 import io.mosip.kernel.core.util.HMACUtils2;
 import io.mosip.testrig.apirig.dbaccess.DBManager;
@@ -149,9 +147,6 @@ public class GetCredentialTableStackTrace extends DBManager {
 					return buildBox(uin, null, "RID not found");
 				}
 				String requestId = rid;
-				if (requestId == null || requestId.isEmpty()) {
-					return buildBox(uin, null, "No requestId found");
-				}
 				record = getStatusFromCredentialTransactionTable(requestId);
 			} else {
 				int prefix = generateThreeDigitPrefix(uin, SALT_KEY_LENGTH);
@@ -164,7 +159,8 @@ public class GetCredentialTableStackTrace extends DBManager {
 			return buildBox(uin, rid, record);
 
 		} catch (Exception e) {
-			return "<b>Credential Details Failed:</b> " + e.getMessage();
+			logger.error("Credential details lookup failed for UIN: " + uin, e);
+			return buildBox(uin, null, "Credential details lookup failed");
 		}
 	}
 
