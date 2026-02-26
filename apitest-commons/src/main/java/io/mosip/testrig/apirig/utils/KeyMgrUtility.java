@@ -36,8 +36,6 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.time.ZoneOffset;
-import java.time.ZonedDateTime;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
@@ -73,9 +71,8 @@ import io.mosip.testrig.apirig.dto.CertificateChainResponseDto;
 
 public class KeyMgrUtility {
 	
-	
-    @Autowired
-    private CryptoCoreUtil cryptoCoreUtil;
+    private final CryptoCoreUtil cryptoCoreUtil;
+    private static final SecureRandom random = new SecureRandom();
 
 //    private static final String DOMAIN_URL = "mosip.base.url";
     private static final String CA_P12_FILE_NAME = "-ca.p12";
@@ -98,8 +95,13 @@ public class KeyMgrUtility {
 
     private static final String DEVICE_SPECIFIC_KEY = "-dsk";
 
-    private static final char[] TEMP_P12_PWD = "qwerty@123".toCharArray();
+    private static final char[] TEMP_P12PASS = GlobalConstants.TEMP_P12PASS.toCharArray();
     private static final String CERTIFICATE_TYPE = "X.509";
+    
+    @Autowired
+    public KeyMgrUtility(CryptoCoreUtil cryptoCoreUtil) {
+        this.cryptoCoreUtil = cryptoCoreUtil;
+    }
 
     public boolean deleteFile(File file) throws IOException {
         if (file != null) {
@@ -206,7 +208,7 @@ public class KeyMgrUtility {
     private char[] getP12Pass() {
         //String pass = environment.getProperty("p12.password");
         //return  pass == null ? TEMP_P12_PWD : pass.toCharArray();
-        return TEMP_P12_PWD;
+        return TEMP_P12PASS;
     }
 
     private String getKeyAlias(String keyAlias) {
@@ -221,7 +223,6 @@ public class KeyMgrUtility {
     private KeyStore.PrivateKeyEntry generateKeys(PrivateKey signKey, String signCertType, String certType, String p12FilePath, KeyUsage keyUsage,
                                                   LocalDateTime dateTime, LocalDateTime dateTimeExp, String organization) throws CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException, OperatorCreationException {
         KeyPairGenerator generator = KeyPairGenerator.getInstance(RSA_ALGO);
-        SecureRandom random = new SecureRandom();
         generator.initialize(RSA_KEY_SIZE, random);
         KeyPair keyPair = generator.generateKeyPair();
         X509Certificate signCert = null;
@@ -291,7 +292,6 @@ public class KeyMgrUtility {
 				Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
 			}
 
-	        SecureRandom random = new SecureRandom();
 	        KeyPairGenerator keyGen;
 
 	        switch (algorithm.toUpperCase()) {
@@ -378,7 +378,7 @@ public class KeyMgrUtility {
 
 			Date notAfter = Date.from(dateTimeExp.atZone(ZoneId.systemDefault()).toInstant());
 	   
-	    BigInteger certSerialNum = new BigInteger(Long.toString(new SecureRandom().nextLong()));
+			BigInteger certSerialNum = new BigInteger(159, random).add(BigInteger.ONE);
 
 	    // Build signer with correct algorithm
 	    ContentSigner certContentSigner = new JcaContentSignerBuilder(signAlgo)
@@ -408,7 +408,7 @@ public class KeyMgrUtility {
 		Date notBefore = Date.from(dateTime.atZone(ZoneId.systemDefault()).toInstant());
 		Date notAfter = Date.from(dateTimeExp.atZone(ZoneId.systemDefault()).toInstant());
 
-		BigInteger certSerialNum = new BigInteger(Long.toString(new SecureRandom().nextLong()));
+		BigInteger certSerialNum = new BigInteger(159, random).add(BigInteger.ONE);
 
 		ContentSigner certContentSigner = new JcaContentSignerBuilder(SIGN_ALGO).build(signPrivateKey);
 		X509v3CertificateBuilder certBuilder = new JcaX509v3CertificateBuilder(certIssuer, certSerialNum, notBefore,
