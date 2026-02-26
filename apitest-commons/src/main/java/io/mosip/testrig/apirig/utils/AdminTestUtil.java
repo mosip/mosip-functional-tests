@@ -7701,6 +7701,9 @@ public class AdminTestUtil extends BaseTestCase {
 				}
 			}
 
+		} catch (SkipException se) {
+		    logger.info("ID placeholder replacement failed.");
+		    return null;   // or handle appropriately
 		} catch (Exception e) {
 			logger.error("Failed to extract ID from input JSON", e);
 		}
