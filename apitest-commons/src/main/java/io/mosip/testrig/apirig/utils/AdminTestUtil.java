@@ -249,7 +249,7 @@ public class AdminTestUtil extends BaseTestCase {
 	    } else if(temp.isEmpty()) {
 	    	return false;
 	    } else {
-	    	return false;
+	    	return true;
 	    }
 	}
 
