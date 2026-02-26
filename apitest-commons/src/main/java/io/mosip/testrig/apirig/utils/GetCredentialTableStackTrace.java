@@ -41,7 +41,7 @@ public class GetCredentialTableStackTrace extends DBManager {
 
     public static String getRequestIdFromIdRepoCredentialRequestStatusTable(String uin) {
         String query = "SELECT request_id FROM idrepo.credential_request_status "
-                + "WHERE individual_id LIKE ? ORDER BY cr_dtimes DESC LIMIT 1";
+                + "WHERE individual_id LIKE ? ORDER BY cr_dtimes DESC";
         String likePattern = uin + "_%";
         try {
             String requestId = executeDBWithSelectQueries(IDREPO_DB_URL, DB_USER, DB_PASSWORD, "idrepo", query, likePattern);
@@ -155,7 +155,6 @@ public class GetCredentialTableStackTrace extends DBManager {
 				record = getStatusFromCredentialTransactionTable(requestId);
 			} else {
 				int prefix = generateThreeDigitPrefix(uin, SALT_KEY_LENGTH);
-				logger.info(prefix);
 				record = getRequestIdFromIdRepoCredentialRequestStatusTable(String.valueOf(prefix));
 			}
 

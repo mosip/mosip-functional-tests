@@ -7666,7 +7666,7 @@ public class AdminTestUtil extends BaseTestCase {
 	
 	public static String validateResponse(Response response, String inputJson, TestCaseDTO testCaseDTO) {
 
-	    if (response != null && response.asString().contains("IDA-MLC-018") && !testCaseDTO.getTestCaseName().endsWith("_Neg")) {
+	    if (response != null && !response.asString().contains("IDA-MLC-018") && !testCaseDTO.getTestCaseName().endsWith("_Neg")) {
 	        // Extract UIN from input JSON
 	        String uin = extractIdValue(inputJson);
 	        if (uin != null) {
