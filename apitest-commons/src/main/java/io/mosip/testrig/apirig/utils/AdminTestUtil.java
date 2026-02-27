@@ -4365,6 +4365,22 @@ public class AdminTestUtil extends BaseTestCase {
 
 		return normalized;
 	}
+	
+	public static KeyPairGenerator keyPairGen = null;
+
+	public static KeyPairGenerator getKeyPairGeneratorInstance() {
+		if (keyPairGen != null)
+			return keyPairGen;
+		try {
+			keyPairGen = KeyPairGenerator.getInstance("RSA");
+			keyPairGen.initialize(2048);
+
+		} catch (NoSuchAlgorithmException e) {
+			logger.error(e.getMessage());
+		}
+
+		return keyPairGen;
+	}
 
 	public static String generatePulicKey() {
 	    String publicKey = null;
