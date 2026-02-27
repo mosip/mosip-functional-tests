@@ -39,6 +39,7 @@ import com.jamesmurty.utils.XMLBuilder;
 import io.mosip.kernel.biometrics.commons.CbeffValidator;
 import io.mosip.kernel.biometrics.entities.BIR;
 import io.mosip.mock.sbi.test.CentralizedMockSBI;
+import io.mosip.mock.sbi.util.ApplicationPropertyHelper;
 import io.mosip.testrig.apirig.dataprovider.mds.MDSClient;
 import io.mosip.testrig.apirig.dataprovider.mds.MDSClientInterface;
 import io.mosip.testrig.apirig.dataprovider.models.BioModality;
@@ -366,6 +367,7 @@ public class BiometricDataProvider {
 
 			while (maxLoopCount > 0) {
 				try {
+					ApplicationPropertyHelper.getPropertyKeyValue("server.minport");
 					port = CentralizedMockSBI.startSBI(contextKey, mdsMode, "Biometric Device", p12path.toString());
 				} catch (Exception e) {
 					logger.error("Exception occured during startSBI " + contextKey, e);

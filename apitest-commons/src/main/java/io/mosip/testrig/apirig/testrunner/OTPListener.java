@@ -35,9 +35,9 @@ public class OTPListener {
     // --------------------------------------------------
     // Start WebSocket Listener
     // --------------------------------------------------
-    public void run() {
-        try {
-        	
+	public void run() {
+		try {
+
 			URI iamUri = URI.create(ConfigManager.getIAMUrl());
 
 			String host = iamUri.getHost();
@@ -45,23 +45,27 @@ public class OTPListener {
 				throw new IllegalStateException("Invalid IAM URL: " + ConfigManager.getIAMUrl());
 			}
 
-			// prepend smtp safely
-			String smtpHost = host.startsWith("smtp.") ? host : "smtp." + host;
+			int firstDot = host.indexOf('.');
 
-			int port = iamUri.getPort();
+			if (firstDot == -1 || firstDot == host.length() - 1) {
+				throw new IllegalStateException("Unexpected IAM host: " + host);
+			}
 
-			String websocketUrl = "wss://" + smtpHost + (port > 0 ? ":" + port : "") + "/mocksmtp/websocket";
+			String domain = host.substring(firstDot + 1);
 
-            logger.info("Connecting to OTP WebSocket: " + websocketUrl);
+			String smtpHost = "smtp." + domain;
 
-            HTTP_CLIENT.newWebSocketBuilder()
-                    .buildAsync(URI.create(websocketUrl), new WebSocketClient())
-                    .get(30, TimeUnit.SECONDS);
+			String websocketUrl = "wss://" + smtpHost + "/mocksmtp/websocket";
 
-        } catch (Exception e) {
-            logger.error("Failed to start OTP WebSocket listener", e);
-        }
-    }
+			logger.info("Connecting OTP WebSocket: " + websocketUrl);
+
+			HTTP_CLIENT.newWebSocketBuilder().buildAsync(URI.create(websocketUrl), new WebSocketClient()).get(30,
+					TimeUnit.SECONDS);
+
+		} catch (Exception e) {
+			logger.error("Failed to start OTP WebSocket listener", e);
+		}
+	}
 
     // --------------------------------------------------
     // WebSocket Client
@@ -134,6 +138,11 @@ public class OTPListener {
                 if (!NotificationListener.parseOtp(otpMessage).isEmpty()) {
                     NotificationListener.storeOtp(address, otpMessage);
                 }
+                
+             // 🔐 Store Additional Request Id if present
+				if (!NotificationListener.parseAdditionalReqId(otpMessage).isEmpty()) {
+					NotificationListener.storeWorkflowMessage(address, otpMessage);
+				}
 
             } catch (Exception e) {
                 logger.error("Error processing WebSocket message", e);
