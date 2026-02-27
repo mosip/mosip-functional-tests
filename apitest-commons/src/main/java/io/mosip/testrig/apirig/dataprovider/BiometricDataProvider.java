@@ -367,7 +367,6 @@ public class BiometricDataProvider {
 
 			while (maxLoopCount > 0) {
 				try {
-					ApplicationPropertyHelper.getPropertyKeyValue("server.minport");
 					port = CentralizedMockSBI.startSBI(contextKey, mdsMode, "Biometric Device", p12path.toString());
 				} catch (Exception e) {
 					logger.error("Exception occured during startSBI " + contextKey, e);
