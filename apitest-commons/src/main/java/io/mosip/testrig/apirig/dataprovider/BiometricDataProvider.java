@@ -39,7 +39,6 @@ import com.jamesmurty.utils.XMLBuilder;
 import io.mosip.kernel.biometrics.commons.CbeffValidator;
 import io.mosip.kernel.biometrics.entities.BIR;
 import io.mosip.mock.sbi.test.CentralizedMockSBI;
-import io.mosip.mock.sbi.util.ApplicationPropertyHelper;
 import io.mosip.testrig.apirig.dataprovider.mds.MDSClient;
 import io.mosip.testrig.apirig.dataprovider.mds.MDSClientInterface;
 import io.mosip.testrig.apirig.dataprovider.models.BioModality;

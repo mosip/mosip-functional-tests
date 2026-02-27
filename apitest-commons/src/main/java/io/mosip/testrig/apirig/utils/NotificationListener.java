@@ -20,8 +20,7 @@ public final class NotificationListener {
 	private static final long INACTIVE_EXPIRY_MS = 15 * 60 * 1000; // 15 mins
 	private static final Pattern OTP_PATTERN = Pattern.compile("\\b(\\d{6})\\b");
 	private static final Pattern ADDITIONAL_REQ_PATTERN = Pattern
-			.compile("AdditionalInfoRequestId(.*?)-BIOMETRIC_CORRECTION-1");
-
+			.compile("AdditionalInfoRequestId\\s*[:=]?\\s*([A-Za-z0-9-]+)-BIOMETRIC_CORRECTION-1");
 	private static final ConcurrentHashMap<String, EmailQueue> otpQueues = new ConcurrentHashMap<>();
 
 	private static final ConcurrentHashMap<String, EmailQueue> notificationQueues = new ConcurrentHashMap<>();
@@ -68,7 +67,7 @@ public final class NotificationListener {
 	public static void storeOtp(String email, String message) {
 		store(otpQueues, email, message);
 	}
-	
+
 	public static void storeWorkflowMessage(String email, String message) {
 		store(workflowQueues, email, message);
 	}
@@ -112,8 +111,7 @@ public final class NotificationListener {
 				m -> m != null && m.toLowerCase().contains(expectedText.toLowerCase()));
 	}
 
-	private static String poll(ConcurrentHashMap<String, EmailQueue> map, String emailId,
-			Predicate<String> filter) {
+	private static String poll(ConcurrentHashMap<String, EmailQueue> map, String emailId, Predicate<String> filter) {
 
 		long afterTime = requestWatermark.get();
 
@@ -165,7 +163,7 @@ public final class NotificationListener {
 
 		Matcher matcher = ADDITIONAL_REQ_PATTERN.matcher(message);
 
-		return matcher.find() ? matcher.group(1) : "";
+		return matcher.find() ? matcher.group(1).trim() : "";
 	}
 
 	// --------------------------------------------------
@@ -192,7 +190,10 @@ public final class NotificationListener {
 
 			notificationQueues.entrySet().removeIf(e -> now - e.getValue().lastAccessTime > INACTIVE_EXPIRY_MS);
 
-			logger.info("Cleanup executed. Active email queues: " + otpQueues.size());
+			workflowQueues.entrySet().removeIf(e -> now - e.getValue().lastAccessTime > INACTIVE_EXPIRY_MS);
+
+			logger.info("Cleanup executed. Active email queues - otp: " + otpQueues.size() + ", notification: "
+					+ notificationQueues.size() + ", workflow: " + workflowQueues.size());
 
 		}, 5, 5, TimeUnit.MINUTES);
 	}
