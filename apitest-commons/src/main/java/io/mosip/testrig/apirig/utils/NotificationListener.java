@@ -161,7 +161,14 @@ public final class NotificationListener {
 		if (message == null)
 			return "";
 
-		Matcher matcher = ADDITIONAL_REQ_PATTERN.matcher(message);
+		int index = message.indexOf("AdditionalInfoRequestId");
+		if (index < 0) {
+			return "";
+		}
+
+		String sub = message.substring(index);
+
+		Matcher matcher = ADDITIONAL_REQ_PATTERN.matcher(sub);
 
 		return matcher.find() ? matcher.group(1).trim() : "";
 	}
