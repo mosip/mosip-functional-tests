@@ -19,8 +19,6 @@ public final class NotificationListener {
 	private static final int MAX_QUEUE_SIZE = 50;
 	private static final long INACTIVE_EXPIRY_MS = 15 * 60 * 1000; // 15 mins
 	private static final Pattern OTP_PATTERN = Pattern.compile("\\b(\\d{6})\\b");
-	private static final Pattern ADDITIONAL_REQ_PATTERN = Pattern
-			.compile("AdditionalInfoRequestId\\s*[:=]?\\s*([A-Za-z0-9-]+)-BIOMETRIC_CORRECTION-1");
 	private static final ConcurrentHashMap<String, EmailQueue> otpQueues = new ConcurrentHashMap<>();
 
 	private static final ConcurrentHashMap<String, EmailQueue> notificationQueues = new ConcurrentHashMap<>();
@@ -158,19 +156,31 @@ public final class NotificationListener {
 
 	public static String parseAdditionalReqId(String message) {
 
-		if (message == null)
-			return "";
-
-		int index = message.indexOf("AdditionalInfoRequestId");
-		if (index < 0) {
+		if (message == null || message.isEmpty()) {
 			return "";
 		}
 
-		String sub = message.substring(index);
+		final String prefix = "AdditionalInfoRequestId";
+		final String suffix = "-BIOMETRIC_CORRECTION-1";
 
-		Matcher matcher = ADDITIONAL_REQ_PATTERN.matcher(sub);
+		int start = message.indexOf(prefix);
+		if (start < 0) {
+			return "";
+		}
 
-		return matcher.find() ? matcher.group(1).trim() : "";
+		start += prefix.length();
+
+		int end = message.indexOf(suffix, start);
+		if (end < 0) {
+			return "";
+		}
+
+		String value = message.substring(start, end);
+
+		// normalize delimiters and whitespace
+		value = value.replace(":", "").replace("=", "").trim();
+
+		return value;
 	}
 
 	// --------------------------------------------------
