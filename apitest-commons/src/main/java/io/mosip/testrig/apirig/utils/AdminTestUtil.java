@@ -4015,10 +4015,6 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = replaceKeywordWithValue(jsonString, "$BIOVALUEWITHOUTFACE$",
 					BiometricDataProvider.getFromBiometricMap("BioValueWithoutFace"));
 		}
-		if (jsonString.contains("$PERSONALIZED_CARD_HTML$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$PERSONALIZED_CARD_HTML$",
-					readBase64Resource("resident/personalized_card.html.b64"));
-		}
 		if (jsonString.contains(GlobalConstants.TIMESTAMP))
 			jsonString = replaceKeywordWithValue(jsonString, GlobalConstants.TIMESTAMP, generateCurrentUTCTimeStamp());
 		if (jsonString.contains("$EXPIRYTIMESTAMP$"))
