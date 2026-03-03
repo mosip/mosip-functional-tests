@@ -7680,9 +7680,9 @@ public class AdminTestUtil extends BaseTestCase {
 		extractAndStoreCsrfToken(response);
 	}
 	
-	public static String validateResponse(Response response, String inputJson, TestCaseDTO testCaseDTO) {
+	public static String validateResponse(String response, String inputJson, TestCaseDTO testCaseDTO) {
 
-	    if (response != null && response.asString().contains("IDA-MLC-018") && !testCaseDTO.getTestCaseName().endsWith("_Neg")) {
+	    if (response != null && response.contains("IDA-MLC-018") && !testCaseDTO.getTestCaseName().endsWith("_Neg")) {
 	        // Extract UIN from input JSON
 	        String uin = extractIdValue(inputJson);
 	        if (uin != null) {
@@ -7719,7 +7719,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		} catch (SkipException se) {
 		    logger.info("ID placeholder replacement failed.");
-		    return null;   // or handle appropriately
+		    return null;
 		} catch (Exception e) {
 			logger.error("Failed to extract ID from input JSON", e);
 		}

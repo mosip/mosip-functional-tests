@@ -445,6 +445,9 @@ public class OutputValidationUtil extends AuthTestsUtil {
 
 //		Checks output JSON contains server issues and log in report
 		reportServerIssues(actualOutputJson, testCaseDTO);
+		
+		// Checks for IDA-MLC-018 error
+		Reporter.log(AdminTestUtil.validateResponse(actualOutputJson, testCaseDTO.getInput(), testCaseDTO));
 
 		if (doesResponseHasErrorCode(actualOutputJson, testCaseDTO.getAllowedErrorCodes()))
 			return Collections.emptyMap();
