@@ -3466,7 +3466,11 @@ public class AdminTestUtil extends BaseTestCase {
 		
 		String[] headers = headerNames.split(",");
 		
-		for (String headerName : headers) {
+		for (String header : headers) {
+			String headerName = header.trim();
+			if (headerName.isEmpty()) {
+				continue;
+			}
 			String headerValue = response.getHeader(headerName);
 			if (headerValue == null || headerValue.isEmpty()) {
 				logger.warn("Header '" + headerName + "' not found in response");
