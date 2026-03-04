@@ -57,7 +57,7 @@ modules:
     enabled: false
     image:
       repository: mosipid/apitest-inji-verify
-      tag: 0.16.0
+      tag: 0.17.0
       pullPolicy: Always
   esignet-signup:
     enabled: true
