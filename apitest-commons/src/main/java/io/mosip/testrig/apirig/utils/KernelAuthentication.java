@@ -84,8 +84,8 @@ public class KernelAuthentication extends BaseTestCase {
 	private static final String GRANT_TYPE_KEY = "grant_type";
 	private static final String ACCESS_TOKEN = "access_token";
 	
-    private static String partnerCookie = null;
-    private static String mobileAuthCookie = null;
+    private static String partnerKeycloakToken = null;
+    private static String mobileAuthKeycloakCookie = null;
 	
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -267,22 +267,28 @@ public class KernelAuthentication extends BaseTestCase {
 		}
 	}
 	
-    public static String getAuthTokenFromKeyCloak(String clientId, String clientSecret) {
-        Map<String, String> params = new HashMap<>();
-        params.put(CLIENT_ID, clientId);
-        params.put(CLIENT_SECRET, clientSecret);
-        params.put(GRANT_TYPE_KEY, GRANT_TYPE);
+	public static String getAuthTokenFromKeyCloak(String clientId, String clientSecret) {
+		Map<String, String> params = new HashMap<>();
+		params.put(CLIENT_ID, clientId);
+		params.put(CLIENT_SECRET, clientSecret);
+		params.put(GRANT_TYPE_KEY, GRANT_TYPE);
 
-        Response response = sendPostRequest(TOKEN_URL, params);
+		Response response = sendPostRequest(TOKEN_URL, params);
 
-        if (response == null) {
-            return "";
-        }
-        logger.info(response.getBody().asString());
+		if (response == null) {
+			logger.error("Keycloak token request returned null response");
+			return "";
+		}
+		int statusCode = response.getStatusCode();
+		if (statusCode < 200 || statusCode >= 300) {
+			logger.error("Keycloak token request failed with status code: " + statusCode);
+			return "";
+		}
+		logger.info("Keycloak token request successful");
 
-        org.json.JSONObject responseJson = new org.json.JSONObject(response.getBody().asString());
-        return responseJson.optString(ACCESS_TOKEN, "");
-    }
+		org.json.JSONObject responseJson = new org.json.JSONObject(response.getBody().asString());
+		return responseJson.optString(ACCESS_TOKEN, "");
+	}
 	
 	public static String getAuthTokenByRole(String role) {
 		if (role == null)
@@ -291,17 +297,17 @@ public class KernelAuthentication extends BaseTestCase {
 		String roleLowerCase = role.toLowerCase();
 		switch (roleLowerCase) {
 		case "partner":
-			if (!AdminTestUtil.isValidToken(partnerCookie)) {
-				partnerCookie = getAuthTokenFromKeyCloak(ConfigManager.getPmsClientId(),
+			if (!AdminTestUtil.isValidToken(partnerKeycloakToken)) {
+				partnerKeycloakToken = getAuthTokenFromKeyCloak(ConfigManager.getPmsClientId(),
 						ConfigManager.getPmsClientSecret());
 			}
-			return partnerCookie;
+			return partnerKeycloakToken;
 		case "mobileauth":
-			if (!AdminTestUtil.isValidToken(mobileAuthCookie)) {
-				mobileAuthCookie = getAuthTokenFromKeyCloak(ConfigManager.getMPartnerMobileClientId(),
+			if (!AdminTestUtil.isValidToken(mobileAuthKeycloakCookie)) {
+				mobileAuthKeycloakCookie = getAuthTokenFromKeyCloak(ConfigManager.getMPartnerMobileClientId(),
 						ConfigManager.getMPartnerMobileClientSecret());
 			}
-			return mobileAuthCookie;
+			return mobileAuthKeycloakCookie;
 		default:
 			return "";
 		}
