@@ -17,7 +17,7 @@ public final class NotificationListener {
 	private static final Logger logger = Logger.getLogger(NotificationListener.class);
 
 	private static final int MAX_QUEUE_SIZE = 50;
-	private static final long INACTIVE_EXPIRY_MS = 15 * 60 * 1000; // 15 mins
+	private static final long INACTIVE_EXPIRY_MS = Long.parseLong(ConfigManager.getproperty("otp_queue_inactive_expiry_time")) * 60 * 1000; // 15 mins
 	private static final Pattern OTP_PATTERN = Pattern.compile("\\b(\\d{6})\\b");
 	private static final ConcurrentHashMap<String, EmailQueue> otpQueues = new ConcurrentHashMap<>();
 
@@ -76,20 +76,39 @@ public final class NotificationListener {
 		emailQueue.lastAccessTime = System.currentTimeMillis();
 
 		OtpMessage newMessage = new OtpMessage(message);
+
+		logger.info(String.format("[STORE] Email=%s QueueSize(before)=%d MessageSnippet=%s", email,
+				emailQueue.queue.size(), message.length() > 80 ? message.substring(0, 80) + "..." : message));
+
 		while (!emailQueue.queue.offer(newMessage)) {
 			emailQueue.queue.poll(); // remove oldest and retry insert
 			logger.warn("Queue full. Oldest message removed for " + email);
 		}
+
+		logger.info(String.format("[STORE] Email=%s QueueSize(after)=%d", email, emailQueue.queue.size()));
 	}
 
 	public static String getOtp(String emailId) {
+
+		logger.info("Requesting OTP for email: " + emailId);
+
 		if (ConfigManager.getUsePreConfiguredOtp().equalsIgnoreCase(GlobalConstants.TRUE_STRING)) {
 
-			logger.info("Using PreConfigured OTP");
+			logger.info("Using PreConfigured OTP for email: " + emailId);
 			return ConfigManager.getPreConfiguredOtp();
 		}
 
-		return parseOtp(poll(otpQueues, emailId, m -> !parseOtp(m).isEmpty()));
+		String msg = poll(otpQueues, emailId, m -> !parseOtp(m).isEmpty());
+
+		String otp = parseOtp(msg);
+
+		if (!otp.isEmpty()) {
+			logger.info("OTP FOUND for email=" + emailId + " OTP=" + otp);
+		} else {
+			logger.warn("OTP NOT FOUND for email=" + emailId);
+		}
+
+		return otp;
 	}
 
 	public static String getNotification(String emailId) {
@@ -119,44 +138,78 @@ public final class NotificationListener {
 
 		long endTime = System.currentTimeMillis() + timeoutSeconds * 1000;
 
+		logger.info(String.format("[POLL START] Email=%s Timeout=%s seconds QueueSize=%d", emailId, timeoutSeconds,
+				emailQueue.queue.size()));
+
+		int loop = 0;
+
 		try {
 
 			while (System.currentTimeMillis() < endTime) {
 
+				loop++;
+
 				OtpMessage msg = emailQueue.queue.poll(5, TimeUnit.SECONDS);
 
-				if (msg == null)
+				if (msg == null) {
+
+					logger.info(String.format("[POLL LOOP %d] No message yet for email=%s", loop, emailId));
+
 					continue;
+				}
+
+				logger.info(String.format("[POLL LOOP %d] Message received for email=%s ReceivedAt=%d", loop, emailId,
+						msg.receivedAt));
 
 				if (msg.receivedAt < afterTime) {
-					logger.info("Skipping stale message for " + emailId);
+					logger.info(String.format("[POLL LOOP %d] Skipping stale message for email=%s", loop, emailId));
 					continue;
 				}
 
 				emailQueue.lastAccessTime = System.currentTimeMillis();
 
 				if (filter.test(msg.message)) {
+					logger.info(String.format("[POLL SUCCESS] Email=%s Loop=%d MessageMatched", emailId, loop));
 					return msg.message;
 				}
+
+				logger.info(String.format("[POLL LOOP %d] Message did not match filter for email=%s", loop, emailId));
 			}
 
 		} catch (InterruptedException e) {
+			logger.error("Polling interrupted for email=" + emailId, e);
 			Thread.currentThread().interrupt();
 		}
+
+		logger.warn("[POLL TIMEOUT] No message received for email=" + emailId);
 
 		return "";
 	}
 
 	public static String parseOtp(String message) {
-		if (message == null)
+		if (message == null) {
+			logger.info("parseOtp called with null message");
 			return "";
+		}
 		Matcher matcher = OTP_PATTERN.matcher(message);
-		return matcher.find() ? matcher.group(1) : "";
+		if (matcher.find()) {
+
+			String otp = matcher.group(1);
+
+			logger.info("Extracted OTP=" + otp + " from message");
+
+			return otp;
+		}
+
+		logger.info("OTP not found in message");
+
+		return "";
 	}
 
 	public static String parseAdditionalReqId(String message) {
 
 		if (message == null || message.isEmpty()) {
+			logger.info("parseAdditionalReqId called with empty message");
 			return "";
 		}
 
@@ -164,21 +217,26 @@ public final class NotificationListener {
 		final String suffix = "-BIOMETRIC_CORRECTION-1";
 
 		int start = message.indexOf(prefix);
+
 		if (start < 0) {
+			logger.info("AdditionalReqId prefix not found");
 			return "";
 		}
 
 		start += prefix.length();
 
 		int end = message.indexOf(suffix, start);
+
 		if (end < 0) {
+			logger.info("AdditionalReqId suffix not found");
 			return "";
 		}
 
 		String value = message.substring(start, end);
 
-		// normalize delimiters and whitespace
 		value = value.replace(":", "").replace("=", "").trim();
+
+		logger.info("Extracted AdditionalReqId=" + value);
 
 		return value;
 	}
