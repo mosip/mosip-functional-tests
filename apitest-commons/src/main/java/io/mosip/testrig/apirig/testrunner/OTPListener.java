@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.mosip.testrig.apirig.otp.Root;
@@ -104,7 +105,10 @@ public class OTPListener {
 
 			try {
 
-				Root root = objectMapper.readValue(completeMessage, Root.class);
+				logger.info("RAW WEBSOCKET MESSAGE RECEIVED length=" + completeMessage.length());
+				logger.debug("RAW MESSAGE >>> " + completeMessage);
+				JsonNode jsonNode = objectMapper.readTree(completeMessage);
+				Root root = objectMapper.treeToValue(jsonNode, Root.class);
 
 				String otpMessage = "";
 				String notificationMessage = "";
