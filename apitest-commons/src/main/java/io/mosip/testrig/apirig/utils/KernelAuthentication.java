@@ -76,6 +76,17 @@ public class KernelAuthentication extends BaseTestCase {
 	protected static final String ESIGNETUINCOOKIESRESPONSE = "ESignetUINCookiesResponse";
 	protected static final String ESIGNETVIDCOOKIESRESPONSE = "ESignetVIDCookiesResponse";
 	
+	private static final String TOKEN_URL = ConfigManager.getproperty("keycloak-external-url")
+			+ ConfigManager.getproperty("keycloakAuthTokenEndPoint");
+	private static final String GRANT_TYPE = "client_credentials";
+	private static final String CLIENT_ID = "client_id";
+	private static final String CLIENT_SECRET = "client_secret";
+	private static final String GRANT_TYPE_KEY = "grant_type";
+	private static final String ACCESS_TOKEN = "access_token";
+	
+    private static String partnerKeycloakToken = null;
+    private static String mobileAuthKeycloakCookie = null;
+	
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
 			logger.setLevel(Level.ALL);
@@ -245,6 +256,59 @@ public class KernelAuthentication extends BaseTestCase {
 			return adminCookie;
 		}
 		
+	}
+
+	public static String getAuthTokenFromKeyCloak(String clientId, String clientSecret) {
+		Map<String, String> params = new HashMap<>();
+		params.put(CLIENT_ID, clientId);
+		params.put(CLIENT_SECRET, clientSecret);
+		params.put(GRANT_TYPE_KEY, GRANT_TYPE);
+
+		Response response = null;
+
+		try {
+			response = RestClient.postRequestWithFormDataBody(TOKEN_URL, params);
+		} catch (Exception e) {
+			logger.error("Error sending POST request to Keycloak token URL: " + TOKEN_URL, e);
+			return "";
+		}
+
+		if (response == null) {
+			logger.error("Keycloak token request returned null response");
+			return "";
+		}
+		int statusCode = response.getStatusCode();
+		if (statusCode < 200 || statusCode >= 300) {
+			logger.error("Keycloak token request failed with status code: " + statusCode);
+			return "";
+		}
+		logger.info("Keycloak token request successful");
+
+		org.json.JSONObject responseJson = new org.json.JSONObject(response.getBody().asString());
+		return responseJson.optString(ACCESS_TOKEN, "");
+	}
+	
+	public static String getAuthTokenByRole(String role) {
+		if (role == null)
+			return "";
+
+		String roleLowerCase = role.toLowerCase();
+		switch (roleLowerCase) {
+		case "partner":
+			if (!AdminTestUtil.isValidToken(partnerKeycloakToken)) {
+				partnerKeycloakToken = getAuthTokenFromKeyCloak(ConfigManager.getPmsClientId(),
+						ConfigManager.getPmsClientSecret());
+			}
+			return partnerKeycloakToken;
+		case "mobileauth":
+			if (!AdminTestUtil.isValidToken(mobileAuthKeycloakCookie)) {
+				mobileAuthKeycloakCookie = getAuthTokenFromKeyCloak(ConfigManager.getMPartnerMobileClientId(),
+						ConfigManager.getMPartnerMobileClientSecret());
+			}
+			return mobileAuthKeycloakCookie;
+		default:
+			return "";
+		}
 	}
 
 	@SuppressWarnings("unchecked")

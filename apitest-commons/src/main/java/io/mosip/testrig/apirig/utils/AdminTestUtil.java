@@ -96,6 +96,7 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.github.jknack.handlebars.Context;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Template;
@@ -7740,5 +7741,86 @@ public class AdminTestUtil extends BaseTestCase {
 	    }
 	    return null;
 	}
+
+	protected Response patchWithPathParamsBodyHeaderWithBearerToken(String url, String jsonInput, String cookieName, String role,
+			String testCaseName, String pathParams) throws SecurityXSSException {
+		Response response = null;
+		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		JSONObject req = new JSONObject(inputJson);
+		HashMap<String, String> pathParamsMap = new HashMap<>();
+		String[] params = pathParams.split(",");
+		for (String param : params) {
+			if (req.has(param)) {
+				pathParamsMap.put(param, req.get(param).toString());
+				req.remove(param);
+			} else
+				logger.error(GlobalConstants.ERROR_STRING_2 + param + GlobalConstants.IN_STRING + inputJson);
+		}
+
+		token = kernelAuthLib.getAuthTokenByRole(role);
+
+		logger.info(GlobalConstants.PUT_REQ_STRING + url);
+		GlobalMethods.reportRequest(null, req.toString(), url);
+		try {
+			response = RestClient.patchWithPathParamsBodyHeaderWithBearerToken(url, pathParamsMap, req.toString(),
+					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
+			// check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);
+			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
+			return response;
+		} catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response"
+					: response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString
+					+ "\nError: " + se.getMessage();
+			logger.error(errorMessageString, se);
+			throw se;
+		} catch (Exception e) {
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+			return response;
+		}
+	}
 	
+	public static String decodeBase64Url(String value) {
+		try {
+			byte[] decodedBytes = Base64.getUrlDecoder().decode(value);
+			return new String(decodedBytes, StandardCharsets.UTF_8);
+		} catch (Exception e) {
+			logger.error("Error decoding Base64Url: " + value, e);
+			return null;
+		}
+	}
+
+	public static String decodeAndCombineJwt(String jwtString) {
+		try {
+
+			if (jwtString == null || jwtString.isEmpty()) {
+				logger.error("JWT string is empty");
+				return null;
+			}
+
+			DecodedJWT jwt = JWT.decode(jwtString);
+
+			String headerJson = decodeBase64Url(jwt.getHeader());
+			String payloadJson = decodeBase64Url(jwt.getPayload());
+
+			if (headerJson == null || payloadJson == null) {
+				logger.error("Failed to decode JWT parts");
+				return null;
+			}
+
+			ObjectMapper mapper = new ObjectMapper();
+			ObjectNode combinedJson = mapper.createObjectNode();
+
+			combinedJson.set("header", mapper.readTree(headerJson));
+			combinedJson.set("payload", mapper.readTree(payloadJson));
+
+			return mapper.writeValueAsString(combinedJson);
+
+		} catch (Exception e) {
+			logger.error("Error decoding JWT: " + e.getMessage(), e);
+			return null;
+		}
+	}
+
 }
