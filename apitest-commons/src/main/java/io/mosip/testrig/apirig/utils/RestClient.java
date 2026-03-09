@@ -1671,15 +1671,34 @@ public class RestClient {
 
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
-
+			
 			pdf = given().config(config).relaxedHTTPSValidation().queryParams(body).contentType("application/pdf")
 					.accept("*/*").cookies(tokens).filter(RestAssuredPrettyLogger.getMaskingFilter()).when().get(url).then().extract().asByteArray();
 		} else {
 			pdf = given().config(config).relaxedHTTPSValidation().queryParams(body).contentType("application/pdf")
 					.accept("*/*").cookies(tokens).when().get(url).then().extract().asByteArray();
 		}
-
 		return pdf;
+	}
+	
+	public static Response getWithQueryParmForBothAccessToken(String url, Map<String, String> body, String contentHeader,
+			String acceptHeader, String cookieName, String cookieValue, String idTokenName, String idTokenValue) {
+		Map<String, String> tokens = new HashMap<>();
+		tokens.put(cookieName, cookieValue);
+		tokens.put(idTokenName, idTokenValue);
+		Response response;
+		url = GlobalMethods.addToServerEndPointMap(url);
+
+		if (ConfigManager.IsDebugEnabled()) {
+			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
+			
+			response = given().config(config).relaxedHTTPSValidation().queryParams(body).contentType(MediaType.WILDCARD)
+					.accept(MediaType.WILDCARD).cookies(tokens).filter(RestAssuredPrettyLogger.getMaskingFilter()).when().get(url);
+		} else {
+			response = given().config(config).relaxedHTTPSValidation().queryParams(body).contentType(MediaType.WILDCARD)
+					.accept(MediaType.WILDCARD).cookies(tokens).when().get(url);
+		}
+		return response;
 	}
 
 	public static Response getRequestWithCookieAndQueryParm(String url, Map<String, String> body, String contentHeader,
