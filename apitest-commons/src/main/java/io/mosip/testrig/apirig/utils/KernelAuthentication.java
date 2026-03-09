@@ -258,22 +258,20 @@ public class KernelAuthentication extends BaseTestCase {
 		
 	}
 
-	private static Response sendPostRequest(String url, Map<String, String> params) {
-		try {
-			return RestClient.postRequestWithFormDataBody(url, params);
-		} catch (Exception e) {
-			logger.error("Error sending POST request to URL: " + url, e);
-			return null;
-		}
-	}
-	
 	public static String getAuthTokenFromKeyCloak(String clientId, String clientSecret) {
 		Map<String, String> params = new HashMap<>();
 		params.put(CLIENT_ID, clientId);
 		params.put(CLIENT_SECRET, clientSecret);
 		params.put(GRANT_TYPE_KEY, GRANT_TYPE);
 
-		Response response = sendPostRequest(TOKEN_URL, params);
+		Response response = null;
+
+		try {
+			response = RestClient.postRequestWithFormDataBody(TOKEN_URL, params);
+		} catch (Exception e) {
+			logger.error("Error sending POST request to Keycloak token URL: " + TOKEN_URL, e);
+			return "";
+		}
 
 		if (response == null) {
 			logger.error("Keycloak token request returned null response");
