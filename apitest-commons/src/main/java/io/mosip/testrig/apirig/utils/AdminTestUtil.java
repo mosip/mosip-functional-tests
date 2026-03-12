@@ -188,12 +188,12 @@ public class AdminTestUtil extends BaseTestCase {
 	protected static final String UPDATE_UIN_REQUEST = "config/Authorization/requestIdentity.json";
 	protected static final String AUTH_INTERNAL_REQUEST = "config/Authorization/internalAuthRequest.json";
 	protected static final String AUTH_POLICY_BODY = "config/AuthPolicy.json";
-	protected static final String AUTH_POLICY_REQUEST = "config/AuthPolicy3.json";
-	protected static final String AUTH_POLICY_REQUEST_ATTR = "config/AuthPolicy2.json";
+	protected static final String AUTH_POLICY_REQUEST = "config/AuthPolicyTemplate.json";
+	protected static final String AUTH_POLICY_REQUEST_ATTR = "config/AuthPolicyAttributes.json";
 	protected static final String MISP_POLICY_REQUEST_ATTR = "config/mispPolicy.json";
-	protected static final String AUTH_POLICY_BODY1 = "config/AuthPolicy4.json";
-	protected static final String AUTH_POLICY_REQUEST1 = "config/AuthPolicy5.json";
-	protected static final String AUTH_POLICY_REQUEST_ATTR1 = "config/AuthPolicy6.json";
+//	protected static final String AUTH_POLICY_BODY1 = "config/AuthPolicy4.json";
+//	protected static final String AUTH_POLICY_REQUEST1 = "config/AuthPolicy5.json";
+	protected static final String AUTH_POLICY_REQUEST_ATTR1 = "config/AuthPolicyUpdateAttributes.json";
 	protected static final String POLICY_GROUP_REQUEST = "config/policyGroup.json";
 	protected static Map<String, String> keycloakRolesMap = new HashMap<>();
 	protected static Map<String, String> keycloakUsersMap = new HashMap<>();
@@ -1913,66 +1913,57 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 	}
 
-	public static void initialUserCreation() throws SecurityXSSException {
-		Response response = null;
-		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
-		org.json.simple.JSONObject actualRequestGeneration = BaseTestCase.getRequestJson("config/bulkUpload.json");
-		String url = ApplnURI + ConfigManager.getproperty("bulkUploadUrl");
-
-		JSONObject req = new JSONObject(actualRequestGeneration);
-
-		HashMap<String, String> formParams = new HashMap<>();
-		formParams.put(GlobalConstants.CATEGORY, req.getString(GlobalConstants.CATEGORY));
-		formParams.put(GlobalConstants.OPERATION, req.getString(GlobalConstants.OPERATION));
-		formParams.put(GlobalConstants.TABLENAME, req.getString(GlobalConstants.TABLENAME));
-
-		String absolueFilePath = null;
-		JSONArray josnArray = req.getJSONArray(GlobalConstants.FILES);
-		for (int index = 0; index < josnArray.length(); index++) {
-			String csvFilePath = (String) josnArray.get(index);
-			absolueFilePath = getResourcePath() + csvFilePath;
-			if (formParams.get(GlobalConstants.CATEGORY).equalsIgnoreCase("masterData")) {
-				absolueFilePath = StringUtils.substringBefore(absolueFilePath, GlobalConstants.FILES_TO_UPLOAD)
-						+ GlobalConstants.FILES_TO_UPLOAD;
-			}
-		}
-		File file = new File(absolueFilePath);
-		File[] listFiles = file.listFiles();
-
-		for (File specificFile : listFiles) {
-			if (formParams.get(GlobalConstants.OPERATION).equalsIgnoreCase("insert")
-					&& specificFile.getName().equals(formParams.get(GlobalConstants.TABLENAME) + ".csv")) {
-				specificFile = updateCSV(specificFile.getAbsolutePath(), "OLD", 1, 0);
-				listFiles = new File[1];
-				listFiles[0] = specificFile;
-			} else {
-				if (formParams.get(GlobalConstants.OPERATION).equalsIgnoreCase(GlobalConstants.UPDATE)
-						&& specificFile.getName().equalsIgnoreCase(
-								GlobalConstants.UPDATE + formParams.get(GlobalConstants.TABLENAME) + ".csv")) {
-					listFiles = new File[1];
-					listFiles[0] = specificFile;
-				}
-			}
-		}
-		try {
-			response = RestClient.postWithFormDataAndMultipleFile(url, formParams, listFiles,
-					MediaType.MULTIPART_FORM_DATA, token);
-			// check if X-XSS-Protection is enabled or not
-			GlobalMethods.checkXSSProtectionHeader(response, url);
-			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
-
-		} catch (SecurityXSSException se) {
-			String responseHeadersString = (response == null) ? "No response"
-					: response.getHeaders().asList().toString();
-			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString
-					+ "\nError: " + se.getMessage();
-			logger.error(errorMessageString, se);
-			throw se;
-		} catch (Exception e) {
-			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
-		}
-
-	}
+	/*
+	 * public static void initialUserCreation() throws SecurityXSSException {
+	 * Response response = null; String token =
+	 * kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
+	 * org.json.simple.JSONObject actualRequestGeneration =
+	 * BaseTestCase.getRequestJson("config/bulkUpload.json"); String url = ApplnURI
+	 * + ConfigManager.getproperty("bulkUploadUrl");
+	 * 
+	 * JSONObject req = new JSONObject(actualRequestGeneration);
+	 * 
+	 * HashMap<String, String> formParams = new HashMap<>();
+	 * formParams.put(GlobalConstants.CATEGORY,
+	 * req.getString(GlobalConstants.CATEGORY));
+	 * formParams.put(GlobalConstants.OPERATION,
+	 * req.getString(GlobalConstants.OPERATION));
+	 * formParams.put(GlobalConstants.TABLENAME,
+	 * req.getString(GlobalConstants.TABLENAME));
+	 * 
+	 * String absolueFilePath = null; JSONArray josnArray =
+	 * req.getJSONArray(GlobalConstants.FILES); for (int index = 0; index <
+	 * josnArray.length(); index++) { String csvFilePath = (String)
+	 * josnArray.get(index); absolueFilePath = getResourcePath() + csvFilePath; if
+	 * (formParams.get(GlobalConstants.CATEGORY).equalsIgnoreCase("masterData")) {
+	 * absolueFilePath = StringUtils.substringBefore(absolueFilePath,
+	 * GlobalConstants.FILES_TO_UPLOAD) + GlobalConstants.FILES_TO_UPLOAD; } } File
+	 * file = new File(absolueFilePath); File[] listFiles = file.listFiles();
+	 * 
+	 * for (File specificFile : listFiles) { if
+	 * (formParams.get(GlobalConstants.OPERATION).equalsIgnoreCase("insert") &&
+	 * specificFile.getName().equals(formParams.get(GlobalConstants.TABLENAME) +
+	 * ".csv")) { specificFile = updateCSV(specificFile.getAbsolutePath(), "OLD", 1,
+	 * 0); listFiles = new File[1]; listFiles[0] = specificFile; } else { if
+	 * (formParams.get(GlobalConstants.OPERATION).equalsIgnoreCase(GlobalConstants.
+	 * UPDATE) && specificFile.getName().equalsIgnoreCase( GlobalConstants.UPDATE +
+	 * formParams.get(GlobalConstants.TABLENAME) + ".csv")) { listFiles = new
+	 * File[1]; listFiles[0] = specificFile; } } } try { response =
+	 * RestClient.postWithFormDataAndMultipleFile(url, formParams, listFiles,
+	 * MediaType.MULTIPART_FORM_DATA, token); // check if X-XSS-Protection is
+	 * enabled or not GlobalMethods.checkXSSProtectionHeader(response, url);
+	 * GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url,
+	 * response);
+	 * 
+	 * } catch (SecurityXSSException se) { String responseHeadersString = (response
+	 * == null) ? "No response" : response.getHeaders().asList().toString(); String
+	 * errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " +
+	 * responseHeadersString + "\nError: " + se.getMessage();
+	 * logger.error(errorMessageString, se); throw se; } catch (Exception e) {
+	 * logger.error(GlobalConstants.EXCEPTION_STRING_2 + e); }
+	 * 
+	 * }
+	 */
 
 	/**
 	 * This method will hit put request and return the response
@@ -6175,8 +6166,8 @@ public class AdminTestUtil extends BaseTestCase {
 
 		String url = ApplnURI + properties.getProperty("authPolicyUrl");
 		org.json.simple.JSONObject actualrequestBody = getRequestJson(AUTH_POLICY_BODY); //config/AuthPolicy.json
-		org.json.simple.JSONObject actualrequest2 = getRequestJson(AUTH_POLICY_REQUEST); // config/AuthPolicy3.json
-		org.json.simple.JSONObject actualrequestAttr = getRequestJson(AUTH_POLICY_REQUEST_ATTR); // config/AuthPolicy2.json
+		org.json.simple.JSONObject actualrequest2 = getRequestJson(AUTH_POLICY_REQUEST); // config/AuthPolicyTemplate.json
+		org.json.simple.JSONObject actualrequestAttr = getRequestJson(AUTH_POLICY_REQUEST_ATTR); // config/AuthPolicyAttributes.json
 
 		actualrequest2.put("name", policyName);
 		actualrequest2.put("policyGroupName", policyGroup);
@@ -6250,8 +6241,8 @@ public class AdminTestUtil extends BaseTestCase {
 				MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 
 		String url = ApplnURI + properties.getProperty("authPolicyUrl");
-		org.json.simple.JSONObject actualrequestBody = getRequestJson(AUTH_POLICY_BODY1);
-		org.json.simple.JSONObject actualrequest2 = getRequestJson(AUTH_POLICY_REQUEST1);
+		org.json.simple.JSONObject actualrequestBody = getRequestJson(AUTH_POLICY_BODY);
+		org.json.simple.JSONObject actualrequest2 = getRequestJson(AUTH_POLICY_REQUEST);
 		org.json.simple.JSONObject actualrequestAttr = getRequestJson(AUTH_POLICY_REQUEST_ATTR1);
 
 		actualrequest2.put("name", policyNameForUpdate);
