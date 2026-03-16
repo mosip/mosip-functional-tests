@@ -7771,7 +7771,7 @@ public class AdminTestUtil extends BaseTestCase {
 	            logger.error("UIN not found in input JSON");
 	        }
 	    }
-	    return "Response is null or No IDA-MLC-018 error found in response";
+	    return "";
 	}
 	
 	public static String extractIdValue(String json) {
