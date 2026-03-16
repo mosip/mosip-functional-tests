@@ -3,6 +3,7 @@
 ## Overview
 
 The API Test Commons is a shared codebase used for executing module-wise automation API tests. It utilizes Java REST Assured and TestNG frameworks to automate testing for various modules, including:
+
 - Pre-registration
 - Masterdata
 - Partner Management
@@ -54,32 +55,42 @@ Ensure the following software is installed on the machine from where the automat
 1. Copy the git link: `https://github.com/mosip/mosip-functional-tests`
 2. Open Git Bash at your desired location on your local systemn.
 3. Run the following command to clone the repository:
+
    ```sh
    git clone https://github.com/mosip/mosip-functional-tests
 
 ---
 
 ## Update the property file
+
 1. Navigate to the kernel.properties file located at:
+
     ```sh
     mosip-functional-tests\apitest-commons\src\main\resources\config\kernel.properties
+    ```
+
 2. Open the file in your preferred editor
 3. Update the client secret values and other required credentials as per your environment
 
 ---
 
 ## Build Test Automation Code
+
 1. From the already opened Git Bash, navigate to the apitest-commons directory:
+
     ```sh
     cd mosip-functional-tests/apitest-commons/
 2. Run the following Maven command:
+
     ```sh
     mvn clean install -Dgpg.skip=true -Dmaven.gitcommitid.skip=true
 
 ---
 
 ## Using Apitest Commons as a dependency in the Project
+
 - Add the following dependency in the POM of required project
+
     ```sh
     <dependency>
       <groupId>io.mosip.testrig.apitest.commons</groupId>
@@ -90,4 +101,5 @@ Ensure the following software is installed on the machine from where the automat
 ---
 
 ## License
+
 This project is licensed under the terms of [Mozilla Public License 2.0](https://github.com/mosip/mosip-platform/blob/master/LICENSE)
