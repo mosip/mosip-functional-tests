@@ -299,9 +299,13 @@ public class BaseTestCase {
 	public static void initialize() {
 		PropertyConfigurator.configure(getLoggerPropertyConfig());
 		kernelAuthLib = new KernelAuthentication();
-		queries = AdminTestUtil.readProperty("adminQueries");
-		partnerQueries = AdminTestUtil.readProperty("partnerQueries");
-		residentQueries = AdminTestUtil.readProperty("residentServicesQueries");
+
+		/*
+		 * queries = AdminTestUtil.readProperty("adminQueries"); partnerQueries =
+		 * AdminTestUtil.readProperty("partnerQueries"); residentQueries =
+		 * AdminTestUtil.readProperty("residentServicesQueries");
+		 */
+
 		/**
 		 * Make sure test-output is there
 		 */

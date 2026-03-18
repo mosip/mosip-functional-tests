@@ -226,7 +226,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static void init() {
 		properties = getproperty(getGlobalResourcePath() + "/" + "config/application.properties");
 		propsMap = getproperty(getGlobalResourcePath() + "/" + "config/valueMapping.properties");
-		propsBio = getproperty(getGlobalResourcePath() + "/" + "config/bioValue.properties");
+//		propsBio = getproperty(getGlobalResourcePath() + "/" + "config/bioValue.properties");
 
 		PASSWORD_FOR_ADDIDENTITY_AND_REGISTRATION = properties.getProperty("passwordForAddIdentity");
 		PASSWORD_TO_RESET = properties.getProperty("passwordToReset");
