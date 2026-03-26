@@ -6152,6 +6152,11 @@ public class AdminTestUtil extends BaseTestCase {
 
 		Response response2 = RestClient.postRequestWithCookie(url2, actualrequest, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		
+		if (BaseTestCase.currentModule.contains(GlobalConstants.DSL)) {
+			GlobalMethods.ReportRequestAndResponse(null, response2.getHeaders().asList().toString(), url2,
+					actualrequest.toString(), response2.getBody().asString(), true);
+		}
 		String responseBody2 = response2.getBody().asString();
 		policygroupId = new org.json.JSONObject(responseBody2).getJSONObject(GlobalConstants.RESPONSE).getString("id");
 		
@@ -6166,6 +6171,11 @@ public class AdminTestUtil extends BaseTestCase {
 
 		Response mispResponse = RestClient.postRequestWithCookie(url2, mispActualRequest, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		
+		if (BaseTestCase.currentModule.contains(GlobalConstants.DSL)) {
+			GlobalMethods.ReportRequestAndResponse(null, mispResponse.getHeaders().asList().toString(), url2,
+					mispActualRequest.toString(), mispResponse.getBody().asString(), true);
+		}
 		String mispResponseBody = mispResponse.getBody().asString();
 		mispPolicyGroupId = new org.json.JSONObject(mispResponseBody).getJSONObject(GlobalConstants.RESPONSE).getString("id");
 
@@ -6186,6 +6196,11 @@ public class AdminTestUtil extends BaseTestCase {
 
 		Response response = RestClient.postRequestWithCookie(url, actualrequestBody, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		
+		if (BaseTestCase.currentModule.contains(GlobalConstants.DSL)) {
+			GlobalMethods.ReportRequestAndResponse(null, response.getHeaders().asList().toString(), url,
+					actualrequestBody.toString(), response.getBody().asString(), true);
+		}
 		String responseBody = response.getBody().asString();
 		policyId = new org.json.JSONObject(responseBody).getJSONObject(GlobalConstants.RESPONSE).getString("id");
 		
@@ -6204,6 +6219,11 @@ public class AdminTestUtil extends BaseTestCase {
 
 		Response mispPolicyCreationResponse = RestClient.postRequestWithCookie(url, actualMispRequestBody, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		
+		if (BaseTestCase.currentModule.contains(GlobalConstants.DSL)) {
+			GlobalMethods.ReportRequestAndResponse(null, mispPolicyCreationResponse.getHeaders().asList().toString(),
+					url, actualMispRequestBody.toString(), mispPolicyCreationResponse.getBody().asString(), true);
+		}
 		String mispPolicyCreationResponseBody = mispPolicyCreationResponse.getBody().asString();
 		mispPolicyId = new org.json.JSONObject(mispPolicyCreationResponseBody).getJSONObject(GlobalConstants.RESPONSE).getString("id");
 
@@ -6217,6 +6237,10 @@ public class AdminTestUtil extends BaseTestCase {
 
 		Response response3 = RestClient.postRequestWithCookie(url3, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		if (BaseTestCase.currentModule.contains(GlobalConstants.DSL)) {
+			GlobalMethods.ReportRequestAndResponse(null, response3.getHeaders().asList().toString(), url3, null,
+					response3.getBody().asString(), true);
+		}
 		
 		String publishPolicyURL = ApplnURI + properties.getProperty("publishPolicyurl");
 		
@@ -6228,7 +6252,11 @@ public class AdminTestUtil extends BaseTestCase {
 
 		Response publishPolicyResponse = RestClient.postRequestWithCookie(publishPolicyURL, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
-
+		
+		if (BaseTestCase.currentModule.contains(GlobalConstants.DSL)) {
+			GlobalMethods.ReportRequestAndResponse(null, publishPolicyResponse.getHeaders().asList().toString(),
+					publishPolicyURL, null, publishPolicyResponse.getBody().asString(), true);
+		}
 	}
 
 	@SuppressWarnings("unchecked")
@@ -6294,6 +6322,11 @@ public class AdminTestUtil extends BaseTestCase {
 
 		Response response2 = RestClient.postRequestWithCookie(url2, actualrequest, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		if (BaseTestCase.currentModule.contains(GlobalConstants.DSL)) {
+			GlobalMethods.ReportRequestAndResponse(null, response2.getHeaders().asList().toString(), url2,
+					actualrequest.toString(), response2.getBody().asString(), true);
+		}
+			
 		String responseBody2 = response2.getBody().asString();
 		String policygroupId2 = new org.json.JSONObject(responseBody2).getJSONObject(GlobalConstants.RESPONSE)
 				.getString("id");
@@ -6311,6 +6344,11 @@ public class AdminTestUtil extends BaseTestCase {
 
 		Response response = RestClient.postRequestWithCookie(url, actualrequestBody, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		if (BaseTestCase.currentModule.contains(GlobalConstants.DSL)) {
+			GlobalMethods.ReportRequestAndResponse(null, response.getHeaders().asList().toString(), url,
+					actualrequestBody.toString(), response.getBody().asString(), true);
+		}
+		
 		String responseBody = response.getBody().asString();
 		String policyId2 = new org.json.JSONObject(responseBody).getJSONObject(GlobalConstants.RESPONSE)
 				.getString("id");
@@ -6325,7 +6363,11 @@ public class AdminTestUtil extends BaseTestCase {
 
 		Response response3 = RestClient.postRequestWithCookie(url3, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
-
+		
+		if (BaseTestCase.currentModule.contains(GlobalConstants.DSL)) {
+			GlobalMethods.ReportRequestAndResponse(null, response3.getHeaders().asList().toString(), url3, null,
+					response3.getBody().asString(), true);
+		}
 	}
 
 	public static void writeFileAsString(File fileName, String content) {
