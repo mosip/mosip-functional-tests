@@ -63,15 +63,24 @@ public class HealthChecker implements Runnable {
 					// only add health check required for the current running module
 					if (parts[0].contains(currentRunningModule)) {
 						if (parts[1].contains(GlobalConstants.ESIGNET)
-								&& (ConfigManager.isInServiceNotDeployedList(GlobalConstants.ESIGNET)))
+								&& (ConfigManager.isInServiceNotDeployedList(GlobalConstants.ESIGNET))
+								|| parts[1].contains(GlobalConstants.RESIDENT)
+										&& (ConfigManager.isInServiceNotDeployedList(GlobalConstants.RESIDENT))
+								|| parts[1].contains(GlobalConstants.RID_GENERATOR)
+										&& (ConfigManager.isInServiceNotDeployedList(GlobalConstants.RID_GENERATOR))) {
 							continue;
-						if (parts[1].contains(GlobalConstants.RESIDENT)
-								&& (ConfigManager.isInServiceNotDeployedList(GlobalConstants.RESIDENT)))
-							continue;
-						if (parts[1].contains(GlobalConstants.RID_GENERATOR)
-								&& (ConfigManager.isInServiceNotDeployedList(GlobalConstants.RID_GENERATOR)))
-							continue;
-						controllerPaths.add(BaseTestCase.ApplnURI + parts[1]);
+						}
+						String baseUrl = BaseTestCase.ApplnURI;
+						if (parts[1].contains(GlobalConstants.ESIGNET)) {
+							String esignetBaseUrl = ConfigManager.getEsignetBaseUrl();
+							if (esignetBaseUrl != null && !esignetBaseUrl.trim().isEmpty()) {
+								baseUrl = esignetBaseUrl;
+							} else {
+								logger.error("Missing eSignetbaseurl. Falling back to BaseTestCase.ApplnURI for "
+										+ parts[1]);
+							}
+						}
+						controllerPaths.add(baseUrl + parts[1]);
 					}
 				}
 			}
