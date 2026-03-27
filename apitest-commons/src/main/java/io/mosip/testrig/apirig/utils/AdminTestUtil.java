@@ -191,8 +191,6 @@ public class AdminTestUtil extends BaseTestCase {
 	protected static final String AUTH_POLICY_REQUEST = "config/AuthPolicyRequestBody.json";
 	protected static final String AUTH_POLICY_REQUEST_ATTR = "config/AuthPolicyAllowedAuthTypes.json";
 	protected static final String MISP_POLICY_REQUEST_ATTR = "config/mispPolicy.json";
-//	protected static final String AUTH_POLICY_BODY1 = "config/AuthPolicy4.json";
-//	protected static final String AUTH_POLICY_REQUEST1 = "config/AuthPolicy5.json";
 	protected static final String AUTH_POLICY_REQUEST_ATTR1 = "config/AuthPolicyUpdateAllowedAuthTypes.json";
 	protected static final String POLICY_GROUP_REQUEST = "config/policyGroup.json";
 	protected static Map<String, String> keycloakRolesMap = new HashMap<>();
@@ -226,7 +224,6 @@ public class AdminTestUtil extends BaseTestCase {
 	public static void init() {
 		properties = getproperty(getGlobalResourcePath() + "/" + "config/application.properties");
 		propsMap = getproperty(getGlobalResourcePath() + "/" + "config/valueMapping.properties");
-//		propsBio = getproperty(getGlobalResourcePath() + "/" + "config/bioValue.properties");
 
 		PASSWORD_FOR_ADDIDENTITY_AND_REGISTRATION = properties.getProperty("passwordForAddIdentity");
 		PASSWORD_TO_RESET = properties.getProperty("passwordToReset");
@@ -1913,57 +1910,66 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 	}
 
-	/*
-	 * public static void initialUserCreation() throws SecurityXSSException {
-	 * Response response = null; String token =
-	 * kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
-	 * org.json.simple.JSONObject actualRequestGeneration =
-	 * BaseTestCase.getRequestJson("config/bulkUpload.json"); String url = ApplnURI
-	 * + ConfigManager.getproperty("bulkUploadUrl");
-	 * 
-	 * JSONObject req = new JSONObject(actualRequestGeneration);
-	 * 
-	 * HashMap<String, String> formParams = new HashMap<>();
-	 * formParams.put(GlobalConstants.CATEGORY,
-	 * req.getString(GlobalConstants.CATEGORY));
-	 * formParams.put(GlobalConstants.OPERATION,
-	 * req.getString(GlobalConstants.OPERATION));
-	 * formParams.put(GlobalConstants.TABLENAME,
-	 * req.getString(GlobalConstants.TABLENAME));
-	 * 
-	 * String absolueFilePath = null; JSONArray josnArray =
-	 * req.getJSONArray(GlobalConstants.FILES); for (int index = 0; index <
-	 * josnArray.length(); index++) { String csvFilePath = (String)
-	 * josnArray.get(index); absolueFilePath = getResourcePath() + csvFilePath; if
-	 * (formParams.get(GlobalConstants.CATEGORY).equalsIgnoreCase("masterData")) {
-	 * absolueFilePath = StringUtils.substringBefore(absolueFilePath,
-	 * GlobalConstants.FILES_TO_UPLOAD) + GlobalConstants.FILES_TO_UPLOAD; } } File
-	 * file = new File(absolueFilePath); File[] listFiles = file.listFiles();
-	 * 
-	 * for (File specificFile : listFiles) { if
-	 * (formParams.get(GlobalConstants.OPERATION).equalsIgnoreCase("insert") &&
-	 * specificFile.getName().equals(formParams.get(GlobalConstants.TABLENAME) +
-	 * ".csv")) { specificFile = updateCSV(specificFile.getAbsolutePath(), "OLD", 1,
-	 * 0); listFiles = new File[1]; listFiles[0] = specificFile; } else { if
-	 * (formParams.get(GlobalConstants.OPERATION).equalsIgnoreCase(GlobalConstants.
-	 * UPDATE) && specificFile.getName().equalsIgnoreCase( GlobalConstants.UPDATE +
-	 * formParams.get(GlobalConstants.TABLENAME) + ".csv")) { listFiles = new
-	 * File[1]; listFiles[0] = specificFile; } } } try { response =
-	 * RestClient.postWithFormDataAndMultipleFile(url, formParams, listFiles,
-	 * MediaType.MULTIPART_FORM_DATA, token); // check if X-XSS-Protection is
-	 * enabled or not GlobalMethods.checkXSSProtectionHeader(response, url);
-	 * GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url,
-	 * response);
-	 * 
-	 * } catch (SecurityXSSException se) { String responseHeadersString = (response
-	 * == null) ? "No response" : response.getHeaders().asList().toString(); String
-	 * errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " +
-	 * responseHeadersString + "\nError: " + se.getMessage();
-	 * logger.error(errorMessageString, se); throw se; } catch (Exception e) {
-	 * logger.error(GlobalConstants.EXCEPTION_STRING_2 + e); }
-	 * 
-	 * }
-	 */
+	public static void initialUserCreation() throws SecurityXSSException {
+		Response response = null;
+		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
+		org.json.simple.JSONObject actualRequestGeneration = BaseTestCase.getRequestJson("config/bulkUpload.json");
+		String url = ApplnURI + ConfigManager.getproperty("bulkUploadUrl");
+
+		JSONObject req = new JSONObject(actualRequestGeneration);
+
+		HashMap<String, String> formParams = new HashMap<>();
+		formParams.put(GlobalConstants.CATEGORY, req.getString(GlobalConstants.CATEGORY));
+		formParams.put(GlobalConstants.OPERATION, req.getString(GlobalConstants.OPERATION));
+		formParams.put(GlobalConstants.TABLENAME, req.getString(GlobalConstants.TABLENAME));
+
+		String absolueFilePath = null;
+		JSONArray josnArray = req.getJSONArray(GlobalConstants.FILES);
+		for (int index = 0; index < josnArray.length(); index++) {
+			String csvFilePath = (String) josnArray.get(index);
+			absolueFilePath = getResourcePath() + csvFilePath;
+			if (formParams.get(GlobalConstants.CATEGORY).equalsIgnoreCase("masterData")) {
+				absolueFilePath = StringUtils.substringBefore(absolueFilePath, GlobalConstants.FILES_TO_UPLOAD)
+						+ GlobalConstants.FILES_TO_UPLOAD;
+			}
+		}
+		File file = new File(absolueFilePath);
+		File[] listFiles = file.listFiles();
+
+		for (File specificFile : listFiles) {
+			if (formParams.get(GlobalConstants.OPERATION).equalsIgnoreCase("insert")
+					&& specificFile.getName().equals(formParams.get(GlobalConstants.TABLENAME) + ".csv")) {
+				specificFile = updateCSV(specificFile.getAbsolutePath(), "OLD", 1, 0);
+				listFiles = new File[1];
+				listFiles[0] = specificFile;
+			} else {
+				if (formParams.get(GlobalConstants.OPERATION).equalsIgnoreCase(GlobalConstants.UPDATE)
+						&& specificFile.getName().equalsIgnoreCase(
+								GlobalConstants.UPDATE + formParams.get(GlobalConstants.TABLENAME) + ".csv")) {
+					listFiles = new File[1];
+					listFiles[0] = specificFile;
+				}
+			}
+		}
+		try {
+			response = RestClient.postWithFormDataAndMultipleFile(url, formParams, listFiles,
+					MediaType.MULTIPART_FORM_DATA, token);
+			// check if X-XSS-Protection is enabled or not
+			GlobalMethods.checkXSSProtectionHeader(response, url);
+			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
+
+		} catch (SecurityXSSException se) {
+			String responseHeadersString = (response == null) ? "No response"
+					: response.getHeaders().asList().toString();
+			String errorMessageString = "XSS check failed for URL: " + url + "\nHeaders: " + responseHeadersString
+					+ "\nError: " + se.getMessage();
+			logger.error(errorMessageString, se);
+			throw se;
+		} catch (Exception e) {
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+		}
+
+	}
 
 	/**
 	 * This method will hit put request and return the response

@@ -300,16 +300,6 @@ public class BaseTestCase {
 		PropertyConfigurator.configure(getLoggerPropertyConfig());
 		kernelAuthLib = new KernelAuthentication();
 
-		/*
-		 * queries = AdminTestUtil.readProperty("adminQueries"); partnerQueries =
-		 * AdminTestUtil.readProperty("partnerQueries"); residentQueries =
-		 * AdminTestUtil.readProperty("residentServicesQueries");
-		 */
-
-		/**
-		 * Make sure test-output is there
-		 */
-
 		getOSType();
 		logger.info("We have created a Config Manager. Beginning to read properties!");
 

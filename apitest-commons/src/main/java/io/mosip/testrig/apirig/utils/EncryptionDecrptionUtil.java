@@ -256,43 +256,48 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		}
 		
 	}
-	/*
-	 * public static Certificate getPartnerCertificate(String partnerId) { String
-	 * cert = null; String token = kernelAuthLib.getTokenByRole("regproc"); String
-	 * url = ApplnURI + properties.getProperty("getPartnerCertificateUrl");
-	 * HashMap<String, String> map = new HashMap<>();
-	 * map.put(GlobalConstants.PARTNERID, partnerId);
-	 * lOGGER.info("Getting certificate for partner "+partnerId); Response response
-	 * = RestClient.getRequestWithCookieAndPathParm(url, map,
-	 * MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
-	 * GlobalConstants.AUTHORIZATION, token); JSONObject responseJson = new
-	 * JSONObject(response.asString());
-	 * if(!responseJson.get(GlobalConstants.RESPONSE).toString().equals("null")) {
-	 * JSONObject certiResponseJson = new
-	 * JSONObject(responseJson.get(GlobalConstants.RESPONSE).toString()); cert =
-	 * certiResponseJson.get("certificateData").toString(); } else {
-	 * lOGGER.error("Not able to Fetch Certficate from: "+url); return null; }
-	 * 
-	 * 
-	 * cert = cert.replaceAll("-----BEGIN (.*)-----\n", ""); cert =
-	 * cert.replaceAll("-----END (.*)----\n", ""); cert = cert.replaceAll("\\s",
-	 * ""); try (ByteArrayInputStream stream = new
-	 * ByteArrayInputStream(Base64.getDecoder().decode(cert))) { CertificateFactory
-	 * cf = CertificateFactory.getInstance("X.509"); return(X509Certificate) cf
-	 * .generateCertificate(stream);
-	 * 
-	 * } catch (CertificateException | IOException e) {
-	 * lOGGER.error("Exception in generate Certficate for generating thumbprint: "+e
-	 * .getMessage()); return null; }
-	 * 
-	 * }
-	 */
+	public static Certificate getPartnerCertificate(String partnerId) {
+		String cert = null;
+		String token = kernelAuthLib.getTokenByRole("regproc");
+		String url = ApplnURI + properties.getProperty("getPartnerCertificateUrl");
+		HashMap<String, String> map = new HashMap<>();
+		map.put(GlobalConstants.PARTNERID, partnerId);
+		lOGGER.info("Getting certificate for partner "+partnerId);
+		Response response = RestClient.getRequestWithCookieAndPathParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		JSONObject responseJson = new JSONObject(response.asString());
+		if(!responseJson.get(GlobalConstants.RESPONSE).toString().equals("null"))
+		{
+			JSONObject certiResponseJson = new JSONObject(responseJson.get(GlobalConstants.RESPONSE).toString());
+			cert = certiResponseJson.get("certificateData").toString();
+		}
+		else {
+			lOGGER.error("Not able to Fetch Certficate from: "+url);
+			return null;
+		}
+		
+		
+		cert = cert.replaceAll("-----BEGIN (.*)-----\n", "");
+		cert = cert.replaceAll("-----END (.*)----\n", "");
+		cert = cert.replaceAll("\\s", "");
+		try (ByteArrayInputStream stream = new ByteArrayInputStream(Base64.getDecoder().decode(cert))) {
+			CertificateFactory cf = CertificateFactory.getInstance("X.509");
+			return(X509Certificate) cf
+					.generateCertificate(stream);
+			
+		} catch (CertificateException | IOException e) {
+			lOGGER.error("Exception in generate Certficate for generating thumbprint: "+e.getMessage());
+			return null;
+		}
+		
+	}
 	
-	/*
-	 * public boolean validateThumbPrint( String thumbPrint, String partnerId) {
-	 * String expectedThumbPrint = ""; try { expectedThumbPrint =
-	 * getCertificateThumbprint(getPartnerCertificate(partnerId)); } catch
-	 * (Exception e) { lOGGER.error(e.getMessage()); } return
-	 * expectedThumbPrint.equals(thumbPrint); }
-	 */
+	public boolean validateThumbPrint( String thumbPrint, String partnerId) {
+		String expectedThumbPrint = "";
+		try {
+			expectedThumbPrint = getCertificateThumbprint(getPartnerCertificate(partnerId));
+		} catch (Exception e) {
+			lOGGER.error(e.getMessage());
+		}
+		return expectedThumbPrint.equals(thumbPrint);
+	}
 }
