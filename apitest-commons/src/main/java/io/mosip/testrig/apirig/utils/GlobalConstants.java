@@ -155,7 +155,6 @@ public class GlobalConstants {
 	public static final String POST_REQ_URL = "******Post request Json to EndPointUrl: ";
 	public static final String TEST_FULLNAME = "TEST_FULLNAME";
 	public static final String ENCODEDHASH = "encodedHash";
-	public static final String XSRFTOKEN = "XSRFTOKEN";
 	public static final String RESPONSE = "response";
 	public static final String ERROR_STRING_1 = "Not able to convert jsonrequet to map: ";
 	public static final String GET_REQ_STRING = "******get request to EndPointUrl: ";

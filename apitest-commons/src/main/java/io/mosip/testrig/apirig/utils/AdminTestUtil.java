@@ -187,13 +187,11 @@ public class AdminTestUtil extends BaseTestCase {
     protected static final String preRegUser = "Prereg_" + BaseTestCase.runContext +"@mosip.net";
 	protected static final String UPDATE_UIN_REQUEST = "config/Authorization/requestIdentity.json";
 	protected static final String AUTH_INTERNAL_REQUEST = "config/Authorization/internalAuthRequest.json";
-	protected static final String AUTH_POLICY_BODY = "config/AuthPolicy.json";
-	protected static final String AUTH_POLICY_REQUEST = "config/AuthPolicy3.json";
-	protected static final String AUTH_POLICY_REQUEST_ATTR = "config/AuthPolicy2.json";
+	protected static final String AUTH_POLICY_BODY = "config/AuthPolicyBody.json";
+	protected static final String AUTH_POLICY_REQUEST = "config/AuthPolicyRequestBody.json";
+	protected static final String AUTH_POLICY_REQUEST_ATTR = "config/AuthPolicyAllowedAuthTypes.json";
 	protected static final String MISP_POLICY_REQUEST_ATTR = "config/mispPolicy.json";
-	protected static final String AUTH_POLICY_BODY1 = "config/AuthPolicy4.json";
-	protected static final String AUTH_POLICY_REQUEST1 = "config/AuthPolicy5.json";
-	protected static final String AUTH_POLICY_REQUEST_ATTR1 = "config/AuthPolicy6.json";
+	protected static final String AUTH_POLICY_REQUEST_ATTR1 = "config/AuthPolicyUpdateAllowedAuthTypes.json";
 	protected static final String POLICY_GROUP_REQUEST = "config/policyGroup.json";
 	protected static Map<String, String> keycloakRolesMap = new HashMap<>();
 	protected static Map<String, String> keycloakUsersMap = new HashMap<>();
@@ -226,7 +224,6 @@ public class AdminTestUtil extends BaseTestCase {
 	public static void init() {
 		properties = getproperty(getGlobalResourcePath() + "/" + "config/application.properties");
 		propsMap = getproperty(getGlobalResourcePath() + "/" + "config/valueMapping.properties");
-		propsBio = getproperty(getGlobalResourcePath() + "/" + "config/bioValue.properties");
 
 		PASSWORD_FOR_ADDIDENTITY_AND_REGISTRATION = properties.getProperty("passwordForAddIdentity");
 		PASSWORD_TO_RESET = properties.getProperty("passwordToReset");
@@ -6184,9 +6181,9 @@ public class AdminTestUtil extends BaseTestCase {
 				MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 
 		String url = ApplnURI + properties.getProperty("authPolicyUrl");
-		org.json.simple.JSONObject actualrequestBody = getRequestJson(AUTH_POLICY_BODY); //config/AuthPolicy.json
-		org.json.simple.JSONObject actualrequest2 = getRequestJson(AUTH_POLICY_REQUEST); // config/AuthPolicy3.json
-		org.json.simple.JSONObject actualrequestAttr = getRequestJson(AUTH_POLICY_REQUEST_ATTR); // config/AuthPolicy2.json
+		org.json.simple.JSONObject actualrequestBody = getRequestJson(AUTH_POLICY_BODY); //config/AuthPolicyBody.json
+		org.json.simple.JSONObject actualrequest2 = getRequestJson(AUTH_POLICY_REQUEST); // config/AuthPolicyRequestBody.json
+		org.json.simple.JSONObject actualrequestAttr = getRequestJson(AUTH_POLICY_REQUEST_ATTR); // config/AuthPolicyAllowedAuthTypes.json
 
 		actualrequest2.put("name", policyName);
 		actualrequest2.put("policyGroupName", policyGroup);
@@ -6278,8 +6275,8 @@ public class AdminTestUtil extends BaseTestCase {
 				MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 
 		String url = ApplnURI + properties.getProperty("authPolicyUrl");
-		org.json.simple.JSONObject actualrequestBody = getRequestJson(AUTH_POLICY_BODY1);
-		org.json.simple.JSONObject actualrequest2 = getRequestJson(AUTH_POLICY_REQUEST1);
+		org.json.simple.JSONObject actualrequestBody = getRequestJson(AUTH_POLICY_BODY);
+		org.json.simple.JSONObject actualrequest2 = getRequestJson(AUTH_POLICY_REQUEST);
 		org.json.simple.JSONObject actualrequestAttr = getRequestJson(AUTH_POLICY_REQUEST_ATTR1);
 
 		actualrequest2.put("name", policyNameForUpdate);
@@ -7813,7 +7810,7 @@ public class AdminTestUtil extends BaseTestCase {
 	            logger.error("UIN not found in input JSON");
 	        }
 	    }
-	    return "Response is null or No IDA-MLC-018 error found in response";
+	    return "";
 	}
 	
 	public static String extractIdValue(String json) {
