@@ -43,6 +43,7 @@ public class KernelAuthentication extends BaseTestCase {
 	private String partner_auth_userName = props.get("partner_auth_userName");
 	private String device_provider_userName = props.get("device_provider_userName");
 	private String partner_device_userName = props.get("partner_device_userName");
+	private String partner_devicenew_userName = props.get("partner_devicenew_userName");
 	private String partner_ftm_userName = props.get("partner_ftm_userName");
 	private String partner_admin_userName = props.get("partner_admin_userName");
 	private String partner_userName_without_role = props.get("policytest_userName");
@@ -151,6 +152,12 @@ public class KernelAuthentication extends BaseTestCase {
 			if (!AdminTestUtil.isValidToken(partnerdeviceCookie))
 				partnerdeviceCookie = kernelAuthLib.getAuthForPartnerRevampDevice();
 			return partnerdeviceCookie;
+			
+		case "partnerdevicenew":
+			if (!AdminTestUtil.isValidToken(partnerdevicenewCookie))
+				partnerdevicenewCookie = kernelAuthLib.getAuthForPartnerRevampDeviceNew();
+			return partnerdevicenewCookie;
+			
 		case "partnerftm":
 			if (!AdminTestUtil.isValidToken(partnerftmCookie))
 				partnerftmCookie = kernelAuthLib.getAuthForPartnerRevampFtm();
@@ -462,6 +469,25 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
 		request.put(GlobalConstants.PASSWORD, partner_password);
 		request.put(GlobalConstants.USER_NAME,  BaseTestCase.runContext + partner_device_userName);
+		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
+		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
+		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+
+		actualInternalrequest.put(GlobalConstants.REQUEST, request);
+		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		String responseBody = reponse.getBody().asString();
+		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+	}
+	
+	@SuppressWarnings({ "unchecked" })
+	public String getAuthForPartnerRevampDeviceNew() {
+
+		JSONObject request = new JSONObject();
+
+		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
+		request.put(GlobalConstants.PASSWORD, partner_password);
+		request.put(GlobalConstants.USER_NAME,  BaseTestCase.runContext + partner_devicenew_userName);
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
