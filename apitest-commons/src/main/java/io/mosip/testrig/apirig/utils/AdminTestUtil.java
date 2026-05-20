@@ -98,7 +98,10 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.github.jknack.handlebars.Context;
+import com.github.jknack.handlebars.EscapingStrategy;
 import com.github.jknack.handlebars.Handlebars;
+import com.github.jknack.handlebars.Helper;
+import com.github.jknack.handlebars.Options;
 import com.github.jknack.handlebars.Template;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -3816,8 +3819,16 @@ public class AdminTestUtil extends BaseTestCase {
 
 	}
 
-	public static Handlebars handlebars = new Handlebars();
+	public static Handlebars handlebars = new Handlebars().with(EscapingStrategy.NOOP);
 	public static Gson gson = new Gson();
+	static {
+		handlebars.registerHelper("json", new Helper<Object>() {
+			@Override
+			public CharSequence apply(Object context, Options options) {
+				return gson.toJson(context);
+			}
+		});
+	}
 
 	public String getJsonFromTemplate(String input, String template, boolean readFile) {
 		String resultJson = null;
@@ -5630,6 +5641,31 @@ public class AdminTestUtil extends BaseTestCase {
 		identityHbs = requestJson.toString();
 		return identityHbs;
 	}
+	
+	public static String modifySchemaGenerateHbsV2(boolean regenerateHbs) {
+
+		String hbs = modifySchemaGenerateHbs(regenerateHbs);
+
+		JSONObject requestJson = new JSONObject(hbs);
+		requestJson.getJSONObject("request").put("verifiedAttributes", "$VERIFIED_ATTRIBUTES$");
+
+		return requestJson.toString().replace("\"$VERIFIED_ATTRIBUTES$\"", buildVerifiedAttributesHbs());
+	}
+	
+	private static String buildVerifiedAttributesHbs() {
+
+	    return "{{{json verifiedAttributes}}}";
+	}
+
+	/*
+	 * private static String buildVerifiedAttributesHbs() { return
+	 * "[{{#each verifiedAttributes}}" + "{{#unless @first}},{{/unless}}" + "{" +
+	 * "\"trustFramework\":\"{{trustFramework}}\"," +
+	 * "\"verificationProcess\":\"{{verificationProcess}}\"," +
+	 * "\"claims\":[{{#each claims}}{{#unless @first}},{{/unless}}\"{{this}}\"{{/each}}]"
+	 * + "{{#if metadata}},\"metadata\":{{json metadata}}{{/if}}" + "}" +
+	 * "{{/each}}]"; }
+	 */
 
 	public static String getSchemaURL() {
 		String schemaURL = ApplnURI + properties.getProperty(GlobalConstants.MASTER_SCHEMA_URL);
