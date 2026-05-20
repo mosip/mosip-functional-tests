@@ -5657,16 +5657,6 @@ public class AdminTestUtil extends BaseTestCase {
 	    return "{{{json verifiedAttributes}}}";
 	}
 
-	/*
-	 * private static String buildVerifiedAttributesHbs() { return
-	 * "[{{#each verifiedAttributes}}" + "{{#unless @first}},{{/unless}}" + "{" +
-	 * "\"trustFramework\":\"{{trustFramework}}\"," +
-	 * "\"verificationProcess\":\"{{verificationProcess}}\"," +
-	 * "\"claims\":[{{#each claims}}{{#unless @first}},{{/unless}}\"{{this}}\"{{/each}}]"
-	 * + "{{#if metadata}},\"metadata\":{{json metadata}}{{/if}}" + "}" +
-	 * "{{/each}}]"; }
-	 */
-
 	public static String getSchemaURL() {
 		String schemaURL = ApplnURI + properties.getProperty(GlobalConstants.MASTER_SCHEMA_URL);
 		String schemaVersion = ConfigManager.getproperty(GlobalConstants.SCHEMA_VERSION);
