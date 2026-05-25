@@ -5463,7 +5463,7 @@ public class AdminTestUtil extends BaseTestCase {
 			JSONObject identityJson = new JSONObject();
 			identityJson.put("UIN", "{{UIN}}");
 			JSONArray handleArray = new JSONArray();
-			handleArray.put("handles");
+			handleArray.put("handle");
 
 			List<String> selectedHandles = new ArrayList<>();
 			// requiredPropsArray.put("functionalId");
@@ -5483,9 +5483,8 @@ public class AdminTestUtil extends BaseTestCase {
 					randomValue = phoneSchemaRegex;
 				}
 
-				// Processing for TaggedListType
-				if (eachPropDataJson.has("$ref")
-						&& eachPropDataJson.get("$ref").toString().contains("TaggedListType")) {
+				// Processing for array handle types such as TaggedListType and simpleListType.
+				if (isArrayHandleType(eachPropDataJson)) {
 					JSONArray eachPropDataArrayForHandles = new JSONArray();
 					JSONObject eachValueJsonForHandles = new JSONObject();
 					if (eachRequiredProp.equals(emailResult)) {
@@ -5657,6 +5656,16 @@ public class AdminTestUtil extends BaseTestCase {
 	    return "{{{json verifiedAttributes}}}";
 	}
 
+	private static boolean isArrayHandleType(JSONObject eachPropDataJson) {
+		if (!eachPropDataJson.has("$ref")) {
+			return false;
+		}
+
+		String ref = eachPropDataJson.optString("$ref", "").toLowerCase();
+		return ref.contains("taggedlisttype") || ref.contains("simplelisttype")
+				|| (ref.contains("listtype") && eachPropDataJson.optBoolean("handle", false));
+	}
+	
 	public static String getSchemaURL() {
 		String schemaURL = ApplnURI + properties.getProperty(GlobalConstants.MASTER_SCHEMA_URL);
 		String schemaVersion = ConfigManager.getproperty(GlobalConstants.SCHEMA_VERSION);
@@ -5726,7 +5735,7 @@ public class AdminTestUtil extends BaseTestCase {
 			JSONObject identityJson = new JSONObject();
 			identityJson.put("UIN", "{{UIN}}");
 			JSONArray handleArray = new JSONArray();
-			handleArray.put("handles");
+			handleArray.put("handle");
 
 			List<String> selectedHandles = new ArrayList<>();
 			// requiredPropsArray.put("functionalId");
@@ -5746,9 +5755,8 @@ public class AdminTestUtil extends BaseTestCase {
 					randomValue = phoneSchemaRegex;
 				}
 
-				// Processing for TaggedListType
-				if (eachPropDataJson.has("$ref")
-						&& eachPropDataJson.get("$ref").toString().contains("TaggedListType")) {
+				// Processing for array handle types such as TaggedListType and simpleListType.
+				if (isArrayHandleType(eachPropDataJson)) {
 					JSONArray eachPropDataArrayForHandles = new JSONArray();
 					JSONObject eachValueJsonForHandles = new JSONObject();
 					if (eachRequiredProp.equals(emailResult)) {
