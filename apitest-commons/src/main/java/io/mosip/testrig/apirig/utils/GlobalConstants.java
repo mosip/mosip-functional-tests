@@ -57,6 +57,7 @@ public class GlobalConstants {
 	public static final String INJIVERIFY = "injiverify";
 	public static final String ESIGNET = "esignet";
 	public static final String SIGNUP = "signup";
+	public static final String KEYMANAGER = "keymanager";
 	public static final String APIKEY = "apiKey";
 	public static final String PARTNER_APIKEY = "partnerApiKey";
 	public static final String PARTNERID = "partnerId";
