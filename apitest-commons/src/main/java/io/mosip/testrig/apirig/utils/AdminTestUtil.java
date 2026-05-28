@@ -5528,7 +5528,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 				} else if (!ref.isEmpty() && ref.contains("hashType")) {
 					// Password/hash field — detected by $ref type
-					if (addIdentityPassword.isBlank() && addIdentitySalt.isBlank()) {
+					if (StringUtils.isBlank(addIdentityPassword) || StringUtils.isBlank(addIdentitySalt)) {
 						getPasswordSaltFromKeyManager(PASSWORD_FOR_ADDIDENTITY_AND_REGISTRATION);
 					}
 					JSONObject hashJson = new JSONObject();
@@ -5758,7 +5758,7 @@ public class AdminTestUtil extends BaseTestCase {
 					// Skip biometric fields — update does not re-upload biometrics
 
 				} else if (!ref.isEmpty() && ref.contains("hashType")) {
-					if (addIdentityPassword.isBlank() && addIdentitySalt.isBlank())
+					if (StringUtils.isBlank(addIdentityPassword) || StringUtils.isBlank(addIdentitySalt))
 						getPasswordSaltFromKeyManager(PASSWORD_FOR_ADDIDENTITY_AND_REGISTRATION);
 					JSONObject hash = new JSONObject();
 					hash.put("hash", addIdentityPassword); hash.put("salt", addIdentitySalt);
@@ -5941,7 +5941,7 @@ public class AdminTestUtil extends BaseTestCase {
 					identityJson.put(eachRequiredProp, bio);
 
 				} else if (!ref.isEmpty() && ref.contains("hashType")) {
-					if (addIdentityPassword.isBlank() && addIdentitySalt.isBlank())
+					if (StringUtils.isBlank(addIdentityPassword) || StringUtils.isBlank(addIdentitySalt))
 						getPasswordSaltFromKeyManager(PASSWORD_FOR_ADDIDENTITY_AND_REGISTRATION);
 					JSONObject hash = new JSONObject();
 					hash.put("hash", addIdentityPassword); hash.put("salt", addIdentitySalt);
@@ -6139,7 +6139,7 @@ public class AdminTestUtil extends BaseTestCase {
 					identityJson.put(eachRequiredProp, arr);
 
 				} else if (!ref.isEmpty() && ref.contains("hashType")) {
-					if (addIdentityPassword.isBlank() && addIdentitySalt.isBlank())
+					if (StringUtils.isBlank(addIdentityPassword) || StringUtils.isBlank(addIdentitySalt))
 						getPasswordSaltFromKeyManager(PASSWORD_FOR_ADDIDENTITY_AND_REGISTRATION);
 					JSONObject hash = new JSONObject();
 					hash.put("hash", addIdentityPassword); hash.put("salt", addIdentitySalt);
@@ -6152,6 +6152,14 @@ public class AdminTestUtil extends BaseTestCase {
 						// skip
 					} else if (eachRequiredProp.equals("preferredLang")) {
 						identityJson.put(eachRequiredProp, "$1STLANG$");
+					} else if (eachRequiredProp.equals("registrationType")) {
+						JSONArray validators = eachPropDataJson.optJSONArray("validators");
+						if (validators != null && validators.length() > 0) {
+							identityJson.put(eachRequiredProp,
+									genStringAsperRegex(validators.getJSONObject(0).getString("validator")));
+						} else {
+							identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
+						}
 					} else if (eachRequiredProp.equals(phoneFieldName)) {
 						identityJson.put(eachRequiredProp, "$PHONENUMBERFORIDENTITY$");
 					} else if (eachRequiredProp.equals(emailFieldName)) {
