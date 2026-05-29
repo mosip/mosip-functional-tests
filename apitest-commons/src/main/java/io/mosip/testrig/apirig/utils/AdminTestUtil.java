@@ -4138,6 +4138,21 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$MISPPARTNEREMAIL$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$MISPPARTNEREMAIL$", genMispPartnerEmail);
+		
+		if (jsonString.contains("$DATASHAREPARTNEREMAIL$"))
+			jsonString = replaceKeywordWithValue(jsonString, "$DATASHAREPARTNEREMAIL$", genDataSharePartnerEmail);
+		
+		if (jsonString.contains("$DATASHAREPOLICYDESC$"))
+			jsonString = replaceKeywordWithValue(jsonString, "$DATASHAREPOLICYDESC$", genDataSharePolicyDesc);
+		
+		if (jsonString.contains("$DATASHAREPOLICYNAME$"))
+			jsonString = replaceKeywordWithValue(jsonString, "$DATASHAREPOLICYNAME$", genDataSharePolicyName);
+		
+		if (jsonString.contains("$DATASHAREPOLICYGROUPDESC$"))
+			jsonString = replaceKeywordWithValue(jsonString, "$DATASHAREPOLICYGROUPDESC$", genDataSharePolicyGroupDesc);
+
+		if (jsonString.contains("$DATASHAREPOLICYGROUPNAME$"))
+			jsonString = replaceKeywordWithValue(jsonString, "$DATASHAREPOLICYGROUPNAME$", genDataSharePolicyGroupName);
 
 		if (jsonString.contains("$ZONE_CODE$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$ZONE_CODE$", ZonelocationCode);
