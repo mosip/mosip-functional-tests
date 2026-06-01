@@ -18,7 +18,7 @@ public final class NotificationListener {
 
 	private static final int MAX_QUEUE_SIZE = 50;
 	private static final long INACTIVE_EXPIRY_MS = Long.parseLong(ConfigManager.getproperty("otp_queue_inactive_expiry_time")) * 60 * 1000; // 15 mins
-	private static final Pattern OTP_PATTERN = Pattern.compile("\\b(\\d{6})\\b");
+	private static final Pattern OTP_PATTERN = Pattern.compile("(?i)\\bis\\s+(\\d{6})\\s+and\\s+is\\s+valid");
 	private static final ConcurrentHashMap<String, EmailQueue> otpQueues = new ConcurrentHashMap<>();
 
 	private static final ConcurrentHashMap<String, EmailQueue> notificationQueues = new ConcurrentHashMap<>();
