@@ -5471,7 +5471,7 @@ public class AdminTestUtil extends BaseTestCase {
 						eachValueJsonForHandles.put("tags", handleArray);
 						selectedHandles.add(emailFieldName);
 					} else if (eachRequiredProp.equals(phoneFieldName)) {
-						eachValueJsonForHandles.put("value", "$PHONENUMBERFORIDENTITY$");
+						eachValueJsonForHandles.put("value", "{{phone}}");
 						eachValueJsonForHandles.put("tags", handleArray);
 						selectedHandles.add(phoneFieldName);
 					} else {
@@ -5560,7 +5560,7 @@ public class AdminTestUtil extends BaseTestCase {
 						if (isHandle) {
 							selectedHandles.add(eachRequiredProp);
 						}
-						identityJson.put(eachRequiredProp, "$PHONENUMBERFORIDENTITY$");
+						identityJson.put(eachRequiredProp, "{{phone}}");
 
 					} else if (eachRequiredProp.equals(emailFieldName)) {
 						if (isHandle) {
@@ -5724,7 +5724,7 @@ public class AdminTestUtil extends BaseTestCase {
 					if (eachRequiredProp.equals(emailFieldName)) {
 						entry.put("value", "$EMAILVALUE$"); entry.put("tags", handleArray); selectedHandles.add(emailFieldName);
 					} else if (eachRequiredProp.equals(phoneFieldName)) {
-						entry.put("value", "$PHONENUMBERFORIDENTITY$"); entry.put("tags", handleArray); selectedHandles.add(phoneFieldName);
+						entry.put("value", "{{phone}}"); entry.put("tags", handleArray); selectedHandles.add(phoneFieldName);
 					} else {
 						entry.put("value", "$FUNCTIONALID$"); entry.put("tags", handleArray); selectedHandles.add(eachRequiredProp);
 					}
@@ -5779,7 +5779,7 @@ public class AdminTestUtil extends BaseTestCase {
 							identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
 					} else if (eachRequiredProp.equals(phoneFieldName)) {
 						if (isHandle) selectedHandles.add(eachRequiredProp);
-						identityJson.put(eachRequiredProp, "$PHONENUMBERFORIDENTITY$");
+						identityJson.put(eachRequiredProp, "{{phone}}");
 					} else if (eachRequiredProp.equals(emailFieldName)) {
 						if (isHandle) selectedHandles.add(eachRequiredProp);
 						if ("array".equals(fieldType)) {
@@ -5910,7 +5910,7 @@ public class AdminTestUtil extends BaseTestCase {
 					if (eachRequiredProp.equals(emailFieldName)) {
 						entry.put("value", "$EMAILVALUE$"); entry.put("tags", handleArray); selectedHandles.add(emailFieldName);
 					} else if (eachRequiredProp.equals(phoneFieldName)) {
-						entry.put("value", "$PHONENUMBERFORIDENTITY$"); entry.put("tags", handleArray); selectedHandles.add(phoneFieldName);
+						entry.put("value", "{{phone}}"); entry.put("tags", handleArray); selectedHandles.add(phoneFieldName);
 					} else {
 						entry.put("value", "$FUNCTIONALID$"); entry.put("tags", handleArray); selectedHandles.add(eachRequiredProp);
 					}
@@ -5962,7 +5962,7 @@ public class AdminTestUtil extends BaseTestCase {
 							identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
 					} else if (eachRequiredProp.equals(phoneFieldName)) {
 						if (isHandle) selectedHandles.add(eachRequiredProp);
-						identityJson.put(eachRequiredProp, "$PHONENUMBERFORIDENTITY$");
+						identityJson.put(eachRequiredProp, "{{phone}}");
 					} else if (eachRequiredProp.equals(emailFieldName)) {
 						if (isHandle) selectedHandles.add(eachRequiredProp);
 						if ("array".equals(fieldType)) {
@@ -6131,7 +6131,7 @@ public class AdminTestUtil extends BaseTestCase {
 					if (eachRequiredProp.equals(emailFieldName)) {
 						entry.put("value", "$EMAILVALUE$"); entry.put("tags", new JSONArray().put("handles"));
 					} else if (eachRequiredProp.equals(phoneFieldName)) {
-						entry.put("value", "$PHONENUMBERFORIDENTITY$"); entry.put("tags", new JSONArray().put("handles"));
+						entry.put("value", "{{phone}}"); entry.put("tags", new JSONArray().put("handles"));
 					} else {
 						entry.put("value", "$FUNCTIONALID$"); entry.put("tags", new JSONArray().put("handles"));
 					}
@@ -6161,7 +6161,7 @@ public class AdminTestUtil extends BaseTestCase {
 							identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
 						}
 					} else if (eachRequiredProp.equals(phoneFieldName)) {
-						identityJson.put(eachRequiredProp, "$PHONENUMBERFORIDENTITY$");
+						identityJson.put(eachRequiredProp, "{{phone}}");
 					} else if (eachRequiredProp.equals(emailFieldName)) {
 						if ("array".equals(fieldType)) {
 							JSONArray emailArray = new JSONArray();
