@@ -4,8 +4,13 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.WebSocket;
 import java.net.http.WebSocket.Listener;
+import java.nio.ByteBuffer;
 import java.util.concurrent.CompletionStage;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -24,6 +29,10 @@ public class OTPListener {
 	private static final HttpClient HTTP_CLIENT = HttpClient.newHttpClient();
 
 	public static volatile boolean bTerminate = false;
+
+	private static final AtomicBoolean reconnecting = new AtomicBoolean(false);
+
+	public static final ConcurrentLinkedQueue<String> reconnectEvents = new ConcurrentLinkedQueue<>();
 
 	public OTPListener() {
 		if (ConfigManager.IsDebugEnabled()) {
@@ -75,11 +84,34 @@ public class OTPListener {
 
 		private final ObjectMapper objectMapper = new ObjectMapper();
 		private final StringBuilder messageBuffer = new StringBuilder();
+		private ScheduledExecutorService pingScheduler;
 
 		@Override
 		public void onOpen(WebSocket webSocket) {
 			logger.info("OTP WebSocket connection opened.");
+			startPing(webSocket);
 			Listener.super.onOpen(webSocket);
+		}
+
+		private void startPing(WebSocket webSocket) {
+			pingScheduler = Executors.newSingleThreadScheduledExecutor(r -> {
+				Thread t = new Thread(r, "ws-ping");
+				t.setDaemon(true);
+				return t;
+			});
+			pingScheduler.scheduleAtFixedRate(() -> {
+				if (bTerminate) {
+					pingScheduler.shutdown();
+					return;
+				}
+				webSocket.sendPing(ByteBuffer.wrap("ping".getBytes()));
+			}, 30, 30, TimeUnit.SECONDS);
+		}
+
+		private void stopPing() {
+			if (pingScheduler != null && !pingScheduler.isShutdown()) {
+				pingScheduler.shutdownNow();
+			}
 		}
 
 		@Override
@@ -172,13 +204,70 @@ public class OTPListener {
 		@Override
 		public void onError(WebSocket webSocket, Throwable error) {
 			logger.error("WebSocket error occurred", error);
+			stopPing();
+			scheduleReconnect("error");
 			Listener.super.onError(webSocket, error);
 		}
 
 		@Override
 		public CompletionStage<?> onClose(WebSocket webSocket, int statusCode, String reason) {
 			logger.warn("WebSocket closed. Status: " + statusCode + " Reason: " + reason);
+			stopPing();
+			if (statusCode != 1000) {
+				scheduleReconnect("abnormal close (status=" + statusCode + ")");
+			}
 			return Listener.super.onClose(webSocket, statusCode, reason);
+		}
+
+		private void scheduleReconnect(String trigger) {
+			if (bTerminate) return;
+			if (!reconnecting.compareAndSet(false, true)) {
+				logger.info("Reconnect already in progress, ignoring trigger: " + trigger);
+				return;
+			}
+			logger.info("Scheduling WebSocket reconnect after " + trigger);
+			Thread t = new Thread(() -> {
+				try {
+					int attempt = 0;
+					while (!bTerminate) {
+						attempt++;
+						long delayMs = Math.min(3000L * attempt, 60000L);
+						try {
+							Thread.sleep(delayMs);
+						} catch (InterruptedException e) {
+							Thread.currentThread().interrupt();
+							return;
+						}
+						if (bTerminate) return;
+						try {
+							URI iamUri = URI.create(ConfigManager.getIAMUrl());
+							String host = iamUri.getHost();
+							int firstDot = host.indexOf('.');
+							if (firstDot < 0 || firstDot == host.length() - 1) return;
+							String domain = host.substring(firstDot + 1);
+							String websocketUrl = "wss://smtp." + domain + "/mocksmtp/websocket";
+							logger.info("Reconnecting WebSocket (attempt " + attempt + "): " + websocketUrl);
+							HTTP_CLIENT.newWebSocketBuilder()
+									.buildAsync(URI.create(websocketUrl), new WebSocketClient())
+									.get(30, TimeUnit.SECONDS);
+							logger.info("WebSocket reconnected successfully on attempt " + attempt);
+							reconnectEvents.add("WebSocket reconnected successfully on attempt "
+									+ attempt + " at " + java.time.LocalDateTime.now());
+							return;
+						} catch (Exception e) {
+							String failMsg = "WebSocket reconnect attempt " + attempt + " failed: "
+									+ e.getMessage() + " at " + java.time.LocalDateTime.now();
+							logger.warn(failMsg + ". Retrying in "
+									+ Math.min(3000L * (attempt + 1), 60000L) + "ms...");
+							reconnectEvents.add(failMsg);
+						}
+					}
+				} finally {
+					reconnecting.set(false);
+				}
+			}, "ws-reconnect");
+			t.setDaemon(true);
+			t.start();
 		}
 	}
 }
