@@ -104,7 +104,11 @@ public class OTPListener {
 					pingScheduler.shutdown();
 					return;
 				}
-				webSocket.sendPing(ByteBuffer.wrap("ping".getBytes()));
+				try {
+					webSocket.sendPing(ByteBuffer.wrap("ping".getBytes()));
+				} catch (Exception e) {
+					logger.warn("WebSocket ping failed: " + e.getMessage());
+				}
 			}, 30, 30, TimeUnit.SECONDS);
 		}
 
