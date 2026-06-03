@@ -18,7 +18,12 @@ public final class NotificationListener {
 
 	private static final int MAX_QUEUE_SIZE = 50;
 	private static final long INACTIVE_EXPIRY_MS = Long.parseLong(ConfigManager.getproperty("otp_queue_inactive_expiry_time")) * 60 * 1000; // 15 mins
-	private static final Pattern OTP_PATTERN = Pattern.compile("(?i)\\bis\\s+(\\d{6})\\s+and\\s+is\\s+valid");
+	private static final Pattern OTP_PATTERN = Pattern.compile(
+			"(?i)(?:" +
+			"\\bis\\s+(\\d{6})\\s+and\\s+is\\s+valid" +   // English: "is XXXXXX and is valid"
+			"|\\buse\\s+(?:otp\\s+)?(\\d{6})\\b" +        // English: "Use [OTP] XXXXXX"
+			"|\\bOTP\\b.*?(\\d{6})(?!\\d)" +              // Multilingual: OTP keyword + nearest 6 digits
+			")");
 	private static final ConcurrentHashMap<String, EmailQueue> otpQueues = new ConcurrentHashMap<>();
 
 	private static final ConcurrentHashMap<String, EmailQueue> notificationQueues = new ConcurrentHashMap<>();
@@ -193,12 +198,12 @@ public final class NotificationListener {
 		}
 		Matcher matcher = OTP_PATTERN.matcher(message);
 		if (matcher.find()) {
-
-			String otp = matcher.group(1);
-
-			logger.info("Extracted OTP=" + otp + " from message");
-
-			return otp;
+			for (int i = 1; i <= matcher.groupCount(); i++) {
+				if (matcher.group(i) != null) {
+					logger.info("Extracted OTP=" + matcher.group(i) + " from message");
+					return matcher.group(i);
+				}
+			}
 		}
 
 		logger.info("OTP not found in message");
