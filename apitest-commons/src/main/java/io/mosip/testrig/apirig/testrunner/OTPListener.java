@@ -256,11 +256,11 @@ public class OTPListener {
 									.get(30, TimeUnit.SECONDS);
 							logger.info("WebSocket reconnected successfully on attempt " + attempt);
 							reconnectEvents.add("WebSocket reconnected successfully on attempt "
-									+ attempt + " at " + java.time.LocalDateTime.now());
+									+ attempt + " at " + java.time.Instant.now() + " UTC");
 							return;
 						} catch (Exception e) {
 							String failMsg = "WebSocket reconnect attempt " + attempt + " failed: "
-									+ e.getMessage() + " at " + java.time.LocalDateTime.now();
+									+ e.getMessage() + " at " + java.time.Instant.now() + " UTC";
 							logger.warn(failMsg + ". Retrying in "
 									+ Math.min(3000L * (attempt + 1), 60000L) + "ms...");
 							reconnectEvents.add(failMsg);

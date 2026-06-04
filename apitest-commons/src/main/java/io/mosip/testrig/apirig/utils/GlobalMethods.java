@@ -129,7 +129,7 @@ public class GlobalMethods {
 		}
 
 		// Both RegEx didn't match.. Needs revisit..
-		logger.error("Needs RegEx revisit..." + "url is:" + url);
+		logger.debug("Needs RegEx revisit..." + "url is:" + url);
 		return url;
 	}
 
