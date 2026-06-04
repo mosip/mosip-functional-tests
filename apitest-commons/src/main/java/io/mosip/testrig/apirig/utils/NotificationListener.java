@@ -22,7 +22,7 @@ public final class NotificationListener {
 			"(?i)(?:" +
 			"\\bis\\s+(\\d{6})\\s+and\\s+is\\s+valid" +   // English: "is XXXXXX and is valid"
 			"|\\buse\\s+(?:otp\\s+)?(\\d{6})\\b" +        // English: "Use [OTP] XXXXXX"
-			"|\\bOTP\\b.*?(\\d{6})(?!\\d)" +              // Multilingual: OTP keyword + nearest 6 digits
+			"|\\bOTP\\b.*?\\b(\\d{6})\\b" +               // Multilingual: OTP keyword + standalone 6 digits
 			")");
 	private static final ConcurrentHashMap<String, EmailQueue> otpQueues = new ConcurrentHashMap<>();
 
