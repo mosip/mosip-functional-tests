@@ -329,9 +329,14 @@ public class GlobalMethods {
 
 	public static void reportResponse(String responseHeader, String url, Response response) {
 		String formattedHeader = ReportUtil.getTextAreaForHeaders(responseHeader);
-
-		Reporter.log(GlobalConstants.REPORT_RESPONSE_PREFIX + GlobalConstants.REPORT_RESPONSE_BODY + formattedHeader
-				+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + GlobalConstants.REPORT_RESPONSE_SUFFIX);
+		String contentType = response.getHeader("Content-Type");
+		if (contentType != null && contentType.contains("application/pdf")) {
+			Reporter.log(GlobalConstants.REPORT_RESPONSE_PREFIX + GlobalConstants.REPORT_RESPONSE_BODY + formattedHeader
+					+ GlobalConstants.REPORT_RESPONSE_SUFFIX);
+		} else {
+			Reporter.log(GlobalConstants.REPORT_RESPONSE_PREFIX + GlobalConstants.REPORT_RESPONSE_BODY + formattedHeader
+					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + GlobalConstants.REPORT_RESPONSE_SUFFIX);
+		}
 	}
 	public static void reportResponseHeader(String responseHeader, String url) {
 		String formattedHeader = ReportUtil.getTextAreaForHeaders(responseHeader);
