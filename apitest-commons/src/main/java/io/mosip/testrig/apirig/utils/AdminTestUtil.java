@@ -6157,7 +6157,7 @@ public class AdminTestUtil extends BaseTestCase {
 					if (eachRequiredProp.equals(emailFieldName)) {
 						entry.put("value", "$EMAILVALUE$"); entry.put("tags", new JSONArray().put("handle"));
 					} else if (eachRequiredProp.equals(phoneFieldName)) {
-						entry.put("value", "$PHONENUMBERFORIDENTITY$"); entry.put("tags", new JSONArray().put("handle"));
+						entry.put("value", "{{phone}}"); entry.put("tags", new JSONArray().put("handle"));
 					} else {
 						entry.put("value", "$FUNCTIONALID$"); entry.put("tags", new JSONArray().put("handle"));
 					}
