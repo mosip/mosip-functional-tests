@@ -98,10 +98,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.github.jknack.handlebars.Context;
-import com.github.jknack.handlebars.EscapingStrategy;
 import com.github.jknack.handlebars.Handlebars;
-import com.github.jknack.handlebars.Helper;
-import com.github.jknack.handlebars.Options;
 import com.github.jknack.handlebars.Template;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -128,6 +125,9 @@ import io.mosip.testrig.apirig.testrunner.MessagePrecondtion;
 import io.mosip.testrig.apirig.testrunner.OTPListener;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import com.github.jknack.handlebars.EscapingStrategy;
+import com.github.jknack.handlebars.Helper;
+import com.github.jknack.handlebars.Options;
 
 /**
  * @author Ravi Kant
@@ -5670,16 +5670,6 @@ public class AdminTestUtil extends BaseTestCase {
 	    return "{{{json verifiedAttributes}}}";
 	}
 
-	private static boolean isArrayHandleType(JSONObject eachPropDataJson) {
-		if (!eachPropDataJson.has("$ref")) {
-			return false;
-		}
-
-		String ref = eachPropDataJson.optString("$ref", "").toLowerCase();
-		return ref.contains("taggedlisttype") || ref.contains("simplelisttype")
-				|| (ref.contains("listtype") && eachPropDataJson.optBoolean("handle", false));
-	}
-	
 	public static String getSchemaURL() {
 		String schemaURL = ApplnURI + properties.getProperty(GlobalConstants.MASTER_SCHEMA_URL);
 		String schemaVersion = ConfigManager.getproperty(GlobalConstants.SCHEMA_VERSION);
@@ -5928,7 +5918,7 @@ public class AdminTestUtil extends BaseTestCase {
 			requestJson.put("registrationId", "{{registrationId}}");
 			JSONObject identityJson = new JSONObject();
 			JSONArray handleArray = new JSONArray();
-			handleArray.put("handles");
+			handleArray.put("handle");
 			List<String> selectedHandles = new ArrayList<>();
 
 			for (int i = 0, size = requiredPropsArray.length(); i < size; i++) {
@@ -6165,11 +6155,11 @@ public class AdminTestUtil extends BaseTestCase {
 					JSONArray arr = new JSONArray();
 					JSONObject entry = new JSONObject();
 					if (eachRequiredProp.equals(emailFieldName)) {
-						entry.put("value", "$EMAILVALUE$"); entry.put("tags", new JSONArray().put("handles"));
+						entry.put("value", "$EMAILVALUE$"); entry.put("tags", new JSONArray().put("handle"));
 					} else if (eachRequiredProp.equals(phoneFieldName)) {
-						entry.put("value", "{{phone}}"); entry.put("tags", new JSONArray().put("handles"));
+						entry.put("value", "$PHONENUMBERFORIDENTITY$"); entry.put("tags", new JSONArray().put("handle"));
 					} else {
-						entry.put("value", "$FUNCTIONALID$"); entry.put("tags", new JSONArray().put("handles"));
+						entry.put("value", "$FUNCTIONALID$"); entry.put("tags", new JSONArray().put("handle"));
 					}
 					arr.put(entry);
 					identityJson.put(eachRequiredProp, arr);
@@ -6202,7 +6192,7 @@ public class AdminTestUtil extends BaseTestCase {
 						if ("array".equals(fieldType)) {
 							JSONArray emailArray = new JSONArray();
 							JSONObject emailEntry = new JSONObject();
-							emailEntry.put("value", "$EMAILVALUE$"); emailEntry.put("tags", new JSONArray().put("handles"));
+							emailEntry.put("value", "$EMAILVALUE$"); emailEntry.put("tags", new JSONArray().put("handle"));
 							emailArray.put(emailEntry); identityJson.put(eachRequiredProp, emailArray);
 						} else {
 							identityJson.put(eachRequiredProp, "$EMAILVALUE$");
