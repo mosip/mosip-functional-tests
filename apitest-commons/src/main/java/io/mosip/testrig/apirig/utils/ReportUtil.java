@@ -6,6 +6,7 @@ import java.util.Map.Entry;
 
 import io.mosip.testrig.apirig.dto.OutputValidationDto;
 import io.mosip.testrig.apirig.testrunner.JsonPrecondtion;
+import io.mosip.testrig.apirig.testrunner.OTPListener;
 
 /**
  * Class to show the result in table and text area format in testng report
@@ -38,6 +39,13 @@ public class ReportUtil {
 	 * @return html table
 	 */
 	public static String getOutputValidationReport(Map<String, List<OutputValidationDto>> outputresult) {
+		StringBuilder reconnectWarnings = new StringBuilder();
+		String reconnectEvent;
+		while ((reconnectEvent = OTPListener.reconnectEvents.poll()) != null) {
+			reconnectWarnings.append("<div style='background-color:#FFF3CD; border-left:4px solid #FFA500; padding:6px; margin:4px 0;'>")
+					.append("<b>&#9888; WebSocket Reconnect:</b> ").append(reconnectEvent).append("</div>");
+		}
+
 		String htmlforReport = "<table width='100%' charset='UTF8'>\r\n" + "  <tr style='background-color: #d3d3d3;'>\r\n" + "    <th>FieldName</th>\r\n"
 				+ "    <th>Expected Value</th> \r\n" + "    <th>Actual Value</th>\r\n" + "    <th>Status</th>\r\n"
 				+ "  </tr>\r\n";
@@ -70,10 +78,10 @@ public class ReportUtil {
 			}
 		}
 		if (!outputValidationDone) {
-		    return "<b style=\"background-color: #0A0;\">Marking test case as passed. As Output validation not performed and no errors in the response</b><br>\n";
+		    return reconnectWarnings + "<b style=\"background-color: #0A0;\">Marking test case as passed. As Output validation not performed and no errors in the response</b><br>\n";
 		}
-			
-		htmlforReport = temp + htmlforReport + "</table>";
+
+		htmlforReport = reconnectWarnings + temp + htmlforReport + "</table>";
 		return htmlforReport;
 	}
 

@@ -23,4 +23,5 @@ public class TestCaseDTO {
 	private String description;
 	private String uniqueIdentifier;
 	private String additionalDependencies;
+	private String[] requiredSchemaFields;
 }
