@@ -5848,6 +5848,16 @@ public class AdminTestUtil extends BaseTestCase {
 		updateIdentityHbs = requestJson.toString();
 		return updateIdentityHbs;
 	}
+	
+	public static String updateIdentityHbsV2(boolean regenerateHbs) {
+
+		String hbs = updateIdentityHbs(regenerateHbs);
+
+		JSONObject requestJson = new JSONObject(hbs);
+		requestJson.getJSONObject("request").put("verifiedAttributes", "$VERIFIED_ATTRIBUTES$");
+
+		return requestJson.toString().replace("\"$VERIFIED_ATTRIBUTES$\"", buildVerifiedAttributesHbs());
+	}
 
 	public static String generateLatestSchemaVersion() {
 		kernelAuthLib = new KernelAuthentication();
