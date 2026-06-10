@@ -259,6 +259,8 @@ public class GlobalConstants {
 	public static final String SESSION = "SESSION";
 	public static final String COOKIE_NAME = "cookieName";
 	public static final String ACCEPT_HEADER = "acceptHeader";
+	
+	public static final String ADD_IDENTITY_V2_ENDPOINT = "/v1/identity/v2";
 
 	public static final String ACTIVE_PROFILES = "activeProfiles";
 

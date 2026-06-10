@@ -125,6 +125,9 @@ import io.mosip.testrig.apirig.testrunner.MessagePrecondtion;
 import io.mosip.testrig.apirig.testrunner.OTPListener;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import com.github.jknack.handlebars.EscapingStrategy;
+import com.github.jknack.handlebars.Helper;
+import com.github.jknack.handlebars.Options;
 
 /**
  * @author Ravi Kant
@@ -3816,8 +3819,16 @@ public class AdminTestUtil extends BaseTestCase {
 
 	}
 
-	public static Handlebars handlebars = new Handlebars();
+	public static Handlebars handlebars = new Handlebars().with(EscapingStrategy.NOOP);
 	public static Gson gson = new Gson();
+	static {
+		handlebars.registerHelper("json", new Helper<Object>() {
+			@Override
+			public CharSequence apply(Object context, Options options) {
+				return gson.toJson(context);
+			}
+		});
+	}
 
 	public String getJsonFromTemplate(String input, String template, boolean readFile) {
 		String resultJson = null;
@@ -5446,7 +5457,7 @@ public class AdminTestUtil extends BaseTestCase {
 			JSONObject identityJson = new JSONObject();
 			identityJson.put("UIN", "{{UIN}}");
 			JSONArray handleArray = new JSONArray();
-			handleArray.put("handles");
+			handleArray.put("handle");
 
 			List<String> selectedHandles = new ArrayList<>();
 
@@ -5643,6 +5654,21 @@ public class AdminTestUtil extends BaseTestCase {
 		identityHbs = requestJson.toString();
 		return identityHbs;
 	}
+	
+	public static String modifySchemaGenerateHbsV2(boolean regenerateHbs) {
+
+		String hbs = modifySchemaGenerateHbs(regenerateHbs);
+
+		JSONObject requestJson = new JSONObject(hbs);
+		requestJson.getJSONObject("request").put("verifiedAttributes", "$VERIFIED_ATTRIBUTES$");
+
+		return requestJson.toString().replace("\"$VERIFIED_ATTRIBUTES$\"", buildVerifiedAttributesHbs());
+	}
+	
+	private static String buildVerifiedAttributesHbs() {
+
+	    return "{{{json verifiedAttributes}}}";
+	}
 
 	public static String getSchemaURL() {
 		String schemaURL = ApplnURI + properties.getProperty(GlobalConstants.MASTER_SCHEMA_URL);
@@ -5706,7 +5732,7 @@ public class AdminTestUtil extends BaseTestCase {
 			JSONObject identityJson = new JSONObject();
 			identityJson.put("UIN", "{{UIN}}");
 			JSONArray handleArray = new JSONArray();
-			handleArray.put("handles");
+			handleArray.put("handle");
 			List<String> selectedHandles = new ArrayList<>();
 
 			for (int i = 0, size = requiredPropsArray.length(); i < size; i++) {
@@ -5719,19 +5745,26 @@ public class AdminTestUtil extends BaseTestCase {
 				boolean isHandle = eachPropDataJson.optBoolean("handle", false);
 
 				if (!ref.isEmpty() && ref.contains("TaggedListType")) {
-					JSONArray arr = new JSONArray();
-					JSONObject entry = new JSONObject();
+					// Legacy: backward compatibility for schemas using TaggedListType $ref
+					JSONArray eachPropDataArrayForHandles = new JSONArray();
+					JSONObject eachValueJsonForHandles = new JSONObject();
 					if (eachRequiredProp.equals(emailFieldName)) {
-						entry.put("value", "$EMAILVALUE$"); entry.put("tags", handleArray); selectedHandles.add(emailFieldName);
+						eachValueJsonForHandles.put("value", "{{" + eachRequiredProp + "}}");
+						eachValueJsonForHandles.put("tags", handleArray);
+						selectedHandles.add(emailFieldName);
 					} else if (eachRequiredProp.equals(phoneFieldName)) {
-						entry.put("value", "{{phone}}"); entry.put("tags", handleArray); selectedHandles.add(phoneFieldName);
+						eachValueJsonForHandles.put("value", "{{phone}}");
+						eachValueJsonForHandles.put("tags", handleArray);
+						selectedHandles.add(phoneFieldName);
 					} else {
-						entry.put("value", "$FUNCTIONALID$"); entry.put("tags", handleArray); selectedHandles.add(eachRequiredProp);
+						eachValueJsonForHandles.put("value", "$FUNCTIONALID$");
+						eachValueJsonForHandles.put("tags", handleArray);
+						selectedHandles.add(eachRequiredProp);
 					}
-					arr.put(entry);
-					identityJson.put(eachRequiredProp, arr);
+					eachPropDataArrayForHandles.put(eachValueJsonForHandles);
+					identityJson.put(eachRequiredProp, eachPropDataArrayForHandles);
 
-				} else if (!ref.isEmpty() && ref.contains("simpleType")) {
+				}  else if (!ref.isEmpty() && ref.contains("simpleType")) {
 					if (isHandle) selectedHandles.add(eachRequiredProp);
 					JSONArray arr = new JSONArray();
 					for (int j = 0; j < BaseTestCase.getLanguageList().size(); j++) {
@@ -5778,18 +5811,27 @@ public class AdminTestUtil extends BaseTestCase {
 						else
 							identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
 					} else if (eachRequiredProp.equals(phoneFieldName)) {
-						if (isHandle) selectedHandles.add(eachRequiredProp);
+						if (isHandle) {
+							selectedHandles.add(eachRequiredProp);
+						}
 						identityJson.put(eachRequiredProp, "{{phone}}");
+
 					} else if (eachRequiredProp.equals(emailFieldName)) {
-						if (isHandle) selectedHandles.add(eachRequiredProp);
+						if (isHandle) {
+							selectedHandles.add(eachRequiredProp);
+						}
 						if ("array".equals(fieldType)) {
+							// Inline array handle (e.g. schema where email is type:array + handle:true)
 							JSONArray emailArray = new JSONArray();
 							JSONObject emailEntry = new JSONObject();
-							emailEntry.put("value", "$EMAILVALUE$"); emailEntry.put("tags", handleArray);
-							emailArray.put(emailEntry); identityJson.put(eachRequiredProp, emailArray);
+							emailEntry.put("value", "{{" + eachRequiredProp + "}}");
+							emailEntry.put("tags", handleArray);
+							emailArray.put(emailEntry);
+							identityJson.put(eachRequiredProp, emailArray);
 						} else {
-							identityJson.put(eachRequiredProp, "$EMAILVALUE$");
+							identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
 						}
+
 					} else if ("array".equals(fieldType) && isHandle) {
 						JSONArray arrayHandle = new JSONArray();
 						JSONObject handleEntry = new JSONObject();
@@ -5821,6 +5863,16 @@ public class AdminTestUtil extends BaseTestCase {
 
 		updateIdentityHbs = requestJson.toString();
 		return updateIdentityHbs;
+	}
+	
+	public static String updateIdentityHbsV2(boolean regenerateHbs) {
+
+		String hbs = updateIdentityHbs(regenerateHbs);
+
+		JSONObject requestJson = new JSONObject(hbs);
+		requestJson.getJSONObject("request").put("verifiedAttributes", "$VERIFIED_ATTRIBUTES$");
+
+		return requestJson.toString().replace("\"$VERIFIED_ATTRIBUTES$\"", buildVerifiedAttributesHbs());
 	}
 
 	public static String generateLatestSchemaVersion() {
@@ -5892,7 +5944,7 @@ public class AdminTestUtil extends BaseTestCase {
 			requestJson.put("registrationId", "{{registrationId}}");
 			JSONObject identityJson = new JSONObject();
 			JSONArray handleArray = new JSONArray();
-			handleArray.put("handles");
+			handleArray.put("handle");
 			List<String> selectedHandles = new ArrayList<>();
 
 			for (int i = 0, size = requiredPropsArray.length(); i < size; i++) {
@@ -6129,11 +6181,11 @@ public class AdminTestUtil extends BaseTestCase {
 					JSONArray arr = new JSONArray();
 					JSONObject entry = new JSONObject();
 					if (eachRequiredProp.equals(emailFieldName)) {
-						entry.put("value", "$EMAILVALUE$"); entry.put("tags", new JSONArray().put("handles"));
+						entry.put("value", "$EMAILVALUE$"); entry.put("tags", new JSONArray().put("handle"));
 					} else if (eachRequiredProp.equals(phoneFieldName)) {
-						entry.put("value", "{{phone}}"); entry.put("tags", new JSONArray().put("handles"));
+						entry.put("value", "{{phone}}"); entry.put("tags", new JSONArray().put("handle"));
 					} else {
-						entry.put("value", "$FUNCTIONALID$"); entry.put("tags", new JSONArray().put("handles"));
+						entry.put("value", "$FUNCTIONALID$"); entry.put("tags", new JSONArray().put("handle"));
 					}
 					arr.put(entry);
 					identityJson.put(eachRequiredProp, arr);
@@ -6166,7 +6218,7 @@ public class AdminTestUtil extends BaseTestCase {
 						if ("array".equals(fieldType)) {
 							JSONArray emailArray = new JSONArray();
 							JSONObject emailEntry = new JSONObject();
-							emailEntry.put("value", "$EMAILVALUE$"); emailEntry.put("tags", new JSONArray().put("handles"));
+							emailEntry.put("value", "$EMAILVALUE$"); emailEntry.put("tags", new JSONArray().put("handle"));
 							emailArray.put(emailEntry); identityJson.put(eachRequiredProp, emailArray);
 						} else {
 							identityJson.put(eachRequiredProp, "$EMAILVALUE$");
