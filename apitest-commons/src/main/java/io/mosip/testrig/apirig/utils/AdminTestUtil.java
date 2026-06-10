@@ -5745,19 +5745,26 @@ public class AdminTestUtil extends BaseTestCase {
 				boolean isHandle = eachPropDataJson.optBoolean("handle", false);
 
 				if (!ref.isEmpty() && ref.contains("TaggedListType")) {
-					JSONArray arr = new JSONArray();
-					JSONObject entry = new JSONObject();
+					// Legacy: backward compatibility for schemas using TaggedListType $ref
+					JSONArray eachPropDataArrayForHandles = new JSONArray();
+					JSONObject eachValueJsonForHandles = new JSONObject();
 					if (eachRequiredProp.equals(emailFieldName)) {
-						entry.put("value", "$EMAILVALUE$"); entry.put("tags", handleArray); selectedHandles.add(emailFieldName);
+						eachValueJsonForHandles.put("value", "{{" + eachRequiredProp + "}}");
+						eachValueJsonForHandles.put("tags", handleArray);
+						selectedHandles.add(emailFieldName);
 					} else if (eachRequiredProp.equals(phoneFieldName)) {
-						entry.put("value", "{{phone}}"); entry.put("tags", handleArray); selectedHandles.add(phoneFieldName);
+						eachValueJsonForHandles.put("value", "{{phone}}");
+						eachValueJsonForHandles.put("tags", handleArray);
+						selectedHandles.add(phoneFieldName);
 					} else {
-						entry.put("value", "$FUNCTIONALID$"); entry.put("tags", handleArray); selectedHandles.add(eachRequiredProp);
+						eachValueJsonForHandles.put("value", "$FUNCTIONALID$");
+						eachValueJsonForHandles.put("tags", handleArray);
+						selectedHandles.add(eachRequiredProp);
 					}
-					arr.put(entry);
-					identityJson.put(eachRequiredProp, arr);
+					eachPropDataArrayForHandles.put(eachValueJsonForHandles);
+					identityJson.put(eachRequiredProp, eachPropDataArrayForHandles);
 
-				} else if (!ref.isEmpty() && ref.contains("simpleType")) {
+				}  else if (!ref.isEmpty() && ref.contains("simpleType")) {
 					if (isHandle) selectedHandles.add(eachRequiredProp);
 					JSONArray arr = new JSONArray();
 					for (int j = 0; j < BaseTestCase.getLanguageList().size(); j++) {
@@ -5804,18 +5811,27 @@ public class AdminTestUtil extends BaseTestCase {
 						else
 							identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
 					} else if (eachRequiredProp.equals(phoneFieldName)) {
-						if (isHandle) selectedHandles.add(eachRequiredProp);
+						if (isHandle) {
+							selectedHandles.add(eachRequiredProp);
+						}
 						identityJson.put(eachRequiredProp, "{{phone}}");
+
 					} else if (eachRequiredProp.equals(emailFieldName)) {
-						if (isHandle) selectedHandles.add(eachRequiredProp);
+						if (isHandle) {
+							selectedHandles.add(eachRequiredProp);
+						}
 						if ("array".equals(fieldType)) {
+							// Inline array handle (e.g. schema where email is type:array + handle:true)
 							JSONArray emailArray = new JSONArray();
 							JSONObject emailEntry = new JSONObject();
-							emailEntry.put("value", "$EMAILVALUE$"); emailEntry.put("tags", handleArray);
-							emailArray.put(emailEntry); identityJson.put(eachRequiredProp, emailArray);
+							emailEntry.put("value", "{{" + eachRequiredProp + "}}");
+							emailEntry.put("tags", handleArray);
+							emailArray.put(emailEntry);
+							identityJson.put(eachRequiredProp, emailArray);
 						} else {
-							identityJson.put(eachRequiredProp, "$EMAILVALUE$");
+							identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
 						}
+
 					} else if ("array".equals(fieldType) && isHandle) {
 						JSONArray arrayHandle = new JSONArray();
 						JSONObject handleEntry = new JSONObject();
