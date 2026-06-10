@@ -119,17 +119,6 @@ function installing_apitestrig() {
         push_reports_to_s3="no"
         read -p "Since S3 details are not available, do you want to use NFS directory mount for storing reports? (y/n) : " answer
         if [[ $answer == "Y" ]] || [[ $answer == "y" ]]; then
-          read -p "Please provide NFS Server IP: " nfs_server
-          if [[ -z $nfs_server ]]; then
-            echo "NFS server not provided; EXITING."
-            exit 1;
-          fi
-          read -p "Please provide NFS directory to store reports from NFS server (e.g. /srv/nfs/<sandbox>/apitestrig/), make sure permission is 777 for the folder: " nfs_path
-          if [[ -z $nfs_path ]]; then
-            echo "NFS Path not provided; EXITING."
-            exit 1;
-          fi
-          NFS_OPTION="--set apitestrig.volumes.reports.nfs.server=$nfs_server --set apitestrig.volumes.reports.nfs.path=$nfs_path"
           config_complete=true
         else
           echo "Please rerun the script with either S3 or NFS server details."
