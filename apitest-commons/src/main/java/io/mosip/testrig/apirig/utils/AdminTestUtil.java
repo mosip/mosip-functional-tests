@@ -174,7 +174,9 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String currentLanguage;
 	protected static String idField = null;
 	protected static String identityHbs = null;
+	protected static String identityHbsV2 = null;
 	protected static String updateIdentityHbs = null;
+	protected static String updateIdentityHbsV2Cached = null;
 	protected static String draftHbs = null;
 	protected static String preregHbsForCreate = null;
 	protected static String preregHbsForUpdate = null;
@@ -5656,13 +5658,15 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 	
 	public static String modifySchemaGenerateHbsV2(boolean regenerateHbs) {
-
+		if (identityHbsV2 != null && !regenerateHbs) {
+			return identityHbsV2;
+		}
+		if (regenerateHbs) identityHbsV2 = null;
 		String hbs = modifySchemaGenerateHbs(regenerateHbs);
-
 		JSONObject requestJson = new JSONObject(hbs);
 		requestJson.getJSONObject("request").put("verifiedAttributes", "$VERIFIED_ATTRIBUTES$");
-
-		return requestJson.toString().replace("\"$VERIFIED_ATTRIBUTES$\"", buildVerifiedAttributesHbs());
+		identityHbsV2 = requestJson.toString().replace("\"$VERIFIED_ATTRIBUTES$\"", buildVerifiedAttributesHbs());
+		return identityHbsV2;
 	}
 	
 	private static String buildVerifiedAttributesHbs() {
@@ -5866,16 +5870,21 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 	
 	public static String updateIdentityHbsV2(boolean regenerateHbs) {
-
+		if (updateIdentityHbsV2Cached != null && !regenerateHbs) {
+			return updateIdentityHbsV2Cached;
+		}
+		if (regenerateHbs) updateIdentityHbsV2Cached = null;
 		String hbs = updateIdentityHbs(regenerateHbs);
-
 		JSONObject requestJson = new JSONObject(hbs);
 		requestJson.getJSONObject("request").put("verifiedAttributes", "$VERIFIED_ATTRIBUTES$");
-
-		return requestJson.toString().replace("\"$VERIFIED_ATTRIBUTES$\"", buildVerifiedAttributesHbs());
+		updateIdentityHbsV2Cached = requestJson.toString().replace("\"$VERIFIED_ATTRIBUTES$\"", buildVerifiedAttributesHbs());
+		return updateIdentityHbsV2Cached;
 	}
 
 	public static String generateLatestSchemaVersion() {
+		if (idSchemaVersion != null) {
+			return idSchemaVersion.toString();
+		}
 		kernelAuthLib = new KernelAuthentication();
 		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
 		String url = getSchemaURL();
