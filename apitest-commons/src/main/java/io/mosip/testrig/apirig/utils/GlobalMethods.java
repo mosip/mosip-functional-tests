@@ -267,28 +267,34 @@ public class GlobalMethods {
 	}
 
 	public static String maskOutSensitiveInfo(String strInput) {
-	    if (ConfigManager.IsDebugEnabled())
-	        return strInput;
-
 	    if (strInput == null || strInput.isBlank())
 	        return strInput;
 
 	    String maskedInput = strInput;
 
-	    String[] sensitiveKeys = {
-	        "password", "secret", "token", "key", "private", "client_secret", "authclientsecret"
-	    };
-
-	    for (String key : sensitiveKeys) {
-	        String regex = "(?i)(\"[^\"]*" + key + "[^\"]*\"\\s*:\\s*\")(.*?)(\")";
-	        maskedInput = maskedInput.replaceAll(regex, "$1***** MASKED *****$3");
+	    // In debug mode skip key/token masking so full payloads remain visible,
+	    // but always mask large binary payloads to keep the report size manageable.
+	    if (!ConfigManager.IsDebugEnabled()) {
+	        String[] sensitiveKeys = {
+	            "password", "secret", "token", "key", "private", "client_secret", "authclientsecret"
+	        };
+	        for (String key : sensitiveKeys) {
+	            String regex = "(?i)(\"[^\"]*" + key + "[^\"]*\"\\s*:\\s*\")(.*?)(\")";
+	            maskedInput = maskedInput.replaceAll(regex, "$1***** MASKED *****$3");
+	        }
+	        Pattern INDIVIDUAL_BIOMETRICS_PATTERN = Pattern.compile(
+	                "\"category\"\\s*:\\s*\"individualBiometrics\"\\s*,\\s*\"value\"\\s*:\\s*\"(.*?)\"");
+	        Matcher biometricsMatcher = INDIVIDUAL_BIOMETRICS_PATTERN.matcher(maskedInput);
+	        maskedInput = biometricsMatcher.replaceAll(
+	                "\"category\": \"individualBiometrics\", \"value\": \"***** MASKED *****\"");
 	    }
 
-	    Pattern INDIVIDUAL_BIOMETRICS_PATTERN = Pattern.compile(
-	            "\"category\"\\s*:\\s*\"individualBiometrics\"\\s*,\\s*\"value\"\\s*:\\s*\"(.*?)\"");
-	    Matcher biometricsMatcher = INDIVIDUAL_BIOMETRICS_PATTERN.matcher(maskedInput);
-	    maskedInput = biometricsMatcher.replaceAll(
-	            "\"category\": \"individualBiometrics\", \"value\": \"***** MASKED *****\"");
+	    // Always mask large base64/binary payloads regardless of debug mode --
+	    // cbeff biometrics, document files, encrypted identity data.
+	    maskedInput = maskedInput.replaceAll("\"value\"\\s*:\\s*\"([^\"]{200,})\"",
+	            "\"value\": \"***** MASKED *****\"");
+	    maskedInput = maskedInput.replaceAll("\"data\"\\s*:\\s*\"([^\"]{200,})\"",
+	            "\"data\": \"***** MASKED *****\"");
 
 	    return maskedInput;
 	}
@@ -335,7 +341,7 @@ public class GlobalMethods {
 					+ GlobalConstants.REPORT_RESPONSE_SUFFIX);
 		} else {
 			Reporter.log(GlobalConstants.REPORT_RESPONSE_PREFIX + GlobalConstants.REPORT_RESPONSE_BODY + formattedHeader
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + GlobalConstants.REPORT_RESPONSE_SUFFIX);
+					+ ReportUtil.getTextAreaJsonMsgHtml(maskOutSensitiveInfo(response.asString())) + GlobalConstants.REPORT_RESPONSE_SUFFIX);
 		}
 	}
 	public static void reportResponseHeader(String responseHeader, String url) {
@@ -352,12 +358,13 @@ public class GlobalMethods {
 	public static void reportResponse(String responseHeader, String url, String response, boolean formatResponse) {
 		String formattedHeader = ReportUtil.getTextAreaForHeaders(responseHeader);
 
+		String maskedResponse = maskOutSensitiveInfo(response);
 		if (formatResponse)
 			Reporter.log(GlobalConstants.REPORT_RESPONSE_PREFIX + GlobalConstants.REPORT_RESPONSE_BODY + formattedHeader
-					+ ReportUtil.getTextAreaJsonMsgHtml(response) + GlobalConstants.REPORT_RESPONSE_SUFFIX);
+					+ ReportUtil.getTextAreaJsonMsgHtml(maskedResponse) + GlobalConstants.REPORT_RESPONSE_SUFFIX);
 		else
 			Reporter.log(GlobalConstants.REPORT_RESPONSE_PREFIX + GlobalConstants.REPORT_RESPONSE_BODY + responseHeader
-					+ response + GlobalConstants.REPORT_RESPONSE_SUFFIX);
+					+ maskedResponse + GlobalConstants.REPORT_RESPONSE_SUFFIX);
 	}
 
 	// Hashes a string using SHA-256
