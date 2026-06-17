@@ -184,6 +184,12 @@ public class DBManager {
 		if (dbName.equalsIgnoreCase("master"))
 			dbschema = ConfigManager.getMasterDbSchema();
 
+		if (dbName.equalsIgnoreCase("pms"))
+			dbschema = ConfigManager.getPMSDbSchema();
+
+		if (dbName.equalsIgnoreCase("esignet"))
+			dbschema = ConfigManager.getproperty("esignet_db_schema");
+
 		try {
 			Configuration config = new Configuration();
 			config.setProperty("hibernate.connection.driver_class", ConfigManager.getproperty("driver_class"));
