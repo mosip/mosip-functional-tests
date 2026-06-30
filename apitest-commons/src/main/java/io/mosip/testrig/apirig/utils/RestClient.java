@@ -219,8 +219,10 @@ public class RestClient {
 				requestSpecification.multiPart(fileKeyName, file);
 			}
 		}
-		for (Map.Entry<String, String> entry : multiPartFormFields.entrySet()) {
-			requestSpecification.multiPart(entry.getKey(), entry.getValue());
+		if (multiPartFormFields != null) {
+			for (Map.Entry<String, String> entry : multiPartFormFields.entrySet()) {
+				requestSpecification.multiPart(entry.getKey(), entry.getValue());
+			}
 		}
 
 		if (ConfigManager.IsDebugEnabled()) {
