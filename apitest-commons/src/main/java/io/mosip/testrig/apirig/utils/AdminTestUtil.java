@@ -5730,7 +5730,7 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 
 			requestJson.put("id", "{{id}}");
-			requestJson.put("status", "ACTIVATED");
+			requestJson.put("status", "{{status}}");
 			requestJson.put("request", new HashMap<>());
 			requestJson.getJSONObject("request").put("registrationId", "{{registrationId}}");
 			JSONObject identityJson = new JSONObject();
