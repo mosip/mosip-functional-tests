@@ -204,6 +204,43 @@ public class RestClient {
 		return postResponse;
 	}
 
+	public static Response postWithMultiPartFileAndVerifiedTransactionCookie(String url,
+			Map<String, String> multiPartFormFields, File[] files, String fileKeyName, String contentHeader,
+			String verifiedTransactionId, Map<String, String> headers) {
+		Response postResponse;
+		url = GlobalMethods.addToServerEndPointMap(url);
+
+		RequestSpecification requestSpecification = given().config(config).relaxedHTTPSValidation().headers(headers)
+				.cookie(GlobalConstants.XSRF_TOKEN, BaseTestCase.CSRF_COOKIE)
+				.cookie(GlobalConstants.VERIFIED_TRANSACTION_ID_KEY, verifiedTransactionId)
+				.contentType(contentHeader);
+		if (files != null) {
+			for (File file : files) {
+				requestSpecification.multiPart(fileKeyName, file);
+			}
+		}
+		if (multiPartFormFields != null) {
+			for (Map.Entry<String, String> entry : multiPartFormFields.entrySet()) {
+				requestSpecification.multiPart(entry.getKey(), entry.getValue());
+			}
+		}
+
+		if (ConfigManager.IsDebugEnabled()) {
+			RESTCLIENT_LOGGER.info("REST:ASSURED:Sending multipart post request with file to" + url);
+			RESTCLIENT_LOGGER.info("Number of files is" + (files == null ? 0 : files.length));
+
+			postResponse = requestSpecification.filter(RestAssuredPrettyLogger.getMaskingFilter()).expect().when()
+					.post(url).then().extract().response();
+
+			LogMaskingUtil.safeLogInfo(RESTCLIENT_LOGGER, GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString()
+			+ GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
+		} else {
+			postResponse = requestSpecification.expect().when().post(url).then().extract().response();
+		}
+
+		return postResponse;
+	}
+
 	public static Response postWithParamsAndFile(String url, Map<String, String> pathParams, File file,
 			String fileKeyName, String contentHeader, String cookie) {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);

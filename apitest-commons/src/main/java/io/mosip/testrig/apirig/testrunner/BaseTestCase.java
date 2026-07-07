@@ -153,23 +153,18 @@ public class BaseTestCase {
 	public static String genPolicyNumber = "9" + generateRandomNumberString(5);
 	public static String genRidDel = "2785" + generateRandomNumberString(10);
 	public String genPolicyGroupDesc = "policyGroupForAutomationEsi" + generateRandomNumberString(6);
-	public String genDataSharePolicyGroupDesc = "policyGroupForDataSharePolicyEsi" + generateRandomNumberString(6);
 	public String genMispPolicyGroupDesc = "policyGroupForMispEsi" + generateRandomNumberString(6)
 			+ generateRandomNumberString(3);
 	public String genPolicyGroupName = "policyGroupNameForAutomationEsi" + generateRandomNumberString(5);
-	public String genDataSharePolicyGroupName = "policyGroupNameForDataShareEsi" + generateRandomNumberString(5);
 	public String genMispPolicyGroupName = "policyGroupNameForMispEsi" + generateRandomNumberString(6)
 			+ generateRandomNumberString(3);
 	public String genPolicyDesc = "policyDescForAutomationEsi" + generateRandomNumberString(5);
-	public String genDataSharePolicyDesc = "policyDescForDataShareEsi" + generateRandomNumberString(5);
 	public String genMispPolicyDesc = "policyDescForMispEsit" + generateRandomNumberString(6)
 			+ generateRandomNumberString(3);
 	public String genPolicyName = "policyNameForAutomationEsi" + generateRandomNumberString(4);
 	public String genPolicyNameNonAuth = "policyNameForEsignet" + generateRandomNumberString(4);
 	public String genMispPolicyName = "policyNameForMispEsi" + generateRandomNumberString(6)
 			+ generateRandomNumberString(3);
-	public String genDataSharePolicyName = "policyNameForDataShareEsi" + generateRandomNumberString(6)
-	+ generateRandomNumberString(3);
 	public static String genPartnerName = null;
 	public static String genPartnerNameNonAuth = null;
 	public String genPartnerNameForDsl = "partnernameforautomationdsl-" + generateRandomNumberString(6);
@@ -183,8 +178,6 @@ public class BaseTestCase {
 			+ "@automationMosip.com";
 	public String genMispPartnerEmail = "misppartner" + generateRandomNumberString(4) + generateRandomNumberString(4)
 			+ "@automationMosip.com";
-	public String genDataSharePartnerEmail = "datasharepartner" + generateRandomNumberString(4) + generateRandomNumberString(4)
-	+ "@automationMosip.com";
 	public static String publickey;
 	public static RSAKey rsaJWK;
 	public static String clientAssertionToken;
