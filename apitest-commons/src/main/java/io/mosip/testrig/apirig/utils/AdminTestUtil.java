@@ -2568,6 +2568,10 @@ public class AdminTestUtil extends BaseTestCase {
 			if (req.has(param)) {
 				pathParamsMap.put(param, req.get(param).toString());
 				req.remove(param);
+			} else if (req.has(GlobalConstants.REQUEST) && req.getJSONObject(GlobalConstants.REQUEST).has(param)) {
+				// Schema-driven request bodies nest fields (e.g. registrationId) under "request";
+				// keep it there for the body, only borrow the value for the URL path param.
+				pathParamsMap.put(param, req.getJSONObject(GlobalConstants.REQUEST).get(param).toString());
 			} else
 				logger.error(GlobalConstants.ERROR_STRING_2 + param + GlobalConstants.IN_STRING + inputJson);
 		}
@@ -5455,6 +5459,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 			requestJson.put("id", "{{id}}");
 			requestJson.put("request", new HashMap<>());
+			requestJson.getJSONObject("request").put("status", "ACTIVATED");
 			requestJson.getJSONObject("request").put("registrationId", "{{registrationId}}");
 			JSONObject identityJson = new JSONObject();
 			identityJson.put("UIN", "{{UIN}}");
@@ -5730,8 +5735,8 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 
 			requestJson.put("id", "{{id}}");
-			requestJson.put("status", "{{status}}");
 			requestJson.put("request", new HashMap<>());
+			requestJson.getJSONObject("request").put("status", "{{status}}");
 			requestJson.getJSONObject("request").put("registrationId", "{{registrationId}}");
 			JSONObject identityJson = new JSONObject();
 			identityJson.put("UIN", "{{UIN}}");
@@ -5950,7 +5955,8 @@ public class AdminTestUtil extends BaseTestCase {
 			requestJson.put("requesttime", "{{requesttime}}");
 			requestJson.put("version", "{{version}}");
 			requestJson.put("request", new HashMap<>());
-			requestJson.put("registrationId", "{{registrationId}}");
+			requestJson.getJSONObject("request").put("status", "ACTIVATED");
+			requestJson.getJSONObject("request").put("registrationId", "{{registrationId}}");
 			JSONObject identityJson = new JSONObject();
 			JSONArray handleArray = new JSONArray();
 			handleArray.put("handle");
