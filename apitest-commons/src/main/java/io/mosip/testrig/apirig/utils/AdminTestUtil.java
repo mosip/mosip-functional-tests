@@ -2564,14 +2564,18 @@ public class AdminTestUtil extends BaseTestCase {
 		JSONObject req = new JSONObject(inputJson);
 		HashMap<String, String> pathParamsMap = new HashMap<>();
 		String[] params = pathParams.split(",");
+		JSONObject nestedRequest = (req.has(GlobalConstants.REQUEST)
+				&& req.get(GlobalConstants.REQUEST) instanceof JSONObject)
+						? req.getJSONObject(GlobalConstants.REQUEST)
+						: null;
 		for (String param : params) {
 			if (req.has(param)) {
 				pathParamsMap.put(param, req.get(param).toString());
 				req.remove(param);
-			} else if (req.has(GlobalConstants.REQUEST) && req.getJSONObject(GlobalConstants.REQUEST).has(param)) {
+			} else if (nestedRequest != null && nestedRequest.has(param)) {
 				// Schema-driven request bodies nest fields (e.g. registrationId) under "request";
 				// keep it there for the body, only borrow the value for the URL path param.
-				pathParamsMap.put(param, req.getJSONObject(GlobalConstants.REQUEST).get(param).toString());
+				pathParamsMap.put(param, nestedRequest.get(param).toString());
 			} else
 				logger.error(GlobalConstants.ERROR_STRING_2 + param + GlobalConstants.IN_STRING + inputJson);
 		}
