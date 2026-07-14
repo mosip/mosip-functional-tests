@@ -56,11 +56,11 @@ public class OTPListener {
 	private static String extractHost(String url) {
 		String trimmed = url.trim();
 		URI uri = URI.create(trimmed.contains("://") ? trimmed : "https://" + trimmed);
-		String host = uri.getHost();
-		if (host == null) {
+		String authority = uri.getAuthority();
+		if (authority == null) {
 			throw new IllegalStateException("Invalid smtpURL: " + url);
 		}
-		return host;
+		return authority;
 	}
 
 	private static String deriveSmtpHostFromIam() {

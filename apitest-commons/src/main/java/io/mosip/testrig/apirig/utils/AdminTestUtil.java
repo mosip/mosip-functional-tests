@@ -105,7 +105,9 @@ import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.itextpdf.text.pdf.PdfReader;
 import com.mifmif.common.regex.Generex;
+import com.nimbusds.jose.Algorithm;
 import com.nimbusds.jose.JWEAlgorithm;
+import com.nimbusds.jose.JWSAlgorithm;
 import com.nimbusds.jose.jwk.KeyUse;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.util.StandardCharset;
@@ -4481,7 +4483,7 @@ public class AdminTestUtil extends BaseTestCase {
 	    return publicKey;
 	}
 	
-	private static String generateJWKKey(KeyUse keyUse, String keyId, JWEAlgorithm algorithm, boolean includePrivate) {
+	private static String generateJWKKey(KeyUse keyUse, String keyId, Algorithm algorithm, boolean includePrivate) {
 		try {
 			KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
 			keyGenerator.initialize(2048, BaseTestCase.secureRandom);
@@ -4507,7 +4509,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 	
 	public static String generateJWKPublicKey() {
-		return generateJWKKey(KeyUse.SIGNATURE, "RSAKeyID", null, true);
+		return generateJWKKey(KeyUse.SIGNATURE, "RSAKeyID", JWSAlgorithm.RS256, true);
 	}
 	
 	public static String generateJWKEncPublicKey() {
@@ -5724,8 +5726,9 @@ public class AdminTestUtil extends BaseTestCase {
 		if (schema.has("type") && schema.get("type") instanceof JSONArray) {
 			JSONArray types = schema.getJSONArray("type");
 			for (int i = 0; i < types.length(); i++) {
-				if ("array".equals(types.getString(i))) {
-					type = "array";
+				String candidate = types.getString(i);
+				if ("array".equals(candidate) || "object".equals(candidate)) {
+					type = candidate;
 					break;
 				}
 			}
@@ -5813,11 +5816,6 @@ public class AdminTestUtil extends BaseTestCase {
 
 			String keyToUse = resolveDynamicSchemaKey(field, parentField);
 
-			Object override = getDynamicSchemaOverrideValue(keyToUse, testCaseName);
-			if (override != null) {
-				return override;
-			}
-
 			String propValue = null;
 			if (!"phone".equalsIgnoreCase(keyToUse) && !"individualId".equalsIgnoreCase(keyToUse)) {
 				propValue = valueMap.getProperty(keyToUse);
@@ -5828,6 +5826,11 @@ public class AdminTestUtil extends BaseTestCase {
 
 			if (propValue != null && !propValue.trim().isEmpty()) {
 				return propValue;
+			}
+
+			Object override = getDynamicSchemaOverrideValue(keyToUse, testCaseName);
+			if (override != null) {
+				return override;
 			}
 
 			return generateDynamicSchemaValue(schema, keyToUse, testCaseName, valueMap);
@@ -5857,8 +5860,19 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (schema.has("pattern")) {
 			try {
-				String pattern = schema.getString("pattern").replaceAll("\\(\\?=.*?\\)", "");
-				return genStringAsperRegex(pattern);
+				String originalPattern = schema.getString("pattern");
+				String strippedPattern = originalPattern.replaceAll("\\(\\?=.*?\\)", "");
+				Pattern compiledOriginal = Pattern.compile(originalPattern);
+
+				String candidate = null;
+				for (int attempt = 0; attempt < 10; attempt++) {
+					candidate = genStringAsperRegex(strippedPattern);
+					if (compiledOriginal.matcher(candidate).matches()) {
+						return candidate;
+					}
+				}
+				logger.warn("Could not generate a value satisfying pattern '" + originalPattern
+						+ "' after stripping lookaheads; falling back.");
 			} catch (Exception ignored) {
 			}
 		}
@@ -5922,7 +5936,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 	private static String resolveDynamicSchemaKey(String field, String parentField) {
 		if ("value".equalsIgnoreCase(field) || "items".equalsIgnoreCase(field) || "request".equalsIgnoreCase(field)) {
-			return parentField;
+			return parentField != null ? parentField : field;
 		}
 		return field;
 	}
