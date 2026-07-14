@@ -42,30 +42,49 @@ public class OTPListener {
 		}
 	}
 
+	private static final String WEBSOCKET_PATH = "/mocksmtp/websocket";
+
+	// --------------------------------------------------
+	// Resolve WebSocket URL
+	// --------------------------------------------------
+	private static String resolveWebsocketUrl() {
+		String smtpUrl = ConfigManager.getSmtpUrl();
+		String smtpHost = (smtpUrl != null && !smtpUrl.isBlank()) ? extractHost(smtpUrl) : deriveSmtpHostFromIam();
+		return "wss://" + smtpHost + WEBSOCKET_PATH;
+	}
+
+	private static String extractHost(String url) {
+		String trimmed = url.trim();
+		URI uri = URI.create(trimmed.contains("://") ? trimmed : "https://" + trimmed);
+		String host = uri.getHost();
+		if (host == null) {
+			throw new IllegalStateException("Invalid smtpURL: " + url);
+		}
+		return host;
+	}
+
+	private static String deriveSmtpHostFromIam() {
+		String iamUrl = ConfigManager.getIAMUrl();
+		String host = URI.create(iamUrl).getHost();
+		if (host == null) {
+			throw new IllegalStateException("Invalid IAM URL: " + iamUrl);
+		}
+
+		int firstDot = host.indexOf('.');
+		if (firstDot == -1 || firstDot == host.length() - 1) {
+			throw new IllegalStateException("Unexpected IAM host: " + host);
+		}
+
+		return "smtp." + host.substring(firstDot + 1);
+	}
+
 	// --------------------------------------------------
 	// Start WebSocket Listener
 	// --------------------------------------------------
 	public void run() {
 		try {
 
-			URI iamUri = URI.create(ConfigManager.getIAMUrl());
-
-			String host = iamUri.getHost();
-			if (host == null) {
-				throw new IllegalStateException("Invalid IAM URL: " + ConfigManager.getIAMUrl());
-			}
-
-			int firstDot = host.indexOf('.');
-
-			if (firstDot == -1 || firstDot == host.length() - 1) {
-				throw new IllegalStateException("Unexpected IAM host: " + host);
-			}
-
-			String domain = host.substring(firstDot + 1);
-
-			String smtpHost = "smtp." + domain;
-
-			String websocketUrl = "wss://" + smtpHost + "/mocksmtp/websocket";
+			String websocketUrl = resolveWebsocketUrl();
 
 			logger.info("Connecting OTP WebSocket: " + websocketUrl);
 
@@ -244,12 +263,7 @@ public class OTPListener {
 						}
 						if (bTerminate) return;
 						try {
-							URI iamUri = URI.create(ConfigManager.getIAMUrl());
-							String host = iamUri.getHost();
-							int firstDot = host.indexOf('.');
-							if (firstDot < 0 || firstDot == host.length() - 1) return;
-							String domain = host.substring(firstDot + 1);
-							String websocketUrl = "wss://smtp." + domain + "/mocksmtp/websocket";
+							String websocketUrl = resolveWebsocketUrl();
 							logger.info("Reconnecting WebSocket (attempt " + attempt + "): " + websocketUrl);
 							HTTP_CLIENT.newWebSocketBuilder()
 									.buildAsync(URI.create(websocketUrl), new WebSocketClient())
