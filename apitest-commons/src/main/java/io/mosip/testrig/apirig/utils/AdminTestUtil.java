@@ -105,7 +105,9 @@ import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.itextpdf.text.pdf.PdfReader;
 import com.mifmif.common.regex.Generex;
+import com.nimbusds.jose.Algorithm;
 import com.nimbusds.jose.JWEAlgorithm;
+import com.nimbusds.jose.JWSAlgorithm;
 import com.nimbusds.jose.jwk.KeyUse;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.util.StandardCharset;
@@ -4481,7 +4483,7 @@ public class AdminTestUtil extends BaseTestCase {
 	    return publicKey;
 	}
 	
-	private static String generateJWKKey(KeyUse keyUse, String keyId, JWEAlgorithm algorithm, boolean includePrivate) {
+	private static String generateJWKKey(KeyUse keyUse, String keyId, Algorithm algorithm, boolean includePrivate) {
 		try {
 			KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
 			keyGenerator.initialize(2048, BaseTestCase.secureRandom);
@@ -4507,7 +4509,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 	
 	public static String generateJWKPublicKey() {
-		return generateJWKKey(KeyUse.SIGNATURE, "RSAKeyID", null, true);
+		return generateJWKKey(KeyUse.SIGNATURE, "RSAKeyID", JWSAlgorithm.RS256, true);
 	}
 	
 	public static String generateJWKEncPublicKey() {
@@ -5681,6 +5683,296 @@ public class AdminTestUtil extends BaseTestCase {
 	private static String buildVerifiedAttributesHbs() {
 
 	    return "{{{json verifiedAttributes}}}";
+	}
+
+	/**
+	 * ======================= GENERIC SCHEMA-DRIVEN REQUEST GENERATION =======================
+	 *
+	 * Unlike {@link #modifySchemaGenerateHbs(boolean)} (which is hardwired to the real ID Repo
+	 * master schema, its {"request":{"identity":{...}}} envelope, and IDA actuator / Keymanager
+	 * calls), this builds a concrete request body directly from any given JSON schema, with no
+	 * assumptions about which identity system the schema belongs to and no separate handlebars
+	 * fill-in step. Intended for mock/simplified identity systems (e.g. esignet's and signup's
+	 * mock-identity-system) whose schema and request shape differ from the real ID Repo one.
+	 *
+	 * @param schemaStr   the full schema response JSON (as returned by the schema endpoint)
+	 * @param testCaseName current test case name, used for deterministic values like email
+	 * @param valueMap    caller-supplied field-name -> value overrides (module-specific defaults)
+	 */
+	public static String generateDynamicRequestFromSchema(String schemaStr, String testCaseName, Properties valueMap) {
+		try {
+			JSONObject fullSchema = new JSONObject(schemaStr);
+			JSONObject schemaRoot = fullSchema.has(GlobalConstants.RESPONSE)
+					? fullSchema.getJSONObject(GlobalConstants.RESPONSE)
+					: fullSchema;
+
+			JSONObject identity = (JSONObject) processDynamicSchema(schemaRoot, fullSchema, GlobalConstants.REQUEST,
+					null, true, testCaseName, valueMap);
+
+			return new JSONObject().put(GlobalConstants.REQUEST, identity).put("requestTime", GlobalConstants.TIMESTAMP)
+					.toString();
+		} catch (Exception e) {
+			throw new RuntimeException("Failed to generate dynamic request from schema", e);
+		}
+	}
+
+	private static Object processDynamicSchema(JSONObject schema, JSONObject root, String field, String parentField,
+			boolean required, String testCaseName, Properties valueMap) {
+
+		schema = resolveDynamicSchema(schema, root);
+
+		String type = schema.optString("type", "string");
+
+		if (schema.has("type") && schema.get("type") instanceof JSONArray) {
+			JSONArray types = schema.getJSONArray("type");
+			for (int i = 0; i < types.length(); i++) {
+				String candidate = types.getString(i);
+				if ("array".equals(candidate) || "object".equals(candidate)) {
+					type = candidate;
+					break;
+				}
+			}
+		}
+
+		switch (type) {
+
+		case "object":
+			JSONObject obj = new JSONObject();
+			JSONObject props = schema.optJSONObject("properties");
+			JSONArray req = schema.optJSONArray("required");
+
+			if (props != null) {
+				for (String key : props.keySet()) {
+					boolean isReq = req != null && req.toList().contains(key);
+					obj.put(key, processDynamicSchema(props.getJSONObject(key), root, key, key, isReq, testCaseName,
+							valueMap));
+				}
+			}
+			return obj;
+
+		case "array":
+			JSONArray arr = new JSONArray();
+			JSONObject items = schema.optJSONObject("items");
+
+			if (items == null && schema.has("allOf")) {
+				JSONArray allOf = schema.getJSONArray("allOf");
+				for (int i = 0; i < allOf.length(); i++) {
+					JSONObject part = resolveDynamicSchema(allOf.getJSONObject(i), root);
+					if (part.has("items")) {
+						items = part.getJSONObject("items");
+						break;
+					}
+				}
+				// Fallback: some schemas express the items schema as the allOf entry itself
+				// (no nested "items" wrapper) rather than wrapping it under an "items" key.
+				if (items == null) {
+					items = allOf.getJSONObject(allOf.length() - 1);
+				}
+			}
+
+			if (items == null)
+				return arr;
+
+			items = resolveDynamicSchema(items, root);
+			JSONObject propsArr = items.optJSONObject("properties");
+
+			if (propsArr != null && propsArr.has("language") && propsArr.has("value")) {
+
+				JSONArray langArr = new JSONArray();
+				JSONObject row = new JSONObject();
+				row.put("language", "eng");
+
+				String keyToUse = resolveDynamicSchemaKey(field, parentField);
+
+				String propValue = null;
+				if (!"phone".equalsIgnoreCase(keyToUse) && !"individualId".equalsIgnoreCase(keyToUse)) {
+					propValue = valueMap.getProperty(keyToUse);
+					if (propValue == null) {
+						propValue = valueMap.getProperty(keyToUse.toLowerCase());
+					}
+				}
+
+				Object val;
+				if (propValue != null && !propValue.trim().isEmpty()) {
+					if ("fullname".equalsIgnoreCase(keyToUse) || "givenname".equalsIgnoreCase(keyToUse)
+							|| "familyname".equalsIgnoreCase(keyToUse)) {
+						propValue = propValue.replaceAll("[^a-zA-Z\\s]", "");
+					}
+					val = propValue;
+				} else {
+					val = generateDynamicSchemaValue(propsArr.getJSONObject("value"), keyToUse, testCaseName,
+							valueMap);
+				}
+
+				row.put("value", val);
+				langArr.put(row);
+				return langArr;
+			}
+
+			arr.put(processDynamicSchema(items, root, field, parentField, true, testCaseName, valueMap));
+			return arr;
+
+		default:
+
+			String keyToUse = resolveDynamicSchemaKey(field, parentField);
+
+			String propValue = null;
+			if (!"phone".equalsIgnoreCase(keyToUse) && !"individualId".equalsIgnoreCase(keyToUse)) {
+				propValue = valueMap.getProperty(keyToUse);
+				if (propValue == null) {
+					propValue = valueMap.getProperty(keyToUse.toLowerCase());
+				}
+			}
+
+			if (propValue != null && !propValue.trim().isEmpty()) {
+				return propValue;
+			}
+
+			Object override = getDynamicSchemaOverrideValue(keyToUse, testCaseName);
+			if (override != null) {
+				return override;
+			}
+
+			return generateDynamicSchemaValue(schema, keyToUse, testCaseName, valueMap);
+		}
+	}
+
+	private static Object generateDynamicSchemaValue(JSONObject schema, String field, String testCaseName,
+			Properties valueMap) {
+
+		if ("email".equalsIgnoreCase(field)) {
+			return testCaseName + "@mosip.net";
+		}
+
+		if (!"phone".equalsIgnoreCase(field) && !"individualId".equalsIgnoreCase(field)) {
+			String propValue = valueMap.getProperty(field);
+			if (propValue == null) {
+				propValue = valueMap.getProperty(field.toLowerCase());
+			}
+			if (propValue != null && !propValue.trim().isEmpty()) {
+				if ("fullname".equalsIgnoreCase(field) || "givenname".equalsIgnoreCase(field)
+						|| "familyname".equalsIgnoreCase(field)) {
+					propValue = propValue.replaceAll("[^a-zA-Z\\s]", "");
+				}
+				return propValue;
+			}
+		}
+
+		if (schema.has("pattern")) {
+			try {
+				String originalPattern = schema.getString("pattern");
+				String strippedPattern = originalPattern.replaceAll("\\(\\?=.*?\\)", "");
+				Pattern compiledOriginal = Pattern.compile(originalPattern);
+
+				String candidate = null;
+				for (int attempt = 0; attempt < 10; attempt++) {
+					candidate = genStringAsperRegex(strippedPattern);
+					if (compiledOriginal.matcher(candidate).matches()) {
+						return candidate;
+					}
+				}
+				logger.warn("Could not generate a value satisfying pattern '" + originalPattern
+						+ "' after stripping lookaheads; falling back.");
+			} catch (Exception ignored) {
+			}
+		}
+
+		if (schema.has("enum")) {
+			JSONArray arr = schema.getJSONArray("enum");
+			return arr.get(0);
+		}
+
+		return "Test_" + field;
+	}
+
+	private static JSONObject resolveDynamicSchema(JSONObject schema, JSONObject root) {
+
+		JSONObject result = new JSONObject();
+		JSONObject effectiveRoot = root.has(GlobalConstants.RESPONSE) ? root.getJSONObject(GlobalConstants.RESPONSE)
+				: root;
+
+		if (schema.has("$ref")) {
+			String ref = schema.getString("$ref");
+			Object current = effectiveRoot;
+			for (String part : ref.substring(2).split("/")) {
+				current = ((JSONObject) current).get(part);
+			}
+			result = mergeDynamicSchema(result, (JSONObject) current);
+		}
+
+		if (schema.has("allOf")) {
+			JSONArray arr = schema.getJSONArray("allOf");
+			for (int i = 0; i < arr.length(); i++) {
+				result = mergeDynamicSchema(result, resolveDynamicSchema(arr.getJSONObject(i), effectiveRoot));
+			}
+		}
+
+		JSONObject copy = new JSONObject(schema.toString());
+		copy.remove("$ref");
+		copy.remove("allOf");
+
+		return mergeDynamicSchema(result, copy);
+	}
+
+	private static JSONObject mergeDynamicSchema(JSONObject base, JSONObject override) {
+		JSONObject result = new JSONObject(base.toString());
+		for (String key : override.keySet()) {
+			Object val = override.get(key);
+			if (result.has(key) && result.get(key) instanceof JSONObject && val instanceof JSONObject) {
+				result.put(key, mergeDynamicSchema(result.getJSONObject(key), (JSONObject) val));
+			} else {
+				result.put(key, val);
+			}
+		}
+		return result;
+	}
+
+	private static Object getDynamicSchemaOverrideValue(String field, String testCaseName) {
+		if ("email".equalsIgnoreCase(field)) {
+			return testCaseName + "@mosip.net";
+		}
+		return null;
+	}
+
+	private static String resolveDynamicSchemaKey(String field, String parentField) {
+		if ("value".equalsIgnoreCase(field) || "items".equalsIgnoreCase(field) || "request".equalsIgnoreCase(field)) {
+			return parentField != null ? parentField : field;
+		}
+		return field;
+	}
+
+	/**
+	 * Extracts individualId/email/password/phone from a request body built by
+	 * {@link #generateDynamicRequestFromSchema(String, String, Properties)} and records them via
+	 * {@link #writeAutoGeneratedId(String, String, String)} under the conventional UIN/EMAIL/
+	 * PASSWORD/PHONE keys, so downstream test cases can reference them by testCaseName.
+	 */
+	public void extractAndStoreIdentityDetailsFromRequest(String testCaseName, String requestBody) {
+		try {
+			JSONObject root = new JSONObject(requestBody);
+			JSONObject request = root.has(GlobalConstants.REQUEST) ? root.getJSONObject(GlobalConstants.REQUEST)
+					: root;
+
+			String individualId = request.optString("individualId", null);
+			String email = request.optString("email", null);
+			String password = request.optString("password", null);
+			String phone = request.optString("phone", null);
+
+			if (individualId != null && !individualId.isEmpty()) {
+				writeAutoGeneratedId(testCaseName, "UIN", individualId);
+			}
+			if (email != null && !email.isEmpty()) {
+				writeAutoGeneratedId(testCaseName, "EMAIL", email);
+			}
+			if (password != null && !password.isEmpty()) {
+				writeAutoGeneratedId(testCaseName, "PASSWORD", password);
+			}
+			if (phone != null && !phone.isEmpty()) {
+				writeAutoGeneratedId(testCaseName, "PHONE", phone);
+			}
+		} catch (Exception e) {
+			throw new RuntimeException("Failed to extract identity details from request", e);
+		}
 	}
 
 	public static String getSchemaURL() {

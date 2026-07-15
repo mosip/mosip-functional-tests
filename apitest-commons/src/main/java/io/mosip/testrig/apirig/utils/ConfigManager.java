@@ -248,6 +248,7 @@ public class ConfigManager {
 	public static String getIAMUsersToCreate() { return getproperty("iam-users-to-create");  }
 	public static String getIAMUsersPassword() { return getproperty("iam-users-password"); }
 	public static String getIAMUrl() {	return getproperty("keycloak-external-url")  + "/auth";	}
+	public static String getSmtpUrl() { return getproperty("smtpURL"); }
 	public static String getMountPathForReport() {	return getproperty("mountPathForReport");	}
 	public static Boolean reportKnownIssueTestCases() { return getproperty("reportKnownIssueTestCases").equalsIgnoreCase("yes");}
 	
