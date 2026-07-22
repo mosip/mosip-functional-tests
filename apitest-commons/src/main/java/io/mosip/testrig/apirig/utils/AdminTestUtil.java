@@ -3831,6 +3831,15 @@ public class AdminTestUtil extends BaseTestCase {
 
 	}
 
+	// A plain scalar field is emitted into the JSON tree as this sentinel first, then swapped for the
+	// {{schemaFieldValue "name"}} helper call once the JSON is fully built (finalizeSchemaGenericFields).
+	// It cannot be a raw Handlebars call inside the JSON because the helper's quoted argument would break
+	// any JSONObject re-parse (e.g. the V2 verifiedAttributes wrap).
+	public static final String SCHEMA_FIELD_HELPER = "schemaFieldValue";
+	public static final String SCHEMA_FIELD_SENTINEL_PREFIX = "$$SCHEMAFIELD:";
+	public static final String SCHEMA_FIELD_SENTINEL_SUFFIX = "$$";
+	private static final Pattern SCHEMA_FIELD_SENTINEL_PATTERN = Pattern.compile("\\$\\$SCHEMAFIELD:([A-Za-z0-9_]+)\\$\\$");
+
 	public static Handlebars handlebars = new Handlebars().with(EscapingStrategy.NOOP);
 	public static Gson gson = new Gson();
 	static {
@@ -3840,6 +3849,97 @@ public class AdminTestUtil extends BaseTestCase {
 				return gson.toJson(context);
 			}
 		});
+		// Presence-aware value for a plain scalar identity field: use whatever the YAML input supplies
+		// for the key (INCLUDING a deliberate "" that a negative test sends), and only generate a
+		// validator-valid value when the input omits the key entirely. This keeps AddIdentity working
+		// when a country/env schema adds or renames a scalar field no YAML mentions — without a fallback
+		// such a field would render as "" and fail the schema's own validation. Shared by
+		// modifySchemaGenerateHbs and the opt-in SchemaBasedIdentityTemplateBuilder.
+		handlebars.registerHelper(SCHEMA_FIELD_HELPER, new Helper<String>() {
+			@Override
+			public CharSequence apply(String fieldName, Options options) {
+				Object suppliedValue = options.get(fieldName);
+				if (suppliedValue != null) {
+					return suppliedValue.toString();
+				}
+				return generateSchemaFieldValue(fieldName);
+			}
+		});
+	}
+
+	/** Swaps each generic-field sentinel for the {{schemaFieldValue "name"}} helper call. */
+	public static String finalizeSchemaGenericFields(String json) {
+		if (json == null || json.indexOf(SCHEMA_FIELD_SENTINEL_PREFIX) < 0) {
+			return json;
+		}
+		Matcher matcher = SCHEMA_FIELD_SENTINEL_PATTERN.matcher(json);
+		StringBuffer sb = new StringBuffer();
+		while (matcher.find()) {
+			matcher.appendReplacement(sb,
+					Matcher.quoteReplacement("{{" + SCHEMA_FIELD_HELPER + " \"" + matcher.group(1) + "\"}}"));
+		}
+		matcher.appendTail(sb);
+		return sb.toString();
+	}
+
+	/**
+	 * Generates a value satisfying the given schema field's own validator (random alphanumeric fallback
+	 * when it has none). Used as the presence-aware fallback for a scalar field the YAML doesn't supply,
+	 * and for resolving $HANDLEVALUE:&lt;field&gt;$ tokens.
+	 */
+	public static String generateSchemaFieldValue(String fieldName) {
+		JSONObject props = getIdentitySchemaProperties();
+		String regex = null;
+		if (props.has(fieldName)) {
+			JSONObject fieldDef = props.getJSONObject(fieldName);
+			if ("array".equals(fieldDef.optString("type", "string"))) {
+				JSONObject itemsDef = fieldDef.optJSONObject("items");
+				JSONObject valueDef = itemsDef != null && itemsDef.optJSONObject("properties") != null
+						? itemsDef.getJSONObject("properties").optJSONObject("value")
+						: null;
+				JSONArray validators = valueDef != null ? valueDef.optJSONArray("validators") : null;
+				if (validators != null && validators.length() > 0) {
+					regex = validators.getJSONObject(0).getString("validator");
+				}
+			} else {
+				JSONArray validators = fieldDef.optJSONArray("validators");
+				if (validators != null && validators.length() > 0) {
+					regex = validators.getJSONObject(0).getString("validator");
+				}
+			}
+		}
+		if (regex != null) {
+			try {
+				return genStringAsperRegex(regex);
+			} catch (Exception e) {
+				logger.error(e.getMessage());
+			}
+		}
+		return "mosip" + generateRandomNumberString(10);
+	}
+
+	/**
+	 * Resolves $HANDLEVALUE:&lt;fieldName&gt;$ tokens (emitted by the full-schema builder for optional
+	 * handle fields) into a fresh value valid for that field's validator. Called per request so handle
+	 * values stay unique across a run (the template is cached).
+	 */
+	public static String resolveSchemaHandleValueTokens(String jsonString) {
+		if (jsonString == null || !jsonString.contains("$HANDLEVALUE:")) {
+			return jsonString;
+		}
+		String token = "$HANDLEVALUE:";
+		int startIdx;
+		while ((startIdx = jsonString.indexOf(token)) != -1) {
+			int fieldStart = startIdx + token.length();
+			int endIdx = jsonString.indexOf("$", fieldStart);
+			if (endIdx == -1) {
+				break;
+			}
+			String fieldName = jsonString.substring(fieldStart, endIdx);
+			jsonString = jsonString.substring(0, startIdx) + generateSchemaFieldValue(fieldName)
+					+ jsonString.substring(endIdx + 1);
+		}
+		return jsonString;
 	}
 
 	public String getJsonFromTemplate(String input, String template, boolean readFile) {
@@ -5420,7 +5520,9 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static String modifySchemaGenerateHbs(boolean regenerateHbs) {
 		if (identityHbs != null && !regenerateHbs) {
-			return identityHbs;
+			// identityHbs is cached with generic-field sentinels (so modifySchemaGenerateHbsV2 can
+			// re-parse it as JSON); finalize turns them into the presence-aware helper on the way out.
+			return finalizeSchemaGenericFields(identityHbs);
 		}
 		JSONObject requestJson = new JSONObject();
 		kernelAuthLib = new KernelAuthentication();
@@ -5620,10 +5722,13 @@ public class AdminTestUtil extends BaseTestCase {
 								+ "}} — ensure YAML input supplies a value (e.g. a token like $NRCID$ or a literal).");
 
 					} else {
-						// Plain scalar field: always use {{placeholder}} so YAML can supply any value.
-						// Positive test YAMLs provide valid values; negative test YAMLs provide invalid ones.
-						// Baking propsMap/regex values here would prevent negative tests from overriding.
-						identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
+						// Plain scalar field: emit a sentinel that finalizeSchemaGenericFields turns into
+						// the presence-aware {{schemaFieldValue "field"}} helper — the YAML value if supplied
+						// (positive value, negative invalid value, deliberate "", or $REMOVE$), otherwise a
+						// validator-valid generated value so a required field the YAML never mentions (e.g.
+						// one a country/env schema adds) is never sent as an empty string.
+						identityJson.put(eachRequiredProp,
+								SCHEMA_FIELD_SENTINEL_PREFIX + eachRequiredProp + SCHEMA_FIELD_SENTINEL_SUFFIX);
 					}
 				}
 			}
@@ -5664,19 +5769,24 @@ public class AdminTestUtil extends BaseTestCase {
 			logger.error(e.getMessage());
 		}
 
+		// Cache WITH sentinels (valid JSON, so modifySchemaGenerateHbsV2 can re-parse); finalize on the
+		// way out into the presence-aware helper.
 		identityHbs = requestJson.toString();
-		return identityHbs;
+		return finalizeSchemaGenericFields(identityHbs);
 	}
-	
+
 	public static String modifySchemaGenerateHbsV2(boolean regenerateHbs) {
 		if (identityHbsV2 != null && !regenerateHbs) {
 			return identityHbsV2;
 		}
 		if (regenerateHbs) identityHbsV2 = null;
-		String hbs = modifySchemaGenerateHbs(regenerateHbs);
-		JSONObject requestJson = new JSONObject(hbs);
+		// Populate the cached sentinel template (identityHbs) then re-parse THAT — the sentinel form is
+		// valid JSON, unlike the finalized {{schemaFieldValue "x"}} form. Finalize after the V2 wrap.
+		modifySchemaGenerateHbs(regenerateHbs);
+		JSONObject requestJson = new JSONObject(identityHbs);
 		requestJson.getJSONObject("request").put("verifiedAttributes", "$VERIFIED_ATTRIBUTES$");
-		identityHbsV2 = requestJson.toString().replace("\"$VERIFIED_ATTRIBUTES$\"", buildVerifiedAttributesHbs());
+		identityHbsV2 = finalizeSchemaGenericFields(
+				requestJson.toString().replace("\"$VERIFIED_ATTRIBUTES$\"", buildVerifiedAttributesHbs()));
 		return identityHbsV2;
 	}
 	
@@ -8000,6 +8110,46 @@ public class AdminTestUtil extends BaseTestCase {
 
 		return globalRequiredFields;
 
+	}
+
+	public static JSONObject globalIdentityPropsJson = null;
+	// The live IdSchema identity node's "additionalProperties" flag, captured alongside the
+	// properties in getIdentitySchemaProperties() so callers can tell whether the schema rejects
+	// fields it doesn't define (strict) or accepts them (permissive). Boolean (not primitive) so
+	// null distinguishes "not fetched yet" from a real value.
+	public static Boolean globalIdentityAdditionalProperties = null;
+
+	/**
+	 * Returns the live IdSchema's full identity "properties" object (all fields,
+	 * not just the "required" ones), cached after the first fetch. Callers can
+	 * use this to inspect a field's "handle"/"type"/"validators" metadata
+	 * regardless of whether that field happens to be required — the required-only
+	 * loop in {@link #modifySchemaGenerateHbs(boolean)} intentionally does not
+	 * cover this, since its output is shared across modules that don't need it.
+	 */
+	public static JSONObject getIdentitySchemaProperties() {
+		if (globalIdentityPropsJson != null) {
+			return globalIdentityPropsJson;
+		}
+
+		kernelAuthLib = new KernelAuthentication();
+		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
+		String url = getSchemaURL();
+
+		Response response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+
+		org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
+		org.json.JSONObject schemaData = (org.json.JSONObject) responseJson.get(GlobalConstants.RESPONSE);
+		String schemaJsonData = schemaData.getString(GlobalConstants.SCHEMA_JSON);
+
+		JSONObject schemaFileJson = new JSONObject(schemaJsonData);
+		JSONObject schemaPropsJson = schemaFileJson.getJSONObject("properties");
+		JSONObject schemaIdentityJson = schemaPropsJson.getJSONObject("identity");
+		globalIdentityPropsJson = schemaIdentityJson.getJSONObject("properties");
+		globalIdentityAdditionalProperties = schemaIdentityJson.optBoolean("additionalProperties", false);
+
+		return globalIdentityPropsJson;
 	}
 
 	public static Response postWithJson(String endpoint, Object body) {
