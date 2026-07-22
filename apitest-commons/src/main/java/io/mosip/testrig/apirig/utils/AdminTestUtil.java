@@ -3831,10 +3831,9 @@ public class AdminTestUtil extends BaseTestCase {
 
 	}
 
-	// A plain scalar field is emitted into the JSON tree as this sentinel first, then swapped for the
-	// {{schemaFieldValue "name"}} helper call once the JSON is fully built (finalizeSchemaGenericFields).
-	// It cannot be a raw Handlebars call inside the JSON because the helper's quoted argument would break
-	// any JSONObject re-parse (e.g. the V2 verifiedAttributes wrap).
+	// Scalar fields are emitted as this sentinel, then finalizeSchemaGenericFields swaps it for the
+	// {{schemaFieldValue "name"}} helper — kept as a sentinel until then so the JSON stays re-parsable
+	// (a raw helper call with a quoted arg would break any JSONObject re-parse, e.g. the V2 wrap).
 	public static final String SCHEMA_FIELD_HELPER = "schemaFieldValue";
 	public static final String SCHEMA_FIELD_SENTINEL_PREFIX = "$$SCHEMAFIELD:";
 	public static final String SCHEMA_FIELD_SENTINEL_SUFFIX = "$$";
@@ -3849,12 +3848,8 @@ public class AdminTestUtil extends BaseTestCase {
 				return gson.toJson(context);
 			}
 		});
-		// Presence-aware value for a plain scalar identity field: use whatever the YAML input supplies
-		// for the key (INCLUDING a deliberate "" that a negative test sends), and only generate a
-		// validator-valid value when the input omits the key entirely. This keeps AddIdentity working
-		// when a country/env schema adds or renames a scalar field no YAML mentions — without a fallback
-		// such a field would render as "" and fail the schema's own validation. Shared by
-		// modifySchemaGenerateHbs and the opt-in SchemaBasedIdentityTemplateBuilder.
+		// Renders a scalar identity field: the YAML value if the input supplies the key (including a
+		// deliberate ""), otherwise a validator-valid generated value so an unsupplied field is never "".
 		handlebars.registerHelper(SCHEMA_FIELD_HELPER, new Helper<String>() {
 			@Override
 			public CharSequence apply(String fieldName, Options options) {
@@ -5520,8 +5515,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static String modifySchemaGenerateHbs(boolean regenerateHbs) {
 		if (identityHbs != null && !regenerateHbs) {
-			// identityHbs is cached with generic-field sentinels (so modifySchemaGenerateHbsV2 can
-			// re-parse it as JSON); finalize turns them into the presence-aware helper on the way out.
+			// identityHbs is cached with sentinels; finalize on the way out (see the return below).
 			return finalizeSchemaGenericFields(identityHbs);
 		}
 		JSONObject requestJson = new JSONObject();
@@ -5722,11 +5716,8 @@ public class AdminTestUtil extends BaseTestCase {
 								+ "}} — ensure YAML input supplies a value (e.g. a token like $NRCID$ or a literal).");
 
 					} else {
-						// Plain scalar field: emit a sentinel that finalizeSchemaGenericFields turns into
-						// the presence-aware {{schemaFieldValue "field"}} helper — the YAML value if supplied
-						// (positive value, negative invalid value, deliberate "", or $REMOVE$), otherwise a
-						// validator-valid generated value so a required field the YAML never mentions (e.g.
-						// one a country/env schema adds) is never sent as an empty string.
+						// Plain scalar field: sentinel -> presence-aware {{schemaFieldValue}} helper, so a
+						// required field the YAML never supplies gets a valid value rather than "".
 						identityJson.put(eachRequiredProp,
 								SCHEMA_FIELD_SENTINEL_PREFIX + eachRequiredProp + SCHEMA_FIELD_SENTINEL_SUFFIX);
 					}
@@ -5769,9 +5760,7 @@ public class AdminTestUtil extends BaseTestCase {
 			logger.error(e.getMessage());
 		}
 
-		// Cache WITH sentinels (valid JSON, so modifySchemaGenerateHbsV2 can re-parse); finalize on the
-		// way out into the presence-aware helper.
-		identityHbs = requestJson.toString();
+		identityHbs = requestJson.toString(); // cached with sentinels; finalize on return
 		return finalizeSchemaGenericFields(identityHbs);
 	}
 
@@ -5780,8 +5769,7 @@ public class AdminTestUtil extends BaseTestCase {
 			return identityHbsV2;
 		}
 		if (regenerateHbs) identityHbsV2 = null;
-		// Populate the cached sentinel template (identityHbs) then re-parse THAT — the sentinel form is
-		// valid JSON, unlike the finalized {{schemaFieldValue "x"}} form. Finalize after the V2 wrap.
+		// Re-parse the cached sentinel form (valid JSON, unlike the finalized helper form); finalize after.
 		modifySchemaGenerateHbs(regenerateHbs);
 		JSONObject requestJson = new JSONObject(identityHbs);
 		requestJson.getJSONObject("request").put("verifiedAttributes", "$VERIFIED_ATTRIBUTES$");
@@ -8113,10 +8101,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static JSONObject globalIdentityPropsJson = null;
-	// The live IdSchema identity node's "additionalProperties" flag, captured alongside the
-	// properties in getIdentitySchemaProperties() so callers can tell whether the schema rejects
-	// fields it doesn't define (strict) or accepts them (permissive). Boolean (not primitive) so
-	// null distinguishes "not fetched yet" from a real value.
+	/** Identity node's "additionalProperties" flag (populated by getIdentitySchemaProperties); null until fetched. */
 	public static Boolean globalIdentityAdditionalProperties = null;
 
 	/**

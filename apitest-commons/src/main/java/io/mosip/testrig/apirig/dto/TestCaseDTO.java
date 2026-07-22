@@ -24,9 +24,6 @@ public class TestCaseDTO {
 	private String uniqueIdentifier;
 	private String additionalDependencies;
 	private String[] requiredSchemaFields;
-	// Field names that must be declared "handle": true in the live IdSchema for the test to apply.
-	// Skip-only: if a listed field is not a handle in the current schema, the test is skipped (never
-	// forced). Handle designation varies per schema (env/country), so a test that exercises a field's
-	// handle semantics is meaningful only where that field is actually a handle.
+	/** Field names that must be declared "handle":true in the live schema; the test is skipped otherwise. */
 	private String[] requiredHandleFields;
 }

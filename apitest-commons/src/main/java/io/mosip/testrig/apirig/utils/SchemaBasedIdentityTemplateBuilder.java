@@ -11,21 +11,16 @@ import org.json.JSONObject;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 
 /**
- * Opt-in builder that constructs the AddIdentity / UpdateIdentity request body from EVERY field in the
- * live IdSchema — both the "required" fields and the optional ones — unlike
- * {@link AdminTestUtil#modifySchemaGenerateHbs(boolean)}, which covers only the required set.
+ * Opt-in builder for the AddIdentity / UpdateIdentity request body from EVERY field in the live
+ * IdSchema — required and optional — unlike {@link AdminTestUtil#modifySchemaGenerateHbs(boolean)},
+ * which covers only the required set. Nothing wires this in by default; call it explicitly where a
+ * module needs the optional fields present (e.g. idrepo, which tests handle behaviour on optional
+ * handle fields). Modules that create an identity only as a prerequisite should keep using the
+ * required-only builder.
  *
- * <p>Use this where a module needs optional fields present in the identity it creates (e.g. idrepo,
- * which tests handle behaviour on optional handle fields such as licenseNo/functionalId). Most modules
- * create an identity only as a prerequisite for their own flow and should keep using the required-only
- * {@code modifySchemaGenerateHbs}; sending extra optional fields there is surface for their setup to
- * fail on with no benefit. Nothing here is wired into any module by default — call it explicitly.
- *
- * <p>The templates are deterministic per schema (every per-test value is a token/placeholder resolved
- * later at render time), so each variant is built once and cached for the run. Generic scalar fields use
- * the shared presence-aware {@code schemaFieldValue} helper (see AdminTestUtil); optional handle fields
- * use {@code $HANDLEVALUE:<field>$} tokens, which the caller resolves per request via
- * {@link AdminTestUtil#resolveSchemaHandleValueTokens(String)} so handle values stay unique across a run.
+ * <p>Templates are cached per run (deterministic per schema). Optional handle fields use
+ * {@code $HANDLEVALUE:<field>$} tokens; resolve them per request via
+ * {@link AdminTestUtil#resolveSchemaHandleValueTokens(String)} to keep handle values unique.
  */
 public class SchemaBasedIdentityTemplateBuilder {
 
@@ -111,9 +106,7 @@ public class SchemaBasedIdentityTemplateBuilder {
 				identityJson.put(fieldName, "$1STLANG$");
 
 			} else if (fieldName.equals("packetCreatedOn")) {
-				// System-populated audit timestamp with no $ref/validators; emit the $TIMESTAMP$ token so
-				// inputJsonKeyWordHandeler fills a fresh UTC time per request and this template stays
-				// deterministic (hence cacheable) rather than rendering "".
+				// System audit timestamp; $TIMESTAMP$ is filled per request by inputJsonKeyWordHandeler.
 				identityJson.put(fieldName, "$TIMESTAMP$");
 
 			} else if (!ref.isEmpty() && ref.contains("simpleType")) {
@@ -161,9 +154,7 @@ public class SchemaBasedIdentityTemplateBuilder {
 				identityJson.put(fieldName, hash);
 
 			} else if (fieldName.equals(phoneFieldName) || fieldName.equals(emailFieldName)) {
-				// Phone/email take their value from the YAML input ($PHONENUMBERFORIDENTITY$ / $EMAILVALUE$).
-				// Handled together and shape-driven so the two can't drift apart: whether either is a handle,
-				// and whether it is string or array, is per-schema. The phone placeholder is always {{phone}}.
+				// Handled together and shape-driven (string vs array is per-schema). Phone key is always {{phone}}.
 				String placeholder = fieldName.equals(phoneFieldName) ? "{{phone}}" : "{{" + fieldName + "}}";
 				if ("array".equals(fieldType)) {
 					JSONObject entry = new JSONObject();
