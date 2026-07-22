@@ -5768,7 +5768,6 @@ public class AdminTestUtil extends BaseTestCase {
 		if (identityHbsV2 != null && !regenerateHbs) {
 			return identityHbsV2;
 		}
-		if (regenerateHbs) identityHbsV2 = null;
 		// Re-parse the cached sentinel form (valid JSON, unlike the finalized helper form); finalize after.
 		modifySchemaGenerateHbs(regenerateHbs);
 		JSONObject requestJson = new JSONObject(identityHbs);
@@ -6272,7 +6271,6 @@ public class AdminTestUtil extends BaseTestCase {
 		if (updateIdentityHbsV2Cached != null && !regenerateHbs) {
 			return updateIdentityHbsV2Cached;
 		}
-		if (regenerateHbs) updateIdentityHbsV2Cached = null;
 		String hbs = updateIdentityHbs(regenerateHbs);
 		JSONObject requestJson = new JSONObject(hbs);
 		requestJson.getJSONObject("request").put("verifiedAttributes", "$VERIFIED_ATTRIBUTES$");
