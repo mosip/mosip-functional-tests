@@ -65,8 +65,8 @@ public class SchemaBasedIdentityTemplateBuilder {
 
 	private static String wrapV2(String hbs) {
 		JSONObject requestJson = new JSONObject(hbs);
-		requestJson.getJSONObject("request").put("verifiedAttributes", "$$VERIFIED_ATTRIBUTES$$");
-		return requestJson.toString().replace("\"$$VERIFIED_ATTRIBUTES$$\"", "{{{json verifiedAttributes}}}");
+		requestJson.getJSONObject("request").put("verifiedAttributes", "$VERIFIED_ATTRIBUTES$");
+		return requestJson.toString().replace("\"$VERIFIED_ATTRIBUTES$\"", "{{{json verifiedAttributes}}}");
 	}
 
 	private static String buildTemplate(boolean isUpdate) {
