@@ -24,4 +24,6 @@ public class TestCaseDTO {
 	private String uniqueIdentifier;
 	private String additionalDependencies;
 	private String[] requiredSchemaFields;
+	/** Field names that must be declared "handle":true in the live schema; the test is skipped otherwise. */
+	private String[] requiredHandleFields;
 }
