@@ -119,9 +119,14 @@ public class WebSocketClientUtil extends Endpoint {
 
 
     public void sendMessage(String messageContent) {
+        sendMessage(messageContent, "application/json");
+    }
+
+    // Same as sendMessage(String) but with a caller-supplied STOMP content-type header.
+    public void sendMessage(String messageContent, String contentType) {
         if (session != null && session.isOpen()) {
             try {
-                String sendFrame = String.format("SEND\ndestination:%s\ncontent-type:application/json\n\n%s\u0000", sendDestination, messageContent);
+                String sendFrame = String.format("SEND\ndestination:%s\ncontent-type:%s\n\n%s\u0000", sendDestination, contentType, messageContent);
                 session.getBasicRemote().sendText(sendFrame);
                 logger.info("Sent message: " + sendFrame);
             } catch (Exception e) {
@@ -144,9 +149,14 @@ public class WebSocketClientUtil extends Endpoint {
         }
     }
 
-    // Method to extract the message ID from the received message (this is a placeholder)
+    // STOMP ERROR frames have no message-id header, so this counter gives each one a distinct store key.
+    private static final java.util.concurrent.atomic.AtomicLong errorFrameCounter = new java.util.concurrent.atomic.AtomicLong();
+
     private String extractMessageId(String message) {
         try {
+            if (message.startsWith("ERROR")) {
+                return "ERROR-" + errorFrameCounter.incrementAndGet();
+            }
             if (message.contains("message-id")) {
                 String[] parts = message.split("message-id:");
                 if (parts.length > 1) {
