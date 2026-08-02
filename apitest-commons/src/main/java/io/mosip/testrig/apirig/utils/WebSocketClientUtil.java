@@ -85,10 +85,28 @@ public class WebSocketClientUtil extends Endpoint {
         // Assuming the message contains a message-id field
         String messageId = extractMessageId(message);
         if (messageId != null) {
-            messageStore.put(messageId, message);
+            if (messageId.startsWith("ERROR-")) {
+                retainErrorFrame(messageId, message);
+            } else {
+                messageStore.put(messageId, message);
+            }
             logger.info("Stored message with ID: " + messageId);
         } else {
             logger.warn("Received message without a valid message ID: " + message);
+        }
+    }
+
+    private static final int MAX_ERROR_FRAMES = 100;
+    private static final java.util.concurrent.ConcurrentLinkedDeque<String> errorFrameKeys = new java.util.concurrent.ConcurrentLinkedDeque<>();
+
+    private static void retainErrorFrame(String key, String message) {
+        messageStore.put(key, message);
+        errorFrameKeys.addLast(key);
+        while (errorFrameKeys.size() > MAX_ERROR_FRAMES) {
+            String evicted = errorFrameKeys.pollFirst();
+            if (evicted != null) {
+                messageStore.remove(evicted);
+            }
         }
     }
 
@@ -125,8 +143,9 @@ public class WebSocketClientUtil extends Endpoint {
     // Same as sendMessage(String) but with a caller-supplied STOMP content-type header.
     public void sendMessage(String messageContent, String contentType) {
         if (session != null && session.isOpen()) {
+            String encodedContentType = stompEncodeHeaderValue(contentType);
             try {
-                String sendFrame = String.format("SEND\ndestination:%s\ncontent-type:%s\n\n%s\u0000", sendDestination, contentType, messageContent);
+                String sendFrame = String.format("SEND\ndestination:%s\ncontent-type:%s\n\n%s\u0000", sendDestination, encodedContentType, messageContent);
                 session.getBasicRemote().sendText(sendFrame);
                 logger.info("Sent message: " + sendFrame);
             } catch (Exception e) {
@@ -136,6 +155,13 @@ public class WebSocketClientUtil extends Endpoint {
             logger.warn("Connection is not open. Unable to send message.");
             session = null;
         }
+    }
+
+    private static String stompEncodeHeaderValue(String value) {
+        if (value.indexOf('\u0000') >= 0) {
+            throw new IllegalArgumentException("STOMP header value must not contain a NUL character");
+        }
+        return value.replace("\\", "\\\\").replace(":", "\\c").replace("\n", "\\n").replace("\r", "\\r");
     }
 
     public void closeConnection() {
