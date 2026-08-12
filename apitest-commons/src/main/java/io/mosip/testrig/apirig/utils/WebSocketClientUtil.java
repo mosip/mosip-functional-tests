@@ -158,6 +158,9 @@ public class WebSocketClientUtil extends Endpoint {
     }
 
     private static String stompEncodeHeaderValue(String value) {
+        if (value == null) {
+            throw new IllegalArgumentException("STOMP header value must not be null");
+        }
         if (value.indexOf('\u0000') >= 0) {
             throw new IllegalArgumentException("STOMP header value must not contain a NUL character");
         }
