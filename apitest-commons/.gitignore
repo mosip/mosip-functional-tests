@@ -38,3 +38,5 @@ test-output/
 testng-report/
 /reg
 ./reg
+/.apt_generated/
+/.apt_generated_tests/
