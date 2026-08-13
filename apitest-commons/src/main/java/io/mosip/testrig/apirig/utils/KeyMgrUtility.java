@@ -12,6 +12,7 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.math.BigInteger;
 import java.nio.file.Files;
+import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.GeneralSecurityException;
@@ -104,17 +105,26 @@ public class KeyMgrUtility {
     }
 
     public boolean deleteFile(File file) throws IOException {
-        if (file != null) {
-            if (file.isDirectory()) {
-                File[] files = file.listFiles();
-
+        if (file == null) {
+            return false;
+        }
+        Path path;
+        try {
+            path = file.toPath();
+        } catch (InvalidPathException e) {
+            // Windows rejects ':' in folder names. Older callers passed
+            // http://localhost:8082 as a certs directory suffix.
+            return false;
+        }
+        if (Files.isDirectory(path)) {
+            File[] files = file.listFiles();
+            if (files != null) {
                 for (File f : files) {
                     deleteFile(f);
                 }
             }
-            return Files.deleteIfExists(file.toPath());
         }
-        return false;
+        return Files.deleteIfExists(path);
     }
 
 	public String getKeysDirPath(String certsDir, String moduleName, String targetEnv) {

@@ -489,10 +489,9 @@ public class PartnerRegistration extends AdminTestUtil {
 		AuthTestsUtil authUtil = new AuthTestsUtil();
 		try {
 			authUtil.clearKeys(null, BaseTestCase.certsForModule, getCertsTargetEnvKey());
-		} catch (IOException e) {
+		} catch (Exception e) {
 			lOGGER.error("Failed to clear keys for certs module=" + BaseTestCase.certsForModule, e);
 		}
-		
 	}
 
 }
