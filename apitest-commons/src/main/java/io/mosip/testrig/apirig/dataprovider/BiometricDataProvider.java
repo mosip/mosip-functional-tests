@@ -325,11 +325,12 @@ public class BiometricDataProvider {
 	}
 	
 	public static String getKeysDirPath(String certsDir, String moduleName) {
-		String certsTargetDir = System.getProperty("java.io.tmpdir") + File.separator + "AUTHCERTS";
-		String os = System.getProperty("os.name").toLowerCase();
-
-		if (!os.contains("windows") && !os.contains("mac")) {
-			certsTargetDir = ConfigManager.getauthCertsPath();
+		String configuredCertsPath = ConfigManager.getauthCertsPath();
+		String certsTargetDir;
+		if (configuredCertsPath != null && !configuredCertsPath.trim().isEmpty()) {
+			certsTargetDir = configuredCertsPath.trim();
+		} else {
+			certsTargetDir = System.getProperty("java.io.tmpdir") + File.separator + "AUTHCERTS";
 		}
 
 		String certsModuleName = "IDA";
@@ -341,7 +342,11 @@ public class BiometricDataProvider {
 		if (moduleName != null && moduleName.length() != 0) {
 			certsModuleName = moduleName;
 		}
-		return certsTargetDir + File.separator + certsModuleName + "-IDA-" + BaseTestCase.domain;
+		String domainKey = BaseTestCase.domain;
+		if (domainKey != null) {
+			domainKey = domainKey.replace("https://", "").replace("http://", "").replace(":", "_");
+		}
+		return certsTargetDir + File.separator + certsModuleName + "-IDA-" + domainKey;
 	}
 
 	public static MDSRCaptureModel regenBiometricViaMDS(ResidentBiometricModel resident, String mdsMode, int qualityScore)

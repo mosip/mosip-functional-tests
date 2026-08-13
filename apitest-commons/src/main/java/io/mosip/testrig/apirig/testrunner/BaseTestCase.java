@@ -271,8 +271,17 @@ public class BaseTestCase {
 		} else {
 			try {
 				File destination = new File(RunConfigUtil.getGlobalResourcePath());
+				if (!destination.exists() && !destination.mkdirs()) {
+					logger.error("Failed to create resource destination: " + destination.getAbsolutePath());
+					return;
+				}
 				File source = new File(RunConfigUtil.getGlobalResourcePath()
 						.replace("MosipTestResource/MosipTemporaryTestResource", "") + moduleName);
+				if (!source.exists()) {
+					logger.warn("Module resource source not found, skipping copy for " + moduleName + ": "
+							+ source.getAbsolutePath());
+					return;
+				}
 				FileUtils.copyDirectoryToDirectory(source, destination);
 				logger.info("Copied the test resource successfully for " + moduleName);
 			} catch (Exception e) {

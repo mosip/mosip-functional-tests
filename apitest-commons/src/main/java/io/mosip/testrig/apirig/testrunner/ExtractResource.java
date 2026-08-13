@@ -39,14 +39,26 @@ public class ExtractResource {
 	
 	public static void copyCommonResources(String moduleName) {
 		try {
-			File destination = new File(BaseTestCase.getGlobalResourcePath());
+			File destinationRoot = new File(BaseTestCase.getGlobalResourcePath());
+			if (!destinationRoot.exists() && !destinationRoot.mkdirs()) {
+				LOGGER.error("Failed to create resource destination: " + destinationRoot.getAbsolutePath());
+				return;
+			}
 			File source = new File(
 					BaseTestCase.getGlobalResourcePath().replace("MosipTestResource/MosipTemporaryTestResource", "") + moduleName);
-			if (source.isDirectory())
-				FileUtils.copyDirectoryToDirectory(source, destination);
-			else {
-				destination = new File(BaseTestCase.getGlobalResourcePath() + "/" + moduleName);
-				FileUtils.copyFile(source, destination);
+			if (!source.exists()) {
+				LOGGER.warn("Resource source not found, skipping copy for " + moduleName + ": " + source.getAbsolutePath());
+				return;
+			}
+			if (source.isDirectory()) {
+				FileUtils.copyDirectoryToDirectory(source, destinationRoot);
+			} else {
+				File destinationFile = new File(destinationRoot, moduleName);
+				File parent = destinationFile.getParentFile();
+				if (parent != null && !parent.exists()) {
+					parent.mkdirs();
+				}
+				FileUtils.copyFile(source, destinationFile);
 			}
 
 			LOGGER.info("Copied the test resource successfully for " + moduleName);

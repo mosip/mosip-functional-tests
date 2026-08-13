@@ -118,13 +118,13 @@ public class KeyMgrUtility {
     }
 
 	public String getKeysDirPath(String certsDir, String moduleName, String targetEnv) {
-		String certsTargetDir = System.getProperty("java.io.tmpdir") + File.separator
-				+ System.getProperty("parent.certs.folder.name", "AUTHCERTS");
-
-		String os = System.getProperty("os.name").toLowerCase();
-
-		if (!os.contains("windows") && !os.contains("mac")) {
-			certsTargetDir = ConfigManager.getauthCertsPath();
+		String configuredCertsPath = ConfigManager.getauthCertsPath();
+		String certsTargetDir;
+		if (configuredCertsPath != null && !configuredCertsPath.trim().isEmpty()) {
+			certsTargetDir = configuredCertsPath.trim();
+		} else {
+			certsTargetDir = System.getProperty("java.io.tmpdir") + File.separator
+					+ System.getProperty("parent.certs.folder.name", "AUTHCERTS");
 		}
 
 		String certsModuleName = "IDA";
@@ -135,6 +135,9 @@ public class KeyMgrUtility {
 
 		if (moduleName != null && moduleName.length() != 0) {
 			certsModuleName = moduleName;
+		}
+		if (targetEnv != null) {
+			targetEnv = targetEnv.replace("https://", "").replace("http://", "").replace(":", "_");
 		}
 		return certsTargetDir + File.separator + certsModuleName + "-IDA-" + targetEnv;
 
