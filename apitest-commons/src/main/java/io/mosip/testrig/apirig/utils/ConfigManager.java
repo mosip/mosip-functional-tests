@@ -183,6 +183,41 @@ public class ConfigManager {
 	public static String getIdaDbSchema() { return getproperty("ida_db_schema"); }
 	public static int getLangselect() {	return Integer.parseInt(getproperty("langselect")); }
 	public static String getauthCertsPath(){ return getproperty("authCertsPath"); }
+
+	/**
+	 * Canonical certs-root resolver shared by KeyMgrUtility and BiometricDataProvider.
+	 * The configured {@code authCertsPath} is authoritative; {@code certsDir} is only
+	 * used as a fallback when no path is configured, and the final fallback is the
+	 * {@code parent.certs.folder.name} temp directory (defaulting to AUTHCERTS).
+	 */
+	public static String resolveCertsRootDir(String certsDir) {
+		String configuredCertsPath = getauthCertsPath();
+		if (configuredCertsPath != null && !configuredCertsPath.trim().isEmpty()) {
+			return configuredCertsPath.trim();
+		}
+		if (certsDir != null && !certsDir.trim().isEmpty()) {
+			return certsDir.trim();
+		}
+		return System.getProperty("java.io.tmpdir") + File.separator
+				+ System.getProperty("parent.certs.folder.name", "AUTHCERTS");
+	}
+
+	/**
+	 * Normalizes an endpoint (e.g. ApplnURI/domain) into a filesystem-safe certs
+	 * folder key: strips the scheme, replaces ':' (illegal on Windows), and drops
+	 * trailing slashes so equivalent endpoints resolve to the same directory.
+	 */
+	public static String sanitizeCertEnvKey(String targetEnv) {
+		if (targetEnv == null) {
+			return null;
+		}
+		String key = targetEnv.replace("https://", "").replace("http://", "").replace(":", "_");
+		while (key.endsWith("/")) {
+			key = key.substring(0, key.length() - 1);
+		}
+		return key;
+	}
+
 	public static String getAuthDemoServiceBaseUrl() { return  getproperty("authDemoServiceBaseURL"); }
 	public static String getAuthDemoServicePort() { return  getproperty("authDemoServicePort"); }
 	public static String getReportExpirationInDays() { return  getproperty("reportExpirationInDays"); }

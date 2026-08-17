@@ -49,7 +49,7 @@ public class PartnerRegistration extends AdminTestUtil {
 	
 	/** ApplnURI as a filesystem-safe cert folder suffix (local http:// endpoints break on Windows). */
 	private static String getCertsTargetEnvKey() {
-		return ApplnURI.replace("https://", "").replace("http://", "").replace(":", "_");
+		return ConfigManager.sanitizeCertEnvKey(ApplnURI);
 	}
 	
 	public static void setLogLevel() {

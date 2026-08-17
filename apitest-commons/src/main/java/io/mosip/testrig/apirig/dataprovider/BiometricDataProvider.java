@@ -325,27 +325,14 @@ public class BiometricDataProvider {
 	}
 	
 	public static String getKeysDirPath(String certsDir, String moduleName) {
-		String configuredCertsPath = ConfigManager.getauthCertsPath();
-		String certsTargetDir;
-		if (configuredCertsPath != null && !configuredCertsPath.trim().isEmpty()) {
-			certsTargetDir = configuredCertsPath.trim();
-		} else {
-			certsTargetDir = System.getProperty("java.io.tmpdir") + File.separator + "AUTHCERTS";
-		}
+		String certsTargetDir = ConfigManager.resolveCertsRootDir(certsDir);
 
 		String certsModuleName = "IDA";
-
-		if (certsDir != null && certsDir.length() != 0) {
-			certsTargetDir = certsDir;
-		}
 
 		if (moduleName != null && moduleName.length() != 0) {
 			certsModuleName = moduleName;
 		}
-		String domainKey = BaseTestCase.domain;
-		if (domainKey != null) {
-			domainKey = domainKey.replace("https://", "").replace("http://", "").replace(":", "_");
-		}
+		String domainKey = ConfigManager.sanitizeCertEnvKey(BaseTestCase.domain);
 		return certsTargetDir + File.separator + certsModuleName + "-IDA-" + domainKey;
 	}
 

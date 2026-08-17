@@ -44,8 +44,12 @@ public class ExtractResource {
 				LOGGER.error("Failed to create resource destination: " + destinationRoot.getAbsolutePath());
 				return;
 			}
-			File source = new File(
-					BaseTestCase.getGlobalResourcePath().replace("MosipTestResource/MosipTemporaryTestResource", "") + moduleName);
+			String sourceRoot = BaseTestCase.getGlobalResourcePath().replace("MosipTestResource/MosipTemporaryTestResource", "");
+			File source = new File(sourceRoot + moduleName);
+			if (!BaseTestCase.isWithinRoot(new File(sourceRoot), source)) {
+				LOGGER.error("Rejected resource source outside resource root for " + moduleName + ": " + source.getAbsolutePath());
+				return;
+			}
 			if (!source.exists()) {
 				LOGGER.warn("Resource source not found, skipping copy for " + moduleName + ": " + source.getAbsolutePath());
 				return;
@@ -54,6 +58,11 @@ public class ExtractResource {
 				FileUtils.copyDirectoryToDirectory(source, destinationRoot);
 			} else {
 				File destinationFile = new File(destinationRoot, moduleName);
+				if (!BaseTestCase.isWithinRoot(destinationRoot, destinationFile)) {
+					LOGGER.error("Rejected resource destination outside resource root for " + moduleName + ": "
+							+ destinationFile.getAbsolutePath());
+					return;
+				}
 				File parent = destinationFile.getParentFile();
 				if (parent != null && !parent.exists()) {
 					parent.mkdirs();

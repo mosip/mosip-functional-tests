@@ -105,22 +105,22 @@ public class KeyMgrUtility {
     }
 
     public boolean deleteFile(File file) throws IOException {
-        if (file == null) {
-            return false;
+        if (file == null || !file.exists()) {
+            return true;
         }
         Path path;
         try {
             path = file.toPath();
         } catch (InvalidPathException e) {
-            // Windows rejects ':' in folder names. Older callers passed
-            // http://localhost:8082 as a certs directory suffix.
-            return false;
+            throw new IOException("Invalid certificate path, cannot clean up: " + file, e);
         }
         if (Files.isDirectory(path)) {
             File[] files = file.listFiles();
             if (files != null) {
                 for (File f : files) {
-                    deleteFile(f);
+                    if (!deleteFile(f)) {
+                        return false;
+                    }
                 }
             }
         }
@@ -128,27 +128,14 @@ public class KeyMgrUtility {
     }
 
 	public String getKeysDirPath(String certsDir, String moduleName, String targetEnv) {
-		String configuredCertsPath = ConfigManager.getauthCertsPath();
-		String certsTargetDir;
-		if (configuredCertsPath != null && !configuredCertsPath.trim().isEmpty()) {
-			certsTargetDir = configuredCertsPath.trim();
-		} else {
-			certsTargetDir = System.getProperty("java.io.tmpdir") + File.separator
-					+ System.getProperty("parent.certs.folder.name", "AUTHCERTS");
-		}
+		String certsTargetDir = ConfigManager.resolveCertsRootDir(certsDir);
 
 		String certsModuleName = "IDA";
-
-		if (certsDir != null && certsDir.length() != 0) {
-			certsTargetDir = certsDir;
-		}
 
 		if (moduleName != null && moduleName.length() != 0) {
 			certsModuleName = moduleName;
 		}
-		if (targetEnv != null) {
-			targetEnv = targetEnv.replace("https://", "").replace("http://", "").replace(":", "_");
-		}
+		targetEnv = ConfigManager.sanitizeCertEnvKey(targetEnv);
 		return certsTargetDir + File.separator + certsModuleName + "-IDA-" + targetEnv;
 
 	}
