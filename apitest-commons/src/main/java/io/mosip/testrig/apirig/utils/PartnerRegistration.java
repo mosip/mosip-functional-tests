@@ -47,6 +47,11 @@ public class PartnerRegistration extends AdminTestUtil {
 	private static final String PARTNER_CONTEXT = "partnerType=%s, partnerId=%s";
 	public static final ThreadLocal<String> appendEkycOrRp = ThreadLocal.withInitial(() -> "");
 	
+	/** ApplnURI as a filesystem-safe cert folder suffix (local http:// endpoints break on Windows). */
+	private static String getCertsTargetEnvKey() {
+		return ConfigManager.sanitizeCertEnvKey(ApplnURI);
+	}
+	
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
 			lOGGER.setLevel(Level.ALL);
@@ -225,7 +230,7 @@ public class PartnerRegistration extends AdminTestUtil {
 		CertificateChainResponseDto certificateChainResponseDto = null;
 	
 		try {
-			certificateChainResponseDto = authUtil.generatePartnerKeys(partnerTypeEnum, partnerId, keyFileNameByPartnerName, null, BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
+			certificateChainResponseDto = authUtil.generatePartnerKeys(partnerTypeEnum, partnerId, keyFileNameByPartnerName, null, BaseTestCase.certsForModule, getCertsTargetEnvKey());
 		} catch (Exception  e) {
 			lOGGER.error("Failed to generate partner keys. " + String.format(PARTNER_CONTEXT, partnerTypeEnum, partnerId), e);
 		}
@@ -259,7 +264,7 @@ public class PartnerRegistration extends AdminTestUtil {
 			keyFileNameByPartnerName = true;
 		}
 		try {
-			certificateChainResponseDto = authUtil.generatePartnerKeys(partnerTypeEnum, partnerId, keyFileNameByPartnerName, null, BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
+			certificateChainResponseDto = authUtil.generatePartnerKeys(partnerTypeEnum, partnerId, keyFileNameByPartnerName, null, BaseTestCase.certsForModule, getCertsTargetEnvKey());
 		} catch (Exception  e) {
 			lOGGER.error("Failed to generate partner keys. " + String.format(PARTNER_CONTEXT, partnerTypeEnum, partnerId), e);
 		}
@@ -379,7 +384,7 @@ public class PartnerRegistration extends AdminTestUtil {
 		
 		AuthTestsUtil authUtil = new AuthTestsUtil();
 		try {
-			String str = authUtil.updatePartnerCertificate(partnerTypeEnum, partnerId, keyFileNameByPartnerName, requestBody, null, BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
+			String str = authUtil.updatePartnerCertificate(partnerTypeEnum, partnerId, keyFileNameByPartnerName, requestBody, null, BaseTestCase.certsForModule, getCertsTargetEnvKey());
 			lOGGER.info("Is update partner certificate "+str);
 		} catch (Exception e) {
 			lOGGER.error("Failed to update partner certificate. " + String.format(PARTNER_CONTEXT, partnerTypeEnum, partnerId), e);
@@ -483,11 +488,10 @@ public class PartnerRegistration extends AdminTestUtil {
 	public static void deleteCertificates() {
 		AuthTestsUtil authUtil = new AuthTestsUtil();
 		try {
-			authUtil.clearKeys(null, BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
-		} catch (IOException e) {
+			authUtil.clearKeys(null, BaseTestCase.certsForModule, getCertsTargetEnvKey());
+		} catch (Exception e) {
 			lOGGER.error("Failed to clear keys for certs module=" + BaseTestCase.certsForModule, e);
 		}
-		
 	}
 
 }

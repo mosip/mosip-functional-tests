@@ -12,6 +12,7 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.math.BigInteger;
 import java.nio.file.Files;
+import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.GeneralSecurityException;
@@ -104,38 +105,37 @@ public class KeyMgrUtility {
     }
 
     public boolean deleteFile(File file) throws IOException {
-        if (file != null) {
-            if (file.isDirectory()) {
-                File[] files = file.listFiles();
-
+        if (file == null || !file.exists()) {
+            return true;
+        }
+        Path path;
+        try {
+            path = file.toPath();
+        } catch (InvalidPathException e) {
+            throw new IOException("Invalid certificate path, cannot clean up: " + file, e);
+        }
+        if (Files.isDirectory(path)) {
+            File[] files = file.listFiles();
+            if (files != null) {
                 for (File f : files) {
-                    deleteFile(f);
+                    if (!deleteFile(f)) {
+                        return false;
+                    }
                 }
             }
-            return Files.deleteIfExists(file.toPath());
         }
-        return false;
+        return Files.deleteIfExists(path);
     }
 
 	public String getKeysDirPath(String certsDir, String moduleName, String targetEnv) {
-		String certsTargetDir = System.getProperty("java.io.tmpdir") + File.separator
-				+ System.getProperty("parent.certs.folder.name", "AUTHCERTS");
-
-		String os = System.getProperty("os.name").toLowerCase();
-
-		if (!os.contains("windows") && !os.contains("mac")) {
-			certsTargetDir = ConfigManager.getauthCertsPath();
-		}
+		String certsTargetDir = ConfigManager.resolveCertsRootDir(certsDir);
 
 		String certsModuleName = "IDA";
-
-		if (certsDir != null && certsDir.length() != 0) {
-			certsTargetDir = certsDir;
-		}
 
 		if (moduleName != null && moduleName.length() != 0) {
 			certsModuleName = moduleName;
 		}
+		targetEnv = ConfigManager.sanitizeCertEnvKey(targetEnv);
 		return certsTargetDir + File.separator + certsModuleName + "-IDA-" + targetEnv;
 
 	}

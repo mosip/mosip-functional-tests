@@ -191,7 +191,10 @@ public class AuthTestsUtil extends BaseTestCase {
 	
     public void clearKeys(String certsDir, String moduleName, String targetEnv) throws IOException {
         KeyMgrUtility keyMgrUtil = new KeyMgrUtility(cryptoCoreUtil);
-        keyMgrUtil.deleteFile(new File(keyMgrUtil.getKeysDirPath(certsDir, moduleName, targetEnv).toString()));
+        File certsDirFile = new File(keyMgrUtil.getKeysDirPath(certsDir, moduleName, targetEnv));
+        if (!keyMgrUtil.deleteFile(certsDirFile)) {
+            throw new IOException("Failed to delete certs directory: " + certsDirFile.getAbsolutePath());
+        }
     }
     
     public CertificateChainResponseDto generatePartnerKeys(

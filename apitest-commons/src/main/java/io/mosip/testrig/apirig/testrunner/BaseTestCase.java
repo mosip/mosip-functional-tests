@@ -2,6 +2,7 @@ package io.mosip.testrig.apirig.testrunner;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.SecureRandom;
@@ -271,8 +272,22 @@ public class BaseTestCase {
 		} else {
 			try {
 				File destination = new File(RunConfigUtil.getGlobalResourcePath());
-				File source = new File(RunConfigUtil.getGlobalResourcePath()
-						.replace("MosipTestResource/MosipTemporaryTestResource", "") + moduleName);
+				if (!destination.exists() && !destination.mkdirs()) {
+					logger.error("Failed to create resource destination: " + destination.getAbsolutePath());
+					return;
+				}
+				String sourceRoot = RunConfigUtil.getGlobalResourcePath().replace("MosipTestResource/MosipTemporaryTestResource", "");
+				File source = new File(sourceRoot + moduleName);
+				if (!isWithinRoot(new File(sourceRoot), source)) {
+					logger.error("Rejected module resource source outside resource root for " + moduleName + ": "
+							+ source.getAbsolutePath());
+					return;
+				}
+				if (!source.exists()) {
+					logger.warn("Module resource source not found, skipping copy for " + moduleName + ": "
+							+ source.getAbsolutePath());
+					return;
+				}
 				FileUtils.copyDirectoryToDirectory(source, destination);
 				logger.info("Copied the test resource successfully for " + moduleName);
 			} catch (Exception e) {
@@ -281,6 +296,20 @@ public class BaseTestCase {
 			}
 		}
 
+	}
+
+	/**
+	 * Confirms {@code candidate} resolves inside {@code root}, guarding module-name-driven
+	 * resource copies against path traversal (e.g. moduleName="../outside").
+	 */
+	static boolean isWithinRoot(File root, File candidate) {
+		try {
+			Path rootPath = root.getCanonicalFile().toPath().normalize();
+			Path candidatePath = candidate.getCanonicalFile().toPath().normalize();
+			return candidatePath.equals(rootPath) || candidatePath.startsWith(rootPath);
+		} catch (IOException e) {
+			return false;
+		}
 	}
 	
 	
