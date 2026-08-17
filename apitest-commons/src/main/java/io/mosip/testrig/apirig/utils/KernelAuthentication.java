@@ -77,17 +77,23 @@ public class KernelAuthentication extends BaseTestCase {
 	protected static final String ESIGNETUINCOOKIESRESPONSE = "ESignetUINCookiesResponse";
 	protected static final String ESIGNETVIDCOOKIESRESPONSE = "ESignetVIDCookiesResponse";
 	
-	private static final String TOKEN_URL = ConfigManager.getproperty("keycloak-external-url")
-			+ ConfigManager.getproperty("keycloakAuthTokenEndPoint");
 	private static final String GRANT_TYPE = "client_credentials";
+	private static final String GRANT_TYPE_PASSWORD = "password";
 	private static final String CLIENT_ID = "client_id";
 	private static final String CLIENT_SECRET = "client_secret";
 	private static final String GRANT_TYPE_KEY = "grant_type";
+	private static final String USERNAME_KEY = "username";
+	private static final String PASSWORD_KEY = "password";
 	private static final String ACCESS_TOKEN = "access_token";
 	
     private static String partnerKeycloakToken = null;
     private static String mobileAuthKeycloakCookie = null;
-	
+
+	private static String getKeycloakTokenUrl() {
+		return ConfigManager.getIAMUrl() + "/realms/"
+				+ ConfigManager.getIAMRealmId() + "/protocol/openid-connect/token";
+	}
+
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
 			logger.setLevel(Level.ALL);
@@ -266,6 +272,7 @@ public class KernelAuthentication extends BaseTestCase {
 	}
 
 	public static String getAuthTokenFromKeyCloak(String clientId, String clientSecret) {
+		String tokenUrl = getKeycloakTokenUrl();
 		Map<String, String> params = new HashMap<>();
 		params.put(CLIENT_ID, clientId);
 		params.put(CLIENT_SECRET, clientSecret);
@@ -274,9 +281,9 @@ public class KernelAuthentication extends BaseTestCase {
 		Response response = null;
 
 		try {
-			response = RestClient.postRequestWithFormDataBody(TOKEN_URL, params);
+			response = RestClient.postRequestWithFormDataBody(tokenUrl, params);
 		} catch (Exception e) {
-			logger.error("Error sending POST request to Keycloak token URL: " + TOKEN_URL, e);
+			logger.error("Error sending POST request to Keycloak token URL: " + tokenUrl, e);
 			return "";
 		}
 
@@ -294,7 +301,41 @@ public class KernelAuthentication extends BaseTestCase {
 		org.json.JSONObject responseJson = new org.json.JSONObject(response.getBody().asString());
 		return responseJson.optString(ACCESS_TOKEN, "");
 	}
-	
+
+	public static String getAuthTokenFromKeyCloakPassword(String clientId, String clientSecret, String username,
+			String password) {
+		String tokenUrl = getKeycloakTokenUrl();
+		Map<String, String> params = new HashMap<>();
+		params.put(CLIENT_ID, clientId);
+		params.put(CLIENT_SECRET, clientSecret);
+		params.put(GRANT_TYPE_KEY, GRANT_TYPE_PASSWORD);
+		params.put(USERNAME_KEY, username);
+		params.put(PASSWORD_KEY, password);
+
+		Response response = null;
+
+		try {
+			response = RestClient.postRequestWithFormDataBody(tokenUrl, params);
+		} catch (Exception e) {
+			logger.error("Error sending POST request to Keycloak token URL: " + tokenUrl, e);
+			return "";
+		}
+
+		if (response == null) {
+			logger.error("Keycloak token request returned null response");
+			return "";
+		}
+		int statusCode = response.getStatusCode();
+		if (statusCode < 200 || statusCode >= 300) {
+			logger.error("Keycloak token request failed with status code: " + statusCode);
+			return "";
+		}
+		logger.info("Keycloak token request successful");
+
+		org.json.JSONObject responseJson = new org.json.JSONObject(response.getBody().asString());
+		return responseJson.optString(ACCESS_TOKEN, "");
+	}
+
 	public static String getAuthTokenByRole(String role) {
 		if (role == null)
 			return "";
@@ -331,22 +372,9 @@ public class KernelAuthentication extends BaseTestCase {
 
 	@SuppressWarnings("unchecked")
 	public String getAuthForAdmin() {
-
-		JSONObject actualrequest = getRequestJson(authInternalRequest);
-
-		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, ConfigManager.getAdminAppId());
-		request.put(GlobalConstants.PASSWORD, admin_password);
-
-		request.put(GlobalConstants.USER_NAME, BaseTestCase.currentModule + "-" + ConfigManager.getUserAdminName());
-
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getAdminClientId());
-		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getAdminClientSecret());
-		actualrequest.put(GlobalConstants.REQUEST, request);
-
-		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualrequest);
-		String responseBody = reponse.getBody().asString();
-		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+		String username = BaseTestCase.currentModule + "-" + ConfigManager.getUserAdminName();
+		return getAuthTokenFromKeyCloakPassword(ConfigManager.getAdminClientId(), ConfigManager.getAdminClientSecret(),
+				username, admin_password);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -651,20 +679,7 @@ public class KernelAuthentication extends BaseTestCase {
 
 	@SuppressWarnings("unchecked")
 	public String getAuthForResident() {
-		JSONObject actualrequest = getRequestJson(authRequest);
-		logger.info("actualrequest " + actualrequest);
-		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, ConfigManager.getResidentAppId());
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getResidentClientId());
-		request.put(GlobalConstants.SECRETKEY, ConfigManager.getResidentClientSecret());
-		logger.info("request for  Resident: " + request);
-		logger.info("request for  Resident " + request);
-		actualrequest.put(GlobalConstants.REQUEST, request);
-		logger.info(GlobalConstants.ACTU_AUTH_REQUESTFOR_RESIDENT + actualrequest);
-		logger.info(GlobalConstants.ACTU_AUTH_REQUESTFOR_RESIDENT + actualrequest);
-		Response reponse = AdminTestUtil.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
-		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
-		return cookie;
+		return getAuthTokenFromKeyCloak(ConfigManager.getResidentClientId(), ConfigManager.getResidentClientSecret());
 	}
 
 	@SuppressWarnings("unchecked")
@@ -769,18 +784,7 @@ public class KernelAuthentication extends BaseTestCase {
 
 	@SuppressWarnings("unchecked")
 	public String getAuthForRegProc() {
-
-		JSONObject actualrequest = getRequestJson(authRequest);
-		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, ConfigManager.getRegprocAppId());
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getRegprocClientId());
-		request.put(GlobalConstants.SECRETKEY, ConfigManager.getRegprocClientSecret());
-		actualrequest.put(GlobalConstants.REQUEST, request);
-
-		Response reponse = AdminTestUtil.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
-		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
-		logger.info("Regproc Cookie is:: " + cookie);
-		return cookie;
+		return getAuthTokenFromKeyCloak(ConfigManager.getRegprocClientId(), ConfigManager.getRegprocClientSecret());
 	}
 
 	@SuppressWarnings("unchecked")
@@ -800,32 +804,12 @@ public class KernelAuthentication extends BaseTestCase {
 
 	@SuppressWarnings("unchecked")
 	public String getAuthForIDREPO() {
-		JSONObject actualrequest = getRequestJson(authRequest);
-
-		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, ConfigManager.getidRepoAppId());
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getidRepoClientId());
-		request.put(GlobalConstants.SECRETKEY, ConfigManager.getIdRepoClientSecret());
-		actualrequest.put(GlobalConstants.REQUEST, request);
-
-		Response reponse = AdminTestUtil.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
-		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
-		return cookie;
+		return getAuthTokenFromKeyCloak(ConfigManager.getidRepoClientId(), ConfigManager.getIdRepoClientSecret());
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public String getAuthForTestRigClient() {
-		JSONObject actualrequest = getRequestJson(authRequest);
-
-		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, ConfigManager.getAdminAppId());
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getAutomationClientId());
-		request.put(GlobalConstants.SECRETKEY, ConfigManager.getAutomationClientSecret());
-		actualrequest.put(GlobalConstants.REQUEST, request);
-
-		Response reponse = AdminTestUtil.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
-		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
-		return cookie;
+		return getAuthTokenFromKeyCloak(ConfigManager.getAutomationClientId(), ConfigManager.getAutomationClientSecret());
 	}
 
 	@SuppressWarnings("unchecked")
