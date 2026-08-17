@@ -95,7 +95,7 @@ Ensure the following software is installed on the machine from where the automat
     <dependency>
       <groupId>io.mosip.testrig.apitest.commons</groupId>
       <artifactId>apitest-commons</artifactId>
-      <version>1.7.0-SNAPSHOT</version>
+      <version>1.8.0-SNAPSHOT</version>
     </dependency>
 
 ---
