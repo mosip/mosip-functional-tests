@@ -500,9 +500,15 @@ uitestrig:
       TEST_URL: <test_url>  ## provide test url
       ENV_USER: api-internal.released
       InsuranceUrl: https://registry.sandbox.xyz.net/api/v1/Insurance
-      MOSIP_INJIWEB_GOOGLE_REFRESH_TOKEN: <token>  ## pass the token
-      MOSIP_INJIWEB_GOOGLE_CLIENT_ID: <client_id>  ## pass the google client id
-      MOSIP_INJIWEB_GOOGLE_CLIENT_SECRET: <secret>  ## pass the google client secret
+      INJIWEB_GOOGLE_REFRESH_TOKEN: <token>  ## pass the token
+      INJIWEB_GOOGLE_CLIENT_ID: <client_id>  ## pass the google client id
+      INJIWEB_GOOGLE_CLIENT_SECRET: <secret>  ## pass the google client secret
+      issuerSearchText: National Identity Department (Released)
+      issuerSearchTextforSunbird: StayProtected Insurance
+      GOOGLE_CLIENT_ID: 'value has to be provided during deployment' ## pass the google client id
+      GOOGLE_CLIENT_SECRET: 'value has to be provided during deployment' ## pass the google client secret
+      GOOGLE_REFRESH_TOKEN: 'value has to be provided during deployment' ## pass the google refresh token
+      INJIWEB_PASSCODE: 111111
       NS: <namespace>  ## provide the namespace
       injiWebUi: https://injiweb.sandbox.xyz.net/
       actuatorMimotoEndpoint: /v1/mimoto/actuator/env
@@ -515,8 +521,8 @@ uitestrig:
       verifyPortalPath: https://injiverify.sandbox.xyz.net
       push-reports-to-s3: 'yes'
       s3-account: uitestrig
-      BROWSERSTACK_ACCESS_KEY: <Access_key>
-      BROWSERSTACK_USERNAME: <User_name>
+      browserstack_access_key: <Access_key>
+      browserstack_username: <User_name>
     scripts:
       fetch_docker_image_hash_ids.sh: |
         #!/bin/bash
