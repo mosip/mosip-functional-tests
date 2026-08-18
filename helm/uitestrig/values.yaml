@@ -505,9 +505,9 @@ uitestrig:
       INJIWEB_GOOGLE_CLIENT_SECRET: <secret>  ## pass the google client secret
       issuerSearchText: National Identity Department (Released)
       issuerSearchTextforSunbird: StayProtected Insurance
-      GOOGLE_CLIENT_ID: 'value has to be provided during deployment' ## pass the google client id
-      GOOGLE_CLIENT_SECRET: 'value has to be provided during deployment' ## pass the google client secret
-      GOOGLE_REFRESH_TOKEN: 'value has to be provided during deployment' ## pass the google refresh token
+      GOOGLE_CLIENT_ID: 'value has to be provided during deployment' # pass the google client id
+      GOOGLE_CLIENT_SECRET: 'value has to be provided during deployment' # pass the google client secret
+      GOOGLE_REFRESH_TOKEN: 'value has to be provided during deployment' # pass the google refresh token
       INJIWEB_PASSCODE: 111111
       NS: <namespace>  ## provide the namespace
       injiWebUi: https://injiweb.sandbox.xyz.net/
