@@ -379,302 +379,104 @@ public class KernelAuthentication extends BaseTestCase {
 
 	@SuppressWarnings("unchecked")
 	public String getAuthForzoneMap() {
-
-		JSONObject actualrequest = getRequestJson(authInternalRequest);
-
-		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, ConfigManager.getAdminAppId());
-		request.put(GlobalConstants.PASSWORD, props.get("admin_zone_password"));
-		request.put(GlobalConstants.USER_NAME, props.get("admin_zone_userName"));
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getAdminClientId());
-		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getAdminClientSecret());
-		actualrequest.put(GlobalConstants.REQUEST, request);
-
-		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualrequest);
-		String responseBody = reponse.getBody().asString();
-		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+		return getAuthTokenFromKeyCloakPassword(ConfigManager.getAdminClientId(), ConfigManager.getAdminClientSecret(),
+				props.get("admin_zone_userName"), props.get("admin_zone_password"));
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public String getAuthForUser() {
-
-		JSONObject actualrequest = getRequestJson(authInternalRequest);
-
-		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, ConfigManager.getAdminAppId());
-		request.put(GlobalConstants.PASSWORD,BaseTestCase.dslUserPwd);
-		request.put(GlobalConstants.USER_NAME, BaseTestCase.dslUser);
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getAdminClientId());
-		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getAdminClientSecret());
-		actualrequest.put(GlobalConstants.REQUEST, request);
-
-		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualrequest);
-		String responseBody = reponse.getBody().asString();
-		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+		return getAuthTokenFromKeyCloakPassword(ConfigManager.getAdminClientId(), ConfigManager.getAdminClientSecret(),
+				BaseTestCase.dslUser, BaseTestCase.dslUserPwd);
 	}
 
 	@SuppressWarnings({ "unchecked" })
 	public String getAuthForPartner() {
-
-		JSONObject request = new JSONObject();
-
-		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
-		request.put(GlobalConstants.PASSWORD, partner_password);
-		request.put(GlobalConstants.USER_NAME, BaseTestCase.currentModule + "-" + partner_userName);
-		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-
-		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
-		String responseBody = reponse.getBody().asString();
-		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+		String username = BaseTestCase.currentModule + "-" + partner_userName;
+		return getAuthTokenFromKeyCloakPassword(ConfigManager.getPmsClientId(), ConfigManager.getPmsClientSecret(),
+				username, partner_password);
 	}
 	
 	@SuppressWarnings({ "unchecked" })
 	public String getAuthForPartnerAuth() {
-
-		JSONObject request = new JSONObject();
-
-		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
-		request.put(GlobalConstants.PASSWORD, partner_password);
-		request.put(GlobalConstants.USER_NAME, BaseTestCase.runContext + partner_auth_userName);
-		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-
-		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
-		String responseBody = reponse.getBody().asString();
-		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+		return getAuthTokenFromKeyCloakPassword(ConfigManager.getPmsClientId(), ConfigManager.getPmsClientSecret(),
+				BaseTestCase.runContext + partner_auth_userName, partner_password);
 	}
-	
+
 	@SuppressWarnings({ "unchecked" })
 	public String getAuthForPartnerAuthExternal() {
-
-		JSONObject request = new JSONObject();
-
-		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
-		request.put(GlobalConstants.PASSWORD, partner_auth_externaluser_password);
-		request.put(GlobalConstants.USER_NAME, BaseTestCase.runContext + partner_auth_external_userName);
-		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-
-		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
-		String responseBody = reponse.getBody().asString();
-		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+		return getAuthTokenFromKeyCloakPassword(ConfigManager.getPmsClientId(), ConfigManager.getPmsClientSecret(),
+				BaseTestCase.runContext + partner_auth_external_userName, partner_auth_externaluser_password);
 	}
-	
+
 	@SuppressWarnings({ "unchecked" })
 	public String getAuthForDeviceProvider() {
-
-		JSONObject request = new JSONObject();
-
-		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
-		request.put(GlobalConstants.PASSWORD, partner_password);
-		request.put(GlobalConstants.USER_NAME, BaseTestCase.runContext + device_provider_userName);
-		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-
-		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
-		String responseBody = reponse.getBody().asString();
-		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+		return getAuthTokenFromKeyCloakPassword(ConfigManager.getPmsClientId(), ConfigManager.getPmsClientSecret(),
+				BaseTestCase.runContext + device_provider_userName, partner_password);
 	}
-	
+
 	@SuppressWarnings({ "unchecked" })
 	public String getAuthForPartnerRevampDevice() {
-
-		JSONObject request = new JSONObject();
-
-		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
-		request.put(GlobalConstants.PASSWORD, partner_password);
-		request.put(GlobalConstants.USER_NAME,  BaseTestCase.runContext + partner_device_userName);
-		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-
-		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
-		String responseBody = reponse.getBody().asString();
-		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+		return getAuthTokenFromKeyCloakPassword(ConfigManager.getPmsClientId(), ConfigManager.getPmsClientSecret(),
+				BaseTestCase.runContext + partner_device_userName, partner_password);
 	}
-	
+
 	@SuppressWarnings({ "unchecked" })
 	public String getAuthForPartnerRevampDeviceNew() {
-
-		JSONObject request = new JSONObject();
-
-		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
-		request.put(GlobalConstants.PASSWORD, partner_password);
-		request.put(GlobalConstants.USER_NAME,  BaseTestCase.runContext + partner_devicenew_userName);
-		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-
-		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
-		String responseBody = reponse.getBody().asString();
-		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+		return getAuthTokenFromKeyCloakPassword(ConfigManager.getPmsClientId(), ConfigManager.getPmsClientSecret(),
+				BaseTestCase.runContext + partner_devicenew_userName, partner_password);
 	}
-	
+
 	@SuppressWarnings({ "unchecked" })
 	public String getAuthForPartnerRevampFtm() {
-
-		JSONObject request = new JSONObject();
-
-		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
-		request.put(GlobalConstants.PASSWORD, partner_password);
-		request.put(GlobalConstants.USER_NAME,  BaseTestCase.runContext + partner_ftm_userName);
-		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-
-		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
-		String responseBody = reponse.getBody().asString();
-		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+		return getAuthTokenFromKeyCloakPassword(ConfigManager.getPmsClientId(), ConfigManager.getPmsClientSecret(),
+				BaseTestCase.runContext + partner_ftm_userName, partner_password);
 	}
-	
+
 	public String getAuthForPartnerRevampAdmin() {
-
-		JSONObject request = new JSONObject();
-
-		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
-		request.put(GlobalConstants.PASSWORD, partner_password);
-		request.put(GlobalConstants.USER_NAME,  BaseTestCase.runContext + partner_admin_userName);
-		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-		
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-
-		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
-		String responseBody = reponse.getBody().asString();
-		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+		return getAuthTokenFromKeyCloakPassword(ConfigManager.getPmsClientId(), ConfigManager.getPmsClientSecret(),
+				BaseTestCase.runContext + partner_admin_userName, partner_password);
 	}
 
 	@SuppressWarnings({ "unchecked" })
 	public String getAuthForNewPartner() {
-
-		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
-		request.put(GlobalConstants.PASSWORD, partner_password);
-		request.put(GlobalConstants.USER_NAME, PartnerRegistration.partnerId);
-		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
-		String responseBody = reponse.getBody().asString();
-		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+		return getAuthTokenFromKeyCloakPassword(ConfigManager.getPmsClientId(), ConfigManager.getPmsClientSecret(),
+				PartnerRegistration.partnerId, partner_password);
 	}
 
 	@SuppressWarnings({ "unchecked" })
 	public String getAuthForPartnerWithoutPAdminRole() {
-
-		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
-		request.put(GlobalConstants.PASSWORD, partner_password);
-		request.put(GlobalConstants.USER_NAME, BaseTestCase.currentModule + "-" + partner_userName_without_role);
-		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
-		String responseBody = reponse.getBody().asString();
-		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+		return getAuthTokenFromKeyCloakPassword(ConfigManager.getPmsClientId(), ConfigManager.getPmsClientSecret(),
+				BaseTestCase.currentModule + "-" + partner_userName_without_role, partner_password);
 	}
 
 	@SuppressWarnings({ "unchecked" })
 	public String getAuthForPartnerWithoutPManagerRole() {
-
-		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
-		request.put(GlobalConstants.PASSWORD, partner_password);
-		request.put(GlobalConstants.USER_NAME, BaseTestCase.currentModule + "-" + partner_userName_without_pm_role);
-		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
-		String responseBody = reponse.getBody().asString();
-		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+		return getAuthTokenFromKeyCloakPassword(ConfigManager.getPmsClientId(), ConfigManager.getPmsClientSecret(),
+				BaseTestCase.currentModule + "-" + partner_userName_without_pm_role, partner_password);
 	}
 
 	@SuppressWarnings({ "unchecked" })
 	public String getAuthForNewKycPartner() {
-
-		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
-		request.put(GlobalConstants.PASSWORD, partner_password);
-		request.put(GlobalConstants.USER_NAME, PartnerRegistration.ekycPartnerId);
-		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
-		String responseBody = reponse.getBody().asString();
-		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+		return getAuthTokenFromKeyCloakPassword(ConfigManager.getPmsClientId(), ConfigManager.getPmsClientSecret(),
+				PartnerRegistration.ekycPartnerId, partner_password);
 	}
 
 	@SuppressWarnings({ "unchecked" })
 	public String getAuthForNewPartnerEsignet() {
-
-		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
-		request.put(GlobalConstants.PASSWORD, partner_password);
-		request.put(GlobalConstants.USER_NAME, AdminTestUtil.genPartnerName);
-		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
-		String responseBody = reponse.getBody().asString();
-		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+		return getAuthTokenFromKeyCloakPassword(ConfigManager.getPmsClientId(), ConfigManager.getPmsClientSecret(),
+				AdminTestUtil.genPartnerName, partner_password);
 	}
-	
+
 	@SuppressWarnings({ "unchecked" })
 	public String getAuthForNewPartnerEsignetKyc() {
-
-		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
-		request.put(GlobalConstants.PASSWORD, partner_password);
-		request.put(GlobalConstants.USER_NAME, AdminTestUtil.genPartnerName + "2n");
-		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
-		String responseBody = reponse.getBody().asString();
-		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+		return getAuthTokenFromKeyCloakPassword(ConfigManager.getPmsClientId(), ConfigManager.getPmsClientSecret(),
+				AdminTestUtil.genPartnerName + "2n", partner_password);
 	}
 
 	@SuppressWarnings({ "unchecked" })
 	public String getAuthForPolicytest() {
-
-		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
-		request.put(GlobalConstants.PASSWORD, props.get("policytest_password"));
-		request.put(GlobalConstants.USER_NAME, props.get("policytest_userName"));
-		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
-		String responseBody = reponse.getBody().asString();
-		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+		return getAuthTokenFromKeyCloakPassword(ConfigManager.getPmsClientId(), ConfigManager.getPmsClientSecret(),
+				props.get("policytest_userName"), props.get("policytest_password"));
 	}
 
 	@SuppressWarnings("unchecked")
@@ -684,53 +486,18 @@ public class KernelAuthentication extends BaseTestCase {
 
 	@SuppressWarnings("unchecked")
 	public String getAuthForMobile() {
-		JSONObject actualrequest = getRequestJson(authRequest);
-		logger.info("actualrequest " + actualrequest);
-		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getMPartnerMobileClientId());
-		request.put(GlobalConstants.SECRETKEY, ConfigManager.getMPartnerMobileClientSecret());
-		logger.info("request for  Resident: " + request);
-		logger.info("request for  Resident " + request);
-		actualrequest.put(GlobalConstants.REQUEST, request);
-		logger.info(GlobalConstants.ACTU_AUTH_REQUESTFOR_RESIDENT + actualrequest);
-		logger.info(GlobalConstants.ACTU_AUTH_REQUESTFOR_RESIDENT + actualrequest);
-		Response reponse = AdminTestUtil.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
-		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
-		return cookie;
+		return getAuthTokenFromKeyCloak(ConfigManager.getMPartnerMobileClientId(), ConfigManager.getMPartnerMobileClientSecret());
 	}
 
 	@SuppressWarnings("unchecked")
 	public String getAuthForNewResidentKc() {
-
-		JSONObject actualrequest = getRequestJson(authInternalRequest);
-
-		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, ConfigManager.getResidentAppId());
-		request.put(GlobalConstants.PASSWORD, props.get("new_Resident_Password"));
-		request.put(GlobalConstants.USER_NAME, BaseTestCase.currentModule + "-" + props.get("new_Resident_User"));
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getResidentClientId());
-		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getResidentClientSecret());
-		actualrequest.put(GlobalConstants.REQUEST, request);
-
-		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualrequest);
-		String responseBody = reponse.getBody().asString();
-		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+		return getAuthTokenFromKeyCloakPassword(ConfigManager.getResidentClientId(), ConfigManager.getResidentClientSecret(),
+				BaseTestCase.currentModule + "-" + props.get("new_Resident_User"), props.get("new_Resident_Password"));
 	}
 
 	@SuppressWarnings("unchecked")
 	public String getAuthForHotlist() {
-		JSONObject actualrequest = getRequestJson(authRequest);
-
-		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, ConfigManager.getHotListAppId());
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getHotListClientId());
-		request.put(GlobalConstants.SECRETKEY, ConfigManager.getHotListClientSecret());
-		actualrequest.put(GlobalConstants.REQUEST, request);
-
-		Response reponse = AdminTestUtil.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
-		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
-		return cookie;
+		return getAuthTokenFromKeyCloak(ConfigManager.getHotListClientId(), ConfigManager.getHotListClientSecret());
 	}
 
 	@SuppressWarnings("unchecked")
@@ -768,18 +535,7 @@ public class KernelAuthentication extends BaseTestCase {
 
 	@SuppressWarnings("unchecked")
 	public String getAuthForRegistrationProcessor() {
-
-		JSONObject actualrequest = getRequestJson(authRequest);
-		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, ConfigManager.getRegprocAppId());
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getRegprocClientId());
-		request.put(GlobalConstants.SECRETKEY, ConfigManager.getRegprocClientSecret());
-		actualrequest.put(GlobalConstants.REQUEST, request);
-
-		Response reponse = AdminTestUtil.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
-		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
-		logger.info("Regproc Cookie is:: " + cookie);
-		return cookie;
+		return getAuthTokenFromKeyCloak(ConfigManager.getRegprocClientId(), ConfigManager.getRegprocClientSecret());
 	}
 
 	@SuppressWarnings("unchecked")
@@ -789,17 +545,7 @@ public class KernelAuthentication extends BaseTestCase {
 
 	@SuppressWarnings("unchecked")
 	public String getAuthForIDA() {
-		JSONObject actualrequest = getRequestJson(authRequest);
-
-		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, ConfigManager.getResidentAppId());
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getResidentClientId());
-		request.put(GlobalConstants.SECRETKEY, ConfigManager.getResidentClientSecret());
-		actualrequest.put(GlobalConstants.REQUEST, request);
-
-		Response reponse = AdminTestUtil.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
-		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
-		return cookie;
+		return getAuthTokenFromKeyCloak(ConfigManager.getResidentClientId(), ConfigManager.getResidentClientSecret());
 	}
 
 	@SuppressWarnings("unchecked")
