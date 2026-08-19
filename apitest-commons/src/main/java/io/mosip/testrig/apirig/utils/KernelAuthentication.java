@@ -415,21 +415,9 @@ public class KernelAuthentication extends BaseTestCase {
 
 	@SuppressWarnings({ "unchecked" })
 	public String getAuthForPartner() {
-
-		JSONObject request = new JSONObject();
-
-		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
-		request.put(GlobalConstants.PASSWORD, partner_password);
-		request.put(GlobalConstants.USER_NAME, BaseTestCase.currentModule + "-" + partner_userName);
-		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
-		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
-
-		actualInternalrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = AdminTestUtil.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
-		String responseBody = reponse.getBody().asString();
-		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+		String username = BaseTestCase.currentModule + "-" + partner_userName;
+		return getAuthTokenFromKeyCloakPassword(ConfigManager.getPmsClientId(), ConfigManager.getPmsClientSecret(),
+				username, partner_password);
 	}
 	
 	@SuppressWarnings({ "unchecked" })
