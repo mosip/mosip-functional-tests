@@ -28,9 +28,11 @@ public class GlobalMethods {
 	public static Set<String> serverEndpoints = new HashSet<>();
 
 	// Define the regex pattern to extract the domain and the path after the domain
-	private static String module_name = "(mimoto|certify|signup|partnermanager|preregistration|resident|residentmobileapp|masterdata|esignet|idgenerator|policymanager|idauthentication|idrepository|auditmanager|authmanager|keymanager|mock-identity-system)"; 
-	private static String regex_1 = "https://([^/]+)/(v[0-9]+)?/" + module_name + "/([^,]+)";
-	private static String regex_2 = "https://([^/]+)/" + module_name + "/(v[0-9]+)/([^,]+)";
+	private static String module_name = "(mimoto|certify|signup|partnermanager|preregistration|resident|residentmobileapp|masterdata|esignet|idgenerator|policymanager|idauthentication|idrepository|auditmanager|authmanager|keymanager|mock-identity-system|credentialservice|credentialrequest)";
+	// https?:// so local http://localhost endpoints appear in "End Points used"
+	private static final String URL_SCHEME = "https?://";
+	private static String regex_1 = URL_SCHEME + "([^/]+)/(v[0-9]+)?/" + module_name + "/([^,]+)";
+	private static String regex_2 = URL_SCHEME + "([^/]+)/" + module_name + "/(v[0-9]+)/([^,]+)";
 
 	// Compile the regex pattern
 	private static Pattern pattern_1 = Pattern.compile(regex_1);
@@ -64,9 +66,8 @@ public class GlobalMethods {
 		// Update module_name with the new value
 		module_name = value;
 
-		// Recreate the regex strings based on the updated module_name
-		regex_1 = "https://([^/]+)/(v[0-9]+)?/" + module_name + "/([^,]+)";
-		regex_2 = "https://([^/]+)/" + module_name + "/(v[0-9]+)/([^,]+)";
+		regex_1 = URL_SCHEME + "([^/]+)/(v[0-9]+)?/" + module_name + "/([^,]+)";
+		regex_2 = URL_SCHEME + "([^/]+)/" + module_name + "/(v[0-9]+)/([^,]+)";
 
 		// Recompile the regex patterns based on the new regex strings
 		pattern_1 = Pattern.compile(regex_1);
@@ -157,14 +158,8 @@ public class GlobalMethods {
 	}
 
 	public static String getComponentDetails() {
-		// Define the regex pattern to extract the domain and the path after the domain
-		String regex_1 = "https://([^/]+)/(v[0-9]+)?/" + module_name + "/([^,]+)";
-		// Compile the regex pattern
-		Pattern pattern_1 = Pattern.compile(regex_1);
-
-		String regex_2 = "https://([^/]+)/" + module_name + "/(v[0-9]+)/([^,]+)";
-		// Compile the regex pattern
-		Pattern pattern_2 = Pattern.compile(regex_2);
+		Pattern pattern_1 = Pattern.compile(URL_SCHEME + "([^/]+)/(v[0-9]+)?/" + module_name + "/([^,]+)");
+		Pattern pattern_2 = Pattern.compile(URL_SCHEME + "([^/]+)/" + module_name + "/(v[0-9]+)/([^,]+)");
 
 		// Set to store unique results
 		Set<String> uniqueResults = new HashSet<>();
