@@ -207,12 +207,14 @@ public class BiometricDataProvider {
 				.e("BDB").t(getBase64EncodedStringFromBase64URL(irisInfo)).up().up();
 		if (jtwSign != null && payload != null) {
 			jtwSign = Base64.getEncoder().encodeToString(jtwSign.getBytes());
-			builder.e("SB").t(jtwSign).up().
-
-					e(OTHERS).e(ENTRY).a("key", EXCEPTION).t(exception).up().e(ENTRY).a("key", RETRIES).t("1").up()
-					.e(ENTRY).a("key", SDK_SCORE).t("0.0").up().e(ENTRY).a("key", FORCE_CAPTURED).t(FALSE).up().e(ENTRY)
-					.a("key", PAYLOAD).t(payload).up().e(ENTRY).a("key", SPEC_VERSION).t("0.9.5").up().up();
+			builder.e("SB").t(jtwSign).up();
 		}
+		builder.e(OTHERS).e(ENTRY).a("key", EXCEPTION).t(exception).up().e(ENTRY).a("key", RETRIES).t("1").up()
+				.e(ENTRY).a("key", SDK_SCORE).t("0.0").up().e(ENTRY).a("key", FORCE_CAPTURED).t(FALSE).up();
+		if (payload != null) {
+			builder.e(ENTRY).a("key", PAYLOAD).t(payload).up();
+		}
+		builder.e(ENTRY).a("key", SPEC_VERSION).t("0.9.5").up().up();
 		return builder.asString(null);
 	}
 	
@@ -239,12 +241,14 @@ public class BiometricDataProvider {
 				.e(bdbKey).t(getBase64EncodedStringFromBase64URL(fingerInfo)).up().up();
 		if (jtwSign != null && payload != null) {
 			jtwSign = Base64.getEncoder().encodeToString(jtwSign.getBytes());
-			builder.e("SB").t(jtwSign).up().
-
-					e(OTHERS).e(ENTRY).a("key", EXCEPTION).t(exception).up().e(ENTRY).a("key", RETRIES).t("1").up()
-					.e(ENTRY).a("key", SDK_SCORE).t("0.0").up().e(ENTRY).a("key", FORCE_CAPTURED).t(FALSE).up().e(ENTRY)
-					.a("key", PAYLOAD).t(payload).up().e(ENTRY).a("key", SPEC_VERSION).t("0.9.5").up().up();
+			builder.e("SB").t(jtwSign).up();
 		}
+		builder.e(OTHERS).e(ENTRY).a("key", EXCEPTION).t(exception).up().e(ENTRY).a("key", RETRIES).t("1").up()
+				.e(ENTRY).a("key", SDK_SCORE).t("0.0").up().e(ENTRY).a("key", FORCE_CAPTURED).t(FALSE).up();
+		if (payload != null) {
+			builder.e(ENTRY).a("key", PAYLOAD).t(payload).up();
+		}
+		builder.e(ENTRY).a("key", SPEC_VERSION).t("0.9.5").up().up();
 		return builder.asString(null);
 	}
 
@@ -261,13 +265,14 @@ public class BiometricDataProvider {
 				.e("BDB").t(getBase64EncodedStringFromBase64URL(faceInfo)).up().up();
 		if (jtwSign != null && payload != null) {
 			jtwSign = Base64.getEncoder().encodeToString(jtwSign.getBytes());
-			builder.e("SB").t(jtwSign).up().
-
-					e(OTHERS).e(ENTRY).a("key", EXCEPTION).t(exception).up().e(ENTRY).a("key", RETRIES).t("1").up()
-					.e(ENTRY).a("key", SDK_SCORE).t("0.0").up().e(ENTRY).a("key", FORCE_CAPTURED).t(FALSE).up().e(ENTRY)
-					.a("key", PAYLOAD).t(payload).up().e(ENTRY).a("key", SPEC_VERSION).t("0.9.5").up().up();
-
+			builder.e("SB").t(jtwSign).up();
 		}
+		builder.e(OTHERS).e(ENTRY).a("key", EXCEPTION).t(exception).up().e(ENTRY).a("key", RETRIES).t("1").up()
+				.e(ENTRY).a("key", SDK_SCORE).t("0.0").up().e(ENTRY).a("key", FORCE_CAPTURED).t(FALSE).up();
+		if (payload != null) {
+			builder.e(ENTRY).a("key", PAYLOAD).t(payload).up();
+		}
+		builder.e(ENTRY).a("key", SPEC_VERSION).t("0.9.5").up().up();
 		return builder.asString(null);
 	}
 
@@ -284,13 +289,14 @@ public class BiometricDataProvider {
 				.e("BDB").t(faceInfo).up().up();
 		if (jtwSign != null && payload != null) {
 			jtwSign = Base64.getEncoder().encodeToString(jtwSign.getBytes());
-			builder.e("SB").t(jtwSign).up().
-
-					e(OTHERS).e(ENTRY).a("key", EXCEPTION).t(exception).up().e(ENTRY).a("key", RETRIES).t("1").up()
-					.e(ENTRY).a("key", SDK_SCORE).t("0.0").up().e(ENTRY).a("key", FORCE_CAPTURED).t(FALSE).up().e(ENTRY)
-					.a("key", PAYLOAD).t(payload).up().e(ENTRY).a("key", SPEC_VERSION).t("0.9.5").up().up();
-
+			builder.e("SB").t(jtwSign).up();
 		}
+		builder.e(OTHERS).e(ENTRY).a("key", EXCEPTION).t(exception).up().e(ENTRY).a("key", RETRIES).t("1").up()
+				.e(ENTRY).a("key", SDK_SCORE).t("0.0").up().e(ENTRY).a("key", FORCE_CAPTURED).t(FALSE).up();
+		if (payload != null) {
+			builder.e(ENTRY).a("key", PAYLOAD).t(payload).up();
+		}
+		builder.e(ENTRY).a("key", SPEC_VERSION).t("0.9.5").up().up();
 		return builder.asString(null);
 	}
 
