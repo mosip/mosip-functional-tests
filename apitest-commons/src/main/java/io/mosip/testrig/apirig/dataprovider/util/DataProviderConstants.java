@@ -11,7 +11,7 @@ public class DataProviderConstants {
 	public static final int DEFAULT_ABIS_DELAY = 3;
 	public static final Object INDIVIDUAL_TYPE = "residenceStatus";
 	public static int MAX_PHOTOS = 10;
-	public static String RESOURCE="src/main/resource/";
+	public static String RESOURCE="src/main/resources/mds/resource/";
 	public static String COUNTRY_CODE ="IN";
 	public static String LANG_CODE_ENGLISH = "eng";
 	

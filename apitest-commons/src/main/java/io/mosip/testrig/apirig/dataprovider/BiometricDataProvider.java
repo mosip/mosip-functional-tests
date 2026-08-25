@@ -203,7 +203,7 @@ public class BiometricDataProvider {
 				.t("1").up().up().e(BIRINFO).e(INTEGRITY).t(FALSE).up().up().e(BDBINFO).e(FORMAT).e(ORGANIZATION)
 				.t(MOSIP).up().e("Type").t("9").up().up().e(CREATIONDATE).t(today).up().e("Type").t("Iris").up()
 				.e(SUBTYPE).t(irisName).up().e(LEVEL).t("Raw").up().e(PURPOSE).t(ENROLL).up().e(QUALITY).e(ALGORITHM)
-				.e(ORGANIZATION).t("HMAC").up().e("Type").t(SHA_256).up().up().e(SCORE).t((int) Math.round(Double.parseDouble(qualityScore)) + "").up().up().up()
+				.e(ORGANIZATION).t("HMAC").up().e("Type").t(SHA_256).up().up().e(SCORE).t(clampQualityScore(qualityScore)).up().up().up()
 				.e("BDB").t(getBase64EncodedStringFromBase64URL(irisInfo)).up().up();
 		if (jtwSign != null && payload != null) {
 			jtwSign = Base64.getEncoder().encodeToString(jtwSign.getBytes());
@@ -211,7 +211,7 @@ public class BiometricDataProvider {
 		}
 		builder.e(OTHERS).e(ENTRY).a("key", EXCEPTION).t(exception).up().e(ENTRY).a("key", RETRIES).t("1").up()
 				.e(ENTRY).a("key", SDK_SCORE).t("0.0").up().e(ENTRY).a("key", FORCE_CAPTURED).t(FALSE).up();
-		if (payload != null) {
+		if (payload != null && !payload.contains("<")) {
 			builder.e(ENTRY).a("key", PAYLOAD).t(payload).up();
 		}
 		builder.e(ENTRY).a("key", SPEC_VERSION).t("0.9.5").up().up();
@@ -219,10 +219,26 @@ public class BiometricDataProvider {
 	}
 	
 	static String getBase64EncodedStringFromBase64URL(String input) {
+		if (input == null || input.isBlank()) {
+			throw new IllegalArgumentException("MDS bioValue is empty; ISO profile was not captured");
+		}
 		byte[] decodedBytes = Base64.getUrlDecoder().decode(input);
-//      String decodedBdb = new String(decodedBytes, StandardCharsets.UTF_8);
-
 		return Base64.getEncoder().encodeToString(decodedBytes);
+	}
+
+	static String clampQualityScore(String qualityScore) {
+		try {
+			int q = (int) Math.round(Double.parseDouble(qualityScore));
+			if (q < 0) {
+				q = 0;
+			}
+			if (q > 100) {
+				q = 100;
+			}
+			return Integer.toString(q);
+		} catch (Exception e) {
+			return "70";
+		}
 	}
 
 	static String buildBirFinger(String fingerInfo, String fingerName, String jtwSign, String payload,
@@ -237,7 +253,7 @@ public class BiometricDataProvider {
 				.up().up().e(BIRINFO).e(INTEGRITY).t(FALSE).up().up().e(BDBINFO).e(FORMAT).e(ORGANIZATION).t(MOSIP).up()
 				.e("Type").t("7").up().up().e(CREATIONDATE).t(today).up().e("Type").t("Finger").up().e(SUBTYPE)
 				.t(fingerName).up().e(LEVEL).t("Raw").up().e(PURPOSE).t(ENROLL).up().e(QUALITY).e(ALGORITHM)
-				.e(ORGANIZATION).t("HMAC").up().e("Type").t(SHA_256).up().up().e(SCORE).t((int) Math.round(Double.parseDouble(qualityScore)) + "").up().up().up()
+				.e(ORGANIZATION).t("HMAC").up().e("Type").t(SHA_256).up().up().e(SCORE).t(clampQualityScore(qualityScore)).up().up().up()
 				.e(bdbKey).t(getBase64EncodedStringFromBase64URL(fingerInfo)).up().up();
 		if (jtwSign != null && payload != null) {
 			jtwSign = Base64.getEncoder().encodeToString(jtwSign.getBytes());
@@ -245,7 +261,7 @@ public class BiometricDataProvider {
 		}
 		builder.e(OTHERS).e(ENTRY).a("key", EXCEPTION).t(exception).up().e(ENTRY).a("key", RETRIES).t("1").up()
 				.e(ENTRY).a("key", SDK_SCORE).t("0.0").up().e(ENTRY).a("key", FORCE_CAPTURED).t(FALSE).up();
-		if (payload != null) {
+		if (payload != null && !payload.contains("<")) {
 			builder.e(ENTRY).a("key", PAYLOAD).t(payload).up();
 		}
 		builder.e(ENTRY).a("key", SPEC_VERSION).t("0.9.5").up().up();
@@ -260,8 +276,8 @@ public class BiometricDataProvider {
 				.e(VERSION).e(MAJOR).t("1").up().e(MINOR).t("1").up().up().e(CBEFFVERSION).e(MAJOR).t("1").up().e(MINOR)
 				.t("1").up().up().e(BIRINFO).e(INTEGRITY).t(FALSE).up().up().e(BDBINFO).e(FORMAT).e(ORGANIZATION)
 				.t(MOSIP).up().e("Type").t("8").up().up().e(CREATIONDATE).t(today).up().e("Type").t("Face").up()
-				.e(SUBTYPE).t("").up().e(LEVEL).t("Raw").up().e(PURPOSE).t(ENROLL).up().e(QUALITY).e(ALGORITHM)
-				.e(ORGANIZATION).t("HMAC").up().e("Type").t(SHA_256).up().up().e(SCORE).t((int) Math.round(Double.parseDouble(qualityScore)) + "").up().up().up()
+				.e(LEVEL).t("Raw").up().e(PURPOSE).t(ENROLL).up().e(QUALITY).e(ALGORITHM)
+				.e(ORGANIZATION).t("HMAC").up().e("Type").t(SHA_256).up().up().e(SCORE).t(clampQualityScore(qualityScore)).up().up().up()
 				.e("BDB").t(getBase64EncodedStringFromBase64URL(faceInfo)).up().up();
 		if (jtwSign != null && payload != null) {
 			jtwSign = Base64.getEncoder().encodeToString(jtwSign.getBytes());
@@ -269,7 +285,7 @@ public class BiometricDataProvider {
 		}
 		builder.e(OTHERS).e(ENTRY).a("key", EXCEPTION).t(exception).up().e(ENTRY).a("key", RETRIES).t("1").up()
 				.e(ENTRY).a("key", SDK_SCORE).t("0.0").up().e(ENTRY).a("key", FORCE_CAPTURED).t(FALSE).up();
-		if (payload != null) {
+		if (payload != null && !payload.contains("<")) {
 			builder.e(ENTRY).a("key", PAYLOAD).t(payload).up();
 		}
 		builder.e(ENTRY).a("key", SPEC_VERSION).t("0.9.5").up().up();
@@ -284,8 +300,8 @@ public class BiometricDataProvider {
 				.e(VERSION).e(MAJOR).t("1").up().e(MINOR).t("1").up().up().e(CBEFFVERSION).e(MAJOR).t("1").up().e(MINOR)
 				.t("1").up().up().e(BIRINFO).e(INTEGRITY).t(FALSE).up().up().e(BDBINFO).e(FORMAT).e(ORGANIZATION)
 				.t(MOSIP).up().e("Type").t("8").up().up().e(CREATIONDATE).t(today).up().e("Type").t("ExceptionPhoto")
-				.up().e(SUBTYPE).t("").up().e(LEVEL).t("Raw").up().e(PURPOSE).t(ENROLL).up().e(QUALITY).e(ALGORITHM)
-				.e(ORGANIZATION).t("HMAC").up().e("Type").t(SHA_256).up().up().e(SCORE).t((int) Math.round(Double.parseDouble(qualityScore)) + "").up().up().up()
+				.up().e(LEVEL).t("Raw").up().e(PURPOSE).t(ENROLL).up().e(QUALITY).e(ALGORITHM)
+				.e(ORGANIZATION).t("HMAC").up().e("Type").t(SHA_256).up().up().e(SCORE).t(clampQualityScore(qualityScore)).up().up().up()
 				.e("BDB").t(faceInfo).up().up();
 		if (jtwSign != null && payload != null) {
 			jtwSign = Base64.getEncoder().encodeToString(jtwSign.getBytes());
@@ -293,7 +309,7 @@ public class BiometricDataProvider {
 		}
 		builder.e(OTHERS).e(ENTRY).a("key", EXCEPTION).t(exception).up().e(ENTRY).a("key", RETRIES).t("1").up()
 				.e(ENTRY).a("key", SDK_SCORE).t("0.0").up().e(ENTRY).a("key", FORCE_CAPTURED).t(FALSE).up();
-		if (payload != null) {
+		if (payload != null && !payload.contains("<")) {
 			builder.e(ENTRY).a("key", PAYLOAD).t(payload).up();
 		}
 		builder.e(ENTRY).a("key", SPEC_VERSION).t("0.9.5").up().up();
