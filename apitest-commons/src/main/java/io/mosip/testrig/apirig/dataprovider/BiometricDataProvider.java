@@ -169,6 +169,15 @@ public class BiometricDataProvider {
 
 		addToBiometricMap("BioValueWithoutFace", encodedCBeffWithoutFace);
 
+		// Face BIR is required for identity-service cbeffUtil.validateXML on documents/0/value.
+		// Empty Face capture is swallowed in toCBEFFFromCapture; treat that as generation failure
+		// so callers can fall back to bundled bioValue.properties.
+		String faceBio = getFromBiometricMap("FaceBioValue");
+		if (faceBio == null || faceBio.isBlank()) {
+			logger.error("MDS Face capture produced no FaceBioValue; CBEFF is incomplete");
+			return false;
+		}
+
 		return true;
 	}
 	
@@ -276,7 +285,8 @@ public class BiometricDataProvider {
 				.e(VERSION).e(MAJOR).t("1").up().e(MINOR).t("1").up().up().e(CBEFFVERSION).e(MAJOR).t("1").up().e(MINOR)
 				.t("1").up().up().e(BIRINFO).e(INTEGRITY).t(FALSE).up().up().e(BDBINFO).e(FORMAT).e(ORGANIZATION)
 				.t(MOSIP).up().e("Type").t("8").up().up().e(CREATIONDATE).t(today).up().e("Type").t("Face").up()
-				.e(LEVEL).t("Raw").up().e(PURPOSE).t(ENROLL).up().e(QUALITY).e(ALGORITHM)
+				// Keep empty Subtype — known-good CBEFF and idrepo XSD expect the element present.
+				.e(SUBTYPE).t("").up().e(LEVEL).t("Raw").up().e(PURPOSE).t(ENROLL).up().e(QUALITY).e(ALGORITHM)
 				.e(ORGANIZATION).t("HMAC").up().e("Type").t(SHA_256).up().up().e(SCORE).t(clampQualityScore(qualityScore)).up().up().up()
 				.e("BDB").t(getBase64EncodedStringFromBase64URL(faceInfo)).up().up();
 		if (jtwSign != null && payload != null) {
@@ -300,7 +310,7 @@ public class BiometricDataProvider {
 				.e(VERSION).e(MAJOR).t("1").up().e(MINOR).t("1").up().up().e(CBEFFVERSION).e(MAJOR).t("1").up().e(MINOR)
 				.t("1").up().up().e(BIRINFO).e(INTEGRITY).t(FALSE).up().up().e(BDBINFO).e(FORMAT).e(ORGANIZATION)
 				.t(MOSIP).up().e("Type").t("8").up().up().e(CREATIONDATE).t(today).up().e("Type").t("ExceptionPhoto")
-				.up().e(LEVEL).t("Raw").up().e(PURPOSE).t(ENROLL).up().e(QUALITY).e(ALGORITHM)
+				.up().e(SUBTYPE).t("").up().e(LEVEL).t("Raw").up().e(PURPOSE).t(ENROLL).up().e(QUALITY).e(ALGORITHM)
 				.e(ORGANIZATION).t("HMAC").up().e("Type").t(SHA_256).up().up().e(SCORE).t(clampQualityScore(qualityScore)).up().up().up()
 				.e("BDB").t(faceInfo).up().up();
 		if (jtwSign != null && payload != null) {
