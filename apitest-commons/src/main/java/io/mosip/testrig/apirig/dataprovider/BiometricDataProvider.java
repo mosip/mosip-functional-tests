@@ -140,6 +140,8 @@ public class BiometricDataProvider {
 			return false;
 		}
 		String strCBeff = toCBEFFFromCapture(Arrays.asList(DataProviderConstants.schemaNames), capture, null, false);
+		strCBeff = expandEmptySubtypeElements(strCBeff);
+		strCBeff = sanitizeCbeffForIdRepo(strCBeff);
 		
 //		boolean isValid = CbeffValidator.validateXML(getBirs(strCBeff));
 		
@@ -156,6 +158,8 @@ public class BiometricDataProvider {
 		
 		String strCBeffWithoutFace = toCBEFFFromCapture(Arrays.asList(DataProviderConstants.schemaNames), capture, null,
 				true);
+		strCBeffWithoutFace = expandEmptySubtypeElements(strCBeffWithoutFace);
+		strCBeffWithoutFace = sanitizeCbeffForIdRepo(strCBeffWithoutFace);
 		
 		String encodedCBeffWithoutFace = toBase64Url(strCBeffWithoutFace);
 		
@@ -299,7 +303,8 @@ public class BiometricDataProvider {
 			builder.e(ENTRY).a("key", PAYLOAD).t(payload).up();
 		}
 		builder.e(ENTRY).a("key", SPEC_VERSION).t("0.9.5").up().up();
-		return builder.asString(null);
+		// XMLBuilder emits <Subtype/> for empty text; idrepo CBEFF XSD expects <Subtype></Subtype>.
+		return expandEmptySubtypeElements(builder.asString(null));
 	}
 
 	static String buildBirExceptionPhoto(String faceInfo, String jtwSign, String payload, String qualityScore,
@@ -323,7 +328,36 @@ public class BiometricDataProvider {
 			builder.e(ENTRY).a("key", PAYLOAD).t(payload).up();
 		}
 		builder.e(ENTRY).a("key", SPEC_VERSION).t("0.9.5").up().up();
-		return builder.asString(null);
+		return expandEmptySubtypeElements(builder.asString(null));
+	}
+
+	/** idrepo {@code cbeffUtil.validateXML} rejects self-closing empty Subtype. */
+	static String expandEmptySubtypeElements(String xml) {
+		if (xml == null || xml.isBlank()) {
+			return xml;
+		}
+		return xml.replace("<Subtype/>", "<Subtype></Subtype>").replace("<Subtype />", "<Subtype></Subtype>");
+	}
+
+	/**
+	 * Align Mock SBI CBEFF with known-good BioValue accepted by idrepo {@code validateXML}:
+	 * no {@code <SB>}, no {@code <others>}/orphaned {@code <entry>}, and {@code standalone="yes"}.
+	 */
+	static String sanitizeCbeffForIdRepo(String xml) {
+		if (xml == null || xml.isBlank()) {
+			return xml;
+		}
+		String sanitized = xml.replaceAll("(?s)<SB>.*?</SB>", "")
+				.replaceAll("(?s)<others>.*?</others>", "")
+				.replaceAll("(?s)<Others>.*?</Others>", "")
+				.replaceAll("(?s)<entry\\b[^>]*>.*?</entry>", "")
+				.replaceAll("<entry\\b[^>]*/>", "");
+		if (!sanitized.contains("standalone=")) {
+			sanitized = sanitized.replaceFirst(
+					"<\\?xml version=\"1\\.0\" encoding=\"UTF-8\"\\?>",
+					"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>");
+		}
+		return sanitized;
 	}
 
 	public static List<BioModality> getModalitiesByType(List<BioModality> bioExceptions, String type) {
