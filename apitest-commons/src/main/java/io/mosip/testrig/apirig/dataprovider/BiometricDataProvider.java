@@ -141,7 +141,7 @@ public class BiometricDataProvider {
 		}
 		String strCBeff = toCBEFFFromCapture(Arrays.asList(DataProviderConstants.schemaNames), capture, null, false);
 		strCBeff = expandEmptySubtypeElements(strCBeff);
-		strCBeff = sanitizeCbeffForIdRepo(strCBeff);
+		strCBeff = sanitizeCbeff(strCBeff);
 		
 //		boolean isValid = CbeffValidator.validateXML(getBirs(strCBeff));
 		
@@ -159,7 +159,7 @@ public class BiometricDataProvider {
 		String strCBeffWithoutFace = toCBEFFFromCapture(Arrays.asList(DataProviderConstants.schemaNames), capture, null,
 				true);
 		strCBeffWithoutFace = expandEmptySubtypeElements(strCBeffWithoutFace);
-		strCBeffWithoutFace = sanitizeCbeffForIdRepo(strCBeffWithoutFace);
+		strCBeffWithoutFace = sanitizeCbeff(strCBeffWithoutFace);
 		
 		String encodedCBeffWithoutFace = toBase64Url(strCBeffWithoutFace);
 		
@@ -340,10 +340,10 @@ public class BiometricDataProvider {
 	}
 
 	/**
-	 * Align Mock SBI CBEFF with known-good BioValue accepted by idrepo {@code validateXML}:
+	 * Align Mock SBI CBEFF with known-good BioValue shape:
 	 * no {@code <SB>}, no {@code <others>}/orphaned {@code <entry>}, and {@code standalone="yes"}.
 	 */
-	static String sanitizeCbeffForIdRepo(String xml) {
+	static String sanitizeCbeff(String xml) {
 		if (xml == null || xml.isBlank()) {
 			return xml;
 		}
