@@ -49,16 +49,16 @@ public class SchemaBasedIdentityTemplateBuilder {
 	}
 
 	public static String buildUpdateIdentityTemplate() {
-		// Update flow emits bare {{field}} for generic fields (no sentinels), so finalize is a no-op.
 		if (updateTemplateCache == null) {
-			updateTemplateCache = buildTemplate(true);
+			updateTemplateCache = AdminTestUtil.finalizeSchemaGenericFields(buildTemplate(true));
 		}
 		return updateTemplateCache;
 	}
 
 	public static String buildUpdateIdentityTemplateV2() {
 		if (updateTemplateV2Cache == null) {
-			updateTemplateV2Cache = wrapV2(buildTemplate(true));
+			// wrapV2 re-parses as JSON, so it must run on the sentinel form; finalize after.
+			updateTemplateV2Cache = AdminTestUtil.finalizeSchemaGenericFields(wrapV2(buildTemplate(true)));
 		}
 		return updateTemplateV2Cache;
 	}
@@ -181,12 +181,9 @@ public class SchemaBasedIdentityTemplateBuilder {
 				identityJson.put(fieldName, "$HANDLEVALUE:" + fieldName + "$");
 				selectedHandles.add(fieldName);
 
-			} else if (isUpdate) {
-				// Update flow: bare {{fieldName}} (renders empty if the YAML omits it).
-				identityJson.put(fieldName, "{{" + fieldName + "}}");
-
 			} else {
-				// Create flow: sentinel -> presence-aware {{schemaFieldValue "field"}} helper (see AdminTestUtil).
+				// Sentinel -> presence-aware {{schemaFieldValue "field"}} helper (see AdminTestUtil), so a
+				// field the YAML doesn't supply gets a valid value rather than "" — same for create and update.
 				identityJson.put(fieldName,
 						AdminTestUtil.SCHEMA_FIELD_SENTINEL_PREFIX + fieldName + AdminTestUtil.SCHEMA_FIELD_SENTINEL_SUFFIX);
 			}

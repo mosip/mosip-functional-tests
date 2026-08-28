@@ -6,6 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -18,12 +19,28 @@ public final class NotificationListener {
 
 	private static final int MAX_QUEUE_SIZE = 50;
 	private static final long INACTIVE_EXPIRY_MS = Long.parseLong(ConfigManager.getproperty("otp_queue_inactive_expiry_time")) * 60 * 1000; // 15 mins
-	private static final Pattern OTP_PATTERN = Pattern.compile(
+
+	// How long to keep watching the same identity's queue for a newer message before committing to "latest" - a fresh send-otp for a shared identity can supersede ours moments later, see poll().
+	private static final long LATEST_MESSAGE_QUIET_GAP_MS = parseNonNegativeLongOrDefault(
+			ConfigManager.getproperty("otp_latest_pick_quiet_gap_ms"), 200L);
+	// Hard cap on total time spent watching for a newer message, in case the queue keeps receiving messages back-to-back.
+	private static final long LATEST_MESSAGE_MAX_SETTLE_MS = parseNonNegativeLongOrDefault(
+			ConfigManager.getproperty("otp_latest_pick_max_settle_ms"), 800L);
+
+	// Keyword-anchored branches only, used to CLASSIFY whether a message is OTP-bearing at all (see isLikelyOtpMessage()) without matching an unrelated six-digit number (encryption key, request id, ...).
+	private static final Pattern OTP_ANCHORED_PATTERN = Pattern.compile(
 			"(?i)(?:" +
 			"\\bis\\s+(\\d{6})\\s+and\\s+is\\s+valid" +   // English: "is XXXXXX and is valid"
 			"|\\buse\\s+(?:otp\\s+)?(\\d{6})\\b" +        // English: "Use [OTP] XXXXXX"
 			"|\\bOTP\\b.*?\\b(\\d{6})\\b" +               // Multilingual: OTP keyword + standalone 6 digits
-			"|\\b(\\d{6})\\b" +                           // Fallback: fully-translated templates (e.g. Khmer) with no English anchor word, just the standalone 6-digit code
+			")");
+	// Same as OTP_ANCHORED_PATTERN plus a last-resort unanchored branch, for extracting digits once a message is already trusted to be OTP-bearing - not used for classification, see above.
+	private static final Pattern OTP_PATTERN = Pattern.compile(
+			"(?i)(?:" +
+			"\\bis\\s+(\\d{6})\\s+and\\s+is\\s+valid" +
+			"|\\buse\\s+(?:otp\\s+)?(\\d{6})\\b" +
+			"|\\bOTP\\b.*?\\b(\\d{6})\\b" +
+			"|\\b(\\d{6})\\b" +
 			")");
 	private static final ConcurrentHashMap<String, EmailQueue> otpQueues = new ConcurrentHashMap<>();
 
@@ -35,11 +52,25 @@ public final class NotificationListener {
 	private NotificationListener() {
 	}
 
+	private static long parseNonNegativeLongOrDefault(String raw, long defaultValue) {
+		if (raw == null || raw.trim().isEmpty()) {
+			return defaultValue;
+		}
+		try {
+			long value = Long.parseLong(raw.trim());
+			return value >= 0 ? value : defaultValue;
+		} catch (NumberFormatException e) {
+			return defaultValue;
+		}
+	}
+
 	// --------------------------------------------------
 	// Internal wrapper
 	// --------------------------------------------------
 	private static class EmailQueue {
 		final BlockingQueue<OtpMessage> queue = new LinkedBlockingQueue<>(MAX_QUEUE_SIZE);
+		// Serializes poll()'s "find a match, then watch for a newer one" sequence per identity - scoped per-queue so different identities never contend, see poll().
+		final ReentrantLock pollLock = new ReentrantLock();
 		volatile long lastAccessTime = System.currentTimeMillis();
 	}
 
@@ -147,49 +178,100 @@ public final class NotificationListener {
 		logger.info(String.format("[POLL START] Email=%s Timeout=%s seconds QueueSize=%d", emailId, timeoutSeconds,
 				emailQueue.queue.size()));
 
-		int loop = 0;
-
+		// Only serializes callers polling the SAME identity - see EmailQueue.pollLock.
+		emailQueue.pollLock.lock();
 		try {
 
-			while (System.currentTimeMillis() < endTime) {
+			int loop = 0;
 
-				loop++;
+			try {
 
-				OtpMessage msg = emailQueue.queue.poll(5, TimeUnit.SECONDS);
+				while (System.currentTimeMillis() < endTime) {
 
-				if (msg == null) {
+					loop++;
 
-					logger.info(String.format("[POLL LOOP %d] No message yet for email=%s", loop, emailId));
+					OtpMessage msg = emailQueue.queue.poll(5, TimeUnit.SECONDS);
 
-					continue;
-				}
+					if (msg == null) {
 
-				logger.info(String.format("[POLL LOOP %d] Message received for email=%s ReceivedAt=%d", loop, emailId,
-						msg.receivedAt));
+						logger.info(String.format("[POLL LOOP %d] No message yet for email=%s", loop, emailId));
 
-				if (msg.receivedAt < afterTime) {
-					logger.info(String.format("[POLL LOOP %d] Skipping stale message for email=%s", loop, emailId));
-					continue;
-				}
+						continue;
+					}
 
-				emailQueue.lastAccessTime = System.currentTimeMillis();
+					logger.info(String.format("[POLL LOOP %d] Message received for email=%s ReceivedAt=%d", loop,
+							emailId, msg.receivedAt));
 
-				if (filter.test(msg.message)) {
+					if (msg.receivedAt < afterTime) {
+						logger.info(String.format("[POLL LOOP %d] Skipping stale message for email=%s", loop, emailId));
+						continue;
+					}
+
+					emailQueue.lastAccessTime = System.currentTimeMillis();
+
+					if (!filter.test(msg.message)) {
+						logger.info(String.format("[POLL LOOP %d] Message did not match filter for email=%s", loop,
+								emailId));
+						continue;
+					}
+
+					// Matched, but don't return it yet - a newer request for the same identity can supersede it moments later, so watch briefly and keep the newest match seen.
+					OtpMessage latest = msg;
+					long settleDeadline = Math.min(endTime, System.currentTimeMillis() + LATEST_MESSAGE_MAX_SETTLE_MS);
+
+					while (true) {
+
+						long waitMs = Math.min(LATEST_MESSAGE_QUIET_GAP_MS, settleDeadline - System.currentTimeMillis());
+						if (waitMs <= 0) {
+							break;
+						}
+
+						OtpMessage next = emailQueue.queue.poll(waitMs, TimeUnit.MILLISECONDS);
+						if (next == null) {
+							// Quiet for LATEST_MESSAGE_QUIET_GAP_MS with nothing new - settle complete.
+							break;
+						}
+
+						if (next.receivedAt < afterTime) {
+							logger.info(String.format("[POLL SETTLE] Skipping stale message for email=%s", emailId));
+							continue;
+						}
+
+						if (!filter.test(next.message)) {
+							logger.info(String.format("[POLL SETTLE] Non-matching message for email=%s, ignored",
+									emailId));
+							continue;
+						}
+
+						logger.info(String.format(
+								"[POLL SETTLE] Newer message for email=%s (ReceivedAt=%d) supersedes previous candidate (ReceivedAt=%d)",
+								emailId, next.receivedAt, latest.receivedAt));
+
+						emailQueue.lastAccessTime = System.currentTimeMillis();
+						latest = next;
+					}
+
 					logger.info(String.format("[POLL SUCCESS] Email=%s Loop=%d MessageMatched", emailId, loop));
-					return msg.message;
+					return latest.message;
 				}
 
-				logger.info(String.format("[POLL LOOP %d] Message did not match filter for email=%s", loop, emailId));
+			} catch (InterruptedException e) {
+				logger.error("Polling interrupted for email=" + emailId, e);
+				Thread.currentThread().interrupt();
 			}
 
-		} catch (InterruptedException e) {
-			logger.error("Polling interrupted for email=" + emailId, e);
-			Thread.currentThread().interrupt();
+			logger.warn("[POLL TIMEOUT] No message received for email=" + emailId);
+
+			return "";
+
+		} finally {
+			emailQueue.pollLock.unlock();
 		}
+	}
 
-		logger.warn("[POLL TIMEOUT] No message received for email=" + emailId);
-
-		return "";
+	// Whether a message actually looks like an OTP notification, not just any message with a coincidental six-digit number - use this (not parseOtp().isEmpty()) to decide whether to queue a message as OTP.
+	public static boolean isLikelyOtpMessage(String message) {
+		return message != null && OTP_ANCHORED_PATTERN.matcher(message).find();
 	}
 
 	public static String parseOtp(String message) {
