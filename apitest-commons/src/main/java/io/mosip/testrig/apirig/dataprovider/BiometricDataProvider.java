@@ -140,6 +140,8 @@ public class BiometricDataProvider {
 			return false;
 		}
 		String strCBeff = toCBEFFFromCapture(Arrays.asList(DataProviderConstants.schemaNames), capture, null, false);
+		strCBeff = expandEmptySubtypeElements(strCBeff);
+		strCBeff = sanitizeCbeff(strCBeff);
 		
 //		boolean isValid = CbeffValidator.validateXML(getBirs(strCBeff));
 		
@@ -156,6 +158,8 @@ public class BiometricDataProvider {
 		
 		String strCBeffWithoutFace = toCBEFFFromCapture(Arrays.asList(DataProviderConstants.schemaNames), capture, null,
 				true);
+		strCBeffWithoutFace = expandEmptySubtypeElements(strCBeffWithoutFace);
+		strCBeffWithoutFace = sanitizeCbeff(strCBeffWithoutFace);
 		
 		String encodedCBeffWithoutFace = toBase64Url(strCBeffWithoutFace);
 		
@@ -168,6 +172,15 @@ public class BiometricDataProvider {
 		addToBiometricMap("BioValue", encodedCBeff);
 
 		addToBiometricMap("BioValueWithoutFace", encodedCBeffWithoutFace);
+
+		// Face BIR is required for identity-service cbeffUtil.validateXML on documents/0/value.
+		// Empty Face capture is swallowed in toCBEFFFromCapture; treat that as generation failure
+		// so callers can fall back to bundled bioValue.properties.
+		String faceBio = getFromBiometricMap("FaceBioValue");
+		if (faceBio == null || faceBio.isBlank()) {
+			logger.error("MDS Face capture produced no FaceBioValue; CBEFF is incomplete");
+			return false;
+		}
 
 		return true;
 	}
@@ -276,7 +289,8 @@ public class BiometricDataProvider {
 				.e(VERSION).e(MAJOR).t("1").up().e(MINOR).t("1").up().up().e(CBEFFVERSION).e(MAJOR).t("1").up().e(MINOR)
 				.t("1").up().up().e(BIRINFO).e(INTEGRITY).t(FALSE).up().up().e(BDBINFO).e(FORMAT).e(ORGANIZATION)
 				.t(MOSIP).up().e("Type").t("8").up().up().e(CREATIONDATE).t(today).up().e("Type").t("Face").up()
-				.e(LEVEL).t("Raw").up().e(PURPOSE).t(ENROLL).up().e(QUALITY).e(ALGORITHM)
+				// Keep empty Subtype — known-good CBEFF and idrepo XSD expect the element present.
+				.e(SUBTYPE).t("").up().e(LEVEL).t("Raw").up().e(PURPOSE).t(ENROLL).up().e(QUALITY).e(ALGORITHM)
 				.e(ORGANIZATION).t("HMAC").up().e("Type").t(SHA_256).up().up().e(SCORE).t(clampQualityScore(qualityScore)).up().up().up()
 				.e("BDB").t(getBase64EncodedStringFromBase64URL(faceInfo)).up().up();
 		if (jtwSign != null && payload != null) {
@@ -289,7 +303,8 @@ public class BiometricDataProvider {
 			builder.e(ENTRY).a("key", PAYLOAD).t(payload).up();
 		}
 		builder.e(ENTRY).a("key", SPEC_VERSION).t("0.9.5").up().up();
-		return builder.asString(null);
+		// XMLBuilder emits <Subtype/> for empty text; idrepo CBEFF XSD expects <Subtype></Subtype>.
+		return expandEmptySubtypeElements(builder.asString(null));
 	}
 
 	static String buildBirExceptionPhoto(String faceInfo, String jtwSign, String payload, String qualityScore,
@@ -300,7 +315,7 @@ public class BiometricDataProvider {
 				.e(VERSION).e(MAJOR).t("1").up().e(MINOR).t("1").up().up().e(CBEFFVERSION).e(MAJOR).t("1").up().e(MINOR)
 				.t("1").up().up().e(BIRINFO).e(INTEGRITY).t(FALSE).up().up().e(BDBINFO).e(FORMAT).e(ORGANIZATION)
 				.t(MOSIP).up().e("Type").t("8").up().up().e(CREATIONDATE).t(today).up().e("Type").t("ExceptionPhoto")
-				.up().e(LEVEL).t("Raw").up().e(PURPOSE).t(ENROLL).up().e(QUALITY).e(ALGORITHM)
+				.up().e(SUBTYPE).t("").up().e(LEVEL).t("Raw").up().e(PURPOSE).t(ENROLL).up().e(QUALITY).e(ALGORITHM)
 				.e(ORGANIZATION).t("HMAC").up().e("Type").t(SHA_256).up().up().e(SCORE).t(clampQualityScore(qualityScore)).up().up().up()
 				.e("BDB").t(faceInfo).up().up();
 		if (jtwSign != null && payload != null) {
@@ -313,7 +328,36 @@ public class BiometricDataProvider {
 			builder.e(ENTRY).a("key", PAYLOAD).t(payload).up();
 		}
 		builder.e(ENTRY).a("key", SPEC_VERSION).t("0.9.5").up().up();
-		return builder.asString(null);
+		return expandEmptySubtypeElements(builder.asString(null));
+	}
+
+	/** idrepo {@code cbeffUtil.validateXML} rejects self-closing empty Subtype. */
+	static String expandEmptySubtypeElements(String xml) {
+		if (xml == null || xml.isBlank()) {
+			return xml;
+		}
+		return xml.replace("<Subtype/>", "<Subtype></Subtype>").replace("<Subtype />", "<Subtype></Subtype>");
+	}
+
+	/**
+	 * Align Mock SBI CBEFF with known-good BioValue shape:
+	 * no {@code <SB>}, no {@code <others>}/orphaned {@code <entry>}, and {@code standalone="yes"}.
+	 */
+	static String sanitizeCbeff(String xml) {
+		if (xml == null || xml.isBlank()) {
+			return xml;
+		}
+		String sanitized = xml.replaceAll("(?s)<SB>.*?</SB>", "")
+				.replaceAll("(?s)<others>.*?</others>", "")
+				.replaceAll("(?s)<Others>.*?</Others>", "")
+				.replaceAll("(?s)<entry\\b[^>]*>.*?</entry>", "")
+				.replaceAll("<entry\\b[^>]*/>", "");
+		if (!sanitized.contains("standalone=")) {
+			sanitized = sanitized.replaceFirst(
+					"<\\?xml version=\"1\\.0\" encoding=\"UTF-8\"\\?>",
+					"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>");
+		}
+		return sanitized;
 	}
 
 	public static List<BioModality> getModalitiesByType(List<BioModality> bioExceptions, String type) {
