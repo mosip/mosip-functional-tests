@@ -77,6 +77,7 @@ import org.apache.log4j.Logger;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.util.io.pem.PemObject;
 import org.bouncycastle.util.io.pem.PemReader;
+import org.apache.pdfbox.pdmodel.PDDocument;
 import org.jose4j.jws.JsonWebSignature;
 import org.jose4j.lang.JoseException;
 import org.json.JSONArray;
@@ -103,7 +104,6 @@ import com.github.jknack.handlebars.Template;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
-import com.itextpdf.text.pdf.PdfReader;
 import com.mifmif.common.regex.Generex;
 import com.nimbusds.jose.Algorithm;
 import com.nimbusds.jose.JWEAlgorithm;
@@ -3370,10 +3370,10 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 	}
 
-	public static void closePdfReader(PdfReader pdfReader) {
-		if (pdfReader != null) {
+	public static void closePdfReader(PDDocument pdfDocument) {
+		if (pdfDocument != null) {
 			try {
-				pdfReader.close();
+				pdfDocument.close();
 			} catch (Exception e) {
 				logger.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
 			}
