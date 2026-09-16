@@ -13,7 +13,7 @@ public class LogMaskingUtil {
 	
 	private static final List<String> SENSITIVE_KEYS = Arrays.asList("clientSecret", "client_secret", "password", "pwd",
 			"token", "access_token", "refresh_token", "refreshToken", "Authorization", "set-cookie", "cookie",
-			"XSRF-TOKEN", "X-XSRF-TOKEN"
+			"XSRF-TOKEN", "X-XSRF-TOKEN", "certificate", "certificateData", "signedCertificateData"
 
 	);
 
