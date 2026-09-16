@@ -1,6 +1,7 @@
 package io.mosip.testrig.apirig.utils;
 
 import org.apache.log4j.Logger;
+import org.testng.Reporter;
 
 import io.restassured.filter.Filter;
 import io.restassured.filter.FilterContext;
@@ -11,6 +12,20 @@ import io.restassured.specification.FilterableResponseSpecification;
 public class RestAssuredPrettyLogger {
 	
 	private static final Logger apiLogger = Logger.getLogger("API_LOGGER");
+	private static final int REPORT_BODY_MAX_CHARS = 8192;
+	private static final ThreadLocal<Boolean> DSL_REPORT_CAPTURE = ThreadLocal.withInitial(() -> false);
+
+	/**
+	 * Enables compact request/response logging to the current TestNG result for
+	 * this thread. Console logging remains unchanged.
+	 */
+	public static void startDslReportCapture() {
+		DSL_REPORT_CAPTURE.set(true);
+	}
+
+	public static void stopDslReportCapture() {
+		DSL_REPORT_CAPTURE.remove();
+	}
 	
 	public static Filter getMaskingFilter() {
         return new Filter() {
@@ -87,7 +102,15 @@ public class RestAssuredPrettyLogger {
                 apiLogger.info(maskedBody);
 
                 // Execute the actual request
-                Response response = ctx.next(req, res);
+                long startTime = System.currentTimeMillis();
+                Response response;
+                try {
+                    response = ctx.next(req, res);
+                } catch (RuntimeException e) {
+                    reportToDsl(req.getMethod(), req.getURI(), null,
+                            System.currentTimeMillis() - startTime, e);
+                    throw e;
+                }
 
                 apiLogger.info(response.getStatusLine());
 
@@ -99,10 +122,68 @@ public class RestAssuredPrettyLogger {
                 // Response body
                 String maskedResponse = LogMaskingUtil.maskSensitiveData(response.asString());
                 apiLogger.info("\n" + maskedResponse);
+                reportToDsl(req.getMethod(), req.getURI(), response,
+                        System.currentTimeMillis() - startTime, null);
 
                 return response;
             }
         };
     }
+
+	private static void reportToDsl(String method, String uri, Response response, long durationMs,
+			RuntimeException failure) {
+		if (!DSL_REPORT_CAPTURE.get()) {
+			return;
+		}
+
+		StringBuilder report = new StringBuilder();
+		report.append("<div class='dsl-internal-api' style='border:1px solid #aaa;padding:6px;margin:4px 0;'>")
+				.append("<b>Internal API: ").append(escapeHtml(method)).append(" ")
+				.append(escapeHtml(uri)).append("</b><br>");
+
+		if (response != null) {
+			int statusCode = response.getStatusCode();
+			report.append("Status: <span style='color:")
+					.append(statusCode >= 200 && statusCode < 300 ? "green" : "red")
+					.append("'>").append(statusCode).append("</span><br>")
+					.append("Duration: ").append(durationMs).append(" ms")
+					.append("<pre style='white-space:pre-wrap;'>")
+					.append(escapeHtml(limit(LogMaskingUtil.maskSensitiveData(response.asString()))))
+					.append("</pre>");
+		} else {
+			report.append("<span style='color:red;font-weight:bold;'>Request failed after ")
+					.append(durationMs).append(" ms: ")
+					.append(escapeHtml(rootCauseMessage(failure))).append("</span>");
+		}
+		report.append("</div>");
+		Reporter.log(report.toString(), true);
+	}
+
+	private static String limit(String value) {
+		if (value == null) {
+			return "";
+		}
+		return value.length() <= REPORT_BODY_MAX_CHARS ? value
+				: value.substring(0, REPORT_BODY_MAX_CHARS) + "\n... response truncated ...";
+	}
+
+	private static String rootCauseMessage(Throwable throwable) {
+		Throwable root = throwable;
+		while (root != null && root.getCause() != null) {
+			root = root.getCause();
+		}
+		if (root == null) {
+			return "Unknown error";
+		}
+		return root.getMessage() != null ? root.getMessage() : root.getClass().getSimpleName();
+	}
+
+	private static String escapeHtml(String value) {
+		if (value == null) {
+			return "";
+		}
+		return value.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+				.replace("\"", "&quot;").replace("'", "&#39;");
+	}
 
 }
