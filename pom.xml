@@ -76,7 +76,7 @@
         <maven.sonar.plugin.version>3.7.0.1746</maven.sonar.plugin.version>
         <maven.jacoco.plugin.version>0.8.11</maven.jacoco.plugin.version>
         <jacoco.maven.plugin.version>0.8.11</jacoco.maven.plugin.version>
-        <central.publishing.maven.plugin.version>0.7.0</central.publishing.maven.plugin.version>
+        <central.publishing.maven.plugin.version>0.8.0</central.publishing.maven.plugin.version>
 
         <sonar.coverage.exclusions>
             io.mosip.testrig.apirig.apitest.commons/**
