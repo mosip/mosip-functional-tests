@@ -206,8 +206,8 @@ public class OTPListener {
 				// 🔔 Store ALL notifications
 				NotificationListener.storeNotification(address, notificationMessage);
 
-				// 🔐 Store OTP if present
-				if (!NotificationListener.parseOtp(otpMessage).isEmpty()) {
+				// 🔐 Store OTP only if this actually looks like an OTP notification, not just any message with a coincidental six-digit number
+				if (NotificationListener.isLikelyOtpMessage(otpMessage)) {
 					NotificationListener.storeOtp(address, otpMessage);
 				}
 
