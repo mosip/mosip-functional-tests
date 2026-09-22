@@ -1,5 +1,7 @@
 package io.mosip.testrig.apirig.utils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ConcurrentHashMap;
@@ -32,14 +34,14 @@ public final class NotificationListener {
 			"(?i)(?:" +
 			"\\bis\\s+(\\d{6})\\s+and\\s+is\\s+valid" +   // English: "is XXXXXX and is valid"
 			"|\\buse\\s+(?:otp\\s+)?(\\d{6})\\b" +        // English: "Use [OTP] XXXXXX"
-			"|\\bOTP\\b.*?\\b(\\d{6})\\b" +               // Multilingual: OTP keyword + standalone 6 digits
+			"|\\bOTP\\b[\\s\\S]*?\\b(\\d{6})\\b" +        // Multilingual: OTP keyword + standalone 6 digits
 			")");
 	// Same as OTP_ANCHORED_PATTERN plus a last-resort unanchored branch, for extracting digits once a message is already trusted to be OTP-bearing - not used for classification, see above.
 	private static final Pattern OTP_PATTERN = Pattern.compile(
 			"(?i)(?:" +
 			"\\bis\\s+(\\d{6})\\s+and\\s+is\\s+valid" +
 			"|\\buse\\s+(?:otp\\s+)?(\\d{6})\\b" +
-			"|\\bOTP\\b.*?\\b(\\d{6})\\b" +
+			"|\\bOTP\\b[\\s\\S]*?\\b(\\d{6})\\b" +
 			"|\\b(\\d{6})\\b" +
 			")");
 	private static final ConcurrentHashMap<String, EmailQueue> otpQueues = new ConcurrentHashMap<>();
@@ -218,6 +220,8 @@ public final class NotificationListener {
 					// Matched, but don't return it yet - a newer request for the same identity can supersede it moments later, so watch briefly and keep the newest match seen.
 					OtpMessage latest = msg;
 					long settleDeadline = Math.min(endTime, System.currentTimeMillis() + LATEST_MESSAGE_MAX_SETTLE_MS);
+					// Non-matching messages seen during settle - restored to the queue below, not dropped.
+					List<OtpMessage> nonMatching = new ArrayList<>();
 
 					while (true) {
 
@@ -238,8 +242,9 @@ public final class NotificationListener {
 						}
 
 						if (!filter.test(next.message)) {
-							logger.info(String.format("[POLL SETTLE] Non-matching message for email=%s, ignored",
+							logger.info(String.format("[POLL SETTLE] Non-matching message for email=%s, retained",
 									emailId));
+							nonMatching.add(next);
 							continue;
 						}
 
@@ -249,6 +254,13 @@ public final class NotificationListener {
 
 						emailQueue.lastAccessTime = System.currentTimeMillis();
 						latest = next;
+					}
+
+					// Restore so other callers waiting on this identity's queue can still receive them.
+					for (OtpMessage deferred : nonMatching) {
+						if (!emailQueue.queue.offer(deferred)) {
+							logger.warn("Queue full while restoring settle-loop message for " + emailId);
+						}
 					}
 
 					logger.info(String.format("[POLL SUCCESS] Email=%s Loop=%d MessageMatched", emailId, loop));
