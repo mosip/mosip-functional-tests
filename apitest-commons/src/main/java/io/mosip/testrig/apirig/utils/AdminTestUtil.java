@@ -77,6 +77,7 @@ import org.apache.log4j.Logger;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.util.io.pem.PemObject;
 import org.bouncycastle.util.io.pem.PemReader;
+import org.apache.pdfbox.pdmodel.PDDocument;
 import org.jose4j.jws.JsonWebSignature;
 import org.jose4j.lang.JoseException;
 import org.json.JSONArray;
@@ -103,7 +104,6 @@ import com.github.jknack.handlebars.Template;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
-import com.itextpdf.text.pdf.PdfReader;
 import com.mifmif.common.regex.Generex;
 import com.nimbusds.jose.Algorithm;
 import com.nimbusds.jose.JWEAlgorithm;
@@ -3370,10 +3370,10 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 	}
 
-	public static void closePdfReader(PdfReader pdfReader) {
-		if (pdfReader != null) {
+	public static void closePdfReader(PDDocument pdfDocument) {
+		if (pdfDocument != null) {
 			try {
-				pdfReader.close();
+				pdfDocument.close();
 			} catch (Exception e) {
 				logger.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
 			}
@@ -3908,6 +3908,10 @@ public class AdminTestUtil extends BaseTestCase {
 				return genStringAsperRegex(regex);
 			} catch (Exception e) {
 				logger.error(e.getMessage());
+			} catch (StackOverflowError e) {
+				// Some schema validator regexes make the Generex library (genStringAsperRegex) recurse
+				// itself into a StackOverflowError — fall back to the generic value rather than crash.
+				logger.error("genStringAsperRegex overflowed for field '" + fieldName + "' with regex: " + regex);
 			}
 		}
 		return "mosip" + generateRandomNumberString(10);
@@ -6085,7 +6089,8 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static String updateIdentityHbs(boolean regenerateHbs) {
 		if (updateIdentityHbs != null && !regenerateHbs) {
-			return updateIdentityHbs;
+			// updateIdentityHbs is cached with sentinels; finalize on the way out (see the return below).
+			return finalizeSchemaGenericFields(updateIdentityHbs);
 		}
 		JSONObject requestJson = new JSONObject();
 		kernelAuthLib = new KernelAuthentication();
@@ -6244,7 +6249,10 @@ public class AdminTestUtil extends BaseTestCase {
 						selectedHandles.add(eachRequiredProp);
 						identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
 					} else {
-						identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
+						// Plain scalar field: sentinel -> presence-aware {{schemaFieldValue}} helper, so a
+						// required field the YAML never supplies gets a valid value rather than "".
+						identityJson.put(eachRequiredProp,
+								SCHEMA_FIELD_SENTINEL_PREFIX + eachRequiredProp + SCHEMA_FIELD_SENTINEL_SUFFIX);
 					}
 				}
 			}
@@ -6263,18 +6271,20 @@ public class AdminTestUtil extends BaseTestCase {
 			logger.error(e.getMessage());
 		}
 
-		updateIdentityHbs = requestJson.toString();
-		return updateIdentityHbs;
+		updateIdentityHbs = requestJson.toString(); // cached with sentinels; finalize on return
+		return finalizeSchemaGenericFields(updateIdentityHbs);
 	}
 	
 	public static String updateIdentityHbsV2(boolean regenerateHbs) {
 		if (updateIdentityHbsV2Cached != null && !regenerateHbs) {
 			return updateIdentityHbsV2Cached;
 		}
-		String hbs = updateIdentityHbs(regenerateHbs);
-		JSONObject requestJson = new JSONObject(hbs);
+		// Re-parse the cached sentinel form (valid JSON, unlike the finalized helper form); finalize after.
+		updateIdentityHbs(regenerateHbs);
+		JSONObject requestJson = new JSONObject(updateIdentityHbs);
 		requestJson.getJSONObject("request").put("verifiedAttributes", "$VERIFIED_ATTRIBUTES$");
-		updateIdentityHbsV2Cached = requestJson.toString().replace("\"$VERIFIED_ATTRIBUTES$\"", buildVerifiedAttributesHbs());
+		updateIdentityHbsV2Cached = finalizeSchemaGenericFields(
+				requestJson.toString().replace("\"$VERIFIED_ATTRIBUTES$\"", buildVerifiedAttributesHbs()));
 		return updateIdentityHbsV2Cached;
 	}
 
