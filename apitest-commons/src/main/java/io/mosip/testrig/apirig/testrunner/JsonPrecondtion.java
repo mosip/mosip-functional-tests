@@ -15,7 +15,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.Set;
-import java.util.regex.Pattern;
 
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.log4j.Logger;
@@ -289,20 +288,7 @@ public class JsonPrecondtion extends MessagePrecondtion{
 		Map<String, String> mappingDic = new HashMap<>();
 		for (String str : this.pathList) {
 			String value = str.replace("$.", "");
-			String key = "";
-			if (value.contains(".")) {
-				String[] list = new String[20];
-				list = value.split(Pattern.quote("."));
-				if (list[list.length - 2].contains("[")) {
-					key = key
-							+ list[list.length - 1].replace("(", "").replace(")", "").replace("[", "").replace("]", "");
-					key = key
-							+ list[list.length - 2].replace("(", "").replace(")", "").replace("[", "").replace("]", "");
-				} else
-					key = list[list.length - 1];
-			} else
-				key = value;
-			mappingDic.put(key, value);
+			mappingDic.put(value, value);
 		}
 		return mappingDic;
 	}
