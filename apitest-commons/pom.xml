@@ -55,7 +55,6 @@
 		<hadoop-client>2.8.1</hadoop-client>
 		<aws.javasdk.version>1.11.368</aws.javasdk.version>
 
-		<!-- Hibernate version — align with kernel-dataaccess-hibernate / Boot 3 (org.hibernate.orm 6.x) -->
 		<hibernate.version>6.4.4.Final</hibernate.version>
 
 		<!-- automationtests version -->
