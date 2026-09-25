@@ -1,0 +1,88 @@
+name: Coverage matrix check (reusable)
+
+# Gate for a module's api-test coverage matrix (<module>/api-test/src/main/resources/coverage/).
+# Builds the CoverageCli from apitest-commons source — so it works regardless of which
+# apitest-commons version the module's own pom pins — and runs `check` against the caller repo.
+# Fails the job on any gap not accepted (with a reason) in the module's coverage/check-baseline.txt.
+#
+# Call it from a module repo:
+#
+#   jobs:
+#     coverage-matrix:
+#       uses: mosip/mosip-functional-tests/.github/workflows/coverage-matrix-check.yml@develop
+#       with:
+#         MODULE_ROOT: api-test
+#         MODULE_CODE: PREREG
+
+on:
+  workflow_call:
+    inputs:
+      MODULE_ROOT:
+        description: "api-test directory of the calling repo, relative to its root"
+        required: false
+        type: string
+        default: api-test
+      MODULE_CODE:
+        description: "Subject-code prefix, e.g. PREREG"
+        required: true
+        type: string
+      APP_SOURCE:
+        description: "Service source dir relative to the repo root; empty = auto-discover beside MODULE_ROOT"
+        required: false
+        type: string
+        default: ""
+      PATH_PREFIX:
+        description: "Gateway prefix, e.g. /preregistration/v1; empty = inferred per service"
+        required: false
+        type: string
+        default: ""
+      FUNCTIONAL_TESTS_REPO:
+        required: false
+        type: string
+        default: mosip/mosip-functional-tests
+      FUNCTIONAL_TESTS_REF:
+        required: false
+        type: string
+        default: develop
+
+jobs:
+  coverage-matrix-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout module repo
+        uses: actions/checkout@v4
+
+      - name: Checkout apitest-commons (coverage tooling)
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ inputs.FUNCTIONAL_TESTS_REPO }}
+          ref: ${{ inputs.FUNCTIONAL_TESTS_REF }}
+          path: .coverage-tooling
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+
+      - name: Build CoverageCli
+        run: |
+          mvn -B -q -f .coverage-tooling/apitest-commons/pom.xml compile \
+            -Dgpg.skip=true -Dmaven.gitcommitid.skip=true
+          mvn -B -q -f .coverage-tooling/apitest-commons/pom.xml dependency:build-classpath \
+            -Dmdep.outputFile="$RUNNER_TEMP/coverage-cp.txt"
+
+      - name: Check coverage matrix
+        env:
+          MODULE_ROOT: ${{ inputs.MODULE_ROOT }}
+          MODULE_CODE: ${{ inputs.MODULE_CODE }}
+          APP_SOURCE: ${{ inputs.APP_SOURCE }}
+          PATH_PREFIX: ${{ inputs.PATH_PREFIX }}
+        run: |
+          args=(check --module-root "$MODULE_ROOT" --module-code "$MODULE_CODE" --require-app-source --keys)
+          if [ -n "$APP_SOURCE" ]; then args+=(--app-source "$APP_SOURCE"); fi
+          if [ -n "$PATH_PREFIX" ]; then args+=(--path-prefix "$PATH_PREFIX"); fi
+          java -Dfile.encoding=UTF-8 \
+            -cp ".coverage-tooling/apitest-commons/target/classes:$(cat "$RUNNER_TEMP/coverage-cp.txt")" \
+            io.mosip.testrig.apirig.coverage.CoverageCli "${args[@]}"
