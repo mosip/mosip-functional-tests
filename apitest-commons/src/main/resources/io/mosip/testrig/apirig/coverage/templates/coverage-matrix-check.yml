@@ -1,0 +1,30 @@
+name: Coverage matrix check
+
+# Fails the PR when the api-test coverage matrix drifts from the YAML/Suite.xml or from the real
+# controllers: a new test case with no matrix row, a new endpoint with no test and no plan, a
+# duplicate uniqueIdentifier, an unsynced matrix file, ... Accepted exceptions live in
+# {{MODULE_ROOT_IN_REPO}}/src/main/resources/coverage/check-baseline.txt, each with a reason.
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    paths:
+      - "{{MODULE_ROOT_IN_REPO}}/**"
+      - "**/*.java"
+      - ".github/workflows/coverage-matrix-check.yml"
+  push:
+    branches:
+      - develop*
+      - release*
+      - master
+    paths:
+      - "{{MODULE_ROOT_IN_REPO}}/**"
+      - "**/*.java"
+  workflow_dispatch:
+
+jobs:
+  coverage-matrix:
+    uses: mosip/mosip-functional-tests/.github/workflows/coverage-matrix-check.yml@develop
+    with:
+      MODULE_ROOT: {{MODULE_ROOT_IN_REPO}}
+      MODULE_CODE: {{MODULE_CODE}}

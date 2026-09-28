@@ -66,12 +66,14 @@ public final class ControllerScanner {
 		if (!Files.isDirectory(root))
 			return List.of();
 		Path ex = exclude == null ? null : exclude.toAbsolutePath().normalize();
+		Path base = root.toAbsolutePath().normalize();
 		try (Stream<Path> s = Files.walk(root, 8)) {
 			return s.filter(Files::isDirectory)
 					.filter(p -> p.endsWith(Path.of("src", "main", "java")))
 					.map(p -> p.toAbsolutePath().normalize())
 					.filter(p -> ex == null || !p.startsWith(ex))
-					.filter(p -> !p.toString().replace('\\', '/').matches(".*/(target|node_modules|\\.git)/.*"))
+					// judged relative to the scan root: a checkout that itself sits under some "target" dir must still work
+					.filter(p -> !("/" + Inventory.rel(base, p) + "/").matches(".*/(target|node_modules|\\.git)/.*"))
 					.sorted().collect(Collectors.toList());
 		}
 	}

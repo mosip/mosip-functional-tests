@@ -45,6 +45,8 @@ final class Estate {
 	EndpointMap endpointMap;
 	List<Path> appSourceRoots = new ArrayList<>();
 	CoverageCheck.Baseline baseline;
+	/** legacy-ids.txt — same line format as the baseline ({@code <id>  # optional reason}); null if absent. */
+	CoverageCheck.Baseline legacy;
 	boolean requireAppSource;
 
 	Estate(Path moduleRoot, Path out, Inventory inventory) {

@@ -31,11 +31,18 @@ public final class CoverageCheck {
 		public final String type;
 		public final String key;
 		public final String message;
+		/** A warning is reported but doesn't fail `check` (unless --fail-on-warnings). */
+		public final boolean warning;
 
 		Gap(String type, String key, String message) {
+			this(type, key, message, false);
+		}
+
+		Gap(String type, String key, String message, boolean warning) {
 			this.type = type;
 			this.key = key;
 			this.message = message;
+			this.warning = warning;
 		}
 
 		String baselineKey() {
@@ -55,12 +62,44 @@ public final class CoverageCheck {
 		c.inventoryGaps();
 		c.matrixGaps();
 		c.endpointGaps();
+		c.legacyGaps();
 		c.baselineGaps();
 		return c.gaps;
 	}
 
+	// ---------------------------------------------------------------- legacy test-case IDs
+
+	/**
+	 * Every ID in {@code legacy-ids.txt} (test-case numbers from a retired sheet, e.g. an Excel master
+	 * test-case list) must appear in some matrix file — typically as {@code Legacy: <id>} in a row's
+	 * Notes — unless its line gives a reason it lives outside the matrix. Proves a migration lost nothing,
+	 * and keeps proving it.
+	 */
+	private void legacyGaps() {
+		if (estate.legacy == null || estate.legacy.entries.isEmpty())
+			return;
+		StringBuilder all = new StringBuilder();
+		for (Estate.Loaded lf : estate.files.values())
+			all.append(lf.text).append('\n');
+		String text = all.toString();
+		for (Baseline.Entry e : estate.legacy.entries) {
+			if (!e.reason.isBlank())
+				continue;
+			java.util.regex.Pattern p = java.util.regex.Pattern
+					.compile("(?<![A-Za-z0-9_])" + java.util.regex.Pattern.quote(e.key) + "(?![A-Za-z0-9_])");
+			if (!p.matcher(text).find())
+				add("legacy-id-missing", e.key, estate.legacy.relPath + ":" + e.line + " legacy test case `" + e.key
+						+ "` appears in no matrix file — add `Legacy: " + e.key
+						+ "` to the Notes of the row that covers it (or a new row), or give the line a '# reason' it is out of scope");
+		}
+	}
+
 	private void add(String type, String key, String message) {
 		gaps.add(new Gap(type, key, message));
+	}
+
+	private void warn(String type, String key, String message) {
+		gaps.add(new Gap(type, key, message, true));
 	}
 
 	// ---------------------------------------------------------------- api-test side
@@ -135,7 +174,10 @@ public final class CoverageCheck {
 					referenced.add(ref);
 			rowGaps(lf, mf);
 			if (s != null)
-				syncGaps(lf, mf, s);
+				syncGaps(lf, mf, s.units,
+						CategoryChecklist.categoriesFor(s.multilang, s.dependencyState, mf.categories), s);
+			else if (mf.planned) // planned files get the same completeness rules, units kept from the file
+				syncGaps(lf, mf, mf.units, CategoryChecklist.categoriesFor(false, false, mf.categories), null);
 		}
 
 		for (Subject s : inv.subjects) {
@@ -186,27 +228,35 @@ public final class CoverageCheck {
 					+ " — run sync");
 	}
 
-	private void syncGaps(Estate.Loaded lf, MatrixFile mf, Subject s) {
-		List<String> categories = CategoryChecklist.categoriesFor(s.multilang, s.dependencyState, mf.categories);
-		for (String unit : s.units) {
+	private void syncGaps(Estate.Loaded lf, MatrixFile mf, List<String> units, List<String> categories, Subject s) {
+		for (Row r : mf.rows)
+			if (!categories.contains(r.type()))
+				add("unknown-category", lf.relPath + "#" + r.id(), lf.relPath + ":" + r.line() + " row " + r.id()
+						+ " has Type `" + r.type() + "`, which isn't one of this file's categories " + categories);
+		for (DuplicateDetector.Pair p : DuplicateDetector.find(mf.rows, units))
+			warn("possible-duplicate-row", lf.relPath + "#" + p.a.id() + "#" + p.b.id(), lf.relPath + ": rows "
+					+ p.a.id() + " (line " + p.a.line() + ") and " + p.b.id() + " (line " + p.b.line() + ") may describe "
+					+ "the same scenario — " + p.reason + ". If they really differ, sharpen the Scenario text or baseline "
+					+ "the pair; if not, merge them (keep the older row, move any `Legacy:`/story onto it)");
+		for (String unit : units) {
 			boolean anyRow = false;
 			for (Row r : mf.rows)
-				if (s.units.size() <= 1 || r.scenario().contains(unit))
+				if (units.size() <= 1 || r.scenario().contains(unit))
 					anyRow = true;
 			if (!anyRow) {
 				add("unit-no-row", lf.relPath + "#" + unit, lf.relPath + ": unit `" + unit + "` has no rows"
-						+ (s.units.size() > 1 ? " (multi-unit subject: each row's Scenario must contain the exact unit label)" : ""));
+						+ (units.size() > 1 ? " (multi-unit subject: each row's Scenario must contain the exact unit label)" : ""));
 				continue;
 			}
 			MatrixFile probe = new MatrixFile();
-			probe.units = s.units;
+			probe.units = units;
 			probe.rows.addAll(mf.rows);
 			for (String cat : categories)
 				if (!probe.hasRow(unit, cat))
 					add("category-missing", lf.relPath + "#" + unit + "#" + cat,
 							lf.relPath + ": unit `" + unit + "` has no `" + cat + "` row — run sync, then author it");
 		}
-		if (!s.units.equals(mf.units) || !categories.equals(mf.categories)
+		if (!units.equals(mf.units) || !categories.equals(mf.categories)
 				|| !estate.renderSynced(lf, s, false).equals(lf.text))
 			add("not-synced", lf.relPath, lf.relPath + " is out of date with its YAML/Suite.xml (units, categories, "
 					+ "summary or Test links) — run sync");
@@ -267,11 +317,15 @@ public final class CoverageCheck {
 		Set<String> keys = new HashSet<>();
 		for (Gap g : gaps)
 			keys.add(g.baselineKey());
+		Set<String> endpointTypes = Set.of("unmapped-endpoint", "unreachable-endpoint", "planned-endpoint-now-tested",
+				"unscannable-mapping", "app-source-missing");
 		for (Baseline.Entry e : estate.baseline.entries) {
+			// With endpoint checks off (--no-app-source / no source found) their entries can't match — not stale.
+			boolean notEvaluated = estate.controllers == null && endpointTypes.contains(e.key.split(" ", 2)[0]);
 			if (e.reason.isBlank())
 				add("baseline-entry-without-reason", e.key, estate.baseline.relPath + ":" + e.line + " `" + e.key
 						+ "` has no '# reason' — every accepted gap must say why");
-			else if (!keys.contains(e.key))
+			else if (!notEvaluated && !keys.contains(e.key))
 				add("stale-baseline-entry", e.key, estate.baseline.relPath + ":" + e.line + " `" + e.key
 						+ "` no longer matches any gap — remove it");
 		}
@@ -308,7 +362,7 @@ public final class CoverageCheck {
 				if (l.isEmpty() || l.startsWith("#"))
 					continue;
 				int hash = l.indexOf(" #");
-				String key = (hash >= 0 ? l.substring(0, hash) : l).trim().replaceAll("\\s+", " ");
+				String key = (hash >= 0 ? l.substring(0, hash) : l).trim().replaceAll("[ \\t]{2,}|\\t", " ");
 				String reason = hash >= 0 ? l.substring(hash + 2).trim() : "";
 				b.entries.add(new Entry(key, reason, i + 1));
 			}

@@ -26,6 +26,9 @@ import io.mosip.testrig.apirig.coverage.MatrixFile.Row;
  * Coverage-matrix CLI. Dev-time and CI tool — never wired into a Suite.xml.
  *
  * <pre>
+ * init      one-time bootstrap of a module: README/AGENTS/baseline/legacy-ids/.gitattributes in the
+ *           matrix dir and the CI caller workflow in the repo (each only if missing), then scaffold
+ * refresh-docs  re-render README.md's shared tooling section from the apitest-commons template
  * scaffold  create a matrix file for every wired subject without one, and a planned file for
  *           every real endpoint with no YAML (unless baselined). Never overwrites.
  * sync      parse → merge → render every matrix file. Idempotent; never rewrites a row's text.
@@ -41,9 +44,11 @@ import io.mosip.testrig.apirig.coverage.MatrixFile.Row;
  * --require-app-source     make "no controller source found" a gap (use in CI)
  * --path-prefix &lt;prefix&gt;   gateway prefix, e.g. /preregistration/v1 (default: inferred per service)
  * --baseline &lt;file&gt;        accepted gaps (default &lt;out&gt;/check-baseline.txt)
+ * --legacy-ids &lt;file&gt;      migrated legacy test-case IDs (default &lt;out&gt;/legacy-ids.txt)
  * --date &lt;yyyy-MM-dd&gt;      date stamped on changed files (default: today)
  * --no-planned             scaffold: don't create planned files for untested endpoints
  * --keys                   check: print each gap's exact baseline line
+ * --fail-on-warnings       check: fail on warnings (possible-duplicate-row) too, not only on gaps
  * </pre>
  */
 public final class CoverageCli {
@@ -87,6 +92,10 @@ public final class CoverageCli {
 				: outDir.resolve("check-baseline.txt");
 		estate.baseline = CoverageCheck.Baseline.load(baselineFile,
 				baselineFile.getFileName() == null ? baselineFile.toString() : baselineFile.getFileName().toString());
+		Path legacyFile = opts.containsKey("--legacy-ids") ? Path.of(last(opts, "--legacy-ids"))
+				: outDir.resolve("legacy-ids.txt");
+		estate.legacy = CoverageCheck.Baseline.load(legacyFile,
+				legacyFile.getFileName() == null ? legacyFile.toString() : legacyFile.getFileName().toString());
 		estate.requireAppSource = opts.containsKey("--require-app-source");
 		if (!opts.containsKey("--no-app-source")) {
 			List<Path> roots = new ArrayList<>();
@@ -98,6 +107,12 @@ public final class CoverageCli {
 		}
 
 		switch (command) {
+		case "init":
+			bootstrap(estate, true);
+			return scaffold(estate, date, !opts.containsKey("--no-planned"));
+		case "refresh-docs":
+			bootstrap(estate, false);
+			return 0;
 		case "scaffold":
 			return scaffold(estate, date, !opts.containsKey("--no-planned"));
 		case "sync":
@@ -105,10 +120,123 @@ public final class CoverageCli {
 		case "rollup":
 			return rollup(estate);
 		case "check":
-			return check(estate, opts.containsKey("--keys"));
+			return check(estate, opts.containsKey("--keys"), opts.containsKey("--fail-on-warnings"));
 		default:
 			throw new IllegalArgumentException("unknown command: " + command);
 		}
+	}
+
+	// ---------------------------------------------------------------- init / refresh-docs
+
+	private static final String TEMPLATES = "/io/mosip/testrig/apirig/coverage/templates/";
+	static final String TOOLING_SECTION = "## Commands";
+
+	/**
+	 * init (create=true): writes the module's coverage docs, baseline, legacy-ids, .gitattributes and CI
+	 * caller workflow — each only if missing. refresh-docs (create=false): re-renders the shared tooling
+	 * part of README.md (from "## Commands" to the end) so every module's docs track the tool.
+	 */
+	private void bootstrap(Estate estate, boolean create) throws IOException {
+		Map<String, String> vars = templateVars(estate);
+		Path readme = estate.out.resolve("README.md");
+		String tooling = template("README-tooling.md", vars);
+		if (!create) {
+			if (!Files.isRegularFile(readme))
+				throw new IllegalArgumentException("no README.md in " + estate.out + " — run init first");
+			String text = Files.readString(readme, StandardCharsets.UTF_8).replace("\r\n", "\n");
+			int at = text.indexOf("\n" + TOOLING_SECTION + "\n");
+			String updated = (at < 0 ? text + "\n" : text.substring(0, at + 1)) + tooling;
+			if (updated.equals(text)) {
+				out.println("refresh-docs: README.md already current");
+			} else {
+				Files.writeString(readme, updated, StandardCharsets.UTF_8);
+				out.println("refresh-docs: rewrote the tooling section of README.md");
+			}
+			return;
+		}
+		Files.createDirectories(estate.out);
+		writeIfMissing(readme, template("README-head.md", vars) + tooling);
+		writeIfMissing(estate.out.resolve("AGENTS.md"), template("AGENTS.md", vars));
+		writeIfMissing(estate.out.resolve("check-baseline.txt"), template("check-baseline.txt", vars));
+		writeIfMissing(estate.out.resolve("legacy-ids.txt"), template("legacy-ids.txt", vars));
+		writeIfMissing(estate.out.resolve(".gitattributes"), template("gitattributes.txt", vars));
+		Path repo = repoRoot(estate.moduleRoot);
+		if (repo != null)
+			writeIfMissing(repo.resolve(".github/workflows/coverage-matrix-check.yml"),
+					template("coverage-matrix-check.yml", vars));
+		else
+			out.println("  no git repo above " + estate.moduleRoot + " — add the CI caller workflow by hand (template: "
+					+ TEMPLATES + "coverage-matrix-check.yml)");
+	}
+
+	private Map<String, String> templateVars(Estate estate) throws IOException {
+		Path repo = repoRoot(estate.moduleRoot);
+		Path repoOrParent = repo != null ? repo : estate.moduleRoot.getParent();
+		String moduleDir = repoOrParent.getFileName().toString();
+		String inRepo = Inventory.rel(repoOrParent, estate.moduleRoot);
+		Map<String, String> v = new LinkedHashMap<>();
+		v.put("MODULE_CODE", estate.inventory.moduleCode);
+		v.put("MODULE_NAME", artifactId(estate.moduleRoot, "apitest-" + estate.inventory.moduleCode.toLowerCase(Locale.ROOT)));
+		v.put("MODULE_DIR", moduleDir);
+		v.put("MODULE_ROOT_IN_REPO", inRepo);
+		v.put("MODULE_ROOT_FROM_COMMONS", "../../" + moduleDir + "/" + inRepo);
+		v.put("SUITE_FILE", suiteFile(estate.moduleRoot));
+		List<String> services = new ArrayList<>();
+		for (Path root : estate.appSourceRoots)
+			services.add("`" + Inventory.rel(repoOrParent, root.getParent().getParent().getParent()) + "`");
+		v.put("SERVICE_SOURCE", services.isEmpty() ? "_not found in this checkout_" : String.join(", ", services));
+		return v;
+	}
+
+	private static String template(String name, Map<String, String> vars) throws IOException {
+		try (java.io.InputStream in = CoverageCli.class.getResourceAsStream(TEMPLATES + name)) {
+			if (in == null)
+				throw new IOException("template missing from apitest-commons: " + TEMPLATES + name);
+			String t = new String(in.readAllBytes(), StandardCharsets.UTF_8).replace("\r\n", "\n");
+			for (Map.Entry<String, String> e : vars.entrySet())
+				t = t.replace("{{" + e.getKey() + "}}", e.getValue());
+			return t;
+		}
+	}
+
+	private void writeIfMissing(Path p, String content) throws IOException {
+		if (Files.exists(p)) {
+			out.println("  kept    " + p.getFileName() + " (exists)");
+			return;
+		}
+		Files.createDirectories(p.getParent());
+		Files.writeString(p, content, StandardCharsets.UTF_8);
+		out.println("  created " + p);
+	}
+
+	private static Path repoRoot(Path from) {
+		for (Path p = from; p != null; p = p.getParent())
+			if (Files.exists(p.resolve(".git")))
+				return p;
+		return null;
+	}
+
+	private static String artifactId(Path moduleRoot, String fallback) throws IOException {
+		Path pom = moduleRoot.resolve("pom.xml");
+		if (!Files.isRegularFile(pom))
+			return fallback;
+		String xml = Files.readString(pom, StandardCharsets.UTF_8).replaceAll("(?s)<parent>.*?</parent>", "");
+		java.util.regex.Matcher m = java.util.regex.Pattern.compile("<artifactId>\\s*([^<\\s]+)\\s*</artifactId>").matcher(xml);
+		return m.find() ? m.group(1) : fallback;
+	}
+
+	private static String suiteFile(Path moduleRoot) throws IOException {
+		Path dir = moduleRoot.resolve("testNgXmlFiles");
+		if (Files.isDirectory(dir))
+			try (java.util.stream.Stream<Path> s = Files.list(dir)) {
+				java.util.Optional<Path> first = s.map(Path::getFileName)
+						.filter(f -> f.toString().endsWith(".xml")
+								&& !f.toString().toLowerCase(Locale.ROOT).contains("mastertestsuite"))
+						.sorted().findFirst();
+				if (first.isPresent())
+					return "testNgXmlFiles/" + first.get();
+			}
+		return "testNgXmlFiles/<module>Suite.xml";
 	}
 
 	// ---------------------------------------------------------------- scaffold
@@ -285,7 +413,7 @@ public final class CoverageCli {
 		}
 		b.append("\n## Flagged findings\n\n");
 		b.append("Rows whose Notes are flagged ⚠️ (fragility/quality concern) or 🛑 (confirmed bug) during the cycle-2 "
-				+ "semantic audit — see COVERAGE_MATRIX_HANDOFF.md gotcha 15 for the practice behind this. Pulled "
+				+ "semantic audit — see docs/coverage-matrix/design-record.md (mosip-functional-tests), gotcha 15, for the practice behind this. Pulled "
 				+ "mechanically from row Notes, not hand-maintained here.\n\n");
 		for (MatrixFile m : mfs)
 			for (Row r : m.rows) {
@@ -310,32 +438,45 @@ public final class CoverageCli {
 
 	// ---------------------------------------------------------------- check
 
-	private int check(Estate estate, boolean keys) {
+	private int check(Estate estate, boolean keys, boolean failOnWarnings) {
 		List<Gap> gaps = CoverageCheck.run(estate);
 		Map<String, List<Gap>> open = new LinkedHashMap<>();
+		Map<String, List<Gap>> warnings = new LinkedHashMap<>();
 		int accepted = 0;
 		for (Gap g : gaps) {
 			if (estate.baseline.accepts(g))
 				accepted++;
 			else
-				open.computeIfAbsent(g.type, t -> new ArrayList<>()).add(g);
+				(g.warning ? warnings : open).computeIfAbsent(g.type, t -> new ArrayList<>()).add(g);
 		}
-		int n = open.values().stream().mapToInt(List::size).sum();
-		for (Map.Entry<String, List<Gap>> e : open.entrySet()) {
+		int n = print(open, keys);
+		int w = 0;
+		if (!warnings.isEmpty()) {
+			out.println("Warnings — review these; they " + (failOnWarnings ? "FAIL the check (--fail-on-warnings)" : "don't fail the check") + ":");
+			w = print(warnings, keys);
+		}
+		out.println("check: " + n + " gap(s)" + (w > 0 ? ", " + w + " warning(s)" : "")
+				+ (accepted > 0 ? ", " + accepted + " accepted by baseline" : "")
+				+ " — " + estate.inventory.subjects.size() + " wired subjects, " + estate.files.size() + " matrix files"
+				+ (estate.controllers == null ? ", endpoint checks OFF" : ", " + estate.controllers.endpoints.size() + " controller endpoints"));
+		if (n + w > 0)
+			out.println("To accept a gap or warning on purpose, add `<type> <key>  # reason` to " + estate.baseline.relPath
+					+ " (run `check --keys` to print each one's exact baseline line).");
+		return n > 0 || (failOnWarnings && w > 0) ? 1 : 0;
+	}
+
+	private int print(Map<String, List<Gap>> byType, boolean keys) {
+		int n = 0;
+		for (Map.Entry<String, List<Gap>> e : byType.entrySet()) {
 			out.println(e.getKey() + " (" + e.getValue().size() + ")");
 			for (Gap g : e.getValue()) {
+				n++;
 				out.println("  " + g.message);
 				if (keys && !g.type.startsWith("baseline-") && !g.type.startsWith("stale-baseline"))
 					out.println("      baseline: " + g.baselineKey() + "  # <reason>");
 			}
 		}
-		out.println("check: " + n + " gap(s)" + (accepted > 0 ? ", " + accepted + " accepted by baseline" : "")
-				+ " — " + estate.inventory.subjects.size() + " wired subjects, " + estate.files.size() + " matrix files"
-				+ (estate.controllers == null ? ", endpoint checks OFF" : ", " + estate.controllers.endpoints.size() + " controller endpoints"));
-		if (n > 0)
-			out.println("To accept a gap on purpose, add `<type> <key>  # reason` to " + estate.baseline.relPath
-					+ " (run `check --keys` to print each gap's exact baseline line).");
-		return n == 0 ? 0 : 1;
+		return n;
 	}
 
 	private void describeAppSource(Estate estate) {
@@ -356,7 +497,7 @@ public final class CoverageCli {
 	// ---------------------------------------------------------------- args
 
 	private static Map<String, List<String>> parseOptions(String[] args) {
-		Set<String> flags = Set.of("--no-app-source", "--require-app-source", "--no-planned", "--keys");
+		Set<String> flags = Set.of("--no-app-source", "--require-app-source", "--no-planned", "--keys", "--fail-on-warnings");
 		Map<String, List<String>> opts = new LinkedHashMap<>();
 		for (int i = 1; i < args.length; i++) {
 			String a = args[i];
