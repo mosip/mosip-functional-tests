@@ -22,7 +22,8 @@ final class Estate {
 
 	/** Never parsed as matrix files, at any depth under --out. */
 	static final Set<String> RESERVED = Set.of("README.md", "AGENTS.md", "Summary.md", "CLAUDE.md");
-	static final String PLANNED_DIR = "planned";
+	/** Only used when the module has no wired subject to sit beside; see {@link #plannedDir()}. */
+	static final String FALLBACK_PLANNED_DIR = "planned";
 
 	static final class Loaded {
 		final String relPath; // relative to --out, forward slashes
@@ -101,6 +102,24 @@ final class Estate {
 
 	String matrixRelPath(String subjectName) {
 		return subjectName + ".md";
+	}
+
+	/**
+	 * Where scaffold puts a planned (no-YAML-yet) endpoint's file: beside the module's other matrix files — the
+	 * folder most wired subjects live in (e.g. {@code preReg}) — so one folder shows every endpoint of the
+	 * module. A file is recognized as planned by its {@code planned: true} front-matter, never by its folder.
+	 */
+	String plannedDir() {
+		Map<String, Integer> counts = new LinkedHashMap<>();
+		for (Subject s : inventory.subjects) {
+			int slash = s.name.lastIndexOf('/');
+			counts.merge(slash < 0 ? "" : s.name.substring(0, slash), 1, Integer::sum);
+		}
+		String best = null;
+		for (Map.Entry<String, Integer> e : counts.entrySet())
+			if (best == null || e.getValue() > counts.get(best))
+				best = e.getKey();
+		return best == null || best.isEmpty() ? FALLBACK_PLANNED_DIR : best;
 	}
 
 	/** Resolves {@code <ymlPath>::<uniqueIdentifier>} to the YAML file and the exact line. */

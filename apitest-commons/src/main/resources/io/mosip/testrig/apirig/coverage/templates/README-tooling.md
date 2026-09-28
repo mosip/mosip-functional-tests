@@ -15,9 +15,9 @@ mvn -q org.codehaus.mojo:exec-maven-plugin:3.1.0:java `
 | Command | What it does |
 |---|---|
 | `init` | One-time bootstrap for a module: writes `README.md`, `AGENTS.md`, `check-baseline.txt`, `legacy-ids.txt` and `.gitattributes` into this directory and the CI caller workflow into the repo's `.github/workflows/` (each only if missing), then runs `scaffold`. |
-| `scaffold` | Creates a matrix file for every wired subject that doesn't have one, **and** a `planned/<VERB>_<path>.md` file for every real controller endpoint that no wired YAML targets (unless baselined) — so an untested endpoint gets a home for its intended scenarios instead of staying invisible. Never overwrites. |
+| `scaffold` | Creates a matrix file for every wired subject that doesn't have one, **and** a planned file (`<VERB>_<path>.md`, in the same folder as the module's other matrix files) for every real controller endpoint that no wired YAML targets (unless baselined) — so an untested endpoint gets a home for its intended scenarios instead of staying invisible. Never overwrites. |
 | `sync` | Parse → merge → render every matrix file. Adds stub rows only for `(unit, category)` pairs with no row yet; never rewrites an existing row's text; re-links `Test` cells to the YAML line. Bumps `last_updated` only on files whose content actually changed. Idempotent — run it twice, get the same bytes. |
-| `rollup` | Aggregates all matrix files (including `planned/`) into `Summary.md`. "As of" is the max `last_updated` across files, never wall-clock. |
+| `rollup` | Aggregates all matrix files (including planned files) into `Summary.md`. "As of" is the max `last_updated` across files, never wall-clock. |
 | `check` | Read-only. Reports every gap below and exits non-zero if any gap isn't accepted in `check-baseline.txt`. `--keys` also prints each gap's exact baseline line. |
 
 Options:
@@ -32,7 +32,7 @@ Options:
 | `--baseline <file>` | Default `<out>/check-baseline.txt`. |
 | `--legacy-ids <file>` | Default `<out>/legacy-ids.txt` (see "Legacy test-case IDs" below). |
 | `--date <yyyy-MM-dd>` | Date stamped on files `sync`/`scaffold` changes (default today). |
-| `--no-planned` | `scaffold`/`init`: don't create `planned/` files. |
+| `--no-planned` | `scaffold`/`init`: don't create planned files. |
 | `--fail-on-warnings` | `check`: fail on warnings (see below) too, not only on gaps. |
 
 Default `--out` is this directory, which gets bundled into the module jar like any other main
@@ -67,9 +67,9 @@ Matrix side:
 
 Service side (on by default whenever service source is found):
 
-20. `unmapped-endpoint` — a real controller endpoint no wired YAML targets **and** no `planned/` file covers: an endpoint with zero coverage, invisible to every other gap type. Resolve it by `scaffold` (plan it) or a baseline entry (intentionally untested — internal/deprecated).
+20. `unmapped-endpoint` — a real controller endpoint no wired YAML targets **and** no planned file covers: an endpoint with zero coverage, invisible to every other gap type. Resolve it by `scaffold` (plan it) or a baseline entry (intentionally untested — internal/deprecated).
 21. `unreachable-endpoint` — a wired YAML `endPoint:` (or planned unit) that matches no real controller mapping — usually a wrong path. Matching is verb + path shape (path variables as wildcards, most specific mapping wins), so it complements, but doesn't replace, reading the controller in cycle 2. Paths routed by a servlet filter rather than a controller show up here too; baseline those with the reason.
-22. `planned-endpoint-now-tested` — a `planned/` endpoint now has wired YAML: move its rows into that subject's file and delete the planned file.
+22. `planned-endpoint-now-tested` — a planned endpoint now has wired YAML: move its rows into that subject's file and delete the planned file.
 23. `unscannable-mapping` — a controller mapping whose path is a constant, not a string literal, so the scan can't see it.
 24. `app-source-missing` — only with `--require-app-source`: no service source was found.
 
@@ -108,7 +108,8 @@ numbers any more.
 
 ## Planned subjects — endpoints with no YAML yet
 
-`scaffold` puts every untested real endpoint under `planned/` as a normal matrix file (front-matter
+`scaffold` gives every untested real endpoint a normal matrix file named `<VERB>_<path>.md`, in the
+same folder as the module's other matrix files, so one folder shows every endpoint (front-matter
 `planned: true`, all 8 core categories as `🟡 not_automated` stubs). It is where manual test cases,
 exploratory scenarios and anything migrated from a legacy sheet go when the endpoint has no
 automation yet. They count toward `Summary.md` like any subject, so an untested endpoint reads as

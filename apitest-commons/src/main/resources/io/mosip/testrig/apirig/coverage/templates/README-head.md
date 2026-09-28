@@ -14,7 +14,7 @@ and planned alike. There is no spreadsheet alongside it: a test case that isn't 
 exist. (If this module had a legacy test-case sheet, every one of its IDs is listed in
 `legacy-ids.txt` and can be found here by searching for `Legacy: <id>`.)
 
-**Reading it.** One file per API test subject (`<folder>/<Subject>.md`), plus `planned/` files for
+**Reading it.** One file per API test subject (`<folder>/<Subject>.md`), plus planned files (`<VERB>_<path>.md`, marked `Planned: yes`) for
 real endpoints that have no automated test yet. Each file lists its scenarios as rows with a status:
 `✅ automated` (a real YAML test backs it), `🟡 not_automated` (known scenario, not automated yet) or
 `⛔ not_automatable` (with the reason). `Summary.md` is the dashboard: coverage is
@@ -25,7 +25,7 @@ real endpoints that have no automated test yet. Each file lists its scenarios as
 1. **Write the scenarios first**, from the story, as rows — before or alongside any automation.
    Put each one in the file of the endpoint it calls (`🟡 not_automated`), add the story key to that
    file's `stories:` list, and give every row a real Given/When/Then and a concrete expected result.
-   A brand-new endpoint gets its file from `scaffold` (as a `planned/` file until YAML exists).
+   A brand-new endpoint gets its file from `scaffold` (a planned file until YAML exists).
 2. **Automate** — add the YAML case (unique `uniqueIdentifier`, correct `restMethod`), templates and
    Suite.xml entry as usual.
 3. **Link** — flip the row to `✅ automated` and put `<ymlPath>::<uniqueIdentifier>` in its `Test`

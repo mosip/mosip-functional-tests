@@ -253,6 +253,7 @@ public final class CoverageCli {
 		}
 		if (planned && estate.controllers != null) {
 			List<Gap> gaps = CoverageCheck.run(estate);
+			String dir = estate.plannedDir();
 			for (Endpoint e : estate.controllers.endpoints) {
 				String label = estate.endpointMap.externalLabel(e);
 				boolean open = false;
@@ -262,10 +263,12 @@ public final class CoverageCli {
 				if (!open)
 					continue;
 				String slug = plannedSlug(e, label);
-				String rel = Estate.PLANNED_DIR + "/" + slug + ".md";
+				// VERB_path file names (e.g. DELETE_applications_lostuin_applicationId.md) can't collide with the
+				// wired subjects' CamelCase names in the same folder.
+				String rel = dir + "/" + slug + ".md";
 				if (estate.files.containsKey(rel))
 					continue;
-				MatrixFile mf = MatrixFile.create(Estate.PLANNED_DIR + "/" + slug, plannedCode(estate, e),
+				MatrixFile mf = MatrixFile.create(dir + "/" + slug, plannedCode(estate, e),
 						List.of(label), CategoryChecklist.categoriesFor(false, false, null), true);
 				created += write(estate, rel, mf, date);
 			}

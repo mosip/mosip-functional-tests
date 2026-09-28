@@ -26,7 +26,7 @@ skipping a step only moves the failure later.
    row or is added to the `Test` of the row it genuinely covers; a renamed case gets its `Test`
    reference updated; a deleted case's row goes to `🟡 not_automated` (never deleted).
 4. **Not automated yet?** It's still a row: `🟡 not_automated` in the subject's file, or — if no
-   YAML targets that endpoint at all — in its `planned/` file (run `scaffold` if it doesn't exist).
+   YAML targets that endpoint at all — in its planned file (`<VERB>_<path>.md` in the same folder; run `scaffold` if it doesn't exist).
 5. Run `sync`, then `check`. Done means `check` exits 0 — or every remaining gap is one you
    intentionally added to `check-baseline.txt` with a reason.
 6. **Commit the matrix files with the YAML.** Uncommitted work here has been lost before.
@@ -38,7 +38,7 @@ skipping a step only moves the failure later.
   (several: `Legacy: A, B`). Every old number is listed in `legacy-ids.txt`, and `check` fails
   (`legacy-id-missing`) until each one appears in some matrix file or carries an out-of-scope reason.
 - Otherwise add a `🟡 not_automated` row with a full Given/When/Then, in the subject whose endpoint
-  it calls, or the `planned/` file for an endpoint with no YAML.
+  it calls, or the planned file for an endpoint with no YAML.
 - Put the story key in the file's `stories:` front-matter list (see `README.md` § Governance).
 - Out of scope for this matrix: UI flows, batch-job end-to-end journeys, other modules' APIs (e.g.
   masterdata) — record those in the owning module's matrix, not here; in `legacy-ids.txt` their
@@ -55,7 +55,7 @@ If a YAML file exists on disk but no `<test>` entry references it, it's `unwired
 reports it, but it gets no matrix file (decision 7). If you want it covered, wire it into the
 Suite.xml first, then `scaffold`.
 
-A real endpoint with **no** YAML gets a `planned/` matrix file from `scaffold` (unless it's
+A real endpoint with **no** YAML gets a planned matrix file (`<VERB>_<path>.md`, beside the other matrix files) from `scaffold` (unless it's
 baselined as intentionally untested). Author its rows like any other subject — they're all
 `🟡 not_automated` until YAML exists. When you later wire YAML for it, `check` raises
 `planned-endpoint-now-tested`: move the rows (keeping their IDs) into the new subject's file and

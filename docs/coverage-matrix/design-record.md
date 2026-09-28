@@ -470,6 +470,15 @@ subjects are likewise not yet folded into the ~10,500 estate figure above).
     testrig/apirig/coverage/templates/`, gap types `unknown-category` and `legacy-id-missing`,
     planned files now held to category/sync rules, baseline staleness not judged for checks that
     didn't run. `check` green with and without `--no-app-source`.
+28. **Planned files live beside the module's other matrix files, not in a `planned/` folder
+    (2026-09-28, user decision).** The team wanted one folder to show every endpoint of a module,
+    automated or not. The tool never depended on the folder — a planned file is recognized by its
+    `planned: true` front-matter — so the 17 prereg files were `git mv`'d from `coverage/planned/` to
+    `coverage/preReg/`, and `scaffold` now writes new ones to `Estate.plannedDir()`: the folder most of
+    the module's wired subjects live in (`planned/` only as a fallback when a module has none). Their
+    `VERB_path` names (`DELETE_applications_lostuin_applicationId.md`) can't collide with wired
+    subjects' CamelCase names. Mentions of `planned/` in entries 25 and 27 describe the layout at the
+    time.
 26. **Endpoint-gap caveats.** A path routed by a servlet filter instead of a controller (id-repo's
     `/identity/v2`, rewritten by `BaseIdRepoFilter`) is reported `unreachable-endpoint` — baseline
     it with that reason. A service no YAML targets gets the module-wide prefix as a *fallback*
