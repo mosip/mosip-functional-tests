@@ -17,6 +17,7 @@ public class ExtractResource {
 	
 	public static void extractCommonResourceFromJar() {
 		getListOfFilesFromJarAndCopyToExternalResource("config/");
+		getListOfFilesFromJarAndCopyToExternalResource("mds/");
 		getListOfFilesFromJarAndCopyToExternalResource("customize-emailable-report-template.html");
 		getListOfFilesFromJarAndCopyToExternalResource("metadata.xml");
 		getListOfFilesFromJarAndCopyToExternalResource("log4j.properties");
@@ -28,6 +29,7 @@ public class ExtractResource {
 	
 	public static void copyCommonResources(){
 		copyCommonResources("config/");
+		copyCommonResources("mds/");
 		copyCommonResources("customize-emailable-report-template.html");
 		copyCommonResources("metadata.xml");
 		copyCommonResources("log4j.properties");
