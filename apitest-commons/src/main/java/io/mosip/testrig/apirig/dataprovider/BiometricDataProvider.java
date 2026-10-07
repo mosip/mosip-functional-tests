@@ -885,14 +885,11 @@ public class BiometricDataProvider {
 	}
 
 	/**
-	 * {@code mds/} is copied beside {@code config/} into the temporary test-resource
-	 * folder, the same way {@code Idrepo.properties} is. Mock SBI still opens
-	 * {@code ./application.properties} and prefixes device and profile paths with the
-	 * process working directory, and prefixes keystore paths with the directory passed
-	 * to {@code startSBI}. This writes one properties file on that working directory
-	 * whose device and profile values point at the copied {@code mds/}, and uses that
-	 * folder as the keystore directory. Suites with no {@code mds/} resource keep the
-	 * previous working-directory layout.
+	 * Mock SBI opens {@code ./application.properties} and then joins
+	 * {@code /Biometric Devices} and {@code /resource} onto the process directory.
+	 * Prefix those two values so they resolve under {@code MosipTemporaryTestResource/mds}.
+	 * Keystore lines stay {@code /Biometric Devices/...} because {@code startSBI} is given
+	 * that same mds folder.
 	 */
 	private static void prepareBundledMdsFromTestResources() throws IOException {
 		File mds = new File(BaseTestCase.getGlobalResourcePath(), "mds");
@@ -900,60 +897,36 @@ public class BiometricDataProvider {
 		if (!sourceProps.isFile()) {
 			return;
 		}
-		bundledMdsKeystorePath = mds.getCanonicalPath();
-		Path cwd = Path.of(new File(".").getCanonicalPath());
 		Path mdsPath = mds.getCanonicalFile().toPath();
+		bundledMdsKeystorePath = mdsPath.toString();
+		Path cwd = Path.of(new File(".").getCanonicalPath());
 		if (cwd.equals(mdsPath)) {
 			resetMockSbiPropertyCache();
 			return;
 		}
-		String relativeMds;
-		try {
-			relativeMds = "/" + cwd.relativize(mdsPath).toString().replace('\\', '/');
-		} catch (IllegalArgumentException e) {
-			throw new IOException("Cannot point Mock SBI at " + mdsPath + " from " + cwd, e);
-		}
+		String mdsFromCwd = "/" + cwd.relativize(mdsPath).toString().replace('\\', '/');
 		Path target = cwd.resolve("application.properties");
-		Path backup = null;
 		if (Files.isRegularFile(target)) {
-			backup = Files.createTempFile("mock-sbi-application", ".properties");
-			Files.copy(target, backup, StandardCopyOption.REPLACE_EXISTING);
+			mockSbiPropsBackup = Files.createTempFile("mock-sbi-application", ".properties");
+			Files.copy(target, mockSbiPropsBackup, StandardCopyOption.REPLACE_EXISTING);
 		}
-		try {
-			Files.writeString(target, rewriteMdsPaths(sourceProps.toPath(), relativeMds), StandardCharsets.UTF_8);
-		} catch (IOException writeError) {
-			if (backup != null) {
-				Files.deleteIfExists(backup);
-			}
-			throw writeError;
-		}
-		mockSbiPropsBackup = backup;
-		mockSbiPropsOverlay = target;
-		logger.info("Mock SBI properties pointed at test resource mds: " + mdsPath);
-		resetMockSbiPropertyCache();
-	}
-
-	private static String rewriteMdsPaths(Path sourceProps, String relativeMds) throws IOException {
 		StringBuilder rewritten = new StringBuilder();
-		for (String line : Files.readAllLines(sourceProps, StandardCharsets.UTF_8)) {
-			int separator = line.indexOf('=');
-			if (separator < 0 || line.trim().startsWith("#")) {
-				rewritten.append(line).append(System.lineSeparator());
-				continue;
+		for (String line : Files.readAllLines(sourceProps.toPath(), StandardCharsets.UTF_8)) {
+			int eq = line.indexOf('=');
+			if (eq > 0 && !line.trim().startsWith("#")) {
+				String key = line.substring(0, eq);
+				String value = line.substring(eq + 1);
+				boolean keystoreLine = key.contains("keystorefilename") || key.contains("keys.encryption");
+				if (!keystoreLine && (value.startsWith("/Biometric Devices") || value.startsWith("/resource"))) {
+					line = key + "=" + mdsFromCwd + value;
+				}
 			}
-			String key = line.substring(0, separator);
-			String value = line.substring(separator + 1);
-			if (!isKeystorePathProperty(key)
-					&& (value.startsWith("/Biometric Devices") || value.startsWith("/resource"))) {
-				value = relativeMds + value;
-			}
-			rewritten.append(key).append('=').append(value).append(System.lineSeparator());
+			rewritten.append(line).append(System.lineSeparator());
 		}
-		return rewritten.toString();
-	}
-
-	private static boolean isKeystorePathProperty(String key) {
-		return key.contains("keystorefilename") || key.contains("keys.encryption");
+		Files.writeString(target, rewritten.toString(), StandardCharsets.UTF_8);
+		mockSbiPropsOverlay = target;
+		logger.info("Mock SBI /Biometric Devices and /resource read from " + mdsPath);
+		resetMockSbiPropertyCache();
 	}
 
 	private static void clearBundledMdsOverlay() {
