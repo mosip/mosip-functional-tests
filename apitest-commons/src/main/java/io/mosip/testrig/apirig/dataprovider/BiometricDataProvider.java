@@ -133,11 +133,6 @@ public class BiometricDataProvider {
         return base64UrlStr;
     }
 	
-	/**
-	 * Keystore directory when {@code mds/} was copied next to {@code config/} under
-	 * the temporary test-resource folder. Null keeps the certs-module directory.
-	 */
-	private static String bundledMdsKeystorePath;
 	private static Path mockSbiPropsOverlay;
 	private static Path mockSbiPropsBackup;
 
@@ -439,13 +434,12 @@ public class BiometricDataProvider {
 		try {
 			
 			Path p12path = Paths.get(getKeysDirPath("", BaseTestCase.certsForModule));
-			String keystorePath = bundledMdsKeystorePath != null ? bundledMdsKeystorePath : p12path.toString();
 			
 			int maxLoopCount = 20;
 
 			while (maxLoopCount > 0) {
 				try {
-					port = CentralizedMockSBI.startSBI(contextKey, mdsMode, "Biometric Device", keystorePath);
+					port = CentralizedMockSBI.startSBI(contextKey, mdsMode, "Biometric Device", p12path.toString());
 				} catch (Exception e) {
 					logger.error("Exception occured during startSBI " + contextKey, e);
 				}
@@ -888,8 +882,8 @@ public class BiometricDataProvider {
 	 * Mock SBI opens {@code ./application.properties} and then joins
 	 * {@code /Biometric Devices} and {@code /resource} onto the process directory.
 	 * Prefix those two values so they resolve under {@code MosipTemporaryTestResource/mds}.
-	 * Keystore lines stay {@code /Biometric Devices/...} because {@code startSBI} is given
-	 * that same mds folder.
+	 * Keystore names such as {@code /device-dsk-partner.p12} are left unchanged and still
+	 * resolve from the certificate directory passed to {@code startSBI}.
 	 */
 	private static void prepareBundledMdsFromTestResources() throws IOException {
 		File mds = new File(BaseTestCase.getGlobalResourcePath(), "mds");
@@ -898,7 +892,6 @@ public class BiometricDataProvider {
 			return;
 		}
 		Path mdsPath = mds.getCanonicalFile().toPath();
-		bundledMdsKeystorePath = mdsPath.toString();
 		Path cwd = Path.of(new File(".").getCanonicalPath());
 		if (cwd.equals(mdsPath)) {
 			resetMockSbiPropertyCache();
@@ -943,7 +936,6 @@ public class BiometricDataProvider {
 		} finally {
 			mockSbiPropsOverlay = null;
 			mockSbiPropsBackup = null;
-			bundledMdsKeystorePath = null;
 		}
 	}
 
