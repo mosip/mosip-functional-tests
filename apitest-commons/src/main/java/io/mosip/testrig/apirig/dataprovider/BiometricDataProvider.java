@@ -5,11 +5,13 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Field;
 import java.nio.charset.StandardCharsets;
 //import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 //import java.time.LocalDateTime;
 //import java.time.ZoneId;
 import java.util.ArrayList;
@@ -131,6 +133,14 @@ public class BiometricDataProvider {
         return base64UrlStr;
     }
 	
+	/**
+	 * Keystore directory when {@code mds/} was copied next to {@code config/} under
+	 * the temporary test-resource folder. Null keeps the certs-module directory.
+	 */
+	private static String bundledMdsKeystorePath;
+	private static Path mockSbiPropsOverlay;
+	private static Path mockSbiPropsBackup;
+
 	public static Boolean generateBiometricTestData(String mdsMode) throws Exception {
 		ResidentBiometricModel resident = new ResidentBiometricModel();
 //		String cbeff = null;
@@ -404,6 +414,16 @@ public class BiometricDataProvider {
 
 	public static MDSRCaptureModel regenBiometricViaMDS(ResidentBiometricModel resident, String mdsMode, int qualityScore)
 			throws Exception {
+		prepareBundledMdsFromTestResources();
+		try {
+			return captureBiometricViaMds(resident, mdsMode, qualityScore);
+		} finally {
+			clearBundledMdsOverlay();
+		}
+	}
+
+	private static MDSRCaptureModel captureBiometricViaMds(ResidentBiometricModel resident, String mdsMode, int qualityScore)
+			throws Exception {
 //		BiometricDataModel biodata = null;
 		MDSRCaptureModel capture = null;
 		String contextKey = "default";
@@ -419,12 +439,13 @@ public class BiometricDataProvider {
 		try {
 			
 			Path p12path = Paths.get(getKeysDirPath("", BaseTestCase.certsForModule));
+			String keystorePath = bundledMdsKeystorePath != null ? bundledMdsKeystorePath : p12path.toString();
 			
 			int maxLoopCount = 20;
 
 			while (maxLoopCount > 0) {
 				try {
-					port = CentralizedMockSBI.startSBI(contextKey, mdsMode, "Biometric Device", p12path.toString());
+					port = CentralizedMockSBI.startSBI(contextKey, mdsMode, "Biometric Device", keystorePath);
 				} catch (Exception e) {
 					logger.error("Exception occured during startSBI " + contextKey, e);
 				}
@@ -861,6 +882,107 @@ public class BiometricDataProvider {
 		}
 
 		return m;
+	}
+
+	/**
+	 * {@code mds/} is copied beside {@code config/} into the temporary test-resource
+	 * folder, the same way {@code Idrepo.properties} is. Mock SBI still opens
+	 * {@code ./application.properties} and prefixes device and profile paths with the
+	 * process working directory, and prefixes keystore paths with the directory passed
+	 * to {@code startSBI}. This writes one properties file on that working directory
+	 * whose device and profile values point at the copied {@code mds/}, and uses that
+	 * folder as the keystore directory. Suites with no {@code mds/} resource keep the
+	 * previous working-directory layout.
+	 */
+	private static void prepareBundledMdsFromTestResources() throws IOException {
+		File mds = new File(BaseTestCase.getGlobalResourcePath(), "mds");
+		File sourceProps = new File(mds, "application.properties");
+		if (!sourceProps.isFile()) {
+			return;
+		}
+		bundledMdsKeystorePath = mds.getCanonicalPath();
+		Path cwd = Path.of(new File(".").getCanonicalPath());
+		Path mdsPath = mds.getCanonicalFile().toPath();
+		if (cwd.equals(mdsPath)) {
+			resetMockSbiPropertyCache();
+			return;
+		}
+		String relativeMds;
+		try {
+			relativeMds = "/" + cwd.relativize(mdsPath).toString().replace('\\', '/');
+		} catch (IllegalArgumentException e) {
+			throw new IOException("Cannot point Mock SBI at " + mdsPath + " from " + cwd, e);
+		}
+		Path target = cwd.resolve("application.properties");
+		Path backup = null;
+		if (Files.isRegularFile(target)) {
+			backup = Files.createTempFile("mock-sbi-application", ".properties");
+			Files.copy(target, backup, StandardCopyOption.REPLACE_EXISTING);
+		}
+		try {
+			Files.writeString(target, rewriteMdsPaths(sourceProps.toPath(), relativeMds), StandardCharsets.UTF_8);
+		} catch (IOException writeError) {
+			if (backup != null) {
+				Files.deleteIfExists(backup);
+			}
+			throw writeError;
+		}
+		mockSbiPropsBackup = backup;
+		mockSbiPropsOverlay = target;
+		logger.info("Mock SBI properties pointed at test resource mds: " + mdsPath);
+		resetMockSbiPropertyCache();
+	}
+
+	private static String rewriteMdsPaths(Path sourceProps, String relativeMds) throws IOException {
+		StringBuilder rewritten = new StringBuilder();
+		for (String line : Files.readAllLines(sourceProps, StandardCharsets.UTF_8)) {
+			int separator = line.indexOf('=');
+			if (separator < 0 || line.trim().startsWith("#")) {
+				rewritten.append(line).append(System.lineSeparator());
+				continue;
+			}
+			String key = line.substring(0, separator);
+			String value = line.substring(separator + 1);
+			if (!isKeystorePathProperty(key)
+					&& (value.startsWith("/Biometric Devices") || value.startsWith("/resource"))) {
+				value = relativeMds + value;
+			}
+			rewritten.append(key).append('=').append(value).append(System.lineSeparator());
+		}
+		return rewritten.toString();
+	}
+
+	private static boolean isKeystorePathProperty(String key) {
+		return key.contains("keystorefilename") || key.contains("keys.encryption");
+	}
+
+	private static void clearBundledMdsOverlay() {
+		try {
+			if (mockSbiPropsOverlay != null) {
+				Files.deleteIfExists(mockSbiPropsOverlay);
+				if (mockSbiPropsBackup != null) {
+					Files.copy(mockSbiPropsBackup, mockSbiPropsOverlay, StandardCopyOption.REPLACE_EXISTING);
+					Files.deleteIfExists(mockSbiPropsBackup);
+				}
+			}
+		} catch (IOException e) {
+			logger.warn("Could not restore Mock SBI application.properties overlay: " + e.getMessage());
+		} finally {
+			mockSbiPropsOverlay = null;
+			mockSbiPropsBackup = null;
+			bundledMdsKeystorePath = null;
+		}
+	}
+
+	private static void resetMockSbiPropertyCache() {
+		try {
+			Class<?> helperClass = Class.forName("io.mosip.mock.sbi.util.ApplicationPropertyHelper");
+			Field propertiesField = helperClass.getDeclaredField("properties");
+			propertiesField.setAccessible(true);
+			propertiesField.set(null, null);
+		} catch (ReflectiveOperationException e) {
+			logger.warn("Could not reset Mock SBI ApplicationPropertyHelper cache: " + e.getMessage());
+		}
 	}
 
 }
