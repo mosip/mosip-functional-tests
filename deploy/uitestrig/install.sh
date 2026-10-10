@@ -150,11 +150,11 @@ function installing_uitestrig() {
   --set uitestrig.configmaps.uitestrig.injiverify="https://$INJI_VERIFY_HOST/" \
   --set uitestrig.configmaps.uitestrig.ENV_ENDPOINT="https://$API_INTERNAL_HOST" \
   --set uitestrig.configmaps.uitestrig.ENV_USER="$Env_user" \
-  --set uitestrig.configmaps.uitestrig.MOSIP_INJIWEB_GOOGLE_REFRESH_TOKEN="$token" \
-  --set uitestrig.configmaps.uitestrig.MOSIP_INJIWEB_GOOGLE_CLIENT_ID="$client_id" \
-  --set uitestrig.configmaps.uitestrig.MOSIP_INJIWEB_GOOGLE_CLIENT_SECRET="$secret" \
-  --set uitestrig.configmaps.uitestrig.BROWSERSTACK_ACCESS_KEY="$Access_key" \
-  --set uitestrig.configmaps.uitestrig.BROWSERSTACK_USERNAME="$User_name" \
+  --set uitestrig.configmaps.uitestrig.INJIWEB_GOOGLE_REFRESH_TOKEN="$token" \
+  --set uitestrig.configmaps.uitestrig.INJIWEB_GOOGLE_CLIENT_ID="$client_id" \
+  --set uitestrig.configmaps.uitestrig.INJIWEB_GOOGLE_CLIENT_SECRET="$secret" \
+  --set uitestrig.configmaps.uitestrig.browserstack_access_key="$Access_key" \
+  --set uitestrig.configmaps.uitestrig.browserstack_username="$User_name" \
   $ENABLE_INSECURE
 
   echo Installed uitestrig
