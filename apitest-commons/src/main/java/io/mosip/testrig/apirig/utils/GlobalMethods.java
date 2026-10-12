@@ -105,6 +105,7 @@ public class GlobalMethods {
 			} else {
 				return url;
 			}
+
 		}
 
 		// RegEX didn't match, try with other pattern...
@@ -134,8 +135,10 @@ public class GlobalMethods {
 		return url;
 	}
 
-	public static String addToServerEndPointMap(String url) {
+	public static String addToServerEndPointMap(String url) {		
 		String updatedURL = getUpdatedEndPointURL(url);
+		if(updatedURL.contains("localhost")) 
+			updatedURL = updatedURL.replace("https", "http");
 		serverEndpoints.add(updatedURL);
 		return updatedURL;
 	}
