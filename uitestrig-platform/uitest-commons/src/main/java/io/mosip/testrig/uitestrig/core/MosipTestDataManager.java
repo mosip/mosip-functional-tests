@@ -46,6 +46,7 @@ public class MosipTestDataManager {
     public static synchronized void cleanup() {
         if (!initialized) return;
         KeycloakUserManager.removeUser();
+        initialized = false;
         logger.info("Keycloak test users removed");
     }
 

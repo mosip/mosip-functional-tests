@@ -194,7 +194,7 @@ public class BrowserStackCapabilities {
             "\"browserstack.username\":\"" + esc(username) + "\"," +
             "\"browserstack.accessKey\":\"" + (mask ? "***" : esc(accessKey)) + "\"," +
             "\"browserstack.networkLogs\":\""  + networkLogs  + "\"," +
-            "\"browserstack.consoleLogs\":\"" + esc(consoleLogs) + "\"," +
+            "\"browserstack.console\":\"" + esc(consoleLogs) + "\"," +
             "\"browserstack.debug\":\""        + debug         + "\"" +
             "}";
     }

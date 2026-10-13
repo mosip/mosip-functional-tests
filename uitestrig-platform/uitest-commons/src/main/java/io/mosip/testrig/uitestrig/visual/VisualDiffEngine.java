@@ -12,7 +12,6 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -92,6 +91,9 @@ public class VisualDiffEngine {
      * @param ratio fraction of pixels allowed to differ, e.g. {@code 0.05} for 5%
      */
     public VisualDiffEngine withTolerance(double ratio) {
+        if (!Double.isFinite(ratio) || ratio < 0 || ratio > 1) {
+            throw new IllegalArgumentException("Tolerance must be between 0 and 1, got: " + ratio);
+        }
         this.maxDiffRatio = ratio;
         return this;
     }
@@ -106,7 +108,9 @@ public class VisualDiffEngine {
      * @param snapshotName filename, e.g. {@code "manage-vid.png"}
      */
     public void assertPageSnapshot(String snapshotName) {
-        byte[] currentBytes = page.screenshot(new Page.ScreenshotOptions().setFullPage(true));
+        byte[] currentBytes = page.screenshot(new Page.ScreenshotOptions()
+                .setFullPage(true)
+                .setAnimations(com.microsoft.playwright.options.ScreenshotAnimations.DISABLED));
         Path   baselinePath = resolveBaselinePath(snapshotName);
 
         if (UiConfigManager.isUpdateSnapshots()) {
@@ -120,7 +124,7 @@ public class VisualDiffEngine {
                     + "'. Run with -Dplaywright.update.snapshots=true to create it.");
         }
 
-        compareAndAssert(baselinePath, currentBytes, snapshotName);
+        compareAndAssert(baselinePath, currentBytes, snapshotName, 0, 0);
     }
 
     /**
@@ -131,8 +135,10 @@ public class VisualDiffEngine {
      * @param snapshotName filename, e.g. {@code "vid-card.png"}
      */
     public void assertElementSnapshot(String selector, String snapshotName) {
+        BoundingBox elementOrigin = getDocumentBoundingBox(selector);
         byte[] currentBytes = page.locator(selector)
-                .screenshot(new com.microsoft.playwright.Locator.ScreenshotOptions());
+                .screenshot(new com.microsoft.playwright.Locator.ScreenshotOptions()
+                        .setAnimations(com.microsoft.playwright.options.ScreenshotAnimations.DISABLED));
         Path   baselinePath = resolveBaselinePath(snapshotName);
 
         if (UiConfigManager.isUpdateSnapshots()) {
@@ -146,12 +152,15 @@ public class VisualDiffEngine {
                     + "'. Run with -Dplaywright.update.snapshots=true to create it.");
         }
 
-        compareAndAssert(baselinePath, currentBytes, snapshotName);
+        double originX = elementOrigin != null ? elementOrigin.x() : 0;
+        double originY = elementOrigin != null ? elementOrigin.y() : 0;
+        compareAndAssert(baselinePath, currentBytes, snapshotName, originX, originY);
     }
 
     // ── Internals ─────────────────────────────────────────────────────────────
 
-    private void compareAndAssert(Path baselinePath, byte[] currentBytes, String snapshotName) {
+    private void compareAndAssert(Path baselinePath, byte[] currentBytes, String snapshotName,
+                                   double maskOriginX, double maskOriginY) {
         try {
             BufferedImage baseline = ImageIO.read(baselinePath.toFile());
             BufferedImage current  = ImageIO.read(new ByteArrayInputStream(currentBytes));
@@ -172,8 +181,8 @@ public class VisualDiffEngine {
                         current.getWidth(), current.getHeight(), DIFF_DIR));
             }
 
-            applyMasks(baseline);
-            applyMasks(current);
+            applyMasks(baseline, maskOriginX, maskOriginY);
+            applyMasks(current, maskOriginX, maskOriginY);
 
             long diffPixels  = 0;
             long totalPixels = (long) baseline.getWidth() * baseline.getHeight();
@@ -201,9 +210,13 @@ public class VisualDiffEngine {
 
     /**
      * Paints masked regions grey on the image in-place.
-     * Fetches each selector's document-relative bounding box via JavaScript.
+     * Fetches each selector's document-relative bounding box via JavaScript, then shifts it
+     * by the captured image's own document origin — zero for a full-page screenshot, or the
+     * target element's own document position for an element screenshot — before scaling to
+     * device pixels, since the element screenshot's pixel data starts at the element's corner,
+     * not the document origin.
      */
-    private void applyMasks(BufferedImage image) {
+    private void applyMasks(BufferedImage image, double originX, double originY) {
         if (maskedSelectors.isEmpty()) return;
         double scale = getDevicePixelRatio();
         Graphics2D g = image.createGraphics();
@@ -211,8 +224,8 @@ public class VisualDiffEngine {
         for (String selector : maskedSelectors) {
             BoundingBox box = getDocumentBoundingBox(selector);
             if (box != null) {
-                int x = (int) Math.round(box.x() * scale);
-                int y = (int) Math.round(box.y() * scale);
+                int x = (int) Math.round((box.x() - originX) * scale);
+                int y = (int) Math.round((box.y() - originY) * scale);
                 int w = (int) Math.round(box.width() * scale);
                 int h = (int) Math.round(box.height() * scale);
                 g.fillRect(x, y, w, h);
@@ -242,8 +255,10 @@ public class VisualDiffEngine {
      */
     private void saveDiffImages(BufferedImage baseline, BufferedImage current, String snapshotName) {
         try {
-            new File(DIFF_DIR).mkdirs();
             String base = snapshotName.replaceFirst("\\.png$", "");
+            Path diffPath   = Paths.get(DIFF_DIR, base + "-diff.png");
+            Path actualPath = Paths.get(DIFF_DIR, base + "-actual.png");
+            Files.createDirectories(diffPath.getParent());
 
             // Diff image — red on grey
             int w = Math.min(baseline.getWidth(), current.getWidth());
@@ -262,11 +277,12 @@ public class VisualDiffEngine {
                     }
                 }
             }
-            ImageIO.write(diff,    "PNG", new File(DIFF_DIR + base + "-diff.png"));
-            ImageIO.write(current, "PNG", new File(DIFF_DIR + base + "-actual.png"));
+            ImageIO.write(diff,    "PNG", diffPath.toFile());
+            ImageIO.write(current, "PNG", actualPath.toFile());
             logger.info("Diff images saved to {}", DIFF_DIR);
         } catch (IOException e) {
-            logger.warn("Failed to save diff images: {}", e.getMessage());
+            throw new java.io.UncheckedIOException(
+                    "Failed to save diff images for " + snapshotName, e);
         }
     }
 

@@ -45,7 +45,8 @@ public class SnapshotManager {
      */
     public void assertPageSnapshot(String snapshotName) {
         byte[] currentBytes = page.screenshot(
-                new Page.ScreenshotOptions().setFullPage(true));
+                new Page.ScreenshotOptions().setFullPage(true)
+                        .setAnimations(com.microsoft.playwright.options.ScreenshotAnimations.DISABLED));
 
         String snapshotDir = UiConfigManager.getproperty("snapshotDir");
         if (snapshotDir == null || snapshotDir.isBlank()) {

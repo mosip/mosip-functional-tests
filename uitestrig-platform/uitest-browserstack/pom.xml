@@ -12,6 +12,9 @@
     </parent>
 
     <artifactId>uitest-browserstack</artifactId>
+    <!-- Declared directly (duplicating the parent) so the shared CI workflow's version
+         check, which reads project/version without resolving Maven inheritance, can see it. -->
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>uitest-browserstack</name>
     <description>Optional BrowserStack cloud-grid integration for uitest-commons — connects Playwright via

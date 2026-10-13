@@ -51,7 +51,7 @@ public class JsonUtil {
             return last != null ? last : "";
         } catch (Exception e) {
             logger.error("getIdentitySimpleField({}) failed: {}", field, e.getClass().getSimpleName());
-            return "";
+            throw new IllegalArgumentException("getIdentitySimpleField(" + field + ") failed", e);
         }
     }
 
@@ -63,7 +63,7 @@ public class JsonUtil {
             return new JSONObject(identityJson).getJSONObject("identity").getString(field);
         } catch (Exception e) {
             logger.error("getIdentityField({}) failed: {}", field, e.getClass().getSimpleName());
-            return "";
+            throw new IllegalArgumentException("getIdentityField(" + field + ") failed", e);
         }
     }
 
@@ -72,7 +72,7 @@ public class JsonUtil {
             return new JSONObject(identityJson).getJSONObject("identity").getDouble(field);
         } catch (Exception e) {
             logger.error("getIdentityDoubleField({}) failed: {}", field, e.getClass().getSimpleName());
-            return 0;
+            throw new IllegalArgumentException("getIdentityDoubleField(" + field + ") failed", e);
         }
     }
 
@@ -83,6 +83,7 @@ public class JsonUtil {
             for (int i = 0; i < items.length(); i++) list.add(items.getString(i));
         } catch (Exception e) {
             logger.error("getIdentityArrayField({}) failed: {}", field, e.getClass().getSimpleName());
+            throw new IllegalArgumentException("getIdentityArrayField(" + field + ") failed", e);
         }
         return list;
     }

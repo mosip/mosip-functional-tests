@@ -215,6 +215,7 @@ public class PlaywrightFactory {
     }
 
     private static Browser.NewContextOptions buildContextOptions(String deviceName, boolean headless) {
+        boolean ignoreHttpsErrors = UiConfigManager.isIgnoreHttpsErrors();
         if (deviceName != null && !deviceName.isBlank()) {
             DeviceProfile profile = DEVICES.get(deviceName);
             if (profile == null) {
@@ -227,17 +228,17 @@ public class PlaywrightFactory {
                     .setDeviceScaleFactor(profile.deviceScaleFactor)
                     .setIsMobile(profile.isMobile)
                     .setHasTouch(profile.hasTouch)
-                    .setIgnoreHTTPSErrors(true);
+                    .setIgnoreHTTPSErrors(ignoreHttpsErrors);
         }
         if (!headless) {
             // null viewport lets --start-maximized control the window size
             return new Browser.NewContextOptions()
                     .setViewportSize(null)
-                    .setIgnoreHTTPSErrors(true);
+                    .setIgnoreHTTPSErrors(ignoreHttpsErrors);
         }
         return new Browser.NewContextOptions()
                 .setViewportSize(1920, 1080)
-                .setIgnoreHTTPSErrors(true);
+                .setIgnoreHTTPSErrors(ignoreHttpsErrors);
     }
 
     private record DeviceProfile(

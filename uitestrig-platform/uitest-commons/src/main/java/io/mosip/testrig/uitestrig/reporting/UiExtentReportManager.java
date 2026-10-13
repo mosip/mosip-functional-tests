@@ -314,14 +314,16 @@ public final class UiExtentReportManager {
             logger.info("Report renamed to: {}", newFileName);
         } else {
             renamed = original;
+            newFileName = original.getName();
             logger.warn("Could not rename report file; using original path");
         }
 
         if ("yes".equalsIgnoreCase(UiConfigManager.getproperty("push-reports-to-s3"))) {
             try {
-                new S3Adapter().putObject(
+                boolean uploaded = new S3Adapter().putObject(
                         UiConfigManager.getproperty("s3-account"), "", null, null, newFileName, renamed);
-                logger.info("Report uploaded to S3: {}", newFileName);
+                if (uploaded) logger.info("Report uploaded to S3: {}", newFileName);
+                else logger.error("S3 upload returned false for {}", newFileName);
             } catch (Exception e) {
                 logger.error("Failed to upload report to S3: {}", e.getMessage());
             }

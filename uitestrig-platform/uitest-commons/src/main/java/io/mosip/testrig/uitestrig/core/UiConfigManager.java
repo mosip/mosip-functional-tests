@@ -70,6 +70,18 @@ public class UiConfigManager extends ConfigManager {
         return "true".equalsIgnoreCase(System.getProperty("playwright.update.snapshots"));
     }
 
+    /**
+     * Whether Playwright browser contexts should ignore TLS certificate errors.
+     * Defaults to {@code yes} because MOSIP test environments commonly serve internal
+     * domains with self-signed certificates. Set {@code ignoreHttpsErrors=no} in the
+     * module's properties file to enforce real certificate verification (e.g. when testing
+     * against a production-like environment with a trusted CA chain).
+     */
+    public static boolean isIgnoreHttpsErrors() {
+        String val = getproperty("ignoreHttpsErrors");
+        return val == null || val.isBlank() || !"no".equalsIgnoreCase(val.trim());
+    }
+
     // ── Protected — called by module XxxConfigManager.init() ──────────────────
 
     protected static void loadUitestDefaults() {

@@ -17,9 +17,9 @@ package io.mosip.testrig.uitestrig.accessibility;
  */
 public enum WcagLevel {
 
-    LEVEL_A  ("wcag2a", "wcag21a"),
-    LEVEL_AA ("wcag2a", "wcag21a", "wcag2aa", "wcag21aa", "wcag22aa"),
-    LEVEL_AAA("wcag2a", "wcag21a", "wcag2aa", "wcag21aa", "wcag22aa", "wcag2aaa", "wcag21aaa");
+    LEVEL_A  ("wcag2a", "wcag21a", "wcag22a"),
+    LEVEL_AA ("wcag2a", "wcag21a", "wcag22a", "wcag2aa", "wcag21aa", "wcag22aa"),
+    LEVEL_AAA("wcag2a", "wcag21a", "wcag22a", "wcag2aa", "wcag21aa", "wcag22aa", "wcag2aaa", "wcag21aaa");
 
     private final String[] axeTags;
 

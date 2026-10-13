@@ -174,7 +174,10 @@ public class BrowserStackManager {
             "browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": " +
             "{\"status\": \"" + status + "\", \"reason\": \"" + safeReason + "\"}}";
         try {
-            page.evaluate(script);
+            // Must be passed as the evaluate() argument, not inlined into the function body —
+            // BrowserStack's CDP proxy intercepts the browserstack_executor command from the
+            // call argument; it is never actually run as JavaScript in the page.
+            page.evaluate("_ => {}", script);
         } catch (Exception e) {
             logger.warn("Failed to set BrowserStack session status '{}': {}", status, e.getMessage());
         }
@@ -182,7 +185,7 @@ public class BrowserStackManager {
 
     private static Map<String, String> fetchSessionDetails(Page page) {
         try {
-            Object result = page.evaluate(
+            Object result = page.evaluate("_ => {}",
                 "browserstack_executor: {\"action\": \"getSessionDetails\"}");
             if (result instanceof Map<?, ?> raw) {
                 Map<String, String> out = new java.util.LinkedHashMap<>();

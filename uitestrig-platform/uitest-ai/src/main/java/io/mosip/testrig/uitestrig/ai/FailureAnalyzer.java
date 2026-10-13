@@ -152,9 +152,9 @@ public class FailureAnalyzer {
                 %s
                 </page_html>
                 """.formatted(
-                ctx.scenarioName(),
-                ctx.failedStep().isBlank() ? "(not captured)" : ctx.failedStep(),
-                ctx.pageUrl(),
+                redact(ctx.scenarioName()),
+                ctx.failedStep().isBlank() ? "(not captured)" : redact(ctx.failedStep()),
+                redact(ctx.pageUrl().replaceAll("\\?.*$", "")),
                 stackSection,
                 consoleSection,
                 networkSection,

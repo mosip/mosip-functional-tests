@@ -12,6 +12,9 @@
     </parent>
 
     <artifactId>uitest-commons</artifactId>
+    <!-- Declared directly (duplicating the parent) so the shared CI workflow's version
+         check, which reads project/version without resolving Maven inheritance, can see it. -->
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>uitest-commons</name>
     <description>Shared UI automation library for MOSIP — Playwright, Cucumber BDD, visual validation, MOSIP auth utilities</description>

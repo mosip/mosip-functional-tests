@@ -98,7 +98,7 @@ public class BrowserStackHooks {
             String publicUrl = BrowserStackManager.getSessionPublicUrl(page);
 
             if (!publicUrl.isBlank()) {
-                logger.info("BrowserStack session: {}", publicUrl);
+                logger.info("BrowserStack session details retrieved");
                 var test = UiExtentReportManager.getTest();
                 if (test != null) {
                     test.info("BrowserStack session: <a href='" + escapeAttr(publicUrl)

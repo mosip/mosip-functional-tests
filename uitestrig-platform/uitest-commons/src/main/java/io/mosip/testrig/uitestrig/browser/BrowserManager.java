@@ -3,6 +3,7 @@ package io.mosip.testrig.uitestrig.browser;
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Page;
+import io.mosip.testrig.uitestrig.core.UiConfigManager;
 
 import java.nio.file.Path;
 
@@ -49,7 +50,7 @@ public class BrowserManager {
         Browser browser = PlaywrightFactory.getBrowser();
         return browser.newContext(new Browser.NewContextOptions()
                 .setViewportSize(1920, 1080)
-                .setIgnoreHTTPSErrors(true));
+                .setIgnoreHTTPSErrors(UiConfigManager.isIgnoreHttpsErrors()));
     }
 
     /**
@@ -68,7 +69,7 @@ public class BrowserManager {
         Browser browser = PlaywrightFactory.getBrowser();
         BrowserContext context = browser.newContext(new Browser.NewContextOptions()
                 .setStorageStatePath(storageStateFile)
-                .setIgnoreHTTPSErrors(true));
+                .setIgnoreHTTPSErrors(UiConfigManager.isIgnoreHttpsErrors()));
         Page page = context.newPage();
         page.setDefaultTimeout(30_000);
         page.setDefaultNavigationTimeout(60_000);

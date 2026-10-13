@@ -106,6 +106,7 @@ public abstract class BasePage {
         }
     }
 
+    /** The text is written to the report. Do not pass UIN, VID, OTP, or token values here. */
     public void clickByText(String text) {
         UiExtentReportManager.logStep("Click '" + text + "'");
         try {
@@ -142,6 +143,7 @@ public abstract class BasePage {
         }
     }
 
+    /** The option text is written to the report. Do not pass UIN, VID, OTP, or token values here. */
     public void selectDropdownByText(String triggerSelector, String optionText) {
         String description = "Select '" + optionText + "' in " + humanize(triggerSelector);
         UiExtentReportManager.logStepWithLocator(description, triggerSelector);
