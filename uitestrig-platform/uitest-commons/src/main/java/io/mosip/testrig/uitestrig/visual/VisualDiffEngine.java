@@ -135,10 +135,13 @@ public class VisualDiffEngine {
      * @param snapshotName filename, e.g. {@code "vid-card.png"}
      */
     public void assertElementSnapshot(String selector, String snapshotName) {
-        BoundingBox elementOrigin = getDocumentBoundingBox(selector);
         byte[] currentBytes = page.locator(selector)
                 .screenshot(new com.microsoft.playwright.Locator.ScreenshotOptions()
                         .setAnimations(com.microsoft.playwright.options.ScreenshotAnimations.DISABLED));
+        // Read the origin AFTER the screenshot, using the same locator — Locator.screenshot()
+        // scrolls the element into view first, which can change its document position relative
+        // to when it was queried beforehand.
+        BoundingBox elementOrigin = getDocumentBoundingBox(selector);
         Path   baselinePath = resolveBaselinePath(snapshotName);
 
         if (UiConfigManager.isUpdateSnapshots()) {
