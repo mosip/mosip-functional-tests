@@ -117,7 +117,7 @@ public class AccessibilityValidator {
                 .filter(AxeViolation::isBlocker)
                 .toList();
 
-        if (!violations.isEmpty()) {
+        if (violations.size() > blockers.size()) {
             logger.warn("Non-blocker violations: {}", violations.size() - blockers.size());
         }
         if (!blockers.isEmpty()) {
@@ -236,8 +236,10 @@ public class AccessibilityValidator {
             "  return new Promise((resolve, reject) => { " +
             "    const s = document.createElement('script'); " +
             "    s.src = url; " +
+            "    s.crossOrigin = 'anonymous'; " +
             "    s.onload  = () => resolve(true); " +
             "    s.onerror = () => reject('Failed to load axe-core from: ' + url); " +
+            "    setTimeout(() => reject('axe-core load timeout'), " + INJECT_TIMEOUT_MS + "); " +
             "    document.head.appendChild(s); " +
             "  }); " +
             "}",
@@ -286,10 +288,13 @@ public class AccessibilityValidator {
                     rows.append("<tr>")
                         .append("<td><span class='badge ").append(badgeClass).append("'>")
                         .append(v.impact()).append("</span></td>")
-                        .append("<td><a href='").append(v.helpUrl()).append("' target='_blank'>")
+                        .append("<td><a href='").append(escape(safeUrl(v.helpUrl())))
+                        .append("' target='_blank' rel='noopener noreferrer'>")
                         .append(escape(v.id())).append("</a></td>")
                         .append("<td>").append(escape(v.help())).append("</td>")
-                        .append("<td><code>").append(escape(String.join("<br>", v.affectedNodes())))
+                        .append("<td><code>")
+                        .append(v.affectedNodes().stream().map(AccessibilityValidator::escape)
+                                .collect(Collectors.joining("<br>")))
                         .append("</code></td>")
                         .append("<td>").append(escape(v.failureSummary())).append("</td>")
                         .append("</tr>\n");
@@ -362,6 +367,11 @@ public class AccessibilityValidator {
 
     private static String escape(String s) {
         if (s == null) return "";
-        return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;");
+        return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+                .replace("'", "&#39;").replace("\"", "&quot;");
+    }
+
+    private static String safeUrl(String u) {
+        return (u != null && u.matches("(?i)^https?://.*")) ? u : "#";
     }
 }

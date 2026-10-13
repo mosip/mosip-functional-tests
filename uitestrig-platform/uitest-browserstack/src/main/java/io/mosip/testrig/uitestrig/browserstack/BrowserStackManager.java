@@ -84,20 +84,24 @@ public class BrowserStackManager {
     public static Page initPage(BrowserStackCapabilities caps) {
         String wsEndpoint = BS_ENDPOINT + caps.toUrlEncodedJson();
         logger.info("Connecting to BrowserStack — browser: {}, test: {}",
-                caps.getBrowser(), caps.toJson().replaceAll("\"browserstack\\.accessKey\":\"[^\"]+\"",
-                        "\"browserstack.accessKey\":\"***\""));
+                caps.getBrowser(), caps.toLoggableJson());
 
-        Playwright pw      = Playwright.create();
-        Browser    browser = pw.chromium().connect(wsEndpoint);
-        BrowserContext ctx = browser.newContext(
-                new Browser.NewContextOptions().setIgnoreHTTPSErrors(true));
-        Page page          = ctx.newPage();
-        page.setDefaultTimeout(30_000);
-        page.setDefaultNavigationTimeout(60_000);
+        Playwright pw = Playwright.create();
+        try {
+            Browser        browser = pw.chromium().connect(wsEndpoint);
+            BrowserContext ctx     = browser.newContext(
+                    new Browser.NewContextOptions().setIgnoreHTTPSErrors(true));
+            Page page              = ctx.newPage();
+            page.setDefaultTimeout(30_000);
+            page.setDefaultNavigationTimeout(60_000);
 
-        PlaywrightFactory.registerExternalSession(pw, browser, ctx, page);
-        logger.info("BrowserStack session initialised for thread {}", Thread.currentThread().getName());
-        return page;
+            PlaywrightFactory.registerExternalSession(pw, browser, ctx, page);
+            logger.info("BrowserStack session initialised for thread {}", Thread.currentThread().getName());
+            return page;
+        } catch (RuntimeException e) {
+            pw.close();
+            throw e;
+        }
     }
 
     // ── Session status ────────────────────────────────────────────────────────
@@ -164,7 +168,8 @@ public class BrowserStackManager {
     // ── Internals ─────────────────────────────────────────────────────────────
 
     private static void setSessionStatus(Page page, String status, String reason) {
-        String safeReason = reason == null ? "" : reason.replace("\"", "'").replace("\n", " ");
+        String safeReason = reason == null ? "" : reason.replace("\\", "/").replace("\"", "'")
+                .replaceAll("[\\p{Cntrl}]", " ");
         String script =
             "browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": " +
             "{\"status\": \"" + status + "\", \"reason\": \"" + safeReason + "\"}}";
@@ -175,15 +180,17 @@ public class BrowserStackManager {
         }
     }
 
-    @SuppressWarnings("unchecked")
     private static Map<String, String> fetchSessionDetails(Page page) {
         try {
             Object result = page.evaluate(
                 "browserstack_executor: {\"action\": \"getSessionDetails\"}");
-            if (result instanceof Map) return (Map<String, String>) result;
-
+            if (result instanceof Map<?, ?> raw) {
+                Map<String, String> out = new java.util.LinkedHashMap<>();
+                raw.forEach((k, v) -> out.put(String.valueOf(k), String.valueOf(v)));
+                return out;
+            }
             // BrowserStack may return the details as a JSON string
-            if (result instanceof String json) return parseSimpleJson((String) result);
+            if (result instanceof String json) return parseSimpleJson(json);
         } catch (Exception e) {
             logger.warn("Failed to fetch BrowserStack session details: {}", e.getMessage());
         }
@@ -193,13 +200,18 @@ public class BrowserStackManager {
     /**
      * Minimal JSON string-to-map parser for BrowserStack session details.
      * Only handles flat string-value objects — sufficient for the session details payload.
+     * Unescapes {@code \/}, {@code \"}, and {@code \\} in matched values.
      */
     private static Map<String, String> parseSimpleJson(String json) {
         java.util.Map<String, String> map = new java.util.LinkedHashMap<>();
         if (json == null || json.isBlank()) return map;
-        Matcher m = Pattern.compile("\"([^\"]+)\"\\s*:\\s*\"([^\"]*)\"").matcher(json);
+        Matcher m = Pattern.compile("\"([^\"]+)\"\\s*:\\s*\"((?:[^\"\\\\]|\\\\.)*)\"").matcher(json);
         while (m.find()) {
-            map.put(m.group(1), m.group(2));
+            String value = m.group(2)
+                    .replace("\\/", "/")
+                    .replace("\\\"", "\"")
+                    .replace("\\\\", "\\");
+            map.put(m.group(1), value);
         }
         return map;
     }

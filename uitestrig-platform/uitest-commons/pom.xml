@@ -102,14 +102,18 @@
 
         <!-- Modular replacement for the excluded full aws-java-sdk bundle — S3Adapter only needs
              the S3 client (ClientConfiguration, AmazonS3ClientBuilder, PutObjectRequest, etc.),
-             all of which live in this one module. Version matches what aws-java-sdk resolved to.
+             all of which live in this one module. Pinned to 1.12.797 (not the 1.11.368 that
+             aws-java-sdk resolved to) since AWS SDK v1 is end-of-support as of 2025-12-31 and
+             1.12.797 is the latest v1 patch release available; full migration to the v2 SDK
+             (software.amazon.awssdk:s3) would mean rewriting S3Adapter, which lives in the
+             separate apitest-commons module/repo and is out of scope here.
              Scope must be compile, not test: a test-scoped dependency's own test-scoped deps
              don't propagate transitively, and consumers (e.g. ui-test) pull uitest-commons in at
              test scope, so this needs compile scope here to actually reach their classpath. -->
         <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-java-sdk-s3</artifactId>
-            <version>1.11.368</version>
+            <version>1.12.797</version>
         </dependency>
 
         <!-- ============================================================ -->
@@ -187,28 +191,8 @@
                 <artifactId>maven-surefire-plugin</artifactId>
             </plugin>
 
-            <!-- Embeds git commit SHA into the JAR manifest -->
-            <plugin>
-                <groupId>pl.project13.maven</groupId>
-                <artifactId>git-commit-id-plugin</artifactId>
-                <version>${git.commit.id.plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>populate-git-commit-information</id>
-                        <goals><goal>revision</goal></goals>
-                        <configuration>
-                            <verbose>false</verbose>
-                            <dateFormat>MM/dd/yyyy HH:mm:ss Z</dateFormat>
-                            <abbrevLength>8</abbrevLength>
-                            <generateGitPropertiesFile>true</generateGitPropertiesFile>
-                            <generateGitPropertiesFilename>
-                                ${project.build.outputDirectory}/git.properties
-                            </generateGitPropertiesFilename>
-                            <failOnNoGitDirectory>false</failOnNoGitDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+            <!-- git-commit-id-plugin is inherited from the parent (uitestrig-platform/pom.xml),
+                 which must declare it directly for the shared CI workflow's root-pom check. -->
         </plugins>
     </build>
 

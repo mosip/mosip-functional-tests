@@ -1,7 +1,6 @@
 package io.mosip.testrig.uitestrig.core;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -22,20 +21,15 @@ public class JsonUtil {
         try {
             return mapper.writeValueAsString(object);
         } catch (JsonProcessingException e) {
-            logger.error("Failed to serialize object to JSON", e);
-            return "";
+            throw new IllegalArgumentException("Failed to serialize object to JSON", e);
         }
     }
 
     public static <T> T fromJson(String json, Class<T> cls) {
         try {
             return mapper.readValue(json, cls);
-        } catch (JsonMappingException | com.fasterxml.jackson.core.JsonParseException e) {
-            logger.error("Failed to deserialize JSON to {}", cls.getSimpleName(), e);
-            return null;
         } catch (java.io.IOException e) {
-            logger.error("IO error deserializing JSON", e);
-            return null;
+            throw new IllegalArgumentException("Failed to deserialize JSON to " + cls.getSimpleName(), e);
         }
     }
 
@@ -56,7 +50,7 @@ public class JsonUtil {
             }
             return last != null ? last : "";
         } catch (Exception e) {
-            logger.error("getIdentitySimpleField({}) failed", field, e);
+            logger.error("getIdentitySimpleField({}) failed: {}", field, e.getClass().getSimpleName());
             return "";
         }
     }
@@ -68,7 +62,7 @@ public class JsonUtil {
         try {
             return new JSONObject(identityJson).getJSONObject("identity").getString(field);
         } catch (Exception e) {
-            logger.error("getIdentityField({}) failed", field, e);
+            logger.error("getIdentityField({}) failed: {}", field, e.getClass().getSimpleName());
             return "";
         }
     }
@@ -77,7 +71,7 @@ public class JsonUtil {
         try {
             return new JSONObject(identityJson).getJSONObject("identity").getDouble(field);
         } catch (Exception e) {
-            logger.error("getIdentityDoubleField({}) failed", field, e);
+            logger.error("getIdentityDoubleField({}) failed: {}", field, e.getClass().getSimpleName());
             return 0;
         }
     }
@@ -88,7 +82,7 @@ public class JsonUtil {
             JSONArray items = new JSONObject(identityJson).getJSONObject("identity").getJSONArray(field);
             for (int i = 0; i < items.length(); i++) list.add(items.getString(i));
         } catch (Exception e) {
-            logger.error("getIdentityArrayField({}) failed", field, e);
+            logger.error("getIdentityArrayField({}) failed: {}", field, e.getClass().getSimpleName());
         }
         return list;
     }

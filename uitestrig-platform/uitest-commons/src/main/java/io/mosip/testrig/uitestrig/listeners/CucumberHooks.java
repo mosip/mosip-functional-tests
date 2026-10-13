@@ -134,8 +134,9 @@ public class CucumberHooks {
         if (bugId != null) {
             UiExtentReportManager.incrementKnownIssue();
             UiExtentReportManager.createTest(scenario.getName());
-            String bugUrl = "https://mosip.atlassian.net/browse/" + bugId;
-            UiExtentReportManager.logSkip("🟠 Known Issue → <a href='" + bugUrl + "' target='_blank'>" + bugId + "</a>");
+            String safeId = bugId.matches("[A-Z][A-Z0-9]+-\\d+") ? bugId : "INVALID-ID";
+            String bugUrl = "https://mosip.atlassian.net/browse/" + safeId;
+            UiExtentReportManager.logSkip("🟠 Known Issue → <a href='" + bugUrl + "' target='_blank'>" + safeId + "</a>");
             UiExtentReportManager.removeTest();
             logger.info("Known Issue [{}]: '{}' reported as skip", bugId, scenario.getName());
             return;

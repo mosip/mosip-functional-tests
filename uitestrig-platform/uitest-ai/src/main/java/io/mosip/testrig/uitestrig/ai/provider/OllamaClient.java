@@ -84,20 +84,13 @@ public class OllamaClient {
     }
 
     private static String buildRequest(String model, String prompt, String screenshotBase64) {
-        String escapedPrompt = jsonEscape(prompt);
+        var node = MAPPER.createObjectNode();
+        node.put("model", model);
+        node.put("prompt", prompt);
+        node.put("stream", false);
         if (screenshotBase64 != null && !screenshotBase64.isBlank()) {
-            return "{\"model\":\"" + model + "\",\"prompt\":\"" + escapedPrompt + "\"," +
-                   "\"images\":[\"" + screenshotBase64 + "\"],\"stream\":false}";
+            node.putArray("images").add(screenshotBase64);
         }
-        return "{\"model\":\"" + model + "\",\"prompt\":\"" + escapedPrompt + "\",\"stream\":false}";
-    }
-
-    static String jsonEscape(String s) {
-        if (s == null) return "";
-        return s.replace("\\", "\\\\")
-                .replace("\"", "\\\"")
-                .replace("\n", "\\n")
-                .replace("\r", "\\r")
-                .replace("\t", "\\t");
+        return node.toString();
     }
 }

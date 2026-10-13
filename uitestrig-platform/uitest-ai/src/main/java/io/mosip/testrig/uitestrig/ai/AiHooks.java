@@ -74,10 +74,11 @@ public class AiHooks {
         try {
             Page page = PlaywrightFactory.getPage();
 
-            // Extract the stack trace from the scenario's failure message (best-effort)
+            // io.cucumber.java.Scenario has no public API for the causing exception or the
+            // failed step text, so this is the status/name only — a real stack trace would
+            // need a TestStepFinished event listener registered as a separate Cucumber plugin.
             String stackTrace = "";
             try {
-                // Cucumber scenario exposes this in 7.x+
                 stackTrace = scenario.getStatus().name() + " — " + scenario.getName();
             } catch (Exception ignored) {}
 

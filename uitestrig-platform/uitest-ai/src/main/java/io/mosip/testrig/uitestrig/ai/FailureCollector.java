@@ -118,7 +118,7 @@ public class FailureCollector {
     private static void onResponse(Response response) {
         int status = response.status();
         if (status >= 400) {
-            networkTL.get().add(status + " " + response.url());
+            networkTL.get().add(status + " " + response.url().replaceAll("\\?.*$", ""));
         }
     }
 }

@@ -145,6 +145,27 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- Required at the root: the shared mosip/kattu maven-build.yml CI workflow
+                 checks this exact root pom.xml for pl.project13.maven:git-commit-id-plugin
+                 under build/plugins and fails the job otherwise. -->
+            <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+                <version>${git.commit.id.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>populate-git-commit-information</id>
+                        <goals><goal>revision</goal></goals>
+                        <configuration>
+                            <verbose>false</verbose>
+                            <abbrevLength>8</abbrevLength>
+                            <generateGitPropertiesFile>true</generateGitPropertiesFile>
+                            <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
+                            <failOnNoGitDirectory>false</failOnNoGitDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.sonatype.central</groupId>
                 <artifactId>central-publishing-maven-plugin</artifactId>

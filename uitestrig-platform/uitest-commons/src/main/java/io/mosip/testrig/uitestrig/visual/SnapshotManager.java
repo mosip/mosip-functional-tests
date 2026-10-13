@@ -60,9 +60,8 @@ public class SnapshotManager {
         }
 
         if (!baselinePath.toFile().exists()) {
-            saveBaseline(baselinePath, currentBytes);
-            logger.info("No baseline found — captured new baseline: {}", snapshotName);
-            return;
+            throw new AssertionFailedError("No baseline for '" + snapshotName
+                    + "'. Run with -Dplaywright.update.snapshots=true to create it.");
         }
 
         double diffRatio = computeDiffRatio(baselinePath, currentBytes);
@@ -86,7 +85,7 @@ public class SnapshotManager {
             Files.createDirectories(path.getParent());
             Files.write(path, imageBytes);
         } catch (IOException e) {
-            logger.error("Failed to write baseline screenshot: {}", e.getMessage());
+            throw new java.io.UncheckedIOException("Failed to write baseline screenshot: " + path, e);
         }
     }
 
@@ -94,6 +93,9 @@ public class SnapshotManager {
         try {
             BufferedImage baseline = ImageIO.read(baselinePath.toFile());
             BufferedImage current  = ImageIO.read(new ByteArrayInputStream(currentBytes));
+            if (baseline == null || current == null) {
+                throw new AssertionFailedError("Cannot decode snapshot image: " + baselinePath);
+            }
 
             if (baseline.getWidth() != current.getWidth() || baseline.getHeight() != current.getHeight()) {
                 logger.warn("Snapshot size changed: baseline {}x{}, current {}x{}",
@@ -114,8 +116,7 @@ public class SnapshotManager {
             }
             return (double) diffPixels / totalPixels;
         } catch (IOException e) {
-            logger.error("Failed to compare screenshots: {}", e.getMessage());
-            return 1.0;
+            throw new AssertionFailedError("Failed to compare snapshot images: " + baselinePath, e);
         }
     }
 

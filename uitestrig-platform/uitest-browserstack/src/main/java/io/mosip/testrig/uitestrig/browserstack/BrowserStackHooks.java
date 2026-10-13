@@ -57,6 +57,7 @@ public class BrowserStackHooks {
             BrowserStackManager.initPage(scenario.getName());
         } catch (Exception e) {
             logger.error("Failed to initialise BrowserStack session: {}", e.getMessage());
+            PlaywrightFactory.closePage();
             throw new RuntimeException("BrowserStack session init failed: " + e.getMessage(), e);
         }
     }
@@ -100,10 +101,10 @@ public class BrowserStackHooks {
                 logger.info("BrowserStack session: {}", publicUrl);
                 var test = UiExtentReportManager.getTest();
                 if (test != null) {
-                    test.info("BrowserStack session: <a href='" + publicUrl
+                    test.info("BrowserStack session: <a href='" + escapeAttr(publicUrl)
                             + "' target='_blank'>View on Automate</a>");
                     if (!videoUrl.isBlank()) {
-                        test.info("Session video: <a href='" + videoUrl
+                        test.info("Session video: <a href='" + escapeAttr(videoUrl)
                                 + "' target='_blank'>Watch recording</a>");
                     }
                 }
@@ -111,5 +112,9 @@ public class BrowserStackHooks {
         } catch (Exception e) {
             logger.warn("Error during BrowserStack session teardown: {}", e.getMessage());
         }
+    }
+
+    private static String escapeAttr(String s) {
+        return s.replace("'", "%27").replace("<", "%3C").replace(">", "%3E");
     }
 }

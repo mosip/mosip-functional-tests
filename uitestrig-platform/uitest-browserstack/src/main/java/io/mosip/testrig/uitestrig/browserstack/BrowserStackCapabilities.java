@@ -102,13 +102,13 @@ public class BrowserStackCapabilities {
         if (osv != null && !osv.isBlank()) caps.osVersion = osv;
 
         String netLogs = UiConfigManager.getproperty("browserstack.networkLogs");
-        if (netLogs != null) caps.networkLogs = !"no".equalsIgnoreCase(netLogs);
+        if (netLogs != null && !netLogs.isBlank()) caps.networkLogs = !"no".equalsIgnoreCase(netLogs.trim());
 
         String conLogs = UiConfigManager.getproperty("browserstack.consoleLogs");
         if (conLogs != null && !conLogs.isBlank()) caps.consoleLogs = conLogs;
 
         String dbg = UiConfigManager.getproperty("browserstack.debug");
-        if (dbg != null) caps.debug = "yes".equalsIgnoreCase(dbg);
+        if (dbg != null && !dbg.isBlank()) caps.debug = "yes".equalsIgnoreCase(dbg.trim());
 
         caps.testName = testName;
         return caps;
@@ -170,9 +170,19 @@ public class BrowserStackCapabilities {
 
     /**
      * Serialises this capabilities object to a JSON string suitable for the BrowserStack endpoint.
-     * All string values are JSON-escaped.
+     * All string values are JSON-escaped. Package-private — contains the raw access key; use
+     * {@link #toLoggableJson()} for anything that gets logged.
      */
-    public String toJson() {
+    String toJson() {
+        return toJson(false);
+    }
+
+    /** Same as {@link #toJson()} but with the access key masked — safe to log. */
+    public String toLoggableJson() {
+        return toJson(true);
+    }
+
+    private String toJson(boolean mask) {
         return "{" +
             "\"browser\":\""         + esc(browser)        + "\"," +
             "\"browser_version\":\"" + esc(browserVersion) + "\"," +
@@ -182,7 +192,7 @@ public class BrowserStackCapabilities {
             "\"build\":\""           + esc(buildName)      + "\"," +
             "\"project\":\""         + esc(projectName)    + "\"," +
             "\"browserstack.username\":\"" + esc(username) + "\"," +
-            "\"browserstack.accessKey\":\"" + esc(accessKey) + "\"," +
+            "\"browserstack.accessKey\":\"" + (mask ? "***" : esc(accessKey)) + "\"," +
             "\"browserstack.networkLogs\":\""  + networkLogs  + "\"," +
             "\"browserstack.consoleLogs\":\"" + esc(consoleLogs) + "\"," +
             "\"browserstack.debug\":\""        + debug         + "\"" +
@@ -197,10 +207,24 @@ public class BrowserStackCapabilities {
         return URLEncoder.encode(toJson(), StandardCharsets.UTF_8);
     }
 
-    // Minimal JSON string escaping — handles backslash and double-quote.
+    // JSON string escaping — backslash, quote, and other control characters.
     private static String esc(String s) {
         if (s == null) return "";
-        return s.replace("\\", "\\\\").replace("\"", "\\\"");
+        StringBuilder sb = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            switch (c) {
+                case '\\' -> sb.append("\\\\");
+                case '"'  -> sb.append("\\\"");
+                case '\n' -> sb.append("\\n");
+                case '\r' -> sb.append("\\r");
+                case '\t' -> sb.append("\\t");
+                default -> {
+                    if (c < 0x20) sb.append(String.format("\\u%04x", (int) c));
+                    else sb.append(c);
+                }
+            }
+        }
+        return sb.toString();
     }
 
     // ── Accessors for BrowserStackManager ────────────────────────────────────

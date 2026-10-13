@@ -135,8 +135,10 @@ public class AssertionLibrary {
     // ── URL & Title ────────────────────────────────────────────────────────────
 
     /**
-     * Verifies the current page URL matches the given pattern exactly.
-     * Pass a regex string or a literal URL fragment — uses {@code String.matches()} semantics.
+     * Verifies the current page URL matches the given regex pattern.
+     * Uses Playwright's {@code hasURL(Pattern)}, which has find (search) semantics, not
+     * {@code String.matches()} full-match semantics — a pattern matching any part of the URL
+     * passes. Anchor the pattern with {@code ^}/{@code $} if an exact match is required.
      * For a simple substring check, use {@link #verifyURLContains(String)}.
      */
     public void verifyURL(String pattern) {
@@ -311,7 +313,13 @@ public class AssertionLibrary {
     public void verifyDownload(String expectedFileNamePattern, Runnable triggerAction) {
         Download download = page.waitForDownload(triggerAction::run);
         String actualName = download.suggestedFilename();
-        if (!actualName.contains(expectedFileNamePattern) && !actualName.matches(expectedFileNamePattern)) {
+        boolean regexMatch;
+        try {
+            regexMatch = actualName.matches(expectedFileNamePattern);
+        } catch (java.util.regex.PatternSyntaxException e) {
+            regexMatch = false;
+        }
+        if (!actualName.contains(expectedFileNamePattern) && !regexMatch) {
             throw new AssertionError(
                 "Download filename mismatch:\n" +
                 "  Expected (pattern): \"" + expectedFileNamePattern + "\"\n" +

@@ -22,6 +22,9 @@ on:
       - MOSIP*
       - release*
 
+permissions:
+  contents: read
+
 jobs:
   build-maven-apitest-commons:
     uses: mosip/kattu/.github/workflows/maven-build.yml@master-java21

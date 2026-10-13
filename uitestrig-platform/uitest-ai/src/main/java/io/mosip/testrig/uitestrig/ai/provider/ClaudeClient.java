@@ -89,18 +89,29 @@ public class ClaudeClient {
     }
 
     private static String buildTextRequest(String model, String prompt) {
-        String p = OllamaClient.jsonEscape(prompt);
-        return "{\"model\":\"" + model + "\",\"max_tokens\":" + MAX_TOKENS + "," +
-               "\"messages\":[{\"role\":\"user\",\"content\":\"" + p + "\"}]}";
+        var node = MAPPER.createObjectNode();
+        node.put("model", model);
+        node.put("max_tokens", MAX_TOKENS);
+        var message = node.putArray("messages").addObject();
+        message.put("role", "user");
+        message.put("content", prompt);
+        return node.toString();
     }
 
     private static String buildVisionRequest(String model, String prompt, String screenshotBase64) {
-        String p = OllamaClient.jsonEscape(prompt);
-        return "{\"model\":\"" + model + "\",\"max_tokens\":" + MAX_TOKENS + "," +
-               "\"messages\":[{\"role\":\"user\",\"content\":[" +
-               "{\"type\":\"image\",\"source\":{\"type\":\"base64\",\"media_type\":\"image/png\"," +
-               "\"data\":\"" + screenshotBase64 + "\"}}," +
-               "{\"type\":\"text\",\"text\":\"" + p + "\"}" +
-               "]}]}";
+        var node = MAPPER.createObjectNode();
+        node.put("model", model);
+        node.put("max_tokens", MAX_TOKENS);
+        var message = node.putArray("messages").addObject();
+        message.put("role", "user");
+        var content = message.putArray("content");
+        var image = content.addObject();
+        image.put("type", "image");
+        image.putObject("source")
+                .put("type", "base64")
+                .put("media_type", "image/png")
+                .put("data", screenshotBase64);
+        content.addObject().put("type", "text").put("text", prompt);
+        return node.toString();
     }
 }

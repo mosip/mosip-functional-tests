@@ -89,18 +89,25 @@ public class OpenAiClient {
     }
 
     private static String buildTextRequest(String model, String prompt) {
-        String p = OllamaClient.jsonEscape(prompt);
-        return "{\"model\":\"" + model + "\",\"max_tokens\":" + MAX_TOKENS + "," +
-               "\"messages\":[{\"role\":\"user\",\"content\":\"" + p + "\"}]}";
+        var node = MAPPER.createObjectNode();
+        node.put("model", model);
+        node.put("max_tokens", MAX_TOKENS);
+        var message = node.putArray("messages").addObject();
+        message.put("role", "user");
+        message.put("content", prompt);
+        return node.toString();
     }
 
     private static String buildVisionRequest(String model, String prompt, String screenshotBase64) {
-        String p = OllamaClient.jsonEscape(prompt);
-        return "{\"model\":\"" + model + "\",\"max_tokens\":" + MAX_TOKENS + "," +
-               "\"messages\":[{\"role\":\"user\",\"content\":[" +
-               "{\"type\":\"image_url\",\"image_url\":{\"url\":\"data:image/png;base64," +
-               screenshotBase64 + "\"}}," +
-               "{\"type\":\"text\",\"text\":\"" + p + "\"}" +
-               "]}]}";
+        var node = MAPPER.createObjectNode();
+        node.put("model", model);
+        node.put("max_tokens", MAX_TOKENS);
+        var message = node.putArray("messages").addObject();
+        message.put("role", "user");
+        var content = message.putArray("content");
+        content.addObject().put("type", "image_url")
+                .putObject("image_url").put("url", "data:image/png;base64," + screenshotBase64);
+        content.addObject().put("type", "text").put("text", prompt);
+        return node.toString();
     }
 }

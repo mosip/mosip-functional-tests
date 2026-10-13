@@ -130,6 +130,7 @@ public final class UiExtentReportManager {
     }
 
     public static synchronized ExtentTest createTest(String testName) {
+        if (extent == null) initReport();
         ExtentTest test = extent.createTest(testName);
         testThread.set(test);
         currentTest = test;
@@ -166,10 +167,11 @@ public final class UiExtentReportManager {
     }
 
     public static synchronized void removeTest() {
+        ExtentTest mine = testThread.get();
         testThread.remove();
         stepCounter.remove();
         stepFailureScreenshotTaken.remove();
-        currentTest = null;
+        if (currentTest == mine) currentTest = null;
     }
 
     // ── Step / action logging ───────────────────────────────────────────────────

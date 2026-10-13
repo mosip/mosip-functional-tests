@@ -116,9 +116,8 @@ public class VisualDiffEngine {
         }
 
         if (!baselinePath.toFile().exists()) {
-            writeImage(baselinePath, currentBytes);
-            logger.info("No baseline found — captured new baseline: {}", snapshotName);
-            return;
+            throw new AssertionFailedError("No baseline for '" + snapshotName
+                    + "'. Run with -Dplaywright.update.snapshots=true to create it.");
         }
 
         compareAndAssert(baselinePath, currentBytes, snapshotName);
@@ -143,9 +142,8 @@ public class VisualDiffEngine {
         }
 
         if (!baselinePath.toFile().exists()) {
-            writeImage(baselinePath, currentBytes);
-            logger.info("No baseline found — captured new element baseline: {}", snapshotName);
-            return;
+            throw new AssertionFailedError("No baseline for '" + snapshotName
+                    + "'. Run with -Dplaywright.update.snapshots=true to create it.");
         }
 
         compareAndAssert(baselinePath, currentBytes, snapshotName);
@@ -157,6 +155,9 @@ public class VisualDiffEngine {
         try {
             BufferedImage baseline = ImageIO.read(baselinePath.toFile());
             BufferedImage current  = ImageIO.read(new ByteArrayInputStream(currentBytes));
+            if (baseline == null || current == null) {
+                throw new AssertionFailedError("Cannot decode snapshot image for '" + snapshotName + "'");
+            }
 
             if (baseline.getWidth() != current.getWidth() || baseline.getHeight() != current.getHeight()) {
                 logger.warn("Snapshot size changed: baseline {}x{}, current {}x{}",
@@ -194,8 +195,7 @@ public class VisualDiffEngine {
                     snapshotName, String.format("%.4f", diffRatio * 100));
 
         } catch (IOException e) {
-            logger.error("Failed to compare snapshots: {}", e.getMessage());
-            throw new AssertionFailedError("Snapshot comparison failed for '" + snapshotName + "': " + e.getMessage());
+            throw new AssertionFailedError("Snapshot comparison failed for '" + snapshotName + "': " + e.getMessage(), e);
         }
     }
 
@@ -205,17 +205,32 @@ public class VisualDiffEngine {
      */
     private void applyMasks(BufferedImage image) {
         if (maskedSelectors.isEmpty()) return;
+        double scale = getDevicePixelRatio();
         Graphics2D g = image.createGraphics();
         g.setColor(MASK_COLOR);
         for (String selector : maskedSelectors) {
             BoundingBox box = getDocumentBoundingBox(selector);
             if (box != null) {
-                g.fillRect(box.x(), box.y(), box.width(), box.height());
-                logger.debug("Mask applied: {} → {}x{} at ({},{})",
-                        selector, box.width(), box.height(), box.x(), box.y());
+                int x = (int) Math.round(box.x() * scale);
+                int y = (int) Math.round(box.y() * scale);
+                int w = (int) Math.round(box.width() * scale);
+                int h = (int) Math.round(box.height() * scale);
+                g.fillRect(x, y, w, h);
+                logger.debug("Mask applied: {} → {}x{} at ({},{})", selector, w, h, x, y);
             }
         }
         g.dispose();
+    }
+
+    /** CSS pixels (from getBoundingClientRect) must be scaled to device/screenshot pixels. */
+    private double getDevicePixelRatio() {
+        try {
+            Object result = page.evaluate("() => window.devicePixelRatio");
+            return result instanceof Number n ? n.doubleValue() : 1.0;
+        } catch (Exception e) {
+            logger.warn("Could not read devicePixelRatio, defaulting to 1.0: {}", e.getMessage());
+            return 1.0;
+        }
     }
 
     /**
@@ -296,7 +311,7 @@ public class VisualDiffEngine {
             Files.createDirectories(path.getParent());
             Files.write(path, bytes);
         } catch (IOException e) {
-            logger.error("Failed to write snapshot: {}", e.getMessage());
+            throw new java.io.UncheckedIOException("Failed to write snapshot: " + path, e);
         }
     }
 

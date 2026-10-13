@@ -61,6 +61,8 @@ public class BrowserManager {
      *   2. In subsequent scenarios: Page page = BrowserManager.initPageWithAuthState(statePath)
      *
      * @param storageStateFile path to a JSON file saved by Playwright's storageState()
+     * Note: the returned page's {@code BrowserContext} is not tracked by {@link #closePage()}.
+     * Close it yourself via {@code page.context().close()} when the caller is done with it.
      */
     public static Page initPageWithAuthState(Path storageStateFile) {
         Browser browser = PlaywrightFactory.getBrowser();

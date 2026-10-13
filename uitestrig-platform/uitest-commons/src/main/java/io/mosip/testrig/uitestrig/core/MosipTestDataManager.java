@@ -32,7 +32,12 @@ public class MosipTestDataManager {
         BaseTestCase.ApplnURI = ConfigManager.getproperty("apiInternalEndPoint");
         BaseTestCase.kernelAuthLib = new KernelAuthentication();
         KeycloakUserManager.removeUser();
-        KeycloakUserManager.createUsers();
+        try {
+            KeycloakUserManager.createUsers();
+        } catch (RuntimeException e) {
+            KeycloakUserManager.removeUser();
+            throw e;
+        }
         initLanguageList();
         initialized = true;
         logger.info("MosipTestDataManager initialized — module: {}, languages: {}", moduleName, languageList);

@@ -122,7 +122,7 @@ public abstract class BasePage {
 
     /** As {@link #fill(String, String)} but with a caller-supplied report description. */
     public void fill(String selector, String value, String description) {
-        UiExtentReportManager.logStepWithLocator(description + " [value: " + value + "]", selector);
+        UiExtentReportManager.logStepWithLocator(description, selector);
         try {
             page.locator(selector).fill(value);
         } catch (RuntimeException e) {
@@ -205,7 +205,7 @@ public abstract class BasePage {
      */
     public void fillHealing(String value, String primary, String... fallbacks) {
         UiExtentReportManager.logStepWithLocator(
-                "Enter text in " + humanize(primary) + " (self-healing) [value: " + value + "]", primary);
+                "Enter text in " + humanize(primary) + " (self-healing)", primary);
         SelfHealingLocator.fill(page, value, primary, fallbacks);
     }
 

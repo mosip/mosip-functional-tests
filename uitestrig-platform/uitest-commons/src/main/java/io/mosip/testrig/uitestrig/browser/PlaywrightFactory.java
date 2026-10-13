@@ -81,7 +81,7 @@ public class PlaywrightFactory {
     public static Page initPage() {
         if (Boolean.TRUE.equals(externalSession.get())) {
             logger.debug("External session active — returning registered page, skipping local launch");
-            return pageTL.get();
+            return getPage();
         }
         Page page = launch(null);
         logger.info("Playwright page initialised — browser: {}, headless: {}, device: {}",
@@ -127,7 +127,13 @@ public class PlaywrightFactory {
 
         BrowserType browserType = resolveBrowserType(pw, browserKey);
         BrowserType.LaunchOptions launchOpts = buildLaunchOptions(headless, browserKey);
-        Browser browser = browserType.launch(launchOpts);
+        Browser browser;
+        try {
+            browser = browserType.launch(launchOpts);
+        } catch (RuntimeException e) {
+            closePage();
+            throw e;
+        }
         browserTL.set(browser);
         UiExtentReportManager.setBrowserVersion(browserKey + " " + browser.version());
 
@@ -161,12 +167,10 @@ public class PlaywrightFactory {
 
     public static void closePage() {
         try {
-            if (pageTL.get()       != null) pageTL.get().close();
-            if (contextTL.get()    != null) contextTL.get().close();
-            if (browserTL.get()    != null) browserTL.get().close();
-            if (playwrightTL.get() != null) playwrightTL.get().close();
-        } catch (Exception e) {
-            logger.warn("Error during Playwright cleanup: {}", e.getMessage());
+            closeQuietly(pageTL.get());
+            closeQuietly(contextTL.get());
+            closeQuietly(browserTL.get());
+            closeQuietly(playwrightTL.get());
         } finally {
             pageTL.remove();
             contextTL.remove();
@@ -176,13 +180,24 @@ public class PlaywrightFactory {
         }
     }
 
+    private static void closeQuietly(AutoCloseable c) {
+        if (c == null) return;
+        try {
+            c.close();
+        } catch (Exception e) {
+            logger.warn("Error during Playwright cleanup: {}", e.getMessage());
+        }
+    }
+
     // ── Internals ─────────────────────────────────────────────────────────────
 
     private static BrowserType resolveBrowserType(Playwright pw, String browser) {
         return switch (browser.toLowerCase()) {
-            case "firefox"                -> pw.firefox();
-            case "webkit", "safari"       -> pw.webkit();
-            default                       -> pw.chromium();
+            case "firefox"                                  -> pw.firefox();
+            case "webkit", "safari"                          -> pw.webkit();
+            case "chromium", "chrome", "msedge", "edge"      -> pw.chromium();
+            default -> throw new IllegalArgumentException(
+                    "Unknown browser '" + browser + "'. Supported: chromium, chrome, msedge, edge, firefox, webkit, safari");
         };
     }
 
