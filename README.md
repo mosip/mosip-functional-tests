@@ -11,6 +11,12 @@ This repository consists of:
    - A reusable library for API testing.
    - Released independently to [Maven Central](https://search.maven.org/) under the artifact ID `apitest-commons`.
    - Includes its own [README](apitest-commons/README.md) for detailed instructions on setup and usage.
+2. **`uitestrig-platform`**:
+   - Parent POM for the shared UI automation framework (`uitest-commons`, plus optional
+     `uitest-browserstack` and `uitest-ai`) — Playwright, Cucumber BDD, run via JUnit5 Platform Suite.
+   - Consumed as a dependency by each MOSIP module's own UI testrig (e.g. `uitest-resident` in
+     `mosip/resident-ui`).
+   - Includes its own [README](uitestrig-platform/README.md) for detailed instructions on setup and usage.
 
 ---
 

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.mosip.testrig.uitestrig</groupId>
+    <artifactId>uitestrig-platform</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>uitestrig-platform</name>
+    <description>
+        Parent POM for the MOSIP UI Quality Engineering Platform, part of the mosip-functional-tests
+        repository (alongside apitest-commons).
+        Build order: uitest-commons → uitest-browserstack, uitest-ai (parallel).
+        Run from this directory:
+          mvn clean install -DskipTests -Dgpg.skip=true
+    </description>
+    <url>https://github.com/mosip/mosip-functional-tests</url>
+
+    <licenses>
+        <license>
+            <name>MPL 2.0</name>
+            <url>https://www.mozilla.org/en-US/MPL/2.0/</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git://github.com/mosip/mosip-functional-tests.git</connection>
+        <developerConnection>scm:git:ssh://github.com:mosip/mosip-functional-tests.git</developerConnection>
+        <url>https://github.com/mosip/mosip-functional-tests</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>Mosip</name>
+            <email>mosip.emailnotifier@gmail.com</email>
+            <organization>io.mosip</organization>
+            <organizationUrl>https://github.com/mosip/mosip-functional-tests</organizationUrl>
+        </developer>
+    </developers>
+
+    <!-- Same Sonatype Central (OSSRH) distribution as apitest-commons — publishes alongside
+         it rather than to a separate internal registry. Actually running `mvn deploy` needs a
+         GPG key and Sonatype credentials (server id "ossrh" in settings.xml) that aren't set
+         up as part of this change. -->
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://central.sonatype.com/repository/maven-snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://central.sonatype.com/api/v1/publisher</url>
+        </repository>
+    </distributionManagement>
+
+    <properties>
+        <java.version>21</java.version>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Shared dependency versions -->
+        <playwright.version>1.44.0</playwright.version>
+        <cucumber.version>7.18.0</cucumber.version>
+        <junit.platform.version>1.10.2</junit.platform.version>
+        <junit.jupiter.version>5.10.2</junit.jupiter.version>
+        <extentreports.version>5.1.1</extentreports.version>
+        <extentreports.cucumber.adapter.version>1.14.0</extentreports.cucumber.adapter.version>
+        <slf4j.version>2.0.9</slf4j.version>
+        <logback.version>1.4.14</logback.version>
+        <apitest.commons.version>1.7.0</apitest.commons.version>
+
+        <!-- Plugin versions -->
+        <maven.compiler.plugin.version>3.12.1</maven.compiler.plugin.version>
+        <maven.surefire.plugin.version>3.2.5</maven.surefire.plugin.version>
+        <maven.jar.plugin.version>3.3.0</maven.jar.plugin.version>
+        <git.commit.id.plugin.version>3.0.1</git.commit.id.plugin.version>
+        <central.publishing.maven.plugin.version>0.8.0</central.publishing.maven.plugin.version>
+    </properties>
+
+    <!--
+        Modules are listed in dependency order.
+        Maven resolves the build sequence automatically based on inter-module deps,
+        but explicit ordering here makes the intent clear.
+    -->
+    <modules>
+        <module>uitest-commons</module>
+        <module>uitest-browserstack</module>
+        <module>uitest-ai</module>
+    </modules>
+
+    <!-- Centralise plugin configuration inherited by all child modules -->
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven.compiler.plugin.version}</version>
+                    <configuration>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.target}</target>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven.surefire.plugin.version}</version>
+                    <configuration>
+                        <properties>
+                            <configurationParameters>
+                                junit.jupiter.extensions.autodetection.enabled=true
+                            </configurationParameters>
+                        </properties>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <!-- Not in pluginManagement — these need to actually run (bound to the verify/deploy
+             phases) for every child module's `mvn deploy`, same as apitest-commons. Skip with
+             -Dgpg.skip=true for a plain local install (see this pom's own description). -->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                        <configuration>
+                            <gpgArguments>
+                                <arg>--pinentry-mode</arg>
+                                <arg>loopback</arg>
+                            </gpgArguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Required at the root: the shared mosip/kattu maven-build.yml CI workflow
+                 checks this exact root pom.xml for pl.project13.maven:git-commit-id-plugin
+                 under build/plugins and fails the job otherwise. -->
+            <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+                <version>${git.commit.id.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>populate-git-commit-information</id>
+                        <goals><goal>revision</goal></goals>
+                        <configuration>
+                            <verbose>false</verbose>
+                            <abbrevLength>8</abbrevLength>
+                            <generateGitPropertiesFile>true</generateGitPropertiesFile>
+                            <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
+                            <failOnNoGitDirectory>false</failOnNoGitDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>${central.publishing.maven.plugin.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>ossrh</publishingServerId>
+                    <autoPublish>false</autoPublish>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>visual-regression</id>
+            <properties>
+                <playwright.update.snapshots>false</playwright.update.snapshots>
+            </properties>
+        </profile>
+        <profile>
+            <id>update-snapshots</id>
+            <properties>
+                <playwright.update.snapshots>true</playwright.update.snapshots>
+            </properties>
+        </profile>
+    </profiles>
+
+</project>

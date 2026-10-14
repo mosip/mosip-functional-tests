@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.mosip.testrig.uitestrig</groupId>
+        <artifactId>uitestrig-platform</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>uitest-browserstack</artifactId>
+    <!-- Declared directly (duplicating the parent) so the shared CI workflow's version
+         check, which reads project/version without resolving Maven inheritance, can see it. -->
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>uitest-browserstack</name>
+    <description>Optional BrowserStack cloud-grid integration for uitest-commons — connects Playwright via
+        the BrowserStack CDP endpoint; marks session pass/fail; provides session video/public URLs.
+        Add alongside uitest-commons; activate with browserstack.enabled=yes in uitest.properties.</description>
+
+    <dependencies>
+
+        <!-- uitest-commons — brings Playwright, Cucumber, SLF4J transitively -->
+        <dependency>
+            <groupId>io.mosip.testrig.uitestrig</groupId>
+            <artifactId>uitest-commons</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!--
+            browserstack-java-sdk is intentionally NOT included here.
+            uitest-browserstack uses Playwright's native CDP connect() mechanism
+            (wss://cdp.browserstack.com/playwright?caps=...) which requires no
+            BrowserStack SDK.  If you need advanced SDK features such as automatic
+            network-log capture or BrowserStack Local tunnel support, add the SDK
+            as an OPTIONAL dependency in your consuming module:
+
+            <dependency>
+              <groupId>com.browserstack</groupId>
+              <artifactId>browserstack-java-sdk</artifactId>
+              <version>1.28.0</version>
+              <scope>test</scope>
+            </dependency>
+        -->
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

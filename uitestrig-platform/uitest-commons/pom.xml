@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.mosip.testrig.uitestrig</groupId>
+        <artifactId>uitestrig-platform</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>uitest-commons</artifactId>
+    <!-- Declared directly (duplicating the parent) so the shared CI workflow's version
+         check, which reads project/version without resolving Maven inheritance, can see it. -->
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>uitest-commons</name>
+    <description>Shared UI automation library for MOSIP — Playwright, Cucumber BDD, visual validation, MOSIP auth utilities</description>
+    <url>https://github.com/mosip/mosip-functional-tests</url>
+
+    <licenses>
+        <license>
+            <name>MPL 2.0</name>
+            <url>https://www.mozilla.org/en-US/MPL/2.0/</url>
+        </license>
+    </licenses>
+
+    <dependencies>
+
+        <!-- ============================================================ -->
+        <!-- MOSIP backend utilities — reused from apitest-commons        -->
+        <!-- Run: mvn install in apitest-commons before building this     -->
+        <!-- ============================================================ -->
+        <dependency>
+            <groupId>io.mosip.testrig.apitest.commons</groupId>
+            <artifactId>apitest-commons</artifactId>
+            <version>${apitest.commons.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.mosip.mock.mds</groupId>
+                    <artifactId>mock-mds</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.itextpdf</groupId>
+                    <artifactId>html2pdf</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.itextpdf</groupId>
+                    <artifactId>itextpdf</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>de.mkammerer</groupId>
+                    <artifactId>argon2-jvm</artifactId>
+                </exclusion>
+                <!-- The full AWS SDK bundle (~140 service jars + Netty) — only S3Adapter uses AWS,
+                     and only the S3 client; replaced below with the modular aws-java-sdk-s3. -->
+                <exclusion>
+                    <groupId>com.amazonaws</groupId>
+                    <artifactId>aws-java-sdk</artifactId>
+                </exclusion>
+                <!-- Velocity templating — not used by any class on this module's call path. -->
+                <exclusion>
+                    <groupId>io.mosip.kernel</groupId>
+                    <artifactId>kernel-templatemanager-velocity</artifactId>
+                </exclusion>
+                <!-- kernel-keymanager-service itself stays (KeycloakUserManager's static
+                     initializer needs its jose4j dependency), but these specific grandchildren
+                     of it are unreachable from the apitest-commons classes uitest-commons calls
+                     (ConfigManager, KernelAuthentication, KeycloakUserManager, RestClient,
+                     S3Adapter, BaseTestCase, ExtractResource, OTPListener) — verified by actually
+                     loading those 8 classes against the trimmed classpath, not just grepping
+                     imports. -->
+                <exclusion>
+                    <groupId>io.mosip.kernel</groupId>
+                    <artifactId>kernel-pdfgenerator-itext</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>io.mosip.kernel</groupId>
+                    <artifactId>kernel-dataaccess-hibernate</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-data-jpa</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.security</groupId>
+                    <artifactId>spring-security-test</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springdoc</groupId>
+                    <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.h2database</groupId>
+                    <artifactId>h2</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.github.microsoft</groupId>
+                    <artifactId>TSS.Java</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- Modular replacement for the excluded full aws-java-sdk bundle — S3Adapter only needs
+             the S3 client (ClientConfiguration, AmazonS3ClientBuilder, PutObjectRequest, etc.),
+             all of which live in this one module. Pinned to 1.12.797 (not the 1.11.368 that
+             aws-java-sdk resolved to) since AWS SDK v1 is end-of-support as of 2025-12-31 and
+             1.12.797 is the latest v1 patch release available; full migration to the v2 SDK
+             (software.amazon.awssdk:s3) would mean rewriting S3Adapter, which lives in the
+             separate apitest-commons module/repo and is out of scope here.
+             Scope must be compile, not test: a test-scoped dependency's own test-scoped deps
+             don't propagate transitively, and consumers (e.g. ui-test) pull uitest-commons in at
+             test scope, so this needs compile scope here to actually reach their classpath. -->
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-s3</artifactId>
+            <version>1.12.797</version>
+        </dependency>
+
+        <!-- ============================================================ -->
+        <!-- Playwright — browser automation                               -->
+        <!-- ============================================================ -->
+        <dependency>
+            <groupId>com.microsoft.playwright</groupId>
+            <artifactId>playwright</artifactId>
+            <version>${playwright.version}</version>
+        </dependency>
+
+        <!-- ============================================================ -->
+        <!-- Cucumber BDD — JUnit5 platform                               -->
+        <!-- ============================================================ -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit-platform-engine</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite</artifactId>
+            <version>${junit.platform.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.jupiter.version}</version>
+        </dependency>
+
+        <!-- ============================================================ -->
+        <!-- Reporting — Extent Reports + Cucumber adapter                -->
+        <!-- ============================================================ -->
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>${extentreports.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>tech.grasshopper</groupId>
+            <artifactId>extentreports-cucumber7-adapter</artifactId>
+            <version>${extentreports.cucumber.adapter.version}</version>
+        </dependency>
+
+        <!-- ============================================================ -->
+        <!-- Logging                                                       -->
+        <!-- ============================================================ -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Compiler and Surefire configs inherited from parent pluginManagement -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+            </plugin>
+
+            <!-- git-commit-id-plugin is inherited from the parent (uitestrig-platform/pom.xml),
+                 which must declare it directly for the shared CI workflow's root-pom check. -->
+        </plugins>
+    </build>
+
+</project>
