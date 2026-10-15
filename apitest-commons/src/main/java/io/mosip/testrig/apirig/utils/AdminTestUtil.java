@@ -3887,8 +3887,13 @@ public class AdminTestUtil extends BaseTestCase {
 		String regex = null;
 		if (props.has(fieldName)) {
 			JSONObject fieldDef = props.getJSONObject(fieldName);
-			if ("array".equals(fieldDef.optString("type", "string"))) {
+			JSONObject resolvedDef = resolveSchemaRef(fieldDef);
+			String fieldType = fieldDef.optString("type", resolvedDef.optString("type", "string"));
+			if ("array".equals(fieldType)) {
 				JSONObject itemsDef = fieldDef.optJSONObject("items");
+				if (itemsDef == null) {
+					itemsDef = resolvedDef.optJSONObject("items");
+				}
 				JSONObject valueDef = itemsDef != null && itemsDef.optJSONObject("properties") != null
 						? itemsDef.getJSONObject("properties").optJSONObject("value")
 						: null;
@@ -3898,6 +3903,9 @@ public class AdminTestUtil extends BaseTestCase {
 				}
 			} else {
 				JSONArray validators = fieldDef.optJSONArray("validators");
+				if (validators == null) {
+					validators = resolvedDef.optJSONArray("validators");
+				}
 				if (validators != null && validators.length() > 0) {
 					regex = validators.getJSONObject(0).getString("validator");
 				}
@@ -3915,6 +3923,28 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 		}
 		return "mosip" + generateRandomNumberString(10);
+	}
+
+	/**
+	 * Follows a local {@code $ref} such as {@code #/definitions/functionalIdType}.
+	 * Returns the original node when there is no ref or the target cannot be resolved.
+	 */
+	private static JSONObject resolveSchemaRef(JSONObject node) {
+		if (node == null || globalSchemaFileJson == null || !node.has("$ref")) {
+			return node == null ? new JSONObject() : node;
+		}
+		String ref = node.optString("$ref", "");
+		if (!ref.startsWith("#/")) {
+			return node;
+		}
+		JSONObject current = globalSchemaFileJson;
+		for (String part : ref.substring(2).split("/")) {
+			if (!(current.opt(part) instanceof JSONObject)) {
+				return node;
+			}
+			current = current.getJSONObject(part);
+		}
+		return current;
 	}
 
 	/**
@@ -8109,6 +8139,8 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static JSONObject globalIdentityPropsJson = null;
+	/** Full IdSchema document, cached with {@link #globalIdentityPropsJson} so $ref definitions can be resolved. */
+	private static JSONObject globalSchemaFileJson = null;
 	/** Identity node's "additionalProperties" flag (populated by getIdentitySchemaProperties); null until fetched. */
 	public static Boolean globalIdentityAdditionalProperties = null;
 
@@ -8137,6 +8169,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String schemaJsonData = schemaData.getString(GlobalConstants.SCHEMA_JSON);
 
 		JSONObject schemaFileJson = new JSONObject(schemaJsonData);
+		globalSchemaFileJson = schemaFileJson;
 		JSONObject schemaPropsJson = schemaFileJson.getJSONObject("properties");
 		JSONObject schemaIdentityJson = schemaPropsJson.getJSONObject("identity");
 		globalIdentityPropsJson = schemaIdentityJson.getJSONObject("properties");
