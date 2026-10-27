@@ -29,11 +29,38 @@ public class MDSClient implements MDSClientInterface {
 	public int port;
 	public static String MDSURL = "http://127.0.0.1:";
 
+	/**
+	 * Must match the purpose the Mock SBI was started with, otherwise the device
+	 * rejects the capture and returns an empty payload. Defaults to Registration,
+	 * which is what callers relied on before this was configurable.
+	 */
+	private String purpose = "Registration";
+
+	/**
+	 * Must match the env the device declares in its DeviceInfo, otherwise the
+	 * capture is rejected (mock-mds error 115, "Env values Mismatch"). Defaults to
+	 * Developer, which is what callers relied on before this was configurable.
+	 */
+	private String env = "Developer";
+
 	public MDSClient(int port) {
 		if (port == 0)
 			this.port = 4501;
 		else
 			this.port = port;
+	}
+
+	public MDSClient(int port, String purpose) {
+		this(port);
+		if (purpose != null && !purpose.trim().isEmpty()) {
+			this.purpose = purpose.trim();
+		}
+	}
+
+	public void setEnv(String env) {
+		if (env != null && !env.trim().isEmpty()) {
+			this.env = env.trim();
+		}
 	}
 
 	public void setProfile(String profile, int port, String contextKey) {
@@ -72,10 +99,22 @@ public class MDSClient implements MDSClientInterface {
 					devices = objectMapper.readValue(deviceArray.toString(),
 							objectMapper.getTypeFactory().constructCollectionType(List.class, MDSDevice.class));
 
+					if (devices != null) {
+						for (MDSDevice device : devices) {
+							if (device.getDeviceSubId() == null || device.getDeviceSubId().isEmpty()) {
+								logger.error("Mock SBI returned a '" + type
+										+ "' device with no deviceSubId - it cannot be captured from. Raw device info: "
+										+ deviceArray);
+							}
+						}
+					}
 				} catch (IOException e) {
-					logger.error(e.getMessage());
+					logger.error("Failed to parse '" + type + "' device info from Mock SBI. Raw response: " + resp, e);
 				}
 			}
+		} else {
+			logger.error("Mock SBI device info request for type '" + type + "' at " + url + " returned status "
+					+ response.getStatusCode() + ": " + response.getBody().asString());
 		}
 		return devices;
 	}
@@ -95,13 +134,14 @@ public class MDSClient implements MDSClientInterface {
 
 		String url = MDSURL + port + "/capture";
 		JSONObject jsonReq = new JSONObject();
-		jsonReq.put("env", "Developer");
-		jsonReq.put("purpose", "Registration");
+		jsonReq.put("env", env);
+		jsonReq.put("purpose", purpose);
 		jsonReq.put("specVersion", "0.9.5");
 		jsonReq.put("timeout", "120000");
 		jsonReq.put("captureTime", CommonUtil.getUTCDateTime(null));
 		jsonReq.put("domainUri", "automated");
-		jsonReq.put("transactionId", "123456789123");
+		jsonReq.put("transactionId", "Registration".equalsIgnoreCase(purpose) ? "123456789123"
+				: io.mosip.testrig.apirig.utils.AdminTestUtil.TRANSACTION_ID);
 		JSONObject bio = new JSONObject();
 		bio.put("type", type);
 
@@ -126,7 +166,13 @@ public class MDSClient implements MDSClientInterface {
 
 		}
 
-		bio.put("requestedScore", reqScore);
+		if (!"Registration".equalsIgnoreCase(purpose) && bioSubType != null && !bioSubType.trim().isEmpty()) {
+			bio.put("bioSubType", new JSONArray().put(bioSubType.trim()));
+		}
+
+		bio.put("count", String.valueOf(bio.get("count")));
+		bio.put("requestedScore", String.valueOf(reqScore));
+		bio.put("previousHash", "");
 		// bio.put("deviceId", Integer.valueOf(device.getDeviceId()));
 		bio.put("deviceId", device.getDeviceId());
 		if (listbioexception != null && !listbioexception.isEmpty())
@@ -141,7 +187,8 @@ public class MDSClient implements MDSClientInterface {
 		 */
 		try {
 			HttpRCapture capture = new HttpRCapture(url);
-			capture.setMethod("RCAPTURE");
+			String captureMethod = "Registration".equalsIgnoreCase(purpose) ? "RCAPTURE" : "CAPTURE";
+			capture.setMethod(captureMethod);
 			
 //		    String method = "RCAPTURE"; // Custom method name
 //		    String response = RestClient.rawHttp(url, jsonReq.toString(), method);
@@ -180,7 +227,35 @@ public class MDSClient implements MDSClientInterface {
 
 			for (int i = 0; i < bioArray.length(); i++) {
 				JSONObject bioObject = bioArray.getJSONObject(i);
+
+				if (!bioObject.has("data") || bioObject.isNull("data")) {
+					JSONObject error = bioObject.optJSONObject("error");
+					if (error != null) {
+						logger.error("Mock SBI capture failed for type '" + type + "' (deviceSubId " + deviceSubId
+								+ "): errorCode=" + error.optString("errorCode", "?") + " errorInfo="
+								+ error.optString("errorInfo", "?"));
+					} else {
+						logger.error("Mock SBI capture returned no data for type '" + type + "' (deviceSubId "
+								+ deviceSubId + "): " + bioObject);
+					}
+					continue;
+				}
+
 				String data = bioObject.getString("data");
+
+				if (data.split("\\.").length < 3) {
+					JSONObject error = bioObject.optJSONObject("error");
+					if (error != null && !error.optString("errorCode", "0").equals("0")) {
+						logger.error("Mock SBI capture failed for type '" + type + "' (deviceSubId " + deviceSubId
+								+ "): errorCode=" + error.optString("errorCode", "?") + " errorInfo="
+								+ error.optString("errorInfo", "?"));
+					} else {
+						logger.error("Mock SBI returned a non-JWT 'data' for type '" + type + "' (deviceSubId "
+								+ deviceSubId + "). Length=" + data.length() + " value="
+								+ data.substring(0, Math.min(300, data.length())));
+					}
+					continue;
+				}
 
 				String hash = bioObject.getString("hash");
 				JWTTokenModel jwtTok = new JWTTokenModel(data);
@@ -195,6 +270,10 @@ public class MDSClient implements MDSClientInterface {
 						CommonUtil.getJSONObjectAttribute(jsonPayload, "deviceServiceVersion", ""));
 				model.setDeviceCode(CommonUtil.getJSONObjectAttribute(jsonPayload, "deviceCode", ""));
 				model.setHash(hash);
+				model.setSessionKey(bioObject.optString("sessionKey", ""));
+				model.setThumbprint(bioObject.optString("thumbprint", ""));
+				model.setCaptureTimestamp(CommonUtil.getJSONObjectAttribute(jsonPayload, "timestamp", ""));
+				model.setCaptureTransactionId(CommonUtil.getJSONObjectAttribute(jsonPayload, "transactionId", ""));
 				if (mosipVersion != null && mosipVersion.startsWith("1.2")) {
 					model.setSb(jwtSign); // SB is signature block (header..signature)
 					// String temp=jwtTok.getJwtPayload().replace(model.getBioValue(),);
@@ -213,7 +292,8 @@ public class MDSClient implements MDSClientInterface {
 			}
 
 		} catch (Exception e) {
-			logger.error(e.getMessage());
+			logger.error("Mock SBI capture failed for type '" + type + "' (deviceSubId " + deviceSubId + ") at " + url,
+					e);
 		}
 
 		return rCaptureModel;

@@ -37,7 +37,27 @@ public class BioDataUtility extends AdminTestUtil {
 
 	private String encryptIsoBioValue(String isoBiovalue, String timestamp, String bioValueEncryptionTemplateJson,
 			String transactionId, boolean isInternal) {
-		
+
+		String captureSessionKey = io.mosip.testrig.apirig.dataprovider.BiometricDataProvider
+				.getCaptureSessionKey(isoBiovalue);
+		if (captureSessionKey != null && !captureSessionKey.isEmpty()) {
+			String captureThumbprint = io.mosip.testrig.apirig.dataprovider.BiometricDataProvider
+					.getCaptureThumbprint(isoBiovalue);
+			logger.info("Using the session key returned with the capture instead of " + "/internal/encrypt");
+			String rawBioValue = io.mosip.testrig.apirig.dataprovider.BiometricDataProvider
+					.getCaptureRawBioValue(isoBiovalue);
+			JSONObject capturedJson = new JSONObject();
+			capturedJson.put("encryptedSessionKey", captureSessionKey);
+			capturedJson.put("encryptedData", rawBioValue == null ? isoBiovalue : rawBioValue);
+			capturedJson.put("thumbprint", captureThumbprint == null ? "" : captureThumbprint);
+			return capturedJson.toString();
+		}
+
+		String localCertUrl = ConfigManager.getproperty("local.bio.encryptCertUrl");
+		if (localCertUrl != null && !localCertUrl.isBlank()) {
+			return encryptLocally(isoBiovalue, timestamp, transactionId, localCertUrl.trim());
+		}
+
 		String cryptoEncryptUrl = BaseTestCase.ApplnURI + "/idauthentication/v1/internal/encrypt";
 		byte[] xorBytes = BytesUtil.getXOR(timestamp, transactionId);
 		byte[] saltLastBytes = BytesUtil.getLastBytes(xorBytes, 12);
@@ -83,6 +103,47 @@ public class BioDataUtility extends AdminTestUtil {
 	}
 	
 	
+
+	private static java.security.cert.X509Certificate localEncryptionCert;
+
+	/**
+	 * Mirrors IdAuthFilter.decipherBioData: the session key is RSA-OAEP wrapped for
+	 * the certificate at certUrl, the data is AES-GCM encrypted with the IV and AAD
+	 * taken from the last 12 / 16 bytes of timestamp XOR transactionId, and the
+	 * thumbprint is that certificate's SHA-256 in hex. The cipher calls are the Mock
+	 * SBI's own, which IDA already decrypts for every capture.
+	 */
+	private String encryptLocally(String isoBiovalue, String timestamp, String transactionId, String certUrl) {
+		JSONObject result = new JSONObject();
+		try {
+			if (localEncryptionCert == null) {
+				java.net.http.HttpResponse<String> response = java.net.http.HttpClient.newHttpClient().send(
+						java.net.http.HttpRequest.newBuilder(java.net.URI.create(certUrl)).GET().build(),
+						java.net.http.HttpResponse.BodyHandlers.ofString());
+				String pem = new JSONObject(response.body()).getJSONObject("response").getString("certificate");
+				byte[] der = Base64.getMimeDecoder().decode(pem.replaceAll("-----[A-Z ]+-----", ""));
+				localEncryptionCert = (java.security.cert.X509Certificate) java.security.cert.CertificateFactory
+						.getInstance("X.509").generateCertificate(new java.io.ByteArrayInputStream(der));
+			}
+			byte[] xorBytes = BytesUtil.getXOR(timestamp, transactionId);
+			byte[] iv = BytesUtil.getLastBytes(xorBytes, 12);
+			byte[] aad = BytesUtil.getLastBytes(xorBytes, 16);
+			byte[] plain = org.apache.commons.codec.binary.Base64.decodeBase64(isoBiovalue);
+			javax.crypto.SecretKey key = org.biometric.provider.CryptoUtility.getSymmetricKey();
+			byte[] encryptedData = org.biometric.provider.CryptoUtility.symmetricEncrypt(key, plain, iv, aad);
+			byte[] encryptedKey = org.biometric.provider.CryptoUtility
+					.asymmetricEncrypt(localEncryptionCert.getPublicKey(), key.getEncoded());
+			result.put("encryptedSessionKey", org.biometric.provider.CryptoUtility.encodeToURLSafeBase64(encryptedKey));
+			result.put("encryptedData", org.biometric.provider.CryptoUtility.encodeToURLSafeBase64(encryptedData));
+			result.put("thumbprint", Hex.encodeHexString(
+					MessageDigest.getInstance("SHA-256").digest(localEncryptionCert.getEncoded())).toUpperCase());
+			result.put("localEncryption", "true");
+			logger.info("Encrypted a non-captured bioValue locally for " + certUrl);
+		} catch (Exception e) {
+			logger.error("Local bioValue encryption failed", e);
+		}
+		return result.toString();
+	}
 
 	private String getHash(String content) {
 		return HMACUtils.digestAsPlainText(HMACUtils.generateHash(content.getBytes()));
@@ -144,9 +205,19 @@ public class BioDataUtility extends AdminTestUtil {
 				identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, digitalId,
 						biometricsMapper + ".data.digitalId");
 			}
-			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest,
-					AdminTestUtil.generateCurrentUTCTimeStamp(), biometricsMapper + ".data.timestamp");
+			String existingData = JsonPrecondtion.getJsonValueFromJson(identityRequest,
+					biometricsMapper + GlobalConstants.DATA);
+			String capturedBioValue = JsonPrecondtion.getValueFromJson(existingData, GlobalConstants.BIOVALUE);
+			String captureTimestamp = io.mosip.testrig.apirig.dataprovider.BiometricDataProvider
+					.getCaptureTimestamp(capturedBioValue);
+			String captureTransactionId = io.mosip.testrig.apirig.dataprovider.BiometricDataProvider
+					.getCaptureTransactionId(capturedBioValue);
 
+			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest,
+					captureTimestamp == null || captureTimestamp.isEmpty()
+							? AdminTestUtil.generateCurrentUTCTimeStamp()
+							: captureTimestamp,
+					biometricsMapper + ".data.timestamp");
 			String data = JsonPrecondtion.getJsonValueFromJson(identityRequest, biometricsMapper + GlobalConstants.DATA);
 			String bioValue = JsonPrecondtion.getValueFromJson(data, GlobalConstants.BIOVALUE);
 
@@ -163,8 +234,17 @@ public class BioDataUtility extends AdminTestUtil {
 			String signedData = "";
 			if (isInternal == false) {
 				signedData = getSignedBiometrics(latestData,"DEVICE");
+				String capturedThumbprint = io.mosip.testrig.apirig.dataprovider.BiometricDataProvider
+						.getCaptureThumbprint(capturedBioValue);
+				if ((capturedThumbprint == null || capturedThumbprint.isEmpty())
+						&& "true".equals(JsonPrecondtion.getValueFromJson(encryptedContent, "localEncryption"))) {
+					capturedThumbprint = JsonPrecondtion.getValueFromJson(encryptedContent, "thumbprint");
+				}
 				identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest,
-						EncryptionDecrptionUtil.idaFirThumbPrint, biometricsMapper + ".thumbprint");
+						capturedThumbprint == null || capturedThumbprint.isEmpty()
+								? EncryptionDecrptionUtil.idaFirThumbPrint
+								: capturedThumbprint,
+						biometricsMapper + ".thumbprint");
 			} else if (isInternal) {
 				signedData = EncryptionDecrptionUtil.getBase64EncodedString(latestData);
 				identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest,
@@ -186,6 +266,11 @@ public class BioDataUtility extends AdminTestUtil {
 	        System.arraycopy(previousBioDataHash, 0, finalBioDataHash, 0, previousBioDataHash.length);
 	        System.arraycopy(currentBioDataHash, 0, finalBioDataHash, previousBioDataHash.length, currentBioDataHash.length);
 			String hash = toHex (generateHash (finalBioDataHash));
+			String captureHash = io.mosip.testrig.apirig.dataprovider.BiometricDataProvider
+					.getCaptureHash(capturedBioValue);
+			if (captureHash != null && !captureHash.isEmpty()) {
+				hash = captureHash;
+			}
 			previousBioDataHash = decodeHex(hash);
 			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, hash,
 					biometricsMapper + ".hash");

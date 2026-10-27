@@ -376,7 +376,7 @@
 		<dependency>
 			<groupId>io.mosip.mock.mds</groupId>
 			<artifactId>mock-mds</artifactId>
-			<version>1.3.0-beta.1</version>
+			<version>1.4.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
@@ -407,7 +407,9 @@
 		<dependency>
 			<groupId>io.mosip.kernel</groupId>
 			<artifactId>kernel-core</artifactId>
-			<version>${kernel.version}</version>
+			<!-- mock-mds 1.4.0-SNAPSHOT is built against kernel-core 1.3.1-rc.1 and needs
+			     io.mosip.kernel.core.util.DateUtils2, which ${kernel.version} lacks. -->
+			<version>1.3.1-rc.1</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
