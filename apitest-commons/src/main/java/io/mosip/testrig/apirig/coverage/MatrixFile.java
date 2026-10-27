@@ -27,8 +27,16 @@ public final class MatrixFile {
 	public static final String GRID_END = "<!-- /GENERATED:grid -->";
 	public static final String EP_START = "<!-- ENDPOINT:details -->";
 	public static final String EP_END = "<!-- /ENDPOINT:details -->";
-	static final String GRID_HEADER = "| ID | Scenario (given/when) | Expected result (then) | Type | Tier | Status | Test | Notes |";
-	static final String GRID_SEPARATOR = "|---|---|---|---|---|---|---|---|";
+	static final String GRID_HEADER = "| ID | Scenario (given/when) | Steps | Expected result (then) | Type | Tier | Status | Test | Story | Notes |";
+	static final String GRID_SEPARATOR = "|---|---|---|---|---|---|---|---|---|---|";
+	/** Column positions of the current (10-column) grid. */
+	static final int ID = 0, SCENARIO = 1, STEPS = 2, EXPECTED = 3, TYPE = 4, TIER = 5, STATUS = 6, TEST = 7, STORY = 8,
+			NOTES = 9, COLUMNS = 10;
+	/** Older grid formats; {@link #parse} upgrades them in place, so sync migrates any module automatically. */
+	static final String HEADER_V8 = "| ID | Scenario (given/when) | Expected result (then) | Type | Tier | Status | Test | Notes |";
+	static final String HEADER_V9 = "| ID | Scenario (given/when) | Expected result (then) | Type | Tier | Status | Test | Story | Notes |";
+	/** Separates numbered steps inside the Steps cell (a table cell can't hold a line break). */
+	static final String STEP_BREAK = "<br>";
 	static final String ENDPOINT_PLACEHOLDER = "_TODO — describe this endpoint for a non-automation reader (see `AGENTS.md` § \"About this endpoint\")._\n";
 	static final String AUTOMATED = "✅ automated";
 	static final String NOT_AUTOMATED = "🟡 not_automated";
@@ -52,7 +60,7 @@ public final class MatrixFile {
 
 	public static final class Row {
 		String raw;
-		final List<String> cells; // trimmed; exactly 8 when well-formed
+		final List<String> cells; // trimmed; exactly COLUMNS (10) when well-formed
 		final int line; // 1-based line in the file (0 for a new stub)
 
 		Row(String raw, int line) {
@@ -62,38 +70,66 @@ public final class MatrixFile {
 		}
 
 		public boolean wellFormed() {
-			return cells.size() == 8;
+			return cells.size() == COLUMNS;
 		}
 
 		public String id() {
-			return cell(0);
+			return cell(ID);
 		}
 
 		public String scenario() {
-			return cell(1);
+			return cell(SCENARIO);
+		}
+
+		/** The Steps cell as written ("1. ... <br>2. ..."). */
+		public String steps() {
+			return cell(STEPS);
+		}
+
+		/** Each step, split on {@link #STEP_BREAK}. */
+		public List<String> stepList() {
+			List<String> out = new ArrayList<>();
+			for (String s : steps().split(Pattern.quote(STEP_BREAK)))
+				if (!s.isBlank())
+					out.add(s.trim());
+			return out;
 		}
 
 		public String expected() {
-			return cell(2);
+			return cell(EXPECTED);
 		}
 
 		public String type() {
-			return cell(3);
+			return cell(TYPE);
 		}
 
 		public Status status() {
-			return Status.of(cell(5));
+			return Status.of(cell(STATUS));
 		}
 
 		public String test() {
-			return cell(6);
+			return cell(TEST);
+		}
+
+		/** Jira story key(s) this scenario comes from, e.g. "MOSIP-17633" or "MOSIP-1, MOSIP-2"; "" if none. */
+		public String story() {
+			return cell(STORY);
+		}
+
+		/** Each key in the Story cell. */
+		public List<String> stories() {
+			List<String> out = new ArrayList<>();
+			for (String s : story().split(","))
+				if (!s.isBlank())
+					out.add(s.trim());
+			return out;
 		}
 
 		/** Notes, folding any overflow cells back in (a stray unescaped pipe in the Notes text). */
 		public String notes() {
-			if (cells.size() <= 7)
+			if (cells.size() <= NOTES)
 				return "";
-			return String.join(" | ", cells.subList(7, cells.size()));
+			return String.join(" | ", cells.subList(NOTES, cells.size()));
 		}
 
 		public int line() {
@@ -204,10 +240,23 @@ public final class MatrixFile {
 			throw new MalformedException("grid has no header/separator row");
 		mf.gridHeader = lines[gs + 1];
 		mf.gridSeparator = lines[gs + 2];
+		List<String> header = splitCells(mf.gridHeader);
+		boolean v8 = header.equals(splitCells(HEADER_V8)), v9 = header.equals(splitCells(HEADER_V9));
 		for (int i = gs + 3; i < ge; i++) {
 			if (lines[i].trim().isEmpty())
 				continue;
-			mf.rows.add(new Row(lines[i], i + 1));
+			Row r = new Row(lines[i], i + 1);
+			if (v8 || v9) { // upgrade in place: empty Story before Notes (v8 only), empty Steps after Scenario
+				if (v8)
+					r.cells.add(Math.min(7, r.cells.size()), "");
+				r.cells.add(Math.min(STEPS, r.cells.size()), "");
+				r.raw = "| " + String.join(" | ", r.cells) + " |";
+			}
+			mf.rows.add(r);
+		}
+		if (v8 || v9) {
+			mf.gridHeader = GRID_HEADER;
+			mf.gridSeparator = GRID_SEPARATOR;
 		}
 
 		int es = text.indexOf(EP_START + "\n");
@@ -233,8 +282,9 @@ public final class MatrixFile {
 				String id = String.format(Locale.ROOT, "API-%s-%03d", subjectCode, next++);
 				String scenario = "(TODO) Given ..., when `" + unit + "` is called — write the `" + category
 						+ "` scenario";
-				rows.add(new Row("| " + id + " | " + scenario + " | TODO | " + category + " | integration | "
-						+ NOT_AUTOMATED + " |  |  |", 0));
+				// ID | Scenario | Steps | Expected | Type | Tier | Status | Test | Story | Notes
+				rows.add(new Row("| " + id + " | " + scenario + " | TODO | TODO | " + category + " | integration | "
+						+ NOT_AUTOMATED + " |  |  |  |", 0));
 				added++;
 			}
 		}
@@ -302,7 +352,7 @@ public final class MatrixFile {
 			String cell = String.join("<br>", parts);
 			if (cell.equals(r.test()))
 				continue;
-			r.cells.set(6, cell);
+			r.cells.set(TEST, cell);
 			r.raw = "| " + String.join(" | ", r.cells) + " |";
 		}
 	}

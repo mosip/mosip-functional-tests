@@ -17,7 +17,7 @@ mvn -q org.codehaus.mojo:exec-maven-plugin:3.1.0:java `
 | `init` | One-time bootstrap for a module: writes `README.md`, `AGENTS.md`, `check-baseline.txt`, `legacy-ids.txt` and `.gitattributes` into this directory and the CI caller workflow into the repo's `.github/workflows/` (each only if missing), then runs `scaffold`. |
 | `scaffold` | Creates a matrix file for every wired subject that doesn't have one, **and** a planned file (`<VERB>_<path>.md`, in the same folder as the module's other matrix files) for every real controller endpoint that no wired YAML targets (unless baselined) — so an untested endpoint gets a home for its intended scenarios instead of staying invisible. Never overwrites. |
 | `sync` | Parse → merge → render every matrix file. Adds stub rows only for `(unit, category)` pairs with no row yet; never rewrites an existing row's text; re-links `Test` cells to the YAML line. Bumps `last_updated` only on files whose content actually changed. Idempotent — run it twice, get the same bytes. |
-| `rollup` | Aggregates all matrix files (including planned files) into `Summary.md`. "As of" is the max `last_updated` across files, never wall-clock. |
+| `rollup` | Writes the generated views from all matrix files (including planned files): `Summary.md` (dashboard), `coverage.csv` and `coverage.html` (every row in one filterable table). "As of" is the max `last_updated` across files, never wall-clock. `sync` runs this too. |
 | `check` | Read-only. Reports every gap below and exits non-zero if any gap isn't accepted in `check-baseline.txt`. `--keys` also prints each gap's exact baseline line. |
 
 Options:
@@ -55,32 +55,38 @@ Matrix side:
 8. `unit-no-row` — a unit has zero rows at all.
 9. `category-missing` — a unit is missing a row for one of its required categories.
 10. `unknown-category` — a row's `Type` isn't one of the file's categories (usually a typo — the row then silently drops out of every per-category count).
-11. `unfilled-placeholder` — a stub row (`(TODO)` scenario or `TODO` expected result) is still unfilled, a row has no recognizable Status, or a `⛔ not_automatable` row gives no reason.
+11. `unfilled-placeholder` — a row's Scenario or Expected result is still a placeholder (`(TODO)`, `TODO …`, `To be defined`, or a bare `Not applicable — see Notes.` — ⛔ rows included), a row has no recognizable Status, or a `⛔ not_automatable` row gives no reason.
 12. `unresolvable-test-ref` — an `✅ automated` row names no `<ymlPath>::<uniqueIdentifier>`, or names one no YAML case has.
 13. `orphan-test-case` — a real, wired YAML case that no matrix row references. **This is the gate that stops a new test being added without its row.**
 14. `summary-drift` — the front-matter `summary` block doesn't match the actual row counts.
 15. `not-synced` — the file isn't what `sync` would write (units, categories, summary or Test links are stale) — run `sync`.
-16. `malformed-row` — a grid row without exactly 8 cells, almost always an unescaped `|` in a cell (write `\|`, even inside backticks).
+16. `malformed-row` — a grid row without exactly 10 cells, almost always an unescaped `|` in a cell (write `\|`, even inside backticks).
 17. `duplicate-row-id` — the same `ID` twice in one file.
 18. `stale-matrix-file` — a matrix file whose subject no Suite.xml runs any more.
 19. `legacy-id-missing` — a test-case number listed in `legacy-ids.txt` appears in no matrix file.
+20. `malformed-story` — a `Story` cell holds something that isn't a Jira key (`MOSIP_17633`, `17633`, a
+    URL). A typo silently drops the row from the story filter.
+21. `file-level-stories` — a file still has the retired file-level `stories:` list: move each key onto
+    the rows it belongs to (Story column), then delete the list.
+22. `missing-steps` — a row has an empty or placeholder Steps cell (`TODO`, `To be defined`, `Not applicable — see Notes.`).
+    Every test case carries the steps to run it by hand — automated ones included, and ⛔ ones give the check that confirms their reason.
 
 Service side (on by default whenever service source is found):
 
-20. `unmapped-endpoint` — a real controller endpoint no wired YAML targets **and** no planned file covers: an endpoint with zero coverage, invisible to every other gap type. Resolve it by `scaffold` (plan it) or a baseline entry (intentionally untested — internal/deprecated).
-21. `unreachable-endpoint` — a wired YAML `endPoint:` (or planned unit) that matches no real controller mapping — usually a wrong path. Matching is verb + path shape (path variables as wildcards, most specific mapping wins), so it complements, but doesn't replace, reading the controller in cycle 2. Paths routed by a servlet filter rather than a controller show up here too; baseline those with the reason.
-22. `planned-endpoint-now-tested` — a planned endpoint now has wired YAML: move its rows into that subject's file and delete the planned file.
-23. `unscannable-mapping` — a controller mapping whose path is a constant, not a string literal, so the scan can't see it.
-24. `app-source-missing` — only with `--require-app-source`: no service source was found.
+23. `unmapped-endpoint` — a real controller endpoint no wired YAML targets **and** no planned file covers: an endpoint with zero coverage, invisible to every other gap type. Resolve it by `scaffold` (plan it) or a baseline entry (intentionally untested — internal/deprecated).
+24. `unreachable-endpoint` — a wired YAML `endPoint:` (or planned unit) that matches no real controller mapping — usually a wrong path. Matching is verb + path shape (path variables as wildcards, most specific mapping wins), so it complements, but doesn't replace, reading the controller in cycle 2. Paths routed by a servlet filter rather than a controller show up here too; baseline those with the reason.
+25. `planned-endpoint-now-tested` — a planned endpoint now has wired YAML: move its rows into that subject's file and delete the planned file.
+26. `unscannable-mapping` — a controller mapping whose path is a constant, not a string literal, so the scan can't see it.
+27. `app-source-missing` — only with `--require-app-source`: no service source was found.
 
 Baseline hygiene (never baselinable themselves):
 
-25. `baseline-entry-without-reason` — every accepted gap must say why.
-26. `stale-baseline-entry` — an entry that no longer matches any gap; delete it.
+28. `baseline-entry-without-reason` — every accepted gap must say why.
+29. `stale-baseline-entry` — an entry that no longer matches any gap; delete it.
 
 Warnings (reported, but don't fail `check` unless `--fail-on-warnings`):
 
-27. `possible-duplicate-row` — two rows in one file probably describe the same scenario, the usual
+30. `possible-duplicate-row` — two rows in one file probably describe the same scenario, the usual
     result of adding a story's scenarios without reading the rows already there. Only pairs with the
     same `Type` on the same unit, where at least one row isn't backed by a YAML case, are considered;
     a pair is flagged when both expect the same error code on the same request field (ignoring the
@@ -88,6 +94,12 @@ Warnings (reported, but don't fail `check` unless `--fail-on-warnings`):
     when the Scenario wording is ≥70% the same. It's a heuristic: if the rows really differ, make the
     Scenario text say how (or baseline the pair with the reason); if they don't, merge them — keep
     the older row and move any `Legacy:` note and story key onto it.
+
+Generated views:
+
+31. `reports-stale` — `Summary.md`, `coverage.csv` or `coverage.html` is missing or differs from what the
+    current matrix renders to (someone edited a matrix file without running `sync`, or edited a generated
+    view by hand). Run `sync`.
 
 ## Accepted gaps — `check-baseline.txt`
 
@@ -138,12 +150,11 @@ fails the PR.
     line in the raw YAML inside `<details>`, **not** from the visible table row. Edit it there if
     you want to set one; editing the visible "Owner" cell alone doesn't stick — the next `sync`
     regenerates that row from the (unchanged) raw value and silently discards your edit.
-  - `stories:` is the second exception — an optional list of Jira story keys (e.g.
-    `- MOSIP-17633`) in the raw YAML inside `<details>`, preserved by `sync` and rendered as a
-    `Stories` row. It carries the requirement traceability a legacy sheet's `Story` column had;
-    add it when a subject's scenarios come from a story.
+  - Story keys belong in each row's `Story` column. (The older file-level `stories:` list is retired —
+    it tagged every row of a file with the same story; `check` reports a file that still has one as
+    `file-level-stories`.)
   - The two things you ever hand-edit are (a) inside the generated grid table — the `ID`,
-    `Scenario` / `Expected result` / `Status` / `Test` / `Notes` cells of a row (never `Type`,
+    `Scenario` / `Expected result` / `Status` / `Test` / `Story` / `Notes` cells of a row (never `Type`,
     never the markers) — and (b) the prose inside the `<!-- ENDPOINT:details -->` block, which
     `sync` also preserves verbatim once authored. Nothing else in the file sticks across a `sync`.
 - **Never renumber or reuse an `ID`.** Deleting a scenario leaves a gap in the sequence; that's fine.

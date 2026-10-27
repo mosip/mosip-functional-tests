@@ -27,7 +27,7 @@ skipping a step only moves the failure later.
    reference updated; a deleted case's row goes to `🟡 not_automated` (never deleted).
 4. **Not automated yet?** It's still a row: `🟡 not_automated` in the subject's file, or — if no
    YAML targets that endpoint at all — in its planned file (`<VERB>_<path>.md` in the same folder; run `scaffold` if it doesn't exist).
-5. Run `sync`, then `check`. Done means `check` exits 0 — or every remaining gap is one you
+5. Run `sync` (it also regenerates `Summary.md`, `coverage.csv` and `coverage.html`), then `check`. Done means `check` exits 0 — or every remaining gap is one you
    intentionally added to `check-baseline.txt` with a reason.
 6. **Commit the matrix files with the YAML.** Uncommitted work here has been lost before.
 
@@ -39,7 +39,7 @@ skipping a step only moves the failure later.
   (`legacy-id-missing`) until each one appears in some matrix file or carries an out-of-scope reason.
 - Otherwise add a `🟡 not_automated` row with a full Given/When/Then, in the subject whose endpoint
   it calls, or the planned file for an endpoint with no YAML.
-- Put the story key in the file's `stories:` front-matter list (see `README.md` § Governance).
+- Put the story key in the row's `Story` column (several: `MOSIP-1, MOSIP-2`).
 - Out of scope for this matrix: UI flows, batch-job end-to-end journeys, other modules' APIs (e.g.
   masterdata) — record those in the owning module's matrix, not here; in `legacy-ids.txt` their
   line gets `# out of scope: <why / where it lives>`.
@@ -66,7 +66,7 @@ delete the planned file.
 1. **Read the real code first** — the YAML test case(s), the `.hbs` request/result templates, and
    the test script class (e.g. `SimplePost`, `GetWithParamForAutoGenId`, `PostWithFormPathParamAndFile`).
    Do not write a scenario from the row's placeholder text alone.
-2. Replace the placeholder `ID`, `Scenario`, `Expected result`, and `Status` with the real thing:
+2. Replace the placeholder `ID`, `Scenario`, `Steps`, `Expected result`, and `Status` with the real thing:
    - **ID**: for an `✅ automated` row, reuse the real YAML `uniqueIdentifier` verbatim (e.g.
      `TC_Prereg_CreatePrereg_01`) instead of the mechanical `API-<SUBJECT>-NNN` scheme — it's one
      less name to keep in sync, and it makes the ID column double as a search key back into the
@@ -96,15 +96,43 @@ delete the planned file.
      the next run. Caught and fixed this way while authoring `GetAllApplications.md` and
      `GetPreRegDemographicDataByPrid.md` — always re-run `sync` once after authoring a multi-unit
      subject and confirm `written 0` / no stray `API-<SUBJECT>-NNN` rows before moving on.)
+   - **Steps**: numbered plain-API steps a tester can run by hand, in one cell separated by `<br>`:
+     (1) who to log in as — for an automated row the YAML `role` (in prereg: `batch` = an applicant via
+     OTP login, `admin` = the Keycloak admin user, `noauth` = no `Authorization` cookie); (2) test data
+     to create first — follow the case's `$ID:` tokens and `additionalDependencies` to the cases that
+     produce it and name them; (3) the exact call — method, path and request values; (4) what to
+     check — the expected result, plus any database/UI check worth doing by hand. Not "call the API";
+     the concrete call. A `⛔ not_automatable` row gets steps too: the short check a reviewer runs
+     to confirm its reason holds (e.g. "send the call; check the request has no id that could be
+     missing"). `check` rejects empty, `TODO`, `To be defined` and bare `Not applicable — see
+     Notes.` cells (`missing-steps`).
+   - **Expected result** for a manual row: write the real outcome, never `TODO` or "clarify with
+     the team" (`unfilled-placeholder`). If the code doesn't settle it, write the behaviour the
+     product should have and say so in Notes (see **Notes** below).
    - **Status**: `✅ automated` only if a real YAML case backs it (fill `Test`); otherwise
      `🟡 not_automated`, or `⛔ not_automatable` with a mandatory reason in `Notes`.
+   - **⛔ is the last resort.** Before marking a row ⛔, look for something observable to test:
+     "no role rule" → a user with an unrelated role gets the same result as anyone else; "no
+     parameters" → unexpected extra parameters are ignored; "global data" → two users get the
+     same response with nothing personal in it. Those are 🟡 rows with real tests. Keep ⛔ for
+     rows with truly nothing to observe, and still fill every cell: Scenario = `<what would be
+     tested> — not applicable: <why>`, Steps = the confirming check, Expected = what that check
+     shows and which other row covers the real behaviour.
+   - **Notes** — write for everyone, not just engineers. Start with one plain sentence that says
+     what matters (`⚠️ Possible bug: …`, `🛑 Mislabelled test: …`, `Same test as …`); add
+     `Details: …` with class/method names only if an engineer needs them; end with `Legacy: …`.
+     For a manual row, the first sentence states where its Expected result comes from —
+     `Expected result: checked in the service source (<Class.method>).`, `… from the shared MOSIP
+     auth library (kernel-auth-adapter) …`, or `… requirement — not yet confirmed …; confirm on the
+     first run.` — so a reader knows how far to trust it.
    - **Test**: `<ymlPath>::<uniqueIdentifier>` — copy the exact `uniqueIdentifier` from the YAML,
      don't invent one. `check`'s `unresolvable-test-ref` gap catches a typo here. Write it as
      plain text; `sync` automatically turns it into a link to that case's exact line in the YAML
      (self-healing — re-derived every `sync`, never hand-maintained). Don't hand-write the
      `[...](...)` link syntax yourself.
 3. If a category legitimately doesn't apply to a given unit for this subject, don't delete the
-   row — set `⛔ not_automatable` with the reason in Notes. Removing rows loses the audit trail.
+   row — set `⛔ not_automatable` with the reason in Notes, and still fill Scenario, Steps and
+   Expected result as described above. Removing rows loses the audit trail.
 4. Multiple real YAML cases can back the same scenario row, and one YAML case can be the
    strongest evidence for more than one row — reference it from each row it genuinely covers.
    Every real `uniqueIdentifier` in the subject's YAML should end up referenced by at least one

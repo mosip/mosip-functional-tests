@@ -50,6 +50,16 @@ public final class CoverageCheck {
 		}
 	}
 
+	/** A Jira issue key: project key, dash, number (MOSIP-17633, INJIMOB-1414). */
+	static final java.util.regex.Pattern STORY_KEY = java.util.regex.Pattern.compile("[A-Z][A-Z0-9]+-\\d+");
+
+	/** Text that stands in for content nobody wrote yet: blank, TODO, "To be defined", or a bare "see Notes" pointer. */
+	static boolean isPlaceholder(String cell) {
+		String s = cell.strip();
+		return s.isEmpty() || s.regionMatches(true, 0, "TODO", 0, 4) || s.startsWith("To be defined")
+				|| s.equals("Not applicable — see Notes.");
+	}
+
 	private final Estate estate;
 	private final List<Gap> gaps = new ArrayList<>();
 
@@ -62,9 +72,31 @@ public final class CoverageCheck {
 		c.inventoryGaps();
 		c.matrixGaps();
 		c.endpointGaps();
+		c.reportGaps();
 		c.legacyGaps();
 		c.baselineGaps();
 		return c.gaps;
+	}
+
+	// ---------------------------------------------------------------- generated views
+
+	/** Summary.md / coverage.csv / coverage.html must be exactly what the current matrix renders to. */
+	private void reportGaps() {
+		if (estate.files.isEmpty())
+			return;
+		for (Map.Entry<String, String> e : Reports.render(estate).entrySet()) {
+			Path p = estate.out.resolve(e.getKey());
+			String onDisk = null;
+			try {
+				if (Files.isRegularFile(p))
+					onDisk = Files.readString(p, StandardCharsets.UTF_8).replace("\r\n", "\n");
+			} catch (IOException ex) {
+				onDisk = null;
+			}
+			if (!e.getValue().equals(onDisk))
+				add("reports-stale", e.getKey(), e.getKey() + (onDisk == null ? " is missing" : " is out of date")
+						+ " — run sync (or rollup) to regenerate it; never edit it by hand");
+		}
 	}
 
 	// ---------------------------------------------------------------- legacy test-case IDs
@@ -172,6 +204,10 @@ public final class CoverageCheck {
 			for (Row r : mf.rows)
 				for (String ref : r.testRefs())
 					referenced.add(ref);
+			if (!mf.stories.isEmpty())
+				add("file-level-stories", lf.relPath, lf.relPath + " still has a file-level `stories:` list ("
+						+ String.join(", ", mf.stories) + ") — put each key in the Story column of the rows it belongs "
+						+ "to, then delete the `stories:` list from the raw metadata");
 			rowGaps(lf, mf);
 			if (s != null)
 				syncGaps(lf, mf, s.units,
@@ -198,12 +234,21 @@ public final class CoverageCheck {
 			String where = lf.relPath + ":" + r.line();
 			if (!r.wellFormed()) {
 				add("malformed-row", lf.relPath + "#" + r.id(), where + " row " + r.id() + " has " + r.cells.size()
-						+ " cells, expected 8 — escape any '|' inside a cell as '\\|'");
+						+ " cells, expected " + MatrixFile.COLUMNS + " — escape any '|' inside a cell as '\\|'");
 			}
+			if (r.wellFormed() && isPlaceholder(r.steps()))
+				add("missing-steps", lf.relPath + "#" + r.id(), where + " row " + r.id() + " has no Steps — write the "
+						+ "numbered API steps a tester would follow (`1. ... <br>2. ...`), automated and ⛔ rows included");
+			for (String key : r.stories())
+				if (!STORY_KEY.matcher(key).matches())
+					add("malformed-story", lf.relPath + "#" + r.id() + "#" + key, where + " row " + r.id() + " has Story `"
+							+ key + "`, which isn't a Jira key like MOSIP-12345 (several: `MOSIP-1, MOSIP-2`) — a typo here "
+							+ "silently drops the row from the story filter");
 			if (ids.merge(r.id(), 1, Integer::sum) == 2)
 				add("duplicate-row-id", lf.relPath + "#" + r.id(), where + " ID " + r.id() + " appears more than once");
-			if (r.scenario().startsWith("(TODO)") || r.expected().equals("TODO"))
-				add("unfilled-placeholder", lf.relPath + "#" + r.id(), where + " row " + r.id() + " is still a stub");
+			if (r.scenario().startsWith("(TODO)") || isPlaceholder(r.scenario()) || isPlaceholder(r.expected()))
+				add("unfilled-placeholder", lf.relPath + "#" + r.id(), where + " row " + r.id() + " is still a stub — "
+						+ "every row, ⛔ included, needs a real Scenario and Expected result");
 			if (r.status() == Status.UNKNOWN)
 				add("unfilled-placeholder", lf.relPath + "#" + r.id() + "#status",
 						where + " row " + r.id() + " has no recognizable Status");

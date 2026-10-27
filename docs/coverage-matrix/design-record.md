@@ -94,10 +94,10 @@ to match; `--out` can still override it per-invocation.
 - Domain is `api` for the whole estate.
 - IDs are stable, never reused, **never renumbered** — this still holds under the new scheme too.
 
-### Matrix file format (frozen — 8 columns, this exact order)
+### Matrix file format (10 columns, this exact order — 8 until 2026-10-21, 9 until 2026-10-22; see gotchas 29–30)
 
 ```
-ID | Scenario (given/when) | Expected result (then) | Type | Tier | Status | Test | Notes
+ID | Scenario (given/when) | Steps | Expected result (then) | Type | Tier | Status | Test | Story | Notes
 ```
 - **No priority column.**
 - Status — exactly 3 states: `✅ automated` · `🟡 not_automated` · `⛔ not_automatable`
@@ -479,6 +479,56 @@ subjects are likewise not yet folded into the ~10,500 estate figure above).
     `VERB_path` names (`DELETE_applications_lostuin_applicationId.md`) can't collide with wired
     subjects' CamelCase names. Mentions of `planned/` in entries 25 and 27 describe the layout at the
     time.
+29. **Story is a per-row column; the grid went from 8 to 9 columns (2026-10-21, user decision).** The
+    team treats the Jira story as a first-class attribute of every test case and wants to filter by
+    it. The earlier file-level `stories:` front-matter list was too coarse — it tagged every row of a
+    file, so filtering by MOSIP-10807 returned all 21 rows of the two proxy files instead of the 7
+    scenarios that story introduced. Now: `| … | Test | Story | Notes |`, several keys as
+    `MOSIP-1, MOSIP-2`. Migration is automatic and repeatable — `MatrixFile.parse` recognizes the old
+    8-column header and upgrades each row (empty Story inserted before Notes), so `sync` migrates any
+    module; `check` flags un-migrated files as `not-synced`. New gaps: `malformed-story` (not a Jira
+    key — the Excel itself had `MOSIP_10807`) and `file-level-stories` (a leftover `stories:` list;
+    the tool still reads it so nothing is lost silently). prereg backfill: 71 rows got their story from
+    the Excel Story column of the legacy test cases recorded on them (MOSIP-17633: 63, MOSIP-11719: 9,
+    MOSIP-10807: 7); the `stories:` lists were removed. Rows written from code have no story — that's
+    correct, not a gap. Also fixed here: `sync` now re-parses each file it rewrites, because the
+    generated views link to row line numbers and stale ones made a second `sync` rewrite them.
+30. **Every row carries numbered manual test steps; the grid went to 10 columns (2026-10-22, user
+    decision).** The team wanted execution steps on every test case — automated ones too — in a column
+    of the `.md` table (chosen over a separate section below it), and the legacy Excel's Swagger-UI
+    steps rewritten as plain API steps. Format: `| ID | Scenario | Steps | Expected | … |`, steps in one
+    cell separated by `<br>`. `parse` upgrades both older headers (8 and 9 columns) in place, so `sync`
+    migrates any module; column positions are now named constants in `MatrixFile`. New gap
+    `missing-steps` (every row except `⛔ not_automatable`). Views: `coverage.html` shows the steps as a
+    numbered list; `coverage.csv` has a Steps column. prereg: all 753 rows authored by a generator that
+    reads each row's real data — the YAML case's `role` (`batch` = applicant via OTP login, `admin`,
+    `invalidBatch`, `noauth`), its `endPoint` with path parameters filled from `input`, its request values
+    (tokens rendered as `<current UTC time>`, `<preRegistrationId from step 2>` …), the producing cases
+    behind `$ID:` tokens and `additionalDependencies` ("Run `TC_Prereg_CreatePrereg_08` first … then
+    run `TC_prereg_BookAppointment_03`"), and for manual rows the endpoint, its role rule (staff-only
+    endpoints log in as `REGISTRATION_OFFICER`) and the Scenario; legacy rows gain the Excel's DB/UI checks
+    (12 rows). 31 placeholder rows say "To be defined" rather than invent steps. Pitfall paid for:
+    placeholders like `<x>` outside backticks are swallowed as HTML by GitHub — keep them in code spans.
+31. **No placeholder rows; ⛔ rows fully described; Notes in plain language (2026-10-27, user
+    decision).** "We should have all the details for all the testcases irrespective of status." Every
+    row — ⛔ included — now has a real Scenario, Steps and Expected result: `missing-steps` no longer
+    exempts ⛔, and `unfilled-placeholder` also catches `TODO …`, `To be defined` and a bare
+    `Not applicable — see Notes.` (`CoverageCheck.isPlaceholder`). ⛔ is the last resort: most "N/A"
+    rows had something observable (no role rule → an unrelated role gets the same result; no
+    parameters → extras are ignored; global data → two users see the same thing), so they became 🟡.
+    A row that stays ⛔ reads `<what> — not applicable: <why>`, its Steps are the reviewer's
+    confirming check, and its Expected result names the row that covers the real behaviour. Each
+    manual row's Notes start by saying where its Expected result comes from — service source
+    (`Class.method`), the shared auth library (`KER-ATH-401` / `KER-ATH-403`), or a requirement to
+    confirm on the first run — and long technical notes were rewritten as a plain lead sentence +
+    optional `Details:` + `Legacy:`. prereg: 319 rows authored (of the 24 former ⛔ rows, 11 became 🟡 and 13 stay ⛔ with full
+    details; 10 rows became ⛔ — the three creation endpoints' not-found rows, six rows on
+    `GetBookingsForRegCenter`'s malformed-date units that duplicate the main unit, and
+    Transliteration's isolation row), 96 notes rewritten, outdated "wrong path" notes on the booking-service
+    rows corrected. Findings recorded as ⚠️ in Notes: status changes have no transition rules
+    (`UpdatePreRegStatus_14`), `updatedTime` has no owner check (`GetUpdatedDateTimeByPrid_08`), and
+    logout keeps no list of ended sessions (`InvalidateToken_07`). Pitfall paid for: rewriting a
+    multi-unit row's Scenario must keep the unit's exact label, or `sync` adds a fresh stub set.
 26. **Endpoint-gap caveats.** A path routed by a servlet filter instead of a controller (id-repo's
     `/identity/v2`, rewritten by `BaseIdRepoFilter`) is reported `unreachable-endpoint` — baseline
     it with that reason. A service no YAML targets gets the module-wide prefix as a *fallback*

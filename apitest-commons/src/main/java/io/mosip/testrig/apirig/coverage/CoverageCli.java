@@ -32,7 +32,7 @@ import io.mosip.testrig.apirig.coverage.MatrixFile.Row;
  * scaffold  create a matrix file for every wired subject without one, and a planned file for
  *           every real endpoint with no YAML (unless baselined). Never overwrites.
  * sync      parse → merge → render every matrix file. Idempotent; never rewrites a row's text.
- * rollup    write Summary.md from the matrix files.
+ * rollup    write Summary.md, coverage.csv and coverage.html (sync also does this).
  * check     read-only gap report; exits 1 on any gap not accepted in the baseline.
  *
  * --module-root &lt;dir&gt;      the module's api-test directory (required)
@@ -274,6 +274,8 @@ public final class CoverageCli {
 			}
 		}
 		out.println("scaffold: created " + created + " file(s)");
+		if (created > 0)
+			writeReports(estate);
 		return 0;
 	}
 
@@ -345,98 +347,39 @@ public final class CoverageCli {
 			}
 			Files.writeString(lf.path, rendered, StandardCharsets.UTF_8);
 			lf.text = rendered;
-			lf.matrix = mf;
+			try { // re-parse so row line numbers match the file just written (the generated views link to them)
+				lf.matrix = MatrixFile.parse(rendered);
+			} catch (MatrixFile.MalformedException e) {
+				lf.matrix = mf;
+			}
 			written++;
 			out.println("  wrote " + lf.relPath);
 		}
 		out.println("sync: written " + written + ", unchanged " + unchanged + ", stub rows added " + stubs);
+		writeReports(estate);
 		return 0;
 	}
 
 	// ---------------------------------------------------------------- rollup
 
 	private int rollup(Estate estate) throws IOException {
-		List<MatrixFile> mfs = new ArrayList<>();
-		for (Estate.Loaded lf : estate.files.values())
-			if (lf.matrix != null)
-				mfs.add(lf.matrix);
-		mfs.sort(Comparator.comparing(m -> m.subjectCode == null ? "" : m.subjectCode));
-
-		String asOf = "";
-		int[] total = new int[4];
-		Map<String, int[]> byCategory = new LinkedHashMap<>();
-		Set<String> categories = new LinkedHashSet<>();
-		for (MatrixFile m : mfs) {
-			if (m.lastUpdated != null && m.lastUpdated.compareTo(asOf) > 0)
-				asOf = m.lastUpdated;
-			int[] c = m.countStatuses();
-			for (int i = 0; i < 4; i++)
-				total[i] += c[i];
-			for (Row r : m.rows) {
-				categories.add(r.type());
-				int[] bc = byCategory.computeIfAbsent(r.type(), k -> new int[3]);
-				switch (r.status()) {
-				case AUTOMATED:
-					bc[0]++;
-					break;
-				case NOT_AUTOMATED:
-					bc[1]++;
-					break;
-				case NOT_AUTOMATABLE:
-					bc[2]++;
-					break;
-				default:
-					break;
-				}
-			}
-		}
-
-		StringBuilder b = new StringBuilder();
-		b.append("# Coverage Summary\n\n");
-		b.append("As of: ").append(asOf).append("\n\n");
-		b.append("## Estate totals\n\n");
-		b.append("| Total | ✅ Automated | 🟡 Not automated | ⛔ Not automatable | Coverage |\n|---|---|---|---|---|\n");
-		b.append("| ").append(total[0]).append(" | ").append(total[1]).append(" | ").append(total[2]).append(" | ")
-				.append(total[3]).append(" | ").append(MatrixFile.percent(total[1], total[2])).append(" |\n\n");
-		b.append("## By subject\n\n");
-		b.append("| Subject | Automated | Total scenarios | Coverage |\n|---|---|---|---|\n");
-		for (MatrixFile m : mfs) {
-			int[] c = m.countStatuses();
-			b.append("| `").append(m.subjectCode).append("` | ").append(c[1]).append('/').append(c[1] + c[2])
-					.append(" | ").append(c[0]).append(" | ").append(MatrixFile.percent(c[1], c[2])).append(" |\n");
-		}
-		b.append("\n## By category\n\n");
-		b.append("| Category | ✅ Automated | 🟡 Not automated | ⛔ Not automatable | Coverage |\n|---|---|---|---|---|\n");
-		List<String> cats = new ArrayList<>(categories);
-		cats.sort(Comparator.comparingInt(CategoryChecklist::order));
-		for (String cat : cats) {
-			int[] bc = byCategory.get(cat);
-			b.append("| `").append(cat).append("` | ").append(bc[0]).append(" | ").append(bc[1]).append(" | ")
-					.append(bc[2]).append(" | ").append(MatrixFile.percent(bc[0], bc[1])).append(" |\n");
-		}
-		b.append("\n## Flagged findings\n\n");
-		b.append("Rows whose Notes are flagged ⚠️ (fragility/quality concern) or 🛑 (confirmed bug) during the cycle-2 "
-				+ "semantic audit — see docs/coverage-matrix/design-record.md (mosip-functional-tests), gotcha 15, for the practice behind this. Pulled "
-				+ "mechanically from row Notes, not hand-maintained here.\n\n");
-		for (MatrixFile m : mfs)
-			for (Row r : m.rows) {
-				String notes = r.notes();
-				if (notes.contains("🛑") || notes.contains("⚠️"))
-					b.append("- ").append(notes.contains("🛑") ? "🛑" : "⚠️").append(" **").append(m.subject)
-							.append("** (`").append(r.id()).append("`): ").append(notes).append('\n');
-			}
-		b.append('\n');
-
-		Path summary = estate.out.resolve("Summary.md");
-		String rendered = b.toString();
-		if (Files.isRegularFile(summary) && Files.readString(summary, StandardCharsets.UTF_8).equals(rendered)) {
-			out.println("rollup: Summary.md unchanged");
-		} else {
-			Files.createDirectories(estate.out);
-			Files.writeString(summary, rendered, StandardCharsets.UTF_8);
-			out.println("rollup: wrote Summary.md (" + mfs.size() + " subjects)");
-		}
+		writeReports(estate);
 		return 0;
+	}
+
+	/** Writes Summary.md, coverage.csv and coverage.html — only the ones whose content changed. */
+	private void writeReports(Estate estate) throws IOException {
+		List<String> written = new ArrayList<>();
+		for (Map.Entry<String, String> e : Reports.render(estate).entrySet()) {
+			Path p = estate.out.resolve(e.getKey());
+			if (Files.isRegularFile(p) && Files.readString(p, StandardCharsets.UTF_8).equals(e.getValue()))
+				continue;
+			Files.createDirectories(estate.out);
+			Files.writeString(p, e.getValue(), StandardCharsets.UTF_8);
+			written.add(e.getKey());
+		}
+		out.println("rollup: " + (written.isEmpty() ? "Summary.md, coverage.csv, coverage.html unchanged"
+				: "wrote " + String.join(", ", written)));
 	}
 
 	// ---------------------------------------------------------------- check

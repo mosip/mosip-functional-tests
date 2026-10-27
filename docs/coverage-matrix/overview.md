@@ -23,6 +23,9 @@ The fix: **one place for every test case, next to the code, checked by a tool on
 - **Nothing old is lost.** Every legacy test-case number is listed in the module's `legacy-ids.txt`
   and recorded on the row that covers it (`Legacy: <id>`), and the tool fails if one ever goes
   missing. Search the matrix for an old number to find its scenario.
+- **Every test case of a module can be filtered and sorted in one place** — a generated `coverage.html`
+  (status, category, positive/negative, endpoint, story, free-text search) and `coverage.csv` for Excel,
+  regenerated on every change and checked for freshness, so they never drift from the matrix.
 - **Coverage is measured from the matrix**: `automated ÷ (automated + not_automated)`, shown in each
   module's `Summary.md` — overall, per endpoint and per category (positive, authn, authz, validation,
   not-found, boundary, idempotency, data isolation, …).
@@ -30,9 +33,9 @@ The fix: **one place for every test case, next to the code, checked by a tool on
 
 ## How to add tests for a new feature
 
-1. **Write the scenarios from the story as rows first** — Given/When/Then plus a concrete expected
-   result, marked `🟡 not_automated`, in the file of the endpoint they call, with the story key on
-   that file. A brand-new endpoint gets its file generated automatically.
+1. **Write the scenarios from the story as rows first** — Given/When/Then, numbered test steps a
+   tester can follow by hand, and a concrete expected result, marked `🟡 not_automated`, in the file of the endpoint they call, with the story key in
+   each row's Story column. A brand-new endpoint gets its file generated automatically.
 2. **Automate them** (the YAML test, as today).
 3. **Link each row to its test** and mark it `✅ automated`.
 4. **Run the tool's `sync` and `check`**, and commit the matrix together with the tests.
@@ -70,6 +73,7 @@ is provably complete.
 
 | Need | Go to |
 |---|---|
+| Filter / sort test cases across the whole module (e.g. all not-automatable, all negative, one story) | open the module's `coverage/coverage.html` in a browser, or `coverage.csv` in Excel |
 | What's tested for an endpoint | `<module>/api-test/src/main/resources/coverage/<folder>/<Subject>.md` |
 | Coverage numbers | the module's `coverage/Summary.md` |
 | An old Excel test-case number | search the module's `coverage/` for it (`Legacy: <id>`) |
