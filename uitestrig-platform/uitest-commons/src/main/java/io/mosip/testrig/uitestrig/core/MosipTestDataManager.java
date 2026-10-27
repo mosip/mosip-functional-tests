@@ -2,7 +2,6 @@ package io.mosip.testrig.uitestrig.core;
 
 import io.mosip.testrig.apirig.utils.ConfigManager;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
-import io.mosip.testrig.apirig.testrunner.ExtractResource;
 import io.mosip.testrig.apirig.utils.KernelAuthentication;
 import io.mosip.testrig.apirig.utils.KeycloakUserManager;
 import org.slf4j.Logger;
@@ -28,7 +27,11 @@ public class MosipTestDataManager {
         }
         BaseTestCase.currentModule = BaseTestCase.runContext + moduleName.trim();
         BaseTestCase.setRunContext(detectRunType(), detectJarPath());
-        ExtractResource.copyCommonResources("config/");
+        // ExtractResource.copyCommonResources() always assumes config/ exists as a loose
+        // directory next to the running classes/jar, which is only true under mvn test/IDE
+        // (target/classes/config). copymoduleSpecificAndConfigFile() dispatches on the run type
+        // set just above, extracting from inside the jar's own zip entries when running as JAR.
+        BaseTestCase.copymoduleSpecificAndConfigFile("config");
         BaseTestCase.ApplnURI = ConfigManager.getproperty("apiInternalEndPoint");
         BaseTestCase.kernelAuthLib = new KernelAuthentication();
         KeycloakUserManager.removeUser();
