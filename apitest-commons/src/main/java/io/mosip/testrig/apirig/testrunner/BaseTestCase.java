@@ -572,38 +572,49 @@ public class BaseTestCase {
 
 	public static JSONArray idaActuatorResponseArray = null;
 
+	public static final String ACTUATOR_MASKED_VALUE = "******";
+
+	private static final Map<String, String> actuatorEffectiveValueCache = new HashMap<>();
+
+	// section is ignored: Spring resolves the effective value across all active profiles and config files
 	public static String getValueFromActuators(String endPoint, String section, String key) {
+		return getEffectiveValueFromActuator(ApplnURI + endPoint, key);
+	}
 
-		String url = ApplnURI + endPoint;
-		String value = null;
+	public static String getEffectiveValueFromActuator(String envUrl, String key) {
+		String url = (envUrl.endsWith("/") ? envUrl : envUrl + "/") + key;
+		String value = actuatorEffectiveValueCache.get(url);
+		if (value != null)
+			return value;
+
 		try {
-			if (idaActuatorResponseArray == null) {
-				Response response = null;
-				org.json.JSONObject responseJson = null;
-				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-				GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
-
-				responseJson = new org.json.JSONObject(response.getBody().asString());
-				idaActuatorResponseArray = responseJson.getJSONArray("propertySources");
-			}
-			logger.info("idaActuatorResponseArray=" + idaActuatorResponseArray);
-
-			for (int i = 0, size = idaActuatorResponseArray.length(); i < size; i++) {
-				org.json.JSONObject eachJson = idaActuatorResponseArray.getJSONObject(i);
-				if (eachJson.get("name").toString().contains(section)) {
-					value = eachJson.getJSONObject(GlobalConstants.PROPERTIES).getJSONObject(key)
-							.get(GlobalConstants.VALUE).toString();
-					logger.info("value=" + value);
-					break;
-				}
+			Response response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
+			if (response.getStatusCode() != 200) {
+				logger.warn("Actuator key not found: " + url + " status: " + response.getStatusCode());
+				return null;
 			}
 
+			org.json.JSONObject property = new org.json.JSONObject(response.getBody().asString())
+					.optJSONObject("property");
+			if (property == null || !property.has(GlobalConstants.VALUE))
+				return null;
+
+			value = property.get(GlobalConstants.VALUE).toString();
+			if (ACTUATOR_MASKED_VALUE.equals(value)) {
+				logger.warn("Actuator value is masked for " + url
+						+ ". Set management.endpoint.env.show-values=ALWAYS on the service.");
+				return null;
+			}
+			if (ConfigManager.IsDebugEnabled())
+				logger.info("Actuator: " + url + " value: " + value + " source: " + property.optString("source"));
+
+			actuatorEffectiveValueCache.put(url, value);
 			return value;
 		} catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
-			return value;
+			return null;
 		}
-
 	}
 
 	public static List<String> getLanguageList() {
@@ -653,43 +664,12 @@ public class BaseTestCase {
 		if (!supportedIdType.isEmpty()) {
 			return supportedIdType;
 		}
-		String section = "/mosip-config/id-authentication-default.properties";
+		String newIdTypes = getEffectiveValueFromActuator(ApplnURI + ConfigManager.getproperty("actuatorIDAEndpoint"),
+				"request.idtypes.allowed");
+		if (newIdTypes != null && !newIdTypes.isBlank())
+			supportedIdType.addAll(Arrays.asList(newIdTypes.split(",")));
 
-		Response response = null;
-
-		org.json.JSONObject responseJson = null;
-		JSONArray responseArray = null;
-		String url = ApplnURI + ConfigManager.getproperty("actuatorIDAEndpoint");
-		try {
-			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-			
-			if (ConfigManager.IsDebugEnabled()) {
-				GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
-			}
-
-			responseJson = new org.json.JSONObject(response.getBody().asString());
-			responseArray = responseJson.getJSONArray("propertySources");
-
-			for (int i = 0, size = responseArray.length(); i < size; i++) {
-				org.json.JSONObject eachJson = responseArray.getJSONObject(i);
-				logger.info("eachJson is :" + eachJson.toString());
-				if (eachJson.get("name").toString().contains(section)) {
-					org.json.JSONObject idTypes = (org.json.JSONObject) eachJson.getJSONObject("properties")
-							.get("request.idtypes.allowed");
-					String newIdTypes = idTypes.getString(GlobalConstants.VALUE);
-
-					supportedIdType.addAll(Arrays.asList((newIdTypes).split(",")));
-
-					break;
-				}
-			}
-
-			return supportedIdType;
-		} catch (Exception e) {
-			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
-			return supportedIdType;
-		}
-
+		return supportedIdType;
 	}
 
 	public static JSONObject getRequestJson(String filepath) {
@@ -724,6 +704,9 @@ public class BaseTestCase {
 	public static int getRecommendedHierarchyLevel() {
 		String recommendedHierarchLevel = getValueFromActuators(ConfigManager.getproperty("actuatorMasterDataEndpoint"),
 				"/mosip-config/application-default.properties", "mosip.recommended.centers.locCode");
-		return Integer.parseInt(recommendedHierarchLevel);
+		if (recommendedHierarchLevel == null || recommendedHierarchLevel.isBlank())
+			throw new IllegalStateException("mosip.recommended.centers.locCode not available from actuator "
+					+ ConfigManager.getproperty("actuatorMasterDataEndpoint"));
+		return Integer.parseInt(recommendedHierarchLevel.trim());
 	}
 }
