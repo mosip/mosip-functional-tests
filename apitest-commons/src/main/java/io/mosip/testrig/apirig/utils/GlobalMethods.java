@@ -137,7 +137,7 @@ public class GlobalMethods {
 
 	public static String addToServerEndPointMap(String url) {		
 		String updatedURL = getUpdatedEndPointURL(url);
-		if(updatedURL.contains("localhost")) 
+		if(updatedURL.contains("localhost") || updatedURL.contains("127.0.0.1")) 
 			updatedURL = updatedURL.replace("https", "http");
 		serverEndpoints.add(updatedURL);
 		return updatedURL;

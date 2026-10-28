@@ -111,7 +111,7 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		CertificateChainResponseDto certificateChainResponseDto = null;
 		
 		try {
-			certificateChainResponseDto = authUtil.generatePartnerKeys(partnerTypeEnum, partnerId, keyFileNameByPartnerName, null, BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
+			certificateChainResponseDto = authUtil.generatePartnerKeys(partnerTypeEnum, partnerId, keyFileNameByPartnerName, null, BaseTestCase.certsForModule, ApplnURI.replace("https://", "").replace("http://", ""));
 		} catch (Exception  e) {
 			lOGGER.error("Failed to generate partner keys. partnerType=" + partnerTypeEnum + ", partnerId=" + partnerId, e);
 		}
@@ -223,7 +223,7 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		
 		AuthTestsUtil authUtil = new AuthTestsUtil();
 		try {
-			authUtil.updatePartnerCertificate(partnerTypeEnum, null, false, requestBody, null, BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
+			authUtil.updatePartnerCertificate(partnerTypeEnum, null, false, requestBody, null, BaseTestCase.certsForModule, ApplnURI.replace("https://", "").replace("http://", ""));
 		} catch (Exception e) {
 			lOGGER.error("Failed to update partner certificate. partnerType=" + partnerTypeEnum, e);
 		}
