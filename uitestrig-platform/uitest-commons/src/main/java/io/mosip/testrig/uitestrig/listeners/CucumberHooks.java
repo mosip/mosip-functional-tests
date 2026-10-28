@@ -182,8 +182,6 @@ public class CucumberHooks {
         try {
             MosipTestDataManager.cleanup();
         } catch (Exception e) {
-            // A teardown-time failure here (e.g. a transient DNS/network blip removing the
-            // Keycloak test user) must never swallow the report — every scenario already ran.
             logger.error("MosipTestDataManager.cleanup() failed during teardown; report will still be flushed", e);
         }
         UiExtentReportManager.flush();
