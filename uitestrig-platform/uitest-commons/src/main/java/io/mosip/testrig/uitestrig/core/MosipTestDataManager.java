@@ -2,7 +2,6 @@ package io.mosip.testrig.uitestrig.core;
 
 import io.mosip.testrig.apirig.utils.ConfigManager;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
-import io.mosip.testrig.apirig.testrunner.ExtractResource;
 import io.mosip.testrig.apirig.utils.KernelAuthentication;
 import io.mosip.testrig.apirig.utils.KeycloakUserManager;
 import org.slf4j.Logger;
@@ -28,7 +27,7 @@ public class MosipTestDataManager {
         }
         BaseTestCase.currentModule = BaseTestCase.runContext + moduleName.trim();
         BaseTestCase.setRunContext(detectRunType(), detectJarPath());
-        ExtractResource.copyCommonResources("config/");
+        BaseTestCase.copymoduleSpecificAndConfigFile("config");
         BaseTestCase.ApplnURI = ConfigManager.getproperty("apiInternalEndPoint");
         BaseTestCase.kernelAuthLib = new KernelAuthentication();
         KeycloakUserManager.removeUser();

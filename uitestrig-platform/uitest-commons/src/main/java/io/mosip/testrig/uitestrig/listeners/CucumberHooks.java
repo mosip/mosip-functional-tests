@@ -179,7 +179,11 @@ public class CucumberHooks {
      */
     public static void teardownSuite() {
         OTPListener.bTerminate = true;
-        MosipTestDataManager.cleanup();
+        try {
+            MosipTestDataManager.cleanup();
+        } catch (Exception e) {
+            logger.error("MosipTestDataManager.cleanup() failed during teardown; report will still be flushed", e);
+        }
         UiExtentReportManager.flush();
         logger.info("Suite teardown complete");
     }
