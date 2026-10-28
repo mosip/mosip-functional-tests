@@ -225,7 +225,7 @@ public class BioDataUtility extends AdminTestUtil {
 		AuthTestsUtil authUtil = new AuthTestsUtil();
 		String response = null;
 		try {
-			response = authUtil.signRequest(partnerTypeEnum, null, false, identityDataBlock,"", BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
+			response = authUtil.signRequest(partnerTypeEnum, null, false, identityDataBlock,"", BaseTestCase.certsForModule, ApplnURI.replace("https://", "").replace("http://", ""));
 		} catch (Exception e) {
 			logger.error("Failed to sign request for partnerType=" + partnerTypeEnum, e);
 		}
