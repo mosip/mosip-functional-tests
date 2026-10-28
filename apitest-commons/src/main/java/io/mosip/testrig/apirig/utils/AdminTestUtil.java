@@ -6958,33 +6958,12 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static int getOtpExpTimeFromActuator() {
 		if (otpExpTime.isEmpty()) {
-			String section = "/mosip-config/application-default.properties";
-			Response response = null;
-			org.json.JSONObject responseJson = null;
-			JSONArray responseArray = null;
-			String url = ApplnURI + ConfigManager.getproperty("actuatorIDAEndpoint");
-			try {
-				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-
-				responseJson = new org.json.JSONObject(response.getBody().asString());
-				responseArray = responseJson.getJSONArray("propertySources");
-
-				for (int i = 0, size = responseArray.length(); i < size; i++) {
-					org.json.JSONObject eachJson = responseArray.getJSONObject(i);
-					logger.info("eachJson is :" + eachJson.toString());
-					if (eachJson.get("name").toString().contains(section)) {
-
-						org.json.JSONObject otpExpiryTime = (org.json.JSONObject) eachJson
-								.getJSONObject(GlobalConstants.PROPERTIES).get("mosip.kernel.otp.expiry-time");
-						otpExpTime = otpExpiryTime.getString(GlobalConstants.VALUE);
-						if (ConfigManager.IsDebugEnabled())
-							logger.info("Actuator: " + url + " otpExpTime: " + otpExpTime);
-						break;
-					}
-				}
-			} catch (Exception e) {
-				logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
-			}
+			String value = getEffectiveValueFromActuator(ApplnURI + ConfigManager.getproperty("actuatorIDAEndpoint"),
+					"mosip.kernel.otp.expiry-time");
+			if (value == null || value.isBlank())
+				throw new IllegalStateException("mosip.kernel.otp.expiry-time not available from actuator "
+						+ ConfigManager.getproperty("actuatorIDAEndpoint"));
+			otpExpTime = value.trim();
 		}
 		return Integer.parseInt(otpExpTime);
 	}
@@ -6992,39 +6971,8 @@ public class AdminTestUtil extends BaseTestCase {
 	public static JSONArray residentActuatorResponseArray = null;
 
 	public static String getValueFromActuator(String section, String key) {
-		String url = ApplnURI + ConfigManager.getproperty("actuatorEndpoint");
-		String actuatorCacheKey = url + section + key;
-		String value = actuatorValueCache.get(actuatorCacheKey);
-		if (value != null && !value.isEmpty())
-			return value;
-
-		try {
-			if (residentActuatorResponseArray == null) {
-				Response response = null;
-				JSONObject responseJson = null;
-				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-
-				responseJson = new JSONObject(response.getBody().asString());
-				residentActuatorResponseArray = responseJson.getJSONArray("propertySources");
-			}
-			for (int i = 0, size = residentActuatorResponseArray.length(); i < size; i++) {
-				JSONObject eachJson = residentActuatorResponseArray.getJSONObject(i);
-				if (eachJson.get("name").toString().contains(section)) {
-					value = eachJson.getJSONObject(GlobalConstants.PROPERTIES).getJSONObject(key)
-							.get(GlobalConstants.VALUE).toString();
-					if (ConfigManager.IsDebugEnabled())
-						logger.info("Actuator: " + url + " key: " + key + " value: " + value);
-					break;
-				}
-			}
-			actuatorValueCache.put(actuatorCacheKey, value);
-
-			return value;
-		} catch (Exception e) {
-			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
-			return "";
-		}
-
+		String value = getEffectiveValueFromActuator(ApplnURI + ConfigManager.getproperty("actuatorEndpoint"), key);
+		return value != null ? value : "";
 	}
 	
 	private static final Map<String, JSONArray> actuatorResponseCache = new HashMap<>();
@@ -7046,19 +6994,18 @@ public class AdminTestUtil extends BaseTestCase {
 
 			JSONArray sources = actuatorResponseCache.get(endpoint);
 
+			// propertySources are ordered highest priority first, so the first value seen per key is the effective one
 			for (int i = 0; i < sources.length(); i++) {
 
-				JSONObject eachJson = sources.getJSONObject(i);
-				if (eachJson.get("name").toString().contains(section)) {
-					JSONObject properties = eachJson.getJSONObject(GlobalConstants.PROPERTIES);
-					Iterator<String> keys = properties.keys();
-					while (keys.hasNext()) {
-						String key = keys.next();
-						String value = properties.getJSONObject(key).get(GlobalConstants.VALUE).toString();
-						propertyMap.put(key, value);
-					}
-
-					break;
+				JSONObject properties = sources.getJSONObject(i).optJSONObject(GlobalConstants.PROPERTIES);
+				if (properties == null)
+					continue;
+				Iterator<String> keys = properties.keys();
+				while (keys.hasNext()) {
+					String key = keys.next();
+					String value = properties.getJSONObject(key).get(GlobalConstants.VALUE).toString();
+					if (!ACTUATOR_MASKED_VALUE.equals(value))
+						propertyMap.putIfAbsent(key, value);
 				}
 			}
 
@@ -7222,39 +7169,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static JSONArray authActuatorResponseArray = null;
 
 	public static String getValueFromAuthActuator(String section, String key) {
-		String url = ApplnURI + ConfigManager.getproperty("actuatorIDAEndpoint");
-		String actuatorCacheKey = url + section + key;
-		String value = actuatorValueCache.get(actuatorCacheKey);
-		if (value != null && !value.isEmpty())
-			return value;
-		try {
-			if (authActuatorResponseArray == null) {
-				Response response = null;
-				JSONObject responseJson = null;
-				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-
-				responseJson = new JSONObject(response.getBody().asString());
-				authActuatorResponseArray = responseJson.getJSONArray("propertySources");
-			}
-
-			for (int i = 0, size = authActuatorResponseArray.length(); i < size; i++) {
-				JSONObject eachJson = authActuatorResponseArray.getJSONObject(i);
-				if (eachJson.get("name").toString().contains(section)) {
-					value = eachJson.getJSONObject(GlobalConstants.PROPERTIES).getJSONObject(key)
-							.get(GlobalConstants.VALUE).toString();
-					if (ConfigManager.IsDebugEnabled())
-						logger.info("Actuator: " + url + " key: " + key + " value: " + value);
-					break;
-				}
-			}
-			actuatorValueCache.put(actuatorCacheKey, value);
-
-			return value;
-		} catch (Exception e) {
-			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
-			return value;
-		}
-
+		return getEffectiveValueFromActuator(ApplnURI + ConfigManager.getproperty("actuatorIDAEndpoint"), key);
 	}
 
 	private static Map<String, String> testcaseIDNameMap = new HashMap<>();
