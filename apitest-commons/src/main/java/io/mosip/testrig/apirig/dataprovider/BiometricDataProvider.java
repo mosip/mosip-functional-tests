@@ -22,6 +22,7 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import javax.xml.parsers.FactoryConfigurationError;
@@ -112,9 +113,89 @@ public class BiometricDataProvider {
 	public static void addToBiometricMap(String key, String value) {
 		biometricDataMap.put(key, value);
 	}
-	
-	public static String getFromBiometricMap(String key) {
+
+	public static synchronized String getFromBiometricMap(String key) {
+		refreshCaptureIfStale();
 		return biometricDataMap.get(key);
+	}
+
+	private static long lastCaptureTimeMs;
+	private static String lastCaptureMode;
+	private static boolean refreshingCapture;
+
+	private static void refreshCaptureIfStale() {
+		if (refreshingCapture || lastCaptureMode == null) {
+			return;
+		}
+		String configured = ConfigManager.getproperty("local.bio.refreshAfterSeconds");
+		if (configured == null || configured.isBlank()) {
+			return;
+		}
+		long maxAgeMs;
+		try {
+			maxAgeMs = Long.parseLong(configured.trim()) * 1000L;
+		} catch (NumberFormatException e) {
+			return;
+		}
+		long ageMs = System.currentTimeMillis() - lastCaptureTimeMs;
+		if (ageMs < maxAgeMs) {
+			return;
+		}
+		refreshingCapture = true;
+		try {
+			logger.info("Biometric capture is " + (ageMs / 1000) + "s old (limit " + (maxAgeMs / 1000)
+					+ "s); capturing again");
+			generateBiometricTestData(lastCaptureMode);
+		} catch (Exception e) {
+			logger.error("Failed to refresh the stale biometric capture", e);
+		} finally {
+			refreshingCapture = false;
+		}
+	}
+
+	private static Map<String, String[]> captureCryptoMap = new HashMap<>();
+
+	public static void putCaptureCrypto(String bioValue, String rawBioValue, String sessionKey, String thumbprint,
+			String captureTimestamp, String captureTransactionId, String captureHash) {
+		if (bioValue == null || bioValue.isEmpty() || sessionKey == null || sessionKey.isEmpty()) {
+			return;
+		}
+		String[] entry = new String[] { sessionKey, thumbprint, rawBioValue, captureTimestamp, captureTransactionId,
+				captureHash };
+		captureCryptoMap.put(bioValue, entry);
+		if (rawBioValue != null && !rawBioValue.isEmpty()) {
+			captureCryptoMap.put(rawBioValue, entry);
+		}
+	}
+
+	public static String getCaptureTimestamp(String bioValue) {
+		String[] entry = captureCryptoMap.get(bioValue);
+		return entry == null ? null : entry[3];
+	}
+
+	public static String getCaptureTransactionId(String bioValue) {
+		String[] entry = captureCryptoMap.get(bioValue);
+		return entry == null ? null : entry[4];
+	}
+
+	public static String getCaptureSessionKey(String bioValue) {
+		String[] entry = captureCryptoMap.get(bioValue);
+		return entry == null ? null : entry[0];
+	}
+
+	public static String getCaptureThumbprint(String bioValue) {
+		String[] entry = captureCryptoMap.get(bioValue);
+		return entry == null ? null : entry[1];
+	}
+
+	public static String getCaptureRawBioValue(String bioValue) {
+		String[] entry = captureCryptoMap.get(bioValue);
+		return entry == null ? null : entry[2];
+	}
+
+	public static String getCaptureHash(String bioValue) {
+		String[] entry = captureCryptoMap.get(bioValue);
+		return entry == null ? null : entry[5];
 	}
 	
 	public static void main(String[] args) {
@@ -144,6 +225,8 @@ public class BiometricDataProvider {
 			logger.error("Failed to generate biometric via mds");
 			return false;
 		}
+		lastCaptureTimeMs = System.currentTimeMillis();
+		lastCaptureMode = mdsMode;
 		String strCBeff = toCBEFFFromCapture(Arrays.asList(DataProviderConstants.schemaNames), capture, null, false);
 		strCBeff = expandEmptySubtypeElements(strCBeff);
 		strCBeff = sanitizeCbeff(strCBeff);
@@ -436,10 +519,14 @@ public class BiometricDataProvider {
 			Path p12path = Paths.get(getKeysDirPath("", BaseTestCase.certsForModule));
 			
 			int maxLoopCount = 20;
+			String mdsImageType = ConfigManager.getproperty("mdsImageType");
 
 			while (maxLoopCount > 0) {
 				try {
-					port = CentralizedMockSBI.startSBI(contextKey, mdsMode, "Biometric Device", p12path.toString());
+					port = (mdsImageType != null && !mdsImageType.isBlank())
+							? CentralizedMockSBI.startSBIV1(contextKey, mdsMode, "Biometric Device", p12path.toString(),
+									mdsImageType.trim())
+							: CentralizedMockSBI.startSBI(contextKey, mdsMode, "Biometric Device", p12path.toString());
 				} catch (Exception e) {
 					logger.error("Exception occured during startSBI " + contextKey, e);
 				}
@@ -458,8 +545,13 @@ public class BiometricDataProvider {
 
 			portmap.put("port_", port);
 
-			mds = new MDSClient(port);
-			mds.setProfile("Default", port, contextKey);
+			mds = new MDSClient(port, mdsMode);
+			((MDSClient) mds).setEnv(ConfigManager.getproperty("mdsCaptureEnv"));
+			String sbiProfile = ConfigManager.getproperty("mdsCaptureProfile");
+			if (sbiProfile == null || sbiProfile.isBlank()) {
+				sbiProfile = "Default";
+			}
+			mds.setProfile(sbiProfile, port, contextKey);
 
 			// Change mockmds quality score
 
@@ -497,15 +589,26 @@ public class BiometricDataProvider {
 			List<MDSDevice> irisDevices = mds.getRegDeviceInfo(DataProviderConstants.MDS_DEVICE_TYPE_IRIS);
 			MDSDevice irisDevice = irisDevices.get(0);
 
-			capture = mds.captureFromRegDevice(irisDevice, capture, DataProviderConstants.MDS_DEVICE_TYPE_IRIS, null,
-					60, irisDevice.getDeviceSubId().get(0), port, contextKey, null);
-
-			if (irisDevice.getDeviceSubId().size() > 1) {
-
+			String irisSubTypesConfig = ConfigManager.getproperty("local.bio.irisSubTypes");
+			if (irisSubTypesConfig != null && !irisSubTypesConfig.isBlank()) {
+				for (String subType : irisSubTypesConfig.split(",")) {
+					subType = subType.trim();
+					if (subType.isEmpty()) {
+						continue;
+					}
+					capture = mds.captureFromRegDevice(irisDevice, capture,
+							DataProviderConstants.MDS_DEVICE_TYPE_IRIS, subType, 60,
+							irisDevice.getDeviceSubId().get(0), port, contextKey, null);
+				}
+			} else {
 				capture = mds.captureFromRegDevice(irisDevice, capture, DataProviderConstants.MDS_DEVICE_TYPE_IRIS,
-						null, 60, irisDevice.getDeviceSubId().get(1), port, contextKey, null);
-			} 
-			
+						null, 60, irisDevice.getDeviceSubId().get(0), port, contextKey, null);
+
+				if (irisDevice.getDeviceSubId().size() > 1) {
+					capture = mds.captureFromRegDevice(irisDevice, capture, DataProviderConstants.MDS_DEVICE_TYPE_IRIS,
+							null, 60, irisDevice.getDeviceSubId().get(1), port, contextKey, null);
+				}
+			}
 		}
 		catch (Throwable t) {
 			logger.error(" IRIS get capture  fail" + contextKey, t);
@@ -518,9 +621,22 @@ public class BiometricDataProvider {
 			List<MDSDevice> fingerDevices = mds.getRegDeviceInfo(DataProviderConstants.MDS_DEVICE_TYPE_FINGER);
 			MDSDevice fingerDevice = fingerDevices.get(0);
 
-			for (int i = 0; i < fingerDevice.getDeviceSubId().size(); i++) {
-				capture = mds.captureFromRegDevice(fingerDevice, capture, DataProviderConstants.MDS_DEVICE_TYPE_FINGER,
-						null, 60, fingerDevice.getDeviceSubId().get(i), port, contextKey, null);
+			String fingerSubTypesConfig = ConfigManager.getproperty("local.bio.fingerSubTypes");
+			if (fingerSubTypesConfig != null && !fingerSubTypesConfig.isBlank()) {
+				for (String subType : fingerSubTypesConfig.split(",")) {
+					subType = subType.trim();
+					if (subType.isEmpty()) {
+						continue;
+					}
+					capture = mds.captureFromRegDevice(fingerDevice, capture,
+							DataProviderConstants.MDS_DEVICE_TYPE_FINGER, subType, 60,
+							fingerDevice.getDeviceSubId().get(0), port, contextKey, null);
+				}
+			} else {
+				for (int i = 0; i < fingerDevice.getDeviceSubId().size(); i++) {
+					capture = mds.captureFromRegDevice(fingerDevice, capture, DataProviderConstants.MDS_DEVICE_TYPE_FINGER,
+							null, 60, fingerDevice.getDeviceSubId().get(i), port, contextKey, null);
+				}
 			}
 		} catch (Throwable t) {
 			logger.error("Finger get capture fail" + contextKey, t);
@@ -572,6 +688,10 @@ public class BiometricDataProvider {
 					bioSubType.add("face");
 
 					addToBiometricMap("FaceBioValue", getBase64EncodedStringFromBase64URL(lstFaceData.get(0).getBioValue()));
+					putCaptureCrypto(getBase64EncodedStringFromBase64URL(lstFaceData.get(0).getBioValue()),
+							lstFaceData.get(0).getBioValue(), lstFaceData.get(0).getSessionKey(),
+							lstFaceData.get(0).getThumbprint(), lstFaceData.get(0).getCaptureTimestamp(),
+							lstFaceData.get(0).getCaptureTransactionId(), lstFaceData.get(0).getHash());
 
 					String faceXml = buildBirFace(lstFaceData.get(0).getBioValue(), lstFaceData.get(0).getSb(),
 							lstFaceData.get(0).getPayload(), lstFaceData.get(0).getQualityScore(), FALSE);
@@ -652,6 +772,9 @@ public class BiometricDataProvider {
 						builder = builder.importXMLBuilder(XMLBuilder.parse(irisXml));
 						bioSubType.add("Left");
 						addToBiometricMap("LeftIrisBioValue", getBase64EncodedStringFromBase64URL(cm.getBioValue()));
+						putCaptureCrypto(getBase64EncodedStringFromBase64URL(cm.getBioValue()), cm.getBioValue(),
+								cm.getSessionKey(), cm.getThumbprint(), cm.getCaptureTimestamp(),
+								cm.getCaptureTransactionId(), cm.getHash());
 					}
 					if (listWithoutExceptions.contains(RIGHTEYE) && cm.getBioSubType().equals(RIGHT)) {
 
@@ -660,6 +783,9 @@ public class BiometricDataProvider {
 						builder = builder.importXMLBuilder(XMLBuilder.parse(irisXml));
 						bioSubType.add(RIGHT);
 						addToBiometricMap("RightIrisBioValue", getBase64EncodedStringFromBase64URL(cm.getBioValue()));
+						putCaptureCrypto(getBase64EncodedStringFromBase64URL(cm.getBioValue()), cm.getBioValue(),
+								cm.getSessionKey(), cm.getThumbprint(), cm.getCaptureTimestamp(),
+								cm.getCaptureTransactionId(), cm.getHash());
 					}
 				}
 			}
@@ -744,6 +870,10 @@ public class BiometricDataProvider {
 						// Write the BDB values for all finger modalities in proper file.
 						
 						addToBiometricMap(DataProviderConstants.schemaNames[i], getBase64EncodedStringFromBase64URL(fingerData));
+						putCaptureCrypto(getBase64EncodedStringFromBase64URL(fingerData), fingerData,
+								currentCM.getSessionKey(), currentCM.getThumbprint(),
+								currentCM.getCaptureTimestamp(), currentCM.getCaptureTransactionId(),
+								currentCM.getHash());
 						String strFinger = DataProviderConstants.displayFingerName[i];
 						String strFingerXml = buildBirFinger(fingerData, strFinger, currentCM.getSb(),
 								currentCM.getPayload(), currentCM.getQualityScore(), FALSE);

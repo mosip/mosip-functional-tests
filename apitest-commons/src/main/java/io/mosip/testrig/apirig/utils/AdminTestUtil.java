@@ -168,7 +168,25 @@ public class AdminTestUtil extends BaseTestCase {
 			+ Calendar.getInstance().getTimeInMillis();
 	public static final String RANDOM_ID_V2_S3 = "mosip" + generateRandomNumberString(2)
 			+ Calendar.getInstance().getTimeInMillis();
-	public static final String TRANSACTION_ID = generateRandomNumberString(10);
+	public static final String TRANSACTION_ID = resolveTransactionId();
+
+	/**
+	 * An Auth biometric capture binds its GCM tag to the transactionId, and some
+	 * yml files hardcode one instead of using $TRANSACTIONID$. Pinning the value
+	 * lets a single capture satisfy both. Unset means a fresh random id, which is
+	 * the behaviour every environment run keeps.
+	 */
+	private static String resolveTransactionId() {
+		String configured = System.getProperty("transactionId");
+		if (configured == null || configured.trim().isEmpty()) {
+			configured = ConfigManager.getproperty("transactionId");
+		}
+		if (configured == null || configured.trim().isEmpty()) {
+			return generateRandomNumberString(10);
+		}
+		return configured.trim();
+	}
+
 	public static final String AUTHORIZATHION_HEADERNAME = GlobalConstants.AUTHORIZATION;
 	public static final String AUTH_HEADER_VALUE = "Some String";
 	public static final String SIGNATURE_HEADERNAME = GlobalConstants.SIGNATURE;

@@ -22,6 +22,10 @@ public class MDSDeviceCaptureModel {
 	String hash;
 	String sb;
 	String payload;
+	String sessionKey;
+	String thumbprint;
+	String captureTimestamp;
+	String captureTransactionId;
 	
 	public String toJSONString() {
 		
