@@ -204,6 +204,7 @@ public class EmailableReport implements IReporter {
 				+ "/" + newString);
 
 		if (orignialReportFile.exists()) {
+			ReportTreeViewEnhancer.enhanceReportFileInPlace(orignialReportFile, LOG);
 			if (orignialReportFile.renameTo(newReportFile)) {
 				boolean deleted = orignialReportFile.delete();
 			    if (!deleted) {
@@ -299,7 +300,7 @@ public class EmailableReport implements IReporter {
 
 	protected void writeHead() {
 		writer.print("<head>");
-		writer.print("<title>TestNG Report</title>");
+		writer.print("<title>API Test Report</title>");
 		writeStylesheet();
 		writer.print("</head>");
 	}
@@ -326,8 +327,8 @@ public class EmailableReport implements IReporter {
 	    writer.print(".failedeven td,.stripe {background-color: #E74C3C}");
 	    writer.print(".ignoredodd td {background-color: #808080}");
 	    writer.print(".ignoredeven td {background-color: #808080}");
-	    writer.print(".known_issuesodd td {background-color: #CC5500}");
-	    writer.print(".known_issueseven td {background-color: #CC5500}");
+	    writer.print(".known_issuesodd td, .knownissueodd td {background-color: #CC5500}");
+	    writer.print(".known_issueseven td, .knownissueeven td {background-color: #CC5500}");
 	    writer.print(".stacktrace {white-space:pre;font-family:monospace}");
 	    writer.print(".totop {font-size:85%;text-align:center;border-bottom:2px solid #000}");
 	    writer.print("</style>");
@@ -472,22 +473,22 @@ public class EmailableReport implements IReporter {
 			writer.print(GlobalConstants.TRTR);
 
 			writer.print("<tr>");
-			writer.print("<th>Test Scenario</th>");
-			writer.print("<th># Total</th>");
+			writer.print("<th>&#128203; Scenario</th>");
+			writer.print("<th>&#128202; Total</th>");
 			
 			if (skipPassed == false)
-				writer.print("<th># Passed</th>");
+				writer.print("<th>&#9989; Passed</th>");
 			
-			writer.print("<th># Skipped</th>");
-			writer.print("<th># Failed</th>");
+			writer.print("<th>&#9197; Skipped</th>");
+			writer.print("<th>&#10060; Failed</th>");
 			if (reportIgnoredTestCases) {
-				writer.print("<th># Ignored</th>");
+				writer.print("<th>&#9208; Ignored</th>");
 			}
 			
 			if (reportKnownIssueTestCases) {
-				writer.print("<th># Known_Issues</th>");
+				writer.print("<th>&#9888; Known</th>");
 			}
-			writer.print("<th>Execution Time (HH:MM:SS)</th>");
+			writer.print("<th>&#9201; Time</th>");
 			writer.print(GlobalConstants.TR);
 
 			for (TestResult testResult : suiteResult.getTestResults()) {
@@ -704,7 +705,7 @@ public class EmailableReport implements IReporter {
 
 				if (reportKnownIssueTestCases) {
 					scenarioIndex += writeScenarioSummary(testName + " &#8212; known_issues",
-							testResult.getKnownIssueTestResults(), "known_issues", scenarioIndex);
+							testResult.getKnownIssueTestResults(), "knownissue", scenarioIndex);
 				}
 				
 				scenarioIndex += writeScenarioSummary(testName + " &#8212; Failed", testResult.getFailedTestResults(),
@@ -771,50 +772,27 @@ public class EmailableReport implements IReporter {
 
 				buffer.setLength(0);
 
-//				int scenariosPerClass = 0;
-				int methodIndex = 0;
 				for (MethodResult methodResult : classResult.getMethodResults()) {
 					List<ITestResult> results = methodResult.getResults();
 					int resultsCount = results.size();
 					assert resultsCount > 0;
 
-					ITestResult firstResult = results.iterator().next();
-					String testCaseDescription = getTestCaseDescription(firstResult);
-					String uniqueIdentifier = getTestCaseUniqueIdentifier(firstResult);
-					String methodName = Utils.escapeHtml(firstResult.getMethod().getMethodName());
-					long start = firstResult.getStartMillis();
-					long duration = firstResult.getEndMillis() - start;
+					for (ITestResult result : results) {
+						String testCaseDescription = Utils.escapeHtml(getTestCaseDescription(result));
+						String uniqueIdentifier = getTestCaseUniqueIdentifier(result);
+						long duration = result.getEndMillis() - result.getStartMillis();
+						String temp = uniqueIdentifier.isEmpty() ? getTestCaseKey(result) : uniqueIdentifier;
 
-					if (methodIndex > 0) {
-						buffer.append(GlobalConstants.TRCLASS).append(cssClass).append("\">");
-
-					}
-					
-					String temp = uniqueIdentifier.isEmpty() ? getTestCaseKey(firstResult) : uniqueIdentifier;
-					
-					
-					buffer.append("<td style=\"text-align:left;\"><a href=\"#m").append(scenarioIndex).append("\">")
-					.append(temp).append("</a></td>").append("<td style=\"text-align:left;\">")
-					.append(testCaseDescription).append("</td>")
-					.append("<td style=\"text-align:left;\" rowspan=\"").append(resultsCount).append("\">")
-					.append(convertMillisToTime(duration)).append("</td></tr>");
-					
-					scenarioIndex++;
-
-					for (int i = 1; i < resultsCount; i++) {
 						buffer.append("<tr class=\"").append(cssClass).append("\">")
-								.append("<td style=\"text-align:center;\"><a href=\"#m").append(scenarioIndex)
-								.append("\">").append(temp).append("</a></td></tr>");
+								.append("<td><a href=\"#m").append(scenarioIndex).append("\">")
+								.append(Utils.escapeHtml(temp)).append("</a></td>")
+								.append("<td class='scenario-desc-col'>").append(testCaseDescription).append("</td>")
+								.append("<td class='bug-column'>").append(convertMillisToTime(duration))
+								.append("</td></tr>");
 						scenarioIndex++;
 					}
-
-//					scenariosPerClass += resultsCount;
-					methodIndex++;
 				}
 
-				writer.print(GlobalConstants.TRCLASS);
-				writer.print(cssClass);
-				writer.print("\">");
 				writer.print(buffer);
 
 				classIndex++;
