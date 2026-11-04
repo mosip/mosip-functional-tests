@@ -29,10 +29,6 @@ public class MosipTestDataManager {
         BaseTestCase.currentModule = BaseTestCase.runContext + moduleName.trim();
         BaseTestCase.setRunContext(detectRunType(), detectJarPath());
         BaseTestCase.copymoduleSpecificAndConfigFile("config");
-        // Force Playwright's one-time native driver extraction here, single-threaded, before any
-        // parallel scenario thread calls Playwright.create() itself — when running from a single
-        // fat jar, concurrent first-time calls race on the jar's shared ZipFileSystem during
-        // extraction (ClosedFileSystemException / "Failed to create driver").
         Playwright.create().close();
         BaseTestCase.ApplnURI = ConfigManager.getproperty("apiInternalEndPoint");
         BaseTestCase.kernelAuthLib = new KernelAuthentication();
