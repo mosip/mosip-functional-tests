@@ -1,5 +1,6 @@
 package io.mosip.testrig.uitestrig.core;
 
+import com.microsoft.playwright.Playwright;
 import io.mosip.testrig.apirig.utils.ConfigManager;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 import io.mosip.testrig.apirig.utils.KernelAuthentication;
@@ -28,6 +29,7 @@ public class MosipTestDataManager {
         BaseTestCase.currentModule = BaseTestCase.runContext + moduleName.trim();
         BaseTestCase.setRunContext(detectRunType(), detectJarPath());
         BaseTestCase.copymoduleSpecificAndConfigFile("config");
+        Playwright.create().close();
         BaseTestCase.ApplnURI = ConfigManager.getproperty("apiInternalEndPoint");
         BaseTestCase.kernelAuthLib = new KernelAuthentication();
         KeycloakUserManager.removeUser();
