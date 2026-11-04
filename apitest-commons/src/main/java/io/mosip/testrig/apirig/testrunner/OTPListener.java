@@ -48,6 +48,11 @@ public class OTPListener {
 	// Resolve WebSocket URL
 	// --------------------------------------------------
 	private static String resolveWebsocketUrl() {
+		// Full URL for local mock-smtp (ws://localhost:8081/...). Cluster runs leave this blank.
+		String explicitUrl = ConfigManager.getproperty("mockSmtpWebSocketUrl");
+		if (explicitUrl != null && !explicitUrl.isBlank()) {
+			return explicitUrl.trim();
+		}
 		String smtpUrl = ConfigManager.getSmtpUrl();
 		String smtpHost = (smtpUrl != null && !smtpUrl.isBlank()) ? extractHost(smtpUrl) : deriveSmtpHostFromIam();
 		return "wss://" + smtpHost + WEBSOCKET_PATH;
@@ -72,7 +77,8 @@ public class OTPListener {
 
 		int firstDot = host.indexOf('.');
 		if (firstDot == -1 || firstDot == host.length() - 1) {
-			throw new IllegalStateException("Unexpected IAM host: " + host);
+			throw new IllegalStateException("Unexpected IAM host: " + host
+					+ " — set mockSmtpWebSocketUrl for local mock-smtp");
 		}
 
 		return "smtp." + host.substring(firstDot + 1);
@@ -162,6 +168,10 @@ public class OTPListener {
 
 				logger.info("RAW WEBSOCKET MESSAGE RECEIVED length=" + completeMessage.length());
 				logger.debug("RAW MESSAGE >>> " + completeMessage);
+				if (completeMessage.isBlank()) {
+					webSocket.request(1);
+					return Listener.super.onText(webSocket, data, true);
+				}
 				JsonNode jsonNode = objectMapper.readTree(completeMessage);
 				Root root = objectMapper.treeToValue(jsonNode, Root.class);
 
@@ -183,17 +193,20 @@ public class OTPListener {
 
 				} else if ("MAIL".equalsIgnoreCase(root.type)) {
 
-					otpMessage = root.html;
+					otpMessage = (root.html != null && !root.html.isBlank()) ? root.html : root.text;
 					notificationMessage = root.subject;
 
-					if (root.to == null || root.to.value == null || root.to.value.isEmpty()
-							|| root.to.value.get(0).address == null) {
+					if (root.to != null && root.to.value != null && !root.to.value.isEmpty()
+							&& root.to.value.get(0).address != null) {
+						address = root.to.value.get(0).address.trim();
+					} else if (root.to != null && root.to.text != null) {
+						address = root.to.text.trim();
+					}
 
+					if (address.isEmpty()) {
 						logger.warn("MAIL notification missing recipient");
 						return Listener.super.onText(webSocket, data, true);
 					}
-
-					address = root.to.value.get(0).address.trim();
 
 				} else {
 					logger.warn("Unsupported notification type: " + root.type);
