@@ -3,6 +3,9 @@ package io.mosip.testrig.apirig.otp;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Root{
 	 public List<Object> attachments;
 	 public Headers headers;
