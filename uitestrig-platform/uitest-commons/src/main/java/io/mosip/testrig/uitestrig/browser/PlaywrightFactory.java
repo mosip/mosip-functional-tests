@@ -11,6 +11,8 @@ import io.mosip.testrig.uitestrig.reporting.UiExtentReportManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -203,13 +205,21 @@ public class PlaywrightFactory {
 
     private static BrowserType.LaunchOptions buildLaunchOptions(boolean headless, String browser) {
         BrowserType.LaunchOptions opts = new BrowserType.LaunchOptions().setHeadless(headless);
-        switch (browser.toLowerCase()) {
+        String key = browser.toLowerCase();
+        switch (key) {
             case "chrome"         -> opts.setChannel("chrome");
             case "msedge", "edge" -> opts.setChannel("msedge");
         }
+        List<String> args = new ArrayList<>();
+        if (!key.equals("firefox") && !key.equals("webkit") && !key.equals("safari")) {
+            args.add("--disable-dev-shm-usage");
+        }
         // In headed mode, start maximized. --start-maximized works for Chromium/Chrome/Edge.
         if (!headless) {
-            opts.setArgs(java.util.List.of("--start-maximized"));
+            args.add("--start-maximized");
+        }
+        if (!args.isEmpty()) {
+            opts.setArgs(args);
         }
         return opts;
     }
