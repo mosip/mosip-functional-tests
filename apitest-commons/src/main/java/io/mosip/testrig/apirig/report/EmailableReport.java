@@ -372,6 +372,12 @@ public class EmailableReport implements IReporter {
 		totalFailedTests = 0;
 		totalDuration = 0;
 
+		// Full-width rows must span exactly the summary columns; extra colspan leaves empty columns under table-layout:fixed
+		int summaryColumnCount = 5 + (skipPassed ? 0 : 1) + (reportIgnoredTestCases ? 1 : 0)
+				+ (reportKnownIssueTestCases ? 1 : 0);
+		String fullRowColspan = " colspan=\"" + summaryColumnCount + "\"";
+		String detailColspan = " colspan=\"" + (summaryColumnCount - 1) + "\"";
+
 		writer.print("<table>");
 
 		int testIndex = 0;
@@ -393,7 +399,7 @@ public class EmailableReport implements IReporter {
 
 				// Right column: Details from AdminTestUtil.getServerComponentsDetails() without
 				// bold formatting
-				writer.print("<td colspan=\"8\"><pre>");
+				writer.print("<td" + detailColspan + "><pre>");
 				writer.print(Utils.escapeHtml(AdminTestUtil.getServerComponentsDetails()));
 				writer.print("</pre></td>");
 				writer.print(GlobalConstants.TRTR);
@@ -406,7 +412,7 @@ public class EmailableReport implements IReporter {
 
 				// Right column: Details from AdminTestUtil.getServerComponentsDetails() without
 				// bold formatting
-				writer.print("<td colspan=\"8\"><pre>");
+				writer.print("<td" + detailColspan + "><pre>");
 				writer.print(Utils.escapeHtml(GlobalMethods.getComponentDetails()));
 				writer.print("</pre></td>");
 				writer.print(GlobalConstants.TRTR);
@@ -420,19 +426,19 @@ public class EmailableReport implements IReporter {
 				 */
 				
 				if (GlobalMethods.getServerErrors().equals("No server errors")) {
-					writer.print("<tr><th colspan=\"9\"><span class=\"not-bold\"><pre>");
+					writer.print("<tr><th" + fullRowColspan + "><span class=\"not-bold\"><pre>");
 				} else {
 					writer.print(
-							"<tr style=\"background-color: red;\"><th colspan=\"9\"><span class=\"not-bold\"><pre>");
+							"<tr style=\"background-color: red;\"><th" + fullRowColspan + "><span class=\"not-bold\"><pre>");
 				}
 				writer.print(Utils.escapeHtml("Server Errors " + "\n" + GlobalMethods.getServerErrors()));
 				writer.print("</pre></span>");
 				writer.print(GlobalConstants.TRTR);
 				
 				if (GlobalMethods.getCaptchaStatus()) {
-				    writer.print("<tr style=\"background-color: red;\"><th colspan=\"9\"><span class=\"not-bold\"><pre>");
+				    writer.print("<tr style=\"background-color: red;\"><th" + fullRowColspan + "><span class=\"not-bold\"><pre>");
 				} else {
-				    writer.print("<tr><th colspan=\"9\"><span class=\"not-bold\"><pre>");
+				    writer.print("<tr><th" + fullRowColspan + "><span class=\"not-bold\"><pre>");
 				}
 				writer.print(Utils.escapeHtml("Captcha Enabled" + "\n" + GlobalMethods.getCaptchaStatus()));
 				writer.print("</pre></span>");
@@ -455,7 +461,7 @@ public class EmailableReport implements IReporter {
 				}
 			}
 			
-			writer.print("<tr><th colspan=\"9\" style=\"background-color: #FFFFE0;\">");
+			writer.print("<tr><th" + fullRowColspan + " style=\"background-color: #FFFFE0;\">");
 			
 			String endpoint = System.getProperty("env.endpoint");
 			String env = "";

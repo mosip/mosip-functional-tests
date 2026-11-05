@@ -56,6 +56,8 @@
     --palette-coral: #f25559;
     --palette-green: #14b86a;
     --accent: #e0b15a;
+    /* Test case name links sit on red/orange/green status rows; keep them blue, never accent gold */
+    --tc-link: #93c5fd;
     --pass: #14b86a;
     --fail: #f25559;
     --skip: #fec40d;
@@ -591,6 +593,7 @@
   }
   .sidebar .scenario-title,
   .report-sidebar .scenario-title {
+    color: var(--tc-link);
     font-size: 12.5px;
     font-weight: 600;
     line-height: 1.35;
@@ -985,7 +988,7 @@
     border-color: var(--border) !important;
   }
   .report-main .dsl-scenario-summary-wrap #summary tbody td:nth-child(1) a {
-    color: var(--accent) !important;
+    color: var(--tc-link) !important;
   }
   .report-main table {
     border-color: var(--border) !important;
@@ -1002,7 +1005,7 @@
     background: rgba(26,34,53,.95) !important;
   }
   .report-main table a {
-    color: var(--accent) !important;
+    color: var(--tc-link) !important;
     font-weight: 600;
   }
   /* Class rollup. Scenario names stay in column 1. Count headers wrap
@@ -1012,12 +1015,17 @@
   }
   .report-main table:has(td.num > a[href^="#t"]) th:nth-child(1),
   .report-main table:has(td.num > a[href^="#t"]) td:nth-child(1) {
-    width: 22% !important;
-    max-width: 22% !important;
+    width: 30% !important;
+    max-width: 30% !important;
     white-space: normal !important;
     word-break: break-word !important;
     overflow-wrap: anywhere !important;
     overflow: hidden;
+  }
+  .report-main table:has(td.num > a[href^="#t"]) tr > th:nth-child(n+2):not([colspan]),
+  .report-main table:has(td.num > a[href^="#t"]) tr > td:nth-child(n+2):not([colspan]) {
+    padding-left: 6px;
+    padding-right: 6px;
   }
   .report-main table:has(td.num > a[href^="#t"]) th:nth-child(n+2) {
     white-space: normal !important;
@@ -1039,8 +1047,7 @@
     width: 14% !important;
   }
   .report-main td.num > a[href^="#t"] {
-    color: #1d4ed8 !important;
-    text-decoration-color: rgba(29, 78, 216, 0.45);
+    color: var(--tc-link) !important;
   }
   .report-main table {
     table-layout: fixed !important;
@@ -1209,8 +1216,8 @@
   .scenario-table td:nth-child(1),
   #summary thead th:nth-child(1),
   #summary tbody td:nth-child(1) {
-    width: 12%;
-    min-width: 120px;
+    width: 28%;
+    min-width: 220px;
     text-align: center;
     white-space: normal;
     overflow: visible;
@@ -1219,7 +1226,7 @@
   .scenario-table th:nth-child(2),
   .scenario-table td:nth-child(2),
   #summary thead th:nth-child(2) {
-    width: 74%;
+    width: 58%;
     text-align: center;
     vertical-align: top !important;
     word-break: normal !important;
@@ -1227,7 +1234,7 @@
   }
   #summary tbody td:nth-child(2),
   #summary tbody td.scenario-desc-col {
-    width: 74%;
+    width: 58%;
     text-align: left;
     vertical-align: top !important;
     word-break: normal !important;
@@ -1258,6 +1265,10 @@
     overflow-wrap: normal !important;
     overflow: visible !important;
     text-overflow: clip;
+  }
+  #summary thead th:nth-child(3),
+  #summary thead th.bug-column {
+    white-space: normal !important;
   }
   .report-main h3 {
     scroll-margin-top: 5rem;
@@ -1782,6 +1793,7 @@
     --muted: #475569;
     --http-panel: #f8fafc;
     --http-panel2: #f1f5f9;
+    --tc-link: #0b3d91;
   }
   html[data-theme="light"] body {
     background: linear-gradient(165deg, #fbf7f1 0%, #f3e6d4 55%, #ead7b8 100%);
@@ -1984,7 +1996,7 @@
     color: var(--text) !important;
   }
   html[data-theme="light"] .report-main table.report-exec-table tr.exec-kv-row td:last-child a {
-    color: #0369a1 !important;
+    color: var(--tc-link) !important;
   }
   html[data-theme="light"] .report-main table.report-exec-table tr.exec-kv-row td:last-child a:hover {
     color: #0c4a6e !important;
@@ -2098,7 +2110,7 @@
     border-color: #d1d1d1 !important;
   }
   html[data-theme="light"] .report-main .dsl-scenario-summary-wrap #summary tbody td:nth-child(1) a {
-    color: #1565c0 !important;
+    color: var(--tc-link) !important;
   }
   html[data-theme="light"] .report-main h3:not(:empty) {
     color: var(--text);
