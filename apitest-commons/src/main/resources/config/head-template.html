@@ -1015,12 +1015,17 @@
   }
   .report-main table:has(td.num > a[href^="#t"]) th:nth-child(1),
   .report-main table:has(td.num > a[href^="#t"]) td:nth-child(1) {
-    width: 22% !important;
-    max-width: 22% !important;
+    width: 30% !important;
+    max-width: 30% !important;
     white-space: normal !important;
     word-break: break-word !important;
     overflow-wrap: anywhere !important;
     overflow: hidden;
+  }
+  .report-main table:has(td.num > a[href^="#t"]) tr > th:nth-child(n+2):not([colspan]),
+  .report-main table:has(td.num > a[href^="#t"]) tr > td:nth-child(n+2):not([colspan]) {
+    padding-left: 6px;
+    padding-right: 6px;
   }
   .report-main table:has(td.num > a[href^="#t"]) th:nth-child(n+2) {
     white-space: normal !important;
@@ -1211,8 +1216,8 @@
   .scenario-table td:nth-child(1),
   #summary thead th:nth-child(1),
   #summary tbody td:nth-child(1) {
-    width: 12%;
-    min-width: 120px;
+    width: 28%;
+    min-width: 220px;
     text-align: center;
     white-space: normal;
     overflow: visible;
@@ -1221,7 +1226,7 @@
   .scenario-table th:nth-child(2),
   .scenario-table td:nth-child(2),
   #summary thead th:nth-child(2) {
-    width: 74%;
+    width: 58%;
     text-align: center;
     vertical-align: top !important;
     word-break: normal !important;
@@ -1229,7 +1234,7 @@
   }
   #summary tbody td:nth-child(2),
   #summary tbody td.scenario-desc-col {
-    width: 74%;
+    width: 58%;
     text-align: left;
     vertical-align: top !important;
     word-break: normal !important;
@@ -1260,6 +1265,10 @@
     overflow-wrap: normal !important;
     overflow: visible !important;
     text-overflow: clip;
+  }
+  #summary thead th:nth-child(3),
+  #summary thead th.bug-column {
+    white-space: normal !important;
   }
   .report-main h3 {
     scroll-margin-top: 5rem;
