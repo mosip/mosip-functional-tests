@@ -56,6 +56,8 @@
     --palette-coral: #f25559;
     --palette-green: #14b86a;
     --accent: #e0b15a;
+    /* Test case name links sit on red/orange/green status rows; keep them blue, never accent gold */
+    --tc-link: #93c5fd;
     --pass: #14b86a;
     --fail: #f25559;
     --skip: #fec40d;
@@ -591,6 +593,7 @@
   }
   .sidebar .scenario-title,
   .report-sidebar .scenario-title {
+    color: var(--tc-link);
     font-size: 12.5px;
     font-weight: 600;
     line-height: 1.35;
@@ -985,7 +988,7 @@
     border-color: var(--border) !important;
   }
   .report-main .dsl-scenario-summary-wrap #summary tbody td:nth-child(1) a {
-    color: var(--accent) !important;
+    color: var(--tc-link) !important;
   }
   .report-main table {
     border-color: var(--border) !important;
@@ -1002,7 +1005,7 @@
     background: rgba(26,34,53,.95) !important;
   }
   .report-main table a {
-    color: var(--accent) !important;
+    color: var(--tc-link) !important;
     font-weight: 600;
   }
   /* Class rollup. Scenario names stay in column 1. Count headers wrap
@@ -1039,8 +1042,7 @@
     width: 14% !important;
   }
   .report-main td.num > a[href^="#t"] {
-    color: #1d4ed8 !important;
-    text-decoration-color: rgba(29, 78, 216, 0.45);
+    color: var(--tc-link) !important;
   }
   .report-main table {
     table-layout: fixed !important;
@@ -1782,6 +1784,7 @@
     --muted: #475569;
     --http-panel: #f8fafc;
     --http-panel2: #f1f5f9;
+    --tc-link: #0b3d91;
   }
   html[data-theme="light"] body {
     background: linear-gradient(165deg, #fbf7f1 0%, #f3e6d4 55%, #ead7b8 100%);
@@ -1984,7 +1987,7 @@
     color: var(--text) !important;
   }
   html[data-theme="light"] .report-main table.report-exec-table tr.exec-kv-row td:last-child a {
-    color: #0369a1 !important;
+    color: var(--tc-link) !important;
   }
   html[data-theme="light"] .report-main table.report-exec-table tr.exec-kv-row td:last-child a:hover {
     color: #0c4a6e !important;
@@ -2098,7 +2101,7 @@
     border-color: #d1d1d1 !important;
   }
   html[data-theme="light"] .report-main .dsl-scenario-summary-wrap #summary tbody td:nth-child(1) a {
-    color: #1565c0 !important;
+    color: var(--tc-link) !important;
   }
   html[data-theme="light"] .report-main h3:not(:empty) {
     color: var(--text);
