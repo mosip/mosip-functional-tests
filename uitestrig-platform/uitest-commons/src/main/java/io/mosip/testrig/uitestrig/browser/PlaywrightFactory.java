@@ -149,6 +149,7 @@ public class PlaywrightFactory {
         Page page = context.newPage();
         page.setDefaultTimeout(30_000);
         page.setDefaultNavigationTimeout(60_000);
+        attachDiagnosticListeners(page);
         pageTL.set(page);
         return page;
     }
@@ -189,6 +190,20 @@ public class PlaywrightFactory {
         } catch (Exception e) {
             logger.warn("Error during Playwright cleanup: {}", e.getMessage());
         }
+    }
+
+    // Surfaces in-page JS state that a screenshot alone can't show — a console error or a failed
+    // resource load can explain an element that never renders even though the surrounding page
+    // looks normal. Routed through the same logger as everything else so it lands in the pod log.
+    private static void attachDiagnosticListeners(Page page) {
+        page.onConsoleMessage(msg -> {
+            if ("error".equals(msg.type()) || "warning".equals(msg.type())) {
+                logger.warn("[browser console {}] {}", msg.type(), msg.text());
+            }
+        });
+        page.onPageError(error -> logger.warn("[browser page error] {}", error));
+        page.onRequestFailed(req -> logger.warn("[browser request failed] {} {} — {}",
+                req.method(), req.url(), req.failure()));
     }
 
     // ── Internals ─────────────────────────────────────────────────────────────

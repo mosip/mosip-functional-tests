@@ -1,6 +1,7 @@
 package io.mosip.testrig.uitestrig.listeners;
 
 import com.aventstack.extentreports.ExtentTest;
+import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.ScreenshotAnimations;
 import io.cucumber.java.Scenario;
@@ -145,6 +146,7 @@ public class CucumberHooks {
         if (scenario.isFailed()) {
             UiExtentReportManager.incrementFailed();
             UiExtentReportManager.logFailure("Scenario failed: " + scenario.getName(), null, null);
+            captureFailureDiagnostics(scenario);
             // Skip if a BasePage action already captured a step-level screenshot for this failure.
             if (!UiExtentReportManager.wasStepFailureScreenshotTaken()) {
                 try {
@@ -171,6 +173,36 @@ public class CucumberHooks {
 
         UiExtentReportManager.removeTest();
         PlaywrightFactory.closePage();
+    }
+
+    // Settles whether a failing locator genuinely found nothing, vs. Playwright's view of the
+    // DOM having desynced from what's actually rendered (seen as: call log shows no progress
+    // past "waiting for locator" for the full timeout, yet the screenshot taken immediately after
+    // — from the very same Page object — looks completely normal). page.content() is what
+    // Playwright itself considers the current DOM; if the target id is missing from it while the
+    // screenshot clearly shows it, that's the desync, not a missing/renamed element. Full content
+    // goes to the logger (pod log) since it can be tens of KB; only a preview goes into the report.
+    private static void captureFailureDiagnostics(Scenario scenario) {
+        try {
+            Page page = PlaywrightFactory.getPage();
+            StringBuilder summary = new StringBuilder();
+            summary.append("page.url(): ").append(page.url()).append('\n');
+            summary.append("frames:\n");
+            for (Frame frame : page.frames()) {
+                summary.append("  - ").append(frame.url()).append('\n');
+            }
+            UiExtentReportManager.logDiagnostics("Failure Diagnostics (URL + frames)", summary.toString());
+            logger.warn("Scenario FAILED diagnostics for '{}':\n{}", scenario.getName(), summary);
+
+            String content = page.content();
+            String preview = content.length() > 4000 ? content.substring(0, 4000) + "\n...(truncated)" : content;
+            UiExtentReportManager.logDiagnostics(
+                    "Failure Diagnostics (page.content(), " + content.length() + " chars, preview)", preview);
+            logger.warn("Scenario FAILED page.content() for '{}' ({} chars):\n{}",
+                    scenario.getName(), content.length(), content);
+        } catch (Exception e) {
+            logger.error("Could not capture failure diagnostics: {}", e.getMessage());
+        }
     }
 
     /**

@@ -273,6 +273,16 @@ public final class UiExtentReportManager {
         }
     }
 
+    /** Logs arbitrary diagnostic text (page URL, frame list, DOM snapshot, etc.) under a
+     *  collapsible block — for narrowing down failures where a screenshot alone isn't enough. */
+    public static synchronized void logDiagnostics(String title, String content) {
+        ExtentTest test = getTest();
+        if (test == null || content == null) return;
+        test.info("<details style='margin-left:20px;'>"
+                + "<summary style='cursor:pointer;'>" + escapeHtml(title) + "</summary>"
+                + "<pre>" + escapeHtml(content) + "</pre></details>");
+    }
+
     // ── Result counters ─────────────────────────────────────────────────────────
 
     public static synchronized void incrementPassed()     { passedCount++; }
