@@ -213,6 +213,7 @@ public class PlaywrightFactory {
         List<String> args = new ArrayList<>();
         if (!key.equals("firefox") && !key.equals("webkit") && !key.equals("safari")) {
             args.add("--disable-dev-shm-usage");
+            args.add("--no-sandbox");
         }
         // In headed mode, start maximized. --start-maximized works for Chromium/Chrome/Edge.
         if (!headless) {
