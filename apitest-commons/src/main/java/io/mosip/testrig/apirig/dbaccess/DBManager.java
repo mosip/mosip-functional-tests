@@ -100,6 +100,7 @@ public class DBManager {
 						}
 					}
 				});
+				commit(session);
 			}
 		} catch (NullPointerException e) {
 			logger.error("Exception occured " + e.getMessage());
@@ -144,6 +145,7 @@ public class DBManager {
 						}
 					}
 				});
+				commit(session);
 			}
 		} catch (Exception e) {
 			logger.error("Exception occured " + e.getMessage());
@@ -215,12 +217,20 @@ public class DBManager {
 			session.close();
 		}
 	}
+
+	// Hibernate 6 rolls back a transaction that is still active when the session is closed.
+	private static void commit(Session session) {
+		if (session != null && session.getTransaction().isActive()) {
+			session.getTransaction().commit();
+		}
+	}
 	
 	public static void executeDBQueries(String dbURL, String dbUser, String dbPassword, String dbSchema, String dbQueryFile) {
 		Session session = null;
 		try {
 			session = getDataBaseConnection(dbURL, dbUser, dbPassword, dbSchema);
-			executeQueries(session, dbQueryFile);		
+			executeQueries(session, dbQueryFile);
+			commit(session);
 		} catch (Exception e) {
 			logger.error("Error:: While executing DB Quiries." + e.getMessage());
 		} finally {
