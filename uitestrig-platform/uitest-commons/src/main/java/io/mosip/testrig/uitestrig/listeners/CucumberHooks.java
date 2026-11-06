@@ -145,10 +145,8 @@ public class CucumberHooks {
 
         if (scenario.isFailed()) {
             UiExtentReportManager.incrementFailed();
-            // Cucumber's Scenario API exposes no getError() — the real exception, if any step
-            // reported one via UiExtentReportManager.logFailure(..., error), is already in the
-            // report above this line. This closing line just names which step was in flight,
-            // for the (rarer) case where a step's exception propagated uncaught instead.
+            // Cucumber's Scenario API exposes no getError(), so name the last step in flight
+            // instead — better than nothing when a step's exception escaped uncaught.
             String lastStep = UiExtentReportManager.getLastStepDescription();
             String failureMessage = lastStep != null
                     ? "Scenario failed: " + scenario.getName() + " — last step: " + lastStep

@@ -66,9 +66,7 @@ public final class UiExtentReportManager {
     // already captured one for this scenario.
     private static final ThreadLocal<Boolean> stepFailureScreenshotTaken = ThreadLocal.withInitial(() -> false);
 
-    // Most recently logged step description/locator — lets a caller whose exception propagates
-    // uncaught (no local try/catch of its own) still report *something* more useful than "scenario
-    // failed" by asking what the last action in flight was. See CucumberHooks.teardownScenario().
+    // Most recently logged step description/locator. See CucumberHooks.teardownScenario().
     private static final ThreadLocal<String> lastStepDescription = new ThreadLocal<>();
     private static final ThreadLocal<String> lastStepLocator = new ThreadLocal<>();
 
