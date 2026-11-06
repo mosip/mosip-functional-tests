@@ -1,6 +1,7 @@
 package io.mosip.testrig.uitestrig.listeners;
 
 import com.aventstack.extentreports.ExtentTest;
+import com.microsoft.playwright.Frame;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.ScreenshotAnimations;
 import io.cucumber.java.Scenario;
@@ -144,7 +145,15 @@ public class CucumberHooks {
 
         if (scenario.isFailed()) {
             UiExtentReportManager.incrementFailed();
-            UiExtentReportManager.logFailure("Scenario failed: " + scenario.getName(), null, null);
+            // Scenario has no getError() API, so fall back to the last logged step.
+            String lastStep = UiExtentReportManager.getLastStepDescription();
+            String failureMessage = lastStep != null
+                    ? "Scenario failed: " + scenario.getName() + " — last step: " + lastStep
+                    : "Scenario failed: " + scenario.getName();
+            String locator = UiExtentReportManager.wasStepFailureScreenshotTaken()
+                    ? null : UiExtentReportManager.getLastStepLocator();
+            UiExtentReportManager.logFailure(failureMessage, locator, null);
+            captureFailureDiagnostics(scenario);
             // Skip if a BasePage action already captured a step-level screenshot for this failure.
             if (!UiExtentReportManager.wasStepFailureScreenshotTaken()) {
                 try {
@@ -171,6 +180,31 @@ public class CucumberHooks {
 
         UiExtentReportManager.removeTest();
         PlaywrightFactory.closePage();
+    }
+
+    // page.content() shows Playwright's own view of the DOM — tells a genuinely missing element
+    // apart from a stale/desynced one. Full content to the logger, a preview to the report.
+    private static void captureFailureDiagnostics(Scenario scenario) {
+        try {
+            Page page = PlaywrightFactory.getPage();
+            StringBuilder summary = new StringBuilder();
+            summary.append("page.url(): ").append(page.url()).append('\n');
+            summary.append("frames:\n");
+            for (Frame frame : page.frames()) {
+                summary.append("  - ").append(frame.url()).append('\n');
+            }
+            UiExtentReportManager.logDiagnostics("Failure Diagnostics (URL + frames)", summary.toString());
+            logger.warn("Scenario FAILED diagnostics for '{}':\n{}", scenario.getName(), summary);
+
+            String content = page.content();
+            String preview = content.length() > 4000 ? content.substring(0, 4000) + "\n...(truncated)" : content;
+            UiExtentReportManager.logDiagnostics(
+                    "Failure Diagnostics (page.content(), " + content.length() + " chars, preview)", preview);
+            logger.warn("Scenario FAILED page.content() for '{}' ({} chars):\n{}",
+                    scenario.getName(), content.length(), content);
+        } catch (Exception e) {
+            logger.error("Could not capture failure diagnostics: {}", e.getMessage());
+        }
     }
 
     /**
