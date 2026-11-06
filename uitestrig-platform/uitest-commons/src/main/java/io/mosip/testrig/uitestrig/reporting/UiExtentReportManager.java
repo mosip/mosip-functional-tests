@@ -66,6 +66,12 @@ public final class UiExtentReportManager {
     // already captured one for this scenario.
     private static final ThreadLocal<Boolean> stepFailureScreenshotTaken = ThreadLocal.withInitial(() -> false);
 
+    // Most recently logged step description/locator — lets a caller whose exception propagates
+    // uncaught (no local try/catch of its own) still report *something* more useful than "scenario
+    // failed" by asking what the last action in flight was. See CucumberHooks.teardownScenario().
+    private static final ThreadLocal<String> lastStepDescription = new ThreadLocal<>();
+    private static final ThreadLocal<String> lastStepLocator = new ThreadLocal<>();
+
     private static volatile boolean browserVersionRecorded = false;
 
     private static volatile int passedCount = 0;
@@ -136,6 +142,8 @@ public final class UiExtentReportManager {
         currentTest = test;
         stepCounter.set(new AtomicInteger(0));
         stepFailureScreenshotTaken.set(false);
+        lastStepDescription.remove();
+        lastStepLocator.remove();
         return test;
     }
 
@@ -171,7 +179,20 @@ public final class UiExtentReportManager {
         testThread.remove();
         stepCounter.remove();
         stepFailureScreenshotTaken.remove();
+        lastStepDescription.remove();
+        lastStepLocator.remove();
         if (currentTest == mine) currentTest = null;
+    }
+
+    /** What the last {@link #logStep}/{@link #logStepWithLocator} call on this thread described —
+     *  null before the first step or after {@link #removeTest()}. See the field javadoc. */
+    public static String getLastStepDescription() {
+        return lastStepDescription.get();
+    }
+
+    /** As {@link #getLastStepDescription()}, for the locator — null if the last step had none. */
+    public static String getLastStepLocator() {
+        return lastStepLocator.get();
     }
 
     // ── Step / action logging ───────────────────────────────────────────────────
@@ -184,11 +205,17 @@ public final class UiExtentReportManager {
         if (test == null) return;
         AtomicInteger counter = stepCounter.get();
         int num = (counter != null) ? counter.incrementAndGet() : 0;
+        logger.info("STEP {}:", num);
         test.info("<br><b style='color:" + STEP_COLOR + ";'>STEP " + num + ":</b>");
     }
 
-    /** Logs a plain action/assertion detail line under the current step. */
+    /** Logs a plain action/assertion detail line under the current step. Also written to the
+     *  SLF4J logger (pod/console log), so a run can be followed live without the HTML report —
+     *  which only exists once the suite finishes (or not at all, if the pod dies first). */
     public static synchronized void logStep(String message) {
+        lastStepDescription.set(message);
+        lastStepLocator.remove();
+        logger.info(message);
         ExtentTest test = getTest();
         if (test != null) test.info(message);
     }
@@ -198,6 +225,7 @@ public final class UiExtentReportManager {
      * Use from the assertion library so checkpoints are visible on pass, not only on failure.
      */
     public static synchronized void logPass(String message) {
+        logger.info("PASS: {}", message);
         ExtentTest test = getTest();
         if (test != null) test.pass("✅ " + message);
     }
@@ -209,8 +237,14 @@ public final class UiExtentReportManager {
      *   Click reg center search btn
      *   ▶ Locator Details   →  #regCenterSearchBtn
      * </pre>
+     * Also written to the SLF4J logger (see {@link #logStep}) and remembered as the "last step"
+     * so an exception that escapes uncaught can still be reported against it — see
+     * {@link #getLastStepDescription()}.
      */
     public static synchronized void logStepWithLocator(String description, String locator) {
+        lastStepDescription.set(description);
+        lastStepLocator.set(locator);
+        logger.info("{} [{}]", description, locator);
         ExtentTest test = getTest();
         if (test == null) return;
         test.info(description
@@ -221,6 +255,7 @@ public final class UiExtentReportManager {
 
     /** Logs a non-fatal warning line (e.g. a self-healing fallback was used). */
     public static synchronized void logWarning(String message) {
+        logger.warn(message);
         ExtentTest test = getTest();
         if (test != null) test.warning(message);
     }
@@ -228,12 +263,14 @@ public final class UiExtentReportManager {
     /** Logs a skip line. Unlike logPass/logFailure, the caller supplies the full message
      *  (including any emoji/HTML prefix), since callers need different prefixes here. */
     public static synchronized void logSkip(String message) {
+        logger.info(message);
         ExtentTest test = getTest();
         if (test != null) test.skip(message);
     }
 
     /** Logs a failure line with the locator and exception message in a collapsible block. */
     public static synchronized void logFailure(String description, String locator, Throwable error) {
+        logger.warn("FAIL: {} [{}]", description, locator, error);
         ExtentTest test = getTest();
         if (test == null) return;
         StringBuilder html = new StringBuilder("❌ ").append(description);
