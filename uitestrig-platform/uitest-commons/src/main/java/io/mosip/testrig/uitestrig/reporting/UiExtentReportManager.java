@@ -202,7 +202,7 @@ public final class UiExtentReportManager {
         if (test == null) return;
         AtomicInteger counter = stepCounter.get();
         int num = (counter != null) ? counter.incrementAndGet() : 0;
-        logger.info("STEP {}:", num);
+        logger.info("➡️  STEP {}:", num);
         test.info("<br><b style='color:" + STEP_COLOR + ";'>STEP " + num + ":</b>");
     }
 
@@ -211,7 +211,7 @@ public final class UiExtentReportManager {
     public static synchronized void logStep(String message) {
         lastStepDescription.set(message);
         lastStepLocator.remove();
-        logger.info(message);
+        logger.info("➡️  STEP: {}", message);
         ExtentTest test = getTest();
         if (test != null) test.info(message);
     }
@@ -221,7 +221,7 @@ public final class UiExtentReportManager {
      * Use from the assertion library so checkpoints are visible on pass, not only on failure.
      */
     public static synchronized void logPass(String message) {
-        logger.info("PASS: {}", message);
+        logger.info("✅ PASS: {}", message);
         ExtentTest test = getTest();
         if (test != null) test.pass("✅ " + message);
     }
@@ -238,7 +238,20 @@ public final class UiExtentReportManager {
     public static synchronized void logStepWithLocator(String description, String locator) {
         lastStepDescription.set(description);
         lastStepLocator.set(locator);
-        logger.info("{} [{}]", description, locator);
+        logger.info("🔸 ACTION: {} [{}]", description, locator);
+        ExtentTest test = getTest();
+        if (test == null) return;
+        test.info(description
+                + "<br><details style='margin-left:20px;'>"
+                + "<summary style='cursor:pointer;'>Locator Details</summary>"
+                + "<pre>" + escapeHtml(locator) + "</pre></details>");
+    }
+
+    /** As {@link #logStepWithLocator}, for a verification/check rather than an action. */
+    public static synchronized void logVerify(String description, String locator) {
+        lastStepDescription.set(description);
+        lastStepLocator.set(locator);
+        logger.info("🔍 VERIFY: {} [{}]", description, locator);
         ExtentTest test = getTest();
         if (test == null) return;
         test.info(description
@@ -264,7 +277,7 @@ public final class UiExtentReportManager {
 
     /** Logs a failure line with the locator and exception message in a collapsible block. */
     public static synchronized void logFailure(String description, String locator, Throwable error) {
-        logger.warn("FAIL: {} [{}]", description, locator, error);
+        logger.warn("❌ FAIL: {} [{}]", description, locator, error);
         ExtentTest test = getTest();
         if (test == null) return;
         StringBuilder html = new StringBuilder("❌ ").append(description);
