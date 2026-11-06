@@ -182,8 +182,7 @@ public final class UiExtentReportManager {
         if (currentTest == mine) currentTest = null;
     }
 
-    /** What the last {@link #logStep}/{@link #logStepWithLocator} call on this thread described —
-     *  null before the first step or after {@link #removeTest()}. See the field javadoc. */
+    /** Last step description logged on this thread, or null. */
     public static String getLastStepDescription() {
         return lastStepDescription.get();
     }
@@ -207,9 +206,8 @@ public final class UiExtentReportManager {
         test.info("<br><b style='color:" + STEP_COLOR + ";'>STEP " + num + ":</b>");
     }
 
-    /** Logs a plain action/assertion detail line under the current step. Also written to the
-     *  SLF4J logger (pod/console log), so a run can be followed live without the HTML report —
-     *  which only exists once the suite finishes (or not at all, if the pod dies first). */
+    /** Logs a plain action/assertion detail line under the current step. Also logged via SLF4J
+     *  for live console/pod visibility. */
     public static synchronized void logStep(String message) {
         lastStepDescription.set(message);
         lastStepLocator.remove();
@@ -235,9 +233,7 @@ public final class UiExtentReportManager {
      *   Click reg center search btn
      *   ▶ Locator Details   →  #regCenterSearchBtn
      * </pre>
-     * Also written to the SLF4J logger (see {@link #logStep}) and remembered as the "last step"
-     * so an exception that escapes uncaught can still be reported against it — see
-     * {@link #getLastStepDescription()}.
+     * Also logged via SLF4J and remembered as the last step (see {@link #getLastStepDescription()}).
      */
     public static synchronized void logStepWithLocator(String description, String locator) {
         lastStepDescription.set(description);
@@ -308,8 +304,7 @@ public final class UiExtentReportManager {
         }
     }
 
-    /** Logs arbitrary diagnostic text (page URL, frame list, DOM snapshot, etc.) under a
-     *  collapsible block — for narrowing down failures where a screenshot alone isn't enough. */
+    /** Logs arbitrary diagnostic text (page URL, DOM snapshot, etc.) in a collapsible block. */
     public static synchronized void logDiagnostics(String title, String content) {
         ExtentTest test = getTest();
         if (test == null || content == null) return;

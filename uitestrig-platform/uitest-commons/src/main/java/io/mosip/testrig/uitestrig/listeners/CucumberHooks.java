@@ -145,10 +145,7 @@ public class CucumberHooks {
 
         if (scenario.isFailed()) {
             UiExtentReportManager.incrementFailed();
-            // Cucumber's Scenario API exposes no getError(), so name the last step in flight
-            // instead — better than nothing when a step's exception escaped uncaught. If a step
-            // already reported its own failure (locator + real exception), don't repeat the
-            // locator here with no new information.
+            // Scenario has no getError() API, so fall back to the last logged step.
             String lastStep = UiExtentReportManager.getLastStepDescription();
             String failureMessage = lastStep != null
                     ? "Scenario failed: " + scenario.getName() + " — last step: " + lastStep
@@ -185,13 +182,8 @@ public class CucumberHooks {
         PlaywrightFactory.closePage();
     }
 
-    // Settles whether a failing locator genuinely found nothing, vs. Playwright's view of the
-    // DOM having desynced from what's actually rendered (seen as: call log shows no progress
-    // past "waiting for locator" for the full timeout, yet the screenshot taken immediately after
-    // — from the very same Page object — looks completely normal). page.content() is what
-    // Playwright itself considers the current DOM; if the target id is missing from it while the
-    // screenshot clearly shows it, that's the desync, not a missing/renamed element. Full content
-    // goes to the logger (pod log) since it can be tens of KB; only a preview goes into the report.
+    // page.content() shows Playwright's own view of the DOM — tells a genuinely missing element
+    // apart from a stale/desynced one. Full content to the logger, a preview to the report.
     private static void captureFailureDiagnostics(Scenario scenario) {
         try {
             Page page = PlaywrightFactory.getPage();
