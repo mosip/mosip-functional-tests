@@ -50,6 +50,7 @@ public class AssertionLibrary {
     // ── Visibility / State ─────────────────────────────────────────────────────
 
     public void verifyVisible(String selector) {
+        UiExtentReportManager.logVerify("Checking '" + selector + "' is visible", selector);
         assertThat(page.locator(selector))
                 .isVisible(new com.microsoft.playwright.assertions.LocatorAssertions.IsVisibleOptions()
                         .setTimeout(10_000));
@@ -57,17 +58,20 @@ public class AssertionLibrary {
     }
 
     public void verifyNotVisible(String selector) {
+        UiExtentReportManager.logVerify("Checking '" + selector + "' is not visible", selector);
         assertThat(page.locator(selector))
                 .not().isVisible();
         UiExtentReportManager.logPass("Verified '" + selector + "' is not visible");
     }
 
     public void verifyEnabled(String selector) {
+        UiExtentReportManager.logVerify("Checking '" + selector + "' is enabled", selector);
         assertThat(page.locator(selector)).isEnabled();
         UiExtentReportManager.logPass("Verified '" + selector + "' is enabled");
     }
 
     public void verifyDisabled(String selector) {
+        UiExtentReportManager.logVerify("Checking '" + selector + "' is disabled", selector);
         assertThat(page.locator(selector)).isDisabled();
         UiExtentReportManager.logPass("Verified '" + selector + "' is disabled");
     }
@@ -78,6 +82,7 @@ public class AssertionLibrary {
      * Verifies the element's full text content matches exactly (ignoring surrounding whitespace).
      */
     public void verifyText(String selector, String expected) {
+        UiExtentReportManager.logVerify("Checking '" + selector + "' text equals \"" + expected + "\"", selector);
         String actual = page.locator(selector).textContent();
         if (actual == null || !actual.trim().equals(expected.trim())) {
             throw new AssertionError(
@@ -92,6 +97,7 @@ public class AssertionLibrary {
      * Verifies the element's text content contains the given substring.
      */
     public void verifyPartialText(String selector, String contains) {
+        UiExtentReportManager.logVerify("Checking '" + selector + "' contains text \"" + contains + "\"", selector);
         String actual = page.locator(selector).textContent();
         if (actual == null || !actual.contains(contains)) {
             throw new AssertionError(
@@ -106,6 +112,7 @@ public class AssertionLibrary {
      * Verifies an input/textarea field's current value.
      */
     public void verifyInputValue(String selector, String expected) {
+        UiExtentReportManager.logVerify("Checking '" + selector + "' input value is \"" + expected + "\"", selector);
         String actual = page.locator(selector).inputValue();
         if (!expected.equals(actual)) {
             throw new AssertionError(
@@ -122,6 +129,7 @@ public class AssertionLibrary {
      * Verifies the number of elements matching the selector.
      */
     public void verifyCount(String selector, int expected) {
+        UiExtentReportManager.logVerify("Checking '" + selector + "' count is " + expected, selector);
         int actual = page.locator(selector).count();
         if (actual != expected) {
             throw new AssertionError(
@@ -142,6 +150,7 @@ public class AssertionLibrary {
      * For a simple substring check, use {@link #verifyURLContains(String)}.
      */
     public void verifyURL(String pattern) {
+        UiExtentReportManager.logVerify("Checking URL matches \"" + pattern + "\"", null);
         assertThat(page).hasURL(Pattern.compile(pattern));
         UiExtentReportManager.logPass("Verified URL matches \"" + pattern + "\"");
     }
@@ -150,6 +159,7 @@ public class AssertionLibrary {
      * Verifies the current page URL contains the given fragment.
      */
     public void verifyURLContains(String fragment) {
+        UiExtentReportManager.logVerify("Checking URL contains \"" + fragment + "\"", null);
         String actual = page.url();
         if (!actual.contains(fragment)) {
             throw new AssertionError(
@@ -164,6 +174,7 @@ public class AssertionLibrary {
      * Verifies the page title matches the given text exactly.
      */
     public void verifyTitle(String expected) {
+        UiExtentReportManager.logVerify("Checking page title is \"" + expected + "\"", null);
         assertThat(page).hasTitle(expected);
         UiExtentReportManager.logPass("Verified page title is \"" + expected + "\"");
     }
@@ -172,6 +183,7 @@ public class AssertionLibrary {
      * Verifies the page title contains the given substring.
      */
     public void verifyTitleContains(String partial) {
+        UiExtentReportManager.logVerify("Checking page title contains \"" + partial + "\"", null);
         String actual = page.title();
         if (!actual.contains(partial)) {
             throw new AssertionError(
@@ -188,6 +200,7 @@ public class AssertionLibrary {
      * Verifies an HTML attribute equals the expected value exactly.
      */
     public void verifyAttributeValue(String selector, String attr, String expected) {
+        UiExtentReportManager.logVerify("Checking '" + selector + "' attribute [" + attr + "] is \"" + expected + "\"", selector);
         String actual = page.locator(selector).getAttribute(attr);
         if (!expected.equals(actual)) {
             throw new AssertionError(
@@ -202,6 +215,7 @@ public class AssertionLibrary {
      * Verifies an HTML attribute contains the expected substring.
      */
     public void verifyAttributeContains(String selector, String attr, String fragment) {
+        UiExtentReportManager.logVerify("Checking '" + selector + "' attribute [" + attr + "] contains \"" + fragment + "\"", selector);
         String actual = page.locator(selector).getAttribute(attr);
         if (actual == null || !actual.contains(fragment)) {
             throw new AssertionError(
@@ -226,6 +240,7 @@ public class AssertionLibrary {
      * @param expectedHex  Expected color as hex string, e.g. {@code "#1976d2"} or {@code "1976d2"}
      */
     public void verifyColor(String selector, String cssProperty, String expectedHex) {
+        UiExtentReportManager.logVerify("Checking '" + selector + "' " + cssProperty + " is " + expectedHex, selector);
         Object rawValue = page.evaluate(
             "([sel, prop]) => { " +
             "  const el = document.querySelector(sel); " +
@@ -269,6 +284,7 @@ public class AssertionLibrary {
      * @param expectedData  expected table contents as rows × cells
      */
     public void verifyTable(String tableSelector, List<List<String>> expectedData) {
+        UiExtentReportManager.logVerify("Checking '" + tableSelector + "' matches expected data", tableSelector);
         List<List<String>> actualData = Table.from(page, tableSelector).getAllData();
 
         if (actualData.equals(expectedData)) {
