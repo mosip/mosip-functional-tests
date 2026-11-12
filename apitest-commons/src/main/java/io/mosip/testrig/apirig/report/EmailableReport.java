@@ -102,11 +102,7 @@ public class EmailableReport implements IReporter {
 	            return suite2.getName().compareTo(suite1.getName()); // Reverse the order for descending sort
 	        }
 	    });
-		generateReport(xmlSuites, suites, outputDirectory, false); // Generate full report
-		if (totalFailedTests > 0 || totalSkippedTests > 0) {
-			generateReport(xmlSuites, suites, outputDirectory, true); // Generate error report
-		}
-
+		generateReport(xmlSuites, suites, outputDirectory, false);
 	}
 	
 	private SuiteResult createFilteredSuiteResult(ISuite suite) {
