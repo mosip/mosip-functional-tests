@@ -29,6 +29,53 @@ public final class ReportTreeViewEnhancer {
 
     private static final String REPORT_SHELL_CLOSE = "</div></div>";
 
+    private static final String REPORT_SIDEBAR_MARKER = "reportSidebarLayout";
+
+    private static final String REPORT_SPLITTER =
+            "<div class=\"report-splitter\" id=\"report-splitter\" role=\"separator\" aria-orientation=\"vertical\" "
+                    + "aria-label=\"Resize scenarios panel\" tabindex=\"0\">"
+                    + "<button type=\"button\" id=\"report-sidebar-toggle\" class=\"report-sidebar-toggle\" "
+                    + "aria-pressed=\"false\" title=\"Hide scenarios\" aria-label=\"Hide scenarios\">"
+                    + "<span class=\"icon-close\" aria-hidden=\"true\">&#8249;</span>"
+                    + "<span class=\"icon-open\" aria-hidden=\"true\">&#8250;</span>"
+                    + "</button></div>";
+
+    private static final String REPORT_SIDEBAR_SCRIPT =
+            "<script>/* reportSidebarLayout */(function(){"
+                    + "var root=document.documentElement,shell=document.querySelector('.report-shell'),"
+                    + "side=document.querySelector('.report-sidebar'),split=document.getElementById('report-splitter'),"
+                    + "btn=document.getElementById('report-sidebar-toggle');"
+                    + "if(!shell||!side||!split||!btn)return;"
+                    + "var KEY_W='report-sidebar-width',KEY_C='report-sidebar-collapsed',drag=false,minW=220;"
+                    + "function closed(){return root.getAttribute('data-sidebar')==='closed';}"
+                    + "function setClosed(on){if(on)root.setAttribute('data-sidebar','closed');else root.removeAttribute('data-sidebar');"
+                    + "btn.setAttribute('aria-pressed',on?'true':'false');"
+                    + "var label=on?'Show scenarios':'Hide scenarios';btn.title=label;btn.setAttribute('aria-label',label);"
+                    + "try{localStorage.setItem(KEY_C,on?'1':'0');}catch(e){}}"
+                    + "function width(){return side.getBoundingClientRect().width;}"
+                    + "function maxW(){return Math.max(minW,shell.clientWidth*0.7);}"
+                    + "function apply(px){var w=Math.round(Math.max(minW,Math.min(px,maxW())));"
+                    + "root.style.setProperty('--report-sidebar-width',w+'px');"
+                    + "try{localStorage.setItem(KEY_W,String(w));}catch(e){}}"
+                    + "btn.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();setClosed(!closed());});"
+                    + "function start(e){if(closed()||(e.target.closest&&e.target.closest('.report-sidebar-toggle')))return;"
+                    + "if(window.matchMedia('(max-width:900px)').matches)return;"
+                    + "drag=true;shell.classList.add('is-resizing');"
+                    + "if(split.setPointerCapture&&e.pointerId!=null){try{split.setPointerCapture(e.pointerId);}catch(err){}}"
+                    + "e.preventDefault();}"
+                    + "function move(e){if(!drag)return;apply(e.clientX-shell.getBoundingClientRect().left);}"
+                    + "function endDrag(){if(!drag)return;drag=false;shell.classList.remove('is-resizing');}"
+                    + "split.addEventListener('pointerdown',start);"
+                    + "split.addEventListener('pointermove',move);"
+                    + "split.addEventListener('pointerup',endDrag);"
+                    + "split.addEventListener('pointercancel',endDrag);"
+                    + "split.addEventListener('keydown',function(e){if(closed())return;var step=e.shiftKey?48:24;"
+                    + "if(e.key==='ArrowLeft'){apply(width()-step);e.preventDefault();}"
+                    + "else if(e.key==='ArrowRight'){apply(width()+step);e.preventDefault();}});"
+                    + "setClosed(closed());"
+                    + "window.addEventListener('resize',function(){if(!closed()&&width()>maxW())apply(maxW());});"
+                    + "})();</script>";
+
     private static final String REPORT_THEME_SCRIPT =
             "<script>(function(){function s(){var t=document.documentElement.getAttribute('data-theme')||'light',"
                     + "b=document.getElementById('report-theme-toggle');if(!b)return;"
@@ -70,12 +117,6 @@ public final class ReportTreeViewEnhancer {
                     + "var on=b===btn;b.classList.toggle('is-active',on);b.setAttribute('aria-pressed',on?'true':'false');});"
                     + "apply();});"
                     + "if(q)q.addEventListener('input',apply);"
-                    + "var next=bar.querySelector('.tree-next-fail');var failIdx=-1;"
-                    + "if(next)next.addEventListener('click',function(){"
-                    + "var nodes=[];nav.querySelectorAll('li.tree-scenario-node').forEach(function(li){"
-                    + "if(li.getAttribute('data-status')==='fail'&&li.style.display!=='none')nodes.push(li);});"
-                    + "if(!nodes.length)return;failIdx=(failIdx+1)%nodes.length;"
-                    + "var a=nodes[failIdx].querySelector('a.tree-link--scenario');if(a)a.click();});"
                     + "apply();})();</script>";
 
     private static final String REPORT_UX_MARKER = "report-ux-v3";
@@ -617,7 +658,7 @@ public final class ReportTreeViewEnhancer {
         out = ensureScenarioAnchorClass(out);
         out = wrapScenarioDetailCards(out);
         out = stripScenarioDetailCardChrome(out);
-        return out;
+        return ensureSidebarControls(out);
     }
 
     /**
@@ -700,7 +741,23 @@ public final class ReportTreeViewEnhancer {
         // it here is safe: it only wraps the orphaned H3s that still lack a section.
         out = ensureScenarioAnchorClass(out);
         out = wrapScenarioDetailCards(out);
-        return stripScenarioDetailCardChrome(stripSlowestStrip(out));
+        return ensureSidebarControls(stripScenarioDetailCardChrome(stripSlowestStrip(out)));
+    }
+
+    private static String ensureSidebarControls(String html) {
+        if (html == null || html.isEmpty()) {
+            return html;
+        }
+        if (!html.contains("id=\"report-splitter\"")) {
+            html = replaceFirstLiteral(
+                    html,
+                    "</div><div class=\"report-main\">",
+                    "</div>" + REPORT_SPLITTER + "<div class=\"report-main\">");
+        }
+        if (!html.contains(REPORT_SIDEBAR_MARKER) && html.contains("</body>")) {
+            html = replaceLastLiteral(html, "</body>", REPORT_SIDEBAR_SCRIPT + "\n</body>");
+        }
+        return html;
     }
 
 
@@ -971,25 +1028,19 @@ public final class ReportTreeViewEnhancer {
             counts.merge(r.status, 1, Integer::sum);
         }
         int nAll = rows.size();
-        int nFail = counts.getOrDefault("fail", 0);
-        String defaultFilter = nFail > 0 ? "fail" : "all";
         StringBuilder sb = new StringBuilder();
         sb.append("<div class=\"tree-filter-toolbar\" role=\"toolbar\" aria-label=\"Filter scenarios by outcome\">");
         sb.append("<input class=\"tree-search\" type=\"search\" placeholder=\"Search scenarios\" aria-label=\"Search scenarios\">");
         sb.append("<div class=\"tree-filter-chips\">");
-        appendFilterChip(sb, "all", "All", nAll, "all".equals(defaultFilter));
+        appendFilterChip(sb, "all", "All", nAll, true);
 
         List<String> filterOrder = List.of("pass", "ignore", "known", "skip", "fail", "unknown");
         for (String key : filterOrder) {
             int cnt = counts.getOrDefault(key, 0);
             if (cnt == 0) continue;
-            appendFilterChip(sb, key, scenarioStatusLabel(key), cnt, key.equals(defaultFilter));
+            appendFilterChip(sb, key, scenarioStatusLabel(key), cnt, false);
         }
-        sb.append("</div>");
-        if (nFail > 0) {
-            sb.append("<button type=\"button\" class=\"tree-next-fail\">Next failure</button>");
-        }
-        sb.append("</div>");
+        sb.append("</div></div>");
         return sb.toString();
     }
 
