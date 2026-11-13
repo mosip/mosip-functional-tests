@@ -2,7 +2,7 @@
   <meta charset="utf-8"/>
   <style>html.report-loading body{opacity:0}html.report-loading::before{content:'Loading report…';position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font:600 1rem/1.4 var(--font,system-ui,sans-serif);color:#cbbba6;background:#14110e;z-index:99999}</style>
   <script>document.documentElement.classList.add('report-loading');window.addEventListener('DOMContentLoaded',function(){requestAnimationFrame(function(){document.documentElement.classList.remove('report-loading')})},{once:true});</script>
-  <script>(function(){try{var t=localStorage.getItem('report-theme');document.documentElement.setAttribute('data-theme',t==='light'||t==='dark'?t:'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+  <script>(function(){var r=document.documentElement;try{var t=localStorage.getItem('report-theme');r.setAttribute('data-theme',t==='light'||t==='dark'?t:'dark');}catch(e){r.setAttribute('data-theme','dark');}try{if(localStorage.getItem('report-sidebar-collapsed')==='1')r.setAttribute('data-sidebar','closed');var w=localStorage.getItem('report-sidebar-width');if(w&&/^[0-9]+$/.test(w))r.style.setProperty('--report-sidebar-width',w+'px');}catch(e){}})();</script>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>__REPORT_TITLE__</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -22,7 +22,7 @@
   .ignoredodd td, .ignoredeven td {background-color: #FFA500; color: #FFF; text-align:center;}
   .failedodd td, .failedeven td {background-color: #eb5050; color: #FFF; text-align:center;}
   .knownissueodd td, .knownissueeven td {background-color: #fff9db; color: #333; text-align:center;}
-  .stacktrace {white-space:pre;font-family:var(--mono)}
+  .stacktrace {white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;max-width:100%;font-family:var(--mono)}
   .totop {font-size:var(--fs-caption);text-align:center;border-bottom:2px solid #000}
   .box {padding: 10px; border-radius: 5px; color: #FFF; word-wrap: break-word; max-width: 100%;}
   .orange-bg {background-color: #FFA500;}
@@ -84,8 +84,9 @@
     --fs-body: 0.9375rem;
     --fs-heading-sm: 1.0625rem;
     --fs-heading: 1.3125rem;
-    /* Two-pane split: sidebar uses this % of the shell width; main uses the rest (100% − this). */
+    /* Two-pane split: sidebar uses this width; main uses the rest. Dragging the divider overrides it. */
     --report-sidebar-pct: 28%;
+    --report-sidebar-width: var(--report-sidebar-pct);
   }
   html[data-theme="light"] {
     color-scheme: light;
@@ -141,9 +142,11 @@
     min-width: 0;
   }
   .report-sidebar {
-    flex: 0 0 var(--report-sidebar-pct);
+    flex: 0 0 var(--report-sidebar-width);
+    width: var(--report-sidebar-width);
+    max-width: 70%;
     position: relative;
-    min-width: 0;
+    min-width: 200px;
     min-height: 0;
     align-self: stretch;
     overflow: hidden;
@@ -153,6 +156,63 @@
     border-right: 1px solid var(--border);
     box-shadow: 8px 0 32px rgba(0,0,0,.35);
     z-index: 20;
+  }
+  .report-splitter {
+    flex: 0 0 10px;
+    position: relative;
+    z-index: 30;
+    cursor: col-resize;
+    touch-action: none;
+    background: transparent;
+  }
+  .report-document--readonly .report-splitter {
+    cursor: col-resize;
+  }
+  .report-splitter::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 4px;
+    width: 2px;
+    background: rgba(224, 177, 90, 0.45);
+  }
+  .report-sidebar-toggle {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    color: var(--text);
+    font: 700 18px/1 var(--font);
+    cursor: pointer;
+    z-index: 31;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .report-document--readonly .report-sidebar-toggle {
+    cursor: pointer;
+  }
+  .report-sidebar-toggle:hover {
+    background: rgba(224, 177, 90, 0.2);
+  }
+  .report-sidebar-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .report-sidebar-toggle .icon-open { display: none; }
+  html[data-sidebar="closed"] .report-sidebar-toggle .icon-close { display: none; }
+  html[data-sidebar="closed"] .report-sidebar-toggle .icon-open { display: inline; }
+  .report-shell.is-resizing,
+  .report-shell.is-resizing * {
+    cursor: col-resize !important;
+    user-select: none !important;
   }
   .theme-toolbar {
     flex-shrink: 0;
@@ -807,6 +867,68 @@
   .report-main table.report-exec-table tr.exec-kv-row--footer td {
     border-bottom: 1px solid rgba(224, 177, 90, 0.35) !important;
   }
+  .report-fold-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin: 0 0 1.25rem;
+  }
+  .report-fold {
+    border: 1px solid rgba(224, 177, 90, 0.35);
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(20, 17, 14, 0.55);
+  }
+  .report-fold__summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 0.7rem 1rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: linear-gradient(180deg, #dbeafe 0%, #e2e8f0 100%);
+    color: #0f172a;
+    user-select: none;
+  }
+  .report-fold__summary::-webkit-details-marker { display: none; }
+  .report-main table.report-exec-table .exec-flag-alert {
+    display: inline-block;
+    padding: 0.12rem 0.5rem;
+    border-radius: 4px;
+    background: #dc2626 !important;
+    color: #ffffff !important;
+    font-weight: 700;
+  }
+  .report-fold--alert { border-color: #dc2626; }
+  .report-fold--alert > .report-fold__summary {
+    background: #dc2626 !important;
+    color: #ffffff !important;
+  }
+  .report-fold--alert > .report-fold__body {
+    background: #fee2e2 !important;
+    color: #7f1d1d !important;
+  }
+  .report-fold__summary::marker { content: ""; }
+  .report-fold__summary::before {
+    content: "\25B8";
+    display: inline-block;
+    width: 1rem;
+    margin-right: 0.35rem;
+  }
+  .report-fold[open] > .report-fold__summary::before { content: "\25BE"; }
+  .report-fold__body {
+    margin: 0;
+    max-height: 22rem;
+    overflow: auto;
+    padding: 0.85rem 1rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-family: var(--mono);
+    font-size: var(--fs-mono);
+    line-height: 1.45;
+    color: #e2e8f0;
+    background: rgba(8, 14, 26, 0.98);
+  }
   .report-main table.report-exec-table tr:has(> td.exec-separator) td {
     height: 3px !important;
     padding: 0 !important;
@@ -1001,7 +1123,7 @@
     font-size: 13px;
     padding: 9px 12px;
   }
-  .report-main th {
+  .report-main th:not([class*="count-"]) {
     background: rgba(26,34,53,.95) !important;
   }
   .report-main table a {
@@ -1016,18 +1138,19 @@
   .report-main table:has(td.num > a[href^="#t"]) th:nth-child(1),
   .report-main table:has(td.num > a[href^="#t"]) td:nth-child(1) {
     width: 30% !important;
-    max-width: 30% !important;
-    white-space: normal !important;
-    word-break: break-word !important;
-    overflow-wrap: anywhere !important;
-    overflow: hidden;
+    max-width: none !important;
+    min-width: 240px;
+    white-space: nowrap !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    overflow: visible;
   }
   .report-main table:has(td.num > a[href^="#t"]) tr > th:nth-child(n+2):not([colspan]),
   .report-main table:has(td.num > a[href^="#t"]) tr > td:nth-child(n+2):not([colspan]) {
     padding-left: 6px;
     padding-right: 6px;
   }
-  .report-main table:has(td.num > a[href^="#t"]) th:nth-child(n+2) {
+  .report-main table:has(td.num > a[href^="#t"]) th:nth-child(n+2):not([class*="count-"]) {
     white-space: normal !important;
     word-break: break-word !important;
     overflow-wrap: break-word !important;
@@ -1040,11 +1163,15 @@
     word-break: normal !important;
     text-align: center;
   }
-  .report-main table:has(td.num > a[href^="#t"]) th:nth-child(7),
-  .report-main table:has(td.num > a[href^="#t"]) td:nth-child(7),
+  .report-main table:has(td.num > a[href^="#t"]) th[class*="count-"],
+  .report-main table:has(td.num > a[href^="#t"]) td[class*="count-"],
   .report-main table:has(td.num > a[href^="#t"]) th:nth-child(8),
   .report-main table:has(td.num > a[href^="#t"]) td:nth-child(8) {
-    width: 14% !important;
+    width: 10% !important;
+    white-space: nowrap !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    overflow: visible;
   }
   .report-main td.num > a[href^="#t"] {
     color: var(--tc-link) !important;
@@ -1060,8 +1187,8 @@
     overflow-wrap: anywhere;
     vertical-align: top;
   }
-  .report-main table:not(.scenario-table):not(#summary) th:nth-child(3),
-  .report-main table:not(.scenario-table):not(#summary) td:nth-child(3) {
+  .report-main table:not(.scenario-table):not(#summary):not(:has(td.num > a[href^="#t"])) th:nth-child(3),
+  .report-main table:not(.scenario-table):not(#summary):not(:has(td.num > a[href^="#t"])) td:nth-child(3) {
     width: auto !important;
     min-width: 0;
   }
@@ -1299,6 +1426,20 @@
     border: 1px solid var(--border) !important;
     box-shadow: 0 8px 40px rgba(0,0,0,.28);
     margin-bottom: 2rem !important;
+    max-width: 100%;
+  }
+  .report-main table.result th,
+  .report-main table.result td {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+  .report-main .stacktrace {
+    white-space: pre-wrap !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+    max-width: 100%;
+    overflow-x: auto;
+    box-sizing: border-box;
   }
   .report-main textarea {
     font-family: var(--mono) !important;
@@ -1852,21 +1993,25 @@
     background: rgba(224, 177, 90, 0.1);
   }
   html[data-theme="light"] .tree-scenario-status--pass {
-    background: rgba(16, 185, 129, 0.22);
+    background: #d1fae5;
     color: #065f46;
-    border-color: rgba(5, 150, 105, 0.55);
+    border-color: #6ee7b7;
   }
   html[data-theme="light"] .tree-scenario-status--fail {
-    background: rgba(239, 68, 68, 0.15);
+    background: #fee2e2;
     color: #991b1b;
-    border-color: rgba(220, 38, 38, 0.45);
+    border-color: #fca5a5;
   }
   html[data-theme="light"] .tree-scenario-status--skip,
-  html[data-theme="light"] .tree-scenario-status--ignore,
+  html[data-theme="light"] .tree-scenario-status--ignore {
+    background: #ffedd5;
+    color: #9a3412;
+    border-color: #fdba74;
+  }
   html[data-theme="light"] .tree-scenario-status--known {
-    background: rgba(254, 196, 13, 0.28);
-    color: #713f12;
-    border-color: rgba(180, 83, 9, 0.45);
+    background: #fef9c3;
+    color: #854d0e;
+    border-color: #fde047;
   }
   html[data-theme="light"] .tree-scenario-status--unknown {
     background: rgba(100, 116, 139, 0.18);
@@ -1924,17 +2069,109 @@
     color: var(--text) !important;
     border-color: rgba(15, 23, 42, 0.12) !important;
   }
-  html[data-theme="light"] .report-main th {
+  html[data-theme="light"] .report-main th:not([class*="count-"]) {
     background: #e2e8f0 !important;
+  }
+  .report-main th[class*="count-"],
+  .report-main td[class*="count-"] {
+    background-image: none !important;
+  }
+  .report-main th.count-total, .report-main td.count-total,
+  html[data-theme="light"] .report-main th.count-total,
+  html[data-theme="light"] .report-main td.count-total {
+    background-color: #e2e8f0 !important;
+    color: #1e293b !important;
+    text-align: center !important;
+    font-weight: 700;
+  }
+  .report-main th.count-passed, .report-main td.count-passed,
+  html[data-theme="light"] .report-main th.count-passed,
+  html[data-theme="light"] .report-main td.count-passed,
+  html[data-theme="light"] .report-main #summary tr.passedodd td,
+  html[data-theme="light"] .report-main #summary tr.passedeven td,
+  html[data-theme="light"] .passedeven td,
+  html[data-theme="light"] .passedodd td {
+    background-color: #d1fae5 !important;
+    color: #065f46 !important;
+    text-align: center !important;
+    font-weight: 700;
+  }
+  html[data-theme="light"] .report-main #summary tr.passedodd td,
+  html[data-theme="light"] .report-main #summary tr.passedeven td,
+  html[data-theme="light"] .passedeven td,
+  html[data-theme="light"] .passedodd td {
+    text-align: left !important;
+    font-weight: 600;
+  }
+  .report-main th.count-skipped, .report-main td.count-skipped,
+  html[data-theme="light"] .report-main th.count-skipped,
+  html[data-theme="light"] .report-main td.count-skipped {
+    background-color: #ffedd5 !important;
+    color: #9a3412 !important;
+    text-align: center !important;
+    font-weight: 700;
+  }
+  .report-main th.count-failed, .report-main td.count-failed,
+  html[data-theme="light"] .report-main th.count-failed,
+  html[data-theme="light"] .report-main td.count-failed,
+  html[data-theme="light"] .report-main #summary tr.failedodd td,
+  html[data-theme="light"] .report-main #summary tr.failedeven td,
+  html[data-theme="light"] .failedeven td,
+  html[data-theme="light"] .failedodd td {
+    background-color: #fee2e2 !important;
+    color: #991b1b !important;
+    text-align: center !important;
+    font-weight: 700;
+  }
+  html[data-theme="light"] .report-main #summary tr.failedodd td,
+  html[data-theme="light"] .report-main #summary tr.failedeven td,
+  html[data-theme="light"] .failedeven td,
+  html[data-theme="light"] .failedodd td {
+    text-align: left !important;
+    font-weight: 600;
+  }
+  .report-main th.count-ignored, .report-main td.count-ignored,
+  html[data-theme="light"] .report-main th.count-ignored,
+  html[data-theme="light"] .report-main td.count-ignored,
+  html[data-theme="light"] .report-main #summary tr.skippedodd td,
+  html[data-theme="light"] .report-main #summary tr.skippedeven td,
+  html[data-theme="light"] .report-main #summary tr.ignoredodd td,
+  html[data-theme="light"] .report-main #summary tr.ignoredeven td {
+    background-color: #ffedd5 !important;
+    color: #9a3412 !important;
+    text-align: center !important;
+    font-weight: 700;
+  }
+  html[data-theme="light"] .report-main #summary tr.skippedodd td,
+  html[data-theme="light"] .report-main #summary tr.skippedeven td,
+  html[data-theme="light"] .report-main #summary tr.ignoredodd td,
+  html[data-theme="light"] .report-main #summary tr.ignoredeven td {
+    text-align: left !important;
+    font-weight: 600;
+  }
+  .report-main th.count-known, .report-main td.count-known,
+  html[data-theme="light"] .report-main th.count-known,
+  html[data-theme="light"] .report-main td.count-known,
+  html[data-theme="light"] .report-main #summary tr.knownissueodd td,
+  html[data-theme="light"] .report-main #summary tr.knownissueeven td {
+    background-color: #fef9c3 !important;
+    color: #854d0e !important;
+    text-align: center !important;
+    font-weight: 700;
+  }
+  html[data-theme="light"] .report-main #summary tr.knownissueodd td,
+  html[data-theme="light"] .report-main #summary tr.knownissueeven td {
+    text-align: left !important;
+    font-weight: 600;
   }
   html[data-theme="light"] .passedeven td,
   html[data-theme="light"] .passedodd td {
-    background: rgba(16, 185, 129, 0.18) !important;
+    background-color: #d1fae5 !important;
     color: #065f46 !important;
   }
   html[data-theme="light"] .failedeven td,
   html[data-theme="light"] .failedodd td {
-    background: rgba(239, 68, 68, 0.15) !important;
+    background-color: #fee2e2 !important;
     color: #991b1b !important;
   }
   html[data-theme="light"] #summary {
@@ -1953,25 +2190,29 @@
   }
   html[data-theme="light"] .report-main #summary tr.passedodd td,
   html[data-theme="light"] .report-main #summary tr.passedeven td {
-    background: rgba(16, 185, 129, 0.14) !important;
+    background-color: #d1fae5 !important;
     color: #065f46 !important;
+    text-align: left !important;
   }
   html[data-theme="light"] .report-main #summary tr.failedodd td,
   html[data-theme="light"] .report-main #summary tr.failedeven td {
-    background: rgba(239, 68, 68, 0.12) !important;
+    background-color: #fee2e2 !important;
     color: #991b1b !important;
+    text-align: left !important;
   }
   html[data-theme="light"] .report-main #summary tr.skippedodd td,
   html[data-theme="light"] .report-main #summary tr.skippedeven td,
   html[data-theme="light"] .report-main #summary tr.ignoredodd td,
   html[data-theme="light"] .report-main #summary tr.ignoredeven td {
-    background: rgba(255, 148, 36, 0.14) !important;
-    color: #7c2d12 !important;
+    background-color: #ffedd5 !important;
+    color: #9a3412 !important;
+    text-align: left !important;
   }
   html[data-theme="light"] .report-main #summary tr.knownissueodd td,
   html[data-theme="light"] .report-main #summary tr.knownissueeven td {
-    background: rgba(254, 196, 13, 0.22) !important;
-    color: #422006 !important;
+    background-color: #fef9c3 !important;
+    color: #854d0e !important;
+    text-align: left !important;
   }
   html[data-theme="light"] .report-main table.report-exec-table {
     color: var(--text) !important;
@@ -2000,6 +2241,25 @@
   }
   html[data-theme="light"] .report-main table.report-exec-table tr.exec-kv-row td:last-child a:hover {
     color: #0c4a6e !important;
+  }
+  html[data-theme="light"] .report-fold {
+    background: #ffffff;
+    border-color: rgba(27, 82, 164, 0.22);
+  }
+  html[data-theme="light"] .report-fold__body {
+    background: #f8fafc;
+    color: #0f172a;
+  }
+  html[data-theme="light"] .report-fold--alert {
+    border-color: #dc2626 !important;
+  }
+  html[data-theme="light"] .report-fold--alert > .report-fold__summary {
+    background: #dc2626 !important;
+    color: #ffffff !important;
+  }
+  html[data-theme="light"] .report-fold--alert > .report-fold__body {
+    background: #fee2e2 !important;
+    color: #7f1d1d !important;
   }
   html[data-theme="light"] .report-main table.report-exec-table tr:not(.exec-title-row) > th {
     background: #e2e8f0 !important;
@@ -2274,6 +2534,48 @@
     color: #475569;
   }
   
+  html[data-sidebar="closed"] .report-sidebar {
+    flex: 0 0 0px !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    overflow: hidden !important;
+    border-right: 0 !important;
+    box-shadow: none !important;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  html[data-sidebar="closed"] .report-splitter {
+    flex: 0 0 0px;
+    width: 0;
+    min-width: 0;
+    overflow: visible;
+    cursor: default;
+  }
+  html[data-sidebar="closed"] .report-splitter::before { display: none; }
+  html[data-sidebar="closed"] .report-sidebar-toggle {
+    position: fixed;
+    left: 10px;
+    top: 12px;
+    transform: none;
+  }
+  html[data-sidebar="closed"] .report-main {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 100%;
+    padding-left: 3.25rem;
+  }
+  html[data-theme="light"] .report-splitter::before {
+    background: rgba(138, 90, 43, 0.4);
+  }
+  html[data-theme="light"] .report-sidebar-toggle {
+    background: #ffffff;
+    color: #0f172a;
+  }
+  html[data-theme="light"] .report-sidebar-toggle:hover {
+    background: rgba(176, 124, 46, 0.14);
+  }
+
   @media (max-width: 900px) {
     html {
       height: auto;
@@ -2297,10 +2599,41 @@
       position: relative;
       flex: none;
       width: 100%;
+      max-width: none;
+      min-width: 0;
       min-height: 0;
       align-self: stretch;
       border-right: none;
       border-bottom: 1px solid var(--border);
+    }
+    .report-splitter {
+      flex: none;
+      width: 100%;
+      height: 40px;
+      cursor: default;
+      touch-action: auto;
+    }
+    .report-splitter::before { display: none; }
+    .report-sidebar-toggle {
+      position: static;
+      transform: none;
+      margin: 7px auto;
+    }
+    html[data-sidebar="closed"] .report-sidebar {
+      display: none;
+    }
+    html[data-sidebar="closed"] .report-splitter {
+      width: 100%;
+      height: auto;
+      flex: none;
+    }
+    html[data-sidebar="closed"] .report-sidebar-toggle {
+      position: static;
+      left: auto;
+      top: auto;
+    }
+    html[data-sidebar="closed"] .report-main {
+      padding-left: clamp(1rem, 3vw, 2.5rem);
     }
     .tree-nav {
       max-height: 280px;
