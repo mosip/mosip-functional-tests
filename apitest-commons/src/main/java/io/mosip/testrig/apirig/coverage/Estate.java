@@ -106,7 +106,7 @@ final class Estate {
 
 	/**
 	 * Where scaffold puts a planned (no-YAML-yet) endpoint's file: beside the module's other matrix files — the
-	 * folder most wired subjects live in (e.g. {@code preReg}) — so one folder shows every endpoint of the
+	 * folder most wired subjects live in (e.g. {@code <moduleFolder>}) — so one folder shows every endpoint of the
 	 * module. A file is recognized as planned by its {@code planned: true} front-matter, never by its folder.
 	 */
 	String plannedDir() {

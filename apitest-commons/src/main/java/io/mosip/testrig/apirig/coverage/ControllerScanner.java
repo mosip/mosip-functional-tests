@@ -27,7 +27,7 @@ public final class ControllerScanner {
 
 	public static final class Endpoint {
 		public final String verb; // GET/POST/... or ANY
-		public final String path; // controller-relative, e.g. /applications/{preRegistrationId}
+		public final String path; // controller-relative, e.g. /resources/{resourceId}
 		/** Service directory owning the file (parent of src/main/java) — context paths are per service. */
 		public final Path serviceRoot;
 		public final Path file;

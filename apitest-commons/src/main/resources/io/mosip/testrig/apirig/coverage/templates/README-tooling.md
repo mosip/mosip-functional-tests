@@ -130,10 +130,14 @@ automation yet. They count toward `Summary.md` like any subject, so an untested 
 
 ## CI
 
-`.github/workflows/coverage-matrix-check.yml` in this repo calls the reusable workflow in
-`mosip-functional-tests`, which builds the CLI from source and runs
-`check --require-app-source` on every PR touching `api-test/**` or service Java. Any open gap
+`.github/workflows/coverage-matrix-check.yml` in this repo calls the shared reusable workflow in
+`mosip/kattu`, which runs `CoverageCli check --require-app-source` from the published
+`apitest-commons` on every PR touching `api-test/**` or service Java. When enabled, any open gap
 fails the PR.
+
+**Currently disabled:** the caller runs only on manual dispatch until that kattu workflow exists. To
+enable it, set the kattu ref in the caller and uncomment its `pull_request` / `push` triggers. Until
+then, run `check` locally before every PR (see "Commands").
 
 ## Governance
 

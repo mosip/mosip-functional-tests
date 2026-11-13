@@ -2,15 +2,15 @@
 
 A one-page guide for testers, leads and anyone reading coverage numbers. Engineers authoring rows
 should continue with a module's `coverage/README.md` (format, commands) and `coverage/AGENTS.md`
-(per-change checklist); the design decisions are in `design-record.md` in this folder.
+(per-change checklist).
 
 ## Why this exists
 
 Test cases used to live in two places that never met: an Excel master sheet per module (written
 from stories and manual testing) and the automated YAML tests (written in code). Nothing linked them,
-so they drifted. A 2026-09 review of pre-registration found **94 Excel test cases with no match in
-the automation records and 23 automated tests missing from the Excel** — plus real endpoints that
-neither side tested at all, and Excel rows pointing at test IDs that didn't exist.
+so they drifted: Excel test cases with no matching automated test, automated tests missing from the
+Excel, real endpoints that neither side tested at all, and Excel rows pointing at test IDs that didn't
+exist.
 
 The fix: **one place for every test case, next to the code, checked by a tool on every change.**
 
@@ -52,22 +52,12 @@ test and no new endpoint, looks the same to the tool as no change at all. Step 1
 from the story — and PR review are the guard. The tool also can't judge whether a row is *right*;
 the authoring playbook has a mandatory second review pass for that.
 
-## Where things stand
+## Onboarding a module
 
-**pre-registration — complete (reference module):**
-
-| | |
-|---|---|
-| Matrix files | 58 — 41 automated subjects + 17 planned files for endpoints with no test yet |
-| Scenarios | 753 — 311 automated, 418 not yet automated, 24 not automatable |
-| Coverage | **42.7%** — lower than the earlier 51.2% only because previously invisible endpoints and manual scenarios are now counted |
-| Legacy Excel | all 376 test-case numbers accounted for: 371 on matrix rows, 5 out of scope with a reason (UI journeys, another module's API) |
-| Open gaps | 0 — 11 deliberate exceptions, each with a reason |
-
-**Other modules — ready to onboard.** One command (`CoverageCli init`) generates a module's matrix,
-docs, exception list and CI check from the shared tooling in `apitest-commons`; the team then writes
-the scenario rows. List the module's legacy test-case IDs in `legacy-ids.txt` first so the migration
-is provably complete.
+One command (`CoverageCli init`) generates a module's matrix, docs, exception list and CI check from
+the shared tooling in `apitest-commons`; the team then writes the scenario rows. List the module's
+legacy test-case IDs in `legacy-ids.txt` first so the migration is provably complete. Each module's
+progress is in its own `coverage/Summary.md`.
 
 ## Where to look
 
@@ -79,4 +69,3 @@ is provably complete.
 | An old Excel test-case number | search the module's `coverage/` for it (`Legacy: <id>`) |
 | How to write or change rows | the module's `coverage/AGENTS.md` |
 | Commands, file format, every check | the module's `coverage/README.md` |
-| Why it's designed this way | `design-record.md` (this folder) |

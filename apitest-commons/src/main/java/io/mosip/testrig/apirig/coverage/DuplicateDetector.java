@@ -25,8 +25,8 @@ import io.mosip.testrig.apirig.coverage.MatrixFile.Status;
  * <li>it's a second {@code authn}/{@code authz} row for the same unit — one per unit is the norm; or</li>
  * <li>the Scenario wording is at least 70% the same.</li>
  * </ol>
- * Tuned against the pre-registration matrix: zero hits on its 753 authored rows, while catching
- * paraphrased duplicates ("`version` is missing" vs "`version` is omitted", same error code).
+ * Tuned to catch paraphrased duplicates without flagging genuinely different rows, e.g.
+ * ("`version` is missing" vs "`version` is omitted", same error code).
  */
 final class DuplicateDetector {
 

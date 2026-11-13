@@ -15,7 +15,7 @@ import io.mosip.testrig.apirig.coverage.ControllerScanner.Endpoint;
  * Matches the api-test side's endpoint strings against real controller endpoints.
  *
  * <p>Controllers never carry the gateway/context prefix the YAML {@code endPoint:} has (e.g.
- * {@code /preregistration/v1}); the prefix is configured per service (and even per profile), so
+ * {@code /<service>/v1}); the prefix is configured per service (and even per profile), so
  * rather than read properties it is <b>inferred</b> per service from the data: the prefix that
  * makes the most YAML endpoints line up with that service's controller paths. {@code --path-prefix}
  * overrides the inference for every service.
@@ -23,8 +23,8 @@ import io.mosip.testrig.apirig.coverage.ControllerScanner.Endpoint;
  * <p>Normalization: query string dropped, {@code {var}} collapsed to a wildcard segment, repeated
  * and trailing slashes removed. A controller {@code {}} segment matches any one segment, a
  * trailing {@code **} matches the rest. Each YAML endpoint maps to its <em>most specific</em>
- * match only, so {@code /applications/prereg} is attributed to that literal mapping, not to a
- * sibling {@code /applications/{id}}.
+ * match only, so {@code /resources/latest} is attributed to that literal mapping, not to a
+ * sibling {@code /resources/{id}}.
  */
 public final class EndpointMap {
 
@@ -81,7 +81,7 @@ public final class EndpointMap {
 		return prefixByService.getOrDefault(e.serviceRoot, globalPrefix);
 	}
 
-	/** The external form of a controller endpoint, e.g. "GET /preregistration/v1/applications/prereg". */
+	/** The external form of a controller endpoint, e.g. {@code "GET /<service>/v1/resources/latest"}. */
 	public String externalLabel(Endpoint e) {
 		String p = prefixFor(e);
 		return e.verb + " " + ("/".equals(p) ? "" : p) + e.path;

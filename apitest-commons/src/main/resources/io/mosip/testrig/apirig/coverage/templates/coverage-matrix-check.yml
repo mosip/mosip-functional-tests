@@ -4,27 +4,33 @@ name: Coverage matrix check
 # controllers: a new test case with no matrix row, a new endpoint with no test and no plan, a
 # duplicate uniqueIdentifier, an unsynced matrix file, ... Accepted exceptions live in
 # {{MODULE_ROOT_IN_REPO}}/src/main/resources/coverage/check-baseline.txt, each with a reason.
+#
+# DISABLED: runs only on manual dispatch until the reusable workflow exists in mosip/kattu
+# (.github/workflows/coverage-matrix-check.yml, resolving apitest-commons from Maven and running
+# CoverageCli check). To enable: once it is merged there, set the ref below to the kattu branch
+# that hosts it and uncomment the pull_request / push triggers. Do not dispatch it manually before
+# that: the kattu workflow does not exist yet, so the run fails.
 
 on:
-  pull_request:
-    types: [opened, reopened, synchronize]
-    paths:
-      - "{{MODULE_ROOT_IN_REPO}}/**"
-      - "**/*.java"
-      - ".github/workflows/coverage-matrix-check.yml"
-  push:
-    branches:
-      - develop*
-      - release*
-      - master
-    paths:
-      - "{{MODULE_ROOT_IN_REPO}}/**"
-      - "**/*.java"
   workflow_dispatch:
+#  pull_request:
+#    types: [opened, reopened, synchronize]
+#    paths:
+#      - "{{MODULE_ROOT_IN_REPO}}/**"
+#      - "**/*.java"
+#      - ".github/workflows/coverage-matrix-check.yml"
+#  push:
+#    branches:
+#      - develop*
+#      - release*
+#      - master
+#    paths:
+#      - "{{MODULE_ROOT_IN_REPO}}/**"
+#      - "**/*.java"
 
 jobs:
   coverage-matrix:
-    uses: mosip/mosip-functional-tests/.github/workflows/coverage-matrix-check.yml@develop
+    uses: mosip/kattu/.github/workflows/coverage-matrix-check.yml@develop
     with:
       MODULE_ROOT: {{MODULE_ROOT_IN_REPO}}
       MODULE_CODE: {{MODULE_CODE}}

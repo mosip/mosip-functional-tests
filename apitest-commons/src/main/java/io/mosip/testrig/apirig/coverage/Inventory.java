@@ -56,7 +56,7 @@ public final class Inventory {
 	}
 
 	public static final class YamlFile {
-		/** Path relative to src/main/resources, forward slashes (e.g. preReg/X/X.yml). */
+		/** Path relative to src/main/resources, forward slashes (e.g. {@code <folder>/X/X.yml}). */
 		public final String relPath;
 		public final List<TestCase> cases = new ArrayList<>();
 		public String parseError;
@@ -74,7 +74,7 @@ public final class Inventory {
 	}
 
 	public static final class Subject {
-		/** e.g. preReg/AddLostUinApplication — also the matrix file path under --out, minus ".md". */
+		/** e.g. {@code <folder>/<Subject>} — also the matrix file path under --out, minus ".md". */
 		public final String name;
 		public final String code;
 		public final YamlFile yaml;
@@ -319,7 +319,7 @@ public final class Inventory {
 
 	/**
 	 * The verb a dedicated script class hardcodes (SimplePost → POST, GetWithParamForAutoGenId → GET).
-	 * Null when the name carries no verb or more than one (CreatePreReg, BookAppoinment, ...).
+	 * Null when the name carries no verb or more than one (e.g. CreateRecord: no verb prefix recognised).
 	 */
 	static String verbFromClassName(String simpleName) {
 		if (simpleName == null)

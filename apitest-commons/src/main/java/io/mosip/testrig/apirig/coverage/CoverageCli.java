@@ -36,13 +36,13 @@ import io.mosip.testrig.apirig.coverage.MatrixFile.Row;
  * check     read-only gap report; exits 1 on any gap not accepted in the baseline.
  *
  * --module-root &lt;dir&gt;      the module's api-test directory (required)
- * --module-code &lt;CODE&gt;     subject-code prefix, e.g. PREREG (required)
+ * --module-code &lt;CODE&gt;     subject-code prefix, e.g. &lt;MODULE&gt; (required)
  * --out &lt;dir&gt;              matrix directory (default &lt;module-root&gt;/src/main/resources/coverage)
  * --app-source &lt;dir&gt;       real service source; repeatable. Default: auto-discover every
  *                          src/main/java beside the module root (the service lives in the same repo)
  * --no-app-source          skip controller scanning (endpoint gaps off)
  * --require-app-source     make "no controller source found" a gap (use in CI)
- * --path-prefix &lt;prefix&gt;   gateway prefix, e.g. /preregistration/v1 (default: inferred per service)
+ * --path-prefix &lt;prefix&gt;   gateway prefix, e.g. /&lt;service&gt;/v1 (default: inferred per service)
  * --baseline &lt;file&gt;        accepted gaps (default &lt;out&gt;/check-baseline.txt)
  * --legacy-ids &lt;file&gt;      migrated legacy test-case IDs (default &lt;out&gt;/legacy-ids.txt)
  * --date &lt;yyyy-MM-dd&gt;      date stamped on changed files (default: today)

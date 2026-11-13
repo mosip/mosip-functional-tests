@@ -50,7 +50,7 @@ public final class CoverageCheck {
 		}
 	}
 
-	/** A Jira issue key: project key, dash, number (MOSIP-17633, INJIMOB-1414). */
+	/** A Jira issue key: project key, dash, number (e.g. MOSIP-12345, ABC-12). */
 	static final java.util.regex.Pattern STORY_KEY = java.util.regex.Pattern.compile("[A-Z][A-Z0-9]+-\\d+");
 
 	/** Text that stands in for content nobody wrote yet: blank, TODO, "To be defined", or a bare "see Notes" pointer. */

@@ -226,7 +226,7 @@ final class Reports {
 		}
 		b.append("\n## Flagged findings\n\n");
 		b.append("Rows whose Notes are flagged ⚠️ (fragility/quality concern) or 🛑 (confirmed bug) during the cycle-2 "
-				+ "semantic audit — see docs/coverage-matrix/design-record.md (mosip-functional-tests), gotcha 15, for the practice behind this. Pulled "
+				+ "semantic audit (see the module's AGENTS.md, cycle 2). Pulled "
 				+ "mechanically from row Notes, not hand-maintained here.\n\n");
 		for (MatrixFile m : mfs)
 			for (Row r : m.rows) {

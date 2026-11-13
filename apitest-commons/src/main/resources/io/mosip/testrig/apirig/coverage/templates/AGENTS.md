@@ -1,19 +1,20 @@
 # Authoring playbook — {{MODULE_NAME}} coverage matrix
 
 Read this before filling in a single row. It assumes you've already read `README.md` in this
-directory for the format/legend and `docs/coverage-matrix/design-record.md` in `mosip-functional-tests` for the design
-decisions this all follows.
+directory for the format/legend and `docs/coverage-matrix/overview.md` in `mosip-functional-tests` for why
+the matrix exists.
 
 ## Every change that touches a test case — the non-negotiable checklist
 
 This matrix is the **only** place test cases are recorded (it replaced the Excel master sheet).
 Whenever you add, rename, move or delete a YAML case — or add a scenario that isn't automated —
-finish all of these in the **same** change. CI runs `check` on the PR and fails on any miss, so
-skipping a step only moves the failure later.
+finish all of these in the **same** change. Run `check` before every PR — CI runs it too once the
+module's caller workflow is enabled (README.md § CI) and fails on any miss, so skipping a step only
+moves the failure later.
 
 1. **`uniqueIdentifier` is unique module-wide.** `grep -ri "uniqueIdentifier: <id>" src/main/resources`
-   before using one. Never copy a case block from another YAML without giving it a new ID (that's
-   exactly how pre-registration's `GetAllDocForPrId.yml` ended up reusing `TC_prereg_UploadDocument_01`/`_02`). Every
+   before using one. Never copy a case block from another YAML without giving it a new ID (a copied
+   block silently reuses the original's ID). Every
    wired case must have one.
 2. **`restMethod:` matches the wired script class's verb** (`SimplePost` → post,
    `PutWithPathParam` → put, `DeleteWithParam` → delete, ...).
@@ -41,7 +42,7 @@ skipping a step only moves the failure later.
   it calls, or the planned file for an endpoint with no YAML.
 - Put the story key in the row's `Story` column (several: `MOSIP-1, MOSIP-2`).
 - Out of scope for this matrix: UI flows, batch-job end-to-end journeys, other modules' APIs (e.g.
-  masterdata) — record those in the owning module's matrix, not here; in `legacy-ids.txt` their
+  another service's endpoints) — record those in the owning module's matrix, not here; in `legacy-ids.txt` their
   line gets `# out of scope: <why / where it lives>`.
 
 ## Adding a subject
@@ -68,11 +69,11 @@ delete the planned file.
    Do not write a scenario from the row's placeholder text alone.
 2. Replace the placeholder `ID`, `Scenario`, `Steps`, `Expected result`, and `Status` with the real thing:
    - **ID**: for an `✅ automated` row, reuse the real YAML `uniqueIdentifier` verbatim (e.g.
-     `TC_Prereg_CreatePrereg_01`) instead of the mechanical `API-<SUBJECT>-NNN` scheme — it's one
+     `TC_<Module>_<Subject>_01`) instead of the mechanical `API-<SUBJECT>-NNN` scheme — it's one
      less name to keep in sync, and it makes the ID column double as a search key back into the
      YAML. If two rows are legitimately backed by the same `uniqueIdentifier` (e.g. a positive row
      and a multilang row over the same case), disambiguate with a suffix:
-     `TC_prereg_AddUpdateRegistration_01` / `TC_prereg_AddUpdateRegistration_01-multilang`. For a
+     `TC_<Module>_<Subject>_01` / `TC_<Module>_<Subject>_01-multilang`. For a
      `🟡 not_automated`/`⛔ not_automatable` placeholder row (no real case yet), use
      `TC_<Module>_<Subject>_NNN` in the same style, numbered starting **one past the highest real
      `uniqueIdentifier` number already used in that subject's YAML** — e.g. if real cases run
@@ -89,16 +90,15 @@ delete the planned file.
      apart; this reads naturally anyway, e.g. "Given a `GET` request to `/v1/x/{id}`...". The match
      is a literal substring check against the exact `label()` string in the front-matter `units`
      list — full method plus the complete `endPoint:` path, base prefix included (e.g.
-     `GET /preregistration/v1/applications`, not the shortened `GET /applications`). Copy the unit
+     `GET /<service>/v1/resources`, not the shortened `GET /resources`). Copy the unit
      string straight out of the `Units` list at the top of the file rather than retyping a
      shortened form — a near-miss (missing base path, `{id}` instead of the YAML's real
-     `{preRegistrationId}`) silently fails to match and `sync` appends a full duplicate stub set on
-     the next run. Caught and fixed this way while authoring `GetAllApplications.md` and
-     `GetPreRegDemographicDataByPrid.md` — always re-run `sync` once after authoring a multi-unit
+     `{resourceId}`) silently fails to match and `sync` appends a full duplicate stub set on
+     the next run. Always re-run `sync` once after authoring a multi-unit
      subject and confirm `written 0` / no stray `API-<SUBJECT>-NNN` rows before moving on.)
    - **Steps**: numbered plain-API steps a tester can run by hand, in one cell separated by `<br>`:
-     (1) who to log in as — for an automated row the YAML `role` (in prereg: `batch` = an applicant via
-     OTP login, `admin` = the Keycloak admin user, `noauth` = no `Authorization` cookie); (2) test data
+     (1) who to log in as — for an automated row the YAML `role` (what each role means for this module, and what
+     `noauth` sends, is in README.md § How authentication works); (2) test data
      to create first — follow the case's `$ID:` tokens and `additionalDependencies` to the cases that
      produce it and name them; (3) the exact call — method, path and request values; (4) what to
      check — the expected result, plus any database/UI check worth doing by hand. Not "call the API";
@@ -181,7 +181,7 @@ to say after that split (automation is just "post this JSON," authorization is j
 annotation already named in "Who can call it") — don't pad it out for the sake of having one.
 
 Verify every factual claim (roles, error codes, request shape) against the real service source the
-same way cycle 2 already requires — see pre-registration's `api-test/src/main/resources/coverage/preReg/createPrereg.md` for a worked example of this structure.
+same way cycle 2 already requires.
 
 ## Extras — only where the surface is real
 
@@ -233,10 +233,9 @@ Per subject, per batch: read the real code → `scaffold` (if not already done) 
    - **Check whether the YAML's `restMethod:` field actually matches the real HTTP verb.** It
      isn't authoritative — the wired `<class>` in the Suite.xml decides the real verb, and
      dedicated script classes (`SimplePost`, `PutWithPathParam`, `DeleteWithParam`, `GetWithParam`,
-     ...) hardcode their own verb without reading `testCaseDTO.getRestMethod()` at all (confirmed in the
-     pre-registration pilot: zero prereg test-script classes reference it). A mismatch here is a YAML documentation bug
-     that also makes `Inventory`'s mechanically-derived "Units" line wrong — found once already in
-     `UpdatePreRegStatus.md` (`restMethod: get`, wired to `PutWithPathParam`, real verb is `PUT`).
+     ...) hardcode their own verb without reading `testCaseDTO.getRestMethod()` at all. A mismatch here is a YAML documentation bug
+     that also makes `Inventory`'s mechanically-derived "Units" line wrong — e.g. a YAML with
+     `restMethod: get` wired to `PutWithPathParam`, whose real verb is `PUT`.
      Cheap check: open the suite entry's `<class>` element and see if its name's verb matches
      `restMethod`.
 4. Fix whatever cycle 2 finds, re-run `sync` → `check`, and only then report the batch done.
