@@ -6601,6 +6601,11 @@ public class AdminTestUtil extends BaseTestCase {
 				}
 				filteredList.add(fieldName);
 			}
+			// Pre-registration marks an application complete only with residenceStatus, so send it whenever
+			// the schema defines it, even when the schema does not require it.
+			if (residenceStatusField == null && identityPropsJson.has(GlobalConstants.RESIDENCESTATUS)
+					&& identityPropsJson.getJSONObject(GlobalConstants.RESIDENCESTATUS).optString("$ref", "").contains("simpleType"))
+				residenceStatusField = GlobalConstants.RESIDENCESTATUS;
 			if (residenceStatusField != null) {
 				filteredList.add(residenceStatusField);
 			}
@@ -6648,7 +6653,7 @@ public class AdminTestUtil extends BaseTestCase {
 					if (eachRequiredProp.equals(emailFieldName)) {
 						entry.put("value", "$EMAILVALUE$"); entry.put("tags", new JSONArray().put("handle"));
 					} else if (eachRequiredProp.equals(phoneFieldName)) {
-						entry.put("value", "{{phone}}"); entry.put("tags", new JSONArray().put("handle"));
+						entry.put("value", "$PHONENUMBERFORIDENTITY$"); entry.put("tags", new JSONArray().put("handle"));
 					} else {
 						entry.put("value", "$FUNCTIONALID$"); entry.put("tags", new JSONArray().put("handle"));
 					}
@@ -6678,7 +6683,7 @@ public class AdminTestUtil extends BaseTestCase {
 							identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
 						}
 					} else if (eachRequiredProp.equals(phoneFieldName)) {
-						identityJson.put(eachRequiredProp, "{{phone}}");
+						identityJson.put(eachRequiredProp, "$PHONENUMBERFORIDENTITY$");
 					} else if (eachRequiredProp.equals(emailFieldName)) {
 						if ("array".equals(fieldType)) {
 							JSONArray emailArray = new JSONArray();
