@@ -337,16 +337,19 @@ public final class UiExtentReportManager {
     }
 
     private static void renameAndUpload() {
-        String timestamp  = new SimpleDateFormat("yyyy-MM-dd-HH-mm").format(new Date());
+        // Matches apitest-commons' report-naming convention, minus the full-/error- prefix (no
+        // passed-filtered report mode here). I- is always 0 — no "ignored" state in Cucumber.
+        String timestamp  = new SimpleDateFormat("yyyy-MM-dd_HH-mm").format(new Date());
         String moduleName = orDefault(UiConfigManager.getproperty("moduleName"), "mosip-ui");
         String envName    = parseEnvName(UiConfigManager.getproperty("apiInternalEndPoint"));
 
-        String newFileName = moduleName + "-" + envName + "-" + timestamp
-                + "-T-" + getTotalCount()
-                + "-P-" + passedCount
-                + "-F-" + failedCount
-                + "-S-" + skippedCount
-                + "-KI-" + knownIssueCount + ".html";
+        String newFileName = "mosip-" + envName + "-" + moduleName + "-" + timestamp
+                + "-report_T-" + getTotalCount()
+                + "_P-" + passedCount
+                + "_S-" + skippedCount
+                + "_F-" + failedCount
+                + "_I-0"
+                + "_KI-" + knownIssueCount + ".html";
 
         File original = new File(reportFile());
         File renamed  = new File(reportDir() + newFileName);
