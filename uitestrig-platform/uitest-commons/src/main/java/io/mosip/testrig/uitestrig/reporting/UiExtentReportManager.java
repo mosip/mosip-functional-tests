@@ -76,6 +76,7 @@ public final class UiExtentReportManager {
     private static volatile int failedCount = 0;
     private static volatile int skippedCount = 0;
     private static volatile int knownIssueCount = 0;
+    private static volatile int ignoredCount = 0;
 
     private UiExtentReportManager() {}
 
@@ -319,12 +320,16 @@ public final class UiExtentReportManager {
     public static synchronized void incrementFailed()     { failedCount++; }
     public static synchronized void incrementSkipped()    { skippedCount++; }
     public static synchronized void incrementKnownIssue() { knownIssueCount++; }
+    public static synchronized void incrementIgnored()    { ignoredCount++; }
 
     public static int getPassedCount()     { return passedCount; }
     public static int getFailedCount()     { return failedCount; }
     public static int getSkippedCount()    { return skippedCount; }
     public static int getKnownIssueCount() { return knownIssueCount; }
-    public static int getTotalCount()      { return passedCount + failedCount + skippedCount + knownIssueCount; }
+    public static int getIgnoredCount()    { return ignoredCount; }
+    public static int getTotalCount() {
+        return passedCount + failedCount + skippedCount + knownIssueCount + ignoredCount;
+    }
 
     // ── Flush + publish ──────────────────────────────────────────────────────────
 
@@ -332,13 +337,13 @@ public final class UiExtentReportManager {
         if (extent == null) return;
         extent.flush();
         renameAndUpload();
-        logger.info("Extent report flushed — T:{} P:{} F:{} S:{} KI:{}",
-                getTotalCount(), passedCount, failedCount, skippedCount, knownIssueCount);
+        logger.info("Extent report flushed — T:{} P:{} F:{} S:{} I:{} KI:{}",
+                getTotalCount(), passedCount, failedCount, skippedCount, ignoredCount, knownIssueCount);
     }
 
     private static void renameAndUpload() {
         // Matches apitest-commons' report-naming convention, minus the full-/error- prefix (no
-        // passed-filtered report mode here). I- is always 0 — no "ignored" state in Cucumber.
+        // passed-filtered report mode here).
         String timestamp  = new SimpleDateFormat("yyyy-MM-dd_HH-mm").format(new Date());
         String moduleName = orDefault(UiConfigManager.getproperty("moduleName"), "mosip-ui");
         String envName    = parseEnvName(UiConfigManager.getproperty("apiInternalEndPoint"));
@@ -348,7 +353,7 @@ public final class UiExtentReportManager {
                 + "_P-" + passedCount
                 + "_S-" + skippedCount
                 + "_F-" + failedCount
-                + "_I-0"
+                + "_I-" + ignoredCount
                 + "_KI-" + knownIssueCount + ".html";
 
         File original = new File(reportFile());
