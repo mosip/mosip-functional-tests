@@ -26,9 +26,7 @@ public class KernelAuthentication extends BaseTestCase {
 
 	String folder = "kernel";
 	String cookie;
-	static String dataKey = "response";
 	static String encodeBase64 ="";
-	static String errorKey = "errors";
 	static Map<String, String> tokens = new HashMap<>();
 	public final Map<String, String> props = AdminTestUtil.readProperty("Kernel");
 
@@ -49,15 +47,12 @@ public class KernelAuthentication extends BaseTestCase {
 	private String partner_userName_without_role = props.get("policytest_userName");
 	private String partner_userName_without_pm_role = props.get("policytest_without_pmrole_userName");
 
-	private String registrationAdmin_appid = props.get("registrationAdmin_appid");
 	private String registrationAdmin_password = props.get("registrationAdmin_password");
 	private String registrationAdmin_userName = props.get("registrationAdmin_userName");
 
-	private String registrationOfficer_appid = props.get("registrationOfficer_appid");
 	private String registrationOfficer_password = props.get("registrationOfficer_password");
 	private String registrationOfficer_userName = props.get("registrationOfficer_userName");
 
-	private String registrationSupervisor_appid = props.get("registrationSupervisor_appid");
 	private String registrationSupervisor_password = props.get("registrationSupervisor_password");
 	private String registrationSupervisor_userName = props.get("registrationSupervisor_userName");
 
@@ -67,10 +62,6 @@ public class KernelAuthentication extends BaseTestCase {
 	private String zonalApprover_password = props.get("zonalApprover_password");
 	private String zonalApprover_userName = props.get("zonalApprover_userName");
 
-	private String authenticationEndpoint = "/v1/authmanager/authenticate/useridPwd";
-	private String authenticationInternalEndpoint = "/v1/authmanager/authenticate/internal/useridPwd";
-	private String authRequest = "config/Authorization/request.json";
-	private String authInternalRequest = "config/Authorization/internalAuthRequest.json";
 	private String preregSendOtp = props.get("preregSendOtp");
 	private String preregValidateOtp = props.get("preregValidateOtp");
 
@@ -558,92 +549,34 @@ public class KernelAuthentication extends BaseTestCase {
 		return getAuthTokenFromKeyCloak(ConfigManager.getAutomationClientId(), ConfigManager.getAutomationClientSecret());
 	}
 
-	@SuppressWarnings("unchecked")
 	public String getAuthForRegistrationAdmin() {
-		JSONObject actualrequest = getRequestJson(authRequest);
-
-		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, registrationAdmin_appid);
-		request.put(GlobalConstants.PASSWORD, registrationAdmin_password);
-		request.put(GlobalConstants.USER_NAME, registrationAdmin_userName);
-		actualrequest.put(GlobalConstants.REQUEST, request);
-
-		Response reponse = AdminTestUtil.postWithJson(authenticationEndpoint, actualrequest);
-		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
-		return cookie;
+		return getAuthTokenFromKeyCloakPassword(ConfigManager.getAdminClientId(), ConfigManager.getAdminClientSecret(),
+				registrationAdmin_userName, registrationAdmin_password);
 	}
 
-	@SuppressWarnings("unchecked")
 	public String getAuthForRegistrationOfficer() {
-		JSONObject actualrequest = getRequestJson(authRequest);
-
-		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, registrationOfficer_appid);
-		request.put(GlobalConstants.PASSWORD, registrationOfficer_password);
-		request.put(GlobalConstants.USER_NAME, registrationOfficer_userName);
-		actualrequest.put(GlobalConstants.REQUEST, request);
-
-		Response reponse = AdminTestUtil.postWithJson(authenticationEndpoint, actualrequest);
-		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
-		return cookie;
+		return getAuthTokenFromKeyCloakPassword(ConfigManager.getRegClientId(), ConfigManager.getRegClientSecret(),
+				registrationOfficer_userName, registrationOfficer_password);
 	}
 
-	@SuppressWarnings("unchecked")
 	public String getAuthForRegistrationSupervisor() {
-		JSONObject actualrequest = getRequestJson(authRequest);
-
-		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, registrationSupervisor_appid);
-		request.put(GlobalConstants.PASSWORD, registrationSupervisor_password);
-		request.put(GlobalConstants.USER_NAME, registrationSupervisor_userName);
-		actualrequest.put(GlobalConstants.REQUEST, request);
-
-		Response reponse = AdminTestUtil.postWithJson(authenticationEndpoint, actualrequest);
-		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
-		return cookie;
+		return getAuthTokenFromKeyCloakPassword(ConfigManager.getRegClientId(), ConfigManager.getRegClientSecret(),
+				registrationSupervisor_userName, registrationSupervisor_password);
 	}
 
-	@SuppressWarnings("unchecked")
 	public String getAuthForZonalAdmin() {
-		JSONObject actualrequest = getRequestJson(authRequest);
-
-		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, ConfigManager.getAdminAppId());
-		request.put(GlobalConstants.PASSWORD, zonalAdmin_password);
-		request.put(GlobalConstants.USER_NAME, zonalAdmin_userName);
-		actualrequest.put(GlobalConstants.REQUEST, request);
-
-		Response reponse = AdminTestUtil.postWithJson(authenticationEndpoint, actualrequest);
-		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
-		return cookie;
+		return getAuthTokenFromKeyCloakPassword(ConfigManager.getAdminClientId(), ConfigManager.getAdminClientSecret(),
+				zonalAdmin_userName, zonalAdmin_password);
 	}
 
-	@SuppressWarnings("unchecked")
 	public String getAuthForZonalApprover() {
-		JSONObject actualrequest = getRequestJson(authRequest);
-
-		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, ConfigManager.getAdminAppId());
-		request.put(GlobalConstants.PASSWORD, zonalApprover_password);
-		request.put(GlobalConstants.USER_NAME, zonalApprover_userName);
-		actualrequest.put(GlobalConstants.REQUEST, request);
-
-		Response reponse = AdminTestUtil.postWithJson(authenticationEndpoint, actualrequest);
-		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
-		return cookie;
+		return getAuthTokenFromKeyCloakPassword(ConfigManager.getAdminClientId(), ConfigManager.getAdminClientSecret(),
+				zonalApprover_userName, zonalApprover_password);
 	}
 
-	@SuppressWarnings("unchecked")
 	public String getAuthForAutoUser() {
-		JSONObject actualrequest = getRequestJson(authRequest);
-		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, props.get("autoUsr_appid"));
-		request.put(GlobalConstants.PASSWORD, props.get("autoUsr_password"));
-		request.put(GlobalConstants.USER_NAME, props.get("autoUsr_user"));
-		actualrequest.put(GlobalConstants.REQUEST, request);
-		Response reponse = AdminTestUtil.postWithJson(authenticationEndpoint, actualrequest);
-		cookie = reponse.getCookie(GlobalConstants.AUTHORIZATION);
-		return cookie;
+		return getAuthTokenFromKeyCloakPassword(ConfigManager.getAdminClientId(), ConfigManager.getAdminClientSecret(),
+				props.get("autoUsr_user"), props.get("autoUsr_password"));
 	}
 	
 	@SuppressWarnings("unchecked")
