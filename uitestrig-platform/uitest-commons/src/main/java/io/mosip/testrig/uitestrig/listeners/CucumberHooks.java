@@ -68,6 +68,7 @@ public class CucumberHooks {
     private static final Logger logger = LoggerFactory.getLogger(CucumberHooks.class);
     private static Thread otpListenerThread;
     private static final ThreadLocal<String> knownIssueBugId = new ThreadLocal<>();
+    private static final ThreadLocal<Boolean> serviceNotDeployed = ThreadLocal.withInitial(() -> false);
 
     // See class javadoc. A plain system property so it works the same regardless of which
     // project's config manager (or none) sets it.
@@ -111,6 +112,19 @@ public class CucumberHooks {
     }
 
     /**
+     * Mirrors apitest-commons/pms-ui-testrig's {@code servicesNotDeployed} convention: a step
+     * definition calls this with the service/feature it depends on, and if that name is in the
+     * configured {@code servicesNotDeployed} list, the scenario aborts and is reported as
+     * "Ignored" (not a real failure or a generic skip) instead of running further.
+     */
+    public static void skipIfServiceNotDeployed(String serviceName) {
+        if (UiConfigManager.isInServiceNotDeployedList(serviceName)) {
+            serviceNotDeployed.set(true);
+            throw new TestAbortedException("Service not deployed. Hence skipping the testcase: " + serviceName);
+        }
+    }
+
+    /**
      * Fires before each step — logs the numbered step divider. Call from module's @BeforeStep
      * hook. Runs synchronously on the scenario's thread, so the divider lands at the real
      * time the step ran; Cucumber gives no API for the step's own text here.
@@ -140,6 +154,16 @@ public class CucumberHooks {
             UiExtentReportManager.logSkip("🟠 Known Issue → <a href='" + bugUrl + "' target='_blank'>" + safeId + "</a>");
             UiExtentReportManager.removeTest();
             logger.info("Known Issue [{}]: '{}' reported as skip", bugId, scenario.getName());
+            return;
+        }
+
+        if (serviceNotDeployed.get()) {
+            serviceNotDeployed.remove();
+            UiExtentReportManager.incrementIgnored();
+            UiExtentReportManager.logSkip("⏭️ Service not deployed — scenario ignored: " + scenario.getName());
+            UiExtentReportManager.removeTest();
+            PlaywrightFactory.closePage();
+            logger.info("Service not deployed: '{}' reported as ignored", scenario.getName());
             return;
         }
 
