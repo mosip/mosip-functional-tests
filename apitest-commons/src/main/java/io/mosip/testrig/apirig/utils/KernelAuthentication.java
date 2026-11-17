@@ -47,21 +47,6 @@ public class KernelAuthentication extends BaseTestCase {
 	private String partner_userName_without_role = props.get("policytest_userName");
 	private String partner_userName_without_pm_role = props.get("policytest_without_pmrole_userName");
 
-	private String registrationAdmin_password = props.get("registrationAdmin_password");
-	private String registrationAdmin_userName = props.get("registrationAdmin_userName");
-
-	private String registrationOfficer_password = props.get("registrationOfficer_password");
-	private String registrationOfficer_userName = props.get("registrationOfficer_userName");
-
-	private String registrationSupervisor_password = props.get("registrationSupervisor_password");
-	private String registrationSupervisor_userName = props.get("registrationSupervisor_userName");
-
-	private String zonalAdmin_password = props.get("zonalAdmin_password");
-	private String zonalAdmin_userName = props.get("zonalAdmin_userName");
-
-	private String zonalApprover_password = props.get("zonalApprover_password");
-	private String zonalApprover_userName = props.get("zonalApprover_userName");
-
 	private String preregSendOtp = props.get("preregSendOtp");
 	private String preregValidateOtp = props.get("preregValidateOtp");
 
@@ -550,33 +535,34 @@ public class KernelAuthentication extends BaseTestCase {
 	}
 
 	public String getAuthForRegistrationAdmin() {
-		return getAuthTokenFromKeyCloakPassword(ConfigManager.getAdminClientId(), ConfigManager.getAdminClientSecret(),
-				registrationAdmin_userName, registrationAdmin_password);
+		// Same Keycloak user as admin: <module>-220005 has REGISTRATION_ADMIN on the realm.
+		return getAuthForAdmin();
 	}
 
 	public String getAuthForRegistrationOfficer() {
+		String username = BaseTestCase.currentModule + "-" + ConfigManager.getUserAdminName();
 		return getAuthTokenFromKeyCloakPassword(ConfigManager.getRegClientId(), ConfigManager.getRegClientSecret(),
-				registrationOfficer_userName, registrationOfficer_password);
+				username, admin_password);
 	}
 
 	public String getAuthForRegistrationSupervisor() {
+		String username = BaseTestCase.currentModule + "-" + ConfigManager.getUserAdminName();
 		return getAuthTokenFromKeyCloakPassword(ConfigManager.getRegClientId(), ConfigManager.getRegClientSecret(),
-				registrationSupervisor_userName, registrationSupervisor_password);
+				username, admin_password);
 	}
 
 	public String getAuthForZonalAdmin() {
-		return getAuthTokenFromKeyCloakPassword(ConfigManager.getAdminClientId(), ConfigManager.getAdminClientSecret(),
-				zonalAdmin_userName, zonalAdmin_password);
+		// Same Keycloak user as admin: <module>-220005 has ZONAL_ADMIN on the realm.
+		return getAuthForAdmin();
 	}
 
 	public String getAuthForZonalApprover() {
-		return getAuthTokenFromKeyCloakPassword(ConfigManager.getAdminClientId(), ConfigManager.getAdminClientSecret(),
-				zonalApprover_userName, zonalApprover_password);
+		// Reuse the zone-map Keycloak user (globaladmin) which holds zonal admin roles.
+		return getAuthForzoneMap();
 	}
 
 	public String getAuthForAutoUser() {
-		return getAuthTokenFromKeyCloakPassword(ConfigManager.getAdminClientId(), ConfigManager.getAdminClientSecret(),
-				props.get("autoUsr_user"), props.get("autoUsr_password"));
+		return getAuthForAdmin();
 	}
 	
 	@SuppressWarnings("unchecked")
