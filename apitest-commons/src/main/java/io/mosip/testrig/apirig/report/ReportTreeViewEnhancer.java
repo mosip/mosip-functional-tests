@@ -176,6 +176,124 @@ public final class ReportTreeViewEnhancer {
     // scenario card (by the mN prefix) before looking the anchor up.
     private static final String REPORT_MAIN_SCROLL_MARKER = "cv-scroll-v5";
 
+    private static final String REPORT_NAV_UX_MARKER = "report-nav-ux-v1";
+
+    /**
+     * Wraps wide suite tables for horizontal scroll and adds a jump-to-failure control that
+     * cycles failed scenarios (also re-clicking the Failed sidebar chip while it is active).
+     */
+    private static final String REPORT_NAV_UX_SCRIPT =
+            "<script>(function(){/*" + REPORT_NAV_UX_MARKER + "*/"
+                    + "var failIdx=-1;"
+                    + "function wrapTables(){document.querySelectorAll('.report-main table').forEach(function(t){"
+                    + "if(t.closest('.report-suite-scroll'))return;"
+                    + "var suite=!!t.querySelector('td.num > a[href^=\"#t\"]');"
+                    + "var stats=t.classList.contains('report-exec-table')&&!!t.querySelector('tr.exec-stats-header-row');"
+                    + "if(!suite&&!stats)return;"
+                    + "var w=document.createElement('div');w.className='report-suite-scroll'+(stats?' report-suite-scroll--exec':'');"
+                    + "t.parentNode.insertBefore(w,t);w.appendChild(t);});}"
+                    + "function failureLinks(){return Array.prototype.slice.call("
+                    + "document.querySelectorAll('.report-sidebar li.tree-scenario-node[data-status=\"fail\"] a.tree-link--scenario[href^=\"#\"]'));}"
+                    + "function activateFailFilter(){var chip=document.querySelector('.tree-filter-chip[data-tree-filter=\"fail\"]');"
+                    + "if(chip&&!chip.classList.contains('is-active'))chip.click();}"
+                    + "function jumpFail(e){if(e){e.preventDefault();e.stopPropagation();}"
+                    + "var list=failureLinks();if(!list.length)return;"
+                    + "activateFailFilter();failIdx=(failIdx+1)%list.length;var a=list[failIdx];"
+                    + "if(a){a.click();}"
+                    + "var b=document.getElementById('report-jump-fail');"
+                    + "if(b){var n=b.querySelector('.report-jump-fail__n');"
+                    + "if(n)n.textContent=(failIdx+1)+'/'+list.length;"
+                    + "b.title='Next failure ('+(failIdx+1)+'/'+list.length+')';}}"
+                    + "function ensureJumpBtn(){var list=failureLinks();"
+                    + "var b=document.getElementById('report-jump-fail');"
+                    + "if(!list.length){if(b)b.hidden=true;return;}"
+                    + "if(!b){b=document.createElement('button');b.type='button';b.id='report-jump-fail';"
+                    + "b.className='report-jump-fail';b.setAttribute('aria-label','Jump to next failed scenario');"
+                    + "b.innerHTML='<span class=\"report-jump-fail__ico\" aria-hidden=\"true\">!</span>"
+                    + "<span class=\"report-jump-fail__n\">'+list.length+'</span>';"
+                    + "b.addEventListener('click',jumpFail);document.body.appendChild(b);}"
+                    + "b.hidden=false;var n=b.querySelector('.report-jump-fail__n');"
+                    + "if(n&&failIdx<0)n.textContent=String(list.length);"
+                    + "b.title='Jump to failures ('+list.length+')';"
+                    + "var chip=document.querySelector('.tree-filter-chip[data-tree-filter=\"fail\"]');"
+                    + "if(chip&&!chip.getAttribute('data-jump-bound')){chip.setAttribute('data-jump-bound','1');"
+                    + "chip.addEventListener('click',function(){"
+                    + "if(chip.getAttribute('data-was-active')==='1')jumpFail();"
+                    + "setTimeout(function(){chip.setAttribute('data-was-active',"
+                    + "chip.classList.contains('is-active')?'1':'0');},0);});}}"
+                    + "function init(){wrapTables();ensureJumpBtn();}"
+                    + "if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);"
+                    + "else init();})();</script>";
+
+    private static final String REPORT_SCROLL_TOP_MARKER = "report-scroll-top-v3";
+
+    private static final String[] REPORT_SCROLL_TOP_LEGACY_MARKERS = {
+        "report-scroll-top-v2", "report-scroll-top-v1"
+    };
+
+    /**
+     * Floating corner control + browser Back trap: when the user has scrolled down the
+     * report, the first Back (or the FAB click) scrolls to top and stays on the report
+     * instead of leaving the page.
+     */
+    private static final String REPORT_SCROLL_TOP_STYLE =
+            "<style>/*" + REPORT_SCROLL_TOP_MARKER + "*/"
+                    + ".report-scroll-top{position:fixed;right:1.25rem;bottom:1.25rem;z-index:60;"
+                    + "width:42px;height:42px;padding:0;border-radius:999px;border:1px solid var(--border);"
+                    + "background:var(--surface-2);color:var(--muted);box-shadow:0 8px 24px rgba(0,0,0,.28);"
+                    + "cursor:pointer;opacity:.35;pointer-events:none;transform:translateY(6px);"
+                    + "transition:opacity .2s ease,transform .2s ease,background .15s,color .15s,border-color .15s}"
+                    + ".report-scroll-top.is-visible{opacity:1;pointer-events:auto;transform:translateY(0);color:var(--text)}"
+                    + ".report-scroll-top.is-visible:hover{background:rgba(224,177,90,.22);color:var(--accent);"
+                    + "border-color:rgba(224,177,90,.55)}"
+                    + ".report-scroll-top:focus-visible{outline:2px solid var(--accent);outline-offset:2px}"
+                    + ".report-scroll-top__icon{display:inline-block;font-size:.95rem;font-weight:700;line-height:1}"
+                    + "html[data-theme=\"light\"] .report-scroll-top{background:#fff;color:#94a3b8;"
+                    + "box-shadow:0 8px 24px rgba(15,23,42,.14)}"
+                    + "html[data-theme=\"light\"] .report-scroll-top.is-visible{color:#0f172a}"
+                    + "html[data-theme=\"light\"] .report-scroll-top.is-visible:hover{background:rgba(176,124,46,.14);"
+                    + "color:#8a5a2b}</style>";
+
+    private static final String REPORT_SCROLL_TOP_SCRIPT =
+            "<script>(function(){/*" + REPORT_SCROLL_TOP_MARKER + "*/"
+                    + "var trapOn=false,goingTop=false,btn;"
+                    + "function scrollParent(){var m=document.querySelector('.report-main');"
+                    + "if(m&&m.scrollHeight>m.clientHeight+5)return m;"
+                    + "return document.scrollingElement||document.documentElement;}"
+                    + "function y(){var p=scrollParent();"
+                    + "if(p===document.scrollingElement||p===document.documentElement||p===document.body)"
+                    + "return window.scrollY||document.documentElement.scrollTop||0;"
+                    + "return p.scrollTop;}"
+                    + "function armTrap(){if(trapOn||goingTop)return;trapOn=true;"
+                    + "try{history.pushState({reportScrollTop:1},'',location.href);}catch(e){}}"
+                    + "function goTop(e){if(e){e.preventDefault();e.stopPropagation();}"
+                    + "goingTop=true;trapOn=false;"
+                    + "var p=scrollParent();"
+                    + "if(p===document.scrollingElement||p===document.documentElement||p===document.body)"
+                    + "window.scrollTo({top:0,behavior:'smooth'});"
+                    + "else if(p.scrollTo)p.scrollTo({top:0,behavior:'smooth'});else p.scrollTop=0;"
+                    + "if(btn){btn.classList.remove('is-visible');btn.disabled=true;"
+                    + "btn.setAttribute('aria-hidden','true');}"
+                    + "setTimeout(function(){goingTop=false;sync();},500);}"
+                    + "function sync(){if(!btn||goingTop)return;var on=y()>120;"
+                    + "btn.classList.toggle('is-visible',on);btn.disabled=!on;"
+                    + "btn.setAttribute('aria-hidden',on?'false':'true');if(on)armTrap();}"
+                    + "function onPop(){trapOn=false;if(y()>40)goTop();else sync();}"
+                    + "function init(){btn=document.getElementById('report-scroll-top');"
+                    + "if(!btn){btn=document.createElement('button');btn.type='button';btn.id='report-scroll-top';"
+                    + "btn.className='report-scroll-top';document.body.appendChild(btn);}"
+                    + "btn.type='button';btn.title='Scroll to top';btn.setAttribute('aria-label','Scroll to top');"
+                    + "btn.innerHTML='<span class=\"report-scroll-top__icon\" aria-hidden=\"true\">&#9650;</span>';"
+                    + "btn.addEventListener('click',goTop);"
+                    + "var main=document.querySelector('.report-main');"
+                    + "if(main)main.addEventListener('scroll',sync,{passive:true});"
+                    + "window.addEventListener('scroll',sync,{passive:true});"
+                    + "window.addEventListener('resize',sync);"
+                    + "window.addEventListener('popstate',onPop);"
+                    + "sync();}"
+                    + "if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);"
+                    + "else init();})();</script>";
+
     private static final String REPORT_MAIN_SCROLL_SCRIPT =
             "<script>(function(){/*" + REPORT_MAIN_SCROLL_MARKER + "*/"
                     + "function reveal(el){var cards=document.querySelectorAll('.report-main .scenario-detail-card');"
@@ -641,6 +759,8 @@ public final class ReportTreeViewEnhancer {
                                 + REPORT_TREE_FILTER_SCRIPT
                                 + REPORT_UX_SCRIPT
                                 + REPORT_MAIN_SCROLL_SCRIPT
+                                + REPORT_NAV_UX_SCRIPT
+                                + REPORT_SCROLL_TOP_SCRIPT
                                 + "\n</body>");
 
         out = annotateReportBody(out);
@@ -734,6 +854,8 @@ public final class ReportTreeViewEnhancer {
                 out = replaceLastLiteral(out, "</body>", inject + "</body>");
             }
         }
+        out = ensureScrollTopControl(out);
+        out = ensureNavUx(out);
         // Repair scenario-detail-card wrappers that were missed in a previous enhancement
         // pass (e.g. because findClosingTableStartIndex hit a </table> inside a textarea
         // payload and wrapScenarioDetailCards silently skipped those scenarios). Since
@@ -742,6 +864,77 @@ public final class ReportTreeViewEnhancer {
         out = ensureScenarioAnchorClass(out);
         out = wrapScenarioDetailCards(out);
         return ensureSidebarControls(stripScenarioDetailCardChrome(stripSlowestStrip(out)));
+    }
+
+    private static String ensureNavUx(String html) {
+        if (html == null || html.isEmpty() || html.contains(REPORT_NAV_UX_MARKER)) {
+            return html;
+        }
+        if (!html.contains("</body>")) {
+            return html;
+        }
+        String styleInject = "";
+        if (!html.contains(".report-suite-scroll") && html.contains("</head>")) {
+            styleInject =
+                    "<style>/*"
+                            + REPORT_NAV_UX_MARKER
+                            + "*/.report-suite-scroll{overflow-x:auto;max-width:100%;margin:0 0 1.25rem;"
+                            + "-webkit-overflow-scrolling:touch;border:1px solid var(--border);border-radius:12px}"
+                            + ".report-main table:has(td.num > a[href^=\"#t\"]){table-layout:auto!important;width:max-content!important;min-width:100%}"
+                            + ".report-main table:has(td.num > a[href^=\"#t\"]) th:nth-child(1),"
+                            + ".report-main table:has(td.num > a[href^=\"#t\"]) td:nth-child(1){position:sticky;left:0;z-index:3;"
+                            + "min-width:220px;white-space:nowrap!important;background:var(--surface-2,#121826)!important;"
+                            + "box-shadow:6px 0 12px rgba(0,0,0,.18)}"
+                            + ".report-main table:has(td.num > a[href^=\"#t\"]) th:nth-child(n+2),"
+                            + ".report-main table:has(td.num > a[href^=\"#t\"]) td:nth-child(n+2){white-space:nowrap!important;min-width:5.5rem}"
+                            + ".report-suite-scroll--exec>table.report-exec-table{table-layout:auto!important;"
+                            + "width:max-content!important;min-width:100%}"
+                            + ".report-main table.report-exec-table tr.exec-stats-header-row th,"
+                            + ".report-main table.report-exec-table tr.exec-stats-data-row td{white-space:nowrap!important;min-width:6.5rem}"
+                            + ".report-jump-fail{position:fixed;right:1.25rem;bottom:4.6rem;z-index:60;min-width:42px;height:42px;"
+                            + "padding:0 .7rem;border-radius:999px;border:1px solid rgba(242,85,89,.55);background:rgba(127,29,29,.92);"
+                            + "color:#fecaca;box-shadow:0 8px 24px rgba(0,0,0,.28);cursor:pointer;display:inline-flex;align-items:center;"
+                            + "gap:.4rem;font:inherit;font-size:12px;font-weight:700}"
+                            + ".report-jump-fail[hidden]{display:none!important}"
+                            + "html[data-theme=\"light\"] .report-jump-fail{background:#dc2626;border-color:#b91c1c;color:#fff}"
+                            + "html[data-theme=\"light\"] .report-main table:has(td.num > a[href^=\"#t\"]) th:nth-child(1),"
+                            + "html[data-theme=\"light\"] .report-main table:has(td.num > a[href^=\"#t\"]) td:nth-child(1)"
+                            + "{background:#fff!important}</style>";
+            html = replaceFirstLiteral(html, "</head>", styleInject + "</head>");
+        }
+        return replaceLastLiteral(html, "</body>", REPORT_NAV_UX_SCRIPT + "\n</body>");
+    }
+
+    private static String ensureScrollTopControl(String html) {
+        if (html == null || html.isEmpty()) {
+            return html;
+        }
+        if (html.contains(REPORT_SCROLL_TOP_MARKER)) {
+            return html;
+        }
+        for (String legacy : REPORT_SCROLL_TOP_LEGACY_MARKERS) {
+            while (html.contains(legacy)) {
+                int legacyIdx = html.indexOf(legacy);
+                int styleStart = html.lastIndexOf("<style>", legacyIdx);
+                int styleEnd = html.indexOf("</style>", legacyIdx);
+                int scriptStart = html.lastIndexOf("<script>", legacyIdx);
+                int scriptEnd = html.indexOf("</script>", legacyIdx);
+                if (styleStart >= 0 && styleEnd >= legacyIdx && styleEnd < legacyIdx + 120) {
+                    html = html.substring(0, styleStart) + html.substring(styleEnd + 8);
+                    continue;
+                }
+                if (scriptStart >= 0 && scriptEnd >= 0) {
+                    html = html.substring(0, scriptStart) + html.substring(scriptEnd + 9);
+                    continue;
+                }
+                break;
+            }
+        }
+        if (!html.contains("</body>")) {
+            return html;
+        }
+        return replaceLastLiteral(
+                html, "</body>", REPORT_SCROLL_TOP_STYLE + REPORT_SCROLL_TOP_SCRIPT + "\n</body>");
     }
 
     private static String ensureSidebarControls(String html) {
