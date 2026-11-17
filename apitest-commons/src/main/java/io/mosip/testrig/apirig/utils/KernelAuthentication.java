@@ -67,8 +67,8 @@ public class KernelAuthentication extends BaseTestCase {
 	private String zonalApprover_password = props.get("zonalApprover_password");
 	private String zonalApprover_userName = props.get("zonalApprover_userName");
 
-	private String authenticationEndpoint = props.get("authentication");
-	private String authenticationInternalEndpoint = props.get("authenticationInternal");
+	private String authenticationEndpoint = "/v1/authmanager/authenticate/useridPwd";
+	private String authenticationInternalEndpoint = "/v1/authmanager/authenticate/internal/useridPwd";
 	private String authRequest = "config/Authorization/request.json";
 	private String authInternalRequest = "config/Authorization/internalAuthRequest.json";
 	private String preregSendOtp = props.get("preregSendOtp");
