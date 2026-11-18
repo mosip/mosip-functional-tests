@@ -17,8 +17,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
@@ -58,6 +60,11 @@ public class EmailableReport implements IReporter {
 
 	// Reusable buffer
 	private final StringBuilder buffer = new StringBuilder();
+
+	/** uniqueIdentifier → {@code #mN} from the scenario summary pass. */
+	private final Map<String, String> scenarioAnchorById = new HashMap<>();
+	/** uniqueIdentifier → pass|fail|skip|ignore|known. */
+	private final Map<String, String> scenarioStatusById = new HashMap<>();
 
 	private String fileName = "emailable-report.html";
 	private String mountPathForReport = ConfigManager.getMountPathForReport();
@@ -123,6 +130,8 @@ public class EmailableReport implements IReporter {
 			LOG.error("Unable to create output file", e);
 			return;
 		}
+		scenarioAnchorById.clear();
+		scenarioStatusById.clear();
 		suiteResults.clear();
 		for (ISuite suite : suites) {
 			if (skipPassed) {
@@ -1181,9 +1190,19 @@ public class EmailableReport implements IReporter {
 						String uniqueIdentifier = getTestCaseUniqueIdentifier(result);
 						long duration = result.getEndMillis() - result.getStartMillis();
 						String temp = uniqueIdentifier.isEmpty() ? getTestCaseKey(result) : uniqueIdentifier;
+						String anchor = "#m" + scenarioIndex;
+						String statusKey = dependencyStatusKey(cssClassPrefix);
+						if (temp != null && !temp.isBlank()) {
+							scenarioAnchorById.put(temp, anchor);
+							scenarioStatusById.put(temp, statusKey);
+						}
+						if (uniqueIdentifier != null && !uniqueIdentifier.isBlank()) {
+							scenarioAnchorById.put(uniqueIdentifier, anchor);
+							scenarioStatusById.put(uniqueIdentifier, statusKey);
+						}
 
 						buffer.append("<tr class=\"").append(cssClass).append("\">")
-								.append("<td><a href=\"#m").append(scenarioIndex).append("\">")
+								.append("<td><a href=\"").append(anchor).append("\">")
 								.append(Utils.escapeHtml(temp)).append("</a></td>")
 								.append("<td class='scenario-desc-col'>").append(testCaseDescription).append("</td>")
 								.append("<td class='bug-column'>").append(convertMillisToTime(duration))
@@ -1305,8 +1324,8 @@ public class EmailableReport implements IReporter {
 		writer.print("</tr><tr class=\"param stripe\">");
 		List<String> dependencies = DependencyResolver.getDependencies(uniqueIdentifier);
 		dependencies.remove(uniqueIdentifier);
-		writer.print("<td>");
-		writer.print(Utils.escapeHtml(dependencies.toString()));
+		writer.print("<td class=\"tc-dep-cell\">");
+		writeDependencyLinks(dependencies);
 		writer.print("</td>");
 		
 		// Add ClassName
@@ -1410,6 +1429,69 @@ public class EmailableReport implements IReporter {
 		writer.print("<div class=\"stacktrace\">");
 		writer.print(Utils.shortStackTrace(throwable, true));
 		writer.print("</div>");
+	}
+
+	private static String dependencyStatusKey(String cssClassPrefix) {
+		if (cssClassPrefix == null) {
+			return "unknown";
+		}
+		switch (cssClassPrefix) {
+		case "passed":
+			return "pass";
+		case "failed":
+			return "fail";
+		case "skipped":
+			return "skip";
+		case "ignored":
+			return "ignore";
+		case "knownissue":
+			return "known";
+		default:
+			return "unknown";
+		}
+	}
+
+	private void writeDependencyLinks(List<String> dependencies) {
+		if (dependencies == null || dependencies.isEmpty()) {
+			writer.print("<span class=\"tc-dep-empty\">None</span>");
+			return;
+		}
+		boolean first = true;
+		for (String dep : dependencies) {
+			if (dep == null || dep.isBlank()) {
+				continue;
+			}
+			String name = dep.trim();
+			if (!first) {
+				writer.print(" ");
+			}
+			first = false;
+			String href = scenarioAnchorById.get(name);
+			String status = scenarioStatusById.getOrDefault(name, "unknown");
+			String css = "tc-dep-link tc-dep-link--" + status;
+			if (href != null && !href.isBlank()) {
+				writer.print("<a class=\"");
+				writer.print(css);
+				writer.print("\" href=\"");
+				writer.print(href);
+				writer.print("\" title=\"");
+				writer.print(Utils.escapeHtml(name + " — " + status));
+				writer.print("\">");
+				writer.print(Utils.escapeHtml(name));
+				writer.print("</a>");
+			} else {
+				writer.print("<span class=\"");
+				writer.print(css);
+				writer.print("\" title=\"");
+				writer.print(Utils.escapeHtml(name));
+				writer.print("\">");
+				writer.print(Utils.escapeHtml(name));
+				writer.print("</span>");
+			}
+		}
+		if (first) {
+			writer.print("<span class=\"tc-dep-empty\">None</span>");
+		}
 	}
 
 	private String countClass(String statusClass, int count) {

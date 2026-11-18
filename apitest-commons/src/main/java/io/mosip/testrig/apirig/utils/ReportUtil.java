@@ -58,12 +58,16 @@ public class ReportUtil {
 				if (dto.getStatus().equals("PASS")) {
 					htmlforReport = htmlforReport + "  <tr>\r\n" + "    <td>" + dto.getFieldName() + "</td>\r\n"
 							+ "    <td>" + dto.getExpValue() + "</td>\r\n" + "    <td>" + dto.getActualValue()
-							+ "</td>\r\n" + "    <td bgcolor='Green'>" + dto.getStatus() + "</td>\r\n" + "  </tr>\r\n";
+							+ "</td>\r\n" + "    <td class='val-status val-status--pass' bgcolor='Green'>"
+							+ "<span class='val-status-pill val-status-pill--pass'>" + dto.getStatus()
+							+ "</span></td>\r\n" + "  </tr>\r\n";
 					outputValidationDone = true;
 				} else if (dto.getStatus().equals(GlobalConstants.FAIL_STRING)) {
 					htmlforReport = htmlforReport + "  <tr>\r\n" + "    <td>" + dto.getFieldName() + "</td>\r\n"
 							+ "    <td>" + dto.getExpValue() + "</td>\r\n" + "    <td>" + dto.getActualValue()
-							+ "</td>\r\n" + "    <td bgcolor='RED'>" + dto.getStatus() + "</td>\r\n" + "  </tr>\r\n";
+							+ "</td>\r\n" + "    <td class='val-status val-status--fail' bgcolor='RED'>"
+							+ "<span class='val-status-pill val-status-pill--fail'>" + dto.getStatus()
+							+ "</span></td>\r\n" + "  </tr>\r\n";
 					outputValidationDone = true;
 				}
 				// If it is warning basically we haven't compared or ignored the comparison.
