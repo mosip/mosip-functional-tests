@@ -6603,6 +6603,8 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			if (residenceStatusField != null) {
 				filteredList.add(residenceStatusField);
+			} else if (identityPropsJson.has(GlobalConstants.RESIDENCESTATUS)) {
+				filteredList.add(GlobalConstants.RESIDENCESTATUS);
 			}
 
 			JSONArray newIdJson = new JSONArray(filteredList);
