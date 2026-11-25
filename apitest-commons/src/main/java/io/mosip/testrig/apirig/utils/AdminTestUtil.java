@@ -5501,30 +5501,33 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String addIdentityPhoneNumber = "";
 
 	public static String genStringAsperRegex(String regex) throws Exception {
-		if (Generex.isValidPattern(regex)) {
-
-			Generex generex = new Generex(regex);
-
-			String randomStr = generex.random();
-			// Generate all String that matches the given Regex.
-			boolean bFound = false;
-			do {
-				bFound = false;
-				if (randomStr.startsWith("^")) {
-					int idx = randomStr.indexOf("^");
-					randomStr = randomStr.substring(idx + 1);
-					bFound = true;
-				}
-				if (randomStr.endsWith("$")) {
-					int idx = randomStr.indexOf("$");
-					randomStr = randomStr.substring(0, idx);
-					bFound = true;
-				}
-			} while (bFound);
-			return randomStr;
+		if (!Generex.isValidPattern(regex)) {
+			throw new Exception("invalid regex");
 		}
-		throw new Exception("invalid regex");
-
+		Generex generex = new Generex(regex);
+		String randomStr;
+		try {
+			randomStr = generex.random();
+		} catch (StackOverflowError e) {
+			// Unbounded generation recurses on some validators (email). A length bound still
+			// draws from the same regex.
+			randomStr = new Generex(regex).random(1, 64);
+		}
+		boolean bFound = false;
+		do {
+			bFound = false;
+			if (randomStr.startsWith("^")) {
+				int idx = randomStr.indexOf("^");
+				randomStr = randomStr.substring(idx + 1);
+				bFound = true;
+			}
+			if (randomStr.endsWith("$")) {
+				int idx = randomStr.indexOf("$");
+				randomStr = randomStr.substring(0, idx);
+				bFound = true;
+			}
+		} while (bFound);
+		return randomStr;
 	}
 
 	public static void getPasswordSaltFromKeyManager(String passwordForAddIdentity) {
@@ -6601,6 +6604,11 @@ public class AdminTestUtil extends BaseTestCase {
 				}
 				filteredList.add(fieldName);
 			}
+			// Pre-registration marks an application complete only with residenceStatus, so send it whenever
+			// the schema defines it, even when the schema does not require it.
+			if (residenceStatusField == null && identityPropsJson.has(GlobalConstants.RESIDENCESTATUS)
+					&& identityPropsJson.getJSONObject(GlobalConstants.RESIDENCESTATUS).optString("$ref", "").contains("simpleType"))
+				residenceStatusField = GlobalConstants.RESIDENCESTATUS;
 			if (residenceStatusField != null) {
 				filteredList.add(residenceStatusField);
 			} else if (identityPropsJson.has(GlobalConstants.RESIDENCESTATUS)) {
@@ -6650,7 +6658,7 @@ public class AdminTestUtil extends BaseTestCase {
 					if (eachRequiredProp.equals(emailFieldName)) {
 						entry.put("value", "$EMAILVALUE$"); entry.put("tags", new JSONArray().put("handle"));
 					} else if (eachRequiredProp.equals(phoneFieldName)) {
-						entry.put("value", "{{phone}}"); entry.put("tags", new JSONArray().put("handle"));
+						entry.put("value", "$PHONENUMBERFORIDENTITY$"); entry.put("tags", new JSONArray().put("handle"));
 					} else {
 						entry.put("value", "$FUNCTIONALID$"); entry.put("tags", new JSONArray().put("handle"));
 					}
@@ -6680,7 +6688,7 @@ public class AdminTestUtil extends BaseTestCase {
 							identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
 						}
 					} else if (eachRequiredProp.equals(phoneFieldName)) {
-						identityJson.put(eachRequiredProp, "{{phone}}");
+						identityJson.put(eachRequiredProp, "$PHONENUMBERFORIDENTITY$");
 					} else if (eachRequiredProp.equals(emailFieldName)) {
 						if ("array".equals(fieldType)) {
 							JSONArray emailArray = new JSONArray();

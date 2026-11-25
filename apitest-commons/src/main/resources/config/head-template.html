@@ -1048,6 +1048,31 @@
     font-size: 12px;
   }
   .runtime-dot { opacity: 0.7; }
+  .runtime-endpoint-filter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 0.7rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding-bottom: 0.15rem;
+  }
+  .runtime-endpoint-filter__label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted);
+  }
+  .runtime-endpoint-filter__select {
+    font: inherit;
+    font-size: 12px;
+    padding: 0.35rem 0.6rem;
+    border-radius: 8px;
+    border: 1px solid rgba(224, 177, 90, 0.35);
+    background: rgba(8, 14, 26, 0.9);
+    color: var(--text);
+    max-width: 100%;
+  }
   .runtime-endpoint-item__path {
     display: block;
     font-family: var(--mono);
@@ -2044,6 +2069,49 @@
     font-weight: 700;
     width: 12%;
   }
+  /* Beat legacy `td { background-color:#FFF }` so PASS/FAIL stay colored */
+  .validation-table td.val-status,
+  .validation-table td:nth-child(4)[bgcolor],
+  .validation-table td:nth-child(4) [class*="val-status"] {
+    text-align: center;
+    vertical-align: middle;
+  }
+  .validation-table td.val-status--pass,
+  .validation-table td:nth-child(4)[bgcolor="Green"],
+  .validation-table td:nth-child(4)[bgcolor="green"],
+  .validation-table td:nth-child(4)[bgcolor="GREEN"] {
+    background: rgba(20, 184, 106, 0.38) !important;
+    color: #ecfdf5 !important;
+  }
+  .validation-table td.val-status--fail,
+  .validation-table td:nth-child(4)[bgcolor="RED"],
+  .validation-table td:nth-child(4)[bgcolor="Red"],
+  .validation-table td:nth-child(4)[bgcolor="red"] {
+    background: rgba(242, 85, 89, 0.38) !important;
+    color: #fef2f2 !important;
+  }
+  .validation-table .val-status-pill {
+    display: inline-block;
+    min-width: 3.25rem;
+    padding: 0.22rem 0.55rem;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    font-size: var(--fs-caption);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.25;
+  }
+  .validation-table .val-status-pill--pass {
+    background: rgba(20, 184, 106, 0.38);
+    color: #ecfdf5;
+    border-color: rgba(20, 184, 106, 0.85);
+  }
+  .validation-table .val-status-pill--fail {
+    background: rgba(242, 85, 89, 0.38);
+    color: #fef2f2;
+    border-color: rgba(242, 85, 89, 0.85);
+  }
   
   /* —— Step capture (name / description / parameters) —— */
   .step-capture-card {
@@ -2537,6 +2605,14 @@
   html[data-theme="light"] .runtime-endpoint-item__path {
     color: #0f172a;
   }
+  html[data-theme="light"] .runtime-endpoint-filter__label {
+    color: #475569;
+  }
+  html[data-theme="light"] .runtime-endpoint-filter__select {
+    background: #fff;
+    border-color: #cbd5e1;
+    color: #0f172a;
+  }
   html[data-theme="light"] .runtime-chip {
     background: #e2e8f0;
     color: #334155;
@@ -2777,6 +2853,30 @@
     background: rgba(239, 68, 68, 0.1);
     color: #7f1d1d;
   }
+  html[data-theme="light"] .validation-table td.val-status--pass,
+  html[data-theme="light"] .validation-table td:nth-child(4)[bgcolor="Green"],
+  html[data-theme="light"] .validation-table td:nth-child(4)[bgcolor="green"],
+  html[data-theme="light"] .validation-table td:nth-child(4)[bgcolor="GREEN"] {
+    background: rgba(16, 185, 129, 0.22) !important;
+    color: #065f46 !important;
+  }
+  html[data-theme="light"] .validation-table td.val-status--fail,
+  html[data-theme="light"] .validation-table td:nth-child(4)[bgcolor="RED"],
+  html[data-theme="light"] .validation-table td:nth-child(4)[bgcolor="Red"],
+  html[data-theme="light"] .validation-table td:nth-child(4)[bgcolor="red"] {
+    background: rgba(239, 68, 68, 0.2) !important;
+    color: #991b1b !important;
+  }
+  html[data-theme="light"] .validation-table .val-status-pill--pass {
+    background: rgba(16, 185, 129, 0.22);
+    color: #065f46;
+    border-color: rgba(16, 185, 129, 0.55);
+  }
+  html[data-theme="light"] .validation-table .val-status-pill--fail {
+    background: rgba(239, 68, 68, 0.2);
+    color: #991b1b;
+    border-color: rgba(239, 68, 68, 0.55);
+  }
   html[data-theme="light"] .step-capture-card {
     box-shadow: 0 6px 20px rgba(255, 148, 36, 0.12);
     background: linear-gradient(180deg, rgba(254, 196, 13, 0.15), #ffffff);
@@ -2874,6 +2974,207 @@
     color: #0f172a;
   }
   html[data-theme="light"] .report-sidebar-toggle:hover {
+    background: rgba(176, 124, 46, 0.14);
+  }
+
+  /* Testcase Dependency chips — clickable + pass/fail color */
+  .tc-dep-cell {
+    line-height: 1.7;
+  }
+  .tc-dep-empty {
+    color: var(--muted);
+    font-style: italic;
+  }
+  .tc-dep-link {
+    display: inline-block;
+    margin: 0.12rem 0.28rem 0.12rem 0;
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    font-size: var(--fs-caption);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-decoration: none !important;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+  a.tc-dep-link:hover {
+    filter: brightness(1.08);
+    text-decoration: underline !important;
+  }
+  .tc-dep-link--pass {
+    background: rgba(20, 184, 106, 0.28);
+    color: #ecfdf5 !important;
+    border-color: rgba(20, 184, 106, 0.75);
+  }
+  .tc-dep-link--fail {
+    background: rgba(242, 85, 89, 0.3);
+    color: #fef2f2 !important;
+    border-color: rgba(242, 85, 89, 0.8);
+  }
+  .tc-dep-link--skip,
+  .tc-dep-link--ignore {
+    background: rgba(255, 148, 36, 0.28);
+    color: #fff7ed !important;
+    border-color: rgba(255, 148, 36, 0.75);
+  }
+  .tc-dep-link--known {
+    background: rgba(254, 196, 13, 0.28);
+    color: #1a1204 !important;
+    border-color: rgba(254, 196, 13, 0.85);
+  }
+  .tc-dep-link--unknown {
+    background: rgba(148, 163, 184, 0.22);
+    color: var(--text) !important;
+    border-color: rgba(148, 163, 184, 0.55);
+  }
+  html[data-theme="light"] .tc-dep-link--pass {
+    background: rgba(16, 185, 129, 0.18);
+    color: #065f46 !important;
+    border-color: rgba(16, 185, 129, 0.55);
+  }
+  html[data-theme="light"] .tc-dep-link--fail {
+    background: rgba(239, 68, 68, 0.16);
+    color: #991b1b !important;
+    border-color: rgba(239, 68, 68, 0.5);
+  }
+  html[data-theme="light"] .tc-dep-link--skip,
+  html[data-theme="light"] .tc-dep-link--ignore {
+    background: rgba(245, 158, 11, 0.18);
+    color: #9a3412 !important;
+    border-color: rgba(245, 158, 11, 0.5);
+  }
+  html[data-theme="light"] .tc-dep-link--known {
+    background: rgba(250, 204, 21, 0.28);
+    color: #713f12 !important;
+  }
+  html[data-theme="light"] .tc-dep-link--unknown {
+    background: #e2e8f0;
+    color: #334155 !important;
+  }
+
+  /* Slim sticky Prev/Next — only while a scenario is open (and nav enabled) */
+  .report-scenario-pager {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem 0.75rem;
+    width: auto;
+    max-width: 100%;
+    margin: 0 0 0.85rem;
+    padding: 0.4rem 0.65rem;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: rgba(15, 20, 32, 0.92);
+    color: var(--text);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(8px);
+  }
+  .report-scenario-pager[hidden] { display: none !important; }
+  .report-scenario-pager__label { display: none; }
+  .report-scenario-pager__title {
+    flex: 1 1 auto;
+    min-width: 0;
+    font-size: var(--fs-compact);
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .report-scenario-pager__meta {
+    flex: 0 0 auto;
+    font-size: var(--fs-caption);
+    font-weight: 700;
+    color: var(--muted);
+    margin: 0;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  .report-scenario-pager__btn {
+    flex: 0 0 auto;
+    min-width: 4.4rem;
+    min-height: 1.9rem;
+    padding: 0.25rem 0.55rem;
+    border-radius: 8px;
+    border: 1px solid rgba(224, 177, 90, 0.45);
+    background: rgba(224, 177, 90, 0.16);
+    color: var(--text);
+    font: inherit;
+    font-size: var(--fs-caption);
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .report-scenario-pager__btn:hover:not(:disabled) {
+    background: rgba(224, 177, 90, 0.28);
+    border-color: rgba(224, 177, 90, 0.7);
+  }
+  .report-scenario-pager__btn:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+  .report-scenario-pager__btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  /* Small right-corner toggle to show/hide the sticky nav bar */
+  .report-scenario-pager-toggle {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 8.1rem;
+    z-index: 65;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border-radius: 999px;
+    border: 1px solid rgba(224, 177, 90, 0.5);
+    background: rgba(15, 20, 32, 0.94);
+    color: var(--text);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+  .report-scenario-pager-toggle[hidden] { display: none !important; }
+  .report-scenario-pager-toggle:hover {
+    background: rgba(224, 177, 90, 0.22);
+    border-color: rgba(224, 177, 90, 0.75);
+  }
+  .report-scenario-pager-toggle.is-off {
+    opacity: 0.72;
+    border-style: dashed;
+  }
+  .report-scenario-pager-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  html[data-theme="light"] .report-scenario-pager {
+    background: rgba(255, 255, 255, 0.96);
+    border-color: rgba(15, 23, 42, 0.12);
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1);
+    color: #0f172a;
+  }
+  html[data-theme="light"] .report-scenario-pager__btn {
+    background: rgba(176, 124, 46, 0.12);
+    border-color: rgba(176, 124, 46, 0.4);
+    color: #0f172a;
+  }
+  html[data-theme="light"] .report-scenario-pager__btn:hover:not(:disabled) {
+    background: rgba(176, 124, 46, 0.2);
+  }
+  html[data-theme="light"] .report-scenario-pager-toggle {
+    background: #ffffff;
+    color: #0f172a;
+    border-color: rgba(176, 124, 46, 0.45);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.14);
+  }
+  html[data-theme="light"] .report-scenario-pager-toggle:hover {
     background: rgba(176, 124, 46, 0.14);
   }
 

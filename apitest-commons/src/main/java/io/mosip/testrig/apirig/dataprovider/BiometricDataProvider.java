@@ -519,14 +519,10 @@ public class BiometricDataProvider {
 			Path p12path = Paths.get(getKeysDirPath("", BaseTestCase.certsForModule));
 			
 			int maxLoopCount = 20;
-			String mdsImageType = ConfigManager.getproperty("mdsImageType");
 
 			while (maxLoopCount > 0) {
 				try {
-					port = (mdsImageType != null && !mdsImageType.isBlank())
-							? CentralizedMockSBI.startSBIV1(contextKey, mdsMode, "Biometric Device", p12path.toString(),
-									mdsImageType.trim())
-							: CentralizedMockSBI.startSBI(contextKey, mdsMode, "Biometric Device", p12path.toString());
+					port = CentralizedMockSBI.startSBI(contextKey, mdsMode, "Biometric Device", p12path.toString());
 				} catch (Exception e) {
 					logger.error("Exception occured during startSBI " + contextKey, e);
 				}
