@@ -3931,68 +3931,28 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		if (regex != null) {
 			try {
-				String generated = genStringAsperRegex(regex);
-				if (valueMatchesValidator(regex, generated)) {
-					return generated;
-				}
-				logger.error("genStringAsperRegex result for field '" + fieldName + "' did not match validator");
+				return genStringAsperRegex(regex);
 			} catch (Exception e) {
 				logger.error(e.getMessage());
 			} catch (StackOverflowError e) {
 				// Some schema validator regexes make the Generex library (genStringAsperRegex) recurse
-				// itself into a StackOverflowError — fall back to a value that still matches.
+				// itself into a StackOverflowError — fall back to the generic value rather than crash.
 				logger.error("genStringAsperRegex overflowed for field '" + fieldName + "' with regex: " + regex);
 			}
-			String emailValue = emailValueMatchingValidator(fieldName, regex);
-			if (emailValue != null) {
-				return emailValue;
+			// Email validators overflow Generex. The numeric fallback is not an email, so when the
+			// validator itself requires '@', use that fallback plus a domain only if it matches.
+			if (regex.indexOf('@') >= 0) {
+				String emailValue = "mosip" + generateRandomNumberString(10) + "@mosip.net";
+				try {
+					if (Pattern.compile(regex).matcher(emailValue).matches()) {
+						return emailValue;
+					}
+				} catch (Exception matchError) {
+					logger.error(matchError.getMessage());
+				}
 			}
-		} else if (isEmailIdentityField(fieldName)) {
-			return uniqueSchemaEmail();
 		}
 		return "mosip" + generateRandomNumberString(10);
-	}
-
-	/** True when the identity field is an email attribute. */
-	private static boolean isEmailIdentityField(String fieldName) {
-		return fieldName != null && fieldName.toLowerCase().contains("email");
-	}
-
-	/**
-	 * Builds an email-shaped value and keeps it only when it satisfies the schema validator.
-	 * Used when Generex cannot produce a match for an email handle.
-	 */
-	private static String emailValueMatchingValidator(String fieldName, String regex) {
-		boolean emailField = isEmailIdentityField(fieldName) || (regex != null && regex.contains("@"));
-		if (!emailField) {
-			return null;
-		}
-		String[] candidates = new String[] { uniqueSchemaEmail(),
-				"user" + generateRandomNumberString(8) + "@mosip.net",
-				"user" + generateRandomNumberString(8) + "@example.com" };
-		for (String candidate : candidates) {
-			if (valueMatchesValidator(regex, candidate)) {
-				return candidate;
-			}
-		}
-		logger.error("No email candidate matched validator for field '" + fieldName + "' regex: " + regex);
-		return null;
-	}
-
-	private static String uniqueSchemaEmail() {
-		return "mosip" + generateRandomNumberString(10) + "@mosip.net";
-	}
-
-	private static boolean valueMatchesValidator(String regex, String value) {
-		if (regex == null || value == null) {
-			return false;
-		}
-		try {
-			return Pattern.compile(regex).matcher(value).matches();
-		} catch (Exception e) {
-			logger.error("Invalid validator regex: " + regex);
-			return false;
-		}
 	}
 
 	/**
@@ -5691,7 +5651,7 @@ public class AdminTestUtil extends BaseTestCase {
 					JSONArray eachPropDataArrayForHandles = new JSONArray();
 					JSONObject eachValueJsonForHandles = new JSONObject();
 					if (eachRequiredProp.equals(emailFieldName)) {
-						eachValueJsonForHandles.put("value", "$EMAILVALUE$");
+						eachValueJsonForHandles.put("value", "{{" + eachRequiredProp + "}}");
 						eachValueJsonForHandles.put("tags", handleArray);
 						selectedHandles.add(emailFieldName);
 					} else if (eachRequiredProp.equals(phoneFieldName)) {
@@ -5794,12 +5754,12 @@ public class AdminTestUtil extends BaseTestCase {
 							// Inline array handle (e.g. schema where email is type:array + handle:true)
 							JSONArray emailArray = new JSONArray();
 							JSONObject emailEntry = new JSONObject();
-							emailEntry.put("value", "$EMAILVALUE$");
+							emailEntry.put("value", "{{" + eachRequiredProp + "}}");
 							emailEntry.put("tags", handleArray);
 							emailArray.put(emailEntry);
 							identityJson.put(eachRequiredProp, emailArray);
 						} else {
-							identityJson.put(eachRequiredProp, "$EMAILVALUE$");
+							identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
 						}
 
 					} else if ("array".equals(fieldType) && isHandle) {
@@ -6256,7 +6216,7 @@ public class AdminTestUtil extends BaseTestCase {
 					JSONArray eachPropDataArrayForHandles = new JSONArray();
 					JSONObject eachValueJsonForHandles = new JSONObject();
 					if (eachRequiredProp.equals(emailFieldName)) {
-						eachValueJsonForHandles.put("value", "$EMAILVALUE$");
+						eachValueJsonForHandles.put("value", "{{" + eachRequiredProp + "}}");
 						eachValueJsonForHandles.put("tags", handleArray);
 						selectedHandles.add(emailFieldName);
 					} else if (eachRequiredProp.equals(phoneFieldName)) {
@@ -6331,12 +6291,12 @@ public class AdminTestUtil extends BaseTestCase {
 							// Inline array handle (e.g. schema where email is type:array + handle:true)
 							JSONArray emailArray = new JSONArray();
 							JSONObject emailEntry = new JSONObject();
-							emailEntry.put("value", "$EMAILVALUE$");
+							emailEntry.put("value", "{{" + eachRequiredProp + "}}");
 							emailEntry.put("tags", handleArray);
 							emailArray.put(emailEntry);
 							identityJson.put(eachRequiredProp, emailArray);
 						} else {
-							identityJson.put(eachRequiredProp, "$EMAILVALUE$");
+							identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
 						}
 
 					} else if ("array".equals(fieldType) && isHandle) {
