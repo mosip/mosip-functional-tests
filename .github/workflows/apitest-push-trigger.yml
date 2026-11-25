@@ -27,15 +27,17 @@ permissions:
 
 jobs:
   build-maven-apitest-commons:
-    uses: mosip/kattu/.github/workflows/maven-build.yml@master-java21
+    uses: mosip/kattu/.github/workflows/maven-build.yml@testrig-java25
     with:
       SERVICE_LOCATION: ./apitest-commons
       BUILD_ARTIFACT: apitest-commons
+      JDK_VERSION: '25'
     secrets:
       OSSRH_USER: ${{ secrets.OSSRH_USER }}
       OSSRH_SECRET: ${{ secrets.OSSRH_SECRET }}
       OSSRH_TOKEN: ${{ secrets.OSSRH_TOKEN }}
       GPG_SECRET: ${{ secrets.GPG_SECRET }}
+      GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
 
   publish_to_nexus:

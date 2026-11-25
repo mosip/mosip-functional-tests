@@ -558,12 +558,12 @@
 							<verbose>true</verbose>
 							<dateFormat>MM/dd/yyyy HH:mm:ss Z</dateFormat>
 							<abbrevLength>8</abbrevLength>
-							<generateGitPropertiesFile>true</generateGitPropertiesFile>
-							<generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
 						</configuration>
 					</execution>
 				</executions>
 				<configuration>
+					<generateGitPropertiesFile>true</generateGitPropertiesFile>
+					<generateGitPropertiesFilename>${project.build.outputDirectory}/service-git.properties</generateGitPropertiesFilename>
 					<dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
 				</configuration>
 			</plugin>
