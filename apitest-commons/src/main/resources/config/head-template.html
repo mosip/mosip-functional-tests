@@ -1048,6 +1048,31 @@
     font-size: 12px;
   }
   .runtime-dot { opacity: 0.7; }
+  .runtime-endpoint-filter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 0.7rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding-bottom: 0.15rem;
+  }
+  .runtime-endpoint-filter__label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted);
+  }
+  .runtime-endpoint-filter__select {
+    font: inherit;
+    font-size: 12px;
+    padding: 0.35rem 0.6rem;
+    border-radius: 8px;
+    border: 1px solid rgba(224, 177, 90, 0.35);
+    background: rgba(8, 14, 26, 0.9);
+    color: var(--text);
+    max-width: 100%;
+  }
   .runtime-endpoint-item__path {
     display: block;
     font-family: var(--mono);
@@ -2578,6 +2603,14 @@
   }
   html[data-theme="light"] .runtime-component-card__title,
   html[data-theme="light"] .runtime-endpoint-item__path {
+    color: #0f172a;
+  }
+  html[data-theme="light"] .runtime-endpoint-filter__label {
+    color: #475569;
+  }
+  html[data-theme="light"] .runtime-endpoint-filter__select {
+    background: #fff;
+    border-color: #cbd5e1;
     color: #0f172a;
   }
   html[data-theme="light"] .runtime-chip {
