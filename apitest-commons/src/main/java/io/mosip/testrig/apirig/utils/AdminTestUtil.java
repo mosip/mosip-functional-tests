@@ -5501,30 +5501,33 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String addIdentityPhoneNumber = "";
 
 	public static String genStringAsperRegex(String regex) throws Exception {
-		if (Generex.isValidPattern(regex)) {
-
-			Generex generex = new Generex(regex);
-
-			String randomStr = generex.random();
-			// Generate all String that matches the given Regex.
-			boolean bFound = false;
-			do {
-				bFound = false;
-				if (randomStr.startsWith("^")) {
-					int idx = randomStr.indexOf("^");
-					randomStr = randomStr.substring(idx + 1);
-					bFound = true;
-				}
-				if (randomStr.endsWith("$")) {
-					int idx = randomStr.indexOf("$");
-					randomStr = randomStr.substring(0, idx);
-					bFound = true;
-				}
-			} while (bFound);
-			return randomStr;
+		if (!Generex.isValidPattern(regex)) {
+			throw new Exception("invalid regex");
 		}
-		throw new Exception("invalid regex");
-
+		Generex generex = new Generex(regex);
+		String randomStr;
+		try {
+			randomStr = generex.random();
+		} catch (StackOverflowError e) {
+			// Unbounded generation recurses on some validators (email). A length bound still
+			// draws from the same regex.
+			randomStr = new Generex(regex).random(1, 64);
+		}
+		boolean bFound = false;
+		do {
+			bFound = false;
+			if (randomStr.startsWith("^")) {
+				int idx = randomStr.indexOf("^");
+				randomStr = randomStr.substring(idx + 1);
+				bFound = true;
+			}
+			if (randomStr.endsWith("$")) {
+				int idx = randomStr.indexOf("$");
+				randomStr = randomStr.substring(0, idx);
+				bFound = true;
+			}
+		} while (bFound);
+		return randomStr;
 	}
 
 	public static void getPasswordSaltFromKeyManager(String passwordForAddIdentity) {
