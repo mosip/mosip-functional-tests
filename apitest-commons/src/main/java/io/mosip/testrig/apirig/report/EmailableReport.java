@@ -601,13 +601,54 @@ public class EmailableReport implements IReporter {
 			writer.print("<p class=\"runtime-panel__empty\">No endpoints recorded</p>");
 			return;
 		}
-		writer.print("<ul class=\"runtime-endpoint-list\">");
+		java.util.List<java.util.Map<String, String>> rows = new java.util.ArrayList<>();
+		java.util.Set<String> modules = new java.util.TreeSet<>(String.CASE_INSENSITIVE_ORDER);
 		for (String line : lines) {
 			java.util.Map<String, String> fields = parseRuntimeFields(line);
 			String domain = firstNonBlank(fields.get("Domain"), fields.get("domain"), "");
 			String module = firstNonBlank(fields.get("Module"), fields.get("module"), "");
 			String endpoint = firstNonBlank(fields.get("End Point"), fields.get("Endpoint"), fields.get("endpoint"), line);
-			writer.print("<li class=\"runtime-endpoint-item\">");
+			java.util.Map<String, String> row = new java.util.LinkedHashMap<>();
+			row.put("domain", domain);
+			row.put("module", module);
+			row.put("endpoint", endpoint);
+			rows.add(row);
+			if (!module.isEmpty()) {
+				modules.add(module);
+			}
+		}
+		if (!modules.isEmpty()) {
+			writer.print("<div class=\"runtime-endpoint-filter\">");
+			writer.print("<label class=\"runtime-endpoint-filter__label\" for=\"runtime-endpoint-module\">Module</label>");
+			writer.print("<select id=\"runtime-endpoint-module\" class=\"runtime-endpoint-filter__select\" aria-label=\"Filter endpoints by module\">");
+			writer.print("<option value=\"\">All modules (");
+			writer.print(rows.size());
+			writer.print(")</option>");
+			for (String module : modules) {
+				int count = 0;
+				for (java.util.Map<String, String> row : rows) {
+					if (module.equalsIgnoreCase(row.get("module"))) {
+						count++;
+					}
+				}
+				writer.print("<option value=\"");
+				writer.print(Utils.escapeHtml(module));
+				writer.print("\">");
+				writer.print(Utils.escapeHtml(module));
+				writer.print(" (");
+				writer.print(count);
+				writer.print(")</option>");
+			}
+			writer.print("</select></div>");
+		}
+		writer.print("<ul class=\"runtime-endpoint-list\" id=\"runtime-endpoint-list\">");
+		for (java.util.Map<String, String> row : rows) {
+			String domain = row.get("domain");
+			String module = row.get("module");
+			String endpoint = row.get("endpoint");
+			writer.print("<li class=\"runtime-endpoint-item\" data-module=\"");
+			writer.print(Utils.escapeHtml(module));
+			writer.print("\">");
 			writer.print("<code class=\"runtime-endpoint-item__path\">");
 			writer.print(Utils.escapeHtml(endpoint));
 			writer.print("</code>");
@@ -628,6 +669,13 @@ public class EmailableReport implements IReporter {
 			writer.print("</li>");
 		}
 		writer.print("</ul>");
+		if (!modules.isEmpty()) {
+			writer.print("<script>(function(){var sel=document.getElementById('runtime-endpoint-module');");
+			writer.print("var list=document.getElementById('runtime-endpoint-list');if(!sel||!list)return;");
+			writer.print("sel.addEventListener('change',function(){var v=sel.value;");
+			writer.print("list.querySelectorAll('.runtime-endpoint-item').forEach(function(li){");
+			writer.print("var m=li.getAttribute('data-module')||'';li.hidden=v!==''&&m!==v;});});})();</script>");
+		}
 	}
 
 	private void writeErrorPane(String serverErrors, boolean hasServerErrors) {
@@ -821,6 +869,9 @@ public class EmailableReport implements IReporter {
 	    writer.print(".runtime-component-card__title{font-weight:700;color:#0f172a;margin:0 0 4px;}");
 	    writer.print(".runtime-component-card__meta,.runtime-endpoint-item__meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;color:#64748b;font-size:12px;}");
 	    writer.print(".runtime-dot{opacity:.7;}");
+	    writer.print(".runtime-endpoint-filter{display:flex;align-items:center;gap:8px;margin:0 0 10px;}");
+	    writer.print(".runtime-endpoint-filter__label{font-size:12px;font-weight:700;color:#334155;}");
+	    writer.print(".runtime-endpoint-filter__select{font:inherit;font-size:12px;padding:6px 10px;border-radius:8px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;max-width:100%;}");
 	    writer.print(".runtime-endpoint-item__path{display:block;font-family:Consolas,monospace;font-size:12px;color:#0f172a;word-break:break-word;}");
 	    writer.print(".runtime-chip{display:inline-block;padding:2px 8px;border-radius:999px;background:#e2e8f0;color:#334155;font-size:11px;font-weight:700;}");
 	    writer.print(".runtime-endpoint-item__domain{color:#64748b;font-size:12px;}");
