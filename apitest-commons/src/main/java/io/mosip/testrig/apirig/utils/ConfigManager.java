@@ -253,6 +253,8 @@ public class ConfigManager {
 	public static String getAdminClientSecret() { return getproperty("mosip_admin_client_secret"); }
 	public static String getAdminClientId() { return getproperty("mosip_admin_client_id"); }
 	public static String getAdminAppId() { return getproperty("mosip_admin_app_id"); }
+	public static String getRegClientSecret() { return getproperty("mosip_reg_client_secret"); }
+	public static String getRegClientId() { return getproperty("mosip_reg_client_id"); }
 	public static String getIdRepoClientSecret() { return getproperty("mosip_idrepo_client_secret"); }
 	public static String getidRepoClientId() { return getproperty("mosip_idrepo_client_id"); }
 	public static String getidRepoAppId() { return getproperty("mosip_idrepo_app_id"); }

@@ -1,0 +1,8 @@
+# Legacy test-case IDs — every test-case number from a retired source (e.g. an Excel master
+# test-case sheet) that was migrated into this matrix. `CoverageCli check` fails
+# (legacy-id-missing) for any ID below that appears in no matrix file.
+#
+# One per line:   <legacy-id>
+#            or:  <legacy-id>  # out of scope: <why, and where it is tracked instead>
+# Record the ID in the covering row's Notes as `Legacy: <id>` (several: `Legacy: A, B`).
+# Leave this file empty (comments only) if there is nothing to migrate.

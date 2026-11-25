@@ -1,0 +1,3 @@
+# Matrix files are rendered with LF by CoverageCli sync; CRLF on checkout would make every file look out of date.
+* text=auto eol=lf
+*.xlsx binary

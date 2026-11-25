@@ -6601,13 +6601,10 @@ public class AdminTestUtil extends BaseTestCase {
 				}
 				filteredList.add(fieldName);
 			}
-			// Pre-registration marks an application complete only with residenceStatus, so send it whenever
-			// the schema defines it, even when the schema does not require it.
-			if (residenceStatusField == null && identityPropsJson.has(GlobalConstants.RESIDENCESTATUS)
-					&& identityPropsJson.getJSONObject(GlobalConstants.RESIDENCESTATUS).optString("$ref", "").contains("simpleType"))
-				residenceStatusField = GlobalConstants.RESIDENCESTATUS;
 			if (residenceStatusField != null) {
 				filteredList.add(residenceStatusField);
+			} else if (identityPropsJson.has(GlobalConstants.RESIDENCESTATUS)) {
+				filteredList.add(GlobalConstants.RESIDENCESTATUS);
 			}
 
 			JSONArray newIdJson = new JSONArray(filteredList);
