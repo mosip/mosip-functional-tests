@@ -155,7 +155,7 @@ public class SchemaBasedIdentityTemplateBuilder {
 
 			} else if (fieldName.equals(phoneFieldName) || fieldName.equals(emailFieldName)) {
 				// Handled together and shape-driven (string vs array is per-schema). Phone key is always {{phone}}.
-				String placeholder = fieldName.equals(phoneFieldName) ? "{{phone}}" : "{{" + fieldName + "}}";
+				String placeholder = fieldName.equals(phoneFieldName) ? "{{phone}}" : "$EMAILVALUE$";
 				if ("array".equals(fieldType)) {
 					JSONObject entry = new JSONObject();
 					entry.put("value", placeholder);
