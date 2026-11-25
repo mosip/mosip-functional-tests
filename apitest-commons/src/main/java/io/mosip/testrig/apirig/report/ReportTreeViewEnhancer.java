@@ -119,9 +119,11 @@ public final class ReportTreeViewEnhancer {
                     + "if(q)q.addEventListener('input',apply);"
                     + "apply();})();</script>";
 
-    private static final String REPORT_UX_MARKER = "report-ux-v3";
+    private static final String REPORT_UX_MARKER = "report-ux-v4";
 
-    private static final String[] REPORT_UX_LEGACY_MARKERS = {"/*report-ux-v1*/", "/*report-ux-v2*/"};
+    private static final String[] REPORT_UX_LEGACY_MARKERS = {
+        "/*report-ux-v1*/", "/*report-ux-v2*/", "/*report-ux-v3*/"
+    };
 
     // Scenario bodies are stored gzip+base64 (or JSON text in older reports) in
     // <script class="scenario-fold-src"> (see deferScenarioBodies) and only turned into DOM
@@ -137,6 +139,32 @@ public final class ReportTreeViewEnhancer {
                     + "if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(v).then(ok,function(){ta.select();try{document.execCommand('copy');ok();}catch(e){}});} "
                     + "else {ta.select();try{document.execCommand('copy');ok();}catch(e){}}});"
                     + "if(ta.parentNode)ta.parentNode.insertBefore(b,ta);});}"
+                    + "function depMap(){var map={};"
+                    + "document.querySelectorAll('.report-sidebar li.tree-scenario-node').forEach(function(li){"
+                    + "var name=li.getAttribute('data-name');if(!name)return;"
+                    + "var a=li.querySelector('a.tree-link--scenario[href^=\"#\"]');"
+                    + "map[name]={href:a?a.getAttribute('href'):null,status:li.getAttribute('data-status')||'unknown'};});"
+                    + "return map;}"
+                    + "function parseDeps(text){text=(text||'').replace(/\\u00a0/g,' ').trim();"
+                    + "if(!text||text==='[]'||/^none$/i.test(text))return [];"
+                    + "if(text.charAt(0)==='['&&text.charAt(text.length-1)===']')text=text.slice(1,-1).trim();"
+                    + "if(!text)return [];"
+                    + "return text.split(',').map(function(s){return s.trim();}).filter(Boolean);}"
+                    + "function linkifyDeps(root){if(!root||!root.querySelectorAll)return;var map=depMap();"
+                    + "root.querySelectorAll('tr.param').forEach(function(tr){"
+                    + "var th=tr.querySelector('th');if(!th||!/testcase\\s+dependency/i.test(th.textContent||''))return;"
+                    + "var row=tr.nextElementSibling;if(!row)return;var td=row.querySelector('td');"
+                    + "if(!td||td.querySelector('.tc-dep-link')||td.getAttribute('data-dep-linked'))return;"
+                    + "var deps=parseDeps(td.textContent||'');td.classList.add('tc-dep-cell');"
+                    + "td.setAttribute('data-dep-linked','1');td.innerHTML='';"
+                    + "if(!deps.length){td.innerHTML='<span class=\"tc-dep-empty\">None</span>';return;}"
+                    + "deps.forEach(function(name,i){if(i)td.appendChild(document.createTextNode(' '));"
+                    + "var info=map[name]||{};var status=info.status||'unknown';"
+                    + "var el=document.createElement(info.href?'a':'span');"
+                    + "el.className='tc-dep-link tc-dep-link--'+status;el.textContent=name;"
+                    + "el.title=name+(status&&status!=='unknown'?' — '+status:'');"
+                    + "if(info.href){el.href=info.href;}"
+                    + "td.appendChild(el);});});}"
                     + "function decode(src){if(src.type==='application/json')return Promise.resolve(JSON.parse(src.textContent));"
                     + "var bin=atob(src.textContent.trim()),u=new Uint8Array(bin.length);"
                     + "for(var i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);"
@@ -147,7 +175,7 @@ public final class ReportTreeViewEnhancer {
                     + "body.textContent='Loading\u2026';"
                     + "card._fill=Promise.resolve().then(function(){return decode(src);})"
                     + ".then(function(h){body.innerHTML=h;},function(e){body.textContent='Could not load scenario details: '+e.message;})"
-                    + ".then(function(){src.parentNode.removeChild(src);addCopy(body);return body;});"
+                    + ".then(function(){src.parentNode.removeChild(src);addCopy(body);linkifyDeps(body);return body;});"
                     + "return card._fill;}"
                     + "window.reportOpenScenario=function(card,open){var body=card.querySelector('.scenario-fold-body');"
                     + "if(body){body.hidden=!open;card.classList.toggle('is-open',open);}"
@@ -158,12 +186,13 @@ public final class ReportTreeViewEnhancer {
                     + "if(!inner.querySelector('.scenario-fold-body')){"
                     + "var body=document.createElement('div');body.className='scenario-fold-body';body.hidden=true;"
                     + "var n=h3.nextSibling;while(n){var nx=n.nextSibling;body.appendChild(n);n=nx;}"
-                    + "inner.appendChild(body);addCopy(body);}"
+                    + "inner.appendChild(body);addCopy(body);linkifyDeps(body);}"
                     + "h3.classList.add('scenario-fold-head');"
                     + "h3.addEventListener('click',function(e){"
                     + "if(e.target.closest&&e.target.closest('a,button'))return;"
                     + "var b=card.querySelector('.scenario-fold-body');"
-                    + "window.reportOpenScenario(card,!!(b&&b.hidden));});});})();</script>";
+                    + "window.reportOpenScenario(card,!!(b&&b.hidden));});});"
+                    + "linkifyDeps(document.querySelector('.report-main'));})();</script>";
 
 
     // content-visibility:auto skips layout for off-screen scenario cards and substitutes
@@ -222,6 +251,153 @@ public final class ReportTreeViewEnhancer {
                     + "setTimeout(function(){chip.setAttribute('data-was-active',"
                     + "chip.classList.contains('is-active')?'1':'0');},0);});}}"
                     + "function init(){wrapTables();ensureJumpBtn();}"
+                    + "if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);"
+                    + "else init();})();</script>";
+
+    private static final String REPORT_SCENARIO_PAGER_MARKER = "report-scenario-pager-v5";
+
+    private static final String[] REPORT_SCENARIO_PAGER_LEGACY_MARKERS = {
+        "report-scenario-pager-v4",
+        "report-scenario-pager-v3",
+        "report-scenario-pager-v2",
+        "report-scenario-pager-v1"
+    };
+
+    /**
+     * Prev/Next sticky bar only while a scenario card is open, plus a small right-corner
+     * toggle to enable/disable the bar (persisted in localStorage).
+     */
+    private static final String REPORT_SCENARIO_PAGER_STYLE =
+            "<style>/*" + REPORT_SCENARIO_PAGER_MARKER + "*/"
+                    + ".report-scenario-pager{position:sticky;top:0;z-index:40;display:flex;align-items:center;"
+                    + "gap:.55rem .75rem;width:auto;max-width:100%;margin:0 0 .85rem;padding:.4rem .65rem;"
+                    + "border-radius:10px;border:1px solid var(--border);background:rgba(15,20,32,.92);"
+                    + "color:var(--text);box-shadow:0 6px 18px rgba(0,0,0,.22);backdrop-filter:blur(8px)}"
+                    + ".report-scenario-pager[hidden]{display:none!important}"
+                    + ".report-scenario-pager__label{display:none}"
+                    + ".report-scenario-pager__title{flex:1 1 auto;min-width:0;font-size:var(--fs-compact);"
+                    + "font-weight:700;line-height:1.3;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}"
+                    + ".report-scenario-pager__meta{flex:0 0 auto;font-size:var(--fs-caption);font-weight:700;"
+                    + "color:var(--muted);margin:0;white-space:nowrap;font-variant-numeric:tabular-nums}"
+                    + ".report-scenario-pager__btn{flex:0 0 auto;min-width:4.4rem;min-height:1.9rem;"
+                    + "padding:.25rem .55rem;border-radius:8px;border:1px solid rgba(224,177,90,.45);"
+                    + "background:rgba(224,177,90,.16);color:var(--text);font:inherit;font-size:var(--fs-caption);"
+                    + "font-weight:700;cursor:pointer}"
+                    + ".report-scenario-pager__btn:hover:not(:disabled){background:rgba(224,177,90,.28);"
+                    + "border-color:rgba(224,177,90,.7)}"
+                    + ".report-scenario-pager__btn:disabled{opacity:.4;cursor:default}"
+                    + ".report-scenario-pager-toggle{position:fixed;right:1.25rem;bottom:8.1rem;z-index:65;"
+                    + "width:42px;height:42px;padding:0;border-radius:999px;border:1px solid rgba(224,177,90,.5);"
+                    + "background:rgba(15,20,32,.94);color:var(--text);box-shadow:0 8px 24px rgba(0,0,0,.28);"
+                    + "cursor:pointer;font:inherit;font-size:.7rem;font-weight:800;letter-spacing:.04em;line-height:1}"
+                    + ".report-scenario-pager-toggle[hidden]{display:none!important}"
+                    + ".report-scenario-pager-toggle:hover{background:rgba(224,177,90,.22);border-color:rgba(224,177,90,.75)}"
+                    + ".report-scenario-pager-toggle.is-off{opacity:.72;border-style:dashed}"
+                    + "html[data-theme=\"light\"] .report-scenario-pager{background:rgba(255,255,255,.96);"
+                    + "border-color:rgba(15,23,42,.12);box-shadow:0 6px 16px rgba(15,23,42,.1);color:#0f172a}"
+                    + "html[data-theme=\"light\"] .report-scenario-pager__btn{background:rgba(176,124,46,.12);"
+                    + "border-color:rgba(176,124,46,.4);color:#0f172a}"
+                    + "html[data-theme=\"light\"] .report-scenario-pager-toggle{background:#fff;color:#0f172a;"
+                    + "border-color:rgba(176,124,46,.45);box-shadow:0 8px 24px rgba(15,23,42,.14)}</style>";
+
+    private static final String REPORT_SCENARIO_PAGER_SCRIPT =
+            "<script>(function(){/*" + REPORT_SCENARIO_PAGER_MARKER + "*/"
+                    + "var KEY='report-scenario-pager-enabled';"
+                    + "var panel,toggle,titleEl,metaEl,prevBtn,nextBtn,idx=-1,going=false;"
+                    + "function enabled(){try{var v=localStorage.getItem(KEY);return v!=='0';}catch(e){return true;}}"
+                    + "function setEnabled(on){try{localStorage.setItem(KEY,on?'1':'0');}catch(e){}}"
+                    + "function links(){return Array.prototype.slice.call("
+                    + "document.querySelectorAll('.report-sidebar li.tree-scenario-node a.tree-link--scenario[href^=\"#\"]')"
+                    + ").filter(function(a){var li=a.closest('li.tree-scenario-node');"
+                    + "return li&&li.style.display!=='none';});}"
+                    + "function closeOthers(except){"
+                    + "document.querySelectorAll('.report-main .scenario-detail-card.is-open').forEach(function(c){"
+                    + "if(c===except)return;var body=c.querySelector('.scenario-fold-body');"
+                    + "if(body)body.hidden=true;c.classList.remove('is-open');});}"
+                    + "function hashId(){var h=location.hash||'';"
+                    + "if(!h||h==='#'||/^#(summary|report-exec-summary|t\\d+)\\b/i.test(h))return null;"
+                    + "var m=/^#(m\\d+)(?:-|$)/.exec(h);return m?m[1]:null;}"
+                    + "function openId(){var hid=hashId();"
+                    + "if(hid){var card=document.querySelector("
+                    + "'.report-main .scenario-detail-card[data-scenario-anchor=\"'+hid+'\"]');"
+                    + "if(card&&card.classList.contains('is-open'))return hid;}"
+                    + "var open=document.querySelector('.report-main .scenario-detail-card.is-open');"
+                    + "return open?open.getAttribute('data-scenario-anchor'):null;}"
+                    + "function indexOfId(list,id){if(!id)return -1;"
+                    + "for(var i=0;i<list.length;i++){"
+                    + "if((list[i].getAttribute('href')||'')==='#'+id)return i;}return -1;}"
+                    + "function syncToggle(tcOpen){if(!toggle)return;"
+                    + "toggle.hidden=!tcOpen;"
+                    + "var on=enabled();toggle.classList.toggle('is-off',!on);"
+                    + "toggle.textContent=on?'NAV':'OFF';"
+                    + "toggle.title=on?'Hide test case Prev/Next bar':'Show test case Prev/Next bar';"
+                    + "toggle.setAttribute('aria-pressed',on?'true':'false');"
+                    + "toggle.setAttribute('aria-label',on?'Disable test case navigation':'Enable test case navigation');}"
+                    + "function sync(){if(!panel)return;var id=openId()||hashId();"
+                    + "var tcOpen=!!document.querySelector('.report-main .scenario-detail-card.is-open');"
+                    + "if(!tcOpen){syncToggle(false);panel.hidden=true;idx=-1;return;}"
+                    + "if(!id){var open=document.querySelector('.report-main .scenario-detail-card.is-open');"
+                    + "id=open?open.getAttribute('data-scenario-anchor'):null;}"
+                    + "syncToggle(!!id);"
+                    + "if(!id||!enabled()){panel.hidden=true;return;}"
+                    + "var list=links();idx=indexOfId(list,id);"
+                    + "if(idx<0){panel.hidden=true;return;}panel.hidden=false;"
+                    + "var a=list[idx];var li=a.closest('li');"
+                    + "var name=((li&&li.getAttribute('data-name'))||a.getAttribute('title')||a.textContent||id).trim();"
+                    + "titleEl.textContent=name;titleEl.title=name;"
+                    + "metaEl.textContent=(idx+1)+' / '+list.length;"
+                    + "prevBtn.disabled=idx<=0;nextBtn.disabled=idx>=list.length-1;}"
+                    + "function go(delta){if(going)return;var list=links();"
+                    + "var cur=indexOfId(list,hashId());if(cur<0)cur=idx;if(cur<0)return;"
+                    + "var n=cur+delta;if(n<0||n>=list.length)return;"
+                    + "going=true;idx=n;list[n].click();"
+                    + "setTimeout(function(){going=false;sync();},80);}"
+                    + "function ensure(){"
+                    + "panel=document.getElementById('report-scenario-pager');"
+                    + "toggle=document.getElementById('report-scenario-pager-toggle');"
+                    + "var main=document.querySelector('.report-main');"
+                    + "if(!panel){panel=document.createElement('aside');panel.id='report-scenario-pager';"
+                    + "panel.className='report-scenario-pager';panel.hidden=true;"
+                    + "panel.setAttribute('aria-label','Scenario navigation');"
+                    + "panel.innerHTML='<button type=\"button\" class=\"report-scenario-pager__btn report-scenario-pager__prev\""
+                    + " aria-label=\"Previous test case\">&#9664; Prev</button>"
+                    + "<strong class=\"report-scenario-pager__title\"></strong>"
+                    + "<span class=\"report-scenario-pager__meta\"></span>"
+                    + "<button type=\"button\" class=\"report-scenario-pager__btn report-scenario-pager__next\""
+                    + " aria-label=\"Next test case\">Next &#9654;</button>';}"
+                    + "if(main){if(panel.parentNode!==main)main.insertBefore(panel,main.firstChild);}"
+                    + "else if(!panel.parentNode)document.body.appendChild(panel);"
+                    + "if(!toggle){toggle=document.createElement('button');toggle.type='button';"
+                    + "toggle.id='report-scenario-pager-toggle';toggle.className='report-scenario-pager-toggle';"
+                    + "toggle.hidden=true;document.body.appendChild(toggle);}"
+                    + "titleEl=panel.querySelector('.report-scenario-pager__title');"
+                    + "metaEl=panel.querySelector('.report-scenario-pager__meta');"
+                    + "prevBtn=panel.querySelector('.report-scenario-pager__prev');"
+                    + "nextBtn=panel.querySelector('.report-scenario-pager__next');"
+                    + "if(!panel.getAttribute('data-bound')){panel.setAttribute('data-bound','1');"
+                    + "prevBtn.addEventListener('click',function(e){e.preventDefault();go(-1);});"
+                    + "nextBtn.addEventListener('click',function(e){e.preventDefault();go(1);});}"
+                    + "if(!toggle.getAttribute('data-bound')){toggle.setAttribute('data-bound','1');"
+                    + "toggle.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();"
+                    + "setEnabled(!enabled());sync();});}}"
+                    + "function hookOpen(){var orig=window.reportOpenScenario;if(!orig||orig._pagerHooked)return;"
+                    + "var wrapped=function(card,open){"
+                    + "if(open)closeOthers(card);"
+                    + "var r=orig(card,open);"
+                    + "Promise.resolve(r).then(function(){"
+                    + "if(open){var id=card&&card.getAttribute('data-scenario-anchor');"
+                    + "if(id)try{history.replaceState(null,'','#'+id);}catch(x){}}"
+                    + "sync();});return r;};"
+                    + "wrapped._pagerHooked=true;window.reportOpenScenario=wrapped;}"
+                    + "function init(){ensure();hookOpen();sync();"
+                    + "window.addEventListener('hashchange',sync);"
+                    + "var side=document.querySelector('.report-sidebar');"
+                    + "if(side)side.addEventListener('click',function(){setTimeout(sync,0);});"
+                    + "var bar=document.querySelector('.tree-filter-toolbar');"
+                    + "if(bar){bar.addEventListener('click',function(){setTimeout(sync,0);});"
+                    + "var q=bar.querySelector('.tree-search');"
+                    + "if(q)q.addEventListener('input',function(){setTimeout(sync,0);});}"
+                    + "setTimeout(hookOpen,0);setTimeout(function(){ensure();sync();},100);}"
                     + "if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);"
                     + "else init();})();</script>";
 
@@ -760,6 +936,7 @@ public final class ReportTreeViewEnhancer {
                                 + REPORT_UX_SCRIPT
                                 + REPORT_MAIN_SCROLL_SCRIPT
                                 + REPORT_NAV_UX_SCRIPT
+                                + REPORT_SCENARIO_PAGER_SCRIPT
                                 + REPORT_SCROLL_TOP_SCRIPT
                                 + "\n</body>");
 
@@ -856,6 +1033,7 @@ public final class ReportTreeViewEnhancer {
         }
         out = ensureScrollTopControl(out);
         out = ensureNavUx(out);
+        out = ensureScenarioPager(out);
         // Repair scenario-detail-card wrappers that were missed in a previous enhancement
         // pass (e.g. because findClosingTableStartIndex hit a </table> inside a textarea
         // payload and wrapScenarioDetailCards silently skipped those scenarios). Since
@@ -864,6 +1042,38 @@ public final class ReportTreeViewEnhancer {
         out = ensureScenarioAnchorClass(out);
         out = wrapScenarioDetailCards(out);
         return ensureSidebarControls(stripScenarioDetailCardChrome(stripSlowestStrip(out)));
+    }
+
+    private static String ensureScenarioPager(String html) {
+        if (html == null || html.isEmpty()) {
+            return html;
+        }
+        if (html.contains(REPORT_SCENARIO_PAGER_MARKER)) {
+            return html;
+        }
+        for (String legacy : REPORT_SCENARIO_PAGER_LEGACY_MARKERS) {
+            while (html.contains(legacy)) {
+                int legacyIdx = html.indexOf(legacy);
+                int styleStart = html.lastIndexOf("<style>", legacyIdx);
+                int styleEnd = html.indexOf("</style>", legacyIdx);
+                int scriptStart = html.lastIndexOf("<script>", legacyIdx);
+                int scriptEnd = html.indexOf("</script>", legacyIdx);
+                if (styleStart >= 0 && styleEnd >= legacyIdx) {
+                    html = html.substring(0, styleStart) + html.substring(styleEnd + 8);
+                    continue;
+                }
+                if (scriptStart >= 0 && scriptEnd >= 0) {
+                    html = html.substring(0, scriptStart) + html.substring(scriptEnd + 9);
+                    continue;
+                }
+                break;
+            }
+        }
+        if (!html.contains("</body>")) {
+            return html;
+        }
+        return replaceLastLiteral(
+                html, "</body>", REPORT_SCENARIO_PAGER_STYLE + REPORT_SCENARIO_PAGER_SCRIPT + "\n</body>");
     }
 
     private static String ensureNavUx(String html) {
@@ -2160,7 +2370,7 @@ public final class ReportTreeViewEnhancer {
         Matcher m = VALIDATION_PANEL.matcher(html);
         StringBuffer sb = new StringBuffer();
         while (m.find()) {
-            String inner = m.group(1);
+            String inner = colorizeValidationStatusCells(m.group(1));
             String repl =
                     "<div class=\"validation-panel\"><div class=\"validation-heading\">"
                             + "<span class=\"val-h-icon\" aria-hidden=\"true\">&#9889;</span>"
@@ -2177,6 +2387,28 @@ public final class ReportTreeViewEnhancer {
         }
         m.appendTail(sb);
         return sb.toString();
+    }
+
+    /**
+     * Ensure Output validation STATUS cells keep a visible pass/fail background. Legacy reports only
+     * set {@code bgcolor}, which is overridden by the base {@code td { background-color:#FFF }} rule.
+     */
+    private static String colorizeValidationStatusCells(String tableInnerHtml) {
+        if (tableInnerHtml.contains("val-status-pill") || tableInnerHtml.contains("val-status--")) {
+            return tableInnerHtml;
+        }
+        String out = tableInnerHtml;
+        out =
+                out.replaceAll(
+                        "(?i)<td\\s+bgcolor\\s*=\\s*['\"]?green['\"]?\\s*>\\s*PASS\\s*</td>",
+                        "<td class='val-status val-status--pass' bgcolor='Green'>"
+                                + "<span class='val-status-pill val-status-pill--pass'>PASS</span></td>");
+        out =
+                out.replaceAll(
+                        "(?i)<td\\s+bgcolor\\s*=\\s*['\"]?red['\"]?\\s*>\\s*FAIL\\s*</td>",
+                        "<td class='val-status val-status--fail' bgcolor='RED'>"
+                                + "<span class='val-status-pill val-status-pill--fail'>FAIL</span></td>");
+        return out;
     }
 
     private static String annotateStepCaptureCards(String html) {

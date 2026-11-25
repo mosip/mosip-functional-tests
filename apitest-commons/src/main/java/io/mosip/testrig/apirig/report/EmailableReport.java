@@ -17,8 +17,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
@@ -58,6 +60,11 @@ public class EmailableReport implements IReporter {
 
 	// Reusable buffer
 	private final StringBuilder buffer = new StringBuilder();
+
+	/** uniqueIdentifier → {@code #mN} from the scenario summary pass. */
+	private final Map<String, String> scenarioAnchorById = new HashMap<>();
+	/** uniqueIdentifier → pass|fail|skip|ignore|known. */
+	private final Map<String, String> scenarioStatusById = new HashMap<>();
 
 	private String fileName = "emailable-report.html";
 	private String mountPathForReport = ConfigManager.getMountPathForReport();
@@ -123,6 +130,8 @@ public class EmailableReport implements IReporter {
 			LOG.error("Unable to create output file", e);
 			return;
 		}
+		scenarioAnchorById.clear();
+		scenarioStatusById.clear();
 		suiteResults.clear();
 		for (ISuite suite : suites) {
 			if (skipPassed) {
@@ -592,13 +601,54 @@ public class EmailableReport implements IReporter {
 			writer.print("<p class=\"runtime-panel__empty\">No endpoints recorded</p>");
 			return;
 		}
-		writer.print("<ul class=\"runtime-endpoint-list\">");
+		java.util.List<java.util.Map<String, String>> rows = new java.util.ArrayList<>();
+		java.util.Set<String> modules = new java.util.TreeSet<>(String.CASE_INSENSITIVE_ORDER);
 		for (String line : lines) {
 			java.util.Map<String, String> fields = parseRuntimeFields(line);
 			String domain = firstNonBlank(fields.get("Domain"), fields.get("domain"), "");
 			String module = firstNonBlank(fields.get("Module"), fields.get("module"), "");
 			String endpoint = firstNonBlank(fields.get("End Point"), fields.get("Endpoint"), fields.get("endpoint"), line);
-			writer.print("<li class=\"runtime-endpoint-item\">");
+			java.util.Map<String, String> row = new java.util.LinkedHashMap<>();
+			row.put("domain", domain);
+			row.put("module", module);
+			row.put("endpoint", endpoint);
+			rows.add(row);
+			if (!module.isEmpty()) {
+				modules.add(module);
+			}
+		}
+		if (!modules.isEmpty()) {
+			writer.print("<div class=\"runtime-endpoint-filter\">");
+			writer.print("<label class=\"runtime-endpoint-filter__label\" for=\"runtime-endpoint-module\">Module</label>");
+			writer.print("<select id=\"runtime-endpoint-module\" class=\"runtime-endpoint-filter__select\" aria-label=\"Filter endpoints by module\">");
+			writer.print("<option value=\"\">All modules (");
+			writer.print(rows.size());
+			writer.print(")</option>");
+			for (String module : modules) {
+				int count = 0;
+				for (java.util.Map<String, String> row : rows) {
+					if (module.equalsIgnoreCase(row.get("module"))) {
+						count++;
+					}
+				}
+				writer.print("<option value=\"");
+				writer.print(Utils.escapeHtml(module));
+				writer.print("\">");
+				writer.print(Utils.escapeHtml(module));
+				writer.print(" (");
+				writer.print(count);
+				writer.print(")</option>");
+			}
+			writer.print("</select></div>");
+		}
+		writer.print("<ul class=\"runtime-endpoint-list\" id=\"runtime-endpoint-list\">");
+		for (java.util.Map<String, String> row : rows) {
+			String domain = row.get("domain");
+			String module = row.get("module");
+			String endpoint = row.get("endpoint");
+			writer.print("<li class=\"runtime-endpoint-item\" data-module=\"");
+			writer.print(Utils.escapeHtml(module));
+			writer.print("\">");
 			writer.print("<code class=\"runtime-endpoint-item__path\">");
 			writer.print(Utils.escapeHtml(endpoint));
 			writer.print("</code>");
@@ -619,6 +669,13 @@ public class EmailableReport implements IReporter {
 			writer.print("</li>");
 		}
 		writer.print("</ul>");
+		if (!modules.isEmpty()) {
+			writer.print("<script>(function(){var sel=document.getElementById('runtime-endpoint-module');");
+			writer.print("var list=document.getElementById('runtime-endpoint-list');if(!sel||!list)return;");
+			writer.print("sel.addEventListener('change',function(){var v=sel.value;");
+			writer.print("list.querySelectorAll('.runtime-endpoint-item').forEach(function(li){");
+			writer.print("var m=li.getAttribute('data-module')||'';li.hidden=v!==''&&m!==v;});});})();</script>");
+		}
 	}
 
 	private void writeErrorPane(String serverErrors, boolean hasServerErrors) {
@@ -812,6 +869,9 @@ public class EmailableReport implements IReporter {
 	    writer.print(".runtime-component-card__title{font-weight:700;color:#0f172a;margin:0 0 4px;}");
 	    writer.print(".runtime-component-card__meta,.runtime-endpoint-item__meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;color:#64748b;font-size:12px;}");
 	    writer.print(".runtime-dot{opacity:.7;}");
+	    writer.print(".runtime-endpoint-filter{display:flex;align-items:center;gap:8px;margin:0 0 10px;}");
+	    writer.print(".runtime-endpoint-filter__label{font-size:12px;font-weight:700;color:#334155;}");
+	    writer.print(".runtime-endpoint-filter__select{font:inherit;font-size:12px;padding:6px 10px;border-radius:8px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;max-width:100%;}");
 	    writer.print(".runtime-endpoint-item__path{display:block;font-family:Consolas,monospace;font-size:12px;color:#0f172a;word-break:break-word;}");
 	    writer.print(".runtime-chip{display:inline-block;padding:2px 8px;border-radius:999px;background:#e2e8f0;color:#334155;font-size:11px;font-weight:700;}");
 	    writer.print(".runtime-endpoint-item__domain{color:#64748b;font-size:12px;}");
@@ -1181,9 +1241,19 @@ public class EmailableReport implements IReporter {
 						String uniqueIdentifier = getTestCaseUniqueIdentifier(result);
 						long duration = result.getEndMillis() - result.getStartMillis();
 						String temp = uniqueIdentifier.isEmpty() ? getTestCaseKey(result) : uniqueIdentifier;
+						String anchor = "#m" + scenarioIndex;
+						String statusKey = dependencyStatusKey(cssClassPrefix);
+						if (temp != null && !temp.isBlank()) {
+							scenarioAnchorById.put(temp, anchor);
+							scenarioStatusById.put(temp, statusKey);
+						}
+						if (uniqueIdentifier != null && !uniqueIdentifier.isBlank()) {
+							scenarioAnchorById.put(uniqueIdentifier, anchor);
+							scenarioStatusById.put(uniqueIdentifier, statusKey);
+						}
 
 						buffer.append("<tr class=\"").append(cssClass).append("\">")
-								.append("<td><a href=\"#m").append(scenarioIndex).append("\">")
+								.append("<td><a href=\"").append(anchor).append("\">")
 								.append(Utils.escapeHtml(temp)).append("</a></td>")
 								.append("<td class='scenario-desc-col'>").append(testCaseDescription).append("</td>")
 								.append("<td class='bug-column'>").append(convertMillisToTime(duration))
@@ -1305,8 +1375,8 @@ public class EmailableReport implements IReporter {
 		writer.print("</tr><tr class=\"param stripe\">");
 		List<String> dependencies = DependencyResolver.getDependencies(uniqueIdentifier);
 		dependencies.remove(uniqueIdentifier);
-		writer.print("<td>");
-		writer.print(Utils.escapeHtml(dependencies.toString()));
+		writer.print("<td class=\"tc-dep-cell\">");
+		writeDependencyLinks(dependencies);
 		writer.print("</td>");
 		
 		// Add ClassName
@@ -1410,6 +1480,69 @@ public class EmailableReport implements IReporter {
 		writer.print("<div class=\"stacktrace\">");
 		writer.print(Utils.shortStackTrace(throwable, true));
 		writer.print("</div>");
+	}
+
+	private static String dependencyStatusKey(String cssClassPrefix) {
+		if (cssClassPrefix == null) {
+			return "unknown";
+		}
+		switch (cssClassPrefix) {
+		case "passed":
+			return "pass";
+		case "failed":
+			return "fail";
+		case "skipped":
+			return "skip";
+		case "ignored":
+			return "ignore";
+		case "knownissue":
+			return "known";
+		default:
+			return "unknown";
+		}
+	}
+
+	private void writeDependencyLinks(List<String> dependencies) {
+		if (dependencies == null || dependencies.isEmpty()) {
+			writer.print("<span class=\"tc-dep-empty\">None</span>");
+			return;
+		}
+		boolean first = true;
+		for (String dep : dependencies) {
+			if (dep == null || dep.isBlank()) {
+				continue;
+			}
+			String name = dep.trim();
+			if (!first) {
+				writer.print(" ");
+			}
+			first = false;
+			String href = scenarioAnchorById.get(name);
+			String status = scenarioStatusById.getOrDefault(name, "unknown");
+			String css = "tc-dep-link tc-dep-link--" + status;
+			if (href != null && !href.isBlank()) {
+				writer.print("<a class=\"");
+				writer.print(css);
+				writer.print("\" href=\"");
+				writer.print(href);
+				writer.print("\" title=\"");
+				writer.print(Utils.escapeHtml(name + " — " + status));
+				writer.print("\">");
+				writer.print(Utils.escapeHtml(name));
+				writer.print("</a>");
+			} else {
+				writer.print("<span class=\"");
+				writer.print(css);
+				writer.print("\" title=\"");
+				writer.print(Utils.escapeHtml(name));
+				writer.print("\">");
+				writer.print(Utils.escapeHtml(name));
+				writer.print("</span>");
+			}
+		}
+		if (first) {
+			writer.print("<span class=\"tc-dep-empty\">None</span>");
+		}
 	}
 
 	private String countClass(String statusClass, int count) {
