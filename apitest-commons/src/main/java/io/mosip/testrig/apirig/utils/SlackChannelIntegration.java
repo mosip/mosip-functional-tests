@@ -17,10 +17,15 @@ public class SlackChannelIntegration extends BaseTestCase  {
     
 
     public static void sendMessageToSlack(String message) {
-    	LOGGER.info("SLACK_WEBHOOK_URL is - " + SLACK_WEBHOOK_URL);
+        if (SLACK_WEBHOOK_URL == null || SLACK_WEBHOOK_URL.isBlank()
+                || !(SLACK_WEBHOOK_URL.startsWith("http://") || SLACK_WEBHOOK_URL.startsWith("https://"))) {
+            LOGGER.info("Slack webhook not configured; skipping notification.");
+            return;
+        }
+        LOGGER.info("Sending Slack notification to configured webhook.");
         OkHttpClient client = new OkHttpClient();
         MediaType mediaType = MediaType.parse("application/json");
-        String json = "{\"text\":\"" + message + "\"}";
+        String json = "{\"text\":\"" + message.replace("\"", "\\\"") + "\"}";
         RequestBody body = RequestBody.create(json, mediaType);
         Request request = new Request.Builder()
                 .url(SLACK_WEBHOOK_URL)
@@ -29,11 +34,11 @@ public class SlackChannelIntegration extends BaseTestCase  {
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-            	LOGGER.error("Exception on slack integration " + e.getMessage());
+                LOGGER.warn("Slack notification failed: " + e.getMessage());
             }
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                System.out.println(response.body().string());
+                response.close();
             }
         });
     }
