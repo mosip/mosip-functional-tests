@@ -21,6 +21,7 @@ on:
       - develop*
       - MOSIP*
       - release*
+      - chore/*
 
 permissions:
   contents: read
